@@ -1,0 +1,11 @@
+#+TITLE: readme
+#+AUTHOR: phasetr
+#+EMAIL: phasetr@gmail.com
+#+LANGUAGE: en
+#+OPTIONS: toc:t num:t author:t creator:nil LaTeX:t ^:t email:t H:10 timestamp: t
+
+* Math textbook
+I would like to write a math textbook by *social coding*.
+It  will be written in English and Japanese.
+I will also write numerical computation, animation,
+or simulation codes by some computer languages.

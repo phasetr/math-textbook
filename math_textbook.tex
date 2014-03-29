@@ -1,4 +1,4 @@
-% Created 2014-03-28 Fri 16:27
+% Created 2014-03-29 Sat 17:24
 \documentclass[openany, a4paper, oneside]{book}
 
 \usepackage[dvipdfmx]{graphicx, hyperref}
@@ -291,8 +291,8 @@
 \providecommand{\alert}[1]{\textbf{#1}}
 
 \title{Math textbook}
-\author{phasetr\thanks{phasetr@gmail.com}}
-\date{2014-03-28}
+\author{相転移lP (@phasetr)\thanks{phasetr@gmail.com}}
+\date{2014-03-29}
 \hypersetup{
   pdfkeywords={},
   pdfsubject={},
@@ -318,7 +318,7 @@
 動画から適当に切り出してくる.
 \part{Linear Algebra}
 \label{sec-3}
-\chapter{あとで大幅 rewrite する: 学部 3 年のときに書いた「本」}
+\chapter{あとで大幅 rewrite: 学部 3 年のときに書いた「本」}
 \label{sec-3-1}
 \section{はじめに}
 \label{sec-3-1-1}
@@ -368,8 +368,9 @@ de Broglie によって与えられました.
 
 何はともあれ, 以下, 本書では数学に対して
 \begin{center}
-*何故だか分からないがとても役に立つ.*
-*道具というよりもむしろ武器である*
+\textbf{何故だか分からないがとても役に立つ.}
+
+\textbf{道具というよりもむしろ武器である.}
 \end{center}
 というスタンスのもと, 物理学を学ぶのに有用な数学の理論を展開していきます.
 とにかく実際に自然界で何が起こっているか良く分からないので,
@@ -3493,7 +3494,7 @@ Euler (オイラー) の公式という次式になります.
 \label{sec-4-1}
 
 動画から適当に切り出してくる.
-\chapter{ポテンシャルの振る舞いと微分積分}
+\chapter{あとで大幅 rewrite: ポテンシャルの振る舞いと微分積分}
 \label{sec-4-2}
 \section{導入}
 \label{sec-4-2-1}
@@ -9901,7 +9902,7 @@ There exists a useful inequality, Young's inequality: see Theorem \ref{Lieb-Loss
 \subsubsection{Convolutions of functions in dual $L^p$ spaces are continuous}
 \label{sec-6-8-2-3-2}
 
-\begin{lem}\textup{(Lemma 2.20. \cite{LiebLoss1})}\label{Lieb-Loss_Analysis_chap11_38}
+      \begin{lem}\textup{(Lemma 2.20. \cite{LiebLoss1})}\label{Lieb-Loss_Analysis_chap11_41}
  Let $f \in L^p \rbk{\bbRn}$ and $g \in L^q (\bbRn)$ with $p$, $q > 1$ dual indices, i.e.,
  \begin{align}
   \frac{1}{p} + \frac{1}{q} = 1.
@@ -10526,7 +10527,7 @@ From The Lemma \ref{Lieb-Loss_Analysis_chap11_24}, the function $\rhoNinfty$ is 
 \end{align}
 
 Next we show the
-\begin{lem}\label{Lieb-Loss_Analysis_chap11_37}
+\begin{lem}\label{Lieb-Loss_Analysis_chap11_38}
  The above $\rhoNinfty$ is unique.
 \end{lem}
 To do this we need the following
@@ -10548,13 +10549,13 @@ Finally $R (\rho)$ is strictly convex since $\abs{x}^{-1}$ is strictly positive 
 \end{proof}
 
 \begin{proof}
-We start the proof for Lemma \ref{Lieb-Loss_Analysis_chap11_37}.
+We start the proof for Lemma \ref{Lieb-Loss_Analysis_chap11_41}.
 Assume there were two different minimizers $\rho^1$ and $\rho^2$ in $\calC_{\leq N}$.
 Then $\rho = (\rho^1 + \rho^2) / 2$, which is also in $\calC_{\leq N}$, has strictly lower energy than $\EleqN$,
 which is a contradiction.
 This reasoning also shows that $\EleqN$ is a convex function.
 It is a simple consequence of its definition that $\EleqN$ is nonincreasing.
-This is the end of the proof for Lemma \ref{Lieb-Loss_Analysis_chap11_37}.
+This is the end of the proof for Lemma \ref{Lieb-Loss_Analysis_chap11_38}.
 \end{proof}
 
 By definition we have
@@ -10754,7 +10755,7 @@ We shall start by proving that there is a minimizer for the constrained problem 
 in which case the minimizer is then obviously $\rhoNinfty$.
 If $\int \rhoNinfty = N$, then $\rhoNinfty$ is a minimizer for $E (N)$.
 If the $E (N)$ problem has a minimizer (call it $\rho^N$), then $\int \rho^N = N$ and,
-by the monotonicity statement in Lemma \ref{Lieb-Loss_Analysis_chap11_37}, $\rho^N$ is a minimizer for the unconstrained problem.
+by the monotonicity statement in Lemma \ref{Lieb-Loss_Analysis_chap11_38}, $\rho^N$ is a minimizer for the unconstrained problem.
 Since this minimizer is unique $\rho^N = \rhoNinfty$.
 
 Now suppose that there is some $M > 0$ for which $M > \int \rho_{M, \infty} =: N_c$
@@ -10832,11 +10833,11 @@ If $N_c < Z$, then, from (\ref{Lieb-Loss_Analysis_chap11_35}), $\rho_{N_c, \inft
 \label{sec-6-9}
 
 手書きのメモしかないので, そのうち \TeX{} におこす.
-\chapter{Mathematical foundations for quantum statistical mechanics}
+\chapter{Mathematical foundations for quantum mechanics}
 \label{sec-6-10}
 
 動画から適当に切り出してくる.
-\chapter{Mathematical foundations for quantum mechanics}
+\chapter{Mathematical foundations for quantum statistical mechanics}
 \label{sec-6-11}
 
 動画から適当に切り出してくる.
@@ -12332,7 +12333,7 @@ The other is concrete and uses a \textbf{quantum mechanical harmonic oscillator}
 \label{sec-9}
 \part{Interesting counter examples}
 \label{sec-10}
-\chapter{Playing with interesting counter examples}
+\chapter{DVD: Playing with interesting counter examples}
 \label{sec-10-1}
 
 DVD の原稿をもう少し整理して張る.
@@ -12354,7 +12355,7 @@ DVD の原稿をもう少し整理して張る.
 \label{sec-13-1}
 
 動画から適当に切り出してくる.
-\chapter{Analysis for Hubbard model}
+\chapter{Analysis for the Hubbard model}
 \label{sec-13-2}
 
 動画から適当に切り出してくる.
@@ -12367,6 +12368,7 @@ DVD の原稿をもう少し整理して張る.
 \part{Reference}
 \label{sec-15}
 
+\nocite{*}
 \printindex
 \bibliography{myref}
 

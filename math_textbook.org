@@ -1,5 +1,5 @@
 #+TITLE: Math textbook
-#+AUTHOR: phasetr
+#+AUTHOR: 相転移lP (@phasetr)
 #+EMAIL: phasetr@gmail.com
 #+LANGUAGE: ja
 #+OPTIONS: toc:t num:t author:t creator:nil LaTeX:t ^:t email:t H:10
@@ -301,7 +301,7 @@
 ** Introduction to cardinal number
 動画から適当に切り出してくる.
 * Linear Algebra
-** あとで大幅 rewrite する: 学部 3 年のときに書いた「本」
+** あとで大幅 rewrite: 学部 3 年のときに書いた「本」
 *** はじめに
 **** 数学「を」学ぶ
 これは基本的に数学の本です.
@@ -347,8 +347,9 @@ de Broglie によって与えられました.
 
 何はともあれ, 以下, 本書では数学に対して
 \begin{center}
-*何故だか分からないがとても役に立つ.*
-*道具というよりもむしろ武器である*
+\textbf{何故だか分からないがとても役に立つ.}
+
+\textbf{道具というよりもむしろ武器である.}
 \end{center}
 というスタンスのもと, 物理学を学ぶのに有用な数学の理論を展開していきます.
 とにかく実際に自然界で何が起こっているか良く分からないので,
@@ -3410,7 +3411,7 @@ Euler (オイラー) の公式という次式になります.
 * Calculus
 ** Is 0 area for a point, line segment, line?
 動画から適当に切り出してくる.
-** ポテンシャルの振る舞いと微分積分
+** あとで大幅 rewrite: ポテンシャルの振る舞いと微分積分
 *** 導入
 前章ではばねにつながれた質点の運動の解析を行ないました.
 本章では一般のポテンシャルにしたがう力学系 (多数の質点) の運動の解析を行ない
@@ -9614,7 +9615,7 @@ For suitable functions $f$ and $g$ we can define a some type of product, called 
 For this product the space $L^1 (\bbRd)$ becomes a Banach algebra.
 There exists a useful inequality, Young's inequality: see Theorem \ref{Lieb-Loss_Analysis_chap11_37}.
 ***** Convolutions of functions in dual $L^p$ spaces are continuous
-\begin{lem}\textup{(Lemma 2.20. \cite{LiebLoss1})}\label{Lieb-Loss_Analysis_chap11_38}
+      \begin{lem}\textup{(Lemma 2.20. \cite{LiebLoss1})}\label{Lieb-Loss_Analysis_chap11_41}
  Let $f \in L^p \rbk{\bbRn}$ and $g \in L^q (\bbRn)$ with $p$, $q > 1$ dual indices, i.e.,
  \begin{align}
   \frac{1}{p} + \frac{1}{q} = 1.
@@ -10196,7 +10197,7 @@ From The Lemma \ref{Lieb-Loss_Analysis_chap11_24}, the function $\rhoNinfty$ is 
 \end{align}
 
 Next we show the
-\begin{lem}\label{Lieb-Loss_Analysis_chap11_37}
+\begin{lem}\label{Lieb-Loss_Analysis_chap11_38}
  The above $\rhoNinfty$ is unique.
 \end{lem}
 To do this we need the following
@@ -10218,13 +10219,13 @@ Finally $R (\rho)$ is strictly convex since $\abs{x}^{-1}$ is strictly positive 
 \end{proof}
 
 \begin{proof}
-We start the proof for Lemma \ref{Lieb-Loss_Analysis_chap11_37}.
+We start the proof for Lemma \ref{Lieb-Loss_Analysis_chap11_41}.
 Assume there were two different minimizers $\rho^1$ and $\rho^2$ in $\calC_{\leq N}$.
 Then $\rho = (\rho^1 + \rho^2) / 2$, which is also in $\calC_{\leq N}$, has strictly lower energy than $\EleqN$,
 which is a contradiction.
 This reasoning also shows that $\EleqN$ is a convex function.
 It is a simple consequence of its definition that $\EleqN$ is nonincreasing.
-This is the end of the proof for Lemma \ref{Lieb-Loss_Analysis_chap11_37}.
+This is the end of the proof for Lemma \ref{Lieb-Loss_Analysis_chap11_38}.
 \end{proof}
 
 By definition we have
@@ -10418,7 +10419,7 @@ We shall start by proving that there is a minimizer for the constrained problem 
 in which case the minimizer is then obviously $\rhoNinfty$.
 If $\int \rhoNinfty = N$, then $\rhoNinfty$ is a minimizer for $E (N)$.
 If the $E (N)$ problem has a minimizer (call it $\rho^N$), then $\int \rho^N = N$ and,
-by the monotonicity statement in Lemma \ref{Lieb-Loss_Analysis_chap11_37}, $\rho^N$ is a minimizer for the unconstrained problem.
+by the monotonicity statement in Lemma \ref{Lieb-Loss_Analysis_chap11_38}, $\rho^N$ is a minimizer for the unconstrained problem.
 Since this minimizer is unique $\rho^N = \rhoNinfty$.
 
 Now suppose that there is some $M > 0$ for which $M > \int \rho_{M, \infty} =: N_c$
@@ -10492,9 +10493,9 @@ If $N_c < Z$, then, from (\ref{Lieb-Loss_Analysis_chap11_35}), $\rho_{N_c, \inft
 \end{proof}
 ** Talk: Analysis for the Friedrichs model: perturbation theory for embedded eigenvalues
 手書きのメモしかないので, そのうち TeX におこす.
-** Mathematical foundations for quantum statistical mechanics
-動画から適当に切り出してくる.
 ** Mathematical foundations for quantum mechanics
+動画から適当に切り出してくる.
+** Mathematical foundations for quantum statistical mechanics
 動画から適当に切り出してくる.
 * Probability and Statistics
 ** Talk: Law of large number and central limit theorem in coin tossing
@@ -11884,7 +11885,7 @@ The other is concrete and uses a *quantum mechanical harmonic oscillator*
 *** 解析力学小論
 * Geometry
 * Interesting counter examples
-** Playing with interesting counter examples
+** DVD: Playing with interesting counter examples
 DVD の原稿をもう少し整理して張る.
 * Applied mathematics
 ** Degital signal processing and algebraic geometry
@@ -11895,11 +11896,12 @@ DVD の原稿をもう少し整理して張る.
 * Statistical Mechanics and condensed matter physics
 ** LASER: song by electrones
 動画から適当に切り出してくる.
-** Analysis for Hubbard model
+** Analysis for the Hubbard model
 動画から適当に切り出してくる.
 * Physical misc
 ** Similarity for hydrodynamics and general relativity
 動画から適当に切り出してくる.
 * Reference
+\nocite{*}
 \printindex
 \bibliography{myref}

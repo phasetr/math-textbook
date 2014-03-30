@@ -1,4 +1,4 @@
-% Created 2014-03-29 Sat 22:16
+% Created 2014-03-30 Sun 17:30
 \documentclass[openany, a4paper, oneside]{book}
 
 \usepackage[dvipdfmx]{graphicx, hyperref}
@@ -185,6 +185,7 @@
 \newcommand{\rmp}{\mathrm{p}}
 \newcommand{\rmph}{\mathrm{ph}}
 \newcommand{\sto}{\xrightarrow{\text{s}}}
+\newcommand{\Tr}{\mathrm{Tr}\,}
 \newcommand{\touw}{\stackrel{\mathrm{uw}}{\to}\,}
 \newcommand{\upbf}[1]{\textup{\textbf{#1}}}
 \newcommand{\VC}{V_{\mathrm{C}}}
@@ -249,9 +250,9 @@
 \newcommand{\cn}{(c_n)_{n{\in}{\bN}}}
 \newcommand{\xn}{(x_n)_{n{\in}{\bN}}}
 \newcommand{\xm}{(x_m)_{m{\in}{\bN}}}
-\newcommand{\xk}{(x_{n(k)})_{k{\in}{\bN}}}
+\newcommand{\xk}{(x_{n (k)})_{k{\in}{\bN}}}
 \newcommand{\yn}{(y_n)_{n{\in}{\bN}}}
-\newcommand{\fxn}{(f(x_n))_{n{\in}{\bN}}}
+\newcommand{\fxn}{(f (x_n))_{n{\in}{\bN}}}
 \newcommand{\fn}{(f_n)_{n{\in}{\bN}}}
 \newcommand{\sn}{(s_n)_{n{\in}{\bN}}}
 \newcommand{\pn}{(p_n)_{n{\in}{\bN}}}
@@ -292,8 +293,8 @@
 \providecommand{\alert}[1]{\textbf{#1}}
 
 \title{Math textbook}
-\author{相転移lP (@phasetr)\thanks{phasetr@gmail.com}}
-\date{2014-03-29}
+\author{相転移 lP (@phasetr)\thanks{phasetr@gmail.com}}
+\date{2014-03-30}
 \hypersetup{
   pdfkeywords={},
   pdfsubject={},
@@ -430,7 +431,7 @@ de Broglie によって与えられました.
 このとき一番重要になるのは, 先程「退屈」といった定義のところでしょう.
 何故かというと, 一般的に何かを調べようというとき,
 そもそも何を調べるか, どう調べるかということが一番の問題になります.
-調べたい事柄に対し, それを良く反映した物理量を導入 (定義) していくことになるでしょう\footnote{後で具体例を加える.
+調べたい事柄に対し, それを良く反映した物理量を導入 (定義) していくことになるでしょう \footnote{後で具体例を加える.
  }.
 
 こうした点を踏まえ (筆者の勉強もかねて), この本では
@@ -438,7 +439,7 @@ de Broglie によって与えられました.
 これらは筆者が一番納得できると思った定義と論法であり, 他の人から見れば,
 気に食わない定義・論法かもしれません.
 そういう場合, 自分で積極的に納得のいく定義を考えてください.
-数学での例になりますが, L. Schwartz という人が超関数の理論を考え出しました\footnote{これは物理学において Dirac が導入したデルタ関数を数学的に正当化する理論であり,
+数学での例になりますが, L. Schwartz という人が超関数の理論を考え出しました \footnote{これは物理学において Dirac が導入したデルタ関数を数学的に正当化する理論であり,
 非常に重要な理論です.
  }
 しかし, 日本人数学者の佐藤幹夫は, この定義がひどく気に食わなかったようで,
@@ -472,7 +473,7 @@ $\vf (\vr, t)$ を力のベクトルとすると
 \begin{equation}
  m\frac{d^{2}\vr}{dt^{2}}=\vf (\vr, t)
 \end{equation}
-と書けます\footnote{高校で学んだ記法 $\vec{r}$ の代わりにこのように肉太の文字で書きます.
+と書けます \footnote{高校で学んだ記法 $\vec{r}$ の代わりにこのように肉太の文字で書きます.
 普通の文字, $r$ (肉太のものは $\vr$) と区別して下さい.
 実際に手書きするときは $\bbA$ のように書きます.
  }.
@@ -627,7 +628,7 @@ $\vf (\vr, t)$ を力のベクトルとすると
  }
 に慣れ親しみ, きちんと使えるようになることです.
 物理としては本末転倒ですが,
-本書では振動・波動を次の 2 つの (線形の微分) 方程式に支配される現象であると定義します\footnote{誤解のないように言っておきますが, これらの式に従わない「波動」が存在します.
+本書では振動・波動を次の 2 つの (線形の微分) 方程式に支配される現象であると定義します \footnote{誤解のないように言っておきますが, これらの式に従わない「波動」が存在します.
 非線形波動と呼ばれる現象群がその代表です.
 ソリトンだとか色々あるようです.
  }:
@@ -647,7 +648,7 @@ $\vf (\vr, t)$ を力のベクトルとすると
 第一に, 振動・波動は物理のなかでよく出てきます.
 単振動は一つの例ですが, これは電気回路の式とも数学的に等価です.
 2 つのおもりをバネでつないだモデルが,
-ニュートリノに質量があることを証明したニュートリノ振動の力学モデルであること\footnote{2 年のときに筑波の高エネルギー加速研に行ったことがあるのですが,
+ニュートリノに質量があることを証明したニュートリノ振動の力学モデルであること \footnote{2 年のときに筑波の高エネルギー加速研に行ったことがあるのですが,
 そこの先生からこのお話を聞いたので間違いありません.
 「一つのモデルでたくさんの現象が説明できるのが物理の面白いところなんだ! 」と力説していました.
  },
@@ -772,7 +773,7 @@ $\vf (\vr, t)$ を力のベクトルとすると
 高校で単振動を学んだことと思います.
 これは調和振動とも呼ばれます.
 以下では調和振動で統一します.
-調和振動の式 (運動方程式) を書くと\footnote{時間微分を  $\dot{x}(t)$ のように上に点を打つことで表します.
+調和振動の式 (運動方程式) を書くと \footnote{時間微分を  $\dot{x}(t)$ のように上に点を打つことで表します.
 2 階の時間微分は  $\ddot{x}(t)$ です.
  },
 \begin{equation}
@@ -782,12 +783,12 @@ m\ddot{x}(t) = -kx (t).
 \begin{equation}
 x (t) = A \sin (\omega t + \phi ) \,\,\,,\,\,\, \omega := \sqrt{ \frac{k}{m} }
 \end{equation}
-であることは知っているとします\footnote{微分方程式の章でもう少し詳しく触れます.
+であることは知っているとします \footnote{微分方程式の章でもう少し詳しく触れます.
  }.
 これから両端が壁につながった 3 本のばね定数 $k$ のばねの間に質量 $m$ のおもりが 2 つつながれている系のを調べます.
 
 受験問題でもよく見かけるような状況です. これは固体の格子振動の模型などで重要です.
-2 つのおもりの平衡点からのずれを $x_{1}(t),x_{2}(t)$ として, おもりの運動方程式を書くと\footnote{変数の時間 $t$ を書くと煩雑であり, また明らかなものなので省略しました.
+2 つのおもりの平衡点からのずれを $x_{1}(t),x_{2}(t)$ として, おもりの運動方程式を書くと \footnote{変数の時間 $t$ を書くと煩雑であり, また明らかなものなので省略しました.
 よくこうした省略をします.
 慣れてください.
  },
@@ -800,8 +801,8 @@ m\ddot{x}_{2} = - k (x_{2} - x_{1}) - kx_{2}
 X_{1} := \frac{1}{\sqrt{2}}\left ( x_{1} - x_{2} \right) \\
 X_{2} := \frac{1}{\sqrt{2}}\left ( x_{1} + x_{2} \right)
 \end{align}
-として\footnote{$:=$ というのは右辺で左辺を定義するという意味でした.
- }上の式に代入して整理すると,
+として \footnote{$:=$ というのは右辺で左辺を定義するという意味でした.
+ } 上の式に代入して整理すると,
     \begin{align}
         m\ddot{X}_{1} &= - 3kX_{1} \\
         m\ddot{X}_{2} &= -kX_{2}
@@ -844,7 +845,7 @@ m\ddot{X}_3 &= -(2 + \sqrt{2}) X_3
 付記しておくと,  $2$ 質点系の場合の $X$ は重心座標と相対座標になっています.
 つまりこれらは現象の見やすい座標系への座標系の変換であったとみなせます.
 しかし $3$ 質点系では一見して良く分かる, というわけにはいきません.
-こうした座標系の変換をどう見つけるかという考察をしたいというわけです\footnote{他にも線形代数は建築などで巨大行列の行列式の計算をすることがよくあるらしく,
+こうした座標系の変換をどう見つけるかという考察をしたいというわけです \footnote{他にも線形代数は建築などで巨大行列の行列式の計算をすることがよくあるらしく,
 その為の行列式の計算の効率の良いプログラミングの作成などは今でも研究対象となっているようです.
  }
 
@@ -903,7 +904,7 @@ f &: A\ni  a \mapsto     b=f (a)\in B
 rational number, real number, complex number といいます.  $\bm{N}$ ,  $\bm{R}$ ,  $\bm{C}$ はその頭文字です.
  }
 全体の集合を各々
-$\bm{N}$ ,  $\bm{Z}$ ,  $\bm{Q}$ ,  $\bm{R}$ ,  $\bm{C}$ と書きます\footnote{それぞれ手書きするときは $\mathbb{N},\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C}$ と書きます.
+$\bm{N}$ ,  $\bm{Z}$ ,  $\bm{Q}$ ,  $\bm{R}$ ,  $\bm{C}$ と書きます \footnote{それぞれ手書きするときは $\mathbb{N},\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C}$ と書きます.
  }.
 また\textgt{正の整数}\index{せいのせいすう@正の整数}
 は
@@ -916,7 +917,7 @@ $\bbZ^+ := \{ 1, 2 , \dots , \}$,
 あとで\textgt{複素 $n$ 次元空間} $\bm{C}^{n}$ も使います.
 さらに, \textgt{ $n\times m$ 複素行列全体の集合}を $M \left ( n,m \, ;\bm{C}^n \right)$ と書きます.
 
-ここからは行列の記法の確認です. 特に行列式のところで証明を含めて大体のことを 3 次正方行列について書きます\footnote{正確には $n$ 次元でも同じように出来るけれども, 一般的に行なうのが非常に面倒な場合に 3 次でやります.
+ここからは行列の記法の確認です. 特に行列式のところで証明を含めて大体のことを 3 次正方行列について書きます \footnote{正確には $n$ 次元でも同じように出来るけれども, 一般的に行なうのが非常に面倒な場合に 3 次でやります.
 次元による面倒が全く無いような場合がありますから, そういう場合に $n$ 次で書くことがあります.
  }.
 2 次だと単純すぎていろいろ簡単になってしまっていることがあり,
@@ -959,7 +960,7 @@ $\bbZ^+ := \{ 1, 2 , \dots , \}$,
 
 単位行列を定義したので次は逆行列\index{ぎゃくぎょうれつ@逆行列}を定義しておきましょう.
 ある行列 $A$ に対し $X$ という行列が存在して $AX = I$ となったとしましょう. このとき $X$ を\textgt{右逆行列}と呼びます.
-左逆行列も同様に定義します. 有限次行列\footnote{次元についてはあとできちんと述べます.
+左逆行列も同様に定義します. 有限次行列 \footnote{次元についてはあとできちんと述べます.
  }
 の場合, 片方の逆行列が存在するともう片方の逆行列が存在して, この 2 つが一致します.
 実際,  $X$ を $A$ の右逆行列,  $Y$ を $A$ の左逆行列とすると
@@ -1125,7 +1126,7 @@ $(\alpha \bm{x} + \beta\bm{y},\bm{z}) = \alpha (\bm{x},\bm{z}) + \beta (\bm{y},\
 ここで $\alpha \in \bm{R}$ というのは $\alpha$ が実数であることを表すのでした.
 まず $f$ を $\bm{R}^{1}$ から $\bm{R}^{1}$ への写像, すなわち高校で学んできた普通の関数である場合で
 この定義が何を言っているのかを見てみましょう. 線形写像の名が示すとおり, このとき $\alpha$ を適当な実数とすると
-$f$ は $f (x) = \alpha x$ という対応を与える一次関数 (直線!) です\footnote{(進んだ注)
+$f$ は $f (x) = \alpha x$ という対応を与える一次関数 (直線!) です \footnote{(進んだ注)
 $f$ が連続であるとき, 上の条件を満たす関数が本当に一次関数しかないことが実数の連続性を用いて証明されます.
 $f (1)=3$ などという適当な条件をつけると, 定数 $\alpha$ までが完全に決定できます. 証明は島内剛一, 「数学の基礎」, 日本評論社,
 p445- を参照して下さい.
@@ -1288,7 +1289,7 @@ $\langle \bm{e}_1 , \bm{e}_2, \bm{e}_3 \rangle = \langle \bm{e}_i \rangle _{i=1}
 \end{enumerate}
 
 これで抽象ベクトルの代数的な性質を確立しました.
-その他に現象の解析に必要なのは, ベクトルの\textgt{長さ}と 2 つのベクトルのなす\textgt{角度}です\footnote{例えば万有引力は 2 点の距離の 2 乗に反比例します.
+その他に現象の解析に必要なのは, ベクトルの\textgt{長さ}と 2 つのベクトルのなす\textgt{角度}です \footnote{例えば万有引力は 2 点の距離の 2 乗に反比例します.
 角度についてはフレミングの左手の法則など, 各種「向き」の関わる法則を記述する際に重要です.
  }.
 高校ではこれらが\textgt{内積}を用いて表現できることを学びました.
@@ -2060,40 +2061,40 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
 
 高校でも 2 次正方行列の行列式を学びました. よく使う行列式の記法を確認しておきます.
 行列 $A = (a_{ij}) = (\bm{a}_{1}\, \bm{a}_{2} \, \bm{a}_{3})$ に対し
-    \begin{align}
-        \begin{vmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{vmatrix} , \,
-        \begin{vmatrix} \bm{a}_{1} & \bm{a}_{2} & \bm{a}_{3} \end{vmatrix} ,\,
-        \det \left ( \bm{a}_{1} \, \bm{a}_{2} \, \bm{a}_{3} \right)
-    \end{align}
+\begin{align}
+ \begin{vmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{vmatrix} , \,
+ \begin{vmatrix} \bm{a}_{1} & \bm{a}_{2} & \bm{a}_{3} \end{vmatrix} ,\,
+ \det \left ( \bm{a}_{1} \, \bm{a}_{2} \, \bm{a}_{3} \right)
+\end{align}
 などと書きます. 唐突ですが, 2 次の行列式には以下のような性質がありました.
 暗算でも確かめられるでしょう.
-    \begin{align}
-        \det \left ( \bm{a}_{1} \, \bm{a}_{2} \right)
-        &= - \det \left ( \bm{a}_{2} \, \bm{a}_{1} \right) \\
-        \det \left ( \alpha \bm{a}_{1} + \beta \bm{a}^{'}_{1}  \,\, \bm{a}_{2} \right)
-        &= \alpha \det \left ( \bm{a}_{1} \, \bm{a}_{2} \right)
-        +\beta \det \left (  \bm{a}^{'}_{1}  \, \bm{a}_{2} \right) \\
-        \det \left ( \bm{a}_{1} \,\, \alpha \bm{a}_{2} + \beta \bm{a}^{'}_{2}  \right)
-        &= \alpha \det \left ( \bm{a}_{1} \, \bm{a}_{2} \right) + \beta \det \left (  \bm{a}_{1}  \, \bm{a}^{'}_{2} \right) \\
-        \det \left ( \bm{e}_{1} \, \bm{e}_{2} \right) &= \begin{vmatrix} E \end{vmatrix} = 1
-    \end{align}
+\begin{align}
+ \det \left ( \bm{a}_{1} \, \bm{a}_{2} \right)
+ &= - \det \left ( \bm{a}_{2} \, \bm{a}_{1} \right) \\
+ \det \left ( \alpha \bm{a}_{1} + \beta \bm{a}^{'}_{1}  \,\, \bm{a}_{2} \right)
+ &= \alpha \det \left ( \bm{a}_{1} \, \bm{a}_{2} \right)
+ +\beta \det \left (  \bm{a}^{'}_{1}  \, \bm{a}_{2} \right) \\
+ \det \left ( \bm{a}_{1} \,\, \alpha \bm{a}_{2} + \beta \bm{a}^{'}_{2}  \right)
+ &= \alpha \det \left ( \bm{a}_{1} \, \bm{a}_{2} \right) + \beta \det \left (  \bm{a}_{1}  \, \bm{a}^{'}_{2} \right) \\
+ \det \left ( \bm{e}_{1} \, \bm{e}_{2} \right) &= \begin{vmatrix} E \end{vmatrix} = 1
+\end{align}
 \textgt{この性質を一般の $n$ 次行列式にも要求します}. 3 次でいくつか具体的に書くと
-    \begin{align}
-        \det \left ( \bm{a}_{1} \, \bm{a}_{2} \, \bm{a}_{3} \right)
-        &= - \det \left ( \bm{a}_{2} \, \bm{a}_{1} \, \bm{a}_{3} \right) \\
-        \det \left ( \bm{a}_{1} \, \bm{a}_{2} \, \bm{a}_{3} \right)
-        &= - \det \left ( \bm{a}_{1} \, \bm{a}_{3} \, \bm{a}_{2} \right) \\
-        \det \left ( \alpha \bm{a}_{1} + \beta \bm{a}^{'}_{1}  \, \bm{a}_{2}  \, \bm{a}_{3} \right)
-        &=
-        \alpha \det \left ( \bm{a}_{1} \, \bm{a}_{2} \, \bm{a}_{3} \right)
-        +\beta \det \left (  \bm{a}^{'}_{1}  \, \bm{a}_{2} \, \bm{a}_{3} \right) \\
-        \det \left ( \bm{e}_{1} \, \bm{e}_{2} \, \bm{e}_{3} \right) &= \mid E \mid = 1
-    \end{align}
+\begin{align}
+ \det \left ( \bm{a}_{1} \, \bm{a}_{2} \, \bm{a}_{3} \right)
+ &= - \det \left ( \bm{a}_{2} \, \bm{a}_{1} \, \bm{a}_{3} \right) \\
+ \det \left ( \bm{a}_{1} \, \bm{a}_{2} \, \bm{a}_{3} \right)
+ &= - \det \left ( \bm{a}_{1} \, \bm{a}_{3} \, \bm{a}_{2} \right) \\
+ \det \left ( \alpha \bm{a}_{1} + \beta \bm{a}^{'}_{1}  \, \bm{a}_{2}  \, \bm{a}_{3} \right)
+ &=
+ \alpha \det \left ( \bm{a}_{1} \, \bm{a}_{2} \, \bm{a}_{3} \right)
+ +\beta \det \left (  \bm{a}^{'}_{1}  \, \bm{a}_{2} \, \bm{a}_{3} \right) \\
+ \det \left ( \bm{e}_{1} \, \bm{e}_{2} \, \bm{e}_{3} \right) &= \mid E \mid = 1
+\end{align}
 などです.
 前節で説明した言葉を使ってこの性質をまとめると以下のようになります.
-    \begin{defn}
-\textgt{行列式}\index{ぎょうれつしき@行列式}とは定義域が $M \left ( n,n \, ; \bm{C}^n \right)$ で値域が $\bm{C}$ の,
-単位行列に対し 1 を対応させる, 列に関する交代性を持った多重線形写像である.
+\begin{defn}
+ \textgt{行列式}\index{ぎょうれつしき@行列式}とは定義域が $M \left ( n,n \, ; \bm{C}^n \right)$ で値域が $\bm{C}$ の,
+ 単位行列に対し 1 を対応させる, 列に関する交代性を持った多重線形写像である.
 \end{defn}
 
 ここで $M \left ( n,m \, ; \bm{C}^n \right)$ とは $n \times m$ 型行列全体の集合でした.
@@ -2638,19 +2639,24 @@ x_{1}y_{2} - x_{2}y_{1}
 \end{defn}
 簡単な記憶法を紹介します. このために行列式の後にしたのですが, 行列式を用いた記憶法です.
 \begin{align}
-\bm{x} \times \bm{y} = \begin{vmatrix} \bm{e}_{1} & \bm{e}_{2} & \bm{e}_{3} \\
-x_{1} & x_{2} & x_{3} \\
-y_{1} & y_{2} & y_{3}
-\end{vmatrix}
+ \bm{x} \times \bm{y}
+ =
+ \begin{vmatrix}
+   \bm{e}_{1} & \bm{e}_{2} & \bm{e}_{3} \\
+   x_{1} & x_{2} & x_{3} \\
+   y_{1} & y_{2} & y_{3}
+ \end{vmatrix}
 \end{align}
 これを第 1 行に関して展開します. 先程は列に関して展開しましたが, 今度は行です. すると
 \begin{align}
-\bm{x} \times \bm{y} = (x_{2}y_{3} - x_{3}y_{2})\bm{e}_{1}
-+(x_{3}y_{1} - x_{1}y_{3}) \bm{e}_{2}
-+(x_{1}y_{2} - x_{2}y_{1}) \bm{e}_{3}
+ \bm{x} \times \bm{y}
+ =
+ (x_{2}y_{3} - x_{3}y_{2})\bm{e}_{1}
+ +(x_{3}y_{1} - x_{1}y_{3}) \bm{e}_{2}
+ +(x_{1}y_{2} - x_{2}y_{1}) \bm{e}_{3}
 \end{align}
 となり, 確かに上の定義と一致します. これを記憶法といって定義としなかった理由は
-成分にベクトルと実数が共存する行列式というものを定義していないからです.
+成分にベクトルと実数が共存する行列式を定義していないからです.
 \subsection{線形独立と基底, 次元 \label{sec:basis}}
 \label{sec-4-1-2-6}
 
@@ -3528,6 +3534,68 @@ Euler (オイラー) の公式という次式になります.
 \label{sec-4-2}
 
 動画の原稿から取ってくる.
+\chapter{量子力学を理解するために斎藤正彦『線型代数入門』\cite{MasahikoSaitoh1}を読む人が注目すべき点}
+\label{sec-4-3}
+
+Togetter からの転載.
+
+\cite{MasahikoSaitoh1} について見るべき所を挙げておきたい.
+まず p120 からが決定的に重要.
+例 3 で関数空間 (多項式空間) に内積を叩き込んでいる.
+量子力学で出てくる線型空間は原則関数空間なので, 正にここを使う.
+ヒルベルトとか鬱陶しいのはひとまずいい.
+
+p122 例 5:ルジャンドル多項式.
+多項式空間での基底としてのルジャンドルを出してきている.
+関数のノルム (ベクトルの「長さ」) も出している.
+ルジャンドルは電磁気でも出てくる.
+マクスウェルは電磁場の「線型」方程式なので上手くはまってくれる.
+
+p126 例 7, 有限フーリエ級数.
+フーリエは知っていると仮定するが, 正にフーリエが線型代数の枠内で議論出来る (部分もある) 事を明示している.
+三角関数が (適当な内積空間での) 「正規直交基底」になる.
+これは高校の教科書にも計算問題としては書いてある.
+
+問題 7. これは量子統計で使う.
+(平衡) 状態はオブザーバブル $A$ に対して適当な複素数を返す関数だが,
+これは必ず (密度) 行列を使ってトレースで書けることを言っている.
+ただしうるさいことを言うと原則有限次元でしか使えないので, 物理としては役に立たないと言い切ってもいいのだが.
+
+p128 問題 8:ある種の変分とか何とか.
+問題 10, 色々な内積とラゲール多項式:他にもこの系で電磁気・量子力学で出てくる「\~{}多項式」が再現される.
+問題 12, 双対空間:初学者にとって直接どうというのが言いづらいが, 少し進んだ話をするとそれなりに使うはず.
+数学としては大事.
+
+第 5 章:量子力学の魂.
+p137 例 8, 数列空間:数列も線型代数の枠内で議論できる (部分がある) ということ.
+
+p138 例 9. 線型常微分方程式.
+先程から電磁気などそれっぽいのを挙げているが, 微分方程式論を応用先に持つことがここではっきりと分かる.
+
+p144:スペクトル分解. 要するに対角化だが, スペクトル分解は無限次元化出来て量子力学で直接使える.
+射影の値域がその固有値の固有空間で, 縮退度が固有空間の次元に対応したりとか何とか.
+
+定理 2.10:行列の極分解.
+量子力学的な解釈としては行列は大体複素数と思える.
+複素数ならば極形式で表現出来るか考えたくなるのが人情らしいのでそれをやってみた.
+
+定理 2.11:変分原理.
+量子力学で基底エネルギーを評価するときに使う.
+
+第 7 章. 行列の関数を定義するという荒業.
+ハミルトニアンを $H$ とすると, その系の時間発展は $U_t=e^{itH}$ となる.
+ここで行列の指数関数が出てくる.
+あと量子光学でコヒーレンス扱うときもこの辺が出てくる.
+
+量子力学ではより激しく微分作用素の指数関数も出てくる:
+運動量作用素を $p=-id/dx$ として $e^{itp}$ が出てくる.
+この場合, 数学的に正確な定義は面倒だが, とりあえず指数のテイラー展開に直接代入で「納得」されたい.
+ついでに言うとこれは本当にテイラー展開になる.
+
+p217, ペロン・フロベニウスの定理.
+正確に言うと別のバージョンだが, 固体物性, 磁性のモデルで使うハバードモデルの「研究」で本当に使う.
+詳しくは田崎さんの本 \cite{HalTasaki6} を参考にされたい.
+Google のページランクでも使う定理で応用は広い.
 \part{Calculus}
 \label{sec-5}
 \chapter{Is 0 area for a point, line segment, line?}
@@ -4561,7 +4629,7 @@ $f$ が $I$ の各点で $x_i$ について微分可能であるとき, $f$ の 
  =
  \bm{c}
 \end{align}
-であり, 仮定から\$ f$_{\mathrm{xy}}$\$が連続ですから, 上式から
+であり, 仮定から\$ f\_{}{xy}\$が連続ですから, 上式から
 \begin{align}
  f_{xy}(\bm{c})
  =
@@ -4673,7 +4741,7 @@ BA \bm{h} + | \bm{h} | \bm{\rho} ( \bm{h} ), \quad
 B \bm{ \vep } ( \bm{h} ) + \frac{ | \bm{k} ( \bm{h} ) | }  { | \bm{h} | } \bm{ \delta } \left ( \bm{k} (\bm{h}) \right)
 \end{gather}
 となります.
-ここで $(m,n)$ 行列 \$A = ( a$_{\mathrm{ij}}$ ) \$ に対して
+ここで $(m,n)$ 行列 \$A = ( a\_{}{ij} ) \$ に対して
 \begin{gather}
 \abs{A}
 :=
@@ -4770,21 +4838,21 @@ fB + gA
 \label{sec-5-2-8}
 
 多変数の実数値関数に関しても Taylor の定理が成立します.
-1 変数のときと同じようにして線形化を中心に組み立てれば良いのですが, 1 変数と同じなのでそこの詳論は控えます.
+1 変数のときと同じようにして線形化を中心に組み立てれば良いのですが,
+1 変数と同じなのでそこの詳論は控えます.
 まずは予備定理から証明します.
 
-\begin{thm}
-$f$ を $I=\prod_{i=1}^{n} (a_i,b_i)\subset\bbR^n$ 上で $C^k$ 級実数値関数とする.
-$I$ の 2 点 $\bm{x},\bm{x}+\bm{z}$ を結ぶ線分 $L:g (t)=x+tz,t\in[0,1]$ が $I$ に含まれているとき,
-合成関数 $\varphi=f\circ g$ は $[0,1]$ 上で $C^k$ 級で,  $1\leq m \leq k$ のとき $\varphi$ の $m$ 階導関数は
-\begin{align}
- \varphi^{(m)}(t)
- =
- \sum_{1\leq i_1,\dotsb ,i_m \leq n} \frac{\partial ^m f}{\partial x_{i_1} \dotsb \partial x_{i_m}} (\bm{x}+t\bm{z})
- z_{i_1}\dotsb z_{i_m} \label{eq:2-7-7.1}
-\end{align}
-で与えられる.
-\label{thm:2-7-7.1}
+\begin{thm}\label{thm:2-7-7.1}
+ $f$ を $I=\prod_{i=1}^{n} (a_i,b_i)\subset\bbR^n$ 上で $C^k$ 級実数値関数とする.
+ $I$ の 2 点 $\bm{x},\bm{x}+\bm{z}$ を結ぶ線分 $L:g (t)=x+tz,t\in[0,1]$ が $I$ に含まれているとき,
+ 合成関数 $\varphi=f\circ g$ は $[0,1]$ 上で $C^k$ 級で,  $1\leq m \leq k$ のとき $\varphi$ の $m$ 階導関数は
+ \begin{align}
+  \varphi^{(m)}(t)
+  =
+  \sum_{1\leq i_1,\dotsb ,i_m \leq n} \frac{\partial ^m f}{\partial x_{i_1} \dotsb \partial x_{i_m}} (\bm{x}+t\bm{z})
+  z_{i_1}\dotsb z_{i_m} \label{eq:2-7-7.1}
+ \end{align}
+ で与えられる.
 \end{thm}
 (証明)
 $g$ は $t$ の一次関数です. これは 2 階以降の導関数が $0$ になってしまいますが, これを微分可能な関数と考えれば
@@ -4975,7 +5043,7 @@ $\square u_i = 0 ( i=1,2 )$ となります.
 重ね合わせた $u$ も確かに波動方程式を満たします.
 
 少し脱線します. ここで Euler の公式
-\$e$^{\mathrm{ix}}$ = $\cos$ x +i $\sin$ x \$
+\$e\^{}{ix} = $\cos$ x +i $\sin$ x \$
 から
 $\sin x = \frac{1} {2} ( e^{ix} + e^{-ix} ),\cos x = \frac{1} {2i} ( e^{ix} - e^{-ix} )$
 です.
@@ -5266,7 +5334,9 @@ f ( \bm{a} + \bm{h} ) - f ( \bm{a} )
 \theta \in ( 0,1 ).
 \end{align}
 
-1)の証明:
+\begin{enumerate}
+\item の証明:
+\end{enumerate}
 $(d^2f)_{\bm{a}}$ が正値ならば, 前定理からその係数行列の主小行列式 $D_k (\bm{a})$ に対して
 $D_k (\bm{a}) > 0 (1 \leq k \leq n)$ が成立します.
 今 $f$ は $C^2$ 級なので, 連続な関数 $D_{ij} f ( \bm{x} )$ を成分とする行列式 $D_k (\bm{x})$ は連続となります.
@@ -5289,12 +5359,16 @@ f (\bm{a} + \bm{h} ) - f ( \bm{a} )
 \end{align}
 となります. これは $\bm{a}$ が $f$ の狭義極小点であることを意味します.
 
-2)の証明:
+\begin{enumerate}
+\item の証明:
+\end{enumerate}
 このとき $(d^2 ( -f ) )_{ \bm{a} } = - ( d^2 f)_{ \bm{a} }$
 は正値ですから, 1) から $-f$ は $\bm{a}$ で狭義極小となります.
 したがって $f$ は $\bm{a}$ で狭義極大となります.
 
-3)の証明:
+\begin{enumerate}
+\item の証明:
+\end{enumerate}
 $( d^2 f)_{ \bm{a} }$ が不定符号ならば,
 \begin{align}
 ( d^2 f)_{ \bm{a} } ( \bm{x} )
@@ -5758,42 +5832,38 @@ Lipschitz 条件はただの連続性よりは強い条件です.
 
 以下では有界閉領域
 \begin{gather}
-D := \{ (\bm{R} , t ) \, ; \, | \bm{R} - \bm{R}_0 | \leq b , | t - t_0 | < a \, ( \, 0< a ,b < \infty \,) \}
+ D := \{ (\bm{R} , t ) \, ; \, | \bm{R} - \bm{R}_0 | \leq b , | t - t_0 | < a \, ( \, 0< a ,b < \infty \,) \}
 \end{gather}
 上で考えます.
 連続関数は有界閉集合上で最大値, 最小値を取るので
 \begin{gather}
-\max_{ ( \bbR , t ) \in D } | \bm{F} ( \bm{R} , t) | = M < \infty
-\label{eq:4-3}
+ \max_{ ( \bbR , t ) \in D } | \bm{F} ( \bm{R} , t) | = M < \infty \label{eq:4-3}
 \end{gather}
 となります.
 
 さて, 定理の statement を述べましょう.
-\begin{thm}(微分方程式の解の存在と一意性 1)
-$\bm{F} ( \bm{R} , t )$ を $D = \mbr^{N} \times I$ において Lipschitz 条件を満たす  連続関数とする.
-このとき $t_0 \in I$ ならば, 任意の初期値 $\bm{R}_0 \in \bbR^{N}$ に対して
-初期値問題
-\begin{gather}
-\frac{d} {dt} \bbR (t)
-=
-\bm{F} ( \bm{R} , t )
-, \quad
-\bbR ( t_0 )
-=
-\bm{R}_0
-\end{gather}
-を
-\begin{gather}
-\abs{t - t_0}
-\leq
-h, \quad
-h
-:=
-\min \left ( a, \frac{b} {M} \right)
-\label{eq:4-4}
-\end{gather}
-で満たす一意的な解 $\bm{R}$ が存在する.
-\label{th:微分方程式の解の一意性存在定理 1}
+\begin{thm}(微分方程式の解の存在と一意性 1) \label{th:微分方程式の解の一意性存在定理 1}
+ $\bm{F} ( \bm{R} , t )$ を $D = \mbr^{N} \times I$ において Lipschitz 条件を満たす 連続関数とする.
+ このとき $t_0 \in I$ ならば, 任意の初期値 $\bm{R}_0 \in \bbR^{N}$ に対して
+ 初期値問題
+ \begin{gather}
+  \frac{d} {dt} \bbR (t)
+  =
+  \bm{F} ( \bm{R} , t ), \quad
+  \bbR ( t_0 )
+  =
+  \bm{R}_0
+ \end{gather}
+ を
+ \begin{gather}
+  \abs{t - t_0}
+  \leq
+  h, \quad
+  h
+  :=
+  \min \left ( a, \frac{b} {M} \right) \label{eq:4-4}
+ \end{gather}
+ で満たす一意的な解 $\bm{R}$ が存在する.
 \end{thm}
 (証明)
 第 1 段:``折れ線'' $\bbR_{\vep}$ の作り方.
@@ -5801,51 +5871,47 @@ h
 有界閉領域 $D$ において連続なので, Heine の定理から $\bm{F}$ は $D$ において一様連続です.
 すなわち任意の $\vep>0$ に対して $\kappa = \kappa ( \vep )$ を定めて
 \begin{gather}
-( \bbR_1 , t_1 ) \in D , ( \bbR_2 , t_2 ) \in D
-\text{かつ}
-\abs{\bm{R}_1 - \bm{R}_2 | \leq \kappa , | t_1 - t_2 | \leq \kappa} \\
-\Longrightarrow
-\abs{\bm{F} ( \bm{R}_1 , t_1 ) - \bm{F} ( \bm{R}_2 , t_2 )}
-\leq \vep.
-\label{eq:4-5}
+ (\bbR_1 , t_1) \in D , ( \bbR_2 , t_2 ) \in D
+ \text{かつ}
+ \abs{\bm{R}_1 - \bm{R}_2 | \leq \kappa , | t_1 - t_2 | \leq \kappa} \\
+ \Longrightarrow
+ \abs{\bm{F} ( \bm{R}_1 , t_1 ) - \bm{F} ( \bm{R}_2 , t_2 )}
+ \leq \vep. \label{eq:4-5}
 \end{gather}
 とできます.
 さらに
 \begin{gather}
-\delta
-:=
-\min \left ( \kappa , \frac{\kappa} {M} , \frac{b} {M}  \right)
->
-0
-\label{eq:4-6}
+ \delta
+ :=
+ \min \left ( \kappa , \frac{\kappa} {M} , \frac{b} {M}  \right)
+ >
+ 0 \label{eq:4-6}
 \end{gather}
 を取ります.
 $0 < | t - t_0 | \leq h$ となる任意の $t$ に対して $0$ , または
 正整数 $n = n ( \delta , t ) = n ( \delta (\vep) , t ) = n_{\vep} (t)$ を
 \begin{gather}
-n \delta
-<
-\abs{t - t_0}
-\leq
-( n + 1 ) \delta
-\label{eq:4-7}
+ n \delta
+ <
+ \abs{t - t_0}
+ \leq
+ ( n + 1 ) \delta \label{eq:4-7}
 \end{gather}
 となるように定めて, \textgt{Cauchy の折れ線}\index{こーしーのおれせん@Cauchy の折れ線} $\bbR_{\vep} (t)$ を
 \begin{gather}
-\begin{cases}
-\bbR_{\vep} (t)
-=
-\bbR_n + ( t - t_n ) \bm{F} ( \bm{R}_n , t_n ), \\
-\text{ただし} \\
-t_j
-:=
-t_0 + j \cdot \delta \frac{ t - t_0 } { | t - t_0 | } , \\
-\bm{R}_j
-:=
-\bm{R}_0 + \delta \frac{ t - t_0 } { | t - t_0 | } \bm{F} ( \bbR_{j-1} , t_{j-1} ) ( j = 1,2,\dots,n ) \\
-\text{また} \bm{R}_{\vep} (t_0) = \bm{R}_0
-\label{eq:4-8}
-\end{cases}
+ \begin{cases}
+  \bbR_{\vep} (t)
+  =
+  \bbR_n + ( t - t_n ) \bm{F} ( \bm{R}_n , t_n ), \\
+  \text{ただし} \\
+  t_j
+  :=
+  t_0 + j \cdot \delta \frac{ t - t_0 } { | t - t_0 | } , \\
+  \bm{R}_j
+  :=
+  \bm{R}_0 + \delta \frac{ t - t_0 } { | t - t_0 | } \bm{F} ( \bbR_{j-1} , t_{j-1} ) ( j = 1,2,\dots,n ) \\
+  \text{また} \bm{R}_{\vep} (t_0) = \bm{R}_0 \label{eq:4-8}
+ \end{cases}
 \end{gather}
 によって与えます.
 この折れ線が作成可能なことをいうためには,
@@ -5853,19 +5919,17 @@ t_0 + j \cdot \delta \frac{ t - t_0 } { | t - t_0 | } , \\
 そうでないと $\bm{F}(\bm{R}_j , t_j)$ が定義されないからです.
 まず (\ref{eq:4-4}), \ref{eq:4-7}) によって
 \begin{gather}
-\abs{t_j - t_0}
-\leq
-j \delta
-\leq
-n \delta
-<
-\abs{t - t_0}
-\leq
-h
-\leq
-a
-\quad
-( j = 1, 2, \dots ,n).
+ \abs{t_j - t_0}
+ \leq
+ j \delta
+ \leq
+ n \delta
+ <
+ \abs{t - t_0}
+ \leq
+ h
+ \leq
+ a \quad ( j = 1, 2, \dots ,n).
 \end{gather}
 となります.
 同じく\{(\ref{eq:4-6}), (\ref{eq:4-7})\}によって,
@@ -5874,21 +5938,21 @@ $| \bm{R}_1 - \bm{R}_0 | \leq \delta |\bm{F} ( \bm{R}_0 , t_0 ) | \leq \delta M 
 満たすとすると,  $( \bm{R}_k , t_k)\in D$ , したがって
 $\bm{F}(\bm{R}_k, t_k) \, (k=1, 2, \dots, j-1)$ が定義されて, しかも
 \begin{gather}
-\abs{\bm{R}_j - \bm{R}_0}
-\leq
-\sum_{k=1}^j | \bm{R}_k - \bm{R}_{k-1} |
-=
-\sum_{k=1}^j \delta | \bm{F} ( \bm{R}_{k-1} , t_{k-1} ) | \\
-\leq
-j \delta M
-\leq
-n \delta M
-<
-\abs{t - t_0}M
-\leq
-h M
-\leq
-b
+ \abs{\bm{R}_j - \bm{R}_0}
+ \leq
+ \sum_{k=1}^j | \bm{R}_k - \bm{R}_{k-1} |
+ =
+ \sum_{k=1}^j \delta | \bm{F} ( \bm{R}_{k-1} , t_{k-1} ) | \\
+ \leq
+ j \delta M
+ \leq
+ n \delta M
+ <
+ \abs{t - t_0}M
+ \leq
+ h M
+ \leq
+ b
 \end{gather}
 を満たします.
 こうして $j$ に関する帰納法から点 $(\bm{R}_j , t_j ) \, ( j= 1,2,\dots,n )$ が全て $D$ に属することが分かりました.
@@ -5960,71 +6024,70 @@ L | \bm{R}_{\vep} (t) - \bm{R}_{\vep '} (t) | + \vep + \vep '
 \end{gather}
 であり, $U (t) := | \bm{R}_{\vep} (t) - \bm{R}_{\vep '} (t) |$ とすると, (\ref{eq:4-11}) によって
 \begin{gather}
-U (t)
-\leq
-\left| \int_{t_0}^t L U (s) \, ds \right|
-+( \vep + \vep ' ) \left| \int_{x_0}^x \, ds \right|
+ U (t)
+ \leq
+ \left| \int_{t_0}^t L U (s) \, ds \right|
+ +( \vep + \vep ' ) \left| \int_{x_0}^x \, ds \right|
 \label{eq:4-12}
 \end{gather}
 となります.
 したがって $\max_{ | t - t_0 | \leq h } U (x) =: M'$ とすると (\ref{eq:4-12}) から
 \begin{gather}
-U (t)
-\leq
-\abs{t - t_0}( LM' + \vep + \vep ' )
+ U (t)
+ \leq
+ \abs{t - t_0}( LM' + \vep + \vep ' )
 \end{gather}
 となるので, これを (\ref{eq:4-12}) の右辺に代入して
 \begin{gather}
-U (t)
-\leq
-\frac{ | t - t_0 |^2 } {2!} L ( LM' + \vep + \vep ' ) + ( \vep + \vep ' )| t - t_0 |
+ U (t)
+ \leq
+ \frac{ | t - t_0 |^2 } {2!} L ( LM' + \vep + \vep ' ) + ( \vep + \vep ' )| t - t_0 |.
 \end{gather}
-となるので, これをまた (\ref{eq:4-12}) の右辺に代入して
+これをまた (\ref{eq:4-12}) の右辺に代入して
 \begin{gather}
-U (t)
-\leq
-\frac{| t - t_0 |} {3!} L^2 ( LM' + \vep + \vep ' )
-+( \vep + \vep ' ) L \frac{| t - t_0 |} {2!}
-+( \vep + \vep ' ) | t - t_0 |
+ U (t)
+ \leq
+ \frac{| t - t_0 |} {3!} L^2 ( LM' + \vep + \vep ' )
+ +( \vep + \vep ' ) L \frac{| t - t_0 |} {2!}
+ +( \vep + \vep ' ) | t - t_0 |
 \end{gather}
 となります.
 以下同様に繰り返し, さらに $e^x$ の Taylor 展開も用いて
 \begin{gather}
-U (t)
-\leq
-\frac{| t - t_0 |^n} {n!}L^{n-1} ( LM' + \vep + \vep ' )
-+( \vep + \vep ' ) \sum_{m=1}^{n-1} \frac{ | t - t_0 |^m L^{m-1} } {m!} \\
-\leq
-\frac{| t - t_0 |^n} {n!}L^{n-1} ( LM' + \vep + \vep ' )
-+( \vep + \vep ' ) \frac{1} {L} \left ( e^{ L | t - t_0 | } - 1 \right)
+ U (t)
+ \leq
+ \frac{| t - t_0 |^n} {n!}L^{n-1} ( LM' + \vep + \vep ' )
+ +( \vep + \vep ' ) \sum_{m=1}^{n-1} \frac{ | t - t_0 |^m L^{m-1} } {m!} \\
+ \leq
+ \frac{| t - t_0 |^n} {n!}L^{n-1} ( LM' + \vep + \vep ' )
+ +( \vep + \vep ' ) \frac{1} {L} \left ( e^{ L | t - t_0 | } - 1 \right)
 \end{gather}
 となりますが, ここで $n\to\infty$ として
 \begin{gather}
-\abs{\bm{R}_{\vep} (t) - \bm{R}_{\vep '} (t)}
-\leq
-\frac{\vep + \vep '} {L} \left ( e^{ L | t - t_0 | } -1 \right)
-\label{eq:4-13}
+ \abs{\bm{R}_{\vep} (t) - \bm{R}_{\vep '} (t)}
+ \leq
+ \frac{\vep + \vep '} {L} \left ( e^{ L | t - t_0 | } -1 \right) \label{eq:4-13}
 \end{gather}
 が得られます.
 次に行く前に上の極限の成立を示します. 証明すべきは $a>0$ に対して $a^n/n! \to 0 ( n \to \infty )$ です.
 まずは $2a<k$ となる数 $k$ を 1 つ取ります.
 $n>k$ に対して
 \begin{gather}
-\frac{a}{n}
-<
-\frac{k}{2n}
-<
-\frac{1}{2}
+ \frac{a}{n}
+ <
+ \frac{k}{2n}
+ <
+ \frac{1}{2}
 \end{gather}
 ですから,
 \begin{gather}
-\frac{a^n} {n!}
-=
-\frac{a}{1} \frac{a}{2} \dots \frac{a}{k-1} \frac{a}{k} \frac{a}{k+1} \dots \frac{a}{n}
-<
-\frac{a^k}{k!} \cdot \left ( \frac{1}{2} \right) ^{n-k}
-=
-\frac{a^k}{k!} \frac{1}{2^k} \left ( \frac{1}{2} \right)^n
+ \frac{a^n} {n!}
+ =
+ \frac{a}{1} \frac{a}{2} \dots \frac{a}{k-1} \frac{a}{k} \frac{a}{k+1} \dots \frac{a}{n}
+ <
+ \frac{a^k}{k!} \cdot \left ( \frac{1}{2} \right) ^{n-k}
+ =
+ \frac{a^k}{k!} \frac{1}{2^k} \left ( \frac{1}{2} \right)^n
 \end{gather}
 となります.
 $(1/2)^n \to 0 (n \to \infty)$ から $a^n/n! \to 0$ が分かります.
@@ -6032,7 +6095,7 @@ $(1/2)^n \to 0 (n \to \infty)$ から $a^n/n! \to 0$ が分かります.
 第 4 段:解の存在.
 
 $\vep>0$ を与えた場合に少なくとも 1 つ折れ線 $\bm{R}_{\vep}(t)$ が定まりました.
-少なくとも 1 つ, というのは例えば(\ref{eq:4-5})における $\kappa = \kappa (\vep)$ の定め方が
+少なくとも 1 つ, というのは例えば (\ref{eq:4-5}) における $\kappa = \kappa (\vep)$ の定め方が
 一意的でないことによります.
 しかし少なくとも 1 つ定まった $\bm{R}_{\vep}(t)$ は (\ref{eq:4-13}) を満足するので,
 $\vep = 1/k (k \in \bbZ^+)$ とすれば,  $| t - t_0 | \leq h$ において一様に
@@ -6057,7 +6120,7 @@ $\bm{a}_n (t) := \bm{R}_{1/n}(t)$ とすれば全ての $n$ について $\bm{a}
 
 議論を進めましょう.
 $\bm{R}(t)$ は各 $\bm{R}_{1/n}(t)$ と共に初期条件 $\bm{R}(t_0)=\bm{R}_0$ を満たし, かつ連続です.
-$\bm{R}_{\vep}(t_0)=\bm{R}_0$ となる連続関数 $\bm{R}_{\vep}(t)$ を代入し, (\ref{eq:4-9})から
+$\bm{R}_{\vep}(t_0)=\bm{R}_0$ となる連続関数 $\bm{R}_{\vep}(t)$ を代入し, (\ref{eq:4-9}) から
 \begin{gather}
 \left| \bm{R}_{\vep}(t) - \bm{R}_0 - \int_{t_0}^t \bm{F} (\bm{R}_{\vep} (s) , s ) \, ds \right|
 \leq
@@ -6066,7 +6129,7 @@ $\bm{R}_{\vep}(t_0)=\bm{R}_0$ となる連続関数 $\bm{R}_{\vep}(t)$ を代入
 \vep h
 \end{gather}
 が得られます.
-$\vep = 1/n$ として $n\to \infty$ とすると(\ref{eq:4-14})から一様収束で
+$\vep = 1/n$ として $n\to \infty$ とすると (\ref{eq:4-14}) から一様収束で
 \begin{gather}
 \bm{R}(t) - \bm{R}_0
 =
@@ -6095,7 +6158,7 @@ $\bm{P}$ を誤差 $\vep '=0$ の近似解と考えると
 0
 \end{gather}
 と書けます.
-(\ref{eq:4-13})を得たときと同様にして
+(\ref{eq:4-13}) を得たときと同様にして
 \begin{gather}
 \abs{\bm{R}_{\vep} (t) - \bm{P}(t)}
 \leq
@@ -6121,15 +6184,15 @@ L (| \bm{R} | + C ) .
 適当に $\bm{R}_0 \in \mbr^m$ を取ってきます.
 このとき三角不等式を用いて
 \begin{gather}
-\abs{\bm{F} ( \bm{R} , t)}
-\leq
-\abs{\bm{F} ( \bm{R} , t) - \bm{F} ( \bm{R}_0 , t)} + |\bm{F} ( \bm{R}_0 , t)| \\
-\leq
-L | \bm{R} - \bm{R}_0 | + |\bm{F} ( \bm{R}_0 , t)| \quad (\bm{F}\text{は Lipschitz 条件を満たす}) \\
-\leq
-L \left ( | \bm{R} | + | \bm{R}_0 | \right) + |\bm{F} ( \bm{R}_0 , t)|
-\leq
-L \left ( | \bm{R} | + C \right) . \bs
+ \abs{\bm{F} ( \bm{R} , t)}
+ \leq
+ \abs{\bm{F} ( \bm{R} , t) - \bm{F} ( \bm{R}_0 , t)} + |\bm{F} ( \bm{R}_0 , t)| \\
+ \leq
+ L | \bm{R} - \bm{R}_0 | + |\bm{F} ( \bm{R}_0 , t)| \quad (\bm{F}\text{は Lipschitz 条件を満たす}) \\
+ \leq
+ L \left ( | \bm{R} | + | \bm{R}_0 | \right) + |\bm{F} ( \bm{R}_0 , t)|
+ \leq
+ L \left ( | \bm{R} | + C \right) . \bs
 \end{gather}
 この定理によって, \textgt{Lipschitz 条件を満たす関数は高々一次の増大度である}ということが分かります.
 $x^2$ が Lipschitz 条件を満たさないと前に書きましたが, それはこのことです.
@@ -6259,7 +6322,9 @@ L_K | \bm{X} - \bm{Y} |
 2 | \bm{X} - \bm{Y} | .
 \end{gather}
 
-3)の証明: $|\bm{X}| , | \bm{Y} | \geq r$ のとき.
+\begin{enumerate}
+\item の証明: $|\bm{X}| , | \bm{Y} | \geq r$ のとき.
+\end{enumerate}
 
 \begin{gather}
 \abs{\chi_r (\bm{X}) - \chi_r ( \bm{Y} )}
@@ -6367,7 +6432,7 @@ $( \tilde{E} )$ の解 $\tilde{ \bm{R} }$ が一意的に存在することが�
 最後に, この $\tilde{ \bm{R} }$ がある時刻のあいだで (定義域を小さく取った所で)
 元の方程式を満たすことを示さなければなりません.
 まず $\tilde { \bm{R} }$ が $[ t_0 , T_1 ]$ で連続であること,
-はじめの不等式(\ref{eq:4-1.72})から
+はじめの不等式 (\ref{eq:4-1.72}) から
 $\tilde{ \bm{R} } (t_0) = \bm{R}_0 , | \bm{R}_0 | = R_0 < R_1$
 であることから
 適当な時刻 $t_1 \in ( t_0 , T_1]$ が存在して, 任意の
@@ -6449,7 +6514,9 @@ $\Omega := B ( \bm{R}_0 ; R) \times I = \Omega ( \bm{R}_0 ,T ,R)$ とする.
 \end{thm}
 (証明)
 
-1)の証明:
+\begin{enumerate}
+\item の証明:
+\end{enumerate}
 背理法で証明します.
 この解の上の点列 $( \bm{R}(t_n) , t_n ) , t_0 \leq t_n \leq T_m$ が $n\to\infty$ のとき
 $\Omega$ の境界からの距離 $\eta$ が正であるような $\Omega$ の内点 $( \bm{R}' , T )$ に収束するものとします.
@@ -6461,7 +6528,9 @@ $n$ が十分大きいときには点 $T_m$ を内点とします.
 これは $\bm{R}(t_0)= \bm{R}_0$ がとなるもとの解 $\bm{R}$ が $T_m$ を超えてなお右に延長できることを示し,
 $T_m$ の定義に反します.
 
-2)の証明:
+\begin{enumerate}
+\item の証明:
+\end{enumerate}
 先程の解 $\bm{R}$ は $| t - t_n | \leq h'$
 において $D \bm{R} (t) = \bm{F} ( \bm{R}(t) , t )$ の解として
 連続であり, しかも $| t - t_n | \leq h'$ が点 $T_m$ を内部に含むので,
@@ -6988,7 +7057,7 @@ c e^{\frac{R} {L} t} + \frac{1} {L} \int v (s) e^{\frac{R} {L}(t-s)} \, ds
 m D^2 x (t) + \Gamma D x (t) + k x (t) = F (t)
 \end{gather}
 となります.
-ここで \$f := F/m , 2 $\gamma$ := $\Gamma$ / m , k/m := $\omega$$^2$ , $\omega$>0 \$ とすると
+ここで \$f := F/m , 2 $\gamma$ := $\Gamma$ / m , k/m := $\omega$\^{}2 , $\omega$>0 \$ とすると
 \begin{gather}
 D^2 x (t) + 2 \gamma x (t) + \omega^2 x (t) = f (t)
 \label{eq:4-振動の方程式}
@@ -7216,7 +7285,7 @@ x_0 (t)
 \frac{ f } { - \omega_0 ^2 + 2 i \gamma \omega_0 + \omega ^2 } e^{i \omega_0 t}
 \end{gather}
 となります.
-\chapter{Maxwell方程式とベクトル解析}
+\chapter{Maxwell 方程式とベクトル解析}
 \label{sec-5-3}
 \section{導入}
 \label{sec-5-3-1}
@@ -7224,11 +7293,11 @@ x_0 (t)
 \label{sec-5-3-2}
 \section{諸公式の導出とテンソル}
 \label{sec-5-3-3}
-\section{Greenの定理}
+\section{Green の定理}
 \label{sec-5-3-4}
-\section{Stokesの定理}
+\section{Stokes の定理}
 \label{sec-5-3-5}
-\section{Gaussの定理}
+\section{Gauss の定理}
 \label{sec-5-3-6}
 \section{微分形式とベクトル解析}
 \label{sec-5-3-7}
@@ -9385,17 +9454,17 @@ Stone の定理と量子力学の話とかも一応入れる予定.
 \label{sec-7-5}
 
 動画から適当に切り出してくる.
-\chapter{重ね合わせの原理とFourier解析}
+\chapter{重ね合わせの原理と Fourier 解析}
 \label{sec-7-6}
-\section{Fourier級数——関数の大域近似}
+\section{Fourier 級数--関数の大域近似}
 \label{sec-7-6-1}
-\section{Fourier変換}
+\section{Fourier 変換}
 \label{sec-7-6-2}
-\section{Diracの\$$\delta$\$関数}
+\section{Dirac の\$$\delta$\$関数}
 \label{sec-7-6-3}
 \section{波動方程式の解}
 \label{sec-7-6-4}
-\section{Green関数}
+\section{Green 関数}
 \label{sec-7-6-5}
 \section{スペクトル分解}
 \label{sec-7-6-6}
@@ -10881,6 +10950,189 @@ If $N_c < Z$, then, from (\ref{Lieb-Loss_Analysis_chap11_35}), $\rho_{N_c, \inft
 \label{sec-7-11}
 
 動画から適当に切り出してくる.
+\chapter{Mathematical problems in quantum mechanics, quantum field theory, and quantum statistical mechanics}
+\label{sec-7-12}
+
+Togetter (Twitter) からの転載.
+
+元の質問は次の通り.
+\begin{quote}
+摂動論を勉強した頃, 摂動を加える前後で固有関数の様相が大きく変わらないのかが疑問でモヤモヤしていたのですが,
+これも難しい問題だったのですね.
+別の話題かつ大雑把な質問でアレなのですが, いま「この辺」の他にはどんなトピックがホットなのですか.
+\end{quote}
+
+本当に最近の動向は良く分かりませんし,
+私の専門は場の理論・量子統計なので量子力学方面は微妙ですが, 何にせよこのあたりで知っているのをいくつか.
+まず観測・量子情報関係が色々あります.
+早稲田だと中里・安倍研が正にここでしょう.
+数学というか数理物理だと理科大の大矢先生や電通大の長谷川さんあたりがやっています.
+具体的な問題はあまり詳しくないですがこの辺も作用素不等式の研究といった数学色が強い話題も色々あるので.
+
+新井先生の『量子現象の数理』\cite{AsaoArai4}にも書いてありますが,
+アハラノフ-ボーム効果もまだ死んでいません.
+比較的最近, 数学会の解析学賞の話題になる程度には色々面倒な話があります.
+3 次元でのアハラノフ-ボームは物理的には本道ですが, 数学的には多分未開です.
+
+物理でも当然大事な話ですが, 散乱理論もまだまだ数学的には未開の部分がたくさんあります.
+筑波の磯崎先生の数学会賞にもなっている話は量子力学ですが,
+相対論的場の理論でも Dybalski さんなどの話 \cite{WojciechDybalski1} があります.
+こちらは量子力学以上に手付かず.
+
+またもや新井先生の本に書いてありますが, 超対称性量子力学もまだまだ発展途上でしょう.
+特にこれは幾何との絡みがあるようなので, 研究者がたくさんいるはずです.
+あとアンダーソン局在も数学の人が熱心に取り組んでいる話題です
+
+「この辺の話題」といった丁度その部分ですが, 場の理論だと,
+発散の困難関係を処理しないと何も前に進まない状況で, いまだにそこではまっているところです.
+同じく摂動の問題で, 励起状態は準安定になってほしいというのが以前言った所ですが,
+発散の困難の場合は基底状態の摂動でいろいろあります.
+
+基底状態は基底状態のまま, 基底エネルギーは固有値でいてほしいのですが,
+これが固有値でなくなる (固有状態がどこかに行ってしまう) というのが発散の困難です.
+ちょうど量子力学の $\delta$ 関数のガウシアンによる近似で,
+$t>0$ のときはまともな関数なのに極限を取ると超関数になってしまうのと同じ問題です.
+
+その前の基底状態・平衡状態の存在証明 (発散の困難の回避) で手間取っているためほとんど進んでいませんが,
+物性理論への応用が私のやりたい部分です.
+電子-フォノン相互作用系での強磁性やフォノンの BEC など, 相転移関係で基本的な部分をはっきりさせたいというところ.
+
+励起状態関係の話やレーザーの話と数学的に近い部分・重なる部分があるのですが,
+平衡への回帰という非平衡統計の問題も議論されています.
+このあたりは早稲田の田崎先生が $C^*$ を使う手法で研究されていましたが, 数年前に亡くなってしまいました.
+
+場の理論というより統計ですが, 数学として扱っているモデル・手法がかなり重なる,
+または全く同じだったりするので, 研究者も多少重なりがあります.
+かなり数学よりになりますが, 流体力学極限という確率論の話も使いつつ非平衡関係のことをしている Spohn という人もいます.
+
+量子力学方面に戻りますが, 物理でも最近話題になっている (らしい) circuit QED も数学ベースでの研究があります.
+廣川先生や廣島先生がやっています.
+れは一次元調和振動子の摂動みたいなものなのでモデル自体は非常にシンプルですが, 最近ホットな話題と聞いています.
+あまり物理っぽい話を紹介できなくて申し訳ないのですが,
+学部に毛が生えた程度, または本当に学部の物理水準でも既に数学としては色々問題があります.
+解決済みですが, 量子統計だと平衡状態が物理で書かれる $\Tr e^{- \beta H}$ という形では存在しないという問題もあったのでした.
+\chapter{Fundamental problems of peruturbation theory in quantum mechanics as an approximation}
+\label{sec-7-13}
+
+Twitter での次の発言に対する応答をまとめた.
+\begin{quote}
+ちなみに物理してると「収束するかの難しい問題はおいといて」的な文言と共に作用素の級数が出てくることとかありますね.
+\end{quote}
+
+やや別件ですが, 作用素級数とか収束以前に摂動が原理的にまずいということがあります.
+$H = - \Delta + \alpha V$ で $\alpha$ が小さいときに摂動展開する,
+という状況でエネルギー (固有値) の振る舞いが大きな問題になります.
+$V_1 = x^2$, \$V\_{}2=-r\^{}{-1}\$としましょう.
+もちろん調和振動子と水素原子に対応するハミルトニアンです.
+固有値 (スペクトル), 固有関数ともに厳密解が分かっているわけですが,
+いくら $\alpha$ が小さかろうと, 測定値であるエネルギーに対応する固有値の振る舞いがこの 2 つで決定的に違います.
+もっというなら $\alpha = 0$ のときとも全く違います.
+調和振動子などは連続スペクトルが全て消えてしまうという凄まじさ.
+
+基底エネルギーのずれくらいならそこそこ値が合うはずですが,
+元々のスペクトル自体が激変しているので, あまり適当なことをすると問題になりえます.
+応用上も大事なレーザーでも問題があります.
+ラムシフトが起きますが, 物理的に言って励起状態は準安定状態に遷移して欲しいわけで,
+数学的には「摂動前の固有値に対応するものは固有値でなくなる」という現象が起きて欲しい.
+ただし摂動論だと「摂動前の固有値は摂動では少しずれた値の固有値になる」と思って計算するので, ここでも原理的な問題が起きます.
+学部 3 年の量子力学でやったと思いますが, 実際にはここで手で虚軸方向へのずれを入れることで回避します.
+この間「数学的に細かいことは気にするな.
+もはや数学徒としては研究レベルの問題だから」と書きましたが,
+今本当にこの辺の数理物理の研究が進行中です.
+\chapter{Direct integral and its physics}
+\label{sec-7-14}
+
+これは Togetter に【微分ヤクザPによる直積分講座】というのでまとまっている.
+いったん, やりとりをそのまま書いておく.
+\begin{quote}
+\#0は素イデアル
+0t\_{}uda 2012-01-08 00:27:35
+
+整域でない環に思いを馳せた.
+alg\_{}d 2012-01-08 00:35:50
+
+@alg\_{}d 非可換環
+phasetr 2012-01-08 14:13:42
+
+@phase\_{}tr 両側イデアルでない右イデアル
+alg\_{}d 2012-01-08 14:22:52
+
+@alg\_{}d 左閉イデアルなら大量生産できます
+phasetr 2012-01-08 14:27:33
+
+@phase\_{}tr 「大量」とは具体的にはどのくらいでしょうか.
+alg\_{}d 2012-01-08 14:28:34
+
+@alg\_{}d 非可算無限程度なら. 作用素環で大事な GNS 構成定理というのがありますが,
+これは作用素環上の有界線型汎関数の kernel みたいなのからヒルベルト空間などを作る定理です.
+この kernel みたいなのが大雑把に線型汎関数の分だけあります.
+phasetr 2012-01-08 14:30:46
+
+@phase\_{}tr そんなにたくさん作って, 一体何を企んでるんですか.
+alg\_{}d 2012-01-08 14:32:27
+
+@alg\_{}d 最近ヒッグスなどで自発的対称性の破れというのが取り沙汰されていますが,
+ここでは非可算無限個 (例えば $U (1)$ くらい) の線型汎関数を重ね合わせて線型汎関数を 1 つ作ったりします.
+物理の実用上どうしても必要です.
+phasetr 2012-01-08 14:37:14
+
+@phase\_{}tr 自発的対称性の破れってそういうの使うんですか. よく分かりませんが凄いです.
+alg\_{}d 2012-01-08 14:40:16
+
+@alg\_{}d 直和の代わりに直積分とか使いますが, 気持ちの上では大したことはしません.
+めんどいのはテクニカルな部分だけだと見ています.
+phasetr 2012-01-08 14:42:28
+
+@phase\_{}tr 直積分 wwwwwwwwwwww フヒヒ wwwwwwww
+alg\_{}d 2012-01-08 14:43:40
+
+直積分ってなんぞ www 恐ろしい語感に衝撃を受けた.
+alg\_{}d 2012-01-08 14:45:17
+
+【 Direct integral 】
+http://t.co/sTQT3B6T
+alg\_{}d 2012-01-08 14:45:38
+
+インテグラルの上に$\oplus$ が付いていて笑劇を受けている.
+alg\_{}d 2012-01-08 14:50:04
+
+@alg\_{}d von Neumann が導入したというように書いてありますが,
+実際に von Neumann 環の分類では環を直積分分解して簡単な所に還元します.
+特に中心が自明な環 (歴史的に因子, factor と呼ぶ) に落とし込むので factor の解析が大事です.
+物理でもこれが出ます.
+phasetr 2012-01-08 14:55:04
+
+ちなみに今やっている所でも定ファイバー直積分を日常的に使っている.
+非相対論的 QED (量子電気力学の方だ) で使うヒルベルト空間自体が直積分で書かれている (書ける) ので, 大体全部直積分になる.
+phasetr 2012-01-08 14:58:56
+
+直積分とは何か知らない僕に花束を
+life\_{}wont\_{}wait 2012-01-08 15:01:42
+
+@life\_{}wont\_{}wait 強磁性を考えます.
+理論的には磁化の方向はどこを向いていても構わないので $SO (3)$ だけの自由度があります.
+$SO (3)$ の分だけ基底状態がありますが, これの重ね合わせもまた基底状態になります.
+重ね合わせを数学的に書くと直積分になるというだけです.
+phasetr 2012-01-08 15:08:54
+
+@phase\_{}tr 無限次元空間の基底の線形結合とかですか?
+life\_{}wont\_{}wait 2012-01-08 15:12:41
+
+@life\_{}wont\_{}wait 規格化したいので正確には凸結合ですし,
+ベクトルだけでなく, 汎関数, 空間, 演算子全て直積分で書くことになりますが大体そんな感じです
+
+phasetr 2012-01-08 15:16:57
+@phase\_{}tr 空間も…了解ありがとうございます. やはりルベーグ積分必須な感じですか?
+
+life\_{}wont\_{}wait 2012-01-08 15:20:27
+@life\_{}wont\_{}wait 数学的にきちんとやりたいならもちろん必要ですが, そんなものはどうでもいいでしょう.
+対称性の群が連続群だから連続にして, それで積分になったというだけです.
+うるさいことを言う人には「数学やりたければ数学科に行け」と言っておいてください.
+phasetr 2012-01-08 15:23:00
+
+「数学やりたければ数学科に行け」これは名言だ
+faogr 2012-01-08 15:23:37
+\end{quote}
 \part{Probability and Statistics}
 \label{sec-8}
 \chapter{Talk: Law of large number and central limit theorem in coin tossing}
@@ -12365,7 +12617,7 @@ The other is concrete and uses a \textbf{quantum mechanical harmonic oscillator}
 \label{sec-9-1-2}
 \section{群}
 \label{sec-9-1-3}
-\section{Lorentz群とMaxwell方程式}
+\section{Lorentz 群と Maxwell 方程式}
 \label{sec-9-1-4}
 \section{解析力学小論}
 \label{sec-9-1-5}

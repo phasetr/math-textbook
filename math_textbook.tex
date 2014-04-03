@@ -1,4 +1,4 @@
-% Created 2014-03-30 Sun 17:30
+% Created 2014-04-03 木 23:34
 \documentclass[openany, a4paper, oneside]{book}
 
 \usepackage[dvipdfmx]{graphicx, hyperref}
@@ -28,13 +28,13 @@
 }%
 {%
 \usecounter{enum2}
-\setlength{\itemindent}{0zw}%  ここは 0 に固定
-\setlength{\leftmargin}{3zw}%  左のインデント
-\setlength{\rightmargin}{0zw}% 右のインデント
-\setlength{\labelsep}{0zw}%    黒丸と説明文の間
-\setlength{\labelwidth}{3zw}%  ラベルの幅
-\setlength{\itemsep}{0em}%     項目ごとの改行幅
-\setlength{\parsep}{0em}%      段落での改行幅
+\setlength{\itemindent}{0pt}%  ここは 0 に固定
+\setlength{\leftmargin}{6pt}%  左のインデント
+\setlength{\rightmargin}{0pt}% 右のインデント
+\setlength{\labelsep}{0pt}%    黒丸と説明文の間
+\setlength{\labelwidth}{6pt}%  ラベルの幅
+\setlength{\itemsep}{0pt}%     項目ごとの改行幅
+\setlength{\parsep}{0pt}%      段落での改行幅
 \setlength{\listparindent}{0zw}% 段落での一字下り
 }
 }{%
@@ -45,13 +45,13 @@
 {%
 \usecounter{enum2}
 \setlength{\itemindent}{0pt}%  ここは 0 に固定
-\setlength{\leftmargin}{3zw}%  左のインデント
-\setlength{\rightmargin}{0zw}% 右のインデント
-\setlength{\labelsep}{0zw}%    黒丸と説明文の間
-\setlength{\labelwidth}{3zw}%  ラベルの幅
-\setlength{\itemsep}{0em}%     項目ごとの改行幅
-\setlength{\parsep}{0em}%      段落での改行幅
-\setlength{\listparindent}{0zw}% 段落での一字下り
+\setlength{\leftmargin}{6pt}%  左のインデント
+\setlength{\rightmargin}{0pt}% 右のインデント
+\setlength{\labelsep}{0pt}%    黒丸と説明文の間
+\setlength{\labelwidth}{6pt}%  ラベルの幅
+\setlength{\itemsep}{0pt}%     項目ごとの改行幅
+\setlength{\parsep}{0pt}%      段落での改行幅
+\setlength{\listparindent}{0pt}% 段落での一字下り
 }
 }{%
 \end{list}%
@@ -293,8 +293,8 @@
 \providecommand{\alert}[1]{\textbf{#1}}
 
 \title{Math textbook}
-\author{相転移 lP (@phasetr)\thanks{phasetr@gmail.com}}
-\date{2014-03-30}
+\author{相転移 P (@phasetr)\thanks{phasetr@gmail.com}}
+\date{2014-04-03}
 \hypersetup{
   pdfkeywords={},
   pdfsubject={},
@@ -311,7 +311,7 @@
 \part{Aim of this book}
 \label{sec-1}
 
-I would like to write this math textbook by \textbf{social coding} Github..
+I would like to write this math textbook by \textbf{social coding} Github.
 It will be written in English and Japanese.
 I will also write numerical computation, animation,
 or simulation codes by some computer languages.
@@ -347,10 +347,261 @@ but they are systematic and ``boring'' sometimes.
 I want to fill the gaps:
 I want to write applicative contents in physics, engineering or mathematics itself,
 and connections among many branches.
-\part{Mathematical English}
+\part{Mathematical/Physical English}
 \label{sec-2}
 
-数学に関する英語表現を色々書く.
+数学や物理に関する英語表現や具体的な例文を少しずつ足していく.
+基本的な表現については体系的なまとめもほしいので, そういうのもやっていこう.
+\chapter{Common phrases}
+\label{sec-2-1}
+
+\begin{itemize}
+\item 以下では $\calA$ が明らかな場合, $\bf{Ch}$ の代わりに単に $\bf{Ch} \rbk{\calA}$ と書く. \cite{CharlesWeibel1}
+\end{itemize}
+In the sequel we will merely write $\bf{Ch}$ for $\bf{Ch} \rbk{\calA}$ when $\calA$ is understood.
+
+\begin{itemize}
+\item 多くの初等的な量子力学の教科書を参照してほしい. これらのいくつかは数学者にも適した形で内容が説明されている. \cite{LiebSeiringer1}
+\end{itemize}
+They can refer to a huge number of elementary quantum mechanics texts,
+some of which present the subject in a way that is congenial to mathematicians.
+
+\begin{itemize}
+\item 簡単にいうと.
+\end{itemize}
+Simply speaking.
+
+\begin{itemize}
+\item 記法を決める.
+\end{itemize}
+We fix notation.
+
+\begin{itemize}
+\item 教員は興味や時間の制約に応じて話題を取捨選択してもいい. \cite{CharlesWeibel1}
+\end{itemize}
+The teacher may pick and choose topics according to interest and time constraints.
+
+\begin{itemize}
+\item 詳しくは A を参照すること.
+\end{itemize}
+See A for details.
+
+\begin{itemize}
+\item ここに書かれた内容は多かれ少なかれ自己充足的な複素代数幾何のコースを元にしている. \cite{ChrisPeters1}
+\end{itemize}
+The material presented here consists of a more or less
+self-contained advanced course in complex algebraic geometry.
+
+\begin{itemize}
+\item この章は以後の章で繰り返し使われる結果も含んでいる. \cite{LiebSeiringer1}
+\end{itemize}
+The chapter also contains several results that will be used repeatedly in the chapters to follow.
+
+\begin{itemize}
+\item この節での主な論点は鎖複体がアーベル圏をなすことだ. \cite{CharlesWeibel1}
+\end{itemize}
+The main point of this section will be that chain complexes form an abelian category.
+
+\begin{itemize}
+\item この本は量子力学のいろいろな分野の研究者に向けた内容になっている. \cite{LiebSeiringer1}
+\end{itemize}
+The book is directed towards researchers on various aspects of quantum mechanics.
+
+\begin{itemize}
+\item これは大学院の 2-3 年生に向けた本だ. \cite{CharlesWeibel1}
+\end{itemize}
+This book is aimed at a second- or third-year graduate student.
+
+\begin{itemize}
+\item これらの点は次の単純な問題を考えるとわかる. \cite{CharlesWeibel1}
+\end{itemize}
+The following simple quesion illustrates these points.
+
+\begin{itemize}
+\item その間もホモロジー代数は発展を続けた. \cite{CharlesWeibel1}
+\end{itemize}
+In the meantime, homological algebra continued to evolve.
+
+\begin{itemize}
+\item 同様にして.
+\end{itemize}
+In a similar vain.
+
+\begin{itemize}
+\item 読者は他のいくつかの話題についての紹介に出会うだろう.  \cite{CharlesWeibel1}
+\end{itemize}
+The reader will find introductions to several other subjects.
+
+\begin{itemize}
+\item トポロジー, 正則局所環や半単純 Lie 環との歴史的な関係も説明する. \cite{CharlesWeibel1}
+\end{itemize}
+The historical connections with topology, regular local rings, and semisimple Lie algebras are also described.
+
+\begin{itemize}
+\item はじめにアーベル圏とは何だったか思い出す必要がある. \cite{CharlesWeibel1}
+\end{itemize}
+First we need to recall what an abelian category is.
+
+\begin{itemize}
+\item まとめると.
+\end{itemize}
+In summary.
+
+\begin{itemize}
+\item 歴史的な経緯は追わない.
+\end{itemize}
+We will not necessarily follow the historical route.
+\chapter{Mathematical English}
+\label{sec-2-2}
+
+\begin{itemize}
+\item 核がベクトル束になることはすぐわかる.
+\end{itemize}
+One can easily see that the kernel forms a vector bundle.
+
+\begin{itemize}
+\item 群 $G$ は空間 $S$ に作用する.
+\end{itemize}
+A group $G$ acts on a space $S$.
+
+\begin{itemize}
+\item このとき, 写像 $f$ は次の式で表される鎖写像になる. \cite{CharlesWeibel1}
+\end{itemize}
+Then a map $f$ is the chain map given by the formula.
+
+\begin{itemize}
+\item これが彼の結果を単純化しかつ改良する興味深い新たな不等式の導出に繋がった. \cite{LiebSeiringer1}
+\end{itemize}
+This led to the invention of interesitng new inequalities to simplify and improve his result.
+
+\begin{itemize}
+\item これらの不等式は物質の安定性を理解する上で決定的な役割を果たす. \cite{LiebSeiringer1}
+\end{itemize}
+These inequalities play a crucial role in our understanding of stability of matter.
+
+\begin{itemize}
+\item これを確認するため, $\calA$ を $\calC$ で最も小さいアーベル部分圏としよう.
+\end{itemize}
+To see this, let $\calA$ be the smallest abelian subcategory of $\calC$.
+
+\begin{itemize}
+\item 指数 $m$ が $f_D$ と選んだ点 $p \in M$ に依存しないことはすぐにわかる.
+\end{itemize}
+It is easily verified that $m$ does not depend on $f_D$ and the chosen point $p \in M$.
+
+\begin{itemize}
+\item 射影曲線の種数を一般化した 2 つの数が高次元で重要な役割を果たす. \cite{ChrisPeters1}
+\end{itemize}
+Two numbers, generalizing the genus of a projective curve, play
+an important rose in higher dimensions.
+
+\begin{itemize}
+\item 既に述べたように, 複素多様体 $M$ 上, 同型を法とした正則な直線束の集合はテンソル積に関して群をなす. \cite{ChrisPeters1}
+\end{itemize}
+As already said before, the collection of holomorphic line bundles on a complex manifold
+$M$ modulo isomorphism form a group under the tensor product.
+
+\begin{itemize}
+\item 剰余項.
+\end{itemize}
+The remainder term.
+
+\begin{itemize}
+\item 微分積分学の基本定理.
+\end{itemize}
+Fundamental theorem of calculus.
+
+\begin{itemize}
+\item 複素代数幾何を研究する上で基本的な対象と写像を思い出そう. \cite{ChrisPeters1}
+\end{itemize}
+I recall the basic objects and maps one works with in complex algebraic geometry.
+
+\begin{itemize}
+\item 複素または射影多様体に関する一般論. \cite{ChrisPeters1}
+\end{itemize}
+Generalities on complex and projective manifolds.
+
+\begin{itemize}
+\item 部分積分.
+\end{itemize}
+Integration by parts.
+
+\begin{itemize}
+\item 便利な関数空間はいろいろあり, それらを状況に応じて使いわけていく.
+\end{itemize}
+There are many useful function spaces and we select a proper space as the situation demands.
+
+\begin{itemize}
+\item ホモロジー代数は代数的位相幾何, 群論, 可換環論, そして代数幾何などのいくつかの数学の分野で使われる道具だ. \cite{CharlesWeibel1}
+\end{itemize}
+Homological algebra is a tool used in several branches of mathematics: algebraic topology, group theory,
+commutative ring theory, and algebraic geometry.
+\chapter{Physical English}
+\label{sec-2-3}
+
+\begin{itemize}
+\item Einstein の相対論的運動学がどんな効果をもたらすだろうか. \cite{LiebSeiringer1}
+\end{itemize}
+What effect does Einstein's relativistic kinematics have?
+
+\begin{itemize}
+\item $Z \alpha$ が非常に大きい婆に 1 原子のときですら磁場が不安定性を引き起こす可能性があるとわかったとき, また新たな不等式が必要になった. \cite{LiebSeiringer1}
+\end{itemize}
+Again new inequalities were needed when it was realized that magnetic fields
+could also cause instabilities, even for just one atom, if $Z \alpha$ is too large.
+
+\begin{itemize}
+\item 安定性に関する結論は精妙で普通の物理の学生が使える初等的な道具立てで簡単に導出できるわけでもないのに,
+  今日でさえほとんどの物理の教科書で議論されておらず, 問題が指摘されることすらない. \cite{LiebSeiringer1}
+\end{itemize}
+Even today hardly any physics textbook discusses, or even raises this question,
+even though the basic conclusion of stability is subtle and not easily derived
+using the elementary means available to the usual physics student.
+
+\begin{itemize}
+\item 原子の存在と世界の安定性を理解するために解決しなければならない基本的な問題は次のように表現できる:
+  何故点粒子である電子が (ほぼ) 点粒子とみなせる原子核に落ちこんでいかないのか? \cite{LiebSeiringer1}
+\end{itemize}
+The basic question that has to be resolved in order to understand the existence of atoms and stability of our world is:
+Why don't the point-like electrons fall into the (nearly) point-like nuclei?
+
+\begin{itemize}
+\item この奇妙で全く予期していなかった事実を理解するため, 適切な Schr\"odinger 方程式がゼロモードを持つことを認識する必要があった.
+\end{itemize}
+The understading of this strange, and totally unforeseen, fact requires the knowledge that the
+appropriate Schr\"odinger equation has `\textit{zero-modes}'.
+
+\begin{itemize}
+\item この本では量子電気力学, Coulomb 多体系の安定性, 星の重力安定性, 平衡統計の基礎, そして熱力学的極限の存在を議論している. \cite{LiebSeiringer1}
+\end{itemize}
+The topics covered in this book include quantum electrodynamics, stability of large Coulomb systems,
+gravitational statbility of stars, basics of equilibrium statistical mechanics,
+and the existence of the thermodynamic limit.
+
+\begin{itemize}
+\item 古典力学から見たときのこの問題は 1915 年に Jeans によってうまくまとめられている. \cite{LiebSeiringer1}
+\end{itemize}
+This problem of classical mechanics wa nicely summarized by Jeans in 1915.
+
+\begin{itemize}
+\item 電気力は異なる符号の電荷を持つ荷電粒子間では引力になり, 同じ符号の電荷を持つ粒子間では斥力になる. \cite{LiebSeiringer1}
+\end{itemize}
+The electric force is attractive between oppositely charged particles and repulsive between like-charged particles.
+
+\begin{itemize}
+\item 普通の物質の基本的な構成要素は電子と原子核だ. \cite{LiebSeiringer1}
+\end{itemize}
+The basic constituents of ordinary matter are electrons and atomic nuclei.
+
+\begin{itemize}
+\item 物理学者が物質の世界を記述する基盤となる基礎理論は量子力学だ. \cite{LiebSeiringer1}
+\end{itemize}
+The fundamental theory that underlies the physicist's description of the material world is quantum mechanics.
+
+\begin{itemize}
+\item 物理学者は量子力学を原子・分子レベルでの`万物の理論'だと固く信じている. \cite{LiebSeiringer1}
+\end{itemize}
+Physicists firmly believe that quantum mechanics is a `theory of everything' at the level of atoms and molecules.
 \part{Set theory}
 \label{sec-3}
 \chapter{Introduction to cardinal number}
@@ -765,7 +1016,7 @@ $\vf (\vr, t)$ を力のベクトルとすると
 いわゆる「熱」まで含めたエネルギー保存則の拡張など,
 新たな物理を見せ, 説明してくれます.
 多体系での原子たちは, 少数粒子のときとは全く別の論理に従っているようです.
-\section{調和振動子と線形代数}
+\section{調和振動子と線型代数}
 \label{sec-4-1-2}
 \subsection{導入}
 \label{sec-4-1-2-1}
@@ -839,20 +1090,20 @@ m\ddot{X}_3 &= -(2 + \sqrt{2}) X_3
 これをさらに $n$ 質点系へと一般化しましょう. 何故一般化するのかということは当然の疑問ですが,
 上述の格子振動などでも一般には多数の質点の集まりですから, 一般の $n$ での解析が必要です.
 また弾性体 (例えば弦) の振動を扱おうとすると, これは $n\rightarrow \infty$ とした極限を考えることになります.
-この一般化を見通しよく行なう為に私たちは線形代数学の力を借りることになります.
+この一般化を見通しよく行なう為に私たちは線型代数学の力を借りることになります.
 2 質点ぐらいなら適当にやっていてもどうにかなりそうですが, 3 質点ではもう既になかなか
 直観的にいけそうな気配がありません. 一般の $n$ 質点では適当にやってどうにかするのはとても無理そうです.
 付記しておくと,  $2$ 質点系の場合の $X$ は重心座標と相対座標になっています.
 つまりこれらは現象の見やすい座標系への座標系の変換であったとみなせます.
 しかし $3$ 質点系では一見して良く分かる, というわけにはいきません.
-こうした座標系の変換をどう見つけるかという考察をしたいというわけです \footnote{他にも線形代数は建築などで巨大行列の行列式の計算をすることがよくあるらしく,
+こうした座標系の変換をどう見つけるかという考察をしたいというわけです \footnote{他にも線型代数は建築などで巨大行列の行列式の計算をすることがよくあるらしく,
 その為の行列式の計算の効率の良いプログラミングの作成などは今でも研究対象となっているようです.
  }
 
 次章では一般のポテンシャルに対し,
 安定点が存在すればその近傍ではそのポテンシャルに支配された系の運動が微小振動になることを証明します.
 そこへの接続に十分な範囲での議論をしなければなりませんが, それ以外にも重要なことは補足しながらいくことにします.
-\subsection{記法の確認と線形写像}
+\subsection{記法の確認と線型写像}
 \label{sec-4-1-2-2}
 
 いくつかの一般的な記法をまとめておきます.
@@ -1061,7 +1312,7 @@ $\bbZ^+ := \{ 1, 2 , \dots , \}$,
 上の条件は $A$ と $A^{*}$ が交換可能であるということであり, \textgt{Hermite 行列やユニタリ行列はこれを満たします}. 行列が Hermite, ユニタリであるというのはそれぞれ $A^{*}=A$ ,  $A^{*} = A^{-1}$ が成立するということでした.
 実数の範囲で考えれば, これは対称行列・直交行列のことです.
 
-次は\textgt{部分 (線形) 空間}\index{ぶぶんくうかん@部分空間}という概念です.
+次は\textgt{部分 (線型) 空間}\index{ぶぶんくうかん@部分空間}という概念です.
  $W$ が $\bm{C}^n$ の部分空間とすると,
 任意の $W$ の元 $\bm{x},\bm{y}$ と任意の複素数 $\alpha,\beta$ に対し
     \begin{align}
@@ -1089,10 +1340,10 @@ $(\alpha \bm{x} + \beta\bm{y},\bm{z}) = \alpha (\bm{x},\bm{z}) + \beta (\bm{y},\
 このとき $W = W_1 \bigoplus W_2 = W_1 \amalg W_2$ などと書きます.
 
 以上でつまらない定義の羅列は一旦終わりです.
-ここから少し線形代数の説明に入ります.
+ここから少し線型代数の説明に入ります.
 
-線形代数で重要な概念の 1 つに \textbf{線形写像} があります.
-それでは線形写像の説明を, と行きたいところですが
+線型代数で重要な概念の 1 つに \textbf{線型写像} があります.
+それでは線型写像の説明を, と行きたいところですが
 その前に\textgt{関数}\index{かんすう@関数}と\textgt{関数値}\index{かんすうち@関数値}の区別をはっきりさせておきます.
 \begin{align}
 1 \longrightarrow 1 ,\,\,\, 2 \longrightarrow 4 ,\,\,\, 3 \longrightarrow 9
@@ -1115,8 +1366,8 @@ $(\alpha \bm{x} + \beta\bm{y},\bm{z}) = \alpha (\bm{x},\bm{z}) + \beta (\bm{y},\
 要するに量子力学の数理です.
 あとで関数と関数値の区別の為の具体例を出します.
 
-さて, ここからやっと線形写像です.  $f$ を $\bm{R}^{n}$ から $\bm{R}^{m}$ への写像 (関数) であるとしましょう.
-この $f$ が\textgt{線形写像}\index{せんけいしゃぞう@線形写像}であるというのは次の 2 つの性質が成立することを言います.
+さて, ここからやっと線型写像です.  $f$ を $\bm{R}^{n}$ から $\bm{R}^{m}$ への写像 (関数) であるとしましょう.
+この $f$ が\textgt{線型写像}\index{せんけいしゃぞう@線型写像}であるというのは次の 2 つの性質が成立することを言います.
     \begin{align}
         f ( x + y ) &= f (x) + f (y) \\
         f ( \alpha x ) &= \alpha f (x) ,\,\alpha \in \bm{R} \\
@@ -1125,14 +1376,14 @@ $(\alpha \bm{x} + \beta\bm{y},\bm{z}) = \alpha (\bm{x},\bm{z}) + \beta (\bm{y},\
     \end{align}
 ここで $\alpha \in \bm{R}$ というのは $\alpha$ が実数であることを表すのでした.
 まず $f$ を $\bm{R}^{1}$ から $\bm{R}^{1}$ への写像, すなわち高校で学んできた普通の関数である場合で
-この定義が何を言っているのかを見てみましょう. 線形写像の名が示すとおり, このとき $\alpha$ を適当な実数とすると
+この定義が何を言っているのかを見てみましょう. 線型写像の名が示すとおり, このとき $\alpha$ を適当な実数とすると
 $f$ は $f (x) = \alpha x$ という対応を与える一次関数 (直線!) です \footnote{(進んだ注)
 $f$ が連続であるとき, 上の条件を満たす関数が本当に一次関数しかないことが実数の連続性を用いて証明されます.
 $f (1)=3$ などという適当な条件をつけると, 定数 $\alpha$ までが完全に決定できます. 証明は島内剛一, 「数学の基礎」, 日本評論社,
 p445- を参照して下さい.
 大略を述べると, 自然数に対して成立することを述べたのち, 整数に拡大して, さらに有理数に拡大し,  $f$ の連続性から実数に拡大します.
  }.
-線形写像の「線形」たる所以が分かったかと思います. 一般の $n,m$ に対しては適当な行列 $A$ を選ぶと
+線型写像の「線型」たる所以が分かったかと思います. 一般の $n,m$ に対しては適当な行列 $A$ を選ぶと
 $\bm{y} = A \bm{x}$ と書けます.
 実数を 1 次正方行列とみなせば, 自然な一般化になっていることが分かります.
 
@@ -1140,15 +1391,15 @@ $\bm{y} = A \bm{x}$ と書けます.
  $f (x,y)=-f (y,x)$ という性質を満たす写像のことを\textgt{交代性がある}\index{こうたいせい@交代性}といいます.
 例えば $f (x,y)=x-y$ が一番分かりやすいでしょうか. 高校で学んだ二次の行列の行列式にもこの交代性があります.
 
-線形写像と行列には密接な関連があることさえ把握しておけば, 今は十分です.
+線型写像と行列には密接な関連があることさえ把握しておけば, 今は十分です.
 細かいことは気にせず今は突っ走ってみましょう.
-\subsection{線形空間の導入\label{線型空間の導入}}
+\subsection{線型空間の導入\label{線型空間の導入}}
 \label{sec-4-1-2-3}
 \subsubsection{物理法則とベクトル}
 \label{sec-4-1-2-3-1}
 
 本章は主に行列に関することを述べるのですが, その前に
-線形代数で最も重要な概念である\textgt{線形空間 (ベクトル空間)}について議論することにします.
+線型代数で最も重要な概念である\textgt{線型空間 (ベクトル空間)}について議論することにします.
 現段階では振動・波動との直接の関係は少し薄れますが,
 これは量子力学の数理の基礎となる非常に重要なものであり,
 そこまで行かずとも物理学にとって基本的で重要な概念です.
@@ -1322,9 +1573,9 @@ $\langle \bm{e}_1 , \bm{e}_2, \bm{e}_3 \rangle = \langle \bm{e}_i \rangle _{i=1}
 少し話が本筋からそれてしまいますが, 先にこれを考えます.
 まず変換というものは, 何らかの作用を受けた結果であると考えることができます.
 \textgt{作用は適当な写像 (関数) で表現できる}ということを前節で説明しました.
-長さ, 角度を同時に不変にする変換は特殊な\textgt{線形変換}\index{せんけいへんかん@線形変換}で表現できます.
-線形変換とは線形写像で表される変換です.
-また\textgt{線形写像は行列で表現出来る}ということが証明できます.
+長さ, 角度を同時に不変にする変換は特殊な\textgt{線型変換}\index{せんけいへんかん@線型変換}で表現できます.
+線型変換とは線型写像で表される変換です.
+また\textgt{線型写像は行列で表現出来る}ということが証明できます.
 定理の証明前に予備考察を行ないます.
 まず長さを変えてはいけないので, いわゆる拡大・縮小に対応する変換ではいけません.
 そのほか角度というところから回転という変換が思いつきます.
@@ -1370,7 +1621,7 @@ $\langle \bm{e}_1 , \bm{e}_2, \bm{e}_3 \rangle = \langle \bm{e}_i \rangle _{i=1}
         \end{pmatrix}
     \end{gather}
 と書けます.
-これから平面の場合には回転が行列で表示でき, したがって線形写像で表現できることが分かります.
+これから平面の場合には回転が行列で表示でき, したがって線型写像で表現できることが分かります.
 ここでは省略しますが, 一般の次元でも同様に示せます.
 そこで問題は回転がどのような行列で表現できるか, というところです.
 結果からいうと, これは\textgt{直交行列}\index{ちょっこうぎょうれつ@直交行列}です.
@@ -1531,7 +1782,7 @@ $( T_O ( \bm{x} ) , T_O ( \bm{y} ) ) = ( \bm{x} , \bm{y} )$ となる
 ここで時間と空間の性質として上記の 2 つの仮定を認めた上での慣性系どうしの
 座標変換を\textgt{Galilei 変換}\index{がりれいへんかん@Galilei 変換}(Galilean transformation) といいます.
 Galilei 変換 $\bm{r} \mapsto \bm{r}' , t \mapsto t'$ では
- $d/dt = d/dt'$ であることから
+$d/dt = d/dt'$ であることから
     \begin{gather}
         \ddot{ \bm{r} }
         =
@@ -1632,14 +1883,13 @@ Newton 力学での時空間に対する仮定と変換則に支えられて得�
 ここで\textgt{非斉次ベクトル}\index{ひせいじべくとる@非斉次ベクトル} $\tilde{ \bm{R} }$ を
  $\tilde{ \bm{R} } = {^t} ( \bm{R} \,\, 1 ) = {^t}(x_0 \,\, x_1 \,\, x_2 \,\, x_3 \,\, 1 )$ と定義します.
 この記法で Galilei 変換を書き直すと
-    \begin{gather}
-        G
-%
-        \begin{cases}
-            x_0 \mapsto x'_0 = x_0 - \delta \\
-            \bm{r} \mapsto \bm{r}' = O \bm{r} - \bm{\alpha} \bm{\beta} x_0
-        \end{cases}
-    \end{gather}
+\begin{gather}
+ G:
+ \begin{cases}
+  x_0 \mapsto x'_0 = x_0 - \delta \\
+  \bm{r} \mapsto \bm{r}' = O \bm{r} - \bm{\alpha} \bm{\beta} x_0
+ \end{cases}
+\end{gather}
 となります. ただし $\bm{\beta} := \bm{u} / c , \delta := c \theta$ です.
 さらに $O$ は $\bm{r}$ が適当な座標系で表現されているものとして,
 直交変換 $T_O$ が直交行列 $O$ で表現しておきました.
@@ -1767,9 +2017,9 @@ $\partial f (x ,y , z) / \partial x , \partial f (r , \theta, \varphi) / \partia
 \subsubsection{定理の証明}
 \label{sec-4-1-2-3-6}
 
-最後に積み残した「有限次元の間の線形写像は行列で表現出来る」ということを証明します.
+最後に積み残した「有限次元の間の線型写像は行列で表現出来る」ということを証明します.
 まず 1 つ言葉を定義します.
-\textgt{ある $(m,n)$ 型行列によって定まる線形写像}\index{あるえむえぬがたぎょうれつによってさだまるせんけいしゃぞう@ある $(m,n)$ 型行列によって定まる線形写像}
+\textgt{ある $(m,n)$ 型行列によって定まる線型写像}\index{あるえむえぬがたぎょうれつによってさだまるせんけいしゃぞう@ある $(m,n)$ 型行列によって定まる線型写像}
 とは $(m,n)$ 型行列 $A$ に対して
 \begin{align}
  f_{A} ( \bm{x} )
@@ -1779,7 +2029,7 @@ $\partial f (x ,y , z) / \partial x , \partial f (r , \theta, \varphi) / \partia
 として定まる $\bC^n$ から $\bC^m$ への写像 $f_A$ のことをいいます.
 まずは標準基底 $\langle \bm{e}_i \rangle _{i=1}^n,\langle \bm{e}'_i \rangle _{i=1}^m$ に関して定式化します.
 \begin{thm}
-$\bC^n$ から $\bC^m$ への写像が線形写像であるための必要十分条件は,
+$\bC^n$ から $\bC^m$ への写像が線型写像であるための必要十分条件は,
 写像がある $(m,n)$ 型行列 $A$ によって定まることである.
 またこのとき $A$ はただ 1 つに定まる.
 \end{thm}
@@ -1798,7 +2048,7 @@ $\bC^n$ から $\bC^m$ への写像が線形写像であるための必要十分
 
 必要性を示しましょう.
 一般の $n$ 次でも大した手間はないので, 一般の状況で示します.
-$f : \bC^n \to \bC^m$ が線形写像であるとしましょう.
+$f : \bC^n \to \bC^m$ が線型写像であるとしましょう.
 $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangle _{i=1}^n$
 (\textgt{標準基底}\index{ひょうじゅんきてい@標準基底}) に取ります.
 これらが $f$ で写される先を $\bm{a}_j$ とします.
@@ -1813,7 +2063,7 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
 とします.
  $\bm{a}_j \in \bC^m$ , つまり $\bm{a}_j$ は $m$ 項列ベクトルです.
 ここで $(m,n)$ 型行列 $A$ を $A:=(\bm{a}_1,\dotsb,\bm{a}_n)$ として定義し,
- $A$ によって定まる $\bC^n$ から $\bC^m$ への線形写像を $T_A$ とすれば,
+ $A$ によって定まる $\bC^n$ から $\bC^m$ への線型写像を $T_A$ とすれば,
     \begin{align}
         f_A ( \bm{e}_j )
         =
@@ -1866,7 +2116,7 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
 上では標準基底で示しましたが, それ以外の適当な座標系を取ったときを考えます.
 まず予備定理を証明します.
 \begin{thm}
- $f : \bC^n \to \bC^m$ を線形写像,  $\bC^n, \bC^m$ の新たな座標系を
+ $f : \bC^n \to \bC^m$ を線型写像,  $\bC^n, \bC^m$ の新たな座標系を
 それぞれ $\langle \bm{u}_i \rangle _{i=1}^n,\langle \bm{v}_j \rangle _{j=1}^m$
 とする.
 さらに $\bm{\xi} := {^t} ( \xi_1 \dotsb \xi_n )$ ,  $\bm{\eta} := {^t} ( \eta_1 \dotsb \eta_m)$ とする.
@@ -1950,12 +2200,12 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
 
 \begin{rem}
 実は本定理で現れた $B$ は座標系として $\langle \bm{u}_i \rangle _{i=1}^n,\langle \bm{v}_j \rangle _{j=1}^m$
-を取ったときに線形写像 $f$ を表現する行列になっています.
+を取ったときに線型写像 $f$ を表現する行列になっています.
 \end{rem}
 
 それでは本題に入りましょう.
 \begin{thm}
- $\bC^n$ から $\bC^m$ への写像 $f$ が線形写像であるための必要十分条件は,
+ $\bC^n$ から $\bC^m$ への写像 $f$ が線型写像であるための必要十分条件は,
 任意に座標系 (基底) を定めたとき写像がある $(m,n)$ 型行列によって定まることである.
 またこのとき $A$ は各座標系に対しただ 1 つに定まる.
 \end{thm}
@@ -2046,17 +2296,17 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
     \label{eq:基底変換}
     \end{gather}
 が成立します.
-これから任意の座標系で線形写像は行列で表現でき,
-その行列は標準基底で線形写像を表現した行列と座標系の変換 (基底変換の行列) で
+これから任意の座標系で線型写像は行列で表現でき,
+その行列は標準基底で線型写像を表現した行列と座標系の変換 (基底変換の行列) で
 表されることが分かりました.  $\bs$
 \subsection{行列式}
 \label{sec-4-1-2-4}
 
 前節で述べたように
-線形変換は座標系 (基底) を選んだ上で一意的に行列で表すことが出来ます.
-物理法則の形不変性 (form invariance) の観点からみても, ある (線形の) 座標変換に逆変換が存在するかどうか
+線型変換は座標系 (基底) を選んだ上で一意的に行列で表すことが出来ます.
+物理法則の形不変性 (form invariance) の観点からみても, ある (線型の) 座標変換に逆変換が存在するかどうか
 調べることは重要なことです.
-これは行列で線形変換を具体的に表示して, その行列に逆行列があるか否かを調べれば良さそうです.
+これは行列で線型変換を具体的に表示して, その行列に逆行列があるか否かを調べれば良さそうです.
 というわけで, いくつかある逆行列の存在・非存在の判定法のうち, ここでは行列式を用いたものを紹介します.
 
 高校でも 2 次正方行列の行列式を学びました. よく使う行列式の記法を確認しておきます.
@@ -2094,13 +2344,13 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
 前節で説明した言葉を使ってこの性質をまとめると以下のようになります.
 \begin{defn}
  \textgt{行列式}\index{ぎょうれつしき@行列式}とは定義域が $M \left ( n,n \, ; \bm{C}^n \right)$ で値域が $\bm{C}$ の,
- 単位行列に対し 1 を対応させる, 列に関する交代性を持った多重線形写像である.
+ 単位行列に対し 1 を対応させる, 列に関する交代性を持った多重線型写像である.
 \end{defn}
 
 ここで $M \left ( n,m \, ; \bm{C}^n \right)$ とは $n \times m$ 型行列全体の集合でした.
-\textgt{多重線形性}\index{たじゅうせんけいせい@多重線形性}というのは,
+\textgt{多重線型性}\index{たじゅうせんけいせい@多重線型性}というのは,
 行列式は多変数写像 (関数) ですが, この全ての変数 (全ての列) に対し
-線形性を要求するということです.
+線型性を要求するということです.
 この性質を用いて $n$ 次行列式の持つ性質をいくつか調べて, 具体的に計算できるようにします.
 
 最終目標をはじめに示しておきます.
@@ -2178,7 +2428,7 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
     \end{align}
 といったことです.
 
-(証明) 多重線形性から
+(証明) 多重線型性から
     \begin{align}
         \det ( \bm{a}_{1} \,\, \bm{a}_{2} + c\bm{a}_{1} \,\, \bm{a}_{3} )
         = \det ( \bm{a}_{1} \,\, \bm{a}_{2} \,\, \bm{a}_{3} ) + c \det ( \bm{a}_{1} \,\, \bm{a}_{1} \,\, \bm{a}_{3} )
@@ -2208,10 +2458,10 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
     \end{thm}
 という定理を直接証明せずとも良いことが分かります. また定義としても
     \begin{defn}\textgt{行列式}は定義域が $M \left ( n,m \, ; \bm{C}^n \right)$ で値域が $\bm{C}$ の,
-単位行列に対し 1 を対応させる, \textgt{行}に関する交代性を持った多重線形写像である.
+単位行列に対し 1 を対応させる, \textgt{行}に関する交代性を持った多重線型写像である.
     \end{defn}
 を採用してよいことが分かります.
-転置行列と元の行列式の行列式の値が等しいことは多重線形性を用いて証明します.
+転置行列と元の行列式の行列式の値が等しいことは多重線型性を用いて証明します.
 
 (定理の証明)
     \begin{align}
@@ -2225,15 +2475,15 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
         =  \det \begin{pmatrix} \sum_{i=1}^3 a_{i1} \, ^{t}\bm{e}_{i} \\ \sum_{j=1}^3 a_{j2} \, ^{t}\bm{e}_j
         \\ \sum_{k=1}^3 a_{k3} \, ^{t}\bm{e}_{k} \end{pmatrix} \\
         = \sum_{i=1}^3 \sum_{j=1}^3 \sum_{k=1}^3 a_{i1} a_{j2} a_{k3}
-            \det \begin{pmatrix} ^{t}\bm{e}_{i} \\ ^{t}\bm{e}_{j} \\ ^{t}\bm{e}_{k} \end{pmatrix}\text{(多重線形性)} ,\\
+            \det \begin{pmatrix} ^{t}\bm{e}_{i} \\ ^{t}\bm{e}_{j} \\ ^{t}\bm{e}_{k} \end{pmatrix}\text{(多重線型性)} ,\\
         \det \begin{pmatrix} \bm{a}_1 \,\, \bm{a}_2 \,\, \bm{a}_3 \end{pmatrix}
         = \det \left (  \sum_{i=1}^3 a_{i1} \, \bm{e}_{i}  \,\,\,  \sum_{j=1}^3 a_{j2} \, \bm{e}_{j}
                 \,\,\,  \sum_{k=1}^3 a_{ki} \, \bm{e}_{k}  \right) \\
         = \sum_{i=1}^3 \sum_{j=1}^3 \sum_{k=1}^3 a_{i1} a_{j2} a_{k3}
-            \det \left ( \bm{e}_{i} \, \bm{e}_{j} \, \bm{e}_{k} \right) \text{(多重線形性)}  \\
+            \det \left ( \bm{e}_{i} \, \bm{e}_{j} \, \bm{e}_{k} \right) \text{(多重線型性)}  \\
         \Longleftrightarrow
         0 = \sum_{i=1}^3 \sum_{j=1}^3 \sum_{k=1}^3 a_{i1} a_{j2} a_{k3}
-                                    \left \{        \det \begin{pmatrix}
+                                    \left \{            \det \begin{pmatrix}
                                                         ^{t}\bm{e}_{i} \\ ^{t}\bm{e}_{j} \\ ^{t}\bm{e}_{k}
                                                      \end{pmatrix}
                                                 -\det \left ( \bm{e}_{i} \, \bm{e}_{j} \, \bm{e}_{k} \right)
@@ -2294,7 +2544,7 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
 です. 3 次行列の行列式と 2 次行列の行列式を結ぶ式ですから, 重要そうな気配がするわけです.
 
 (定理の証明)
-前に示した定理と多重線形性から
+前に示した定理と多重線型性から
     \begin{gather}
         \begin{vmatrix} 1 & a_{12} & a_{13} \\
                               0 & a_{22} & a_{23} \\
@@ -2375,7 +2625,7 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
                     \end{vmatrix}
         \end{align}
     \end{thm}
-(証明) まず $\bm{a}_{1} = a_{11}\bm{e}_{1} + a_{21}\bm{e}_{2} + a_{31}\bm{e}_{3}$ を用いて多重線形性から
+(証明) まず $\bm{a}_{1} = a_{11}\bm{e}_{1} + a_{21}\bm{e}_{2} + a_{31}\bm{e}_{3}$ を用いて多重線型性から
     \begin{gather}
         \begin{vmatrix} a_{11} & a_{12} & a_{13} \\
                         a_{21} & a_{22} & a_{23} \\
@@ -2430,7 +2680,7 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
 行列式に関する定理をもう 2 つ紹介しておきます.
     \begin{thm}2 つの行列の積の行列式はそれぞれの行列式の積に等しい. すなわち $\det A \det B = \det (AB)$
     \end{thm}
-(証明) これも多重線形性が命です.
+(証明) これも多重線型性が命です.
     \begin{align}
         \det (AB) &= \det \left ( \sum_{i=1}^3 b_{i1}\bm{a}_i
                         \,\,\, \sum_{j=1}^3 b_{j2}\bm{a}_j  \,\,\, \sum_{k=1}^3 b_{k3}\bm{a}_k \right) \\
@@ -2657,28 +2907,28 @@ x_{1}y_{2} - x_{2}y_{1}
 \end{align}
 となり, 確かに上の定義と一致します. これを記憶法といって定義としなかった理由は
 成分にベクトルと実数が共存する行列式を定義していないからです.
-\subsection{線形独立と基底, 次元 \label{sec:basis}}
+\subsection{線型独立と基底, 次元 \label{sec:basis}}
 \label{sec-4-1-2-6}
 
-とりあえず天下りですが, 線形結合と線形独立, 線形従属の定義を述べます.
+とりあえず天下りですが, 線型結合と線型独立, 線型従属の定義を述べます.
 あまり変わらないので, 本節は一般の $n$ で述べます.
  $\bm{C}^n$ のベクトル $\bm{a}_{1},\bm{a}_{2},...,\bm{a}_{m}$ に対して
     \begin{align}
         c_{1}\bm{a}_{1} + c_{2}\bm{a}_{2} + \dots + c_{m}\bm{a}_{m}
     \end{align}
-の形のベクトルを $\bm{a}_{1},\bm{a}_{2},...,\bm{a}_{m}$ の\textgt{線形結合}\index{せんけいけつごう@線形結合}といいます.
+の形のベクトルを $\bm{a}_{1},\bm{a}_{2},...,\bm{a}_{m}$ の\textgt{線型結合}\index{せんけいけつごう@線型結合}といいます.
 高校では一次結合と呼んでいたかもしれません.
 
 ベクトル $\bm{a}_{1},\bm{a}_{2},...,{a}_{m}$ の間の関係
     \begin{align}
         c_{1}\bm{a}_{1} + c_{2}\bm{a}_{2} + \dots + c_{n}\bm{a}_{m} = \bm{0}
     \end{align}
-を\textgt{線形関係}\index{せんけいかんけい@線形関係}と呼びます. 全ての $c_{i}$ が $0$ の場合がありますから, 線形関係は必ず存在します.
-これを\textgt{自明な}線形関係といいます.
-自明でない線形関係はあるとは限りませんが,
-    \begin{defn}自明でない線形関係が存在するとき,  $\bm{a}_{1},\bm{a}_{2},...,\bm{a}_{m}$ は
-\textgt{線形従属}\index{せんけいじゅうぞく@線形従属}である
-自明な線形関係が存在しないとき,  $\bm{a}_{1},\bm{a}_{2},...,\bm{a}_{m}$ は\textgt{線形独立}\index{せんけいどくりつ@線形独立}である.
+を\textgt{線型関係}\index{せんけいかんけい@線型関係}と呼びます. 全ての $c_{i}$ が $0$ の場合がありますから, 線型関係は必ず存在します.
+これを\textgt{自明な}線型関係といいます.
+自明でない線型関係はあるとは限りませんが,
+    \begin{defn}自明でない線型関係が存在するとき,  $\bm{a}_{1},\bm{a}_{2},...,\bm{a}_{m}$ は
+\textgt{線型従属}\index{せんけいじゅうぞく@線型従属}である
+自明な線型関係が存在しないとき,  $\bm{a}_{1},\bm{a}_{2},...,\bm{a}_{m}$ は\textgt{線型独立}\index{せんけいどくりつ@線型独立}である.
     \end{defn}
 と定義します.
 
@@ -2686,8 +2936,8 @@ x_{1}y_{2} - x_{2}y_{1}
     \begin{defn} $\bm{C}^n$ の有限個のベクトル $\bm{e}_{1},\bm{e}_{2},...,\bm{e}_{m}$ が次の 2 条件を満たすとき,
 これらのベクトルが\textgt{基底}\index{きてい@基底}であるという.
     \begin{enumerate}
-        \item  $\bm{C}^n$ の任意のベクトルは $\bm{e}_{1},\bm{e}_{2},...,\bm{e}_{m}$ の線形結合として表される.
-        \item  $\bm{e}_{1},\bm{e}_{2},...,\bm{e}_m$ は線形独立である.
+        \item  $\bm{C}^n$ の任意のベクトルは $\bm{e}_{1},\bm{e}_{2},...,\bm{e}_{m}$ の線型結合として表される.
+        \item  $\bm{e}_{1},\bm{e}_{2},...,\bm{e}_m$ は線型独立である.
     \end{enumerate}
     \end{defn}
 定義から, 基底は何か特定の一組のものを指しているわけではありません.
@@ -2729,8 +2979,8 @@ x_{1}y_{2} - x_{2}y_{1}
 これもまた, \textgt{空間内の全ての点を表現出来ない}と困るというところが重要です.
 先程同様, 基底が 2 つのベクトルからなるとしても高校で学んだとおり, 良くて平面上の点しか記述出来ません.
 というわけで 3 本以上は欲しいことがわかります.
-詳しく述べるのはやめますが, 3 次元空間内では 4 本以上あるとこれは上で定義した言葉を使うと, このベクトルの組は線形従属になります.
-線形従属だと, その中のベクトルのうちいくつかはその組の中のベクトルのいくつかで書くことが出来, 空間の点を全て表現する,
+詳しく述べるのはやめますが, 3 次元空間内では 4 本以上あるとこれは上で定義した言葉を使うと, このベクトルの組は線型従属になります.
+線型従属だと, その中のベクトルのうちいくつかはその組の中のベクトルのいくつかで書くことが出来, 空間の点を全て表現する,
 という観点からは別に無くても不自由しません.
 ということで,  $\mathbb{R}^3$ の基底は 3 つあればよい, ということです. 実際標準基底はそうなっています.
 
@@ -3097,7 +3347,7 @@ A = \beta _1 P_1 + \beta _2 P_2 + \dots + \beta _k P_k
 適当な本を見ると載っていますから, まずは自分でアタックしてみて下さい.
 本節もまだ残り一節ありますが, 次の予告をしましょう.
 次章は一般のポテンシャルとその安定点近傍での振動です. 数学的には微分積分学です.
-\subsection{無限次元の線形代数学}
+\subsection{無限次元の線型代数学}
 \label{sec-4-1-2-10}
 
 この節は後々への接続と量子力学のためのものです
@@ -3133,12 +3383,12 @@ A = \beta _1 P_1 + \beta _2 P_2 + \dots + \beta _k P_k
 確かにこれは $3$ 次元の空間ベクトルですが, これに空間的な描像を対応させる人は
 あまりいないでしょう.
 ここではそれをさらに先鋭化させていきます.
-\subsubsection{線形空間}
+\subsubsection{線型空間}
 \label{sec-4-1-2-10-2}
 
-ここで一般的なベクトルの定義 (線形空間の定義) をしてもう一度はっきりさせておきましょう.
+ここで一般的なベクトルの定義 (線型空間の定義) をしてもう一度はっきりさせておきましょう.
 \begin{defn}
-ある集合 $V$ が $\bC$ 上の\textgt{(複素) 線形空間}\index{せんけいくうかん@線形空間}であるとは,
+ある集合 $V$ が $\bC$ 上の\textgt{(複素) 線型空間}\index{せんけいくうかん@線型空間}であるとは,
 $f,g \in V$ に対して\textgt{和 (加法)}と呼ばれる演算
 があって $f+g$ が定まり, かつ $f+g \in V$ となり, 複素数 $\alpha$ と $f\in V$ に対して
 \textgt{スカラー積}と呼ばれる演算があって
@@ -3177,16 +3427,16 @@ $\alpha f$ が定まり, かつ $\alpha f \in V$ となって, これらが次�
 
 そろそろベクトルに対して今までの $\bm{x}$ と異なり, 太字ですら無い $f$ をつかっている理由を説明しましょう.
 ここから出てくるベクトルは\textgt{無限次元}を射程に入れた議論をしています.
-主に扱うものは\textgt{数列, 関数 (写像), 線形作用素}です.
+主に扱うものは\textgt{数列, 関数 (写像), 線型作用素}です.
 ここで数列は自然数を定義域とした複素数を値域とする関数 (写像) ですから, 関数の取り扱いを基本とします.
-本冊子で扱う線形作用素はほぼ\textgt{微分作用素, 積分作用素}です.
+本冊子で扱う線型作用素はほぼ\textgt{微分作用素, 積分作用素}です.
 高校までに学んできた微分・積分は「演算」という印象が強かったと思います.
 ここでは作用という性質を前面に出します.
 
 まずは次の定理を証明します.
 \begin{thm}
 関数空間\index{かんすうくうかん@関数空間} $\mathcal{F}(\bC,\bC)$
-は線形空間である.
+は線型空間である.
 \end{thm}
 (証明)
 ここではじめの方に述べた「関数」と「関数値」の区別が重要になります.
@@ -3269,7 +3519,7 @@ $\alpha f$ が定まり, かつ $\alpha f \in V$ となって, これらが次�
         (\alpha + \beta ) f &= \alpha f + \beta f
     \end{align}
 以上で関数がベクトルである証明は終わりました.  $\blacksquare$
-これで関数の集合が線形空間であることが示されました. 線形空間としての関数の集合を
+これで関数の集合が線型空間であることが示されました. 線型空間としての関数の集合を
 \textgt{関数空間}と呼ぶことがあります.
 
 作用素についても同じように出来ます. 作用素を $A$ とします.
@@ -3283,25 +3533,25 @@ $\bbR$ への関数全体の集合を $C^{r}(\Omega,\bbR)$ と書きますが, �
 A + B \longrightarrow (A + B) f:= Af + Bf \\
 \alpha A \longrightarrow  (\alpha A ) f := \alpha Af
 \end{gather}
-\subsubsection{線形独立と次元, 基底 2}
+\subsubsection{線型独立と次元, 基底 2}
 \label{sec-4-1-2-10-3}
 
 退屈な話が続きました.
 そろそろもう少し身のある話に行きます. ここからは今までに有限次元 ( $\bC^n$ ) でしてきた話を
 無限次元を視野に入れて話しなおします.
 
-まずは線形独立性です.
+まずは線型独立性です.
 \begin{defn} $V= \{ f_{\lambda} \, ; \, \lambda \in \Lambda \}$ の元
-が\textgt{線形独立}\index{せんけいどくりつ@線形独立}であるというのは
-任意の有限個の $V$ の元 $f_{\lambda _1},\dots,f_{\lambda _n}$ が線形独立であることをいう.
+が\textgt{線型独立}\index{せんけいどくりつ@線型独立}であるというのは
+任意の有限個の $V$ の元 $f_{\lambda _1},\dots,f_{\lambda _n}$ が線型独立であることをいう.
     \end{defn}
-直接に無限個の一次独立性を言わないのは, 無限個の元の線形結合を考えると
-級数の収束の問題が入ってきて線形結合の係数に余計な制限が加わるからです.
+直接に無限個の一次独立性を言わないのは, 無限個の元の線型結合を考えると
+級数の収束の問題が入ってきて線型結合の係数に余計な制限が加わるからです.
 
 次に次元\index{じげん@次元}です.
-    \begin{defn}ある正数 $K$ が存在して $V$ の任意の線形独立な元の組
+    \begin{defn}ある正数 $K$ が存在して $V$ の任意の線型独立な元の組
  $\{ f_i \} _{i=1}^r$ に対し $r \leq  K$ となるとき,  $V$ は\textgt{有限次元}であるという.
-一方, どんなに大きい正数 $K$ をとってもある線形独立な元の組 $\{ f_i \} _{i=1}^r$
+一方, どんなに大きい正数 $K$ をとってもある線型独立な元の組 $\{ f_i \} _{i=1}^r$
 が存在して $r \geq  K$ となるとき,  $V$ は\textgt{無限次元}であるという.
     \end{defn}
 
@@ -3311,8 +3561,8 @@ A + B \longrightarrow (A + B) f:= Af + Bf \\
 \begin{defn} $V$ の部分集合 $E=\{ f_{\lambda}\, ; \, \lambda \in \Lambda \}$ が
 \textgt{基底}\index{きてい@基底}であるというのは次の 2 条件が成り立つときである.
 \begin{enumerate}
-\item  $V$ の任意の元は $E$ の元の線形結合として表される.
-\item  $E$ は線形独立である.
+\item  $V$ の任意の元は $E$ の元の線型結合として表される.
+\item  $E$ は線型独立である.
 \end{enumerate}
 \end{defn}
 
@@ -3322,7 +3572,7 @@ A + B \longrightarrow (A + B) f:= Af + Bf \\
 を証明しましょう.
 関数空間としては, 一旦実数から実数への関数の集合を取ります. この部分集合としては $f_n (x) = x^n$ となる関数の集合
  $\mathcal{F}= \{ f_n \, ; \, n \in \mathbb{N} \}$ を取ります.
- $\mathcal{F}$ は無限個の元からなっています. したがってこの任意の有限個の元の線形結合がベクトルとしての零,
+ $\mathcal{F}$ は無限個の元からなっています. したがってこの任意の有限個の元の線型結合がベクトルとしての零,
 つまり零関数 $\theta$ であることを示せば良いわけです. 簡単のため,  $g=c_{0}f_{0}+c_{1}f_{1}+ \dots + c_{n}f_{n}$ を考えましょう.
 たまたま $g$ は微分できるのでそれを使いましょう.
  $g (x)=0$ の両辺を $k$ 階微分して $0$ を代入すると
@@ -3366,7 +3616,7 @@ A + B \longrightarrow (A + B) f:= Af + Bf \\
 という簡単な不等式を使います.
 両辺の和を取ると, まず右辺は収束します. 左辺は正数の和ですから単調増加で,
 さらに収束級数の和で抑えられていますから上に有界です. 上の定理によりこれは収束します.
-これで $l^2$ が線形空間であることが分かりました.  $\blacksquare$
+これで $l^2$ が線型空間であることが分かりました.  $\blacksquare$
 
 次は $l^2$ の元の内積がきちんと収束することを示さないといけません. こちらもまた初等的な不等式ですが,
 \begin{align}
@@ -3378,7 +3628,7 @@ A + B \longrightarrow (A + B) f:= Af + Bf \\
 
 ちなみに「内積」とは言いますが, 有限次元の内積が持つような性質を無限次元でも同様に持っていてもらいたいわけです.
 それでは有限時限の内積が持つ性質とは何でしょうか? これは以下に述べるようなものです. それを定義として採用します.
-    \begin{defn}\textgt{内積}\index{ないせき@内積}とは線形空間 $V$ の 2 元 $f,g$ に対して複素数を対応させ, かつ以下の性質を満たす写像である.
+    \begin{defn}\textgt{内積}\index{ないせき@内積}とは線型空間 $V$ の 2 元 $f,g$ に対して複素数を対応させ, かつ以下の性質を満たす写像である.
     \begin{align}
         (f,f) &\geq 0 \\
         (f,f) &= 0 \Longleftrightarrow f = \theta \\
@@ -3387,7 +3637,7 @@ A + B \longrightarrow (A + B) f:= Af + Bf \\
     \end{align}
     \end{defn}
 上の 2 つの性質は\textgt{正定値性}\index{せいていちせい@正定値性}と呼ばれます. これを使うと内積は
-\textgt{正定値性を持つ双線形写像}であると言えます.
+\textgt{正定値性を持つ双線型写像}であると言えます.
 
 また記法として主に無限次元のベクトルに対して, 今後ベクトルの長さを
     \begin{align}
@@ -3492,7 +3742,7 @@ f (x)
 \label{sec-4-1-2-10-6}
 
 そろそろ筆者の知識と認識の限界に来ているのですが, もう少し書きましょう.
-線形作用素についてです.  $t$ を時間として微分作用素を $D:=\frac{d}{dt}$ とします.
+線型作用素についてです.  $t$ を時間として微分作用素を $D:=\frac{d}{dt}$ とします.
  $D^2=\frac{d^2}{dt^2}$ としましょう.
 見やすくするため,  $x (t) = f (t)$ と書きます. 運動方程式は以下のような方程式になります.
     \begin{align}
@@ -3514,9 +3764,9 @@ f (x)
 となるわけです. となると,  $k^2=-\omega^2$ となる数を探してくれば答が見つかります.
 2 乗して負になる数として虚数単位の $i$ さんがいらっしゃいました. したがって $k=\pm i\omega$ です.
 ここで実は何処かの誰かがこの方程式の解として三角関数がある, ということを教えてくれたとしましょう.
-実は 2 階の常微分方程式の解は 2 次元の線形空間になっていまして,  $\cos \omega t,\sin \omega t$ は基底になっています
-一意性から $e^{i\omega x}$ は三角関数の線形結合で書けないと困ります. しかも虚数が入っているので
-係数に虚数を含んだ線形結合になるでしょう. 結果としてはご存知の方もたくさんいることでしょう.
+実は 2 階の常微分方程式の解は 2 次元の線型空間になっていまして,  $\cos \omega t,\sin \omega t$ は基底になっています
+一意性から $e^{i\omega x}$ は三角関数の線型結合で書けないと困ります. しかも虚数が入っているので
+係数に虚数を含んだ線型結合になるでしょう. 結果としてはご存知の方もたくさんいることでしょう.
 Euler (オイラー) の公式という次式になります.
     \begin{align}
         e^{ix} = \cos x + i \sin x
@@ -3684,10 +3934,10 @@ $\frac{1}{2}kx^2,-G\frac{Mm}{r}$ などの項が
 以上から, どの方向から原点に近づいても, というような条件を
 数学的にどう定式化していくかが鍵になりそうです.
 
-そして私たちは前章で線形代数を学びました.
+そして私たちは前章で線型代数を学びました.
 出来ればそれを上手く使っていけると嬉しいわけです.
 その方法として
-\textgt{線形化}\index{せんけいか@線形化}
+\textgt{線型化}\index{せんけいか@線型化}
 ということを考えます.
 高校で微分を用いた一次近似式を学んだと思います.
 接線, といえばもっとはっきりするでしょう.
@@ -3701,9 +3951,9 @@ $\frac{1}{2}kx^2,-G\frac{Mm}{r}$ などの項が
 これは曲がったものを十分小さいところで考えてまっすぐのものとみなす
 考えは, 日常的な行為であり直観的にも正当なものであると考えられます.
 
-私たちはこれを\textgt{線形化}と呼びましょう.
+私たちはこれを\textgt{線型化}と呼びましょう.
 そして上に述べた直観を数学の理論として取り込むべく,
-線形化法として微分を考えてみましょう.
+線型化法として微分を考えてみましょう.
 せっかくなので本章では微分だけでなく積分も説明します.
 こちらは微分方程式の実際の解法を考えることから導入してみたいと思います.
 \section{$\varepsilon$ - $\delta$ 論法と収束}
@@ -4116,7 +4366,7 @@ Cauchy 列は収束することを公理として要請していますから, �
 \label{sec-5-2-3}
 
 まずは定義域が開区間 $I =(a,b) \in \bm{R}$ の 1 変数実数値関数
- $f (x)$ の線形化\index{せんけいか@線形化}を考えてみましょう.
+ $f (x)$ の線型化\index{せんけいか@線型化}を考えてみましょう.
  $y=f (x)$ のグラフを考えます.
 簡単のため, はじめは座標を適当にとって原点の近くで考えることにします.
 直観的な描像から原点の近くで関数値の差が直線になっていてくれれば
@@ -4128,7 +4378,7 @@ Cauchy 列は収束することを公理として要請していますから, �
 ここで $O\left ( (x-0)^2 \right)$ は $h$ がある程度大きくなってくると当然曲がりが大きくなる
 ので, その補正です. 曲がりなので $(x-0)^2$ 以上の項で適当に近似できるものと考えます.
 
-ここで原点の十分近くでの線形化ですから, 定数 $A$ は
+ここで原点の十分近くでの線型化ですから, 定数 $A$ は
 原点のみで決まって欲しいと思います.
 つまり $x$ が十分小さいうちは $A$ だけで $f (x)$ の挙動が完璧
 に把握できるものとしたいわけです.
@@ -4143,10 +4393,10 @@ Cauchy 列は収束することを公理として要請していますから, �
         f (x) - f (x_0) = A (x_0) (x-x_0) + O\left ( (x-x_o)^2 \right) \\
         \lim_{x \to x_0}\frac{O\left ( (x-x_0)^2 \right) }{x-x_0}=0
     \end{gather}
-と書けるとき,  $f$ は $x_0$ で線形化可能 (\textgt{微分可能})\index{びぶんかのう@微分可能}であるといい,
+と書けるとき,  $f$ は $x_0$ で線型化可能 (\textgt{微分可能})\index{びぶんかのう@微分可能}であるといい,
  $A$ を $f$ の $x_0$ における\textgt{導値}\index{どうち@導値}または\textgt{微分係数}\index{びぶんけいすう@微分係数}という.
 このとき,
-    \begin{align}   A=f'(x_0)=\frac{df}{dx}=\frac{df}{dx} \Big|_{x=x_0}
+    \begin{align}       A=f'(x_0)=\frac{df}{dx}=\frac{df}{dx} \Big|_{x=x_0}
         (Df) (x_0)=\left ( f (x) \right) ' =
         \left ( f (x) \right) ' \big|_{x=x_0}
     \end{align}
@@ -4162,7 +4412,7 @@ Cauchy 列は収束することを公理として要請していますから, �
     \end{align}
 となり, 確かに一致しました.
 
-線形化はあくまで近似ですから近似の度合いを高め, さらに正確なものが得られる
+線型化はあくまで近似ですから近似の度合いを高め, さらに正確なものが得られる
 かどうかということを考えてみましょう.
 考えるのは $O\left ( (x-0)^2 \right)$ を正確に評価することです.
 ここで高校で学んだ平均値の定理を考えましょう.
@@ -4178,7 +4428,7 @@ Cauchy 列は収束することを公理として要請していますから, �
     \end{align}
 が出ます.
 
-ここで $f$ が\textgt{ $I$ で 2 階微分可能である}とします. すると $f'$ が線形化できて,
+ここで $f$ が\textgt{ $I$ で 2 階微分可能である}とします. すると $f'$ が線型化できて,
 \begin{gather}
  f'(x + \theta _1 (x-x_0)) - f'(x_0) \\
  =
@@ -4325,7 +4575,7 @@ $x \to x_0$ としたときにきちんと両辺が一致するようにつけ�
     \end{align}
 上の収束は $y$ によらないので, 任意の実数 $y$ に対して上の Taylor 展開が成立します.
 ここで $y=x^{2n}$ としたものが $\cos$ です.
-この展開はある点のそばでの線形化 (近似) からはじまったものですが,
+この展開はある点のそばでの線型化 (近似) からはじまったものですが,
 その近似を高めていったところ任意の実数に対して成立してしまいました.
 恐るべき結果です.  $\sin$ もほとんど同じです. ついでに $e^x$ もほとんど同じです.
 
@@ -4386,20 +4636,20 @@ Euler (オイラー) の公式\index{おいらーのこうしき@Euler の公式
 1 変数の実数値関数のときの扱いと比べると, これが「平面」内の「曲線」を取り扱うことに相当したのと同様に
 今度は「空間」内の「曲面」を扱うことになり, ある程度は直観を働かせることも出来ます.
 
-まず 2 変数の線形化 (線形近似)\index{せんけいか@線形化}が何になるかを考えてみます.
+まず 2 変数の線型化 (線型近似)\index{せんけいか@線型化}が何になるかを考えてみます.
 1 変数のときは高校で学んだとおり直線でした.
 直線とは 1 次元のものです.
-これから 2 変数での線形近似は 2 次元のもの, 平面で行なうのが妥当であると考えられます.
+これから 2 変数での線型近似は 2 次元のもの, 平面で行なうのが妥当であると考えられます.
 高校では空間内の平面をあまりやっていないものと思うので, 少しこれを補足します.
 高校の教科書にも軽く載っていたと思いますが, ある平面は一直線上にない 3 点 $A,B,C$ を適当に取ることで指定することが出来ます.
-3 点が一直線上にないので, 例えば $\overrightarrow{AB},\overrightarrow{AC}$ を考えれば, これらは線形独立であって, 平面内の任意の点が
-この 2 本のベクトルの線形結合で書けることになります.
+3 点が一直線上にないので, 例えば $\overrightarrow{AB},\overrightarrow{AC}$ を考えれば, これらは線型独立であって, 平面内の任意の点が
+この 2 本のベクトルの線型結合で書けることになります.
 
-つまり, 1 変数の実数値関数のときは平面内の曲線の挙動を捉えるのに直線 (接線) による線形化を用いましたが,
-2 変数の実数値関数では空間内の曲面の挙動を捉えるのに平面 (接平面) による線形化を用い,
+つまり, 1 変数の実数値関数のときは平面内の曲線の挙動を捉えるのに直線 (接線) による線型化を用いましたが,
+2 変数の実数値関数では空間内の曲面の挙動を捉えるのに平面 (接平面) による線型化を用い,
 さらに曲面上の各点での平面の挙動は 2 本の直線で捉えるということです.
 
-それでは実際に線形化を開始します.
+それでは実際に線型化を開始します.
 適当に $\bm{x}=\,^t (x,y)$ を取り, 十分小さい $h,k$ を取って $\bm{h}=\,^t (h,k)$ とし,
  $\bm{r}+\bm{h}$ での様子を考えてみます.
     \begin{align}
@@ -4414,7 +4664,7 @@ Euler (オイラー) の公式\index{おいらーのこうしき@Euler の公式
 そこで不等式 $\min \{ h^2,k^2  \} \leq |hk|\leq h^2 + k^2$ を参考にして, 2 次の挙動は
  $(h^2,hk^,k^2)/|\bm{h}|^2\to0$ で上手く押さえられるものとします.
 
-さて, この線形化を 1 変数のときと同じように一次関数の形で書いてみましょう.
+さて, この線型化を 1 変数のときと同じように一次関数の形で書いてみましょう.
  $A:=(a,b),\bm{h}:=\,^t (h,k)$ とすれば,
     \begin{align}
         f (x+h,y+k) - f (x,y)
@@ -4434,7 +4684,7 @@ Euler (オイラー) の公式\index{おいらーのこうしき@Euler の公式
 と書けるとき,  $f$ は $\bm{x}$ で\textgt{微分可能}\index{びぶんかのう@微分可能}であるといい,
  $A$ を $f$ の $\bm{x}$ における\textgt{導値}\index{どうち@導値}または\textgt{微分係数}\index{びぶんけいすう@微分係数}という.
 このとき,
-    \begin{align}   A=f'(\bm{x})=(Df) (\bm{x})=\left ( f (\bm{x}) \right) '
+    \begin{align}       A=f'(\bm{x})=(Df) (\bm{x})=\left ( f (\bm{x}) \right) '
     \end{align}
 などと書く.  $I$ の各点で $f$ が微分可能であるとき,  $I \to \bm{R}$ への関数
  $f':x \mapsto f'(x)$ が生じる. これを $f$ の\textgt{導関数}\index{どうかんすう@導関数}という.
@@ -4838,7 +5088,7 @@ fB + gA
 \label{sec-5-2-8}
 
 多変数の実数値関数に関しても Taylor の定理が成立します.
-1 変数のときと同じようにして線形化を中心に組み立てれば良いのですが,
+1 変数のときと同じようにして線型化を中心に組み立てれば良いのですが,
 1 変数と同じなのでそこの詳論は控えます.
 まずは予備定理から証明します.
 
@@ -4923,7 +5173,7 @@ Taylor の定理から, ある実数 $\theta\in (0,1)$ が存在して
 この基底に沿った方向微分を考えれば, 新たな方向微分が得られます.
 これを繰り返せば, 原理的には「あらゆる方向からの微分」を考えることが出来ますが, 非常に面倒どころか
 変化の方向は無限にあるので, 人間の手では追いつきません.
-そこで線形代数で示した\textgt{(空間内の) 任意の回転は直交行列で表現出来る}という定理を使います.
+そこで線型代数で示した\textgt{(空間内の) 任意の回転は直交行列で表現出来る}という定理を使います.
  $\bm{x}=\,^t (x_1,x_2,x_3)$ を回転させたベクトルを $\bm{y}=\,^t (y_1,y_2,y_3)$ とすると
  $\bm{y}=U\bm{x}(\bm{x}=\,^tU\bm{y})$ となります. 成分で書くと,  $y_k=U_{ki}x_i (x_i=\,^tU_{ik}y_k)$ です.
 さらに微分作用素の方も変換しないといけません.
@@ -4945,7 +5195,7 @@ Taylor の定理から, ある実数 $\theta\in (0,1)$ が存在して
         &=
         \sum_{i=1}^3 \frac{\partial f } {\partial x_i }(\bm{x}) z_i
         =
-        \sum_{i=1}^3 \sum_{k=1}^{3} U_{ki} \frac{\partial } {\partial y_k}g (\bm{y}) z_i\\
+        \sum_{i=1}^3 \sum_{k=1}^{3}     U_{ki} \frac{\partial } {\partial y_k}g (\bm{y}) z_i\\
         &=
         \sum_{i=1}^3 \sum_{k=1}^{3} \frac{\partial } {\partial y_k} g (\bm{y}) U_{ki} z_i
         =
@@ -5039,7 +5289,7 @@ $\square := (1/v^2) \partial _t ^2 - \nabla ^2$
 2 つの波 $u_1,u_2$ があるとしましょう. この 2 つを重ね合わせたものもまた波である, というのは $u := u_1 + u_2$ が
 波動方程式の解となるということです.  $u_1,u_2$ それぞれが波動方程式の解ですから,
 $\square u_i = 0 ( i=1,2 )$ となります.
-微分作用素 $\square$ は線形作用素ですから,  $\square u = \square u_1 + \square u_2 = 0 + 0 = 0$ となり,
+微分作用素 $\square$ は線型作用素ですから,  $\square u = \square u_1 + \square u_2 = 0 + 0 = 0$ となり,
 重ね合わせた $u$ も確かに波動方程式を満たします.
 
 少し脱線します. ここで Euler の公式
@@ -5065,7 +5315,7 @@ u (x,t)
 ここで $a (k,\omega)$ は重ね合わせる際の荷重です.
 ちなみにこれを $u$ の\textgt{Fourier 逆変換}\index{ふーりえぎゃくへんかん@Fourier 逆変換}といいます.
 ついでにいうと, 上の表示では単発の (重ね合わせされていない) 正弦波そのものを表現しきれません.
-この不都合を解消する為に 1 つの「関数」を導入します. 線形代数で学んだ Kronecker の $\delta$ を真似た (と思われる)
+この不都合を解消する為に 1 つの「関数」を導入します. 線型代数で学んだ Kronecker の $\delta$ を真似た (と思われる)
 \textgt{Dirac の $\delta$ 関数}\index{でるたかんすう@ $\delta$ 関数}
 $\delta (x)$ です. これは上の式の正当化をこめて, 次のように積分を用いて定義します.
 \begin{align}
@@ -5096,13 +5346,13 @@ a (k , \omega )
 です. これを $\hat {u} (k,\omega ), \mathcal{F}[u] (k,\omega)$ などと書きます.
 Fourier 逆変換は $\mathcal{F}^{-1}[u] (k,\omega)$ と書きます.
 
-さらに少々線形代数を思い出してもらいましょう. 行列 $A$ に対して $A\bm{x}=\lambda \bm{x}$ をみたす $\lambda , \bm{x}$ を
+さらに少々線型代数を思い出してもらいましょう. 行列 $A$ に対して $A\bm{x}=\lambda \bm{x}$ をみたす $\lambda , \bm{x}$ を
 固有値・固有ベクトルといいました.
 正確には\textgt{変数分離}という手法を用いた後に分かることですが,  $e^{i (kx-\omega t)}$ は
-線形作用素 $\square$ の固有ベクトルになります.
+線型作用素 $\square$ の固有ベクトルになります.
 さらにスペクトル分解というのは, (正規) 行列を
 固有ベクトルと平行な成分への射影子と固有値の積を用いて分解するものでした.
-これを用いて微分作用素 (線形作用素!) $\square$ のスペクトル分解\index{すぺくとるぶんかい@スペクトル分解} を行なうと,
+これを用いて微分作用素 (線型作用素!) $\square$ のスペクトル分解\index{すぺくとるぶんかい@スペクトル分解} を行なうと,
 \begin{align}
 \square
 =
@@ -5113,7 +5363,7 @@ Fourier 逆変換は $\mathcal{F}^{-1}[u] (k,\omega)$ と書きます.
 e^{i (kx - \omega t)} \, dk \, d\omega
 \end{align}
 となります. ただし, これは作用素としての等式です.
-ここでは線形代数が無限次元に拡張されていく様を見ておいてください.
+ここでは線型代数が無限次元に拡張されていく様を見ておいてください.
 \section{最大最小, 極値問題}
 \label{sec-5-2-9}
 
@@ -5546,13 +5796,13 @@ $N$ 個の互いに独立な調和振動子\index{ちょうわしんどうし@�
 欲張らずにまずは速度 $\dot{ \bm{r} } = \bm{v}$ を求めてみましょう.
 初期時刻を $t = t_i$ , 初期速度 $\bm{v} ( t_i ) := \bm{v}_0$ として,
 適当な時間 $t_f>0$ での質点の速度を求めることにします.
-前の節で微分とは線形化であるということを見ました.
+前の節で微分とは線型化であるということを見ました.
 非常に短い時間間隔 $\varDelta t >0$ を取れば, 質点に働く力は
 $\deltat$ の間 $\bm{f} ( \bm{r}_{ t_i } , \dot{ \bm{r} }_{t_i} )$ で
 一定であるとみなせるでしょう.
 ただし $\bm{r}_{t_i} := \bm{r} (t_i) , \dot{ \bm{r} }_{t_i} := \dot{ \bm{r} } ( \bm{r} ( t_i ) , t_i )$
 としました.
-すると線形化によって, 運動方程式は
+すると線型化によって, 運動方程式は
 \begin{gather}
 \bm{v} ( t_i + \deltat )
 \simeq
@@ -5561,7 +5811,7 @@ $\deltat$ の間 $\bm{f} ( \bm{r}_{ t_i } , \dot{ \bm{r} }_{t_i} )$ で
 と書けます.
 速度のなす 3 次元空間で考えれば, 当然これはその空間の中の線分となります.
 ここからさらに $\deltat$ 経ったときの速度 $\bm{v} (t_0 + 2 \deltat)$ は,
-同様の線形化によって
+同様の線型化によって
 \begin{gather}
 \bm{v} ( t_i + 2 \deltat )
 \simeq
@@ -5661,7 +5911,7 @@ q \left \{ \bm{E} ( \bm{r} (t) , t ) + \dot{ \bm{r} } (t) \times \bm{B} ( \bm{r}
 という式になります.
 求めるべき $\bm{r}$ が両辺に入っている上, 時間 $t$ の変化に対して一般にはひどく複雑な挙動を取るでしょう.
 しかし積分の導入のところで示したように,  $\bm{E}$ や $\bm{B}$ が時間的にあまりにも複雑すぎる変化をしなければ,
-非常に短い時間に区切って線形化して, その折れ線近似で近似解を構成できるでしょう.
+非常に短い時間に区切って線型化して, その折れ線近似で近似解を構成できるでしょう.
 ここから時間分割を小さくしていくことで厳密な解が「求められる」でしょう.
 
 「求められる」と書きましたが, これは具体的に $\bm{f} = \bm{A} \sin \omega t$ などの数式で書けるとは限りません.
@@ -5843,7 +6093,7 @@ Lipschitz 条件はただの連続性よりは強い条件です.
 
 さて, 定理の statement を述べましょう.
 \begin{thm}(微分方程式の解の存在と一意性 1) \label{th:微分方程式の解の一意性存在定理 1}
- $\bm{F} ( \bm{R} , t )$ を $D = \mbr^{N} \times I$ において Lipschitz 条件を満たす 連続関数とする.
+ $\bm{F} ( \bm{R} , t )$ を $D = \mbr^{N} \times I$ において Lipschitz 条件を満たす     連続関数とする.
  このとき $t_0 \in I$ ならば, 任意の初期値 $\bm{R}_0 \in \bbR^{N}$ に対して
  初期値問題
  \begin{gather}
@@ -6715,7 +6965,7 @@ $h (x) \leq H (x)$ から
 とりあえずこんなものか, と思って眺めておいて下さい.
 まずは定義から.
 \begin{defn}
-$n$ 階線形常微分方程式
+$n$ 階線型常微分方程式
 \begin{gather}
 \Lambda ( D ) x (t)
 :=
@@ -6729,7 +6979,7 @@ $q \not= \theta$ のとき\textgt{非斉次方程式}\index{ひせいじほう�
 次に斉次方程式について
 \textgt{重ね合わせの原理 (重畳原理)}\index{かさねあわせのげんり@重ね合わせの原理}\index{ちょうじょうげんり@重畳原理}を証明します.
 \begin{thm}(重ね合わせの原理)
-全ての係数関数 $p_i$ を連続関数とする $n$ 階の斉次の線形常微分方程式
+全ての係数関数 $p_i$ を連続関数とする $n$ 階の斉次の線型常微分方程式
 \begin{gather}
 \begin{split}
 \Lambda ( D ) x (t)
@@ -6741,7 +6991,7 @@ D^n x (t) + p_{n-1} (t) D^{n-1} x (t) + \dotsb \\
 \label{eq:4-25.1}
 \end{split}
 \end{gather}
-の解 $x_1 , \dots , x_m$ の線形結合
+の解 $x_1 , \dots , x_m$ の線型結合
 \begin{gather}
 x (t)
 =
@@ -6753,7 +7003,7 @@ x (t)
 (証明)
 すぐに終わります.
 $x_1 , \dots , x_m$ がそれぞれ (\ref{eq:4-25.1}) の解なので,  $\Lambda (D) x_i = 0$ となります.
-微分作用素の線形性を用いて
+微分作用素の線型性を用いて
 \begin{gather}
 \Lambda (D) x
 =
@@ -6766,18 +7016,18 @@ $x_1 , \dots , x_m$ がそれぞれ (\ref{eq:4-25.1}) の解なので,  $\Lambda
 0 . \, \bs
 \end{gather}
 
-次に解の線形独立性を定義します.
+次に解の線型独立性を定義します.
 これは微分方程式の解のなす集合を考える際に重要なものです.
 \begin{defn}
 (\ref{eq:4-25.3}) の形に表せない解が存在するとき,
-素の解は $x_1 , \dots , x_m$ に対して\textgt{線形独立}\index{せんけいどくりつ@線形独立}
+素の解は $x_1 , \dots , x_m$ に対して\textgt{線型独立}\index{せんけいどくりつ@線型独立}
 であるという.
-一般に $m$ 個の解の中のどの 1 つも残りの $(m-1)$ 個に対して線形独立であるときに,
-これら $m$ 個の解は互いに線形独立であるという.
+一般に $m$ 個の解の中のどの 1 つも残りの $(m-1)$ 個に対して線型独立であるときに,
+これら $m$ 個の解は互いに線型独立であるという.
 \end{defn}
-次に線形独立性の判定法を紹介します.
+次に線型独立性の判定法を紹介します.
 \begin{thm}
-$n$ 個の解 $x_1 (t) , \dots , x_n (t)$ が線形独立であるための必要十分条件は
+$n$ 個の解 $x_1 (t) , \dots , x_n (t)$ が線型独立であるための必要十分条件は
 \textgt{Wronski 行列式 (Wronkian)}(ロンスキアン)\index{ろんすきあん@ロンスキアン}
 \begin{gather}
 W ( x_1 (t) , x_2 (t) , \dots , x_n (t) )
@@ -6861,14 +7111,14 @@ x_1 D^2 x_2 - x_2 D^2 x_1
 =
 -p_1 W (x_1 ,x_2) .
 \end{gather}
-これは $W$ に関する 1 階の線形の斉次微分方程式となります.
+これは $W$ に関する 1 階の線型の斉次微分方程式となります.
 $p_1$ は連続であるとしているので, ある 1 点 $t_0$ で $W (t_0)=0$ となるならば $W$ は恒等的に 0 になります.
 しかし $t = t_1$ で $W (t_1)\not= 0$ なので,  $W$ は定義域内で $0$ となることはありません.
 
 (十分性)
 背理法で証明します.
-定義域 $I$ 内で $W ( x_1 (t) , \dots ,x_n (t)) \not= 0$ かつ $y_1, \dots , y_n$ が線形独立でないと仮定します.
-線形独立ではないので, 少なくとも 1 つは零でない定数 $c_i$ を用いて
+定義域 $I$ 内で $W ( x_1 (t) , \dots ,x_n (t)) \not= 0$ かつ $y_1, \dots , y_n$ が線型独立でないと仮定します.
+線型独立ではないので, 少なくとも 1 つは零でない定数 $c_i$ を用いて
 \begin{gather}
 c_1 x_1 (t) + \dots + c_n x_n (t) \equiv 0
 \end{gather}
@@ -6883,8 +7133,8 @@ $\hat{W}(t) \bm{c} = \bm{0}$ と行列でまとめて書けます.
 Wronskian $W$ が $0$ でないので,  $\hat{W}$ には逆が存在して, それをかければ $\bm{c} = \bm{0}$ となりますが,
 これは不合理です.  $\bs$
 
-ここで $n$ 階の斉次の線形常微分方程式において $n+1$ 個の解を持ってくると
-これらは\textgt{線形独立ではない}ことが分かります.
+ここで $n$ 階の斉次の線型常微分方程式において $n+1$ 個の解を持ってくると
+これらは\textgt{線型独立ではない}ことが分かります.
 見やすいので $n=1$ で書いてみます.
 \begin{gather}
 D x (t) = p (t) x (t)
@@ -6912,19 +7162,19 @@ x_1 & x_2 \\
 =
 0
 \end{gather}
-つまり (互いに線形独立な) 解を持つとしたら, それは $n$ 個まで, ということが分かります.
+つまり (互いに線型独立な) 解を持つとしたら, それは $n$ 個まで, ということが分かります.
 さらに $n$ 個の解 $x_i (i=1,\dots,n)$ を $D^{i-1}x_i (t_1)=1 ,D^{j}x_i (t_1)=0 (j\not= i-1)$ となる
-初期条件で求めれば, Wronskian が $1$ になるので,  $x_i$ は線形独立です.
-したがって $n$ 階の斉次線形常微分方程式の解の集合は\textgt{ $n$ 次の線形空間}になります.
+初期条件で求めれば, Wronskian が $1$ になるので,  $x_i$ は線型独立です.
+したがって $n$ 階の斉次線型常微分方程式の解の集合は\textgt{ $n$ 次の線型空間}になります.
 そこで次の定義をします.
 \begin{defn}
-(\ref{eq:4-25.1}) の $n$ 個の線形独立な解 $x_1, x_2 , \dots , x_n$ を
+(\ref{eq:4-25.1}) の $n$ 個の線型独立な解 $x_1, x_2 , \dots , x_n$ を
 (\ref{eq:4-25.1}) の\textgt{基本解系}\index{きほんかいけい@(常微分方程式の) 基本解系}という.
 \end{defn}
 
 \begin{thm}
 (\ref{eq:4-25.1}) の任意の解 $x$ は ({\ref{eq:4-25.1}}) の任意の基本解
-$x_1 , x_2 , \dots , x_n$ の線形結合として一意的に表される.
+$x_1 , x_2 , \dots , x_n$ の線型結合として一意的に表される.
 \end{thm}
 (証明)
 $W (x_1 ,\dots ,x_n) \not= 0$ から定数 $c_i$ を
@@ -6934,7 +7184,7 @@ D^k x (t_1)
 \sum_{i=1}^n c_i D^k x_i (t_1) ( k = 0, 1, \dots , n-1 )
 \end{gather}
 となるように定めることが出来ます.
-$x_1 , x_2 , \dots , x_n$ の線形独立性から表現 $x (t) = \sum \, c_i x_i (t)$ の一意性が分かります.  $\bs$
+$x_1 , x_2 , \dots , x_n$ の線型独立性から表現 $x (t) = \sum \, c_i x_i (t)$ の一意性が分かります.  $\bs$
 
 最後に非斉次方程式について議論します.
 まず斉次方程式
@@ -6976,7 +7226,7 @@ q (t)
 となります.
 これは $z$ が斉次方程式 (\ref{eq:4-26.3}) の解であることを表します.
  $x_1 = z + x_2$ と書けますが, これが証明すべきことでした.  $\bs$
-\section{1 階線形方程式の解法}
+\section{1 階線型方程式の解法}
 \label{sec-5-2-13}
 
 物理的に重要な微分方程式の結果をいくつか紹介しました.
@@ -7047,10 +7297,10 @@ j (t)
 c e^{\frac{R} {L} t} + \frac{1} {L} \int v (s) e^{\frac{R} {L}(t-s)} \, ds
 \end{gather}
 となります.
-\section{2 階線形方程式の解法}
+\section{2 階線型方程式の解法}
 \label{sec-5-2-14}
 
-2 階の線形方程式は振動の方程式です.
+2 階の線型方程式は振動の方程式です.
 摩擦などの抵抗が速度に比例するものとしましょう.
 比例定数を $\Gamma$ ,  $F$ を外力として運動方程式は
 \begin{gather}
@@ -7162,7 +7412,7 @@ c_1 c_2 e^{- \gamma t} \left \{ ( -\gamma + \sqrt{d} ) - ( - \gamma - \sqrt{d} )
 \not=
 0 ( d \not= 0)
 \end{gather}
-となり,  $d \not= 0$ のとき $x_1,x_2$ は線形独立です.
+となり,  $d \not= 0$ のとき $x_1,x_2$ は線型独立です.
 $d=0$ のときはどうするかということが問題として浮上してきました.
 このとき (\ref{eq:4-振動の方程式}) は
 \begin{gather}
@@ -7170,7 +7420,7 @@ $d=0$ のときはどうするかということが問題として浮上して�
 \end{gather}
 となります.
 つまり $x_1 (t) := c_1 e^{- \gamma t}$ とすれば, これは上の方程式の解になっています.
-もう 1 つ線形独立な解を見つける必要があります.
+もう 1 つ線型独立な解を見つける必要があります.
 Laplace 変換を使うと何も考えずにすんなり出てきますが, 今はひとまず天下りに与えます.
 $x_2 (t) := c_2 t e^{- \gamma t}$ が求める答です.
 実際
@@ -7203,7 +7453,7 @@ c_1 c_2 e^{ - \gamma t} ( 2 - \gamma t )
 0 (t\not = 2 / \gamma )
 \end{gather}
 となります.
-したがっていずれにせよ斉次方程式の任意の解は $x_1,x_2$ の線形結合で書くことができることが分かります.
+したがっていずれにせよ斉次方程式の任意の解は $x_1,x_2$ の線型結合で書くことができることが分かります.
 ここでずっと気になっていた読者もいることと思いますが,  $d$ はいわゆる判別式であって,
 $d$ の正負が次の問題です.
 
@@ -7249,7 +7499,7 @@ c_2 e^{ ( - \gamma + \sqrt{d} ) t }
 これは時間と共に振幅が無限に大きくなっていく, という非物理的 (非現実的) な解になってしまいます.
 しかしこれはもともと Hooke の法則が振動の小さいところでしか成り立たない近似的な法則であり,
 その近似の限界を超えてしまったところにまで法則の成立を仮定したために起こったことです.
-実際には非線形項 $x^2 ,x^3 ,\dots$ などが出てきて, 振幅の発散は起こりません.
+実際には非線型項 $x^2 ,x^3 ,\dots$ などが出てきて, 振幅の発散は起こりません.
 $x_1$ (と $d$ が十分小さいときの $x_2$ ) は\textgt{過減衰}と呼ばれます.
 
 最後に $d=0$ ですが, これは振動と過減衰を分ける\textgt{臨界 (現象)}であり,
@@ -9460,7 +9710,7 @@ Stone の定理と量子力学の話とかも一応入れる予定.
 \label{sec-7-6-1}
 \section{Fourier 変換}
 \label{sec-7-6-2}
-\section{Dirac の\$$\delta$\$関数}
+\section{Dirac の $\delta$ 関数}
 \label{sec-7-6-3}
 \section{波動方程式の解}
 \label{sec-7-6-4}
@@ -11115,7 +11365,7 @@ $SO (3)$ の分だけ基底状態がありますが, これの重ね合わせも
 重ね合わせを数学的に書くと直積分になるというだけです.
 phasetr 2012-01-08 15:08:54
 
-@phase\_{}tr 無限次元空間の基底の線形結合とかですか?
+@phase\_{}tr 無限次元空間の基底の線型結合とかですか?
 life\_{}wont\_{}wait 2012-01-08 15:12:41
 
 @life\_{}wont\_{}wait 規格化したいので正確には凸結合ですし,

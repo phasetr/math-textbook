@@ -1,8 +1,6 @@
 #+TITLE: readme
 #+AUTHOR: phasetr
 #+EMAIL: phasetr@gmail.com
-#+LANGUAGE: en
-#+OPTIONS: toc:t num:t author:t creator:nil LaTeX:t ^:t email:t H:10 timestamp: t
 
 * Math textbook
 I would like to write this math textbook by *social coding* Github..

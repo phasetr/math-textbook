@@ -155,6 +155,8 @@
 #+LATEX_HEADER: \newcommand{\Ccinfty}{C_{\mathrm{c}}^{\infty}}
 #+LATEX_HEADER: \newcommand{\dmu}{d \mu}
 #+LATEX_HEADER: \newcommand{\E}[1]{\rmE\sqbk{#1}}
+#+LATEX_HEADER: \newcommand{\Var}[1]{\mathrm{Var}\sqbk{#1}}
+#+LATEX_HEADER: \newcommand{\Cov}[1]{\mathrm{Cov}\sqbk{#1}}
 #+LATEX_HEADER: \newcommand{\EleqN}{E_{\leq}(N)}
 #+LATEX_HEADER: \newcommand{\gvarepsilonminus}{g_{\varepsilon}^{-}}
 #+LATEX_HEADER: \newcommand{\gvarepsilonplus}{g_{\varepsilon}^{+}}
@@ -367,8 +369,14 @@ The chapter also contains several results that will be used repeatedly in the ch
 - この節での主な論点は鎖複体がアーベル圏をなすことだ. \cite{CharlesWeibel1}
 The main point of this section will be that chain complexes form an abelian category.
 
+- このノートは 1992 年秋の Leiden 大学での講義に基いている. \cite{ChrisPeters1}
+These notes are based on courses given in the fall of 1992 at the University of Leiden.
+
 - この本は量子力学のいろいろな分野の研究者に向けた内容になっている. \cite{LiebSeiringer1}
 The book is directed towards researchers on various aspects of quantum mechanics.
+
+- この理論の目的は $n$ を無限大にする極限をとったときの $T^n(x)$ の振る舞いを調べることにある. \cite{OmriSarig1}
+The aim of the theory is to describe the behavior of $T^n(x)$ as $n \to \infty$.
 
 - これは大学院の 2-3 年生に向けた本だ. \cite{CharlesWeibel1}
 This book is aimed at a second- or third-year graduate student.
@@ -394,21 +402,36 @@ First we need to recall what an abelian category is.
 - まとめると.
 In summary.
 
+- 最も単純に言えば, 力学系とは集合 $X$ 上に定義された関数 $T$ のことだ. \cite{OmriSarig1}
+At its simplest form, a dynamical system is a function $T$ defined on a set $X$.
+
 - 歴史的な経緯は追わない.
 We will not necessarily follow the historical route.
-
 ** Mathematical English
+- エルゴード理論の威力と有用性の多くは, 上で議論した抽象的な設定に関する次の確率的な解釈によっている. \cite{OmriSarig1}
+Much of the power and usefulness of ergodic theory is due to
+the following probabilistic interpretation of the abstract set up discussed above.
+
 - 核がベクトル束になることはすぐわかる.
 One can easily see that the kernel forms a vector bundle.
 
+- 強混合性は測度論的同型の不変量であることはすぐにわかる.
+It is easy to see that strong mixing is an invariant of measure theoretic isomorphism.
+
 - 群 $G$ は空間 $S$ に作用する.
 A group $G$ acts on a space $S$.
+
+- ``どのようにして決定論的な系がランダムに振舞い得るのか"という問題の現代的な取り扱いはこのアイデアによっている. \cite{OmriSarig1}
+The modern treatment of the question ``how come a deterministic system can behave randomly" is based on this idea.
 
 - このとき, 写像 $f$ は次の式で表される鎖写像になる. \cite{CharlesWeibel1}
 Then a map $f$ is the chain map given by the formula.
 
 - これが彼の結果を単純化しかつ改良する興味深い新たな不等式の導出に繋がった. \cite{LiebSeiringer1}
 This led to the invention of interesitng new inequalities to simplify and improve his result.
+
+- これが定理を証明するために必要な最小限の設定だ. \cite{OmriSarig1}
+This is the minimal setup needed to prove the theorem.
 
 - これらの不等式は物質の安定性を理解する上で決定的な役割を果たす. \cite{LiebSeiringer1}
 These inequalities play a crucial role in our understanding of stability of matter.
@@ -429,6 +452,10 @@ $M$ modulo isomorphism form a group under the tensor product.
 
 - 剰余項.
 The remainder term.
+
+- 測度論での病的な現象を避けるため, $\rbk{X, \calB, \mu}$ は常に標準確率空間の完備化と仮定する.
+In order to avoid measure theoretic pathologies, we will always assume that
+$\rbk{X, \calB, \mu}$ is the completion of a standard measure space.
 
 - 微分積分学の基本定理.
 Fundamental theorem of calculus.
@@ -494,6 +521,648 @@ Physicists firmly believe that quantum mechanics is a `theory of everything' at 
 ** Introduction to cardinal number
 動画から適当に切り出してくる.
 * Linear Algebra
+** Talk: Linear algebra and Calculus: Introduction to university mathematics
+This note is based on a course for newcomers in the spring of 2014 at the Tokyo institute of Technology.
+See also \cite{MasahikoSaitoh1, AsaoArai3, AraiEzawa1, AraiEzawa2, KenjiFukaya2, ToshioNiwa1}.
+*** Introduction
+We talk about linear algebra, especially
+it's relation to calculus, i.e., differentiation and integration.
+
+In this talk we speak in Japanese but write in English on blackboard.
+It is because I want newcomers to get used to writing and reading in English.
+*** What is linear algebra?
+Main targets of linear algebra are vectors and matrices.
+We learn them in high school but linear algebra in
+university mathematics has somewhat different flavor from one in high school.
+Furthermore linear algebra is difficult to imagine
+where we use it compared to calculus.
+So we first consider its different points and its usage
+in mathematics and physics.
+
+In high school we consider vectors as geometric objects.
+However we now consider them as algebraic objects,
+since they are ones in linear ``algebra"!
+Our vectors are a generalized/abstract version of ones in high school.
+A vector needs not have direction nor length.
+Then, what properies should vectors have?
+**** Abstract definition of vectors
+In the following we sometimes use the terms linear spaces or vector spaces.
+These words have the same meaning.
+\begin{defn}\textup{(Definition of linear/vector spaces)}
+ Let $\bbR$ be a field of real numbers: a real number is also called a scaler.
+ A set $L$ is called a \textup{\textbf{linear space}} if its elements have the following properties.
+ Elements $x, y, z \in L$ are vectors and $a, b \in \bbR$ are real numbers in the following expressions.
+ 1) \textup{Associativity:}
+  \begin{align}
+   \rbk{x + y} + z
+   =
+   x + \rbk{y + z}, \quad \forall x, y, z \in L.
+  \end{align}
+ 2) \textup{Commutativity of sum:}
+  \begin{align}
+   x + y = y + x,  \quad \forall x, y \in L.
+  \end{align}
+ 3) \textup{Existence of unit for sum:} there is an element $0 \in L$ such that
+  \begin{align}
+   x + 0 = x, \quad \forall x \in L.
+  \end{align}
+ 4) \textup{Existence of an inverse element for sum:} for any $x \in L$ there is an element $y \in L$ such that
+  \begin{align}
+   x + y = 0
+  \end{align}
+    for the above $0$.
+    In fact we can prove the uniqueness of an inverse element.
+ 5) \textup{Relation of scalers (real numbers) and vectors:}
+  \begin{align}
+   a \cdot \rbk{x + y}
+   &=
+   a \cdot x + a \cdot y, \\
+   \rbk{ab} \cdot x
+   &=
+   a \cdot \rbk{b x}, \\
+   \rbk{a + b} \cdot x
+   &=
+   a \cdot x + b \cdot x,
+  \end{align}
+ 6) \textup{Multiplication law for a scaler unit in} $\bbR$\textup{:}
+  \begin{align}
+   1 \cdot x = x, \quad \forall x \in L.
+  \end{align}
+\end{defn}
+Important points are
+1) vectors are summable and sum is commutative operation, and
+2) vectors and scalers satisfy some multiplication laws.
+
+The above properties hold for geometric vectors in high school, of course.
+Our purpose is different from it: we consider vectors as algebraic objects and
+we derive many interesting properites using (mainly) algebraic thinking!
+**** Examples of linear spaces
+1) The set of real numbers $\bbR$ itself with scaler $\bbR$.
+2) The set of complex numbers $\bbC$ itself with scaler $\bbR$.
+3) The set of complex numbers $\bbC$ itself with scaler $\bbC$.
+4) A plane $\bbR^2$ with scaler $\bbR$.
+5) A three dimensional space $\bbR^3$ with scaler $\bbR$.
+6) Higher dimensional space $\bbR^d$ ($d \geq 4$) with scaler $\bbR$.
+7) Some subsets of (numerical) sequence, e.g., $c_0$, $c_{\infty}$, $\ell^2$ with scaler $\bbR$.
+8) Some subsets of functions, e.g., $C^k(\Omega)$, $L^p \rbk{\Omega}$, $H^k \rbk{\Omega}$ with scaler $\bbR$.
+9) A set of linear operators with scaler $\bbR$.
+
+Today's main targets are introduction to the last three items and its relation to calculus.
+**** Examples of finite, but higher dimensional spaces than three
+We have many examples for higher dimensional objects in real world, e.g.,
+1) (time evolution of) stock prices,
+2) players' movement in soccer,
+3) computerized control in robots.
+For (time evolution of) stock prices,
+there are many lisiting companies and its time evolution is important in real world.
+This evolution is mathematically reprensetable in higher dimensional space picture.
+
+Other examples are also similar characterization.
+These are related to analytical mechanics in physics.
+Moreover analytical mechanics is closely related to geometry.
+See \cite{KenjiFukaya1, NakamuraYamamoto1, NakamuraYamamoto2}.
+**** Function spaces: examples of infinite dimensional dimensional spaces
+We have infinitely many infinite dimensional objects.
+Examples are weather maps and wind direction maps.
+
+Take a point in a world map,
+and then there are infinitely many directions to blow wind.
+In classical point of view there are infinitely many space points,
+and hence there are infinitely many space points and
+directions of the wind are also infinitely many patterns.
+
+What do we represent this infinitely many probability of the wind in real world?
+We use functions in several variables, $w(x,y,z,t) \in \bbR^3$.
+A value of a function $w(x,y,z,t)$ represents a direction of wind and its strength (length of a vector)
+at space-time point $\rbk{x, y, z, t}$.
+We always use this type of mathematics in physics.
+
+Furthermore there are infinitely many types of wind distribution,
+i.e., we have infinitely many functions.
+For systematic thinking it is useful to think where functions live in.
+This is called a function space.
+There are many useful function spaces and we select a proper space as the situation demands.
+
+In this way, in mathematics we will encounter various types of spaces
+other than a three dimensional, geometric space.
+We consider spaces where functions live and ones where spaces itself live.
+**** Linear maps, functionals
+We usually consider maps instead of functions in university mathematics.
+In fact a map is just a function whose domain and range are general sets.
+First we define a linear map and linear functionnal.
+\begin{defn}
+ Assume $L_1$ and $L_2$ are linear spaces.
+ Then a function $F \colon L_1 \to L_2$ is called a \upbf{map or operator}.
+ If $F$ preserves linearity, i.e., $F$ has a property
+ \begin{align}
+  F \rbk{\alpha f + \beta g}
+  =
+  \alpha F(f) + \beta F(g), \quad \alpha, \beta \in \bbR, f, g \in L_1,
+ \end{align}
+ then an operator $F$ is called a \upbf{linear operator}.
+
+ If $L_2$ is $\bbR$ then $F$ is usually called a \upbf{functional}.
+ Furthermore $F$ is called a \upbf{linear functional} if it is linear.
+\end{defn}
+Here are some examples.
+\begin{ex}
+ 1) \textup{Coordinate maps.} Let $f = (f(1), f(2), \dots, f(d)) \in \bbR^d$.
+    We write a vector $f = (f_1, f_2, \dots, f_d)$ as $f = (f(1), f(2), \dots, f(d))$ for later use.
+    This is just a notational convention.
+    Then we get functionals by
+   \begin{align}
+    x_i \colon f \mapsto f(i).
+   \end{align}
+    This is a linear functional since this has a property
+   \begin{align}
+    x_i \rbk{\alpha f + \beta g}
+    =
+    \alpha x_i \rbk{f} + \beta x_i \rbk{g}.
+   \end{align}
+ 2) \textup{Definite integrals:} First we define a map $I$ as
+   \begin{align}
+     I \colon
+     f \mapsto \int_{\bbR^d} f(x) dx \in \bbR.
+   \end{align}
+    This is a linear functional since this has a property
+   \begin{align}
+    I \rbk{\alpha f + \beta g}
+    =
+    \alpha I \rbk{f} + \beta I \rbk{g}.
+   \end{align}
+ 3) \textup{An other type of a definite integral:}
+   \begin{align}
+    E \colon
+    f \mapsto \int_{\bbR^d} \rbk{\abs{\nabla f(x, t)}^2 + \rbk{\frac{\partial f(x, t)}{\partial t}}^2} dx. \label{linear-algebra-and-calculus-4}
+   \end{align}
+   This is a nonlinear functional.
+   In physics this $E$ is called an energy functional.
+ 4) \textup{Differential operators:} Define an operator as
+   \begin{align}
+    D \colon f \mapsto \frac{d}{dx} f.
+   \end{align}
+    This is a \textup{linear operator} since it satisfies
+   \begin{align}
+    D \rbk{\alpha f + \beta g}
+    =
+    \alpha Df + \beta Dg.
+   \end{align}
+\end{ex}
+In this way we connects linear algebra with calculus.
+For analysis of nonlinear functionals we also need various linear spaces and
+some technique from linear algebra.
+**** Eigenvalues, eigenvectors
+These are not learned explicitly in high school.
+However they sometimes appears in entrance exams.
+\begin{defn}
+ Let $A$ be a linear operator on a linear space $L$.
+ A real number $\lambda$ resp. a vector $f$ are called an \upbf{eigenvalue} resp. \upbf{eigenvector}
+ if they satisfy
+ \begin{align}
+  A f = \lambda f.
+ \end{align}
+\end{defn}
+Here are examples.
+\begin{ex}
+ Let $D^2$ be a second order differential operator (this is linear) with respect to time and consider
+  \begin{align}
+   m D^2 x
+   =
+   -k x,
+  \end{align}
+ i.e.,
+  \begin{align}
+   m \frac{d^2 x (t)}{dt^2}
+   =
+   -k x(t).
+  \end{align}
+ This is an equation of motion for a spring in physics.
+ A solution (eigenvector) is
+  \begin{align}
+   x(t)
+   =
+   A \sin \rbk{\omega t + \theta}, \quad
+   \omega
+   =
+   \sqrt{\frac{k}{m}}.
+  \end{align}
+ We can write a solution using a celebrated Euler's formula:
+  \begin{align}
+   x(t)
+   =
+   A e^{i \rbk{\omega t + \theta}}.
+  \end{align}
+ Consideration of eigenvalues for a differential equation is somewhat difficult and we omit it.
+ See, e.g., \cite{HaimBrezis1, HaimBrezis2} for details.
+\end{ex}
+**** Mathematical application of linear algebra
+There many branches related to linear algebra.
+Here are some examples.
+See also \cite{phasetr2}.
+1) Theory of Lie group and its representation theory.
+2) General algebra.
+3) Algebraic geometry.
+4) Analysis of differential equations.
+5) Functional analysis.
+6) Operator algebra.
+**** Physical application
+There many branches related to linear algebra in physics, too.
+See also \cite{phasetr2}.
+
+For example, in quantum mechanics, one of the most fundamental physical theory,
+linearity is important and fundamental.
+We say ``a superposition principle valids for wave functions,"
+and this ``superposition" means linearity.
+
+In high school we learn a superposition principle for wave.
+This holds because our wave equation is linear in high school.
+**** Linear algebra and statistics
+We use statistics in many branches, including humanities and sociology.
+E.g., natural language processing has many humanity and infomation theoretic elements.
+This area needs broad knowledge including probability and statistics.
+Interested readers should learn, e.g., principal component analysis.
+*** Integration
+**** Let's define inner products!
+In this talk we mainly consider real linear spaces, e.g., $\bbRd$.
+You may consider complex linear spaces if you know complex numbers.
+
+We assume you agree with the existence of higher dimensional spaces.
+We want to define angles and length of vectors as in two or three dimensional ones.
+One reason to consider them is application to physics.
+There is a projection hypothesis in quantum mechanics:
+this projection comes from orthogonal projection,
+and it is just a shadow of objects in three dimensional objects when
+one shine a light from above.
+
+At first we consider how to define angles between infinite dimensional vectors.
+Take a look at the following inner product formula in high school.
+\begin{align}
+ a \cdot b
+ =
+ \abs{a} \, \abs{b} \cos \theta.
+\end{align}
+We deform this:
+\begin{align}
+ \cos \theta
+ =
+ \frac{ a \cdot b} {\abs{a} \, \abs{b}}.
+\end{align}
+We can derive an angle $\theta$ from the value of the cosine function.
+Lengths[fn:linear-algebra-and-calculus-3] of vectors can be computed by inner products,
+from $\abs{a}^2 = a \cdot a$.
+So we can derive angles if we can define an inner product.
+Hence we have to define an inner product.
+Note that an inner product is not a divine concept.
+[fn:linear-algebra-and-calculus-3]In general we call it a norm of a vector.
+We can consider many norms for a vector since there are many senses of distances.
+
+At first we write an inner product in $\bbR^3$.
+We write a vector $f = (f_1, f_2, f_3)$ as $f = (f(1), f(2), f(3))$ for later use.
+This is just a notational convention.
+We define an inner product for three dimensional vectors $f$ and $g$ as
+\begin{align}
+ f \cdot g
+ :=
+ \bkt{f}{g}
+ :=
+ \sum_{k=1}^3 f(k)g(k).
+\end{align}
+The first notation is one in high school.
+The second is usual one when considering a functional inner product.
+There are several notations for an inner product such as
+\begin{align}
+ \rbk{f, g}, \quad \rbk{f | g}, \quad \langle f | g \rangle.
+\end{align}
+The last one is the Dirac's braket notation in quantum mechanics.
+***** Inner products in higher dimensional spaces
+We wrote an inner product as
+\begin{align}
+ \langle f , g \rangle
+ =
+ \sum_{k=1}^3 f(k)g(k).
+\end{align}
+Since there is no reason to restrict our consideration to a three dimensional space
+we generalize a dimension three to general $d$.
+\begin{align}
+ \langle f , g \rangle
+ =
+ \sum_{k=1}^d f(k)g(k),
+\end{align}
+where we set
+\begin{align}
+ f = \rbk{f(1), f(2), \dots, f(d)}, \quad
+ g = \rbk{g(1), g(2), \dots, g(d)}.
+\end{align}
+If you want to consider one in $\bbC^d$ you should set
+\begin{align}
+ \bkt{f}{g}
+ =
+ \sum_{k=1}^d \overline{f(k)} g(k)
+\end{align}
+because it is desirable that a length (norm) of a vector is
+properly defined, i.e., $\norm{f}^2 := \bkt{f}{g} \geq 0$.
+
+We take a limit $d \to \infty$.
+We face a problem whether a series converges or not,
+but we can overcome this by considering converging ones.
+\begin{align}
+ \bkt{f}{g}
+ =
+ \sum_{k=1}^{\infty} f(k)g(k).
+\end{align}
+
+\begin{rem}
+ A infinite dimensional vector $f = (f(1), f(2), \dots)$
+ can be viewed as a sequence.
+ In quantum mechanics we use sequences and matrices living in an infinite dimensional space
+ when considering Heisenberg's matricial mechanics.
+\end{rem}
+
+Note that our temporal task is to make how to define an inner product for functions.
+Let's go back to a finite sum, think $1 = \Delta k$, and rewrite a sum as
+\begin{align}
+ \sum_{k=1}^{d} f(k)g(k) \Delta k.
+\end{align}
+
+Rewrite $k$ as $k/d$ and $\Delta k$ as $1/d$.
+Then we get a sum
+\begin{align}
+ \sum_{k=1}^{d} f \left( \frac{k}{d} \right) g \left( \frac{k}{d} \right) \frac{1}{d}.
+\end{align}
+This is an expression, known as 区分求積法 in high school[fn:linear-algebra-and-calculus-1].
+[fn:linear-algebra-and-calculus-1]This is a definition of the Riemann integral.
+
+Taking a limit $d \to \infty$ the above sum becomes an integral.
+\begin{align}
+ \langle f, g \rangle
+ =
+ \int_{0}^{1} f(x) g(x) dx.
+\end{align}
+Now the interval is $[0, 1]$ here,
+but we can take any (measurable) subset of $\bbR$.
+
+Hence we find that an inner product for functions
+can be defined using integral.
+In fact anything is good if it satisfies the axiom of an inner product.
+
+A linear space with inner product is called pre-Hilbert space.
+A pre-Hilbert space is called a Hilbert space if it is complete for metric induced by inner product.
+A Hilbert space is famous as a space where wave functions in quantum mechanics live.
+**** Axiom for inner products
+\begin{axm}
+ Let $L$ be a linear space and $\bkt{\cdot}{\cdot} \colon L \times L \to \bbR$ is a map of two variables.
+ The pair $\rbk{L, \bkt{\cdot}{\cdot}}$ is an inner product space if the map $\bkt{\cdot}{\cdot}$ is an inner product,
+ i.e., it satisfies the following properties.
+ 1) \textup{Symmetry:}
+  \begin{align}
+   \bkt{f}{g} = \bkt{g}{f}.
+  \end{align}
+ 2) \textup{Linearity in the second argument:}
+  \begin{align}
+   \bkt{f}{\alpha g + \beta h}
+   =
+   \alpha \bkt{f}{g} + \beta \bkt{f}{h}.
+  \end{align}
+ 3) \textup{Positive definiteness:}
+  \begin{align}
+   \bkt{f}{f} \geq 0, \quad
+   \bkt{f}{f} = 0 \Longleftrightarrow f = 0.
+  \end{align}
+\end{axm}
+**** Examples of inner products
+There are many inner products in a function space.
+Let $\Omega$ be a (open) subset of $\bbR$ and $h \colon \Omega \to \bbR_{\geq}$ be a function satisfying
+\begin{align}
+ h(x) \geq 0, \quad
+ h \neq 0, \quad
+ 0 < \int_\Omega h(x) dx < \infty.
+\end{align}
+Then the following is becomes an inner product:
+\begin{align}
+ \bkt{f}{g}_{h}
+ :=
+ \int_{\Omega} f(x) g(x) h(x) dx.
+\end{align}
+We show some examples of inner products.
+\begin{align}
+ \bkt{f}{g}_1
+ &:=
+ \int_{-1}^{1} f(x) g(x) dx, \\
+ \bkt{f}{g}_2
+ &:=
+ \int_{0}^{\infty} f(x) g(x) e^{-x} dx, \\
+ \bkt{f}{g}_3
+ &:=
+ \int_{\bbR} f(x) g(x) e^{-x^2} dx.
+\end{align}
+The above inner products are related to
+the Legendre polynomials, Laguerre polynomials, Hermite polynomials.
+
+Furthermore we take the following inner product.
+\begin{align}
+ \int_{- \pi}^{\pi} f(x) g(x) dx.
+\end{align}
+Then we get the following expressions.
+\begin{align}
+ \frac{1}{\pi} \int_{-\pi}^{\pi} \sin nx \sin mx
+ &=
+ \delta_{n,m}, \\
+ \frac{1}{\pi} \int_{-\pi}^{\pi} \cos nx \cos mx
+ &=
+ \delta_{n,m}, \\
+ \frac{1}{\pi} \int_{-\pi}^{\pi} \cos nx \sin mx
+ &= 0.
+\end{align}
+This means that the functions $\cbk{\cos nx}$ and $\cbk{\sin nx}$ are orthogonal.
+This relates to the famous Forier series expansion.
+This is used for wave analysis in physics.
+**** Physics for the space $L^2 \rbk{\Omega}$
+The symbol $L^2 \rbk{\Omega}$ in the title means
+the space of square integrable functions in the sense of Lebesgue on $\Omega$.
+
+We introduce a physical meaning of the space $L^2 \rbk{\Omega}$.[fn:linear-algebra-and-calculus-2]
+[fn:linear-algebra-and-calculus-2]To be precise the proper space is not $L^2$ but $H^1$.
+
+The elements of the space $L^2 \rbk{\Omega}$ have finite energy.
+Let us consider a wave equation.
+\begin{align}
+ \frac{\partial^2 u}{\partial t^2}
+ =
+ \Delta u.
+\end{align}
+The energy for its solution is written by
+\begin{align}
+ E
+ =
+ \int_{\mathbb{R}^d} \rbk{\rbk{\nabla u}^2 + \rbk{\frac{\partial u}{\partial t}}^2}dx.
+\end{align}
+We want to restrict solutions whose energy is finite
+since it is physically meaningless to consider infinite energy solutions.
+The elements of $L^2$ have finite energy, by definition,
+and hence it is the reason why the space $L^2$ is important in physics.
+To be precise our derived functions are in $L^2$, so
+we have to consider a Sobolev space $H^1$.
+
+In quantum mechanics probabilistic interpretation forces us to
+consider functions in $L^2$.
+Furthermore we have to impose more severe restriction to functions,
+i.e., the domain of Hamiltonians.
+
+Linear operators have their domains
+and, for Hamiltonians, their domains are functions having finite energy.
+*** Differentiation
+**** Taylor expansion
+We start from Taylor's theorem.
+Assume a function $f$ is differentiable.
+Fundamental theorem of calculus and integration by parts lead
+\begin{align}
+ f(x) - f(x_0)
+ &=
+ \int_{x_0}^{x} f'(y) dy
+ =
+ \int_{x_0}^x (x - y)^{0} f'(y) dy \\
+ &=
+ \sqbk{- \rbk{x - y} f'(y)}_{x_0}^x + \int_{x_0}^x \rbk{x - y} f^{(2)} (y) dy \\
+ &=
+ (x - x_0) f'(x_0) + \sqbk{- \frac{(x-y)^2}{2} f^{(2)}(y)}_{x_0}^x + \int_{x_0}^x \frac{(x - y)^2}{2} f^{(3)} (y)dy. \\
+ &=
+ (x - x_0) f'(x_0) + \frac{(x-y)^2}{2} f^{(2)}(x_0) + \int_{x_0}^x \frac{(x - y)^2}{2} f^{(3)} (y)dy.
+\end{align}
+Further iteration leads the following Taylor's theorem.
+\begin{align}
+ f(x)
+ =
+ \sum_{k=0}^{n} \frac{(x - x_0)^k}{k!} \left( D^k f \right) (x_0) +
+  \int_{x_0}^{x} \frac{(x - y)^{n}}{n!} f^{(n+1)} (y) dy,
+\end{align}
+where $D^k f$ is a shorthand notation for  $d^k f/ dx^k$,
+the last term of the RHS is called the remainder term
+and denoted by $R_n$.
+
+Now assume the remainder term $R_n$ converges to 0 as $n \to \infty$
+and the above series also converges in some suitable sense.
+Let $x_0 = 0$.
+Then we get
+\begin{align}
+ f(x)
+ =
+ \sum_{k=0}^{\infty} \frac{x^k}{k!} \left( D^k f \right) (0).
+\end{align}
+This series is called a *Taylor series* around 0 and
+this power series expansion is called a *Taylor expansion* around 0.
+
+A Taylor expansion of an exponential function $e^x$ around $0$ is as follows.
+\begin{align}
+ e^{x}
+ =
+ \sum_{k=0}^{\infty} \frac{x^k}{k!}.
+\end{align}
+We compare the above two expressions and
+set $x$ to $x D$ in the expansion of $e^x$.
+Then we have the following clear expression.
+\begin{align}
+ f(x)
+ =
+ \left( e^{xD} f \right) (0)
+\end{align}
+If we use quantum mechanical notation, $p = -i D$, the above expression becomes
+\begin{align}
+ f(x)
+ =
+ \left( e^{ixp} f \right) (0).
+\end{align}
+**** Unitary representation of a group
+The above story closely related to a unitary representation theory of a group.
+Simply speaking a underlying space $\bbR$ itself is a group
+and it acts on itself.
+This action lifts up to a function space living on a underlying space.
+See \cite{KobayashiOshima1} for details.
+
+One point.
+Physicists often define functions of operators by Taylor expansion.
+However it is not good and insufficient in view of mathematics.
+We can see it when we consider the action of $e^{ixp}$.
+
+The operator $e^{i x p}$ shifts an argument of a function $x$,
+and this shift is defined without differentiability of functions,
+i.e., we can define an action of $e^{ixp}$ for more general functions.
+However if we define it by a Taylor expansion,
+the operator $e^{ixp}$ is defined for only analytic functions.
+***** Fourier expansion
+A simple argument can deduce a Fourier expansion.
+We can formally consider for $\bbR$,
+but this is a little bit mathematically problematic.
+Instead we consider on an interval $[ - \pi, \pi]$.
+
+Consider a linear differential equation (eigenequation for
+self-adjoint operator $p$)
+\begin{align}
+ p f
+ &=
+ k f, \quad k \in \bbR, \\
+ f(-\pi)
+ &=
+ f(\pi).
+\end{align}
+Then the above solutions are
+\begin{align}
+ k \in \bbZ, \quad
+ f_k(x)
+ =
+ e^{ikx}.
+\end{align}
+Euler's formula says
+\begin{align}
+ e^{ikx}
+ =
+ \cos kx + i \sin kx,
+\end{align}
+and this leads a Fourier expansion.
+**** Analitical mechanics and quantum mechanics
+In quantum mechanics a momentum becomes a differential operator
+and denotes $p = -i D$.
+
+In analytical mechanics a momentum
+can be viewed as a generator of space shift.
+A differential operator $- i d/dx$ is also
+a generator of space shift in view of representation theory.
+Hence these are common property, generator of space shift.
+This is an important *formal* connection to classical mechanics and quantum mechanics.
+This connection is also important in geometry.
+**** Physics and representation theory
+Representation theory is also important for
+theory of relativity and relativistic quantum field theory.
+See \cite{TakeshiHirai1, TakeshiHirai2} for details.
+*** Variational problem: mixture of differentiation and integration
+A variational problem is an infinite dimensional version of diffrential theory.
+This is important and interesting in both physics and mathematics.
+
+It is a mathematically and physically famous problem that why soap bubble becomes round.
+This type of problems is called a geometric variational problem.
+See \cite{SeikiNishikawa1} for details.
+**** Examples of variational problems
+***** shortest time problem
+Assume you are a lifesaver on beach and there is a person drowning.
+You have to save the person.
+How do you determine a path to the person in the shortest possible time?
+This is a famous variational problem.
+
+You have to determine a path and it is a function mathematically.
+Hence you have to search a function in a function space.
+How to search it?
+**** Mathematical formulatrion: functionals, linear operators
+We formulate the above problem mathematically.
+In usual we make a some *functional* and search a function
+which optimize, i.e., minimize or maximize the value of it.
+In this procedure we differentiate a functional by functions,
+and this is a variational derivatice.
+
+Recall an energy functional (\ref{linear-algebra-and-calculus-4}).
+This energy functional is a mixed type functional of differential and integral.
+We often face this type of functionals in theory of partial differential equations,
+in particular, quantum mechanics and we need a minimum value of $E$ and its minimizer.
+These are physically important quantities, ground state energy and ground state.
+Some types of quantum mechanical problems are formulated as a variational problem.
 ** あとで大幅 rewrite: 学部 3 年のときに書いた「本」
 *** はじめに
 **** 数学「を」学ぶ
@@ -12297,6 +12966,9 @@ Then a net limit functional is the desired one.
 There are two proofs in \cite{AsaoArai5}.
 One is abstract and uses *nuclear extension*.
 The other is concrete and uses a *quantum mechanical harmonic oscillator*
+** Talk: Lecture on ergodic theory
+This note is based on a course for third-year Bachelor students in the May of 2014.
+See \cite{OmriSarig1, MarkKac1} ror details.
 ** Statistics for idol management
 動画から適当に切り出してくる.
 * Algebra

@@ -1,4 +1,4 @@
-% Created 2014-04-03 木 23:34
+% Created 2014-04-04 金 07:53
 \documentclass[openany, a4paper, oneside]{book}
 
 \usepackage[dvipdfmx]{graphicx, hyperref}
@@ -149,6 +149,8 @@
 \newcommand{\Ccinfty}{C_{\mathrm{c}}^{\infty}}
 \newcommand{\dmu}{d \mu}
 \newcommand{\E}[1]{\rmE\sqbk{#1}}
+\newcommand{\Var}[1]{\mathrm{Var}\sqbk{#1}}
+\newcommand{\Cov}[1]{\mathrm{Cov}\sqbk{#1}}
 \newcommand{\EleqN}{E_{\leq}(N)}
 \newcommand{\gvarepsilonminus}{g_{\varepsilon}^{-}}
 \newcommand{\gvarepsilonplus}{g_{\varepsilon}^{+}}
@@ -294,7 +296,7 @@
 
 \title{Math textbook}
 \author{相転移 P (@phasetr)\thanks{phasetr@gmail.com}}
-\date{2014-04-03}
+\date{2014-04-04}
 \hypersetup{
   pdfkeywords={},
   pdfsubject={},
@@ -403,9 +405,19 @@ The chapter also contains several results that will be used repeatedly in the ch
 The main point of this section will be that chain complexes form an abelian category.
 
 \begin{itemize}
+\item このノートは 1992 年秋の Leiden 大学での講義に基いている. \cite{ChrisPeters1}
+\end{itemize}
+These notes are based on courses given in the fall of 1992 at the University of Leiden.
+
+\begin{itemize}
 \item この本は量子力学のいろいろな分野の研究者に向けた内容になっている. \cite{LiebSeiringer1}
 \end{itemize}
 The book is directed towards researchers on various aspects of quantum mechanics.
+
+\begin{itemize}
+\item この理論の目的は $n$ を無限大にする極限をとったときの $T^n(x)$ の振る舞いを調べることにある. \cite{OmriSarig1}
+\end{itemize}
+The aim of the theory is to describe the behavior of $T^n(x)$ as $n \to \infty$.
 
 \begin{itemize}
 \item これは大学院の 2-3 年生に向けた本だ. \cite{CharlesWeibel1}
@@ -448,6 +460,11 @@ First we need to recall what an abelian category is.
 In summary.
 
 \begin{itemize}
+\item 最も単純に言えば, 力学系とは集合 $X$ 上に定義された関数 $T$ のことだ. \cite{OmriSarig1}
+\end{itemize}
+At its simplest form, a dynamical system is a function $T$ defined on a set $X$.
+
+\begin{itemize}
 \item 歴史的な経緯は追わない.
 \end{itemize}
 We will not necessarily follow the historical route.
@@ -455,14 +472,30 @@ We will not necessarily follow the historical route.
 \label{sec-2-2}
 
 \begin{itemize}
+\item エルゴード理論の威力と有用性の多くは, 上で議論した抽象的な設定に関する次の確率的な解釈によっている. \cite{OmriSarig1}
+\end{itemize}
+Much of the power and usefulness of ergodic theory is due to
+the following probabilistic interpretation of the abstract set up discussed above.
+
+\begin{itemize}
 \item 核がベクトル束になることはすぐわかる.
 \end{itemize}
 One can easily see that the kernel forms a vector bundle.
 
 \begin{itemize}
+\item 強混合性は測度論的同型の不変量であることはすぐにわかる.
+\end{itemize}
+It is easy to see that strong mixing is an invariant of measure theoretic isomorphism.
+
+\begin{itemize}
 \item 群 $G$ は空間 $S$ に作用する.
 \end{itemize}
 A group $G$ acts on a space $S$.
+
+\begin{itemize}
+\item ``どのようにして決定論的な系がランダムに振舞い得るのか''という問題の現代的な取り扱いはこのアイデアによっている. \cite{OmriSarig1}
+\end{itemize}
+The modern treatment of the question ``how come a deterministic system can behave randomly'' is based on this idea.
 
 \begin{itemize}
 \item このとき, 写像 $f$ は次の式で表される鎖写像になる. \cite{CharlesWeibel1}
@@ -473,6 +506,11 @@ Then a map $f$ is the chain map given by the formula.
 \item これが彼の結果を単純化しかつ改良する興味深い新たな不等式の導出に繋がった. \cite{LiebSeiringer1}
 \end{itemize}
 This led to the invention of interesitng new inequalities to simplify and improve his result.
+
+\begin{itemize}
+\item これが定理を証明するために必要な最小限の設定だ. \cite{OmriSarig1}
+\end{itemize}
+This is the minimal setup needed to prove the theorem.
 
 \begin{itemize}
 \item これらの不等式は物質の安定性を理解する上で決定的な役割を果たす. \cite{LiebSeiringer1}
@@ -505,6 +543,12 @@ $M$ modulo isomorphism form a group under the tensor product.
 \item 剰余項.
 \end{itemize}
 The remainder term.
+
+\begin{itemize}
+\item 測度論での病的な現象を避けるため, $\rbk{X, \calB, \mu}$ は常に標準確率空間の完備化と仮定する.
+\end{itemize}
+In order to avoid measure theoretic pathologies, we will always assume that
+$\rbk{X, \calB, \mu}$ is the completion of a standard measure space.
 
 \begin{itemize}
 \item 微分積分学の基本定理.
@@ -610,12 +654,721 @@ Physicists firmly believe that quantum mechanics is a `theory of everything' at 
 動画から適当に切り出してくる.
 \part{Linear Algebra}
 \label{sec-4}
-\chapter{あとで大幅 rewrite: 学部 3 年のときに書いた「本」}
+\chapter{Talk: Linear algebra and Calculus: Introduction to university mathematics}
 \label{sec-4-1}
-\section{はじめに}
+
+This note is based on a course for newcomers in the spring of 2014 at the Tokyo institute of Technology.
+See also \cite{MasahikoSaitoh1, AsaoArai3, AraiEzawa1, AraiEzawa2, KenjiFukaya2, ToshioNiwa1}.
+\section{Introduction}
 \label{sec-4-1-1}
+
+We talk about linear algebra, especially
+it's relation to calculus, i.e., differentiation and integration.
+
+In this talk we speak in Japanese but write in English on blackboard.
+It is because I want newcomers to get used to writing and reading in English.
+\section{What is linear algebra?}
+\label{sec-4-1-2}
+
+Main targets of linear algebra are vectors and matrices.
+We learn them in high school but linear algebra in
+university mathematics has somewhat different flavor from one in high school.
+Furthermore linear algebra is difficult to imagine
+where we use it compared to calculus.
+So we first consider its different points and its usage
+in mathematics and physics.
+
+In high school we consider vectors as geometric objects.
+However we now consider them as algebraic objects,
+since they are ones in linear ``algebra''!
+Our vectors are a generalized/abstract version of ones in high school.
+A vector needs not have direction nor length.
+Then, what properies should vectors have?
+\subsection{Abstract definition of vectors}
+\label{sec-4-1-2-1}
+
+In the following we sometimes use the terms linear spaces or vector spaces.
+These words have the same meaning.
+\begin{defn}\textup{(Definition of linear/vector spaces)}
+ Let $\bbR$ be a field of real numbers: a real number is also called a scaler.
+ A set $L$ is called a \textup{\textbf{linear space}} if its elements have the following properties.
+ Elements $x, y, z \in L$ are vectors and $a, b \in \bbR$ are real numbers in the following expressions.
+\begin{enumerate}
+\item \textup{Associativity:}
+  \begin{align}
+   \rbk{x + y} + z
+   =
+   x + \rbk{y + z}, \quad \forall x, y, z \in L.
+  \end{align}
+\item \textup{Commutativity of sum:}
+  \begin{align}
+   x + y = y + x,  \quad \forall x, y \in L.
+  \end{align}
+\item \textup{Existence of unit for sum:} there is an element $0 \in L$ such that
+  \begin{align}
+   x + 0 = x, \quad \forall x \in L.
+  \end{align}
+\item \textup{Existence of an inverse element for sum:} for any $x \in L$ there is an element $y \in L$ such that
+  \begin{align}
+   x + y = 0
+  \end{align}
+    for the above $0$.
+    In fact we can prove the uniqueness of an inverse element.
+\item \textup{Relation of scalers (real numbers) and vectors:}
+  \begin{align}
+   a \cdot \rbk{x + y}
+   &=
+   a \cdot x + a \cdot y, \\
+   \rbk{ab} \cdot x
+   &=
+   a \cdot \rbk{b x}, \\
+   \rbk{a + b} \cdot x
+   &=
+   a \cdot x + b \cdot x,
+  \end{align}
+\item \textup{Multiplication law for a scaler unit in} $\bbR$\textup{:}
+  \begin{align}
+   1 \cdot x = x, \quad \forall x \in L.
+  \end{align}
+\end{enumerate}
+\end{defn}
+Important points are
+\begin{enumerate}
+\item vectors are summable and sum is commutative operation, and
+\item vectors and scalers satisfy some multiplication laws.
+\end{enumerate}
+
+The above properties hold for geometric vectors in high school, of course.
+Our purpose is different from it: we consider vectors as algebraic objects and
+we derive many interesting properites using (mainly) algebraic thinking!
+\subsection{Examples of linear spaces}
+\label{sec-4-1-2-2}
+
+\begin{enumerate}
+\item The set of real numbers $\bbR$ itself with scaler $\bbR$.
+\item The set of complex numbers $\bbC$ itself with scaler $\bbR$.
+\item The set of complex numbers $\bbC$ itself with scaler $\bbC$.
+\item A plane $\bbR^2$ with scaler $\bbR$.
+\item A three dimensional space $\bbR^3$ with scaler $\bbR$.
+\item Higher dimensional space $\bbR^d$ ($d \geq 4$) with scaler $\bbR$.
+\item Some subsets of (numerical) sequence, e.g., $c_0$, $c_{\infty}$, $\ell^2$ with scaler $\bbR$.
+\item Some subsets of functions, e.g., $C^k(\Omega)$, $L^p \rbk{\Omega}$, $H^k \rbk{\Omega}$ with scaler $\bbR$.
+\item A set of linear operators with scaler $\bbR$.
+\end{enumerate}
+
+Today's main targets are introduction to the last three items and its relation to calculus.
+\subsection{Examples of finite, but higher dimensional spaces than three}
+\label{sec-4-1-2-3}
+
+We have many examples for higher dimensional objects in real world, e.g.,
+\begin{enumerate}
+\item (time evolution of) stock prices,
+\item players' movement in soccer,
+\item computerized control in robots.
+\end{enumerate}
+For (time evolution of) stock prices,
+there are many lisiting companies and its time evolution is important in real world.
+This evolution is mathematically reprensetable in higher dimensional space picture.
+
+Other examples are also similar characterization.
+These are related to analytical mechanics in physics.
+Moreover analytical mechanics is closely related to geometry.
+See \cite{KenjiFukaya1, NakamuraYamamoto1, NakamuraYamamoto2}.
+\subsection{Function spaces: examples of infinite dimensional dimensional spaces}
+\label{sec-4-1-2-4}
+
+We have infinitely many infinite dimensional objects.
+Examples are weather maps and wind direction maps.
+
+Take a point in a world map,
+and then there are infinitely many directions to blow wind.
+In classical point of view there are infinitely many space points,
+and hence there are infinitely many space points and
+directions of the wind are also infinitely many patterns.
+
+What do we represent this infinitely many probability of the wind in real world?
+We use functions in several variables, $w(x,y,z,t) \in \bbR^3$.
+A value of a function $w(x,y,z,t)$ represents a direction of wind and its strength (length of a vector)
+at space-time point $\rbk{x, y, z, t}$.
+We always use this type of mathematics in physics.
+
+Furthermore there are infinitely many types of wind distribution,
+i.e., we have infinitely many functions.
+For systematic thinking it is useful to think where functions live in.
+This is called a function space.
+There are many useful function spaces and we select a proper space as the situation demands.
+
+In this way, in mathematics we will encounter various types of spaces
+other than a three dimensional, geometric space.
+We consider spaces where functions live and ones where spaces itself live.
+\subsection{Linear maps, functionals}
+\label{sec-4-1-2-5}
+
+We usually consider maps instead of functions in university mathematics.
+In fact a map is just a function whose domain and range are general sets.
+First we define a linear map and linear functionnal.
+\begin{defn}
+ Assume $L_1$ and $L_2$ are linear spaces.
+ Then a function $F \colon L_1 \to L_2$ is called a \upbf{map or operator}.
+ If $F$ preserves linearity, i.e., $F$ has a property
+ \begin{align}
+  F \rbk{\alpha f + \beta g}
+  =
+  \alpha F(f) + \beta F(g), \quad \alpha, \beta \in \bbR, f, g \in L_1,
+ \end{align}
+ then an operator $F$ is called a \upbf{linear operator}.
+
+ If $L_2$ is $\bbR$ then $F$ is usually called a \upbf{functional}.
+ Furthermore $F$ is called a \upbf{linear functional} if it is linear.
+\end{defn}
+Here are some examples.
+\begin{ex}
+\begin{enumerate}
+\item \textup{Coordinate maps.} Let $f = (f(1), f(2), \dots, f(d)) \in \bbR^d$.
+    We write a vector $f = (f_1, f_2, \dots, f_d)$ as $f = (f(1), f(2), \dots, f(d))$ for later use.
+    This is just a notational convention.
+    Then we get functionals by
+   \begin{align}
+    x_i \colon f \mapsto f(i).
+   \end{align}
+    This is a linear functional since this has a property
+   \begin{align}
+    x_i \rbk{\alpha f + \beta g}
+    =
+    \alpha x_i \rbk{f} + \beta x_i \rbk{g}.
+   \end{align}
+\item \textup{Definite integrals:} First we define a map $I$ as
+   \begin{align}
+     I \colon
+     f \mapsto \int_{\bbR^d} f(x) dx \in \bbR.
+   \end{align}
+    This is a linear functional since this has a property
+   \begin{align}
+    I \rbk{\alpha f + \beta g}
+    =
+    \alpha I \rbk{f} + \beta I \rbk{g}.
+   \end{align}
+\item \textup{An other type of a definite integral:}
+   \begin{align}
+    E \colon
+    f \mapsto \int_{\bbR^d} \rbk{\abs{\nabla f(x, t)}^2 + \rbk{\frac{\partial f(x, t)}{\partial t}}^2} dx. \label{linear-algebra-and-calculus-4}
+   \end{align}
+   This is a nonlinear functional.
+   In physics this $E$ is called an energy functional.
+\item \textup{Differential operators:} Define an operator as
+   \begin{align}
+    D \colon f \mapsto \frac{d}{dx} f.
+   \end{align}
+    This is a \textup{linear operator} since it satisfies
+   \begin{align}
+    D \rbk{\alpha f + \beta g}
+    =
+    \alpha Df + \beta Dg.
+   \end{align}
+\end{enumerate}
+\end{ex}
+In this way we connects linear algebra with calculus.
+For analysis of nonlinear functionals we also need various linear spaces and
+some technique from linear algebra.
+\subsection{Eigenvalues, eigenvectors}
+\label{sec-4-1-2-6}
+
+These are not learned explicitly in high school.
+However they sometimes appears in entrance exams.
+\begin{defn}
+ Let $A$ be a linear operator on a linear space $L$.
+ A real number $\lambda$ resp. a vector $f$ are called an \upbf{eigenvalue} resp. \upbf{eigenvector}
+ if they satisfy
+ \begin{align}
+  A f = \lambda f.
+ \end{align}
+\end{defn}
+Here are examples.
+\begin{ex}
+ Let $D^2$ be a second order differential operator (this is linear) with respect to time and consider
+  \begin{align}
+   m D^2 x
+   =
+   -k x,
+  \end{align}
+ i.e.,
+  \begin{align}
+   m \frac{d^2 x (t)}{dt^2}
+   =
+   -k x(t).
+  \end{align}
+ This is an equation of motion for a spring in physics.
+ A solution (eigenvector) is
+  \begin{align}
+   x(t)
+   =
+   A \sin \rbk{\omega t + \theta}, \quad
+   \omega
+   =
+   \sqrt{\frac{k}{m}}.
+  \end{align}
+ We can write a solution using a celebrated Euler's formula:
+  \begin{align}
+   x(t)
+   =
+   A e^{i \rbk{\omega t + \theta}}.
+  \end{align}
+ Consideration of eigenvalues for a differential equation is somewhat difficult and we omit it.
+ See, e.g., \cite{HaimBrezis1, HaimBrezis2} for details.
+\end{ex}
+\subsection{Mathematical application of linear algebra}
+\label{sec-4-1-2-7}
+
+There many branches related to linear algebra.
+Here are some examples.
+See also \cite{phasetr2}.
+\begin{enumerate}
+\item Theory of Lie group and its representation theory.
+\item General algebra.
+\item Algebraic geometry.
+\item Analysis of differential equations.
+\item Functional analysis.
+\item Operator algebra.
+\end{enumerate}
+\subsection{Physical application}
+\label{sec-4-1-2-8}
+
+There many branches related to linear algebra in physics, too.
+See also \cite{phasetr2}.
+
+For example, in quantum mechanics, one of the most fundamental physical theory,
+linearity is important and fundamental.
+We say ``a superposition principle valids for wave functions,''
+and this ``superposition'' means linearity.
+
+In high school we learn a superposition principle for wave.
+This holds because our wave equation is linear in high school.
+\subsection{Linear algebra and statistics}
+\label{sec-4-1-2-9}
+
+We use statistics in many branches, including humanities and sociology.
+E.g., natural language processing has many humanity and infomation theoretic elements.
+This area needs broad knowledge including probability and statistics.
+Interested readers should learn, e.g., principal component analysis.
+\section{Integration}
+\label{sec-4-1-3}
+\subsection{Let's define inner products!}
+\label{sec-4-1-3-1}
+
+In this talk we mainly consider real linear spaces, e.g., $\bbRd$.
+You may consider complex linear spaces if you know complex numbers.
+
+We assume you agree with the existence of higher dimensional spaces.
+We want to define angles and length of vectors as in two or three dimensional ones.
+One reason to consider them is application to physics.
+There is a projection hypothesis in quantum mechanics:
+this projection comes from orthogonal projection,
+and it is just a shadow of objects in three dimensional objects when
+one shine a light from above.
+
+At first we consider how to define angles between infinite dimensional vectors.
+Take a look at the following inner product formula in high school.
+\begin{align}
+ a \cdot b
+ =
+ \abs{a} \, \abs{b} \cos \theta.
+\end{align}
+We deform this:
+\begin{align}
+ \cos \theta
+ =
+ \frac{ a \cdot b} {\abs{a} \, \abs{b}}.
+\end{align}
+We can derive an angle $\theta$ from the value of the cosine function.
+Lengths\footnote{In general we call it a norm of a vector.
+We can consider many norms for a vector since there are many senses of distances.
+ } of vectors can be computed by inner products,
+from $\abs{a}^2 = a \cdot a$.
+So we can derive angles if we can define an inner product.
+Hence we have to define an inner product.
+Note that an inner product is not a divine concept.
+
+At first we write an inner product in $\bbR^3$.
+We write a vector $f = (f_1, f_2, f_3)$ as $f = (f(1), f(2), f(3))$ for later use.
+This is just a notational convention.
+We define an inner product for three dimensional vectors $f$ and $g$ as
+\begin{align}
+ f \cdot g
+ :=
+ \bkt{f}{g}
+ :=
+ \sum_{k=1}^3 f(k)g(k).
+\end{align}
+The first notation is one in high school.
+The second is usual one when considering a functional inner product.
+There are several notations for an inner product such as
+\begin{align}
+ \rbk{f, g}, \quad \rbk{f | g}, \quad \langle f | g \rangle.
+\end{align}
+The last one is the Dirac's braket notation in quantum mechanics.
+\subsubsection{Inner products in higher dimensional spaces}
+\label{sec-4-1-3-1-1}
+
+We wrote an inner product as
+\begin{align}
+ \langle f , g \rangle
+ =
+ \sum_{k=1}^3 f(k)g(k).
+\end{align}
+Since there is no reason to restrict our consideration to a three dimensional space
+we generalize a dimension three to general $d$.
+\begin{align}
+ \langle f , g \rangle
+ =
+ \sum_{k=1}^d f(k)g(k),
+\end{align}
+where we set
+\begin{align}
+ f = \rbk{f(1), f(2), \dots, f(d)}, \quad
+ g = \rbk{g(1), g(2), \dots, g(d)}.
+\end{align}
+If you want to consider one in $\bbC^d$ you should set
+\begin{align}
+ \bkt{f}{g}
+ =
+ \sum_{k=1}^d \overline{f(k)} g(k)
+\end{align}
+because it is desirable that a length (norm) of a vector is
+properly defined, i.e., $\norm{f}^2 := \bkt{f}{g} \geq 0$.
+
+We take a limit $d \to \infty$.
+We face a problem whether a series converges or not,
+but we can overcome this by considering converging ones.
+\begin{align}
+ \bkt{f}{g}
+ =
+ \sum_{k=1}^{\infty} f(k)g(k).
+\end{align}
+
+\begin{rem}
+ A infinite dimensional vector $f = (f(1), f(2), \dots)$
+ can be viewed as a sequence.
+ In quantum mechanics we use sequences and matrices living in an infinite dimensional space
+ when considering Heisenberg's matricial mechanics.
+\end{rem}
+
+Note that our temporal task is to make how to define an inner product for functions.
+Let's go back to a finite sum, think $1 = \Delta k$, and rewrite a sum as
+\begin{align}
+ \sum_{k=1}^{d} f(k)g(k) \Delta k.
+\end{align}
+
+Rewrite $k$ as $k/d$ and $\Delta k$ as $1/d$.
+Then we get a sum
+\begin{align}
+ \sum_{k=1}^{d} f \left( \frac{k}{d} \right) g \left( \frac{k}{d} \right) \frac{1}{d}.
+\end{align}
+This is an expression, known as 区分求積法 in high school\footnote{This is a definition of the Riemann integral.
+ }.
+
+Taking a limit $d \to \infty$ the above sum becomes an integral.
+\begin{align}
+ \langle f, g \rangle
+ =
+ \int_{0}^{1} f(x) g(x) dx.
+\end{align}
+Now the interval is $[0, 1]$ here,
+but we can take any (measurable) subset of $\bbR$.
+
+Hence we find that an inner product for functions
+can be defined using integral.
+In fact anything is good if it satisfies the axiom of an inner product.
+
+A linear space with inner product is called pre-Hilbert space.
+A pre-Hilbert space is called a Hilbert space if it is complete for metric induced by inner product.
+A Hilbert space is famous as a space where wave functions in quantum mechanics live.
+\subsection{Axiom for inner products}
+\label{sec-4-1-3-2}
+
+\begin{axm}
+ Let $L$ be a linear space and $\bkt{\cdot}{\cdot} \colon L \times L \to \bbR$ is a map of two variables.
+ The pair $\rbk{L, \bkt{\cdot}{\cdot}}$ is an inner product space if the map $\bkt{\cdot}{\cdot}$ is an inner product,
+ i.e., it satisfies the following properties.
+\begin{enumerate}
+\item \textup{Symmetry:}
+  \begin{align}
+   \bkt{f}{g} = \bkt{g}{f}.
+  \end{align}
+\item \textup{Linearity in the second argument:}
+  \begin{align}
+   \bkt{f}{\alpha g + \beta h}
+   =
+   \alpha \bkt{f}{g} + \beta \bkt{f}{h}.
+  \end{align}
+\item \textup{Positive definiteness:}
+  \begin{align}
+   \bkt{f}{f} \geq 0, \quad
+   \bkt{f}{f} = 0 \Longleftrightarrow f = 0.
+  \end{align}
+\end{enumerate}
+\end{axm}
+\subsection{Examples of inner products}
+\label{sec-4-1-3-3}
+
+There are many inner products in a function space.
+Let $\Omega$ be a (open) subset of $\bbR$ and $h \colon \Omega \to \bbR_{\geq}$ be a function satisfying
+\begin{align}
+ h(x) \geq 0, \quad
+ h \neq 0, \quad
+ 0 < \int_\Omega h(x) dx < \infty.
+\end{align}
+Then the following is becomes an inner product:
+\begin{align}
+ \bkt{f}{g}_{h}
+ :=
+ \int_{\Omega} f(x) g(x) h(x) dx.
+\end{align}
+We show some examples of inner products.
+\begin{align}
+ \bkt{f}{g}_1
+ &:=
+ \int_{-1}^{1} f(x) g(x) dx, \\
+ \bkt{f}{g}_2
+ &:=
+ \int_{0}^{\infty} f(x) g(x) e^{-x} dx, \\
+ \bkt{f}{g}_3
+ &:=
+ \int_{\bbR} f(x) g(x) e^{-x^2} dx.
+\end{align}
+The above inner products are related to
+the Legendre polynomials, Laguerre polynomials, Hermite polynomials.
+
+Furthermore we take the following inner product.
+\begin{align}
+ \int_{- \pi}^{\pi} f(x) g(x) dx.
+\end{align}
+Then we get the following expressions.
+\begin{align}
+ \frac{1}{\pi} \int_{-\pi}^{\pi} \sin nx \sin mx
+ &=
+ \delta_{n,m}, \\
+ \frac{1}{\pi} \int_{-\pi}^{\pi} \cos nx \cos mx
+ &=
+ \delta_{n,m}, \\
+ \frac{1}{\pi} \int_{-\pi}^{\pi} \cos nx \sin mx
+ &= 0.
+\end{align}
+This means that the functions $\cbk{\cos nx}$ and $\cbk{\sin nx}$ are orthogonal.
+This relates to the famous Forier series expansion.
+This is used for wave analysis in physics.
+\subsection{Physics for the space $L^2 \rbk{\Omega}$}
+\label{sec-4-1-3-4}
+
+The symbol $L^2 \rbk{\Omega}$ in the title means
+the space of square integrable functions in the sense of Lebesgue on $\Omega$.
+
+We introduce a physical meaning of the space $L^2 \rbk{\Omega}$.\footnote{To be precise the proper space is not $L^2$ but $H^1$.
+ }
+
+The elements of the space $L^2 \rbk{\Omega}$ have finite energy.
+Let us consider a wave equation.
+\begin{align}
+ \frac{\partial^2 u}{\partial t^2}
+ =
+ \Delta u.
+\end{align}
+The energy for its solution is written by
+\begin{align}
+ E
+ =
+ \int_{\mathbb{R}^d} \rbk{\rbk{\nabla u}^2 + \rbk{\frac{\partial u}{\partial t}}^2}dx.
+\end{align}
+We want to restrict solutions whose energy is finite
+since it is physically meaningless to consider infinite energy solutions.
+The elements of $L^2$ have finite energy, by definition,
+and hence it is the reason why the space $L^2$ is important in physics.
+To be precise our derived functions are in $L^2$, so
+we have to consider a Sobolev space $H^1$.
+
+In quantum mechanics probabilistic interpretation forces us to
+consider functions in $L^2$.
+Furthermore we have to impose more severe restriction to functions,
+i.e., the domain of Hamiltonians.
+
+Linear operators have their domains
+and, for Hamiltonians, their domains are functions having finite energy.
+\section{Differentiation}
+\label{sec-4-1-4}
+\subsection{Taylor expansion}
+\label{sec-4-1-4-1}
+
+We start from Taylor's theorem.
+Assume a function $f$ is differentiable.
+Fundamental theorem of calculus and integration by parts lead
+\begin{align}
+ f(x) - f(x_0)
+ &=
+ \int_{x_0}^{x} f'(y) dy
+ =
+ \int_{x_0}^x (x - y)^{0} f'(y) dy \\
+ &=
+ \sqbk{- \rbk{x - y} f'(y)}_{x_0}^x + \int_{x_0}^x \rbk{x - y} f^{(2)} (y) dy \\
+ &=
+ (x - x_0) f'(x_0) + \sqbk{- \frac{(x-y)^2}{2} f^{(2)}(y)}_{x_0}^x + \int_{x_0}^x \frac{(x - y)^2}{2} f^{(3)} (y)dy. \\
+ &=
+ (x - x_0) f'(x_0) + \frac{(x-y)^2}{2} f^{(2)}(x_0) + \int_{x_0}^x \frac{(x - y)^2}{2} f^{(3)} (y)dy.
+\end{align}
+Further iteration leads the following Taylor's theorem.
+\begin{align}
+ f(x)
+ =
+ \sum_{k=0}^{n} \frac{(x - x_0)^k}{k!} \left( D^k f \right) (x_0) +
+  \int_{x_0}^{x} \frac{(x - y)^{n}}{n!} f^{(n+1)} (y) dy,
+\end{align}
+where $D^k f$ is a shorthand notation for  $d^k f/ dx^k$,
+the last term of the RHS is called the remainder term
+and denoted by $R_n$.
+
+Now assume the remainder term $R_n$ converges to 0 as $n \to \infty$
+and the above series also converges in some suitable sense.
+Let $x_0 = 0$.
+Then we get
+\begin{align}
+ f(x)
+ =
+ \sum_{k=0}^{\infty} \frac{x^k}{k!} \left( D^k f \right) (0).
+\end{align}
+This series is called a \textbf{Taylor series} around 0 and
+this power series expansion is called a \textbf{Taylor expansion} around 0.
+
+A Taylor expansion of an exponential function $e^x$ around $0$ is as follows.
+\begin{align}
+ e^{x}
+ =
+ \sum_{k=0}^{\infty} \frac{x^k}{k!}.
+\end{align}
+We compare the above two expressions and
+set $x$ to $x D$ in the expansion of $e^x$.
+Then we have the following clear expression.
+\begin{align}
+ f(x)
+ =
+ \left( e^{xD} f \right) (0)
+\end{align}
+If we use quantum mechanical notation, $p = -i D$, the above expression becomes
+\begin{align}
+ f(x)
+ =
+ \left( e^{ixp} f \right) (0).
+\end{align}
+\subsection{Unitary representation of a group}
+\label{sec-4-1-4-2}
+
+The above story closely related to a unitary representation theory of a group.
+Simply speaking a underlying space $\bbR$ itself is a group
+and it acts on itself.
+This action lifts up to a function space living on a underlying space.
+See \cite{KobayashiOshima1} for details.
+
+One point.
+Physicists often define functions of operators by Taylor expansion.
+However it is not good and insufficient in view of mathematics.
+We can see it when we consider the action of $e^{ixp}$.
+
+The operator $e^{i x p}$ shifts an argument of a function $x$,
+and this shift is defined without differentiability of functions,
+i.e., we can define an action of $e^{ixp}$ for more general functions.
+However if we define it by a Taylor expansion,
+the operator $e^{ixp}$ is defined for only analytic functions.
+\subsubsection{Fourier expansion}
+\label{sec-4-1-4-2-1}
+
+A simple argument can deduce a Fourier expansion.
+We can formally consider for $\bbR$,
+but this is a little bit mathematically problematic.
+Instead we consider on an interval $[ - \pi, \pi]$.
+
+Consider a linear differential equation (eigenequation for
+self-adjoint operator $p$)
+\begin{align}
+ p f
+ &=
+ k f, \quad k \in \bbR, \\
+ f(-\pi)
+ &=
+ f(\pi).
+\end{align}
+Then the above solutions are
+\begin{align}
+ k \in \bbZ, \quad
+ f_k(x)
+ =
+ e^{ikx}.
+\end{align}
+Euler's formula says
+\begin{align}
+ e^{ikx}
+ =
+ \cos kx + i \sin kx,
+\end{align}
+and this leads a Fourier expansion.
+\subsection{Analitical mechanics and quantum mechanics}
+\label{sec-4-1-4-3}
+
+In quantum mechanics a momentum becomes a differential operator
+and denotes $p = -i D$.
+
+In analytical mechanics a momentum
+can be viewed as a generator of space shift.
+A differential operator $- i d/dx$ is also
+a generator of space shift in view of representation theory.
+Hence these are common property, generator of space shift.
+This is an important \textbf{formal} connection to classical mechanics and quantum mechanics.
+This connection is also important in geometry.
+\subsection{Physics and representation theory}
+\label{sec-4-1-4-4}
+
+Representation theory is also important for
+theory of relativity and relativistic quantum field theory.
+See \cite{TakeshiHirai1, TakeshiHirai2} for details.
+\section{Variational problem: mixture of differentiation and integration}
+\label{sec-4-1-5}
+
+A variational problem is an infinite dimensional version of diffrential theory.
+This is important and interesting in both physics and mathematics.
+
+It is a mathematically and physically famous problem that why soap bubble becomes round.
+This type of problems is called a geometric variational problem.
+See \cite{SeikiNishikawa1} for details.
+\subsection{Examples of variational problems}
+\label{sec-4-1-5-1}
+\subsubsection{shortest time problem}
+\label{sec-4-1-5-1-1}
+
+Assume you are a lifesaver on beach and there is a person drowning.
+You have to save the person.
+How do you determine a path to the person in the shortest possible time?
+This is a famous variational problem.
+
+You have to determine a path and it is a function mathematically.
+Hence you have to search a function in a function space.
+How to search it?
+\subsection{Mathematical formulatrion: functionals, linear operators}
+\label{sec-4-1-5-2}
+
+We formulate the above problem mathematically.
+In usual we make a some \textbf{functional} and search a function
+which optimize, i.e., minimize or maximize the value of it.
+In this procedure we differentiate a functional by functions,
+and this is a variational derivatice.
+
+Recall an energy functional (\ref{linear-algebra-and-calculus-4}).
+This energy functional is a mixed type functional of differential and integral.
+We often face this type of functionals in theory of partial differential equations,
+in particular, quantum mechanics and we need a minimum value of $E$ and its minimizer.
+These are physically important quantities, ground state energy and ground state.
+Some types of quantum mechanical problems are formulated as a variational problem.
+\chapter{あとで大幅 rewrite: 学部 3 年のときに書いた「本」}
+\label{sec-4-2}
+\section{はじめに}
+\label{sec-4-2-1}
 \subsection{数学「を」学ぶ}
-\label{sec-4-1-1-1}
+\label{sec-4-2-1-1}
 
 これは基本的に数学の本です.
 物理現象を解析するのに, ある数学の理論が有用なので,
@@ -699,11 +1452,11 @@ de Broglie によって与えられました.
 定義は納得するまで考えてください.
 定義こそが生命線です.
 \subsection{数学「で」学ぶ}
-\label{sec-4-1-1-2}
+\label{sec-4-2-1-2}
 
 作りかけ.
 \subsection{一年で物理の講義がほとんど無い理由}
-\label{sec-4-1-1-3}
+\label{sec-4-2-1-3}
 
 人によっては衝撃的なタイトルであるかもしれません.
 応物・物理に来たというのに, 一年生では物理をほとんどやらない, というのですから.
@@ -817,7 +1570,7 @@ $\vf (\vr, t)$ を力のベクトルとすると
 見なくても分からなくても良い注だという印をつけておきます.
 きちんと考えるとややこしいことがあるようだ, ということだけ把握してあれば十分です.
 \subsection{物理で使う数学}
-\label{sec-4-1-1-4}
+\label{sec-4-2-1-4}
 
 基本的に物理学で使う数学は, 微分・積分と線形代数です.
 これらの計算と, 多少の理論を (理解できずとも) 知ってさえいれば,
@@ -866,7 +1619,7 @@ $\vf (\vr, t)$ を力のベクトルとすると
 見た方が早いです.
 実際に振動現象の解析に入ってみましょう.
 \subsection{数学記号の記法}
-\label{sec-4-1-1-5}
+\label{sec-4-2-1-5}
 
 本書では記述を簡便にするために, 数学の記法をいくつか導入します.
 その中で基本的な記法と概念をいくつかここで紹介します.
@@ -975,7 +1728,7 @@ $\vf (\vr, t)$ を力のベクトルとすると
 この共変性は群論という数学と深く関わっていることが知られています.
 これを電磁気学での Lorentz 変換と絡めて説明しようと思います.
 \subsection{物理と近似: まだ書きかけ}
-\label{sec-4-1-1-6}
+\label{sec-4-2-1-6}
 
 良い近似とは何か, みたいなことを書きたい.
 まだうまくまとまらない.
@@ -1017,9 +1770,9 @@ $\vf (\vr, t)$ を力のベクトルとすると
 新たな物理を見せ, 説明してくれます.
 多体系での原子たちは, 少数粒子のときとは全く別の論理に従っているようです.
 \section{調和振動子と線型代数}
-\label{sec-4-1-2}
+\label{sec-4-2-2}
 \subsection{導入}
-\label{sec-4-1-2-1}
+\label{sec-4-2-2-1}
 
 高校で単振動を学んだことと思います.
 これは調和振動とも呼ばれます.
@@ -1104,7 +1857,7 @@ m\ddot{X}_3 &= -(2 + \sqrt{2}) X_3
 安定点が存在すればその近傍ではそのポテンシャルに支配された系の運動が微小振動になることを証明します.
 そこへの接続に十分な範囲での議論をしなければなりませんが, それ以外にも重要なことは補足しながらいくことにします.
 \subsection{記法の確認と線型写像}
-\label{sec-4-1-2-2}
+\label{sec-4-2-2-2}
 
 いくつかの一般的な記法をまとめておきます.
 今この場で覚えようとしても無理なので, 使いながら覚えていって下さい.
@@ -1394,9 +2147,9 @@ $\bm{y} = A \bm{x}$ と書けます.
 線型写像と行列には密接な関連があることさえ把握しておけば, 今は十分です.
 細かいことは気にせず今は突っ走ってみましょう.
 \subsection{線型空間の導入\label{線型空間の導入}}
-\label{sec-4-1-2-3}
+\label{sec-4-2-2-3}
 \subsubsection{物理法則とベクトル}
-\label{sec-4-1-2-3-1}
+\label{sec-4-2-2-3-1}
 
 本章は主に行列に関することを述べるのですが, その前に
 線型代数で最も重要な概念である\textgt{線型空間 (ベクトル空間)}について議論することにします.
@@ -1466,7 +2219,7 @@ $\bm{y} = A \bm{x}$ と書けます.
 \textgt{自動的に共変性が満たされているような上手い数学的な表現法}があれば非常に便利です.
 答から言うならば, それは\textgt{ベクトル}(一般にはテンソル) によって物理法則を表現すれば良いことが分かっています.
 \subsubsection{抽象ベクトル}
-\label{sec-4-1-2-3-2}
+\label{sec-4-2-2-3-2}
 
 ここでベクトルについて考察を深めます.
 上で「物理現象を調べる際に様々な座標系を用いる」と書きましたが,
@@ -1583,7 +2336,7 @@ $\langle \bm{e}_1 , \bm{e}_2, \bm{e}_3 \rangle = \langle \bm{e}_i \rangle _{i=1}
 拡大・縮小のない回転で長さは当然不変であり,
 同時に同じだけ 2 つのベクトルを回転させれば角度も当然変換に対して不変になります.
 \subsubsection{回転の表現}
-\label{sec-4-1-2-3-3}
+\label{sec-4-2-2-3-3}
 
 そこでこれから回転を数理的に定式化します.
 下調べとして平面で考えましょう.
@@ -1688,7 +2441,7 @@ $A^*A=(c_{ij})$ とすれば $c_{ij}=\overline{(\bm{a}_i,\bm{a}_j)}$ であり,
 $( T_O ( \bm{x} ) , T_O ( \bm{y} ) ) = ( \bm{x} , \bm{y} )$ となる
 線型変換  $T_O$  を\textgt{直交変換}\index{ちょっこうへんかん@直交変換}と呼びます.
 \subsubsection{Galilei の相対性原理}
-\label{sec-4-1-2-3-4}
+\label{sec-4-2-2-3-4}
 
 ここで物理法則の記述という問題に帰ります.
 現象の解析を行なう際には適当な座標系 (と座標原点) を取ると書きました.
@@ -1917,7 +2670,7 @@ Galilei 変換を表す行列を $\hat{G}$ とすると,
 この計算をした後,  $\tilde{ \bm{R} }'$ のはじめの 4 つの成分を取れば,
 めでたく座標変換が得られます.
 \subsubsection{抽象ベクトルの微分}
-\label{sec-4-1-2-3-5}
+\label{sec-4-2-2-3-5}
 
 さて, 実はここまで曖昧にぼかしてきた部分があります.
 それは\textgt{抽象ベクトルの微分とは何者か}ということです.
@@ -2015,7 +2768,7 @@ $\partial f (x ,y , z) / \partial x , \partial f (r , \theta, \varphi) / \partia
 第一の方法に従うことにしましょう
 作りかけ.
 \subsubsection{定理の証明}
-\label{sec-4-1-2-3-6}
+\label{sec-4-2-2-3-6}
 
 最後に積み残した「有限次元の間の線型写像は行列で表現出来る」ということを証明します.
 まず 1 つ言葉を定義します.
@@ -2300,7 +3053,7 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
 その行列は標準基底で線型写像を表現した行列と座標系の変換 (基底変換の行列) で
 表されることが分かりました.  $\bs$
 \subsection{行列式}
-\label{sec-4-1-2-4}
+\label{sec-4-2-2-4}
 
 前節で述べたように
 線型変換は座標系 (基底) を選んだ上で一意的に行列で表すことが出来ます.
@@ -2838,7 +3591,7 @@ $C$ の第 $i$ \textgt{行}ベクトルを $\bm{c}_i$ として今まで証明�
 行列式の値は $0$ ではありません.
 すなわち逆変換が存在するか否かは適当な座標系を取ったときの行列式を計算すれば十分であることが分かりました.
 \subsection{内積と外積}
-\label{sec-4-1-2-5}
+\label{sec-4-2-2-5}
 
 内積から書きます.
 ここでの内積は高校のときと同じです.
@@ -2908,7 +3661,7 @@ x_{1}y_{2} - x_{2}y_{1}
 となり, 確かに上の定義と一致します. これを記憶法といって定義としなかった理由は
 成分にベクトルと実数が共存する行列式を定義していないからです.
 \subsection{線型独立と基底, 次元 \label{sec:basis}}
-\label{sec-4-1-2-6}
+\label{sec-4-2-2-6}
 
 とりあえず天下りですが, 線型結合と線型独立, 線型従属の定義を述べます.
 あまり変わらないので, 本節は一般の $n$ で述べます.
@@ -3002,7 +3755,7 @@ x_{1}y_{2} - x_{2}y_{1}
 となるもの, つまりベクトルの長さが $1$ であるということです. \textgt{直交}というのはもちろん $i\not = j$ のとき
  $(\bm{e}_{i},\bm{e}_{j})=0$ となることです. 例えば標準基底は正規直交基底です.
 \subsection{固有値, 固有ベクトル \label{eigen}}
-\label{sec-4-1-2-7}
+\label{sec-4-2-2-7}
 
 まず固有値・固有ベクトルを定義しましょう.
     \begin{defn}行列 $A$ に対し零ベクトルでないベクトル $\bm{x}$ と\textgt{複素数} $\lambda $
@@ -3171,7 +3924,7 @@ x_{1}y_{2} - x_{2}y_{1}
     \end{align}
 となるので, 先程と同様にして $( \bm{x}_1 , \bm{x}_2 ) = 0$ です.  $\bs$
 \subsection{対称行列の対角化とスペクトル分解\label{taikakuka}}
-\label{sec-4-1-2-8}
+\label{sec-4-2-2-8}
 
 さて行列の話も大詰めです. ここでは\textgt{対称行列が対角化可能である}ことを示します.
 対角化\index{たいかくか@対角化}とは, ある行列 $A$ に適当な行列 $U$ をかけることで対角行列 $\Lambda$ にしてしまうことです.
@@ -3284,7 +4037,7 @@ A = \beta _1 P_1 + \beta _2 P_2 + \dots + \beta _k P_k
 こうすると「行列をかける (作用させる) 」という直観的に捉えにくいものが, ただの定数倍に還元され, 非常に見やすくなります.
 あとでスペクトル分解と Fourier 解析との関係を少し紹介する予定なので, 軽く紹介してみました.
 \subsection{物理への適用}
-\label{sec-4-1-2-9}
+\label{sec-4-2-2-9}
 
 準備が終わったので, 早速これをはじめに言ってあった現象の解析に応用してみましょう.
 3 質点系での解析を行ないます. 問題を再録しましょう.
@@ -3348,12 +4101,12 @@ A = \beta _1 P_1 + \beta _2 P_2 + \dots + \beta _k P_k
 本節もまだ残り一節ありますが, 次の予告をしましょう.
 次章は一般のポテンシャルとその安定点近傍での振動です. 数学的には微分積分学です.
 \subsection{無限次元の線型代数学}
-\label{sec-4-1-2-10}
+\label{sec-4-2-2-10}
 
 この節は後々への接続と量子力学のためのものです
 気楽に読んでみて下さい.
 \subsubsection{抽象ベクトル 2}
-\label{sec-4-1-2-10-1}
+\label{sec-4-2-2-10-1}
 
 \ref{線型空間の導入}節ではベクトルについて少し突っ込んだ議論をしました.
 ここではもう少し踏み込んでいきます.
@@ -3384,7 +4137,7 @@ A = \beta _1 P_1 + \beta _2 P_2 + \dots + \beta _k P_k
 あまりいないでしょう.
 ここではそれをさらに先鋭化させていきます.
 \subsubsection{線型空間}
-\label{sec-4-1-2-10-2}
+\label{sec-4-2-2-10-2}
 
 ここで一般的なベクトルの定義 (線型空間の定義) をしてもう一度はっきりさせておきましょう.
 \begin{defn}
@@ -3534,7 +4287,7 @@ A + B \longrightarrow (A + B) f:= Af + Bf \\
 \alpha A \longrightarrow  (\alpha A ) f := \alpha Af
 \end{gather}
 \subsubsection{線型独立と次元, 基底 2}
-\label{sec-4-1-2-10-3}
+\label{sec-4-2-2-10-3}
 
 退屈な話が続きました.
 そろそろもう少し身のある話に行きます. ここからは今までに有限次元 ( $\bC^n$ ) でしてきた話を
@@ -3582,7 +4335,7 @@ A + B \longrightarrow (A + B) f:= Af + Bf \\
 ついでに言っておくと, この $f_n$ は適当な $V$ の部分空間を取ると, その基底になることがあります.
 このあたりは後で Taylor 展開と絡めて説明する予定です.
 \subsubsection{内積}
-\label{sec-4-1-2-10-4}
+\label{sec-4-2-2-10-4}
 
 次に内積の話をします. 無限次元での内積をどう定義するか, ということですが, まずは有限次元を思い出しましょう.
  $\bm{x},\bm{y} \in \bC^n$ とします. このとき内積は
@@ -3702,7 +4455,7 @@ Hilbert (ヒルベルト) 空間と呼ばれるものの具体例です.
 これは数学的に行列力学は $l^2$ で考え, 波動力学 $L^2$ で考えていたので, 同型定理から
 数学的には同じ結果が出てもおかしくない, とかいう紆余曲折があったそうです.
 \subsubsection{直交多項式と基底}
-\label{sec-4-1-2-10-5}
+\label{sec-4-2-2-10-5}
 
 打って変わって基底のところで「この $f_n$ は適当な $V$ の部分空間を取ると, その基底になることがあります」と書きました.
 そのような基底になる直交多項式としていくつか挙げておきましょう.
@@ -3739,7 +4492,7 @@ f (x)
 \int_{-\infty}^{\infty} f (x) e^{-i \xi x} \, dx
 \end{gather}
 \subsubsection{微分方程式と Fourier 解析ことはじめ}
-\label{sec-4-1-2-10-6}
+\label{sec-4-2-2-10-6}
 
 そろそろ筆者の知識と認識の限界に来ているのですが, もう少し書きましょう.
 線型作用素についてです.  $t$ を時間として微分作用素を $D:=\frac{d}{dt}$ とします.
@@ -3781,11 +4534,11 @@ Euler (オイラー) の公式という次式になります.
 
 それではそろそろ微分積分に行きましょう.
 \chapter{Application to Google's pagerank}
-\label{sec-4-2}
+\label{sec-4-3}
 
 動画の原稿から取ってくる.
 \chapter{量子力学を理解するために斎藤正彦『線型代数入門』\cite{MasahikoSaitoh1}を読む人が注目すべき点}
-\label{sec-4-3}
+\label{sec-4-4}
 
 Togetter からの転載.
 
@@ -11649,7 +12402,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
  x \label{Hinashiro_math_party_1_probability_2}
 \end{align}
 が導ける.
-最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[26].
+最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[29].
 
 再び $x \neq 0$ を仮定しよう \footnote{ハイパーどうでもいいが「再びマタタビ楕円型」という天啓を得たことを記録しておく.
  }.
@@ -11672,7 +12425,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
 \subsection{Rademacher 関数}
 \label{sec-8-1-4-2}
 
-これまではまさに高校の数学だった \footnotemark[23].
+これまではまさに高校の数学だった \footnotemark[26].
 本番はここからだ.
 式 (\ref{Hinashiro_math_party_1_probability_3}) を別の観点から眺めてみようという体で,
 唐突に次の無茶苦茶な理論展開を見せる.
@@ -11747,7 +12500,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
 本質が見えるようになるまでは偶然というほかない.
 ここで式 (\ref{Hinashiro_math_party_1_probability_3}) を別の方法で導いてみよう.
 
-唐突だが次の関数を考える \footnotemark[24].
+唐突だが次の関数を考える \footnotemark[27].
 いったん少し面倒な方法で取り組んでみよう.
 \ref{Hinashiro_math_party_1_probability_14} 節で整理するので少しのあいだ我慢してほしい.
 \begin{align}
@@ -11769,7 +12522,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
  =
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}.
 \end{align}
-ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[25].
+ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[28].
 したがって
 \begin{align}
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}
@@ -12137,7 +12890,7 @@ Chebyshev による簡明かつ重要な結果を使った証明だけ紹介し�
 これで簡単に (\ref{Hinashiro_math_party_1_probability_8}) が証明できた.
 
 Chebyshev の不等式だけでなく, Rademacher 関数の独立性, つまり \ref{Hinashiro_math_party_1_probability_11} の結果も本質的に効いている.
-実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[27].
+実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[30].
 弱法則ではまだまだほしい内容に足りない.
 「儲けが際限なく大きくなる確率が 0 に収束する」くらいの微妙なことしか言っていないからだ.
 平均がばっちり 0 に行くことを証明したい.
@@ -12853,8 +13606,13 @@ Then a net limit functional is the desired one.
 There are two proofs in \cite{AsaoArai5}.
 One is abstract and uses \textbf{nuclear extension}.
 The other is concrete and uses a \textbf{quantum mechanical harmonic oscillator}
-\chapter{Statistics for idol management}
+\chapter{Talk: Lecture on ergodic theory}
 \label{sec-8-3}
+
+This note is based on a course for third-year Bachelor students in the May of 2014.
+See \cite{OmriSarig1, MarkKac1} ror details.
+\chapter{Statistics for idol management}
+\label{sec-8-4}
 
 動画から適当に切り出してくる.
 \part{Algebra}

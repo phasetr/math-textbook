@@ -1,4 +1,4 @@
-% Created 2014-04-04 金 07:53
+% Created 2014-04-08 火 14:03
 \documentclass[openany, a4paper, oneside]{book}
 
 \usepackage[dvipdfmx]{graphicx, hyperref}
@@ -35,7 +35,7 @@
 \setlength{\labelwidth}{6pt}%  ラベルの幅
 \setlength{\itemsep}{0pt}%     項目ごとの改行幅
 \setlength{\parsep}{0pt}%      段落での改行幅
-\setlength{\listparindent}{0zw}% 段落での一字下り
+\setlength{\listparindent}{0pt}% 段落での一字下り
 }
 }{%
 \end{list}%
@@ -62,18 +62,27 @@
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
 \@addtoreset{equation}{section}
 \makeatother
-
 \makeatletter
+\newcommand*{\defeq}{\mathrel{\rlap{%
+\raisebox{0.3ex}{$\m@th\cdot$}}%
+\raisebox{-0.3ex}{$\m@th\cdot$}}%
+=}
 \makeatother
+
 \DeclareMathOperator*{\slim}{s-lim}
 \DeclareMathOperator*{\wlim}{w-lim}
 \DeclareMathOperator{\diag}{diag}
+\newcommand{\co}{\mathrm{co}\,}
 \newcommand{\dom}{\mathrm{dom}\,}
+\newcommand{\ran}{\mathrm{ran}\,}
+\newcommand{\divergence}{\mathrm{div}\,}
 \newcommand{\algoplus}{\mathop{\hat{\bigoplus}}}
 \newcommand{\algotimes}{\mathop{\hat{\bigotimes}}}
 \newcommand{\esssup}{\mathop{\mathrm{ess.sup}}}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\rot}{rot}
+\renewcommand{\div}{\mathrm{div}}
 
-\newtheorem{req}{Request.}[section]
 \newtheorem{axm}{Axiom.}[section]
 \newtheorem{thm}{Theorem.}[subsection]
 \newtheorem{cor}[thm]{Corollary.}
@@ -84,6 +93,8 @@
 \newtheorem{rem}[thm]{Remark.}
 \newtheorem{fact}[thm]{Fact.}
 \newtheorem{assump}{Assumption.}[subsection]
+\newtheorem{pos}[thm]{Postulate.}
+\newtheorem{req}{Request.}[section]
 
 \renewcommand{\thethm}{\arabic{section}.\arabic{subsection}.\arabic{thm}}
 \renewcommand{\theassump}{\arabic{section}.\arabic{subsection}.\arabic{assump}}
@@ -97,18 +108,15 @@
 \newcommand{\rbk}[1]{\left (#1\right)}
 \newcommand{\sqbk}[1]{\left[#1\right]}
 \newcommand{\cbk}[1]{\left\{#1\right\}}
-\newcommand{\bkt}[2]{\langle#1,\,#2\rangle}
+\newcommand{\bkt}[2]{\left\langle#1,\,#2\right\rangle}
 \newcommand{\set}[2]{\left\{#1 : #2\right\}}
 \newcommand{\trans}{\,^t\!}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   special sums and such
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\sumtwo}[2]%
-{\mathop{\sum_{#1}}_{#2}}
-\newcommand{\sumthree}[3]%
-{\mathop{\mathop{\sum_{#1}}_{#2}}_{#3}}
-\newcommand{\sumfour}[4]%
-{\mathop{\mathop{\mathop{\sum_{#1}}_{#2}}_{#3}}_{#4}}
+\newcommand{\sumtwo}[2]{\mathop{\sum_{#1}}_{#2}}
+\newcommand{\sumthree}[3]{\mathop{\mathop{\sum_{#1}}_{#2}}_{#3}}
+\newcommand{\sumfour}[4]{\mathop{\mathop{\mathop{\sum_{#1}}_{#2}}_{#3}}_{#4}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\bbA}{\mathbb{A}}
@@ -141,6 +149,7 @@
 \newcommand{\calFf}{\mathcal{F}_{\mathrm{f}}}
 \newcommand{\calH}{\mathcal{H}}
 \newcommand{\calK}{\mathcal{K}}
+\newcommand{\calL}{\mathcal{L}}
 \newcommand{\calV}{\mathcal{V}}
 \newcommand{\calM}{\mathcal{M}}
 \newcommand{\calO}{\mathcal{O}}
@@ -149,6 +158,7 @@
 \newcommand{\Ccinfty}{C_{\mathrm{c}}^{\infty}}
 \newcommand{\dmu}{d \mu}
 \newcommand{\E}[1]{\rmE\sqbk{#1}}
+\newcommand{\Hom}[1]{\mathrm{Hom} \rbk{#1}}
 \newcommand{\Var}[1]{\mathrm{Var}\sqbk{#1}}
 \newcommand{\Cov}[1]{\mathrm{Cov}\sqbk{#1}}
 \newcommand{\EleqN}{E_{\leq}(N)}
@@ -187,6 +197,9 @@
 \newcommand{\rmp}{\mathrm{p}}
 \newcommand{\rmph}{\mathrm{ph}}
 \newcommand{\sto}{\xrightarrow{\text{s}}}
+\newcommand{\sumonetoinfty}[1]{\sum_{#1 = 1}^{\infty}}
+\newcommand{\sumzerotoinfty}[1]{\sum_{#1 = 0}^{\infty}}
+\newcommand{\supp}{\mathrm{supp} \,}
 \newcommand{\Tr}{\mathrm{Tr}\,}
 \newcommand{\touw}{\stackrel{\mathrm{uw}}{\to}\,}
 \newcommand{\upbf}[1]{\textup{\textbf{#1}}}
@@ -278,10 +291,6 @@
 \newcommand{\mbfr}{\mathbf{R}}
 \newcommand{\mbfc}{\mathbf{C}}
 
-\DeclareMathOperator{\grad}{grad}
-\DeclareMathOperator{\rot}{rot}
-\renewcommand{\div}{\mathrm{div}}
-
 \newcommand{\mrm}[1]{\mathrm{#1}}
 \newcommand{\srto}{\Rightarrow}
 \newcommand{\rto}{\Longrightarrow}
@@ -296,7 +305,7 @@
 
 \title{Math textbook}
 \author{相転移 P (@phasetr)\thanks{phasetr@gmail.com}}
-\date{2014-04-04}
+\date{2014-04-08}
 \hypersetup{
   pdfkeywords={},
   pdfsubject={},
@@ -342,7 +351,7 @@ OK, I will do it.
 I studied physics in my bachelor days and studied mathematics
 in my master days.
 So I will be ``human sacrifice'' for this difficult, but very
-interesitng and exciting project.
+interesiting and exciting project.
 
 There are many many good books,
 but they are systematic and ``boring'' sometimes.
@@ -354,8 +363,28 @@ and connections among many branches.
 
 数学や物理に関する英語表現や具体的な例文を少しずつ足していく.
 基本的な表現については体系的なまとめもほしいので, そういうのもやっていこう.
-\chapter{Common phrases}
+辞書については \cite{YusakuKomatsu1} などを参考にしている.
+研究会開催などで英文メールを打つこともあるだろう.
+そういう用途もあるので, ある程度一般的な英語もまとめていきたい.
+\chapter{General English}
 \label{sec-2-1}
+
+\begin{itemize}
+\item 京都でワークショップを 4/20 (日) に開くことになったのでお知らせしたい.
+\end{itemize}
+We has the pleasure to announce our workshop in Kyoto on April 20th (Sunday).
+
+\begin{itemize}
+\item ぜひワークショップに参加されたい.
+\end{itemize}
+Please join us to enjoy a special workshop.
+
+\begin{itemize}
+\item 参加をお待ちしている.
+\end{itemize}
+We look forward to your participation.
+\chapter{Common phrases}
+\label{sec-2-2}
 
 \begin{itemize}
 \item 以下では $\calA$ が明らかな場合, $\bf{Ch}$ の代わりに単に $\bf{Ch} \rbk{\calA}$ と書く. \cite{CharlesWeibel1}
@@ -395,9 +424,19 @@ The material presented here consists of a more or less
 self-contained advanced course in complex algebraic geometry.
 
 \begin{itemize}
+\item この章の残りでは議論を 1 粒子に制限する. \cite{LiebSeiringer1}
+\end{itemize}
+In the remainder of the present chapter we limit the discussion to a single particle.
+
+\begin{itemize}
 \item この章は以後の章で繰り返し使われる結果も含んでいる. \cite{LiebSeiringer1}
 \end{itemize}
 The chapter also contains several results that will be used repeatedly in the chapters to follow.
+
+\begin{itemize}
+\item この節での結果は次のようにまとめられる. \cite{LiebSeiringer1}
+\end{itemize}
+The results of this section can be summarized in the following statement.
 
 \begin{itemize}
 \item この節での主な論点は鎖複体がアーベル圏をなすことだ. \cite{CharlesWeibel1}
@@ -428,6 +467,17 @@ This book is aimed at a second- or third-year graduate student.
 \item これらの点は次の単純な問題を考えるとわかる. \cite{CharlesWeibel1}
 \end{itemize}
 The following simple quesion illustrates these points.
+
+\begin{itemize}
+\item 相対論的力学をハミルトン形式で書くことはすぐできる. \cite{LiebSeiringer1}
+\end{itemize}
+It is straightforward to describe relativistic mechanics in the Hamiltonian formalism.
+
+\begin{itemize}
+\item 相対論的運動学にしろ非相対論的運動学にしろ, ハミルトン形式で多体系を書くことは全く難しくない. \cite{LiebSeiringer1}
+\end{itemize}
+There is no difficulty in describing many-body systems in the Hamitonian formalism
+-- with either relativistic or non-relativistic kinematics.
 
 \begin{itemize}
 \item その間もホモロジー代数は発展を続けた. \cite{CharlesWeibel1}
@@ -469,7 +519,31 @@ At its simplest form, a dynamical system is a function $T$ defined on a set $X$.
 \end{itemize}
 We will not necessarily follow the historical route.
 \chapter{Mathematical English}
-\label{sec-2-2}
+\label{sec-2-3}
+\section{Words}
+\label{sec-2-3-1}
+
+\begin{itemize}
+\item 剰余項.
+\end{itemize}
+The remainder term.
+
+\begin{itemize}
+\item 微分積分学の基本定理.
+\end{itemize}
+Fundamental theorem of calculus.
+
+\begin{itemize}
+\item 部分積分.
+\end{itemize}
+Integration by parts.
+
+\begin{itemize}
+\item 連分数
+\end{itemize}
+Continued fraction.
+\section{Sentences}
+\label{sec-2-3-2}
 
 \begin{itemize}
 \item エルゴード理論の威力と有用性の多くは, 上で議論した抽象的な設定に関する次の確率的な解釈によっている. \cite{OmriSarig1}
@@ -481,6 +555,14 @@ the following probabilistic interpretation of the abstract set up discussed abov
 \item 核がベクトル束になることはすぐわかる.
 \end{itemize}
 One can easily see that the kernel forms a vector bundle.
+
+\begin{itemize}
+\item 関数 $F(x, \dot{x}, t)$ が与えられると, 上式は初期条件 $x(t_0)$ と $v(t_0) = \dot{x}(t_0)$ とともに
+  全ての時間で $x(t)$ と $v(t)$ を決める 2 階の常微分方程式系になる. \cite{LiebSeiringer1}
+\end{itemize}
+With $F(x, \dot{x}, t)$ given, the above expression is a system of second order
+differential equations which together with the initial conditions
+$x(t_0)$ and $v(t_0)$ determine $x(t)$ and thus $v(t)$ for all times.
 
 \begin{itemize}
 \item 強混合性は測度論的同型の不変量であることはすぐにわかる.
@@ -505,7 +587,7 @@ Then a map $f$ is the chain map given by the formula.
 \begin{itemize}
 \item これが彼の結果を単純化しかつ改良する興味深い新たな不等式の導出に繋がった. \cite{LiebSeiringer1}
 \end{itemize}
-This led to the invention of interesitng new inequalities to simplify and improve his result.
+This led to the invention of interesiting new inequalities to simplify and improve his result.
 
 \begin{itemize}
 \item これが定理を証明するために必要な最小限の設定だ. \cite{OmriSarig1}
@@ -540,20 +622,10 @@ As already said before, the collection of holomorphic line bundles on a complex 
 $M$ modulo isomorphism form a group under the tensor product.
 
 \begin{itemize}
-\item 剰余項.
-\end{itemize}
-The remainder term.
-
-\begin{itemize}
 \item 測度論での病的な現象を避けるため, $\rbk{X, \calB, \mu}$ は常に標準確率空間の完備化と仮定する.
 \end{itemize}
 In order to avoid measure theoretic pathologies, we will always assume that
 $\rbk{X, \calB, \mu}$ is the completion of a standard measure space.
-
-\begin{itemize}
-\item 微分積分学の基本定理.
-\end{itemize}
-Fundamental theorem of calculus.
 
 \begin{itemize}
 \item 複素代数幾何を研究する上で基本的な対象と写像を思い出そう. \cite{ChrisPeters1}
@@ -566,11 +638,6 @@ I recall the basic objects and maps one works with in complex algebraic geometry
 Generalities on complex and projective manifolds.
 
 \begin{itemize}
-\item 部分積分.
-\end{itemize}
-Integration by parts.
-
-\begin{itemize}
 \item 便利な関数空間はいろいろあり, それらを状況に応じて使いわけていく.
 \end{itemize}
 There are many useful function spaces and we select a proper space as the situation demands.
@@ -581,7 +648,11 @@ There are many useful function spaces and we select a proper space as the situat
 Homological algebra is a tool used in several branches of mathematics: algebraic topology, group theory,
 commutative ring theory, and algebraic geometry.
 \chapter{Physical English}
-\label{sec-2-3}
+\label{sec-2-4}
+\section{Words}
+\label{sec-2-4-1}
+\section{Sentences}
+\label{sec-2-4-2}
 
 \begin{itemize}
 \item Einstein の相対論的運動学がどんな効果をもたらすだろうか. \cite{LiebSeiringer1}
@@ -610,10 +681,37 @@ The basic question that has to be resolved in order to understand the existence 
 Why don't the point-like electrons fall into the (nearly) point-like nuclei?
 
 \begin{itemize}
+\item ここで $x_i \in \bbR^3$ は $i$ 番目の粒子の空間座標だ. \cite{LiebSeiringer1}
+\end{itemize}
+Here $x_i \in \bbR^3$ is the (spatial) coodinate of the $i$-th particle.
+
+\begin{itemize}
+\item ここまでは非相対論的な運動エネルギー, $T_{\psi} = (1/2) \bkt{\psi}{p^2 \psi}$ を考えてきた. \cite{LiebSeiringer1}
+\end{itemize}
+So far we have considered the non-relativistic kinetic energy, $T_{\psi} = (1/2) \bkt{\psi}{p^2 \psi}$.
+
+\begin{itemize}
+\item 古典力学から見たときのこの問題は 1915 年に Jeans によってうまくまとめられている. \cite{LiebSeiringer1}
+\end{itemize}
+This problem of classical mechanics wa nicely summarized by Jeans in 1915.
+
+\begin{itemize}
 \item この奇妙で全く予期していなかった事実を理解するため, 適切な Schr\"odinger 方程式がゼロモードを持つことを認識する必要があった.
 \end{itemize}
 The understading of this strange, and totally unforeseen, fact requires the knowledge that the
 appropriate Schr\"odinger equation has `\textit{zero-modes}'.
+
+\begin{itemize}
+\item この第 2 章では量子力学に関する数学・物理の基本的事実を復習し, 物理の単位と記号を確認する.  \cite{LiebSeiringer1}
+\end{itemize}
+In this second chapter we will review the basic mathematical and physical facts
+about quantum mechanics and establish physical units and notation.
+
+\begin{itemize}
+\item この本の主な目的は電磁力で相互作用する量子力学的な粒子系の基底エネルギーを研究することだ. \cite{LiebSeiringer1}
+\end{itemize}
+The main purpose of this book is to study the ground state energies of quantum mechanical systems of
+particles interacting via electric and magnetic forces.
 
 \begin{itemize}
 \item この本では量子電気力学, Coulomb 多体系の安定性, 星の重力安定性, 平衡統計の基礎, そして熱力学的極限の存在を議論している. \cite{LiebSeiringer1}
@@ -623,9 +721,17 @@ gravitational statbility of stars, basics of equilibrium statistical mechanics,
 and the existence of the thermodynamic limit.
 
 \begin{itemize}
-\item 古典力学から見たときのこの問題は 1915 年に Jeans によってうまくまとめられている. \cite{LiebSeiringer1}
+\item 素粒子は $S = 0, 1/2, 1, 3/2, \dots$ のどれかの値を取る量で特徴づけられるスピンと呼ばれる内部自由度を持つ. \cite{LiebSeiringer1}
 \end{itemize}
-This problem of classical mechanics wa nicely summarized by Jeans in 1915.
+Elementary particles have an internal degree of freedom called spin which is characterized
+by a specific number that can take one of the values $S = 0, 1/2, 1, 3/2, \dots$.
+
+\begin{itemize}
+\item 次の式 $\abs{p} \geq \sqrt{p^2 + m^2} - m \geq \abs{p} - m$ が成り立つので, 超相対論的なエネルギー
+  $T_{\psi} = \bkt{\psi}{\abs{p} \psi}$ を考えれば十分. \cite{LiebSeiringer1}
+\end{itemize}
+Because $\abs{p} \geq \sqrt{p^2 + m^2} - m \geq \abs{p} - m$, it suffices to consider
+the ultra-relativistic energy $T_{\psi} = \bkt{\psi}{\abs{p} \psi}$.
 
 \begin{itemize}
 \item 電気力は異なる符号の電荷を持つ荷電粒子間では引力になり, 同じ符号の電荷を持つ粒子間では斥力になる. \cite{LiebSeiringer1}
@@ -646,6 +752,17 @@ The fundamental theory that underlies the physicist's description of the materia
 \item 物理学者は量子力学を原子・分子レベルでの`万物の理論'だと固く信じている. \cite{LiebSeiringer1}
 \end{itemize}
 Physicists firmly believe that quantum mechanics is a `theory of everything' at the level of atoms and molecules.
+
+\begin{itemize}
+\item 量子力学と古典力学の関係は半古典近似で明らかになる. \cite{LiebSeiringer1}
+\end{itemize}
+The connection between quantum mechanics and classical mechanics becomes apparent
+in the semiclassical limit.
+
+\begin{itemize}
+\item 例としてクーロン力で相互作用する $N$ 個の電子と $M$ 個の静止した原子核の問題を考えよう. \cite{LiebSeiringer1}
+\end{itemize}
+As an example, consider the problem of $N$ electrons and $M$ nuclei interacting with each other via the Coulomb force.
 \part{Set theory}
 \label{sec-3}
 \chapter{Introduction to cardinal number}
@@ -774,8 +891,42 @@ Other examples are also similar characterization.
 These are related to analytical mechanics in physics.
 Moreover analytical mechanics is closely related to geometry.
 See \cite{KenjiFukaya1, NakamuraYamamoto1, NakamuraYamamoto2}.
-\subsection{Function spaces: examples of infinite dimensional dimensional spaces}
+\subsection{Function as a vector}
 \label{sec-4-1-2-4}
+
+First recall the definition of vectors in three dimension:
+letting $f = (f(1), f(2), f(3))$ and $g = (g(1), g(2), g(3))$ be three dimensional vectors
+then their sum $f + g$ is defined by
+\begin{align}
+ f + g
+ \defeq
+ \rbk{f\rbk{1} + g \rbk{1}, f(2) + g(2), f(3) + g(3)}.
+\end{align}
+I.e., sum of vectors is defined by component-wise.
+Hence we also try to define a sum of functions as
+\begin{align}
+ f + g
+ \defeq
+ \rbk{f(x) + g(x), f(y) + g(y), \dots}.
+\end{align}
+In short we define a sum by
+\begin{align}
+ \rbk{f + g} (x)
+ \defeq
+ f(x) + g(x).
+\end{align}
+For scalar multiplication we set
+\begin{align}
+ \rbk{\alpha f} (x)
+ \defeq
+ \alpha f (x).
+\end{align}
+Sum and scalar multiplication defined above satisfy the axioms of a linear space.
+Thus we conclude a space of functions is a linear one\footnote{A function space is linear if an image of its elements is a linear space.
+Function spaces can be non-linear, e.g., an image of its elements is a manifold or general set.
+ }.
+\subsection{Function spaces: examples of infinite dimensional dimensional spaces}
+\label{sec-4-1-2-5}
 
 We have infinitely many infinite dimensional objects.
 Examples are weather maps and wind direction maps.
@@ -802,7 +953,7 @@ In this way, in mathematics we will encounter various types of spaces
 other than a three dimensional, geometric space.
 We consider spaces where functions live and ones where spaces itself live.
 \subsection{Linear maps, functionals}
-\label{sec-4-1-2-5}
+\label{sec-4-1-2-6}
 
 We usually consider maps instead of functions in university mathematics.
 In fact a map is just a function whose domain and range are general sets.
@@ -871,7 +1022,7 @@ In this way we connects linear algebra with calculus.
 For analysis of nonlinear functionals we also need various linear spaces and
 some technique from linear algebra.
 \subsection{Eigenvalues, eigenvectors}
-\label{sec-4-1-2-6}
+\label{sec-4-1-2-7}
 
 These are not learned explicitly in high school.
 However they sometimes appears in entrance exams.
@@ -917,7 +1068,7 @@ Here are examples.
  See, e.g., \cite{HaimBrezis1, HaimBrezis2} for details.
 \end{ex}
 \subsection{Mathematical application of linear algebra}
-\label{sec-4-1-2-7}
+\label{sec-4-1-2-8}
 
 There many branches related to linear algebra.
 Here are some examples.
@@ -931,7 +1082,7 @@ See also \cite{phasetr2}.
 \item Operator algebra.
 \end{enumerate}
 \subsection{Physical application}
-\label{sec-4-1-2-8}
+\label{sec-4-1-2-9}
 
 There many branches related to linear algebra in physics, too.
 See also \cite{phasetr2}.
@@ -944,7 +1095,7 @@ and this ``superposition'' means linearity.
 In high school we learn a superposition principle for wave.
 This holds because our wave equation is linear in high school.
 \subsection{Linear algebra and statistics}
-\label{sec-4-1-2-9}
+\label{sec-4-1-2-10}
 
 We use statistics in many branches, including humanities and sociology.
 E.g., natural language processing has many humanity and infomation theoretic elements.
@@ -994,9 +1145,9 @@ This is just a notational convention.
 We define an inner product for three dimensional vectors $f$ and $g$ as
 \begin{align}
  f \cdot g
- :=
+ \defeq
  \bkt{f}{g}
- :=
+ \defeq
  \sum_{k=1}^3 f(k)g(k).
 \end{align}
 The first notation is one in high school.
@@ -1034,7 +1185,7 @@ If you want to consider one in $\bbC^d$ you should set
  \sum_{k=1}^d \overline{f(k)} g(k)
 \end{align}
 because it is desirable that a length (norm) of a vector is
-properly defined, i.e., $\norm{f}^2 := \bkt{f}{g} \geq 0$.
+properly defined, i.e., $\norm{f}^2 \defeq \bkt{f}{g} \geq 0$.
 
 We take a limit $d \to \infty$.
 We face a problem whether a series converges or not,
@@ -1120,19 +1271,19 @@ Let $\Omega$ be a (open) subset of $\bbR$ and $h \colon \Omega \to \bbR_{\geq}$ 
 Then the following is becomes an inner product:
 \begin{align}
  \bkt{f}{g}_{h}
- :=
+ \defeq
  \int_{\Omega} f(x) g(x) h(x) dx.
 \end{align}
 We show some examples of inner products.
 \begin{align}
  \bkt{f}{g}_1
- &:=
+ &\defeq
  \int_{-1}^{1} f(x) g(x) dx, \\
  \bkt{f}{g}_2
- &:=
+ &\defeq
  \int_{0}^{\infty} f(x) g(x) e^{-x} dx, \\
  \bkt{f}{g}_3
- &:=
+ &\defeq
  \int_{\bbR} f(x) g(x) e^{-x^2} dx.
 \end{align}
 The above inner products are related to
@@ -1348,6 +1499,9 @@ This is a famous variational problem.
 You have to determine a path and it is a function mathematically.
 Hence you have to search a function in a function space.
 How to search it?
+
+A similar physical problem is discussed in high school: optics, refraction.
+In society this is related to how to design optical fibers to reduce light-loss.
 \subsection{Mathematical formulatrion: functionals, linear operators}
 \label{sec-4-1-5-2}
 
@@ -1508,27 +1662,27 @@ $\vf (\vr, t)$ を力のベクトルとすると
  =
  -\grad U \rbk{ \vr,t } \\
  \grad
- :=
+ \defeq
  \ve_{1} \frac{ \pd }{\pd x} + \ve_{2} \frac{ \pd }{\pd y}
         +\ve_{3} \frac{ \pd }{\pd z} \\
  \ve_{1}
- :=
+ \defeq
  \ve_{x}
  =
  \vecc{1}{0}{0}
  , \quad
  \ve_{2}
- :=
+ \defeq
  \ve_{y}
  =
  \vecc{0}{1}{0}, \quad \ve_3
- :=
+ \defeq
  \ve_{z}
  =
  \vecc{0}{0}{1}
 \end{gather}
 のようになります.
-ここで「 \$:=\$」は「右辺を左辺で定義する」という意味です.
+ここで「 $\defeq$ 」は「右辺を左辺で定義する」という意味です.
 
 ポテンシャルに限らず, 物理に登場する関数は
 一般に空間と時間を変数に持ちますから, 4 変数関数です,
@@ -1785,7 +1939,7 @@ m\ddot{x}(t) = -kx (t).
 \end{equation}
 そしてこの方程式 (微分方程式) の解が
 \begin{equation}
-x (t) = A \sin (\omega t + \phi ) \,\,\,,\,\,\, \omega := \sqrt{ \frac{k}{m} }
+x (t) = A \sin (\omega t + \phi ), \quad \omega \defeq \sqrt{ \frac{k}{m} }
 \end{equation}
 であることは知っているとします \footnote{微分方程式の章でもう少し詳しく触れます.
  }.
@@ -1802,11 +1956,10 @@ m\ddot{x}_{2} = - k (x_{2} - x_{1}) - kx_{2}
 \end{align}
 となります. あとできちんとやりますが, 天下りに,
 \begin{align}
-X_{1} := \frac{1}{\sqrt{2}}\left ( x_{1} - x_{2} \right) \\
-X_{2} := \frac{1}{\sqrt{2}}\left ( x_{1} + x_{2} \right)
+X_{1} \defeq \frac{1}{\sqrt{2}}\left ( x_{1} - x_{2} \right) \\
+X_{2} \defeq \frac{1}{\sqrt{2}}\left ( x_{1} + x_{2} \right)
 \end{align}
-として \footnote{$:=$ というのは右辺で左辺を定義するという意味でした.
- } 上の式に代入して整理すると,
+として上の式に代入して整理すると,
     \begin{align}
         m\ddot{X}_{1} &= - 3kX_{1} \\
         m\ddot{X}_{2} &= -kX_{2}
@@ -1828,9 +1981,9 @@ m\ddot{x}_{3} &= -kx_3 +k (x_2 - x_3 )
 \end{align}
 となります. またもや天下りに
 \begin{align}
-X_1 &:= \frac{1}{2} \left ( \sqrt{2}x_1 + x_2 - x_3 \right) \\
-X_2 &:= \frac{1}{2} \left ( \sqrt{2}x_2 + \sqrt{2}x_3 \right) \\
-X_3 &:= \frac{1}{2} \left ( -\sqrt{2}x_1 + x_2 - x_3 \right)
+X_1 &\defeq \frac{1}{2} \left ( \sqrt{2}x_1 + x_2 - x_3 \right) \\
+X_2 &\defeq \frac{1}{2} \left ( \sqrt{2}x_2 + \sqrt{2}x_3 \right) \\
+X_3 &\defeq \frac{1}{2} \left ( -\sqrt{2}x_1 + x_2 - x_3 \right)
 \end{align}
 として上の式に代入して整理すると
 \begin{align}
@@ -1912,10 +2065,10 @@ $\bm{N}$ ,  $\bm{Z}$ ,  $\bm{Q}$ ,  $\bm{R}$ ,  $\bm{C}$ と書きます \footno
  }.
 また\textgt{正の整数}\index{せいのせいすう@正の整数}
 は
-$\bbZ^+ := \{ 1, 2 , \dots , \}$,
+$\bbZ^+ \defeq \{ 1, 2 , \dots , \}$,
 \textgt{正の実数}\index{せいのじっすう@正の実数}
 は
- $b_R^+ := [ 0 , \infty )$
+ $b_R^+ \defeq [ 0 , \infty )$
 と書くことがあります.
 他にも\textgt{ $n$ 次元空間}を普通の数のように $\bm{R}$ の $n$ 乗ということで $\bm{R}^{n}$ と書きます.
 あとで\textgt{複素 $n$ 次元空間} $\bm{C}^{n}$ も使います.
@@ -1943,11 +2096,11 @@ $\bbZ^+ := \{ 1, 2 , \dots , \}$,
 \textgt{ $n$ 項単位ベクトル}\index{えぬこうたんいべくとる@ $n$ 項単位ベクトル}を導入しておきます.
  $n=3$ として書くと
     \begin{align}
-        \bm{e}_{1} :=
+        \bm{e}_{1} \defeq
             \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} ,\,
-        \bm{e}_{2} :=
+        \bm{e}_{2} \defeq
             \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} ,\,
-        \bm{e}_{3} :=
+        \bm{e}_{3} \defeq
             \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} \, .
     \end{align}
 
@@ -1955,7 +2108,7 @@ $\bbZ^+ := \{ 1, 2 , \dots , \}$,
 ついでに\textgt{Kronecker (クロネッカー) の $\delta$ }\index{くろねっかーのでるた@Kronecker の $\delta$ }と呼ばれるもの
 を定義します. これは
     \begin{align}
-        \delta _{ij} := \begin{cases} 1 & i = j \\
+        \delta _{ij} \defeq \begin{cases} 1 & i = j \\
     0 & i \not = j
     \end{cases}
     \end{align}
@@ -1975,7 +2128,7 @@ $\bbZ^+ := \{ 1, 2 , \dots , \}$,
 
 次に高校で学ばなかったと思いますが, \textgt{転置行列}\index{てんちぎょうれつ@転置行列} ${^t}A$ というものがあります. これの定義は
     \begin{align}
-        {^t}A := (a_{ji})
+        {^t}A \defeq (a_{ji})
         = \begin{pmatrix}
             a_{11} & a_{21} & a_{31} \\
             a_{12} & a_{22} & a_{32} \\
@@ -1988,9 +2141,9 @@ $\bbZ^+ := \{ 1, 2 , \dots , \}$,
 スペースの関係もあって使いたいことがありますから, その為に今の転置の記法を流用します. またこれを用いて以下のように
 転置行列を書くことがあります.
     \begin{align}
-        {^t}\bm{a}_{1} := \begin{pmatrix}  a_{11} \, a_{21} \, a_{31} \end{pmatrix}
-        {^t}\bm{a}_{2} &:= \begin{pmatrix}  a_{12} \, a_{22} \, a_{32} \end{pmatrix}
-        {^t}\bm{a}_{3} := \begin{pmatrix}  a_{13} \, a_{23} \, a_{33} \end{pmatrix} \\
+        {^t}\bm{a}_{1} \defeq \begin{pmatrix}  a_{11} \, a_{21} \, a_{31} \end{pmatrix}
+        {^t}\bm{a}_{2} &\defeq \begin{pmatrix}  a_{12} \, a_{22} \, a_{32} \end{pmatrix}
+        {^t}\bm{a}_{3} \defeq \begin{pmatrix}  a_{13} \, a_{23} \, a_{33} \end{pmatrix} \\
         {^t}A &= \begin{pmatrix} {^t}\bm{a}_{1} \\ {^t}\bm{a}_{2} \\ {^t}\bm{a}_{3}\end{pmatrix} .
     \end{align}
 
@@ -2028,7 +2181,7 @@ $\bbZ^+ := \{ 1, 2 , \dots , \}$,
 表します.
 これにより, \textgt{随伴行列}\index{ずいはんぎょうれつ@随伴行列} $A^{*}$ を
     \begin{equation}
-        A^{*} := {^t}\overline{A}
+        A^{*} \defeq {^t}\overline{A}
     \end{equation}
 と定義します. ここで先程の対称行列・直交行列に対応するものがありますから, それを定義しておきましょう.
  $A^{*}=A$ となる行列を\textgt{Hermite (エルミート) 行列}\index{えるみーとぎょうれつ@Hermite 行列},  $A^{*}A = I$ となる行列を\textgt{ユニタリ行列}\index{ゆにたりぎょうれつ@ユニタリ行列}と呼びます.
@@ -2380,7 +2533,7 @@ $\langle \bm{e}_1 , \bm{e}_2, \bm{e}_3 \rangle = \langle \bm{e}_i \rangle _{i=1}
 結果からいうと, これは\textgt{直交行列}\index{ちょっこうぎょうれつ@直交行列}です.
 これを証明します.
 証明自体は一般の (複素化した) ユニタリ行列に対して行ないます.
-ここで複素ベクトルを考えたときの内積は $( \bm{x} , \bm{y} ) := \sum_{i=1}^3 x_i \overline{y}_i$
+ここで複素ベクトルを考えたときの内積は $( \bm{x} , \bm{y} ) \defeq \sum_{i=1}^3 x_i \overline{y}_i$
 で定義します.
 
 \begin{thm}
@@ -2630,7 +2783,7 @@ Newton 力学での時空間に対する仮定と変換則に支えられて得�
 
 最後に Galilei 変換 $G$ を標準基底に関して行列表示してみましょう.
 まず\textgt{4 元ベクトル}\index{よんげんべくとる@4 元ベクトル}
- $\bm{R} := {^t} (x_0 \,\, x_1 \,\, x_2  \,\, x_3 ) = {^t} (ct \,\, x_1 \,\, x_2  \,\, x_3 )$
+ $\bm{R} \defeq {^t} (x_0 \,\, x_1 \,\, x_2  \,\, x_3 ) = {^t} (ct \,\, x_1 \,\, x_2  \,\, x_3 )$
 と定義します.
 定数 $c$ は速度の次元を持ってさえいれば良いのですが, 一応光の速さとしておきます.
 ここで\textgt{非斉次ベクトル}\index{ひせいじべくとる@非斉次ベクトル} $\tilde{ \bm{R} }$ を
@@ -2643,7 +2796,7 @@ Newton 力学での時空間に対する仮定と変換則に支えられて得�
   \bm{r} \mapsto \bm{r}' = O \bm{r} - \bm{\alpha} \bm{\beta} x_0
  \end{cases}
 \end{gather}
-となります. ただし $\bm{\beta} := \bm{u} / c , \delta := c \theta$ です.
+となります. ただし $\bm{\beta} \defeq \bm{u} / c , \delta \defeq c \theta$ です.
 さらに $O$ は $\bm{r}$ が適当な座標系で表現されているものとして,
 直交変換 $T_O$ が直交行列 $O$ で表現しておきました.
 Galilei 変換を表す行列を $\hat{G}$ とすると,
@@ -2729,7 +2882,7 @@ $\partial / \partial x$ という表記を見ても分かるように, 微分と
 まず適当な座標系 (基底) を取ったとき, 微分の値
 $\partial f (x ,y , z) / \partial x , \partial f (r , \theta, \varphi) / \partial r$ などは
 \textgt{一般には変化します}.
-例えば $f (x, y) := x + y = r \cos \theta + r \sin \theta = f ( r, \theta)$ とします.
+例えば $f (x, y) \defeq x + y = r \cos \theta + r \sin \theta = f ( r, \theta)$ とします.
 \begin{gather}
  \frac{\partial  f ( x, y )} { \partial  x }
  =
@@ -2815,7 +2968,7 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
     \end{align}
 とします.
  $\bm{a}_j \in \bC^m$ , つまり $\bm{a}_j$ は $m$ 項列ベクトルです.
-ここで $(m,n)$ 型行列 $A$ を $A:=(\bm{a}_1,\dotsb,\bm{a}_n)$ として定義し,
+ここで $(m,n)$ 型行列 $A$ を $A\defeq(\bm{a}_1,\dotsb,\bm{a}_n)$ として定義し,
  $A$ によって定まる $\bC^n$ から $\bC^m$ への線型写像を $T_A$ とすれば,
     \begin{align}
         f_A ( \bm{e}_j )
@@ -2872,7 +3025,7 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
  $f : \bC^n \to \bC^m$ を線型写像,  $\bC^n, \bC^m$ の新たな座標系を
 それぞれ $\langle \bm{u}_i \rangle _{i=1}^n,\langle \bm{v}_j \rangle _{j=1}^m$
 とする.
-さらに $\bm{\xi} := {^t} ( \xi_1 \dotsb \xi_n )$ ,  $\bm{\eta} := {^t} ( \eta_1 \dotsb \eta_m)$ とする.
+さらに $\bm{\xi} \defeq {^t} ( \xi_1 \dotsb \xi_n )$ ,  $\bm{\eta} \defeq {^t} ( \eta_1 \dotsb \eta_m)$ とする.
 このとき $(m,n)$ 型行列 $B$ がただ 1 つ存在し, 次の関係が成立する.
     \begin{align}
         ( f ( \bm{u}_1 ) \dotsb f ( \bm{u}_n ) )
@@ -2898,7 +3051,7 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
         ( \bm{v}_1 \dotsb \bm{v}_m ) \bm{b}_j
          \, ( j = 1 , \dotsb , n )
     \end{align}
-として $B := ( \bm{u}_1 \dotsb \bm{u}_n )$ とするとこれは $(m,n)$ 行列で
+として $B \defeq ( \bm{u}_1 \dotsb \bm{u}_n )$ とするとこれは $(m,n)$ 行列で
 次が成立しています.
         \begin{align}
             ( f ( \bm{u}_1 ) \dotsb f ( \bm{u}_n ) )
@@ -2978,7 +3131,7 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
         ( \bm{e}'_1  \dotsb  \bm{e}'_m ) Q
     \end{gather}
 と書けます.
-さらに $\bm{X} := {^t} ( x_1 \dotsb x_n )$ ,  $\bm{Y} := {^t} ( y_1 \dotsb y_m)$ を
+さらに $\bm{X} \defeq {^t} ( x_1 \dotsb x_n )$ ,  $\bm{Y} \defeq {^t} ( y_1 \dotsb y_m)$ を
 標準基底での $\bm{x},\bm{y}$ の座標成分
 (このようなベクトルを\textgt{座標ベクトル}\index{ざひょうべくとる@座標ベクトル}) とします.
 すぐ上の注意から
@@ -3480,8 +3633,8 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
             & \vdots \\
             & c_{n1} x_1 + c_{n2} x_2 + \dots + c_{nn} x_n = 0
         \end{align}
-    が $x_i \not= 0$ となる $i$ が存在するような解の組 $\bm{x} := (x_1 \,\, \dotsb \,\, x_n)$
-    を持つ必要十分条件は係数 $c_{ij}$ のなす正方行列 $C := (c_{ij})$ の行列式 $\det C$ が $0$ になることである.
+    が $x_i \not= 0$ となる $i$ が存在するような解の組 $\bm{x} \defeq (x_1 \,\, \dotsb \,\, x_n)$
+    を持つ必要十分条件は係数 $c_{ij}$ のなす正方行列 $C \defeq (c_{ij})$ の行列式 $\det C$ が $0$ になることである.
     \label{th:連立一次方程式}
     \end{thm}
 (証明)
@@ -3599,7 +3752,7 @@ $\bm{x}= \sum_{i=1}^n x_{i}\bm{e}_{i} \in \bm{C}^n$  , $\bm{y} = \sum_{i=1}^n y_
 このとき $\bm{x}$ と $\bm{y}$ の\textgt{内積} $(\bm{x}, \bm{y})$ を以下のように定義します.
 \begin{defn} $\bm{x}$ と $\bm{y}$ の\textgt{内積}\index{ないせき@内積} $(\bm{x}, \bm{y})$ とは
 \begin{align}
-(\bm{x}, \bm{y} ) := \sum_{i=1}^n x_{i} \overline {y_{i}}
+(\bm{x}, \bm{y} ) \defeq \sum_{i=1}^n x_{i} \overline {y_{i}}
 \end{align}
 \end{defn}
 $y_{I}$ についたバーは複素共役を表します.
@@ -3634,7 +3787,7 @@ $\cos \theta = ( \bm{x} , \bm{y} ) / ( | \bm{x} | | \bm{y} | )$
 $\bm{x}=\, ^{t}(x_{1},x_{2},x_{3})$ ,  $\bm{y}=\, ^t (y_{1},y_{2},y_{3})$ として\textgt{外積}を以下のように定義します.
 \begin{defn} $\bm{x}$ と $\bm{y}$ の\textgt{外積} $\bm{x} \times \bm{y}$
 \begin{align}
-\bm{x} \times \bm{y} := \begin{pmatrix} x_{2}y_{3} - x_{3}y_{2} \\
+\bm{x} \times \bm{y} \defeq \begin{pmatrix} x_{2}y_{3} - x_{3}y_{2} \\
 x_{3}y_{1} - x_{1}y_{3} \\
 x_{1}y_{2} - x_{2}y_{1}
 \end{pmatrix}.
@@ -3770,7 +3923,7 @@ x_{1}y_{2} - x_{2}y_{1}
 
 また固有値を一般に複素数といいましたが, この理由を具体例で考えます.
     \begin{align}
-        R (\theta ) :=  \begin{pmatrix} \cos \theta & - \sin \theta \\
+        R (\theta ) \defeq      \begin{pmatrix} \cos \theta & - \sin \theta \\
                         \sin \theta & \cos \theta
         \end{pmatrix}
     \end{align}
@@ -3833,7 +3986,7 @@ x_{1}y_{2} - x_{2}y_{1}
                         0 & 1 & 0
         \end{pmatrix}
         \begin{pmatrix} u_{2,1} \\ u_{2,2} \\ u_{2,3} \end{pmatrix}
-        = 0 ,\,\,\,\, \bm{u}_{2} := \begin{pmatrix} u_{2,1} \\ u_{2,2} \\ u_{2,3} \end{pmatrix} \\
+        = 0 ,\,\,\,\, \bm{u}_{2} \defeq \begin{pmatrix} u_{2,1} \\ u_{2,2} \\ u_{2,3} \end{pmatrix} \\
         \Longrightarrow
         \bm{u}_{2}
         =
@@ -4007,7 +4160,7 @@ $W$ の直交補空間を $W^{\perp }$ とすると,  $\bm{C}^n$ の任意のベ
 となり, 証明終了です.  $\blacksquare$
 
 $A$ を正規行列としましょう.  $A$ の異なる固有値全部を $\beta _1, \beta _2,\dots,\beta _k$ , 対応する
-$i$ に対し $W_i := \{ \bm{x} \, ; \, A\bm{x}=\beta _i \bm{x} \}$ とします.
+$i$ に対し $W_i \defeq \{ \bm{x} \, ; \, A\bm{x}=\beta _i \bm{x} \}$ とします.
 このとき各 $W_i$ は互いに直交し,  $\bC^n$ はこれらの部分空間の直和になります.
 $P_i$ を各 $W_i$ への射影とすると
 \begin{gather}
@@ -4053,8 +4206,8 @@ A = \beta _1 P_1 + \beta _2 P_2 + \dots + \beta _k P_k
     \begin{align}
         \Longleftrightarrow
         m \ddot{\bm{x}} = -k A \bm{x} \,\,\, , \,\,\,
-        \bm{x} := \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} \,\,\, , \,\,\,
-        A := \begin{pmatrix} 2 & -1 & 0 \\ -1 & 2 & -1 \\ 0 & -1 & 2 \end{pmatrix} \notag
+        \bm{x} \defeq \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} \,\,\, , \,\,\,
+        A \defeq \begin{pmatrix} 2 & -1 & 0 \\ -1 & 2 & -1 \\ 0 & -1 & 2 \end{pmatrix} \notag
     \end{align}
 ここで $A$ が対称行列 (正規行列) になっていますから, これが対角化できます.
 
@@ -4087,7 +4240,7 @@ A = \beta _1 P_1 + \beta _2 P_2 + \dots + \beta _k P_k
                                   0 & 0 & 2 - \sqrt{2}
                   \end{pmatrix}
     \end{align}
-ここで $\bm{X}:=U^{*}\bm{x}=\, ^{t} (X_1 \, X_2 \, X_3)$ とします. 上の行列に左から $U^{*}$ をかけて
+ここで $\bm{X}\defeq U^{*}\bm{x}=\, ^{t} (X_1 \, X_2 \, X_3)$ とします. 上の行列に左から $U^{*}$ をかけて
     \begin{gather}
         mU^{*}\ddot{\bm{x}} = -k U^{*}A\bm{x} = -k U^{*}AUU^{*}\bm{x} \\
         \Longleftrightarrow
@@ -4197,8 +4350,8 @@ $\alpha f$ が定まり, かつ $\alpha f \in V$ となって, これらが次�
  $f,g,h$ を $\bC^n$ から $\bC^n$ への関数,  $\alpha,\beta,z$ を複素数とします.
 このとき和とスカラー倍は
     \begin{gather}
-        f + g \longrightarrow  (f+g) (z) := f (z) + g (z) \\
-        \alpha f \longrightarrow (\alpha f) (z) := \alpha f (z)
+        f + g \longrightarrow  (f+g) (z) \defeq f (z) + g (z) \\
+        \alpha f \longrightarrow (\alpha f) (z) \defeq \alpha f (z)
     \end{gather}
 という風に, 関数の\textgt{作用を用いて定義}します.
 前に関数の対応や作用という面を強調したのはこの為です.
@@ -4283,8 +4436,8 @@ $\bbR$ への関数全体の集合を $C^{r}(\Omega,\bbR)$ と書きますが, �
 今は作用素が作用する空間として適当な空間 $V$ を取ります.
 このとき作用素を $A,B$ , 作用する空間の元を $f\in V$ を取り, 作用素の和とスカラー培は以下のように定義します.
 \begin{gather}
-A + B \longrightarrow (A + B) f:= Af + Bf \\
-\alpha A \longrightarrow  (\alpha A ) f := \alpha Af
+A + B \longrightarrow (A + B) f\defeq Af + Bf \\
+\alpha A \longrightarrow  (\alpha A ) f \defeq \alpha Af
 \end{gather}
 \subsubsection{線型独立と次元, 基底 2}
 \label{sec-4-2-2-10-3}
@@ -4346,7 +4499,7 @@ A + B \longrightarrow (A + B) f:= Af + Bf \\
 これを縦に無限に長い列ベクトルのようにみなし, 上の内積の定義の $n$ を $\infty$ を無限大に飛ばしたものを考えると,
 内積のようなものが出来ました.
     \begin{align}
-        (a_n, b_n ) := \sum _{n=1}^{\infty}a_n b_n
+        (a_n, b_n ) \defeq \sum _{n=1}^{\infty}a_n b_n
     \end{align}
 
 無限級数になってしまったので, 収束の問題が真っ先に登場します. 以後は和が上手く収束するような
@@ -4394,7 +4547,7 @@ A + B \longrightarrow (A + B) f:= Af + Bf \\
 
 また記法として主に無限次元のベクトルに対して, 今後ベクトルの長さを
     \begin{align}
-        \| f \| := (f,f)
+        \| f \| \defeq (f,f)
     \end{align}
 と書きます. こう書くときは長さではなく\textgt{ノルム}\index{のるむ@ノルム}と呼びます.
 
@@ -4439,7 +4592,7 @@ Cauchy-Schwarz の不等式です.  $\blacksquare$
 とりあえず無限級数さえ出てきてくれれば良いです.  $a$ として \$-$\infty$ \$ を $b$ として \$$\infty$ \$ を許して,
 関数の内積を
 \begin{align}
-(f,g) := \int_a^b f (x)\overline{g (x)}dx
+(f,g) \defeq \int_a^b f (x)\overline{g (x)}dx
 \end{align}
 とします. こうするとこれは内積の性質を全て持ちます.
 当然これから直交などという事も色々でてきます.
@@ -4460,12 +4613,12 @@ Hilbert (ヒルベルト) 空間と呼ばれるものの具体例です.
 打って変わって基底のところで「この $f_n$ は適当な $V$ の部分空間を取ると, その基底になることがあります」と書きました.
 そのような基底になる直交多項式としていくつか挙げておきましょう.
 \begin{align}
-P_n (x) &:= \frac{1}{2^n n!}\frac{d^n}{dx^n}(x^2-1)^n \\
-H_n (x) &:= (-1)^n e^{x^2} \frac{d^n}{dx^n}e^{-x^2} \\
-L_n^{\alpha}(x) &:= \frac{d^n}{dx^n}\left ( e^{-x} x^{n + \alpha} \right) \\
-J_{\nu }(z) &:= \sum_{k=o}^{\infty} \frac{(-1)^k \left \{ \frac{z}{2} \right \}^{\nu + 2k}}
+P_n (x) &\defeq \frac{1}{2^n n!}\frac{d^n}{dx^n}(x^2-1)^n \\
+H_n (x) &\defeq (-1)^n e^{x^2} \frac{d^n}{dx^n}e^{-x^2} \\
+L_n^{\alpha}(x) &\defeq \frac{d^n}{dx^n}\left ( e^{-x} x^{n + \alpha} \right) \\
+J_{\nu }(z) &\defeq \sum_{k=o}^{\infty} \frac{(-1)^k \left \{ \frac{z}{2} \right \}^{\nu + 2k}}
 {\Gamma (k + 1) \Gamma (k + \nu +1)}
-\,\,\, , \,\,\, \Gamma (z) := \int_0^{\infty}e^{-t}t^{z-1}dt
+\,\,\, , \,\,\, \Gamma (z) \defeq \int_0^{\infty}e^{-t}t^{z-1}dt
 \end{align}
 これらははじめから順に Legendre (ルジャンドル) 多項式, Hermite (エルミート) 多項式,
 Lagurre (ラゲール) 多項式, Bessel (ベッセル) 多項式, 最後のおまけは $\Gamma$ 関数といいます.
@@ -4482,8 +4635,8 @@ Lagurre (ラゲール) 多項式, Bessel (ベッセル) 多項式, 最後のお�
 f (x)
 \sim
 \frac{1}{2}a_0 + \sum_{n=0}^{\infty} \left ( a_n \cos nx + b_n \sin nx  \right) \\
-a_n := \int_{-\pi}^{\pi}f (t)\cos ntdt \,\, , \,\,
-b_n := \int_{-\pi}^{\pi}f (t)\sin ntdt \\
+a_n \defeq \int_{-\pi}^{\pi}f (t)\cos ntdt \,\, , \,\,
+b_n \defeq \int_{-\pi}^{\pi}f (t)\sin ntdt \\
 f (x)
 =
 \frac{1}{ \sqrt{ 2 \pi } } \int_{-\infty}^{\infty}  \hat{f}( \xi ) e^{i\xi x}d\xi \\
@@ -4495,11 +4648,11 @@ f (x)
 \label{sec-4-2-2-10-6}
 
 そろそろ筆者の知識と認識の限界に来ているのですが, もう少し書きましょう.
-線型作用素についてです.  $t$ を時間として微分作用素を $D:=\frac{d}{dt}$ とします.
+線型作用素についてです.  $t$ を時間として微分作用素を $D\defeq\frac{d}{dt}$ とします.
  $D^2=\frac{d^2}{dt^2}$ としましょう.
 見やすくするため,  $x (t) = f (t)$ と書きます. 運動方程式は以下のような方程式になります.
     \begin{align}
-        D^2f = -\omega ^{2} f \,\,\, , \,\,\, \omega := \sqrt{\frac{k}{m}}
+        D^2f = -\omega ^{2} f \,\,\, , \,\,\, \omega \defeq \sqrt{\frac{k}{m}}
     \end{align}
 これをもって何とするか, ですが, 前に $A\bm{x}=\lambda \bm{x}$ というのをやりました.
 固有値の話です. \textgt{全く同じ形}をしています. すなわち運動方程式 (微分方程式) は
@@ -4935,7 +5088,7 @@ $A$ の上界全体の集合を $U (A)$ と書く.
 さらに単調増加なので, 数列の各項はそのある値にいくらでも近くなれるでしょう.
 ただ近くなるだけでなく, 実際にその値に収束までしてしまうことを述べた (要請した) ものです.
 \begin{axm}(区間縮小法)
- $I_n:=[a_n,b_n]$ で $\an$ は単調増加数列,  $\bn$ は単調減少数列であるとする.
+ $I_n\defeq[a_n,b_n]$ で $\an$ は単調増加数列,  $\bn$ は単調減少数列であるとする.
 すなわち $a_1\leq a_2\leq \dotsb a_n \leq b_n \leq \dotsb b_2\leq b_1$ であり,
 全ての自然数 $n$ に対して $I_n \supset I_{n+1}$ であるとする.
 このとき $\displaystyle \lim_{n\to\infty}(b_n - a_n)=0$ ならば,  $I_n$ の共通部分は
@@ -5009,7 +5162,7 @@ Cauchy 列は収束することを公理として要請していますから, �
     \begin{align}
         n \leq N_0 \Longrightarrow s_n <s + 10^{-2098}.
     \end{align}
-ここで $M:=\mathrm{max} \{ |s_0|,|s_1|,\dotsb,|s_{N_0-1}|,s+10^{-2098} \}$
+ここで $M\defeq\mathrm{max} \{ |s_0|,|s_1|,\dotsb,|s_{N_0-1}|,s+10^{-2098} \}$
 としましょう. ここで $\mathrm{max}\{\dotsb \}$ とは $\{\dotsb \}$ の中の最大数を
 表すものとします.
 第 $n$ 項 $s_n$ を考えたとき,  $n\leq N_0$ ならば $\mathrm{max}$ の定義から
@@ -5076,7 +5229,7 @@ Cauchy 列は収束することを公理として要請していますから, �
  $\bbR^n$ の部分集合 $A$ の 1 点 $\bm{a}\in A$ の\textgt{ $\vep$ -近傍}\index{いぷしろんきんぼう@ $\vep$ -近傍}を,
     \begin{align}
         U ( a ; \vep )
-        :=
+        \defeq
         \{ \bm{x} \in \bbR^n \, ; \, |\bm{x} - \bm{a}| < \vep \}
     \end{align}
 で定義する. これは中心を $\bm{a}$ とし, 半径 $\vep$ の円 (球) のことであり, さらに開集合である.
@@ -5259,7 +5412,7 @@ $x \to x_0$ としたときにきちんと両辺が一致するようにつけ�
 \end{thm}
 (証明) まずは 1 から.  $S_n$ を
     \begin{align}
-        S_n (x):= \sum_{k=0}^n \frac{D^kf (a)}{k!}
+        S_n (x)\defeq \sum_{k=0}^n \frac{D^kf (a)}{k!}
     \end{align}
 とします. 仮定から $f$ は $C^{\infty}$ 級であり, Taylor の定理から
     \begin{align}
@@ -5418,7 +5571,7 @@ Euler (オイラー) の公式\index{おいらーのこうしき@Euler の公式
  $(h^2,hk^,k^2)/|\bm{h}|^2\to0$ で上手く押さえられるものとします.
 
 さて, この線型化を 1 変数のときと同じように一次関数の形で書いてみましょう.
- $A:=(a,b),\bm{h}:=\,^t (h,k)$ とすれば,
+ $A\defeq(a,b),\bm{h}\defeq\,^t (h,k)$ とすれば,
     \begin{align}
         f (x+h,y+k) - f (x,y)
         =
@@ -5445,7 +5598,7 @@ Euler (オイラー) の公式\index{おいらーのこうしき@Euler の公式
 
 ここから重要な役者である\textgt{偏微分}に登場してもらいます.
 上では $\bm{h}=\,^t (h,k)$ として $h,k$ 両方が動いていたわけですが, 今度は $k$ を $k_0$ に固定しておいて $h$ だけに動いてもらいましょう.
- $k=k_0$ を固定すると $z=f (x,k_0):=g (x)$ は曲面を平面 $y=k_0$ で切った断面上を動くことになりますから,
+ $k=k_0$ を固定すると $z=f (x,k_0)\defeq g (x)$ は曲面を平面 $y=k_0$ で切った断面上を動くことになりますから,
 幾何学的には $g$ の接線を求める作業へ移ることに対応します.
 本節はじめに述べたことと対応させると, 接平面を決める為の 2 本のベクトルの内の一本を決めることにあたります.
 演算的な側面から言うと, 偏微分とは
@@ -5475,7 +5628,7 @@ $f (\bm{x}+t\bm{e}_1)=g (t)$ の $t$ についての (1 変数の) 微分とい�
  $\bm{a}$ は $\bbR^2$ の開区間 $I=(a_1,b_1)\times (a_2,b_2)$ の 1 点で,
  $f$ は $I$ で定義された実数値関数であるとする.
 今 $\bbR^2$ の任意の元 $\bm{e}$ に対して実変数 $t\in\bbR$ の関数
- $g (t):=f (\bm{a}+t\bm{e})$ が $(-\vep,\vep),\vep>0$ で定義されているとする.
+ $g (t)\defeq f (\bm{a}+t\bm{e})$ が $(-\vep,\vep),\vep>0$ で定義されているとする.
 この関数 $g$ が $t=0$ で微分可能ならば, 関数 $f$ は $a$ において
 \textgt{ $\bm{e}$ 方向に微分可能}であるといい,  $g'(0)$ を $f$ の
  $a$ における\textgt{ $\bm{e}$ 方向の導値}(または\textgt{微分係数}) といい,
@@ -5600,11 +5753,11 @@ $f$ が $I$ の各点で $x_i$ について微分可能であるとき, $f$ の 
 1 つの変数についての極限操作を 2 回繰り返すことで得られます.
 ところがこれを 2 次元空間 $\bbR^2$ における一つの極限で書くことが出来ます.
 今 $\bm{l}=\,^t (h,k)\in\bbR^2$ を小さく取り,  $\bm{c}+\bm{l}\in I$ となるようにします.
-また $\varphi (x):=f (x,b+k)-f (x,b)$ とすれば,  $\varphi'(x)=f_x (x,b+k)-f_x (x,b)$ となります.
+また $\varphi (x)\defeq f (x,b+k)-f (x,b)$ とすれば,  $\varphi'(x)=f_x (x,b+k)-f_x (x,b)$ となります.
 今
     \begin{align}
         \Delta (h,k)
-        :=
+        \defeq
         f (a+h,b+k) - f (a+h,b) - f (a,b+k) + f (a,b)
     \end{align}
 とします. 平均値の定理から $0<\theta,\theta'<1$ となる $\theta,\theta'$ が存在して,
@@ -5632,7 +5785,7 @@ $f$ が $I$ の各点で $x_i$ について微分可能であるとき, $f$ の 
  =
  \bm{c}
 \end{align}
-であり, 仮定から\$ f\_{}{xy}\$が連続ですから, 上式から
+であり, 仮定から\$ f$_{\mathrm{xy}}$\$が連続ですから, 上式から
 \begin{align}
  f_{xy}(\bm{c})
  =
@@ -5654,7 +5807,7 @@ f_{yx}(\bm{c})
  $\bm{f}$ を $\Omega_1 \subset \mbr^n$ から $\mbr^m$ への関数,
  $\bm{g}$ を $\Omega_2 \subset f ( \Omega_1 ) \subset \mbr^m$ から $\mbr^{l}$ への関数とし,
  $\bm{f}$ が点 $\bm{a} \in \Omega_1$ で微分可能,  $\bm{g}$ が点 $\bm{b} = \bm{f} ( \bm{a} ) \in \Omega_2$ で微分可能とする.
- このとき合成関数 $\bm{ \varphi } :=\bm{g} \circ \bm{f}$ は点 $\bm{a}$ で微分可能であり
+ このとき合成関数 $\bm{ \varphi } \defeq\bm{g} \circ \bm{f}$ は点 $\bm{a}$ で微分可能であり
  \begin{gather}
  D \bm{ \varphi }
  =
@@ -5674,10 +5827,10 @@ $\bm{f},\bm{g}$ の微分可能性から,
 \begin{gather}
 \bm{f} ( \bm{a} + \bm{h} )
 =
-\bm{f} ( \bm{a} ) + A \bm{h} + O ( | \bm{h} |^2 ) , \quad A := D \bm{f} \\
+\bm{f} ( \bm{a} ) + A \bm{h} + O ( | \bm{h} |^2 ) , \quad A \defeq D \bm{f} \\
 \bm{g} ( \bm{b} + \bm{k} )
 =
-\bm{g} ( \bm{b} ) + B \bm{k} + O ( | \bm{k} |^2 ) , \quad B := D \bm{g}
+\bm{g} ( \bm{b} ) + B \bm{k} + O ( | \bm{k} |^2 ) , \quad B \defeq D \bm{g}
 \end{gather}
 となります.
 $\bm{b} = \bm{f} ( \bm{a} )$ を $g$ の式に代入して,
@@ -5740,14 +5893,14 @@ B \left ( A \bm{h} + | \bm{h} | \bm{ \vep } ( \bm{h} ) \right)
 =
 BA \bm{h} + | \bm{h} | \bm{\rho} ( \bm{h} ), \quad
 \bm{ \rho } ( \bm{h} )
-:=
+\defeq
 B \bm{ \vep } ( \bm{h} ) + \frac{ | \bm{k} ( \bm{h} ) | }  { | \bm{h} | } \bm{ \delta } \left ( \bm{k} (\bm{h}) \right)
 \end{gather}
 となります.
-ここで $(m,n)$ 行列 \$A = ( a\_{}{ij} ) \$ に対して
+ここで $(m,n)$ 行列 \$A = ( a$_{\mathrm{ij}}$ ) \$ に対して
 \begin{gather}
 \abs{A}
-:=
+\defeq
 \left ( \sum_{i=1}^{m} \sum_{j=1}^{n} | a_{ij} | ^2 \right)^{ \frac{1} {2} }
 \end{gather}
 と書くことにします.
@@ -5798,10 +5951,10 @@ $A$ の第 $i$ \textgt{行}ベクトルを $\bm{a}_i$ とすれば,
  \begin{gather}
  f ( \bm{a} + \bm{h}  )
  =
- f ( \bm{a} ) + A ( \bm{a} ) \bm{h} + | \bm{h} | \vep ( \bm{h} ) ,  \quad A := Df ( \bm{a} ) , \\
+ f ( \bm{a} ) + A ( \bm{a} ) \bm{h} + | \bm{h} | \vep ( \bm{h} ) ,  \quad A \defeq Df ( \bm{a} ) , \\
  g ( \bm{a} + \bm{h}  )
  =
- g ( \bm{a} ) + B ( \bm{a} ) \bm{h} + | \bm{h} | \delta ( \bm{h} ),  \quad B := Dg ( \bm{a} )
+ g ( \bm{a} ) + B ( \bm{a} ) \bm{h} + | \bm{h} | \delta ( \bm{h} ),  \quad B \defeq Dg ( \bm{a} )
  \end{gather}
  と書けます.
 
@@ -5886,7 +6039,7 @@ f'(\bm{x}+t\bm{z})\bm{z}
 (\ref{eq:2-7-7.1}) の右辺からそのまま
     \begin{align}
         (d^mf)_{\bm{x}} (\bm{z})
-        :=
+        \defeq
         \varphi^{(m)}(t)
         =
         \sum_{1\leq i_1,\dotsb ,i_m \leq n}\frac{\partial ^m f} {\partial x_{i_1} \dotsb \partial x_{i_m}}(\bm{x}+t\bm{z})
@@ -5908,7 +6061,7 @@ f'(\bm{x}+t\bm{z})\bm{z}
     \end{align}
 が成立する.
 \end{thm}
-(証明) $\varphi (t):=f (\bm{x}+t\bm{h})$ は $[0,1]$ で $C^k$ 級ですから, 1 変数関数についての
+(証明) $\varphi (t)\defeq f (\bm{x}+t\bm{h})$ は $[0,1]$ で $C^k$ 級ですから, 1 変数関数についての
 Taylor の定理から, ある実数 $\theta\in (0,1)$ が存在して
     \begin{align}
         \varphi (1)
@@ -6011,13 +6164,13 @@ T \frac{\partial ^2 u} {\partial  x ^2}(x_i , t ) + \left ( \varDelta x \right)
 =
 \frac{\partial ^2 u} {\partial  x ^2}(x , t ),
 \quad
-v := \sqrt \frac{T} {\mu}
+v \defeq \sqrt \frac{T} {\mu}
 \end{align}
 上式を\textgt{(1 次元の) 波動方程式}\index{はどうほうていしき@波動方程式}といいます.
 あとで使うこともあるでしょうから, 3 次元版も付記しておきましょう.
-$\bm{\nabla} := \partial _x \bm{e} _x + \partial _y \bm{e} _y + \partial _z \bm{e} _z$ とし,
+$\bm{\nabla} \defeq \partial _x \bm{e} _x + \partial _y \bm{e} _y + \partial _z \bm{e} _z$ とし,
 $\bm{\nabla} \cdot \bm{\nabla} = \nabla ^2 = \partial _x ^2 + \partial _y ^2 +\partial _z ^2$ ,
-$\square := (1/v^2) \partial _t ^2 - \nabla ^2$
+$\square \defeq (1/v^2) \partial _t ^2 - \nabla ^2$
 とすると,
 \begin{align}
 0
@@ -6034,19 +6187,19 @@ $\square := (1/v^2) \partial _t ^2 - \nabla ^2$
 \end{align}
 波動方程式が本当に波動を表しているかを簡単な例で確認してみましょう.
 高校で\textgt{単振動}は $u (x,t) = \sin (\omega t - k x)$ で表されると学んだはずです.
-ここで \$$\omega$ := 2 $\pi$ f , k := 2 $\pi$ f/$\lambda$ \$ です.
+ここで $\omega \defeq 2 \pi f , k \defeq 2 \pi f/\lambda$ です.
 \$$\omega$ \$ を\textgt{角振動数}\index{かくしんどうすう@角振動数},
 \$$\lambda$ \$ を\textgt{波数}\index{はすう@波数}といいます.
-これの 2 階の時間・空間微分を考えると $v:=\sqrt{\omega  /k}$ とすれば確かに波動方程式を満たします.
+これの 2 階の時間・空間微分を考えると $v\defeq\sqrt{\omega  /k}$ とすれば確かに波動方程式を満たします.
 また波動方程式は\textgt{重ね合わせの原理}\index{かさねあわせのげんり@重ね合わせの原理}も満たします.
-2 つの波 $u_1,u_2$ があるとしましょう. この 2 つを重ね合わせたものもまた波である, というのは $u := u_1 + u_2$ が
+2 つの波 $u_1,u_2$ があるとしましょう. この 2 つを重ね合わせたものもまた波である, というのは $u \defeq u_1 + u_2$ が
 波動方程式の解となるということです.  $u_1,u_2$ それぞれが波動方程式の解ですから,
 $\square u_i = 0 ( i=1,2 )$ となります.
 微分作用素 $\square$ は線型作用素ですから,  $\square u = \square u_1 + \square u_2 = 0 + 0 = 0$ となり,
 重ね合わせた $u$ も確かに波動方程式を満たします.
 
 少し脱線します. ここで Euler の公式
-\$e\^{}{ix} = $\cos$ x +i $\sin$ x \$
+\$e$^{\mathrm{ix}}$ = $\cos$ x +i $\sin$ x \$
 から
 $\sin x = \frac{1} {2} ( e^{ix} + e^{-ix} ),\cos x = \frac{1} {2i} ( e^{ix} - e^{-ix} )$
 です.
@@ -6157,7 +6310,7 @@ f'(\bm{a}) = 0,
 \end{thm}
 (証明)
 本質が損なわれるわけでもなく, 理解がしやすくもなるので 2 変数関数 $f (x,y)$ で示します.
-$y$ を $\bm{a}$ の座標 $a_2$ に固定して得られる関数 $f_1 (x) := f (x,a_2)$ は $\bm{x}=\bm{a}$ で
+$y$ を $\bm{a}$ の座標 $a_2$ に固定して得られる関数 $f_1 (x) \defeq f (x,a_2)$ は $\bm{x}=\bm{a}$ で
 極値を取るので,1 変数の場合の対応する定理から
 \begin{align}
 D f_1 (x)
@@ -6229,9 +6382,9 @@ a_{k1} & b_{k2} & \dots & b_{kk}
 \end{thm}
 (証明)
 $B$ が対称行列なので適当な直交行列 $U$ を用いて $Q$ を「対角化」できます.
-$\bm{y} := U\bm{x}$ ,
+$\bm{y} \defeq U\bm{x}$ ,
 $B$ の固有値を $\lambda_i$ とし,
-$UB {^t} U := \Lambda = ( \lambda_i \delta_{ij} )$ とすると,
+$UB {^t} U \defeq \Lambda = ( \lambda_i \delta_{ij} )$ とすると,
 \begin{align}
 Q ( \bm{x} )
 =
@@ -6420,7 +6573,7 @@ $\bm{y}$ 方向には $\bm{a}$ で狭義極大となります.
 \end{rem}
 
 またこれらを用いて安定点の定式化を行ないます.
-$N$ 質点系がしたがうポテンシャルを $U (\bm{r}) := U ( \bm{r}_1,\dotsb,\bm{r}_N)$ とし,
+$N$ 質点系がしたがうポテンシャルを $U (\bm{r}) \defeq U ( \bm{r}_1,\dotsb,\bm{r}_N)$ とし,
 $U$ が適当に性質が良いものである (例えば $C^{\infty}$ 級) とします.
 $\bm{r}_0$ がつりあいの位置でそこからのずれを $\bm{y} = \bm{r} - \bm{r}_0$ とします.
 ここで $U$ を $\bm{r}_0$ のまわりで Taylor 展開すると
@@ -6469,7 +6622,7 @@ m_i \ddot{ y_i }
 -\sum_{j=1}^{3N} \frac{1} {\sqrt{m_i m_j}} U_{ij} \sqrt{m_j} y_j
 \end{align}
 なります. ここでさらに
-$\tilde{y}_i := \sqrt{m_i} y_i$ ,  $\tilde{U}_{ij} := U_{ij}/\sqrt{ m_i m_j }$ と定義すると,
+$\tilde{y}_i \defeq \sqrt{m_i} y_i$ ,  $\tilde{U}_{ij} \defeq U_{ij}/\sqrt{ m_i m_j }$ と定義すると,
 \begin{gather}
 \ddot{ \tilde{y} }_i
 =
@@ -6491,7 +6644,7 @@ $\tilde{y}_i := \sqrt{m_i} y_i$ ,  $\tilde{U}_{ij} := U_{ij}/\sqrt{ m_i m_j }$ �
 \end{align}
 としても良いことが分かります.
 ここで $U$ が時間依存しないのでこれを対角化する $V$ も時間依存しません.
-したがって $\dot{V}=O$ となり,  $\Omega := ( \omega_i^2 \delta{ij} )$ としてこれを用いると運動方程式は
+したがって $\dot{V}=O$ となり,  $\Omega \defeq ( \omega_i^2 \delta{ij} )$ としてこれを用いると運動方程式は
 \begin{gather}
 \frac{d^2} {dt^2} V \bm{y}
 =
@@ -6500,7 +6653,7 @@ $\tilde{y}_i := \sqrt{m_i} y_i$ ,  $\tilde{U}_{ij} := U_{ij}/\sqrt{ m_i m_j }$ �
 \ddot{ \bm{z} }
 =
 -\Omega \bm{z}, \quad
-\bm{z} := V \bm{y}
+\bm{z} \defeq V \bm{y}
 \end{gather}
 となります.
 $\Omega$ が対角行列であることを用いて成分ごとに書けば
@@ -6547,13 +6700,13 @@ $N$ 個の互いに独立な調和振動子\index{ちょうわしんどうし@�
 本当に求めたいのは質点が力 $\bm{f}$ を受けながら描く運動の軌跡です.
 しかしいきなり 2 階微分を解きほぐすのは大変です.
 欲張らずにまずは速度 $\dot{ \bm{r} } = \bm{v}$ を求めてみましょう.
-初期時刻を $t = t_i$ , 初期速度 $\bm{v} ( t_i ) := \bm{v}_0$ として,
+初期時刻を $t = t_i$ , 初期速度 $\bm{v} ( t_i ) \defeq \bm{v}_0$ として,
 適当な時間 $t_f>0$ での質点の速度を求めることにします.
 前の節で微分とは線型化であるということを見ました.
 非常に短い時間間隔 $\varDelta t >0$ を取れば, 質点に働く力は
 $\deltat$ の間 $\bm{f} ( \bm{r}_{ t_i } , \dot{ \bm{r} }_{t_i} )$ で
 一定であるとみなせるでしょう.
-ただし $\bm{r}_{t_i} := \bm{r} (t_i) , \dot{ \bm{r} }_{t_i} := \dot{ \bm{r} } ( \bm{r} ( t_i ) , t_i )$
+ただし $\bm{r}_{t_i} \defeq \bm{r} (t_i) , \dot{ \bm{r} }_{t_i} \defeq \dot{ \bm{r} } ( \bm{r} ( t_i ) , t_i )$
 としました.
 すると線型化によって, 運動方程式は
 \begin{gather}
@@ -6625,7 +6778,7 @@ $\deltat$ の間 $\bm{f} ( \bm{r}_{ t_i } , \dot{ \bm{r} }_{t_i} )$ で
 \begin{gather}
 \int _{t_i} ^{t_f}
 \bm{f} ( \bm{r} (\tau ) \, , \, \dot{ \bm{r} } \, ( \bm{r} (\tau) ) ) ) \, d \tau  \\
-:=
+\defeq
 \lim_{ \deltat \to 0 , N \to \infty }
 \sum_{k=0}^N \bm{f} ( \bm{r}_{ t_0 + k \deltat } , \dot{ \bm{r} }_{t_0 + k \deltat} ).
 \end{gather}
@@ -6698,7 +6851,7 @@ m_N \ddot{ \bm{r} }_N = \bm{f}_N ( \bm{r}_1, \dots , \bm{r}_N , \dot{ \bm{r} }_1
 となります.
 ここで力は加速度には依存しないものとしました.
 ここでやや作為的ですが, 以下のように考えます.
-まず $\bm{r}_i = {^t}( x_i , y_i , z_i ) := {^t} ( x_{6i-5} , x_{6i-3} , x_{6i-1} )$ とします.
+まず $\bm{r}_i = {^t}( x_i , y_i , z_i ) \defeq {^t} ( x_{6i-5} , x_{6i-3} , x_{6i-1} )$ とします.
 そして次のように定義します.
 \begin{gather}
 \bm{r}_1 =
@@ -6715,7 +6868,7 @@ x_3 \\
 \dot{ x }_2 \\
 \dot{ x }_3 \\
 \end{pmatrix}
-:=
+\defeq
 \begin{pmatrix}
 x_{3N+1} \\
 x_{3N+2} \\
@@ -6736,14 +6889,14 @@ x_{3N} \\
 \dot{ x }_{3N-1} \\
 \dot{ x }_{3N} \\
 \end{pmatrix}
-:=
+\defeq
 \begin{pmatrix}
 x_{6N-2} \\
 x_{6N-1} \\
 x_{6N} \\
 \end{pmatrix} , \\
 \bm{R}
-:=
+\defeq
 \begin{pmatrix}
 x_1 \\
 \vdots \\
@@ -6763,7 +6916,7 @@ x_{6N}
 \end{pmatrix}
 , \quad
 \bm{f}_i
-:=
+\defeq
 \begin{pmatrix}
 f_{3i-2} ( \bm{R} , t ) \\
 f_{3i-1} ( \bm{R} , t ) \\
@@ -6798,7 +6951,7 @@ f_1 / m_1 \\
 \vdots \\
 f_{3N} / m_{3N}
 \end{pmatrix}
-:=
+\defeq
 \bm{F} ( \bm{R} , t ) \\
 \text{初期条件}:
 \bm{R} ( t_0 )
@@ -6816,7 +6969,7 @@ f_{3N} / m_{3N}
 先程 $\bm{F}$ があまり複雑な変化をしなければ解の存在と一意性が示せると書きました.
 どこまでの変化を許容できるか, ということで 1 つ定義をします.
 \begin{defn}(\textgt{Lipschitz}(リプシッツ)\textgt{条件})\index{りぷしっつじょうけん@Lipschitz 条件}
-関数 $\bm{F}$ は $D := \bbR^n \times I $ を定義域とし, 値域が $\bbR^m$ であるとする.
+関数 $\bm{F}$ は $D \defeq \bbR^n \times I $ を定義域とし, 値域が $\bbR^m$ であるとする.
 $\bm{F}$ が Lipschitz 条件を満たすというのは,
 ある正数 $L$ が存在して $D$ の任意の 2 点 $(\bbR_1 , t ) , ( \bbR_2 , t )$ に対して以下の式を満たすことをいう.
 \begin{gather}
@@ -6835,7 +6988,7 @@ Lipschitz 条件はただの連続性よりは強い条件です.
 
 以下では有界閉領域
 \begin{gather}
- D := \{ (\bm{R} , t ) \, ; \, | \bm{R} - \bm{R}_0 | \leq b , | t - t_0 | < a \, ( \, 0< a ,b < \infty \,) \}
+ D \defeq \{ (\bm{R} , t ) \, ; \, | \bm{R} - \bm{R}_0 | \leq b , | t - t_0 | < a \, ( \, 0< a ,b < \infty \,) \}
 \end{gather}
 上で考えます.
 連続関数は有界閉集合上で最大値, 最小値を取るので
@@ -6863,7 +7016,7 @@ Lipschitz 条件はただの連続性よりは強い条件です.
   \leq
   h, \quad
   h
-  :=
+  \defeq
   \min \left ( a, \frac{b} {M} \right) \label{eq:4-4}
  \end{gather}
  で満たす一意的な解 $\bm{R}$ が存在する.
@@ -6885,7 +7038,7 @@ Lipschitz 条件はただの連続性よりは強い条件です.
 さらに
 \begin{gather}
  \delta
- :=
+ \defeq
  \min \left ( \kappa , \frac{\kappa} {M} , \frac{b} {M}  \right)
  >
  0 \label{eq:4-6}
@@ -6908,10 +7061,10 @@ $0 < | t - t_0 | \leq h$ となる任意の $t$ に対して $0$ , または
   \bbR_n + ( t - t_n ) \bm{F} ( \bm{R}_n , t_n ), \\
   \text{ただし} \\
   t_j
-  :=
+  \defeq
   t_0 + j \cdot \delta \frac{ t - t_0 } { | t - t_0 | } , \\
   \bm{R}_j
-  :=
+  \defeq
   \bm{R}_0 + \delta \frac{ t - t_0 } { | t - t_0 | } \bm{F} ( \bbR_{j-1} , t_{j-1} ) ( j = 1,2,\dots,n ) \\
   \text{また} \bm{R}_{\vep} (t_0) = \bm{R}_0 \label{eq:4-8}
  \end{cases}
@@ -7025,7 +7178,7 @@ L | \bm{R}_{\vep} (t) - \bm{R}_{\vep '} (t) | + \vep + \vep '
 =
 \int_{x_0}^x \left \{   \frac{d \bm{R}_{ \vep } (s) } {ds} - \frac{d \bm{R}_{ \vep '} (s) } {ds} \right \} \, ds
 \end{gather}
-であり, $U (t) := | \bm{R}_{\vep} (t) - \bm{R}_{\vep '} (t) |$ とすると, (\ref{eq:4-11}) によって
+であり, $U (t) \defeq | \bm{R}_{\vep} (t) - \bm{R}_{\vep '} (t) |$ とすると, (\ref{eq:4-11}) によって
 \begin{gather}
  U (t)
  \leq
@@ -7104,12 +7257,12 @@ $\vep>0$ を与えた場合に少なくとも 1 つ折れ線 $\bm{R}_{\vep}(t)$ 
 $\vep = 1/k (k \in \bbZ^+)$ とすれば,  $| t - t_0 | \leq h$ において一様に
 \begin{gather}
 \bm{R}(t)
-:=
+\defeq
 \lim_{n\to\infty} \bm{R}_{ 1/n } (t)
 \label{eq:4-14}
 \end{gather}
 が存在します.
-$\bm{a}_n (t) := \bm{R}_{1/n}(t)$ とすれば全ての $n$ について $\bm{a}_n$ は連続関数となります.
+$\bm{a}_n (t) \defeq \bm{R}_{1/n}(t)$ とすれば全ての $n$ について $\bm{a}_n$ は連続関数となります.
 (\ref{eq:4-13}) を $\bm{a}_n$ で書き直すと
 \begin{gather}
 \abs{\bm{a}_n (t) - \bm{a}_m (t)}
@@ -7239,7 +7392,7 @@ $K$ は有界閉集合 (コンパクト集合) であり, 有界閉集合上の�
 そこで以下のように定義します.
 \begin{gather}
 L_K^k
-:=
+\defeq
 \max_{\bm{X} \in K , 1 \leq j \leq m} \left| \frac{\partial} {\partial x_j} F_k (\bm{X}) \right|
 < + \infty  \quad (\text{有限値}) .
 \end{gather}
@@ -7257,7 +7410,7 @@ L_K^k
 \leq
 \sqrt{m} \sum_{i=1}^n  L_K^i | \bm{X} - \bm{Y} | \\
 \leq
-L_K | \bm{X} - \bm{Y} | \quad \left ( L_K := \sqrt{m} \sum_{i=1}^n  L_K^i \right)  \\
+L_K | \bm{X} - \bm{Y} | \quad \left ( L_K \defeq \sqrt{m} \sum_{i=1}^n  L_K^i \right)  \\
 \Longleftrightarrow
 \abs{\bm{F} ( \bm{X} )  - \bm{F}}
 \leq
@@ -7352,8 +7505,8 @@ L_K | \bm{X} - \bm{Y} |
 また, 定義域を狭めた所で成立する解のことを
 \textgt{局所解}\index{きょくしょかい@局所解}といいます.
 \begin{thm}(局所解の存在と一意性)
-$I := [t_0 , T)$ , $B ( \bm{R}_0 ; R ) := \{ \bm{R} \in \mbr^m ; | \bm{R} - \bm{R}_0 | <R \} ( 0 < R \leq \infty)$ ,
-$\Omega := B ( \bm{R}_0 ; R) \times I = \Omega ( \bm{R}_0 ,T ,R)$ とする.
+$I \defeq [t_0 , T)$ , $B ( \bm{R}_0 ; R ) \defeq \{ \bm{R} \in \mbr^m ; | \bm{R} - \bm{R}_0 | <R \} ( 0 < R \leq \infty)$ ,
+$\Omega \defeq B ( \bm{R}_0 ; R) \times I = \Omega ( \bm{R}_0 ,T ,R)$ とする.
 $\bm{F}$ が $\Omega$ で局所 Lipschitz 条件を満たすならば,
 任意の $\bm{Y}_0 \in B ( \bm{X}_0 ;R )$ に対して
 $T_0 = T_0 (\bm{Y}_0) \in (t_o ,T)$ が定まり,
@@ -7381,14 +7534,14 @@ t_0 < T_1 < T
 これを用いて
 \begin{gather}
 K_1
-:=
+\defeq
 \cbk{\bm{X} \in \mbr^m ; | \bm{X} - \bm{R}_0 | \leq R_1}  \times \sqbk{x_0 , T_1}
 \end{gather}
 とすると, これは $\Omega$ のコンパクト集合 (有界閉集合) です.
 カットオフ関数 $\chi_{R_1}$ を用いて
 \begin{gather}
 \tilde{\bm{F}} ( \bm{R} , t )
-:=
+\defeq
 \bm{F} ( \chi_{R_1} ( \bm{R} ) , t )
 \end{gather}
 として, 次の微分方程式を考えます.
@@ -7458,7 +7611,7 @@ $| \tilde{ \bm{R} } (t) - \bm{R}_0 | < \vep$ となります.
 <
 R_1
 \end{gather}
-となり,  $t_1 := t_0 + \delta$ とすればめでたく証明完了です.
+となり,  $t_1 \defeq t_0 + \delta$ とすればめでたく証明完了です.
 
 $t \in [ t_0 , t_1 ]$ としましょう.
 このとき $| \tilde{ \bm{R} } | < R_1$ となるので,
@@ -7501,13 +7654,13 @@ $\bm{R}_1 (t_1) = \bm{R}_2 (t_1)$ であるとする.
 \textgt{解の最大存在時刻}\index{かいのさいだいそんざいじこく@解の最大存在時刻} $T_m$ を次の式で定義します.
 \begin{gather}
 T_m
-:=
+\defeq
 \sup \{ T_0 ; \text{微分方程式が}[t_0 , T_0 )\text{で解を持つ} \}
 \end{gather}
 
 \begin{thm}
-$I := [t_0 , T)$ , $B ( \bm{R}_0 ; R ) := \{ \bm{R} \in \mbr^m ; | \bm{R} - \bm{R}_0 | <R \} ( 0 < R \leq \infty)$ ,
-$\Omega := B ( \bm{R}_0 ; R) \times I = \Omega ( \bm{R}_0 ,T ,R)$ とする.
+$I \defeq [t_0 , T)$ , $B ( \bm{R}_0 ; R ) \defeq \{ \bm{R} \in \mbr^m ; | \bm{R} - \bm{R}_0 | <R \} ( 0 < R \leq \infty)$ ,
+$\Omega \defeq B ( \bm{R}_0 ; R) \times I = \Omega ( \bm{R}_0 ,T ,R)$ とする.
 局所解の一意性存在定理\ref{th:解の一意性存在定理 2}によって保証される解の延長可能性は
 以下の 2 通りである.
 \begin{enumerate}
@@ -7525,7 +7678,7 @@ $\Omega := B ( \bm{R}_0 ; R) \times I = \Omega ( \bm{R}_0 ,T ,R)$ とする.
 $\Omega$ の境界からの距離 $\eta$ が正であるような $\Omega$ の内点 $( \bm{R}' , T )$ に収束するものとします.
 $n$ を十分大きく取れば, 点 $( \bm{R} ( t_n) , t_n )$ と $\Omega$ との距離が $\eta/2$ であるようにできます.
 このとき $t_n$ で $\bm{R}(t_n)$ となるような $D\bm{R} = \bm{F}( \bm{R}(t) , t )$ の解が
-$| t - t_n | \leq h' := \min ( \eta / 2 , \eta / 2M )$ において一意的に存在します.
+$| t - t_n | \leq h' \defeq \min ( \eta / 2 , \eta / 2M )$ において一意的に存在します.
 この $t$ の領域 $| t - t_n | \leq h'$ は $\lim_{n \to \infty} t_n = T_m$ によって,
 $n$ が十分大きいときには点 $T_m$ を内点とします.
 これは $\bm{R}(t_0)= \bm{R}_0$ がとなるもとの解 $\bm{R}$ が $T_m$ を超えてなお右に延長できることを示し,
@@ -7572,7 +7725,7 @@ a \int_{x_0}^x e^{ \int_{x_0}^x g ( s ) } \, ds .
 (証明)
 \begin{gather}
 H (x)
-:=
+\defeq
 a + \int_{x_0}^x h (s) \, g (s) \, ds
 \end{gather}
 とすると条件の不等式を用いて
@@ -7657,7 +7810,7 @@ D \left\{ \bm{R}^1 (t) - \bm{R}^2 (t) \right\}
 すぐ後で出て来るので先んじて $\beta$ の定義をしておきます.
 \begin{gather}
 \beta
-:=
+\defeq
 \sup_{t \in I , \bm{R} \in \mbr^m}| \bm{F}( \bm{R} , t ) - \bm{F} ( \bm{R} , t ) |.
 \end{gather}
 先程の積分した式の両辺の絶対値を取り, 三角不等式と Lipschitz 条件を用いた式
@@ -7669,7 +7822,7 @@ D \left\{ \bm{R}^1 (t) - \bm{R}^2 (t) \right\}
 \leq
 L | \bm{R}^1 (s) - \bm{R}^2 (s) | + \beta
 \end{gather}
-を用いて,  $h (x) := | \bm{R}^1 (x) - \bm{R}^2 (x) |, \alpha := | \bm{R}^1_0 - \bm{R}^2_0 |$ とすれば
+を用いて,  $h (x) \defeq | \bm{R}^1 (x) - \bm{R}^2 (x) |, \alpha \defeq | \bm{R}^1_0 - \bm{R}^2_0 |$ とすれば
 \begin{gather}
 h (x)
 \leq
@@ -7678,7 +7831,7 @@ h (x)
 \alpha + \int_{t_0}^t L \left \{  h (s) + \frac{\beta} {L} \right \} ds
 \end{gather}
 となります.
-$H (x) := h (x) + \beta / L$ とすれば,
+$H (x) \defeq h (x) + \beta / L$ とすれば,
 \begin{gather}
 H (x)
 \leq
@@ -7721,7 +7874,7 @@ $h (x) \leq H (x)$ から
 $n$ 階線型常微分方程式
 \begin{gather}
 \Lambda ( D ) x (t)
-:=
+\defeq
 D^n x (t) + p_{n-1} (t) D^{n-1} x (t) + \dotsb + p_{1}(t) D x (t) + p_{0}(t) x (t)
 =
 q (t)
@@ -7736,7 +7889,7 @@ $q \not= \theta$ のとき\textgt{非斉次方程式}\index{ひせいじほう�
 \begin{gather}
 \begin{split}
 \Lambda ( D ) x (t)
-:=
+\defeq
 D^n x (t) + p_{n-1} (t) D^{n-1} x (t) + \dotsb \\
 +p_{1} (t) D x (t) + p_{0} (t) x (t)
 =
@@ -7784,7 +7937,7 @@ $n$ 個の解 $x_1 (t) , \dots , x_n (t)$ が線型独立であるための必�
 \textgt{Wronski 行列式 (Wronkian)}(ロンスキアン)\index{ろんすきあん@ロンスキアン}
 \begin{gather}
 W ( x_1 (t) , x_2 (t) , \dots , x_n (t) )
-:=
+\defeq
 \begin{vmatrix}
 x_1 (t) & x_2 (t) & \dots & x_n (t) \\
 D x_1 (t) & D x_2 (t) & \dots & D x_n (t) \\
@@ -7804,7 +7957,7 @@ D^{n-1} x_1 (t) & D^{n-1} x_2 (t) & \dots & D^{n-1} x_n (t) \\
 &\vdots \notag \\
 &c_1 D^{n-1} x_1 (t) + c_2 D^{n-1} x_2 (t) + \dots + c_n D^{n-1} x_n (t) = 0
 \end{align}
-に対して $c_i \not= 0$ となる $i$ が存在する解の組 $\bm{c} := {^t} (c_1 \,\, c_2 \,\, \dotsb \,\, c_n)$ が存在します.
+に対して $c_i \not= 0$ となる $i$ が存在する解の組 $\bm{c} \defeq {^t} (c_1 \,\, c_2 \,\, \dotsb \,\, c_n)$ が存在します.
 $x (t) = c_1 x_1 (t) + \dots + c_n x_n (t)$ を考えると, これは $D^i x (t) = 0 ( i = 0, 1, \dots , n-1)$ を満たします.
 $D^{n-1} x (t) = 0$ を積分すると $x (t) = d_0 + d_1 t + \dots + d_{n-2} t^{n-2}$ となりますが,
 $d_i = 0 ( i = 0 ,1 , \dots , n-2)$ となり,  $x = \theta$ <恒等的に 0 を返す関数>となり,
@@ -7881,7 +8034,7 @@ c_1 x_1 (t) + \dots + c_n x_n (t) \equiv 0
 c_1 D^i x_1 (t) + \dots + c_n D^i x_n (t) \equiv 0
 ( i = 0, 1, \dots , n-1)
 \end{gather}
-となりますが,  $\hat{W}(t) := ( D^{i-1} x_j (t) )$ とすると
+となりますが,  $\hat{W}(t) \defeq ( D^{i-1} x_j (t) )$ とすると
 $\hat{W}(t) \bm{c} = \bm{0}$ と行列でまとめて書けます.
 Wronskian $W$ が $0$ でないので,  $\hat{W}$ には逆が存在して, それをかければ $\bm{c} = \bm{0}$ となりますが,
 これは不合理です.  $\bs$
@@ -7944,7 +8097,7 @@ $x_1 , x_2 , \dots , x_n$ の線型独立性から表現 $x (t) = \sum \, c_i x_
 \begin{gather}
 \begin{split}
 \Lambda (D) x (t)
-:=
+\defeq
 D^n x (t) + p_{n-1} (t) D^{n-1} x (t) + \dotsb \\
 +p_{1}(t) D x (t) + p_{0}(t) x (t)
 =
@@ -7967,7 +8120,7 @@ q (t)
 \end{thm}
 (証明)
 (\ref{eq:4-26.1}) の 2 つの解を $x_1 , x_2$ としましょう.
-ここで $z := x_1 - x_2$ とすると
+ここで $z \defeq x_1 - x_2$ とすると
 \begin{gather}
 \Lambda z
 =
@@ -7994,7 +8147,7 @@ q (t)
 さて, 1 階の方程式で重要なのは電気回路についての方程式
 \begin{gather}
 \Lambda (D) j (t)
-:=
+\defeq
 L \frac{d j (t)} {dt} + R j (t)
 =
 v (t)
@@ -8060,7 +8213,7 @@ c e^{\frac{R} {L} t} + \frac{1} {L} \int v (s) e^{\frac{R} {L}(t-s)} \, ds
 m D^2 x (t) + \Gamma D x (t) + k x (t) = F (t)
 \end{gather}
 となります.
-ここで \$f := F/m , 2 $\gamma$ := $\Gamma$ / m , k/m := $\omega$\^{}2 , $\omega$>0 \$ とすると
+ここで $f \defeq F/m , 2 \gamma \defeq \Gamma / m , k/m \defeq \omega^2 , \omega>0$ とすると
 \begin{gather}
 D^2 x (t) + 2 \gamma x (t) + \omega^2 x (t) = f (t)
 \label{eq:4-振動の方程式}
@@ -8078,7 +8231,7 @@ $v$ を例えば $C^1$ 級であるとしておいて両辺を微分すると 2 
 
 それでは実際に (\ref{eq:4-振動の方程式}) を解いていきましょう.
 まず解の存在と一意性を確かめます.
-$y_0 (t) := x (t) , y_1 (t) := Dx (t) , \bm{Y}(t) := {^t}( y_0 (t) \,\, y_1 (t) )$ としましょう.
+$y_0 (t) \defeq x (t) , y_1 (t) \defeq Dx (t) , \bm{Y}(t) \defeq {^t}( y_0 (t) \,\, y_1 (t) )$ としましょう.
 このとき
 \begin{gather}
 D \bm{Y}(t)
@@ -8122,7 +8275,7 @@ $\gamma = 0$ , つまり摩擦がない時の解は高校で学んだものと�
 このとき $D$ はただ数をかけるだけの\textgt{掛け算作用素}\index{かけざんさようそ@掛け算作用素}に変わるので,
 固有関数を考える限りは普通の数と同じように扱ってよいでしょう.
 これは (\ref{eq:4-振動の方程式}) の係数が実数であって, 関数ではないからできることです.
-$d := \gamma ^2 - \omega ^2$ として $D^2 + 2 \gamma D + \omega ^2$ を因数分解すると,
+$d \defeq \gamma ^2 - \omega ^2$ として $D^2 + 2 \gamma D + \omega ^2$ を因数分解すると,
 \begin{gather}
 \left \{ D - ( - \gamma + \sqrt{d} ) \right \} \left \{ D - ( - \gamma - \sqrt{d} ) \right \}
 \end{gather}
@@ -8172,10 +8325,10 @@ $d=0$ のときはどうするかということが問題として浮上して�
 ( D + \gamma ) ^2 x (t) =0
 \end{gather}
 となります.
-つまり $x_1 (t) := c_1 e^{- \gamma t}$ とすれば, これは上の方程式の解になっています.
+つまり $x_1 (t) \defeq c_1 e^{- \gamma t}$ とすれば, これは上の方程式の解になっています.
 もう 1 つ線型独立な解を見つける必要があります.
 Laplace 変換を使うと何も考えずにすんなり出てきますが, 今はひとまず天下りに与えます.
-$x_2 (t) := c_2 t e^{- \gamma t}$ が求める答です.
+$x_2 (t) \defeq c_2 t e^{- \gamma t}$ が求める答です.
 実際
 \begin{gather}
 ( D + \gamma ) ^2 x_2
@@ -8378,14 +8531,14 @@ First we review a line integral in $\bbR^2$.
  Then we define a \upbf{complex line integral} as
  \begin{align}
   \int_C f (z) dz
-  :=
+  \defeq
   \int_C (u dx - v dy) + i \int_C (u dy + v dx),
  \end{align}
  where we denote $f = u + iv$.
  Furthermore we define another type of integral.
  \begin{align}
   \int_C f (z) \abs{dz}
-  :=
+  \defeq
   \int_a^b f (z (t)) \abs{z'(t)} dt.
  \end{align}
 \end{defn}
@@ -8397,7 +8550,7 @@ We define two more concepts for assertion of the Cauchy's integral theorem.
  Then a number $n (C,a)$, called a \upbf{winding number}, is defined by
  \begin{align}
   n (C, a)
-  :=
+  \defeq
   \frac{1}{2 \pi i} \int_{C} \frac{1}{z-a} dz.
  \end{align}
  Furthermore a curve $C$ is called \upbf{homolog 0 for $U$} if $n (C, a) = 0$ for any $a \notin U$.
@@ -8440,7 +8593,7 @@ This theorem is wonderful in, at least, two points.
 \item The value of $f$ is determined by line integrals.
    We can take curves arbitrarily, so holomorphic functions cannot determine their values freely.
    See also Cauchy's integral representation formula.
-\item It defines an another function by line integrals, $F_{z_0} := \int_{C} f$, where $C$ is a curve which connects two points $z_0$ and $z$ in $U$.
+\item It defines an another function by line integrals, $F_{z_0} \defeq \int_{C} f$, where $C$ is a curve which connects two points $z_0$ and $z$ in $U$.
    See Morela's theorem.
 \end{enumerate}
 \subsection{Appendix: Green's theorem}
@@ -8514,7 +8667,7 @@ For proof we need some preparations.
 \begin{proof}
 Fix a point $z_0 \in U$ and let $z \in U$ be arbitrary.
 Since $U$ is connected we have two piecewise $C^1$ curve $C_j$ which do not intersect.
-A curve $C := C_1 + (- C_2)$ is a closed piecewise $C^1$ curve.
+A curve $C \defeq C_1 + (- C_2)$ is a closed piecewise $C^1$ curve.
 Then, by assumption,
 \begin{align}
  0
@@ -8526,9 +8679,9 @@ Then, by assumption,
 Hence we can define a function $F$ as
 \begin{align}
  F (z)
- :=
+ \defeq
  \int_{z_0}^{z} f (z) dz
- :=
+ \defeq
  \int_{C_1} f (z) dz = \int_{C_2} f (z) dz.
 \end{align}
 
@@ -8594,7 +8747,7 @@ we get, by Cauchy's integral theorem,
   f (z)
   =
   \sum_{n = 0}^{\infty} c_n (z-a)^n, \quad
-  c_n := \frac{1}{2 \pi i} \int_C \frac{f (z)}{\rbk{z - a}^{n+1}} dz.
+  c_n \defeq \frac{1}{2 \pi i} \int_C \frac{f (z)}{\rbk{z - a}^{n+1}} dz.
  \end{align}
 \end{thm}
 \begin{proof}
@@ -8611,7 +8764,7 @@ Due to Cauchy's integral representation formula and exchange of limits we have
  f (z)
  =
  \sum_{n = 0}^{\infty} c_n (z-a)^n, \quad
- c_n := \frac{1}{2 \pi i} \int_C \frac{f (z)}{\rbk{z - a}^{n+1}} dz.
+ c_n \defeq \frac{1}{2 \pi i} \int_C \frac{f (z)}{\rbk{z - a}^{n+1}} dz.
 \end{align}
 \end{proof}
 
@@ -8628,7 +8781,7 @@ A function $f \colon \bbC \to \bbC$ is called \textbf{entire} if it is holomorph
  for any compact subset $K \subset U$ such that $\lim_{n \to \infty} \norm{f_n - f}_K = 0$, where
  \begin{align}
   \norm{f}
-  :=
+  \defeq
   \sup_{z \in K} \abs{f (z)}.
  \end{align}
  We denote this convergence as $f_n \touw f$.
@@ -8700,7 +8853,7 @@ Then, by Cauchy's integral representation formula, we get
  =
  \sum_{n=k}^{\infty} c_n (z - z_0)^n
  =
- (z - z_0)^k g (z), \quad g (z) := \sum_{n=k}^{\infty} c_n (z-z_0)^{n-k}.
+ (z - z_0)^k g (z), \quad g (z) \defeq \sum_{n=k}^{\infty} c_n (z-z_0)^{n-k}.
 \end{align}
 Since a function $g$ is continuous there exists a neighborhood $B \subset U$ of $z_0$ such that $g (w) \neq 0$ for all $w \in B$.
 Hence $f (z) \neq 0$ for all $z \in B \setminus {z_0}$.
@@ -8738,7 +8891,7 @@ Let $a \in U$ and $R > 0$.
 We call the following $B_0 (a, R)$ an \textbf{exclusive neighborhood} of $a$:
 \begin{align}
  B_0 (a, R)
- :=
+ \defeq
  \set{z \in \bbC}{ 0 < \abs{z - a} < R}.
 \end{align}
 \begin{defn}\textup{(Singular points.)}
@@ -8758,13 +8911,13 @@ We call the following $B_0 (a, R)$ an \textbf{exclusive neighborhood} of $a$:
  where coefficients $c_n$ is defined by
  \begin{align}
   c_n
-  :=
+  \defeq
   \frac{1}{2 \pi i} \int_C \frac{f (z)}{(z - a)^{n+1}} dz \quad (\forall n \in \bbZ).
  \end{align}
  Here the above $C$ is a circle with a center $a \in U$ and a radius $r \in (0, R)$.
 \end{thm}
 \begin{proof}
-Let $0 < R_2 < R_1 < R$, define an annulus $A (a; R_1, R_2) := \set{z \in \bbC}{R_2 < \abs{z - a} < R_1}$,
+Let $0 < R_2 < R_1 < R$, define an annulus $A (a; R_1, R_2) \defeq \set{z \in \bbC}{R_2 < \abs{z - a} < R_1}$,
 and take a point $z \in A (a; R_1, R_2)$.
 Take a positive number $\rho > 0$ such that $\overline{B (z, \rho)}$ is included by $A (a; R_1, R_2)$.
 Let $C_i$ be circles with positive direction for $B (a, R_i)$ and $\Gamma$ is a boundary of $A (a; R_1, R_2)$.
@@ -8928,7 +9081,7 @@ This result is generalized to the famous Argument principle and Louche's theorem
  Assume $f \neq 0$.
  Zero points of $f$, if they exist, are isolated.
  For any $z \in U$ there exists a small radius $r>0$ such that $B (z, r) \subset U$ and $f (w) \neq 0$ for all $w \in B (z, r) \setminus \cbk{z}$.
- In particular $\abs{f (z)}$ attains its minimum on $C := \partial B (z, r)$ and it is positive.
+ In particular $\abs{f (z)}$ attains its minimum on $C \defeq \partial B (z, r)$ and it is positive.
  Since sequences $(f_n)$ and $(f'_n)$ converge to $f$ respectively $f'$ we obtain
  \begin{align}
   \lim_{n \to \infty} \frac{1}{2 \pi i} \int_C \frac{f'_n (z)}{f_n (z)} dz
@@ -8944,7 +9097,7 @@ This result is generalized to the famous Argument principle and Louche's theorem
  Denote the abelian algebra of continuous functions on $U$ as
  \begin{align}
   C (U)
-  :=
+  \defeq
   \set{f \colon U \to \bbC}{f \text{ is continuous.}}
  \end{align}
  A set $H \subset C (U)$ is \upbf{normal family} if, for any subset $(f_n)_n \subset H$, there exists a subsequence $(f_{n_k})_k$
@@ -9004,7 +9157,7 @@ Put $\varphi_0 = 0$.
  Then the series
  \begin{align}
   g (z)
-  :=
+  \defeq
   \sum_{n=0}^{\infty} \rbk{P_n (z) - \varphi_n (z)}
  \end{align}
  converges uniformly in the wider sense on $\bbC \setminus \set{a_n}{n \in \bbN}$ for properly chosen $(k (n))$.
@@ -9173,9 +9326,9 @@ However what is the distance between functions?
 We can use a distance defined by supremum norm, e.g.,
 \begin{align}
  d_{\infty}(f, g)
- :=
+ \defeq
  \norm{f - g}
- :=
+ \defeq
  \sup_{x \in \Omega} \abs{f (x) - g (x)}.
 \end{align}
 This distance detects the maximum pointwise distance between functions.
@@ -9190,18 +9343,18 @@ Consider vectors $f, g \in \bbC^n$.
 Then we can define their inner product and distance.
 \begin{align}
  \bkt{f}{g}
- &:=
+ &\defeq
  \sum_{x=1}^{n} \overline{f (x)} g (x), \\
  d_2 (f, g)
- &:=
+ &\defeq
  \norm{f - g}_2
- :=
+ \defeq
  \sqrt{\bkt{f-g}{f-g}}
 \end{align}
 If the sum converges we can take a limit $n \to \infty$.
 \begin{align}
  \bkt{f}{g}
- &:=
+ &\defeq
  \sum_{x=1}^{\infty} \overline{f (x)} g (x).
 \end{align}
 A distance $d_2$ is defined similarly.
@@ -9209,7 +9362,7 @@ Now we sum up values in increments of 1.
 If this increments tends to 0 we obtain an integral:
 \begin{align}
  \bkt{f}{g}
- &:=
+ &\defeq
  \int_0^{\infty} \overline{f (x)} g (x) dx.
 \end{align}
 Here an interval can be arbitrary.
@@ -9428,7 +9581,7 @@ Then $A \subset B$ and
 \item If we define a set function $\Gamma$ as
     \begin{align}
      \Gamma (A)
-     :=
+     \defeq
      \inf \sum_{n=1}^{\infty} m (E_n),
     \end{align}
     where $\inf$ is taken for all countable covering $A \subset \bigcup E_n$ $(E_n \in \calF)$,
@@ -9442,7 +9595,7 @@ Let $\calR^n$ be a family of (open) hyperrectangles in $\bbRn$ and $\calF^n$ a f
 For $R = \prod_{k=1}^{n} \rbk{a_k, b_k} \in \calR^n$ we define a (finitely) additive measure on $\calR^n$ as
 \begin{align}
  m (R)
- :=
+ \defeq
  \prod_{k=1}^n \rbk{b_k - a_k}.
 \end{align}
 Then we define the \upbf{Lebesgue outer measure} $\mu^*$ on $\calF^n$ as an outer measure from $m$.
@@ -9471,7 +9624,7 @@ We denote $\mu$ for a measure $\mu^*$ on $\calM_{\mu^*}$ and call the \textbf{Le
 \begin{proof}
 There is a $\sigma$-algebra containing $\calA_0$, e.g., the power set $2^X$.
 If we consider all $\sigma$-algebra $\cbk{\calB}$ containing $\calA_0$ and
-set $\calB_0 := \bigcap_{\cbk{\calB}} \calB$,
+set $\calB_0 \defeq \bigcap_{\cbk{\calB}} \calB$,
 then this $\calB_0$ is a $\sigma$-algebra and minimal.
 \end{proof}
 
@@ -9529,7 +9682,7 @@ is $0$ almost everywhere on $\bbR$ and we denote
  We define a new measure $\nu$ as
  \begin{align}
   \nu (A)
-  :=
+  \defeq
   \int_A f (x) d \mu (x)
   =
   \int_A f (x) dx, \quad A \in \calB,
@@ -9540,7 +9693,7 @@ is $0$ almost everywhere on $\bbR$ and we denote
  Let $X = \bbN$, $\calB = 2^{\bbN}$, and $\mu$ be a counting measure, i.e., for $A = \cbk{n_k}_{k=1}^m$,
  \begin{align}
   \mu (A)
-  :=
+  \defeq
   \sum_{k=1}^m 1
   =
   \abs{A}.
@@ -9579,7 +9732,7 @@ is $0$ almost everywhere on $\bbR$ and we denote
 \end{enumerate}
 \end{thm}
 \begin{proof}
-If $(A_n)$ is increasing we have $A_n = \bigcup_{k=1}^n \rbk{A_k \setminus A_{k-1}}$, where $A_0 := \emptyset$.
+If $(A_n)$ is increasing we have $A_n = \bigcup_{k=1}^n \rbk{A_k \setminus A_{k-1}}$, where $A_0 \defeq \emptyset$.
 Since $\lim A_n = \sum_{k=1}^{\infty} \rbk{A_k \setminus A_{k-1}}$ additivity shows that
 \begin{align}
  \mu \rbk{\lim_{n \to \infty} A_n}
@@ -9624,7 +9777,7 @@ The remaining parts are derived from similar arguments.
  such that $\mu_X (X_k) < \infty$ $(k \in \bbN)$ and $\lim_{n \to \infty} X_n = X$.
 \end{defn}
 Suppose $(X, \calB_X, \mu_X)$ and $(Y, \calB_Y, \mu_Y)$ are $\sigma$-finite measure spaces.
-We want to define a \textbf{product measure space} on $Z := X \times Y$.
+We want to define a \textbf{product measure space} on $Z \defeq X \times Y$.
 
 We call a set $C \in Z$ a \textbf{rectangle} if it has the form
 \begin{align}
@@ -9633,14 +9786,14 @@ We call a set $C \in Z$ a \textbf{rectangle} if it has the form
  A \times B, \quad A \in \calB_X, \quad B \in \calB_Y.
 \end{align}
 The family $\calF$ of rectangles in $C$ becomes a finitely additive family.
-Then we call $\calB_Z := \calB (\calF)$ a \textbf{product Borel family} or \textbf{product $\sigma$-algebra},
+Then we call $\calB_Z \defeq \calB (\calF)$ a \textbf{product Borel family} or \textbf{product $\sigma$-algebra},
 sometimes denoted by $\calB_Z = \calB_X \times \calB_Y$.
 
 Next we define a measure $\mu$ on $\calB_Z$.
 For a rectangle $C = A \times B$, $\mu_X (A)$, $\mu_Y (B) < \infty$ we define
 \begin{align}
  \mu (C)
- :=
+ \defeq
  \mu_X (A) \mu_Y (B).
 \end{align}
 We call $\mu$ a \textbf{product measure}.
@@ -9657,20 +9810,20 @@ For the proof we need the following
 \label{sec-7-1-5}
 
 Suppose $X$ is a set and $\calB$ is a $\sigma$-algebra on $X$.
-Fix $E \in X$ and set a function $f \colon E \to \bbRbar$, where $\bbRbar := \bbR \cup \cbk{\pm \infty}$
+Fix $E \in X$ and set a function $f \colon E \to \bbRbar$, where $\bbRbar \defeq \bbR \cup \cbk{\pm \infty}$
 Define the following sets:
 \begin{align}
  E \rbk{f > a}
- &:=
+ &\defeq
  \set{x \in E}{f (x) > a}, \\
  E \rbk{f \leq a}
- &:=
+ &\defeq
  \set{x \in E}{f (x) \leq a}, \\
  E \rbk{f = a}
- &:=
+ &\defeq
  \set{x \in E}{f (x) = a}, \\
  E \rbk{a < f \leq b}
- &:=
+ &\defeq
  \set{x \in E}{a < f (x) \leq b}, \quad \text{etc.}\\
 \end{align}
 A function $f$ on $E$ is \textbf{$\calB$-measurable} or \textbf{measurable} if
@@ -9775,8 +9928,8 @@ This is due to the fact
 \begin{thm}
  If all $f_n$ are measurable then the following functions are also measurable.
  \begin{align}
-  g := \sup_{n \in \bbN} f_n, \quad
-  h := \inf_{n \in \bbN} f_n, \quad
+  g \defeq \sup_{n \in \bbN} f_n, \quad
+  h \defeq \inf_{n \in \bbN} f_n, \quad
   \limsup_{n \to \infty} f_n, \quad
   \liminf_{n \to \infty} f_n.
  \end{align}
@@ -9815,7 +9968,7 @@ Fix a measure space $(X, \calB, \mu)$ and $E \in \calB$.
  then we define and denote an integral of $f$ as
  \begin{align}
   \int_E f (x) d\mu (x)
-  :=
+  \defeq
   \sum_{j=1}^n \alpha_j \mu \rbk{E_j}.
  \end{align}
 \end{defn}
@@ -9931,7 +10084,7 @@ putting $\alpha = \min \cbk{\alpha_j}$ and $\beta = \max \cbk{\alpha_j}$ it hold
  0 < \alpha \leq g \leq \beta < \infty.
 \end{align}
 For $\varepsilon \in (0, \alpha)$ a function $g - \varepsilon > 0$ is simple.
-If we set $F_n := E (f_n > g - \varepsilon)$, then, since $(f_n)$ is monotonically increasing and $\lim_{n \to \infty} f_n \geq g$, it follows that
+If we set $F_n \defeq E (f_n > g - \varepsilon)$, then, since $(f_n)$ is monotonically increasing and $\lim_{n \to \infty} f_n \geq g$, it follows that
 $(F_n)$ is monotonically increasing and
 \begin{align}
  \lim_{n \to \infty} F_n = E, \quad
@@ -9989,7 +10142,7 @@ Clearly the converge inequality holds.
  Then  We define an integral for nonnegative measurable function $f$ by
  \begin{align}
   \int_E f d \mu
-  :=
+  \defeq
   \lim_{n \to \infty} \int_E f_n d \mu.
  \end{align}
  This definition makes sense since the above limit does not depend on a choice of a sequence.
@@ -9997,22 +10150,22 @@ Clearly the converge inequality holds.
  For a general real-valued function $f$, we decompose $f$ as
  \begin{align}
   f_+ (x)
-  :=
+  \defeq
   \max \cbk{f (x), 0}, \quad
   f_- (x)
-  :=
+  \defeq
   \max \cbk{- f (x), 0}.
  \end{align}
  A function $f$ is \upbf{integralable} if $\int_E f_+ < \infty$ or $\int_E f_- < \infty$, and we define
  \begin{align}
   \int_E f d \mu
-  :=
+  \defeq
   \int_E f_+ d \mu - \int_E f_- d \mu.
  \end{align}
  If $f$ is complex-valued we decompose $f$ as $f = \Re f + i \Im f$ and define an integral
  \begin{align}
   \int_E f d\mu
-  :=
+  \defeq
   \int_E \Re f d \mu + i \int_E \Im f d \mu.
  \end{align}
 \end{defn}
@@ -10038,7 +10191,7 @@ Clearly the converge inequality holds.
 \end{thm}
 \begin{proof}
 We show only 2).
-Set $E_0 := E (f = \infty)$.
+Set $E_0 \defeq E (f = \infty)$.
 Then, for $\alpha > 0$, we obtain
 \begin{align}
  \int_E f_+ d \mu
@@ -10537,7 +10690,7 @@ in $\bbR^n$ attains its minimum value.
 To prove this, pick a sequence of points $x_j$ such that
 \begin{align}
  f \rbk{x_j} \to \lambda
- :=
+ \defeq
  \inf_{x \in K} f (x) \quad \text{as} \quad j \to \infty.
 \end{align}
 Since $K$ is compact there exists a subsequence, again denoted by $x_j$, and a point $x \in K$ such that $x_j \to x$ as $j \to \infty$.
@@ -10553,7 +10706,7 @@ Instead of $\bbR^n$, consider now $L^2 \rbk{\Omega, \dmu}$ and let $\calF \rbk{\
 defined on this space.
 In many examples $\calF (\psi)$ is strongly continuous, i.e., $\calF (\psi_j) \to \calF \rbk{\psi}$ as $j \to \infty$
 whenever $\norm{\psi_j - \psi}_2 \to 0$ as $j \to \infty$.
-Suppose we wish to show that the infimum of $\calF (\psi)$ is attained on $K := \set{\psi \in L^2 \rbk{\Omega, \dmu}}{\norm{\psi}_2 \leq 1}$.
+Suppose we wish to show that the infimum of $\calF (\psi)$ is attained on $K \defeq \set{\psi \in L^2 \rbk{\Omega, \dmu}}{\norm{\psi}_2 \leq 1}$.
 This set is certainly closed and bounded, but for a bounded sequence $\psi_j \in K$
 there need not be a strongly convergent subsequence (see Sect. 2.9 in \cite{LiebLoss1}).
 
@@ -10596,11 +10749,11 @@ The `wave function' $\psi$ is a complex-valued function in $L^2 (\bbR^n)$ subjec
 An $L^2$ solution to (\ref{Lieb-Loss_Analysis_chap11_1}) may or may not exist for any $E$; often does not.
 The special real numbers $E$ for which such solutions exist are called \textbf{eigenvalues} and the solution,
 $\psi$, is called an \textbf{eigenfunction}.
-These have, of course, its origin in linear algebra: $H := - \Delta + V$ is a linear operator,
+These have, of course, its origin in linear algebra: $H \defeq - \Delta + V$ is a linear operator,
 and $E$'s are its eigenvalues and $\psi$ is an eigenfunction belonging to $E$.
 
 Associated with (\ref{Lieb-Loss_Analysis_chap11_1}) is a variational problem.
-Suppose $\psi$ is some nice function (i.e., in $\calD (\bbRn) := \Ccinfty (\bbRn)$) and multiplied $\bar{\psi}$ to (\ref{Lieb-Loss_Analysis_chap11_1}):
+Suppose $\psi$ is some nice function (i.e., in $\calD (\bbRn) \defeq \Ccinfty (\bbRn)$) and multiplied $\bar{\psi}$ to (\ref{Lieb-Loss_Analysis_chap11_1}):
 \begin{align}
  -\bar{\psi} \Delta \psi + V \abs{\psi}^2 = E \abs{\psi}^2.
 \end{align}
@@ -10643,7 +10796,7 @@ As we shall show below, a minimizing function $\psi_0$, if one exists, will sati
 with $E = E_0$, where
 \begin{align}
  E_0
- :=
+ \defeq
  \inf \set{\calE \rbk{\psi}} {\int \abs{\psi}^2 = 1}.
 \end{align}
 Such a function $\psi_0$ will be called a \textbf{ground state}.
@@ -10721,13 +10874,13 @@ For example, by heat semigroup technique and Feynman-Kac formula, we get a formu
 where
 \begin{gather}
  W
- :=
+ \defeq
  \bbRn \times M, \quad
  M
- :=
+ \defeq
  \rbk{\bbRn}^{[0, \infty)}, \\
  \phi (t) \colon \bbRn \times M \to \bbRn; \quad
- \phi (t) (x, \omega) := x + \omega (t), \quad (x, \omega) \in W \quad \forall t \geq 0.
+ \phi (t) (x, \omega) \defeq x + \omega (t), \quad (x, \omega) \in W \quad \forall t \geq 0.
 \end{gather}
 Or we can express the heat semigroup action by path integral.
 For the Nelson model we obtain
@@ -10763,7 +10916,7 @@ Consider a Hilbert space $L^2 \cbk{\bbR} \otimes \bbC$ and
 a differential operator of matrix type $Q = Q_{\alpha, \beta}$:
 \begin{align}
  Q
- :=
+ \defeq
  \begin{bmatrix}
   \alpha & 0 \\
   0      & \beta
@@ -10780,7 +10933,7 @@ Then the operator $Q$ is of strictly positive operator and has only discrete spe
 For invegesting the spetral structure we define the following Dirichlet series (spectral zeta).
 \begin{align}
  \zeta_{Q} (s)
- :=
+ \defeq
  \sum_{n=1}^{\infty} \lambda_{n}^{-s}.
 \end{align}
 This series absolutely converges in $\Re \rbk{s} > 1$ and
@@ -10911,7 +11064,7 @@ For details see \cite{SeizoIto1} or \cite{LiebLoss1}.
 For $p \in [1, \infty)$, $L^p$ spaces is defined by
 \begin{align}
  L^p \rbk{\Omega}
- :=
+ \defeq
  \set{f}{\int_{\Omega} \abs{f (x)}^p dx < \infty}.
 \end{align}
 For $p = \infty$
@@ -10938,7 +11091,7 @@ For details see \cite{SeizoIto1} or \cite{LiebLoss1}.
 Moreover, for $p=2$, we can introduce the inner product:
 \begin{align}
  \bkt{f}{g}
- :=
+ \defeq
  \int_{\Omega} \overline{f (x)} g (x) dx.
 \end{align}
 For this inner product the space $L^2$ becomes a Hilbert space.
@@ -10958,10 +11111,10 @@ This decomposition is simple but ingenious.
  \begin{align}
   V = V_1 + V_2, \quad
   V_1
-  :=
+  \defeq
   -\chi_{\abs{x} \leq 1} V, \quad
   V_2;
-  :=
+  \defeq
   -\chi_{\abs{x} \> 1} V, \quad.
  \end{align}
  Then we have
@@ -10976,7 +11129,7 @@ This decomposition is simple but ingenious.
 The space $\Loneloc \rbk{\Omega}$ is defined by
 \begin{align}
  \Loneloc \rbk{\Omega}
- :=
+ \defeq
  \set{f}{\forall A \subset \Omega, \, A \, \text{is compact}, \, \norm{\chi_A f}_1 < \infty},
 \end{align}
 where a function $\chi_A$ is an indicator function for $A \subset \Omega$.
@@ -10987,14 +11140,14 @@ This space is useful when considering the theory of distributions.
 A Sobolev space $H^1 (\bbRn)$ is defined by
 \begin{align}
  H^1 \rbk{\bbRn}
- :=
+ \defeq
  \set{\psi \in \LtwoRn}{\int_{\bbRn} \rbk{\abs{\nabla \psi (x)}^2 + \abs{\psi (x)}^2} dx < \infty},
 \end{align}
 where $\nabla \psi$ is in the distributional sense.
 We have another definition of a Sobolev space $H^1 (\bbRn)$ using Fourier transform,
 \begin{align}
  H^1 \rbk{\bbRn}
- :=
+ \defeq
  \set{\psi \in \LtwoRn}{\int_{\bbRn} \rbk{\abs{k \hat{\psi} (k)}^2 + \abs{\hat{\psi} (k)}^2} dk < \infty}.
 \end{align}
 \subsection{Convolution}
@@ -11006,7 +11159,7 @@ Here we consider $\Omega = \bbRd$.
 For suitable functions $f$ and $g$ we can define a some type of product, called the convolution, by
 \begin{align}
  (f * g) (x)
- :=
+ \defeq
  \int_{\bbRd} f (y) g (x - y) dy.
 \end{align}
 For this product the space $L^1 (\bbRd)$ becomes a Banach algebra.
@@ -11192,7 +11345,7 @@ Furthermore the importance of the weak topology is also due to the theorem \ref{
  The function defined on $\bbR$ by
  \begin{align}
   N (t)
-  :=
+  \defeq
   \int_{\Omega} \abs{f (x) + t g (x)}^{p} dx
  \end{align}
  is differentiable and its derivative at $t = 0$ is given by
@@ -11230,7 +11383,7 @@ Furthermore the importance of the weak topology is also due to the theorem \ref{
 
 \begin{thm}\textup{(Theorem 6.17. \cite{LiebLoss1})}\label{Lieb-Loss_Analysis_chap11_11}
  Let $f$ be in $W^{1,p} (\Omega)$.
- Then the function $\abs{f}$, defined by $\abs{f}(x) := \abs{f (x)}$, is in $W^{1,p} (\Omega)$ with $\nabla \abs{f}$ being the function
+ Then the function $\abs{f}$, defined by $\abs{f}(x) \defeq \abs{f (x)}$, is in $W^{1,p} (\Omega)$ with $\nabla \abs{f}$ being the function
  \begin{align}
   \rbk{\nabla \abs{f}}(x)
   =
@@ -11301,7 +11454,7 @@ See the chapter 9 in \cite{LiebLoss1} for details.
 We define a sesquilinear form $D$ as
 \begin{align}
  D (f, g)
- :=
+ \defeq
  \frac{1}{2} \int_{\bbRn} \int_{\bbRn} \frac{f (x) g (x)}{\abs{x - y}} dx dy.
 \end{align}
 Then we have the
@@ -11338,7 +11491,7 @@ Here we state the mathematical problem.
 The potential function $Z / \abs{x}$ that appears in the following can easily be replaced by
 \begin{align}
  V (x)
- :=
+ \defeq
  \sum_{j=1}^{K} \frac{Z_j}{\abs{x - R_j}}
 \end{align}
 with $Z_j > 0$ and $R_j \in \bbRthree$, but we refrain from doing so in the interest of simplicity.
@@ -11349,13 +11502,13 @@ If you want details you sholud read the original papers, e.g., \cite{LiebSimon1}
 TF theory is defined by an energy function $\calE$ on a certain class of \textbf{nonnegative} functions $\rho$ on $\bbRthree$:
 \begin{align}
  \calE \rbk{\rho}
- :=
+ \defeq
  \frac{3}{5} \int_{\bbRthree} \rho (x)^{5/3} dx - \int_{\bbRthree} \frac{Z}{\abs{x}} \rho (x) dx + D \rbk{\rho, \rho}, \label{Lieb-Loss_Analysis_chap11_17}
 \end{align}
 where $Z > 0$ is a fixed parameter (the charge of the atom's nucleus) and
 \begin{align}
  D (\rho, \rho)
- :=
+ \defeq
  \frac{1}{2} \int_{\bbRthree} \int_{\bbRthree} \rho (x) \rho (y) \frac{1}{\abs{x - y}} dx dy
  =
  \frac{1}{2} \int_{\bbRthree} \rho (x) \rbk{\rho * \frac{1}{\abs{x}}}(x) dx
@@ -11375,23 +11528,23 @@ The case $N=Z$ is special an is called the \textbf{neutral case}.
 We define two subsets of $\calC$:
 \begin{align}
  \calCN
- :=
+ \defeq
  \calC \bigcap \set{\rho}{\int_{\bbRthree} \rho = N}
  \subset
  \calCleqN
- :=
+ \defeq
  \calC \bigcap \set{\rho}{\int_{\bbRthree} \rho \leq N}.
 \end{align}
 Corresponding to these two sets are two energies: The `constrained' energy
 \begin{align}
  E (N)
- :=
+ \defeq
  \inf \set{\calE \rbk{\rho}}{\rho \in \calCN},
 \end{align}
 and the `unconstrained' energy
 \begin{align}
  E_{\leq}(N)
- :=
+ \defeq
  \inf \set{\calE \rbk{\rho}}{\rho \in \calCleqN}. \label{Lieb-Loss_Analysis_chap11_18}
 \end{align}
 Obviously it holds that
@@ -11695,7 +11848,7 @@ Take any nonnegative function $g \in L^{5/3} \bigcap L^{1}$ with
 and consider, for each $\lambda > 0$, the function
 \begin{align}
  \rho_{\lambda} (x)
- :=
+ \defeq
  \rhoNinfty (x) + \lambda^3 g (\lambda x).
 \end{align}
 As $\lambda \to 0$, $\rho_{\lambda} \sto \rhoNinfty$ in every $L^p$ with $p \in (1, 5/3]$.
@@ -11736,7 +11889,7 @@ This implies that $\rhoNinfty \neq 0$ as a function.
 For any real-valued function $g \in L^{5/3} \bigcap L^1$ and all $t \in [0, 1]$ consider the family of functions
 \begin{align}
  \rho_t (x)
- :=
+ \defeq
  \rhoNinfty (x) + t \rbk{ g (x) - \frac{\int g}{\int \rhoNinfty} \rhoNinfty (x)},
 \end{align}
 which are defined since $\rhoNinfty \neq 0$.
@@ -11749,7 +11902,7 @@ provided that $g$ satifies the two conditions:
 Define the function
 \begin{align}
  F (t)
- :=
+ \defeq
  \calE \rbk{\rho_t},
 \end{align}
 which certainly has the property that
@@ -11773,13 +11926,13 @@ Since $F (0) = \EleqN$ and $F$ must be nondecreasing at $t=0$, it follows that
 Define the function
 \begin{align}
  W (x)
- :=
+ \defeq
  \rhoNinfty^{2/3}(x) - \frac{Z}{\abs{x}} + \rbk{\frac{1}{\abs{x}} * \rhoNinfty} (x)
 \end{align}
 and set
 \begin{align}
  \mu
- :=
+ \defeq
  -\frac{\int \rhoNinfty (x) W (x) dx}{\int \rhoNinfty (x) dx}. \label{Lieb-Loss_Analysis_chap11_30}
 \end{align}
 Since
@@ -11851,7 +12004,7 @@ and we refer the reader to \cite{LiebSimon1} for this theory.
  The \upbf{Thomas-Fermi potential} $\Phi_N$ defined by
  \begin{align}
   \Phi_N (x)
-  :=
+  \defeq
   \frac{Z}{\abs{x}} - \rbk{\frac{1}{\abs{x}} * \rhoNinfty} (x)
  \end{align}
  satifies $\Phi_N (x) > 0$ for all $x \in \bbRthree$.
@@ -11945,16 +12098,1523 @@ If $N_c < Z$, then, from (\ref{Lieb-Loss_Analysis_chap11_35}), $\rho_{N_c, \inft
 \label{sec-7-9}
 
 手書きのメモしかないので, そのうち \TeX{} におこす.
-\chapter{Mathematical foundations for quantum mechanics}
+\chapter{Brief introduction to theory of distribution}
 \label{sec-7-10}
+\section{はじめに}
+\label{sec-7-10-1}
+
+某セミナーで話した内容です\footnote{From a yukimi's page, http://yukimigo.com/math/.
+The original version is reprinted with the written consent of the author.
+ }.
+(あたりまえですが) Schwartz 超関数 (distribution) の話で, 怖いほうじゃないですよ, 念のため.
+かんたんにいうと位相を弱くして関数概念を拡張するという話で,
+だいたい $\delta$ 関数を例にとりながらあんまり厳密な話はせずに入門しようというのがねらいです.
+なにかミスとかお前ここの記述おかしいんじゃねーのとかあったらこっそり教えてください.
+\section{Introduction}
+\label{sec-7-10-2}
+
+量子力学の創設者のひとりとして有名な Paul Dirac は
+\begin{align}
+ \delta_{x_0}(x)
+ =
+ \begin{cases}
+  \infty & \text{ $x = x_0$ のとき} \\
+  0 & \text{ $x \neq x_0$ のとき}
+ \end{cases}; \quad
+ \int_{-\infty}^{\infty} \delta_{x_0} (x) dx
+ =
+ 1 \quad (x = x_0)
+\end{align}
+という ``関数'' を考えた.
+しかし, $\delta_{x_0}(x) = 0$ a.e. $x$ だから積分は $\int\delta_{x_0} = 0$ となってしまい,
+このような関数は Lebesgue 可測関数としては存在しない (von Neumann が指摘したそうです).
+
+そういうわけでいまのところ数学としては問題があるけれども,
+物理としてはこういう''関数'' (とりあえずこれをといおう) を考えると見通しがよくなるという面がある.
+それをお話としてちょっとだけ見てみよう.
+
+\begin{itemize}
+\item 電磁気の話
+\end{itemize}
+一点 $R \in \bbRthree$ に置かれた電荷 $e (\in \bbR)$ をもつ点電荷は
+空間の各点 $x$ に電場
+\begin{align}
+ \mathbf{E}(x)
+ =
+ \frac{e (x - R)}{4\pi \varepsilon_0 |x - R|^3}
+\end{align}
+をつくる (\textbf{Coulomb の法則}).
+ここで $\varepsilon_0$ は真空の誘電率といわれる定数.
+ところで, \textbf{微分形の Gauss の法則}によると,
+$q$ を電荷密度 (つまり $\int_{\Omega}q = \Omega$ にある電荷の総量) とすると,
+\begin{align}
+ \divergence \mathbf{E}(x)
+ =
+ \frac{q}{\varepsilon_0}
+\end{align}
+である. (\cite{ShigenobuSunagawa2}参照. )
+点電荷の場合に計算すると
+\begin{align}
+ \divergence \mathbf{E}(x) = 0
+\end{align}
+がわかる.
+もちろんこれは $x \neq R$ の場合で,
+$x = R$ で $q = \infty$ と考えると,
+$q$ は上の $\delta$ 関数とみなせる:
+\begin{align}
+ q
+ =
+ \begin{cases}
+  \infty & \text{ $x = R$ } \\
+  0 & \text{ $x \neq R$ }
+ \end{cases}; \,
+ \int_{\Omega}q \, dx
+ =
+ \begin{cases}
+  e & \text{ $R\in \Omega$ } \\
+  0 & \text{ $R \not\in \Omega$ }
+ \end{cases}
+\end{align}
+もっというと $e = 1$ のときを考えるとそのまま上の形になる.
+つまり点電荷は $\delta$ 関数が電荷密度であるような電荷の分布, とみなせる.
+$\heartsuit$
+
+ちなみに量子力学だと規格化として $\delta$ 関数を採用する,
+という形であらわれたりするけどめんどくさいので書かないです.
+てきとうな本見ましょう.
+(たとえば江沢\cite{HiroshiEzawa3, HiroshiEzawa4}や
+清水\cite{AkiraShimizu2}. )
+\section{準備}
+\label{sec-7-10-3}
+
+関数解析の事実をいくつかは証明なしで羅列します.
+なんにでも書いてあるしね.
+参考文献参照\cite{LiebLoss1, HisayaMasuda1, ShizuoMiyajima1, ShizuoMiyajima2}.
+
+全体を通して $\Omega \subset \mathbb{R}^n$ を開集合とする.
+
+\begin{defn}[$L^p$ 関数]
+$1 \le p < \infty$ のとき
+\begin{align}
+ L^p (\Omega)
+ \defeq
+ \set{f}{\text{Lebesgue 可測}, \, \int_{\Omega}|f (x)|^p dx < \infty}
+\end{align}
+と定義し, ノルム
+\begin{align}
+ \norm{f}_{p}
+ \defeq
+ \rbk{\int_{\Omega} |f (x)|^pdx}^{\frac{1}{p}}
+\end{align}
+に関して Banach 空間となる.
+\textup{(}完備ということ.
+一般には線型空間なことも非自明 \footnote{Minkowski の不等式を使う.
+ }.\textup{)}
+
+$p = \infty$ のときは
+\begin{align}
+ L^{\infty}(\Omega)
+ \defeq
+ \set{f}{\text{Lebesgue 可測, } \exists K > 0 \, \abs{f (x)}
+  \leq K \quad \rbk{\mathrm{a.e.} \, x \in \Omega}}
+\end{align}
+と定義し, ノルムは
+\begin{align}
+ \norm{f}_{\infty}
+ \defeq
+ \inf \set{K}{\abs{f (x)} \leq K \quad (\mathrm{a.e.} \, x \in \Omega)}
+\end{align}
+で Banach 空間となる.
+\end{defn}
+\begin{rem}
+ 正確にいうと $L^p$ の元というのは \textrm{a.e.} 等しい関数を同一視した同値類で,
+ 関数ではない.
+\end{rem}
+\begin{thm}[H\"older の不等式]
+ $1/p + 1/q = 1$  とする.
+ $f \in L^p (\Omega)$, $g \in L^q (\Omega)$  とするとき,
+ \begin{align}
+  \abs{\int_{\Omega}f (x) g (x) dx}
+  \le \norm{f}_{p} \norm{g}_{q}
+ \end{align}
+ となる.
+\end{thm}
+\begin{defn}[関数の台]
+ $\Omega$ 上 $m$ 回連続的微分可能関数の全体を $C^m (\Omega)$ で表す.
+ $m = 0$ で $C (\Omega)$ とかく. これはただの連続関数の全体.
+ $f$ を複素数値関数とするとき,
+ その台を $\supp f \defeq \overline{\{ x \in \Omega; \, f (x) \neq 0 \}}$ と定義する.
+ 台がコンパクトな $C^m$ 関数の全体を $C_c^m (\Omega)$ で表す.
+ おおまかにいって, 境界の近くで $0$ ということ.
+ 台がコンパクトな連続関数はただの有界領域での積分なので, 可積分になる.
+ 念のためにかくと $C_c^{\infty}(\Omega) = \bigcap_{m = 0}^{\infty}C_c^m (\Omega)$ .
+ ちなみに閉包をとってるのはたとえば台が $[0,1]$ としたときに $1/2$ とかで $0$ になっててもふくめたいからです.
+\end{defn}
+\begin{defn}[多重指数]
+ 各 $\alpha_j$ が $0$ 以上の整数としたときに $\alpha = (\alpha_1 , \dots , \alpha_n)$ を\textbf{多重指数}という.
+ \begin{align}
+  \abs{\alpha}
+  \defeq
+  \sum_{j=1}^{n}\alpha_j, \quad
+  D^{\alpha}f
+  \defeq
+  \frac{\partial^{\abs{\alpha}}f}{\partial_{x_1}^{\alpha_1} \cdots \partial_{x_n}^{\alpha_n}}
+ \end{align}
+ とかく.
+ 変数 $x_j$ に関する微分を $\partial_j$ とかいたりする.
+\end{defn}
+
+とっても重要な関数空間を定義する.
+\begin{defn}[局所可積分関数]
+ $\Omega$ にふくまれる任意のコンパクト集合上で可積分な関数の全体を $\Loneloc (\Omega)$ で表す.
+ この空間の関数を\textbf{局所可積分関数}という.
+\end{defn}
+
+たとえば連続関数は局所可積分関数である.
+さらに H\"older の不等式により $L^p$ 関数も局所可積分となる.
+(任意にコンパクト集合をとって $f\in L^p$ としていま $1$ はコンパクト集合上可積分だから. )
+つまり $\Loneloc (\Omega)$ はとても広い空間といえる.
+
+ああつぎの定理を証明したかったのにめんどくさくなってしまった.
+気が向いたらかきます.
+
+\begin{defn}[変分法の基本補題]
+ $f\in L_{loc}^1 (\Omega)$ とする.
+ 任意の $\phi \in C_c^{\infty}(\Omega)$ について
+ \begin{align}
+  \int_{\Omega}f (x)\phi (x) dx = 0
+ \end{align}
+ ならば $f = 0$, a.e. $x \in \Omega$ となる.\footnote{名前は変分法 (解析力学とか) で Euler-Lagrange 方程式を出すときに補題として使われるから.
+たぶん.
+du Bois-Reymond の補題ともいう.
+ }
+\end{defn}
+
+mollifier を使ってがんばって証明します.
+\section{超関数入門}
+\label{sec-7-10-4}
+
+いきなり定義を述べる.
+\begin{defn}[テスト関数]
+ $\mathcal{D}(\Omega)$ を $C_c^{\infty}(\Omega)$ につぎの収束の``位相"を入れたものとする:
+ $\phi_j \to \phi$ in $\mathcal{D}$ とは,
+ あるコンパクト集合 $K$ で $\supp \phi_j$, $\supp  \phi \subset K$ となるものがあり,
+ 任意の多重指数 $\alpha$ について $K$ 上一様収束の意味で $D^{\alpha}\phi_j \to D^{\alpha}\phi$ となることとする.
+ $\mathcal{D}(\Omega)$ の関数を\textbf{テスト関数}という.
+ なんでそういうかはつぎの定義ですぐわかると思う.
+\end{defn}
+\begin{defn}[超関数]
+ $\mathcal{D}(\Omega)$ から $\mathbb{C}$ への線型汎関数
+ $T$ が連続のとき\textbf{超関数}(distribution) という.
+ 連続というのは $\phi_j \to  0$ in $\mathcal{D}(\Omega)$ なら
+ $T (\phi_j) \to 0$ ということ.
+ 超関数の全体を $\mathcal{D}'(\Omega)$ とかこう.
+\end{defn}
+つぎの命題が基本になる.
+\begin{prop}[埋め込み]
+ $u \in \Loneloc (\Omega)$ とする.
+ $\phi \in \mathcal{D}(\Omega)$ に対して
+ \begin{equation}
+  T_u (\phi)
+  \defeq
+  \int_{\Omega}u (x)\phi (x) dx
+ \end{equation}
+ と定義すると, $T_u \in \mathcal{D}'(\Omega)$ となる.
+ さらに $T_u$ は単射となり, この意味で $\Loneloc (\Omega) \subset \mathcal{D}'(\Omega)$ となる.
+ ($C (\Omega) \subset \Loneloc (\Omega)$ だったから, 超関数はふつうの関数の拡張とみれる.)
+\end{prop}
+\begin{proof}
+積分が線型なので, 連続であることをみればよい.
+$\phi_j \to 0 \, in \, \mathcal{D}(\Omega)$ とする.
+$\phi_j$ の台をふくんでいるコンパクト集合 $K$ があるので $u \in L_{loc}^1 (\Omega)$ に注意して,
+\begin{equation}
+ \begin{split}
+  \abs{T_u (\phi_j)}
+  &=
+  \abs{\int_K u (x)\phi_j (x) dx} \\
+  &\le
+  \sup_{x \in K} \abs{\phi_j} \int_K \abs{u(x)} dx \to 0 \, \mathrm{as} \, j \to \infty
+ \end{split}
+\end{equation}
+となるから超関数である.
+
+単射であることを示すために $T_u = T_v$ と仮定する.
+変分法の基本補題より $u (x ) = v (x)$ a.e. $x$ となるので,
+$u = v$ in $\Loneloc (\Omega)$ であるから単射である.
+$\heartsuit$
+\end{proof}
+
+$\delta$ 関数を再考しよう.
+\begin{ex}[Dirac の $\delta$ 超関数]
+ 各 $\phi \in \mathcal{D}(\Omega)$ に対して
+ $\delta_{x_0}(\phi) \defeq \phi (x_0)$ と定義すれば明らかに超関数となる.
+ $\supp \, \phi \subset \Omega - \{x_0\}$ とすると
+ $\delta_{x_0}(\phi) = 0$ なので $\supp \, \delta_{x_0} = \{ x_0 \}$ となる.
+ これははじめの $\delta$ 関数の定義と合っている.
+ これが超関数としての $\delta$ 関数の定義となる.
+\end{ex}
+\begin{rem}
+ $\delta$ 関数は局所可積分関数からなる超関数ではない.
+ じっさい, ある $u \in \Loneloc (\Omega)$ で $T_u = \delta_{x_0}$ とかけているとする:
+ \begin{equation}
+  \delta_{x_0}(x)
+  =
+  \int_{\Omega}u (x)\phi (x) dx
+  =
+  \phi (x_0) \quad (\phi \in \mathcal{D}(\Omega)).
+ \end{equation}
+ ここで
+ \begin{equation}
+  \int_{\Omega - \{x_0\}}u\phi
+  =
+  0
+ \end{equation}
+ だから変分法の基本補題より $u (x) = 0$ a.e. $x \in \Omega - \cbk{x_0}$ で一点は
+ Lebesgue 測度 $0$ だから結局 $u (x) = 0$ a.e. $x \in \Omega$ となり
+ $u = 0 $ in $\Loneloc (\Omega)$ となるから $T_u = 0$ で矛盾する.
+ $\heartsuit$
+\end{rem}
+
+つぎに超関数の微分を定義する.
+気分としては部分積分をイメージする.
+というかそれを定義にする.
+\begin{defn}[超関数の微分]
+ $T \in \mathcal{D}'(\Omega)$ に対してその微分を
+ \begin{equation}
+  \frac{\partial}{\partial x_j}T (\phi)
+  \defeq
+  -T \rbk{\frac{\partial}{\partial x_j}\phi} \quad (\phi \in \mathcal{D}(\Omega))
+ \end{equation}
+ と定義すると, $\partial_j T \in \mathcal{D}'(\Omega)$.
+\end{defn}
+\begin{proof}(というほどのことでもない)
+$\phi, \psi \in \mathcal{D}(\Omega)$, $\alpha, \beta \in \mathbb{C}$ とする.
+定義どおりに計算すればよい.
+\begin{equation}
+ \begin{split}
+  \partial_j T (\alpha \phi + \beta \psi)
+  &=
+  -T (\partial_j (\alpha \phi + \beta \psi)) \\
+  &=
+  -(\alpha T (\partial_j\phi) + \beta T (\partial_j\psi)) \\
+  &=
+  \alpha \partial_jT (\phi) + \beta \partial_jT (\psi)
+ \end{split}
+\end{equation}
+だから線型.
+連続性もおなじようにすればよく, $T$ が連続だから $\phi_i \to 0$ in $\mathcal{D}(\Omega)$ とすると,
+\begin{equation}
+ \partial_jT (\phi_i)
+ =
+ -T (\partial_j \phi_i) \to 0
+\end{equation}
+より連続となって, $\partial_j T \in \mathcal{D}'(\Omega)$ となる.
+$\heartsuit$
+\end{proof}
+
+これによって何回でも微分ができて,
+\begin{equation}
+ D^{\alpha}T (\phi)
+ \defeq
+ (-1)^{|\alpha|}T (D^{\alpha}\phi)
+\end{equation}
+と定義すると $D^{\alpha}T \in \mathcal{D}'(\Omega)$ となる.
+これを\textbf{超関数微分}という.
+
+ほんとは古典的な微分との関係とかをいわなきゃいけないけど,
+ここでは細かいことをいわずにつぎの例を見るだけにする.
+
+\begin{ex}[ $\abs{x}$ の微分]
+ $|x| \in C (\mathbb{R})$ よりこれは超関数で, 超関数微分ができる.
+ 気分としては積分が一点では無視できることの帰結という感じ.
+ じっさいに計算してみよう.
+ $\phi \in C_c^{\infty}(\mathbb{R})$ に注意して
+ \begin{equation}
+  \begin{split}
+   \partial_x T_{|x|}(\phi)
+   &=
+   -\int_{-\infty}^{\infty}|x|\phi'dx \\
+   &=
+   -\int_0^{\infty}x\phi'dx + \int_{-\infty}^0x\phi'dx \\
+   \text{(ふつうの部分積分)}
+   &=
+   \int_0^{\infty}\phi - \int_{-\infty}^0\phi \\
+   &=
+   \int_{-\infty}^{\infty} \sgn (x) \phi (x) dx
+  \end{split}
+ \end{equation}
+となるから, $\abs{x}$ の超関数微分は $\sgn x$ となる.
+ここで
+\begin{equation}
+ \sgn x
+ \defeq
+ \begin{cases}
+  1 & (x > 0) \\
+  -1 & (x < 0)
+ \end{cases}
+\end{equation}
+は符号関数で, $\Loneloc (\mathbb{R})$ 関数.
+$\heartsuit$
+\end{ex}
+
+つぎの例も有名.
+\begin{ex}[Heaviside 関数]
+ \begin{equation}
+  H (x)
+  \defeq
+  \begin{cases}
+   1 & (x \ge 0) \\
+   0 & (x < 0)
+  \end{cases}
+ \end{equation}
+ と定義する.
+ $H \in \Loneloc (\mathbb{R})$ で, これを\upbf{Heaviside 関数}という.
+ 超関数微分してみよう.
+ \begin{equation}
+  \partial_x T_H (\phi)
+  =
+  -\int_0^{\infty}\phi'
+  =
+  \phi (0)
+  =
+  \delta_0 (\phi)
+ \end{equation}
+ だから, Heaviside 関数を微分すると $\delta$ 関数になる\footnote{Heaviside は電気工学の人.
+「消化器の構造を知らないからといって, 食事をしないわけではない」といったらしい.
+かっこいい.
+ }.
+ $\heartsuit$
+\end{ex}
+
+さらに例をやる.
+\begin{ex}[湯川ポテンシャル]
+ $n \ge 1$ ,  $\mu >0$ とする.
+ \begin{equation}
+ G_y^{\mu}(x)
+ \defeq
+ G^{\mu}(x - y); \,
+ G^{\mu}(x)
+ \defeq
+ \int_0^{\infty} \frac{1}{(4\pi t)^{\frac{n}{2}}} \exp \sqbk{-\frac{|x|^2}{4t} - \mu^2t} dt
+ \end{equation}
+ とすると, $(\triangle + \mu^2) G_y^{\mu} = \delta_y$ となる.
+ $G_y^{\mu} \in \mathcal{D}'(\mathbb{R}^n)$ を\textbf{湯川ポテンシャル}という.\footnote{湯川先生がノーベル賞とった中間子の理論で重要らしい.
+だれか教えてください.
+ }
+\end{ex}
+
+\begin{rem}
+ 基本解ということ.
+ $1/ (4\pi t)^{n/2}\exp[-|x|^2/ (4t)]$ は $n$ 次元熱核 (Gauss 核) で,
+ Fourier 変換でよく出てくる.
+ \begin{align}
+  G^{\mu}(x)
+  &<
+  \infty \quad (x \neq 0), \\
+  \int_{\mathbb{R}^n}G^{\mu}
+  &=
+  \frac{1}{\mu^2}
+ \end{align}
+ などもわかる.
+\end{rem}
+
+$(-\triangle + \mu^2) G_y^{\mu} = \delta_y$ をみて満足することにする.
+\begin{proof}
+$\phi$ をテスト関数として
+\begin{equation}
+ \int_{\mathbb{R}^n}[(- \triangle + {\mu}^2) G^{\mu}]\phi (x) dx
+ =
+ \phi (0)
+\end{equation}
+であればよい.
+一般に $\mathrm{e}^{-ax^2}$ は急減少なので積分記号下の微分ができる.
+\begin{equation}
+ (-\triangle + {\mu}^2)\frac{1}{(4\pi t)^{n/2}} \exp \sqbk{- \frac{|x|^2}{4t} -\mu^2t}
+ =
+ -\partial_t\frac{1}{(4\pi t)^{n/2}} \exp \sqbk{- \frac{|x|^2}{4t} -\mu^2t}
+\end{equation}
+に注意して (がんばって計算する), $x$ を先に積分する:
+\begin{align}
+ &\lim_{\varepsilon \to 0}
+  \int_{\varepsilon}^{\infty}
+  \rbk{\int_{\mathbb{R}^n}[(-\triangle + \mu^2)] \frac{1}{(4\pi t)^{\frac{n}{2}}} \exp \sqbk{- \frac{|x|^2}{4t} -\mu^2t}
+  \phi (x) dx} dt \\
+ &=
+ -\lim \int_{\varepsilon}^{\infty}\partial_t
+  \rbk{\int_{\mathbb{R}^n}\frac{1}{(4\pi t)^{\frac{n}{2}}} \exp \sqbk{- \frac{|x|^2}{4t} -\mu^2t} \phi (x) dx} dt \\
+ &=
+ \lim \int_{\mathbb{R}^n}
+  \frac{1}{(4\pi \varepsilon)^{\frac{n}{2}}}
+  \exp \sqbk{- \frac{|x|^2}{4 \varepsilon} -\mu^2 \varepsilon}
+  \phi (x) dx \quad \text{(微分積分学の基本定理)} \\
+ &=
+ \lim \int_{\mathbb{R}^n}
+  \frac{1}{(4\pi)^{\frac{n}{2}}}
+  e^{- \abs{y}^2 / 4}
+  \phi (\varepsilon^{\frac{1}{2}}y) dy \quad (x = \varepsilon^{1/2}y \text{とおいた}) \\
+ &=
+ \frac{1}{(4\pi)^{\frac{n}{2}}}\int_{\mathbb{R^n}}e^{- \frac{|y|^2}{4}}dy\phi (0) \quad \text{(Lebesgue 収束定理)} \\
+ &= \phi (0) \quad \text{(Gauss 積分)}
+\end{align}
+だから O.K.
+$\heartsuit$
+\end{proof}
+
+つぎの定理を証明抜きで述べて終わることにする.
+\begin{thm}[正の超関数は測度]
+ $T$ を $\Omega$ 上の超関数とする.
+ 任意の $\phi \ge 0$ に対して $T (\phi) \ge 0$ のとき $T$ を\textbf{正}(positive) ということにする.
+ $T$ が正の超関数のとき, 正則な Borel 測度 $\mu$ が一意的にあって,
+ 任意のコンパクト集合 K に対して $\mu (K) < \infty$ であり,
+ \begin{equation}
+  T (\phi) = \int_{\Omega}\phi (x)\mu (dx)
+ \end{equation}
+ となる.
+ 逆に, 任意の Borel 測度 $\mu$  with  $\mu (K) < \infty$ ($K$ はコンパクト) に対して上の式で正の超関数が定まる.
+\end{thm}
+\begin{rem}
+ $\mu$ が正則というのは任意の Borel 集合 A に対して
+ \begin{align}
+  \mu (A)
+  &=
+  \inf \set{\mu (O)}{O \subset A \quad \text{open}} \\
+  &=
+  \sup \set{\mu (K)}{K \subset A \quad \text{compact}}
+ \end{align}
+ ということ.
+ Riesz-Markov-角谷に似ているが, 証明もだいたいおんなじで, とってもたいへん.
+ 証明はたとえば Lieb-Loss\cite{LiebLoss1}に載っているけど,
+ 「いい測度論の演習になる」といっていろいろ演習問題にしてるので,
+ 宮島\cite{ShizuoMiyajima2}などで補完しながら読むといいかも.
+\end{rem}
+\section{おまけ, 今後}
+\label{sec-7-10-5}
+
+というわけで $\delta$ 関数の例をいろいろ見てきたわけですが,
+書いたとおり $\mathcal{D}'(\Omega)$ という空間はとても''広い''.
+これによって微分操作とかを拡張できたけど, あんまり広いので偏微分方程式などに応用するときにはちょっと不便.
+(たとえば Heaviside 関数は微分すると $\delta$ 関数というわけのわからないものになってしまった. )
+
+そこで応用の際にはもうちょっと扱いやすくする必要があって,
+その意味で自然な空間というのが\textbf{Sobolev 空間}となる.
+これはたいへんいい空間で, 量子力学への応用をするときにもとっても役立つ.
+たとえば量子力学の話をするときに $L^2$ 空間が重要なのはよく知られているけれども,
+Schr\"odinger 方程式は偏微分方程式なので,
+微分も $L^2$ にはいってるくらいは条件としてほしい.
+それが Sobolev 空間で, 詳しくはいつか書くかもしれない.
+たぶん.
+
+記述はだいたい Lieb-Loss\~{}\cite{LiebLoss1}と宮島\~{}\cite{ShizuoMiyajima1}にしたがった.
+Lieb-Loss は Lebesgue 積分からはじめて関数空間の話や不等式,
+超関数に Sobolev 空間, それらの応用と幅広く扱ってる実解析の教科書で,
+おもしろいけれども読者に証明をまかせているところもよくありけっこうむずかしくてあんまり最初に読む本じゃないと思う.
+
+それよりも読みやすいのが宮島\~{}\cite{ShizuoMiyajima1}で,
+これは前提知識は Lebesgue 積分くらいで Sobolev 空間の話を詳述していて,
+たぶんこれより読みやすい本はないんじゃないかしら.
+偏微分方程式への応用や実解析の入門的な話題に触れられているのもうれしい.
+宮島先生の本大好き.
+
+新井・江沢\~{}\cite{AraiEzawa1}は量子力学の数学に関する「数学書」で,
+1 ではヒルベルト空間から自己共役作用素のスペクトル分解までを詳述している.
+証明はかなりていねいだけども, それなりに話題自体がきついのであんまり最初に読む本じゃないかも?
+ただ付録 C 「超関数論要項」は超関数の内容が簡潔にまとまってて, たいへん読みやすい.
+2 では量子力学への応用をこれまたかなりていねいに議論している.
+以下同文 (付録はどっちにもある).
+
+記号の問題もあって, 量子力学への応用を知りたい数学の人は新井\~{}\cite{AsaoArai22}のほうが読みやすいかもしれない.
+こちらはスペクトル分解の使い方に慣れることを目標としていて,
+スペクトル分解の証明は略されているけど議論自体はていねい.
+(新井・江沢\~{}\cite{AraiEzawa1, AraiEzawa2}に比べると) 薄い.
+
+ここで略した関数解析の基本事項 (変分法の基本補題含む) は増田\~{}\cite{HisayaMasuda1}や黒田\~{}\cite{ShigetoshiKuroda1},
+宮島\~{}\cite{ShizuoMiyajima2}が詳しい.
+増田先生, 黒田先生の本大好き.
+
+電磁気は物理としては一応砂川\~{}\cite{ShigenobuSunagawa2}を挙げておくけど,
+詳しくは物理の人にきいてください.
+わたしも知りたい.
+数学の人は深谷\~{}\cite{KenjiFukaya2}がいいのかな?
+ベクトル解析むずい.
+どっちも $\delta$ 関数の話はかるく書いてあるので挙げてみました.
+
+湯川ポテンシャルは新井\~{}\cite{AsaoArai4}と Lieb-Loss\~{}\cite{LiebLoss1}に書いてありますが,
+物理としては書いてある本すら知らないです.
+だれか教えてください.
+\chapter{Short summary for theory of Hilbert spaces}
+\label{sec-7-11}
+\section{Introduction}
+\label{sec-7-11-1}
+
+院試勉強のときに暗記用に作った原稿です.\footnote{From a yukimi's page, http://yukimigo.com/math/.
+The original version is reprinted with the written consent of the author.
+ }
+なのであんまり読めるものじゃない感ありますが, 証明の参照用に.
+\section{内積空間}
+\label{sec-7-11-2}
+
+\begin{defn}[内積空間]
+$H$ を線型空間とする.
+以下を満たす $\bkt{x}{y}_{H} \colon H \times H \to \bbC$ を
+$H$ の\textbf{内積}(inner product) といい,
+内積が定義されている線型空間 $H$ を\textbf{内積空間}という.
+
+以下 $x, y \in H$, $\alpha, \beta \in \bbC$ とする.
+\begin{enumerate}
+\item \textup{Linearity:}
+  \begin{align}
+   \bkt{x}{\alpha y_1 + \beta y_2} = \alpha \bkt{x}{y_1} + \beta \bkt{x}{y_2}.
+  \end{align}
+\item \textup{Symmetry:}
+  \begin{align}
+   \bkt{x}{y} = \overline{\bkt{y}{x}}.
+  \end{align}
+\item \textup{Positive definiteness:}
+  \begin{align}
+   \bkt{x}{x} \geq 0, \quad
+   \bkt{x}{x} = 0 \Longleftrightarrow x = 0.
+  \end{align}
+\end{enumerate}
+\end{defn}
+
+\begin{thm}[Schwarz's inequality]\label{functional_analysis_hilbert_space_yukimi_Schwarz}
+ $H$ を内積空間とする.
+ 任意の $x, y \in H$ に対して
+ \begin{align}
+  \abs{\bkt{x}{y}}
+  \leq
+  \norm{x} \, \norm{y}.
+ \end{align}
+\end{thm}
+\begin{proof}
+$y \neq 0$ とする.
+$\alpha \defeq - \bkt{y}{x} / \abs{y}^2$ とすると,
+$0 \leq \norm{x + \alpha y} = \abs{x}^2 - \abs{\bkt{x}{y}}^2 / \norm{y}^2$ からしたがう.
+$\heartsuit$
+\end{proof}
+
+\begin{defn}
+ 可算集合 $\cbk{x_n}_{n} \subset H$ が $\bkt{x_n}{x_m} = \delta_{n,m} $ を満たすとき \upbf{ONS (Orthonormal system)} という.
+ 集合 $\ell^2$ を次のように定義する.
+ \begin{align}
+  \ell^2
+  \defeq
+  \set{a = \rbk{a_1, a_2, \dots}}{\sum_{n=1}^{\infty} \abs{a_n}^2 < \infty}.
+ \end{align}
+ ここで
+ \begin{align}
+  (a+b)^2
+  \leq
+  2^2 \rbk{\max (a,b)}^2
+  \leq
+  2^2 (a^2 + b^2)
+ \end{align}
+ だから $\ell^2$ は線型空間となり,
+ 内積を次のように定義することで内積空間となる.
+ \begin{align}
+  \bkt{a}{b}_{\ell^2}
+  \defeq
+  \sum_{n = 1}^\infty \overline{a_{n}}b_{n}
+ \end{align}
+\end{defn}
+\begin{ex}
+ $\ell^2$ で $e_{n} \defeq \cbk{\delta_{n,j}}_{j = 1}^\infty$ の集合 $\cbk{e_{n}}_{n=1}^\infty$ は ONS.
+\end{ex}
+\begin{ex}\label{functional_analysis_hilbert_space_yukimi_ons}
+ 任意の $H$ の ONS $\cbk{x_{n}}_{n}^N$ と $\alpha_{n} \in \bbC$ に対して
+ $\abs{\sum_{n = 1}^N \alpha_{n} x_{n}}^2 = \sum_{n = 1}^N \abs{\alpha_{n}}^2$ となる.
+\end{ex}
+
+\begin{thm}[Bessel's inequality]\label{functional_analysis_hilbert_space_yukimi_Bessel}
+ $\cbk{x_{n}}_{n = 1}^N$ を $H$ の ONS とするとき,
+ すべての $x \in H$ に対して, $\sum_{n=1}^N \abs{\bkt{x_n}{x}}^2 \leq \norm{x}^2$ がなりたつ.
+\end{thm}
+\begin{proof}
+$y = \sum_{n=1}^N \bkt{x_n}{x} x_{n}$ とおくと,
+$x_{n}$ が ONS と例\ref{functional_analysis_hilbert_space_yukimi_ons}から
+$\norm{y}^2 = \sum_{n=1}^N \abs{\bkt{x_n}{x}}^2$ となって,
+\begin{align}
+ \bkt{y}{x}
+ =
+ \bkt{\sum_{n=1}^N \bkt{x_n}{x} x_n}{x}
+ =
+ \sum_{n=1}^N \overline{\bkt{x_n}{x}} \bkt{x_n}{x}
+ =
+ \sum_{n=1}^N \abs{\bkt{x_n}{x}}^2
+\end{align}
+となるから,
+\begin{align}
+ \bkt{y}{x - y}
+ =
+ \bkt{y}{x} - \norm{y}^2
+ =
+ \sum_{n=1}^N \abs{\bkt{x_n}{x}}^2 - \sum_{n=1}^N \abs{\bkt{x_n}{x}}^2
+ = 0.
+\end{align}
+つまり $y$ と $x-y$ は直交している.
+$x = y + (x-y)$ を二乗して
+\begin{align}
+ \norm{x}^2
+ =
+ \norm{y}^2 + \norm{x - y}^2
+ \geq
+ \norm{y}^2
+ =
+ \abs{\bkt{x_n}{x}}^2
+\end{align}
+となり証明できた.
+$\heartsuit$
+\end{proof}
+
+\begin{cor}
+ $\cbk{x_n}_{n=1}^\infty$ を $H$ の ONS とするとき,
+ すべての $x \in H$ に対して $\sum_{n=1}^\infty \abs{\bkt{x_n}{x}}^2$ は収束し,
+ \begin{align}
+  \sum_{n = 1}^\infty \abs{\bkt{x_n}{x}}|^2
+  \leq
+  \abs{x}^2
+ \end{align}
+ がなりたつ.
+ とくに $\lim_{n \to \infty} \bkt{x_n}{x} = 0$.
+\end{cor}
+\begin{proof}
+$a_{N} \defeq \sum_{n=1}^N \abs{\bkt{x_n}{x}}^2$ とおけば,
+$\cbk{a_N}_{N=1}^\infty$ は正項級数だから単調非減少で, Bessel's inequality から有界なので収束する.
+$\heartsuit$
+\end{proof}
+
+\begin{ex}
+ 任意の $a = \cbk{a_{n}}_{n}^\infty \in \ell^2$ に対して $a^{(N)} \in \ell^2$ を
+ \begin{align}
+  \rbk{a^{(N)}}_{n}
+  \defeq
+  \begin{cases}
+   a_{n} & \text { $1\leq n\leq N$ のとき} \\
+   0     & \text { $n\geq N+1$ のとき}
+  \end{cases}
+ \end{align}
+ とおくと, $a_{n} \in \ell^2 $ だから
+ \begin{align}
+  \norm{a^{(N)} - a}^2
+  =
+  \sum_{n = N + 1}^\infty \abs{a_{n}}^2
+  \longrightarrow 0, \quad N \longrightarrow \infty
+ \end{align}
+ となる.
+\end{ex}
+
+\begin{defn}
+任意の $n$ 個の線型独立なベクトルがあるとき, その空間は\textbf{無限次元}という.
+\end{defn}
+\begin{ex}
+ $\ell^2$ は無限次元空間である.
+ じっさい, $ e_{n} \defeq \cbk{\delta_{n,j}}_{j=1}^\infty$ とおくと,
+ 任意の $n \in \bbN$ に対して $e_{1}, \dots, e_{n}$ は線型独立である.
+ $\heartsuit$
+\end{ex}
+
+\begin{defn}
+ 完備な内積空間を \upbf{Hilbert 空間}という.
+\end{defn}
+\begin{thm}
+ $\ell^2$ は複素 Hilbert 空間である.
+\end{thm}
+\begin{proof}
+$\cbk{a (n)}$ を $\ell^2$ の Cauchy 列とする.
+$a(n) \defeq \cbk{a (n)_{j}}$ とすれば,
+\begin{equation}
+ \sum_{j=1}^k \abs{a (n)_{j}\ - a (m)_{j}}^2
+ \leq
+ \norm{a (n) - a (m)}^2
+ \longrightarrow 0 \label{functional_analysis_hilbert_space_yukimi_1}
+\end{equation}
+となるから $\cbk{a (n)_{j}}_{n}^\infty$ は $\bbC$ の Cauchy 列で,
+$\bbC$ の完備性より $a_{j} \in \bbC$ があって $a (n)_{j} \longrightarrow a_{j}$ となる.
+$a \defeq \cbk{a_{j}}_{j}^\infty$ とおく.
+(\ref{functional_analysis_hilbert_space_yukimi_1}) から任意の $\varepsilon > 0$ に対してある番号 $N$ があって
+$m, n \geq N$ で $\norm{a (n) - a (m)}^2 < \varepsilon^2$ とできるから,
+$m \longrightarrow \infty$ として $\lim_{k \to \infty}$ とすると, $n \geq N$ について
+\begin{equation}
+ \sum_{j=1}^\infty \abs{a (n)_{j} - a_{j}}^2
+ \leq
+ \varepsilon^2 \label{functional_analysis_hilbert_space_yukimi_2}
+\end{equation}
+よって,
+\begin{align}
+ \abs{a_{j}}^2
+ \leq
+ 2 \rbk{\abs{a_j - a(n)_j}^2 + \abs{a(n)_{j}}^2}
+\end{align}
+より
+\begin{align}
+ \sum_{j=1}^\infty \abs{a_{j}}^2
+ \leq
+ 2 \rbk{\sum_{j=1}^\infty \abs{a_{j} -a (n)_{j}}^2 + \sum_{j=1}^\infty \abs{a (n)_{j}}^2}
+ \leq
+ 2 \rbk{\varepsilon^2 + \sum_{j=1}^\infty \abs{a (n)_{j}}^2}
+ <
+ \infty
+\end{align}
+だから $a \in \ell^2$.
+(\ref{functional_analysis_hilbert_space_yukimi_2}) から
+$\norm{a(n) - a}^2 \leq \varepsilon^2$
+なので $a(n) \longrightarrow a \in \ell^2$.
+よって $\ell^2$ は完備である.
+$\heartsuit$
+\end{proof}
+
+今後 $H$ は Hilbert 空間をあらわすことにする.
+\begin{lem}\label{functional_analysis_hilbert_space_yukimi_5}
+ $D \subset H$ を部分集合とすると, $D^{\perp}$ は閉部分空間である.
+\end{lem}
+\begin{proof}
+$\cbk{x_n}_n \subset D^{\perp}$, $x_n \to x \in H$ とする.
+内積の連続性から $y \in D$ に対して $\bkt{x_n}{y} \to \bkt{x}{y}$ となる.
+$x_{n} \in D^{\perp}$ から $\bkt{x_n}{y} = 0$ となり, $\bkt{x}{y} = 0$.
+よって $x \in D^{\perp}$ となる.
+$\heartsuit$
+\end{proof}
+\section{直交性}
+\label{sec-7-11-3}
+
+\begin{thm}[射影定理]
+ $L \subset H$ を閉部分空間とするとき, 任意の $x \in H$ は
+ \begin{align}
+  x
+  =
+  y + z \quad (y \in L, z \in L^{\perp})
+ \end{align}
+ と一意的に分解できる.
+ $y$ を $x$ の $L$ 上への射影という.
+ 各 $x \in H$ に $y$ を対応させる写像を $P_{L}$ とかく.
+ つまり $y = P_{L}x$.
+\end{thm}
+\begin{proof}
+\textbf{一意性:}
+$x = y + z = y' + z' (y, y'\in L, z, z'\in L^{\perp})$ とすると,
+$y - y' = z - z'$ で左辺は $L$, 右辺は $L^{\perp}$ の元だから,
+$\norm{y - y'}^2 = \bkt{z' - z}{y - y'} = 0$ だから $y = y' $, $z = z'$ となって一意であることがわかった.
+
+\textbf{分解可能性:}
+$\delta \defeq \inf \set{\norm{x - \xi}}{\xi \in L}$ とおくと,
+下限の性質から, ある $\xi_{n} \in L$ があって
+\begin{equation}
+ \norm{x - \xi_n}
+ \longrightarrow
+ \delta \label{functional_analysis_hilbert_space_yukimi_3}
+\end{equation}
+とできる.
+中線定理
+\begin{align}
+ \norm{x + y}^2 + \norm{x - y}^2
+ =
+ 2 \rbk{\norm{x}^2 + \norm{y}^2}
+\end{align}
+を使って,
+\begin{equation}
+ \norm{\rbk{x - \xi_n} + \rbk{x - \xi_m}}^2 + \norm{\rbk{x - \xi_n} - \rbk{x - \xi_m}}^2
+ =
+ 2 \norm{x - \xi_n}^2 + 2 \norm{x - \xi_m}^2 \label{functional_analysis_hilbert_space_yukimi_4}
+\end{equation}
+となる.
+$L$ が部分空間だから, $\rbk{\xi_{n} + \xi_{m}} / 2 \in L$ となって,
+\begin{align}
+ \delta^2
+ \leq
+ \norm{x - \rbk{\xi_{n} + \xi_{m}/2}}^2.
+\end{align}
+(\ref{functional_analysis_hilbert_space_yukimi_4}) から
+\begin{align}
+ 0
+ &\leq
+ \norm{\xi_n \xi_m}^2
+ &=
+ 2 \norm{x - \xi_n}^2 + 2 \norm{x - \xi_m}^2 - 4 \norm{x - \frac{\rbk{\xi_n + \xi_m}}{2}}^2
+ \leq
+ 2 \norm{x - \xi_n} + 2 \norm{x - \xi_m}^2 - \delta^2
+\end{align}
+となる.
+(\ref{functional_analysis_hilbert_space_yukimi_3}) に注意して
+$n, m \to \infty$ とすると,
+右辺 $\to 4 \delta^2 - 4\delta^2 = 0$ となるから,
+$\cbk{\xi_{n}}$ は $H$ の Cauchy 列.
+よってある $y \in H$ で $\xi_{n} \to y$ とできる.
+いま $L$ が閉と $\xi_{n} \in L$ から $y \in L$ である.
+よってノルムの連続性により $\norm{x - \xi_{n}} \to \norm{x - y}$ となるから,
+(\ref{functional_analysis_hilbert_space_yukimi_3}) より
+\begin{align}
+ \delta
+ =
+ \norm{x - y}
+\end{align}
+がわかった.
+
+$z \defeq x - y$ とおいてこれが $L$ と直交していることをみる.
+\begin{align}
+ \phi(t)
+ \defeq
+ \norm{z - \gamma t \xi}^2, \quad
+ \gamma \defeq \bkt{\xi}{z}, \quad
+ t\in \mathbb{R}
+\end{align}
+とおくと, $L$ が部分空間であることから $y + \gamma t\xi \in L$ なので,
+\begin{align}
+ \delta^2
+ =
+ \phi (0)
+ \leq
+ \phi (t)
+ =
+ \norm{z}^2 - 2 \abs{\gamma}^2 t + \abs{\gamma}^2 t^2 \norm{\xi}^2
+\end{align}
+と計算できる.
+$\gamma \neq 0$ ならば十分小さい $t < 1 / \norm{\xi}^2$ で
+$\phi (t) < \phi (0) = \delta^2$ となって $\delta$ の定義に反するから, $\gamma = 0$ となる.
+よって,
+\begin{align}
+ \gamma
+ =
+ \bkt{\xi}{z}
+ =
+ \bkt{\xi}{x - y}
+ =
+ 0 \quad \rbk{\xi \in L}
+\end{align}
+となって, 定理が証明された.
+$\heartsuit$
+\end{proof}
+\begin{prop}
+ $M \subset H$ が部分空間ならば $(M^{\perp})^{\perp} = \overline{M}$.
+\end{prop}
+\begin{proof}
+定義と $M^{\perp}$ が閉 (Lemma \ref{functional_analysis_hilbert_space_yukimi_5}) より
+$M \subset (M^\perp)^\perp$ なので $\overline{M} \subset (M^\perp)^\perp$.
+$x \in (M^\perp)^\perp$ とすると, 射影定理から
+\begin{equation}
+ x
+ =
+ x_{\overline{M}} + x_{(\overline{M})^\perp}, \quad
+ x_{\overline{M}}\in \overline{M}, \quad
+ x_{(\overline{M})^\perp} \in (\overline{M})^\perp \label{functional_analysis_hilbert_space_yukimi_6}
+\end{equation}
+と一意的にかける.
+$(\overline{M})^\perp = M^\perp$ をみよう.
+$M \subset \overline{M}$ より $(\overline{M})^\perp \subset M^\perp$ はよい.
+$y \in M^\perp$ とすると, 閉包の定義から任意の $z \in \overline{M}$ に対してある
+$z_{n} \in M$ で $z_{n} \to z$ とできる.
+ここで $\bkt{y}{z_n} \to \bkt{y}{z}$ と $\bkt{y}{z_n} = 0$ から $\bkt{y}{z} = 0$ となるから,
+$y \in (\overline{M})^\perp$ となって, $(\overline{M})^\perp = M^\perp$ がわかった.
+よって $(\overline{M})^\perp = M^\perp$.
+
+いま示したことから $\bkt{x}{x_{\overline{M}^{\perp}}} = 0$ がしたがい, これと (\ref{functional_analysis_hilbert_space_yukimi_6})
+をじっとみていると $\bkt{x}{x_{\overline{M}}^{\perp}} = \norm{x_{\overline{M}^{\perp}}}$ となって,
+もういっかい (\ref{functional_analysis_hilbert_space_yukimi_6}) にもどって
+$x = x_{\overline{M}}$ がわかったから, $x \in \overline{M}$ となって証明がおわった.
+$\heartsuit$
+\end{proof}
+\section{ONS, CONS}
+\label{sec-7-11-4}
+
+\begin{lem}\label{functional_analysis_hilbert_space_yukimi_7}
+ $\cbk{x_{n}}_{n}$ を $H$ の ONS とする.
+ $\sum_{n = 1}^\infty \abs{\alpha_{n}}^2 < \infty$ を満たす任意の
+ $\alpha = \cbk{\alpha_{n}} \subset \bbC^{\infty}$ に対して,
+ $x (\alpha) \defeq \sum_{n = 1}^\infty \alpha_{n}x_{n}$ は収束し,
+ $\norm{x \rbk{\alpha}}^2 = \sum_{n=1}^\infty \abs{\alpha_{n}}^2$ がなりたつ.
+\end{lem}
+\begin{proof}
+$y_{N} = \sum_{n=1}^N \alpha_{n} x_{n}$ とおく.
+$N > M$ で
+\begin{align}
+ \norm{y_N - y_M}^2
+ =
+ \sum_{n = M+1}^N \abs{\alpha_n}^2
+ \to 0, \quad N, M \to \infty
+\end{align}
+となるから $\cbk{y_N}_N$ は $H$ の Cauchy 列.
+よって完備性から収束するのでそれを $\sum_{n=1}^\infty \alpha_n x_n$ とかくと,
+\begin{align}
+ \norm{x \rbk{\alpha}}^2
+ =
+ \lim_{N \to \infty} \norm{y_N}^2
+ =
+ \lim_{N \to \infty} \sum_{n=1}^N \abs{\alpha_{n}}^2
+\end{align}
+となる.
+$\heartsuit$
+\end{proof}
+
+\begin{defn}
+ $H$ の ONS $\cbk{x_{n}}_n$ がすべての $x \in H$ に対して $x = \sum_{n = 1}^\infty \bkt{{x_n}}{x} x_n$ を満たすとき,
+ これを \upbf{CONS}という.
+\end{defn}
+\begin{rem}
+ $\dim H = n < \infty$ ならば基底 $\cbk{x_{j}}_{j=1}^n$ があって,
+ 任意の $x \in H$ は $x = \sum_{j = 1}^n \alpha_j x_j$ と一意的にかける.
+ Gram-Schmidt を適用すればいいので $\cbk{x_{j}}_{j=1}^n$ は ONS としてよい.
+ このとき
+ \begin{align}
+  \bkt{x_j}{x}
+  =
+  \sum_{k=1}^n \bkt{x_j}{\alpha_k x_k}
+  =
+  \alpha_k
+ \end{align}
+ となるので
+ \begin{align}
+  x
+  =
+  \sum_{j = 1}^n \bkt{x_j}{x} x_j
+ \end{align}
+ となる.
+\end{rem}
+
+\begin{thm}\label{functional_analysis_hilbert_space_yukimi_8}
+ $\cbk{x_n}$ を $H$ の ONS とするとき, つぎの条件は互いに等しい.
+\begin{enumerate}
+\item $\cbk{x_n}$ が CONS.
+    つまり任意の $x \in H$ は $x = \sum_{n=1}^\infty \bkt{x_n}{x} x_n$ とかける.
+\item すべての $x, y \in H$ に対して
+   \begin{align}
+    \sum_{n=1}^\infty \bkt{x}{x_n} \bkt{x_n}{y} \label{functional_analysis_hilbert_space_yukimi_9}
+   \end{align}
+\item (\upbf{Parseval の等式}) すべての $x \in H$ に対して
+   \begin{align}
+    \norm{x}^2
+    =
+    \sum_{n = 1}^\infty \abs{\bkt{x_n}{x}}^2
+   \end{align}
+    がなりたつ.
+\item すべての $n \geq 1$ に対して $\bkt{x}{x_n} = 0$ ならば $x = 0$.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+(1) $\Rightarrow$ (2):
+内積をとって,
+\begin{align}
+ \bkt{x}{y}
+ =
+ \sum \bkt{\sum \bkt{x_n}{x} x_n}{y}
+ =
+ \sum \bkt{x}{x_n} \bkt{x_n}{y}
+\end{align}
+となる.
+Cauchy-Schwarz と Bessel によって,
+\begin{align}
+ \sum_{n=1}^N \abs{\bkt{x}{x_n} \bkt{x_n}{y}}
+ \leq
+ \rbk{\sum_{n=1}^N \abs{\bkt{x}{x_n}}^2}^{1/2}
+  \rbk{\sum_{n=1}^N \abs{\bkt{x_n}{y}}^2}^{1/2}
+ \leq
+ \norm{x} \, \norm{y}
+\end{align}
+となるから絶対収束する.
+
+(2) $\Rightarrow$ (3):
+$x = y$ とすればよい.
+
+(3) $\Rightarrow$ (4):
+$\bkt{x}{x_n} = 0$ とすれば Parseval から $\norm{x}^2 = 0$ でこれは $x = 0$ を意味する.
+
+(4) $\Rightarrow$ (1):
+$\tilde{x} \defeq \sum_{m = 1}^\infty \bkt{x_m}{x} x_m$ とおく.
+このとき, 任意の $n \geq 1$ に対して
+\begin{align}
+ \bkt{x - \tilde{x}}{x_n}
+ =
+ \bkt{x}{x_n} - \bkt{\tilde{x}}{x_n}
+ =
+ \bkt{x}{x_n} - \sum_{m=1}^{\infty} \bkt{x}{x_m} \bkt{x_m}{x_n}
+ =
+ \bkt{x}{x_n} - \bkt{x}{x_n}
+ = 0.
+\end{align}
+よって仮定より $x = \tilde{x}$.
+$\heartsuit$
+\end{proof}
+
+\begin{lem}
+ 部分集合 $D \subset H$ に対して $(\overline{D})^\perp = D^\perp$.
+\end{lem}
+\begin{proof}
+$D \subset \overline{D}$ と定義から $(\overline{D})^\perp \subset D^\perp$ はよい.
+$x \in D^\perp$ とすると, 任意の $y \in \overline{D}$ に対して $y$ に収束するような $D$ の点列 $\cbk{y_n}$ がとれる.
+内積の連続性により $\bkt{x}{y} = 0$ がわかるから,
+$x \in (\overline{D})^\perp$ となり, 逆もいえた.
+$\heartsuit$
+\end{proof}
+
+\begin{prop}
+\begin{enumerate}
+\item 部分集合 $D \subset H$ が稠密 $\Longleftrightarrow D^\perp = \cbk{0}$.
+\item 部分集合 $D \subset H$ が稠密で, 任意の $x \in D$ に対して $x_{1}, x_{2} \in H$ が
+    $\bkt{x}{x_1} = \bkt{x}{x_2}$ ならば $x_{1} = x_{2}$.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+(1) [$\Longrightarrow$]
+$x \in D^\perp$ とするとき, $D$ の稠密性から $x$ に収束するような $x_{n} \in D$ がとれるので,
+内積の連続性から $\bkt{x}{x_n} \to \bkt{x}{x}$.
+一方, $\bkt{x}{x_n} = 0$ より $\bkt{x}{x} = 0$ だから $x = 0$ .
+
+[$\Longleftarrow$]
+$M \defeq \overline{D}$ が閉部分空間なので射影定理から任意の $x \in H$ は
+\begin{align}
+ x
+ =
+ x_{M} + x_{M^\perp}
+\end{align}
+とかける.
+前の補題と仮定によって
+\begin{align}
+ M^\perp
+ = \rbk{\overline{D}}^\perp
+ =
+ D^\perp
+ =
+ \cbk{0}
+\end{align}
+であるから, $x_{M^\perp} = 0$.
+よって $x = x_{M} \in M = H$ で $D$ は稠密.
+
+(2) 条件は $x_1 - x_2 \in D^\perp$ をいっている.
+(1) から $D^\perp = \cbk{0}$ なので $x_1 = x_2$.
+$\heartsuit$
+\end{proof}
+
+\begin{ex}
+ $\cbk{e_n}_n$ は $\ell^2$ の完全系になる.
+\end{ex}
+\begin{proof}
+ONS になることはみた.
+任意の $a = \cbk{a_{n}}_n \in \ell^2$ に対して $\bkt{e_n}{a} = a_n$ となるので,
+\begin{align}
+ \sum_{n=1}^\infty \abs{\bkt{e_n}{a}}|^2
+ =
+ \norm{a}^2
+\end{align}
+となるから Parseval からわかる.
+$\heartsuit$
+\end{proof}
+
+\begin{defn}
+ $\mathcal{L}(D)$ で $D$ のすべてのベクトルによって生成される部分空間を表す.
+ つまり
+ \begin{align}
+  \calL \rbk{D}
+  \defeq
+  \set{\sum_{j=1}^N \alpha_j x_j}{\alpha_j \in \bbC, \quad x_j \in D, \quad j = 1, \dots, N, \quad N \in \bbN}.
+ \end{align}
+ ある $H$ の高々可算部分集合 $D$ があって, $\calL (D)$ が $H$ で稠密のとき $H$ は\upbf{可分}であるという.
+\end{defn}
+
+\begin{prop}\label{functional_analysis_hilbert_space_yukimi_10}
+ $H$ の ONS $\cbk{x_n}_n$ が CONS $\Longleftrightarrow \calL(\cbk{x_n}_n)$ が $H$ で稠密.
+\end{prop}
+\begin{proof}
+($\Longrightarrow$)
+定理\ref{functional_analysis_hilbert_space_yukimi_9}の (4) から,
+$(\cbk{x_n}_n)^\perp = \cbk{0}$ である.
+よって前の命題から稠密.
+
+($\Longleftarrow$)
+前の命題から $(\calL \cbk{x_n}_n)^\perp = \cbk{0}$ となり,
+定理 \ref{functional_analysis_hilbert_space_yukimi_9}の (4) がなりたつ.
+よって $\cbk{x_n}_n$ は CONS.
+$\heartsuit$
+\end{proof}
+\section{可分性と具体例}
+\label{sec-7-11-5}
+
+\begin{prop}
+ $\ell^2$ は可分.
+\end{prop}
+\begin{proof}
+次の集合は可算で $\ell^2$ のなかで稠密になる.
+\begin{align}
+ \set{x = \rbk{\xi_1, \xi_2, \dots}}{\sum_{j=1}^{\infty} \abs{\xi_j}^2 < \infty, \quad \xi_j \in \bbQ}.
+\end{align}
+$\heartsuit$
+\end{proof}
+
+\begin{thm}
+ 可分な Hilbert 空間は CONS をもつ.
+\end{thm}
+\begin{proof}
+$H$ を可分な Hilbert 空間として, $D \defeq \cbk{x_n}_n$ を $H$ の可算部分集合で
+$\calL (D)$ が $H$ で稠密なものとする.
+各 $x_1, \dots, x_n$ は線型独立とは限らないので, つぎの操作をする.
+$x_1 = 0$ ならのぞき, そうでなければのぞかない.
+$n > 1$ では $x_n$ が $x_1, \dots, x_{n-1}$ の生成する部分空間にふくまれていればのぞき, そうでなければのぞかない.
+この作業でのこったものをその順番で $x_{1}', x_{2}', \dots$ とするとき,
+任意の $n$ で $x_{1}', \cdots, x_{n}'$ はつくりかたから線型独立で,
+$\calL(D) = \cbk{x_{n}'}_{n}$ となる.
+$\cbk{x_n'}_n$ に Gram-Schmidt を適用して得られる ONS を $\cbk{y_n}_n$ とすれば
+$\calL(\cbk{y_n}_n) = \calL (D)$.
+よって仮定から $\calL (\cbk{y_n}_n)$ は $H$ で稠密なので,
+Proposition \ref{functional_analysis_hilbert_space_yukimi_10}から $\cbk{y_n}_n$ は CONS となる.
+$\heartsuit$
+\end{proof}
+
+\begin{thm}
+ $L^2 (\bbRd)$ は可分.
+\end{thm}
+\begin{proof}
+$d$ 個の組 $n = (n_{1}, \dots, n_{d}) \in \bbN^d$ に対して
+$I_{n} \defeq [-n_{1}, n_{1}] \times \cdots \times[-n_{d}, n_{d}]$
+として, $I_{n}$ の定義関数を $\chi_{n}$ とする.
+正整数の組を $m \defeq  (m_1, \dots, m_d)$, $p_m (x) \defeq x_1^{m_1} \cdots x_d^{m_d}$ とおき,
+\begin{align}
+ D
+ \defeq
+ \set{\chi_n p_m}{n, m \in \bbN^d}
+\end{align}
+とする.
+$\chi_{n}$ が $I_{n}$ の定義関数なので $D \subset L^2 (\bbRd)$ であり, $D$ は可算個の元からなる.
+任意の $f \in C_{\mathrm{c}}(\bbRd)$ に対して $\supp f \subset I_{n}$ なる $n$ があって,
+Weierstrass の多項式近似から任意の $\varepsilon$ に対してある多項式 $P$ が存在して
+$\norm{p - f}_{\infty} < \varepsilon$ となる.
+したがって
+\begin{align}
+ \norm{\chi_n P -f}_{2}
+ =
+ \rbk{\int_{I_n} \abs{P - f}^2 dx}^{1/2}
+ \leq
+ \varepsilon \sqrt{\abs{I_n}}.
+\end{align}
+よって $\calL (D)\subset C_{\mathrm{c}}(\bbRd)$ は稠密で,
+$C_{\mathrm{c}}$ が $L^2 (\bbRd)$ で稠密だから, $\calL (D)$ は $L^2 (\bbRd)$ で稠密.
+$\heartsuit$
+\end{proof}
+\section{作用素論}
+\label{sec-7-11-6}
+
+\begin{prop}
+ 線型作用素 $A$ が単射である必要十分条件は $\ker A = \cbk{0}$ である.
+\end{prop}
+\begin{proof}
+線型代数.
+\end{proof}
+
+\begin{thm}[Riesz の表現定理]\label{functional_analysis_hilbert_space_yukimi_11}
+ 任意の $F \in H^*$ に対して一意的に $y \in H$ があって, $F(x) = \bkt{y}{x}$, $(x \in H)$ とかける.
+ さらに $\norm{F} = \norm{y}$ がなりたつ.
+\end{thm}
+\begin{proof}
+まず $\ker F$ が $H$ の閉部分空間であることを示す.
+$x_n \in ker F$, $x_{n} \to x$ とすると,
+$F$ が連続なので $F (x_n) \to F (x)$.
+$x_n \in \ker F$ なので $F (x_n) = 0$.
+$F(x) = 0$ となるから $x \in \ker F$ となる.
+
+$\ker F = H$ であれば $F(x) = 0 = \bkt{0}{x}$ だから $y = 0$ とすればよい.
+$\ker F \neq H$ とする.
+$H$ は射影定理によって $H = \ker F \oplus (\ker F)^\perp$ とかける.
+任意に $0$ でない $y_0 \in (\ker F)^\perp$ をとると, 任意の $x \in H$ に対して
+$F(y_0) x - F (x) y_0 \in \ker F$ だから
+\begin{align}
+ \bkt{y_0}{F \rbk{y_0} x - F(x) y_0}
+ =
+ 0
+\end{align}
+から
+\begin{align}
+ \bkt{y_0}{F(y_0) x} - F(x) \norm{y_0}^2
+ =
+ 0
+\end{align}
+を $\norm{y_0}^2$ でわると,
+\begin{align}
+ F(x)
+ =
+ \frac{F(y_0) \bkt{y_0}{x}}{\norm{y_0}^2}
+ =
+ \bkt{\frac{\overline{F(y_0)}}{\norm{y_0}^2} y_0}{x}
+ =
+ \bkt{y}{x}, \quad
+ y
+ \defeq
+ \frac{\overline{F(y_0)}}{\norm{y_0}^2} y_0
+\end{align}
+となる.
+
+\textbf{一意性}:
+$F (x) = \bkt{y}{x} = \bkt{y'}{x}$ とする.
+$\bkt{y - y'}{x} = 0$, $x \in H$.
+$x \defeq y - y'$ とすると $\norm{y - y'}^2 = 0$ となる.
+
+$\norm{F} = \norm{y}$:
+Schwarz の不等式から
+\begin{align}
+ \abs{F(x)}
+ =
+ \abs{\bkt{y}{x}}
+ \leq
+ \norm{y} \, \norm{x}
+\end{align}
+となり $\norm{F} \leq \norm{y}$.
+$x = y / \norm{y}$ とすると
+\begin{align}
+ \norm{y} = \frac{F(y)}{\norm{y}}
+ \leq
+ \sup_{y \neq 0} \frac{\abs{F(y)}}{\norm{y}}
+\end{align}
+となるから,  $\norm{y} \leq \norm{F}$ で $\norm{F} = \norm{y}$.
+$\heartsuit$
+\end{proof}
+
+Riesz の表現定理によって任意の $f \in H^*$ に対して $y \in H$ が一意的に定まるから
+$H^*$ と $H$ を同一視できる.
+たとえば $L^2 (0, 1)^* = L^2 (0, 1)$.
+
+また, 共役空間を考えずに内積だけ考えればよい.
+じっさいに $X$ と $Y$ を Banach 空間として $X$ から $Y$ への稠密に定義された線型作用素 $T$ については,
+ある $f \in X^*$ で $g (Tx) = f (x)$ となる $g \in Y^*$ の全体を定義域として
+$Y^*$ から $X^*$ への作用素を $T^*g = f$ と定義できるが,
+$X$, $Y$ が Hilbert 空間のときは Riesz の表現定理から
+$f (x) = \bkt{x}{\xi}$, $g (y) = \bkt{y}{\eta}$ なる $\xi \in X$,
+$\eta \in Y$ が一意的に存在し,
+$\bkt{x}{\xi} = \bkt{Tx}{\eta}$,
+$x \in \dom (T)$ となるからわかりやすく
+$\bkt{x}{T^* \eta} = \bkt{Tx}{\eta}$, $\eta \in \dom T^*$ とかける.
+
+\begin{defn}
+ノルム空間 $X$ に対して $\tau (x) (f) \defeq f (x)$, $(f\in X^*)$ によって定められた等長写像
+$\tau \colon X \to X^{**}$ は $X$ の $X^{**}$ への標準的埋め込みといわれ,
+これによって $X \subset X^{**}$ とみなせる.
+$X = X^{**} (\tau (X) = X^{**}$ のとき $X$ は反射的という.
+\end{defn}
+\begin{thm}
+ Hilbert 空間は Banach 空間として反射的.
+\end{thm}
+\begin{proof}
+標準的埋め込み $\tau \colon H \to H^{**}$ が全射になることを示せばよい.
+$H^*$ が内積空間となることを示す.
+任意の $x \in H$ に対して線型汎関数 $y \in H \mapsto \bkt{x}{y}$ は有界なのでこれを
+$\iota (x) \in H^*$ で表す.
+$f, g \in H^*$ に対して, $\bkt{g}{f}_{H^*} \defeq \bkt{\iota^{-1}(f)}{\iota^{-1}(g)}$ とする.
+\begin{align}
+ \iota (x + y)
+ =
+ \iota (x) + \iota (y), \quad
+ \iota (\lambda x)
+ =
+ \overline{\lambda} \iota (x)
+\end{align}
+だから $\bkt{f}{g}_{H^*}$ は $H^*$ 上の内積となる.
+\begin{align}
+ \norm{f}^2
+ =
+ \norm{\iota^{-1}(f)}^2
+ =
+ \bkt{\iota^{-1}(f)}{\iota^{-1}(f)}
+ =
+ \norm{f}{f}_{H^*}
+\end{align}
+となり, 内積から定まるノルムは $H^*$ の共役空間としてのノルムと一致する.
+$H^*$ は $\bkt{g}{f}_{H^*}$ によって完備内積空間 (Hilbert 空間) となる.
+
+任意に $\phi \in H^{**}$ をとると, $H^*$ に Riesz の表現定理を適用して
+$H^*$ の元 $f$ で任意の $g \in H^*$ に対して $\phi (g) = \bkt{f}{g}_{H^*}$ となるベクトルがとれる.
+$x \defeq \iota^{-1}(g)$, $y \defeq \iota^{-1}(f)$ とおけば,
+\begin{align}
+ \bkt{g}{f}_{H^*}
+ =
+ \bkt{x}{y} \iota^{-1}(x)
+ =
+ g(x)
+ =
+ \tau (x) (g)
+\end{align}
+とかける.
+よって $\phi (g) = \tau (x) (g)$ ($g \in H^*$) なので $\phi = \tau (x)$ となるから $\tau$ は全射.
+$\heartsuit$
+\end{proof}
+
+\begin{defn}
+ $\dom T \subset \dom T^*, Tx = T^*x$ を満たす Hilbert 空間 $H$ 上の線型作用素 $T$ を対称作用素という.
+ $T$ が $\dom T = \dom T^*, Tx = T^*x$ を満たすとき $T$ を自己共役作用素という.
+ また, $H$, $K$ が Hilbert 空間で線型作用素 $U \colon H \to K$ が次の条件を満たすとき. $U$ をユニタリ作用素という.
+\begin{enumerate}
+\item \textup{(定義域)}
+   \begin{align}
+    \dom U = H.
+   \end{align}
+\item \textup{(全射性)}
+   \begin{align}
+    \ran U
+    =
+    K.
+   \end{align}
+\item \textup{(内積保存性)}
+   \begin{align}
+    \bkt{Ux}{Uy}_{K}
+    =
+    \bkt{x}{y}_{H}, \quad x, y \in H.
+   \end{align}
+\end{enumerate}
+\end{defn}
+
+\begin{prop}
+ ユニタリ作用素は単射.
+\end{prop}
+\begin{proof}
+内積を保存するので任意の $x \in H$ に対して
+\begin{align}
+ \norm{Ux}_K
+ =
+ \norm{x}_H
+\end{align}
+なるから $Ux = 0$ なら $x = 0$.
+$\heartsuit$
+\end{proof}
+この命題から $U$ は有界で $\norm{U} = 1$ となる.
+
+\begin{thm}\label{functional_analysis_hilbert_space_yukimi_12}
+ $H$, $K$ を可分な Hilbert 空間, $\cbk{x_n}_{n=1}^N$, $\cbk{y_n}_{n=1}^N$ を $H$, $K$ の CONS とする.
+ このとき $\abs{N} = \aleph_0$ であればすべての自然数 $n$ に対して $Ux_n = y_n$ となるユニタリ作用素 $U$ が一意的に存在する.
+\end{thm}
+\begin{proof}
+$N = \infty$ とする.
+任意の $x \in H$ は $x = \sum_{n=1}^\infty \bkt{x_n}{x} x_n$ とかける.
+Parseval の等式から $\sum_{n=1}^\infty \abs{\bkt{x_n}{x}}^2 < \infty$ だから,
+Lemma \ref{functional_analysis_hilbert_space_yukimi_7}によって $\sum_{n=1}^\infty \bkt{x_n}{x} y_n$ は $K$ で収束する.
+$U \colon H \to K$ を
+\begin{align}
+ Ux
+ \defeq
+ \sum_{n=1}^\infty \bkt{x_n}{x} y_n
+\end{align}
+と定義するとこれは線型で
+\begin{align}
+ \bkt{Ux}{Uy}
+ =
+ \bkt{\sum_{n=1}^{\infty} \bkt{x_n}{x} y_n}{\sum_{m=1}^{\infty} \bkt{x_m}{x} y_m}
+ =
+ \sum_{n=1}^{\infty} \bkt{x}{x_n} \bkt{x_n}{y}
+ =
+ \bkt{x}{\sum_{n=1}^{\infty} \bkt{x_n}{y} x_n}
+ =
+ \bkt{x}{y}
+\end{align}
+となるから内積を保存する.
+任意の $y \in K$ を $y = \sum_{n=1}^{\infty} \bkt{y_n}{y} y_n$ とかくと, これは収束しているから,
+\begin{align}
+ x
+ \defeq
+ \sum_{m=1}^{\infty} \bkt{y_m}{y} x_m
+\end{align}
+とすると
+\begin{align}
+ U x
+ =
+ \sum_{n=1}^{\infty} \bkt{x_n}{x} y_n
+ =
+ \sum_{n=1}^{\infty} \bkt{x_n}{\sum_{m=1}^{\infty} \bkt{y_m}{y} x_m} y_n
+ =
+ \sum_{n=1}^{\infty} \bkt{y_n}{y} y_n
+ =
+ y.
+\end{align}
+ここで $y$ は任意だから $U$ は全射でしたがってユニタリ.
+
+\textbf{一意性}
+$U'x_n = y_n$ とすると, すべての $x \in H$ に対して
+\begin{align}
+ U'x
+ =
+ \sum_{n=1}^{\infty} \bkt{x_n}{x} U' x_n
+ =
+ \sum_{n=1}^{\infty} \bkt{x_n}{y} y_n
+ =
+ \sum_{n=1}^{\infty} \bkt{x_n}{x} Ux_n
+ =
+ Ux
+\end{align}
+だから $U = U'$.
+$\heartsuit$
+\end{proof}
+
+線型作用素 $A$ と $D \subset \dom (A)$ に対して $AD \defeq \set{Ax}{x \in D}$ とする.
+\begin{thm}
+ $H$, $K$ を Hilbert 空間, $U \colon H \to K$ をユニタリ作用素とすると次がなりたつ.
+\begin{enumerate}
+\item $U^{-1} \colon K \to H$ はユニタリ.
+\item $D \subset H$ が稠密ならば $U D \subset K$ も稠密になる.
+\item 任意の $H$ の CONS $\cbk{x_n}_n^\infty$ に対して $\cbk{Yx_n}$ は $K$ の CONS.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+(1) $\eta$, $\chi \in H$ に対して
+\begin{align}
+ \bkt{U^{-1} \eta}{U^{-1} \chi}_H
+ =
+ \bkt{U U^{-1} \eta}{U U^{-1} \chi}_K
+ =
+ \bkt{\eta}{\chi}_K.
+\end{align}
+
+(2) $y \in (UD)^\perp$ とする.
+任意の $x \in D$ に対して $\bkt{y}{Ux} = 0$ で $U$ が全単射なので一意的に $y = U\eta$ を満たす $\eta \in H$ がある.
+よって
+\begin{align}
+ 0
+ =
+ \bkt{U \eta}{Ux}
+ =
+ \bkt{\eta}{x}
+\end{align}
+で $D$ が稠密なので $\eta = 0$.
+よって $y = 0$ から $(UD)^\perp = \cbk{0}$ で $UD$ は K で稠密.
+
+(3) $\cbk{x_n}_n^\infty$ が CONS だから命題 \ref{functional_analysis_hilbert_space_yukimi_10} から
+$\calL (\cbk{x_n}_n^\infty)$ が $H$ で稠密になる.
+よって (2) から $\calL (\cbk{Ux_n}_n)$ が $K$ で稠密になり,
+ふたたび命題 \ref{functional_analysis_hilbert_space_yukimi_10} によって $\cbk{Ux_n}_n$ は CONS.
+$\heartsuit$
+\end{proof}
+
+\begin{defn}
+ ある $H$ から $K$ への Unitary 作用素があるとき, $H$ と $K$ は同型という.
+\end{defn}
+\begin{thm}
+ $H$ を可分な Hilbert 空間とし, $\cbk{x_n}_n^\infty$ を $H$ の CONS とする.
+ このとき
+ \begin{align}
+  x \to \cbk{\bkt{x_n}{x}}_n \in \ell^2
+ \end{align}
+ によって $H$ と $l^2$ は同型となる.
+\end{thm}
+\begin{proof}
+$e_n = \cbk{\delta_{n,j}}_j$ の集合 $\cbk{e_n}$ は前にみたように $\ell^2$ の CONS だから,
+定理 \ref{functional_analysis_hilbert_space_yukimi_12} によって $Ux_n = e_n$ となるユニタリ作用素 $U \colon H \to l^2$ がある.
+任意の $x\in H$ は $x = \sum \bkt{x_n}{x} x_n$ とかけるので,
+\begin{align}
+ Ux
+ =
+ \sum_{n=1}^{\infty} \bkt{x_n}{x} e_n
+ =
+ \rbk{\bkt{x_1}{x}, \bkt{x_2}{x}, \dots} \in \ell2
+\end{align}
+$\heartsuit$
+\end{proof}
+
+\begin{rem}
+ 可分な無限次元 Hilbert 空間は同型を除けば $\ell^2$ しかない!
+\end{rem}
+
+元ネタは新井・江沢\~{}\cite{AraiEzawa1, AraiEzawa2}です.
+それに証明をてきとうに増田\~{}\cite{HisayaMasuda1}の方向に書きかえながらつくったという感じでしょうか.
+\chapter{Mathematical foundations for quantum mechanics}
+\label{sec-7-12}
 
 動画から適当に切り出してくる.
 \chapter{Mathematical foundations for quantum statistical mechanics}
-\label{sec-7-11}
+\label{sec-7-13}
 
 動画から適当に切り出してくる.
 \chapter{Mathematical problems in quantum mechanics, quantum field theory, and quantum statistical mechanics}
-\label{sec-7-12}
+\label{sec-7-14}
 
 Togetter (Twitter) からの転載.
 
@@ -12015,7 +13675,7 @@ $t>0$ のときはまともな関数なのに極限を取ると超関数にな�
 学部に毛が生えた程度, または本当に学部の物理水準でも既に数学としては色々問題があります.
 解決済みですが, 量子統計だと平衡状態が物理で書かれる $\Tr e^{- \beta H}$ という形では存在しないという問題もあったのでした.
 \chapter{Fundamental problems of peruturbation theory in quantum mechanics as an approximation}
-\label{sec-7-13}
+\label{sec-7-15}
 
 Twitter での次の発言に対する応答をまとめた.
 \begin{quote}
@@ -12025,7 +13685,7 @@ Twitter での次の発言に対する応答をまとめた.
 やや別件ですが, 作用素級数とか収束以前に摂動が原理的にまずいということがあります.
 $H = - \Delta + \alpha V$ で $\alpha$ が小さいときに摂動展開する,
 という状況でエネルギー (固有値) の振る舞いが大きな問題になります.
-$V_1 = x^2$, \$V\_{}2=-r\^{}{-1}\$としましょう.
+$V_1 = x^2$, \$V$_2$=-r$^{\mathrm{-1}}$\$としましょう.
 もちろん調和振動子と水素原子に対応するハミルトニアンです.
 固有値 (スペクトル), 固有関数ともに厳密解が分かっているわけですが,
 いくら $\alpha$ が小さかろうと, 測定値であるエネルギーに対応する固有値の振る舞いがこの 2 つで決定的に違います.
@@ -12043,63 +13703,63 @@ $V_1 = x^2$, \$V\_{}2=-r\^{}{-1}\$としましょう.
 もはや数学徒としては研究レベルの問題だから」と書きましたが,
 今本当にこの辺の数理物理の研究が進行中です.
 \chapter{Direct integral and its physics}
-\label{sec-7-14}
+\label{sec-7-16}
 
 これは Togetter に【微分ヤクザPによる直積分講座】というのでまとまっている.
 いったん, やりとりをそのまま書いておく.
 \begin{quote}
 \#0は素イデアル
-0t\_{}uda 2012-01-08 00:27:35
+0t$_{\mathrm{uda}}$ 2012-01-08 00:27:35
 
 整域でない環に思いを馳せた.
-alg\_{}d 2012-01-08 00:35:50
+alg$_d$ 2012-01-08 00:35:50
 
-@alg\_{}d 非可換環
+@alg$_d$ 非可換環
 phasetr 2012-01-08 14:13:42
 
-@phase\_{}tr 両側イデアルでない右イデアル
-alg\_{}d 2012-01-08 14:22:52
+@phase$_{\mathrm{tr}}$ 両側イデアルでない右イデアル
+alg$_d$ 2012-01-08 14:22:52
 
-@alg\_{}d 左閉イデアルなら大量生産できます
+@alg$_d$ 左閉イデアルなら大量生産できます
 phasetr 2012-01-08 14:27:33
 
-@phase\_{}tr 「大量」とは具体的にはどのくらいでしょうか.
-alg\_{}d 2012-01-08 14:28:34
+@phase$_{\mathrm{tr}}$ 「大量」とは具体的にはどのくらいでしょうか.
+alg$_d$ 2012-01-08 14:28:34
 
-@alg\_{}d 非可算無限程度なら. 作用素環で大事な GNS 構成定理というのがありますが,
+@alg$_d$ 非可算無限程度なら. 作用素環で大事な GNS 構成定理というのがありますが,
 これは作用素環上の有界線型汎関数の kernel みたいなのからヒルベルト空間などを作る定理です.
 この kernel みたいなのが大雑把に線型汎関数の分だけあります.
 phasetr 2012-01-08 14:30:46
 
-@phase\_{}tr そんなにたくさん作って, 一体何を企んでるんですか.
-alg\_{}d 2012-01-08 14:32:27
+@phase$_{\mathrm{tr}}$ そんなにたくさん作って, 一体何を企んでるんですか.
+alg$_d$ 2012-01-08 14:32:27
 
-@alg\_{}d 最近ヒッグスなどで自発的対称性の破れというのが取り沙汰されていますが,
+@alg$_d$ 最近ヒッグスなどで自発的対称性の破れというのが取り沙汰されていますが,
 ここでは非可算無限個 (例えば $U (1)$ くらい) の線型汎関数を重ね合わせて線型汎関数を 1 つ作ったりします.
 物理の実用上どうしても必要です.
 phasetr 2012-01-08 14:37:14
 
-@phase\_{}tr 自発的対称性の破れってそういうの使うんですか. よく分かりませんが凄いです.
-alg\_{}d 2012-01-08 14:40:16
+@phase$_{\mathrm{tr}}$ 自発的対称性の破れってそういうの使うんですか. よく分かりませんが凄いです.
+alg$_d$ 2012-01-08 14:40:16
 
-@alg\_{}d 直和の代わりに直積分とか使いますが, 気持ちの上では大したことはしません.
+@alg$_d$ 直和の代わりに直積分とか使いますが, 気持ちの上では大したことはしません.
 めんどいのはテクニカルな部分だけだと見ています.
 phasetr 2012-01-08 14:42:28
 
-@phase\_{}tr 直積分 wwwwwwwwwwww フヒヒ wwwwwwww
-alg\_{}d 2012-01-08 14:43:40
+@phase$_{\mathrm{tr}}$ 直積分 wwwwwwwwwwww フヒヒ wwwwwwww
+alg$_d$ 2012-01-08 14:43:40
 
 直積分ってなんぞ www 恐ろしい語感に衝撃を受けた.
-alg\_{}d 2012-01-08 14:45:17
+alg$_d$ 2012-01-08 14:45:17
 
 【 Direct integral 】
 http://t.co/sTQT3B6T
-alg\_{}d 2012-01-08 14:45:38
+alg$_d$ 2012-01-08 14:45:38
 
 インテグラルの上に$\oplus$ が付いていて笑劇を受けている.
-alg\_{}d 2012-01-08 14:50:04
+alg$_d$ 2012-01-08 14:50:04
 
-@alg\_{}d von Neumann が導入したというように書いてありますが,
+@alg$_d$ von Neumann が導入したというように書いてありますが,
 実際に von Neumann 環の分類では環を直積分分解して簡単な所に還元します.
 特に中心が自明な環 (歴史的に因子, factor と呼ぶ) に落とし込むので factor の解析が大事です.
 物理でもこれが出ます.
@@ -12110,25 +13770,25 @@ phasetr 2012-01-08 14:55:04
 phasetr 2012-01-08 14:58:56
 
 直積分とは何か知らない僕に花束を
-life\_{}wont\_{}wait 2012-01-08 15:01:42
+life$_{\mathrm{wont}}$$_{\mathrm{wait}}$ 2012-01-08 15:01:42
 
-@life\_{}wont\_{}wait 強磁性を考えます.
+@life$_{\mathrm{wont}}$$_{\mathrm{wait}}$ 強磁性を考えます.
 理論的には磁化の方向はどこを向いていても構わないので $SO (3)$ だけの自由度があります.
 $SO (3)$ の分だけ基底状態がありますが, これの重ね合わせもまた基底状態になります.
 重ね合わせを数学的に書くと直積分になるというだけです.
 phasetr 2012-01-08 15:08:54
 
-@phase\_{}tr 無限次元空間の基底の線型結合とかですか?
-life\_{}wont\_{}wait 2012-01-08 15:12:41
+@phase$_{\mathrm{tr}}$ 無限次元空間の基底の線型結合とかですか?
+life$_{\mathrm{wont}}$$_{\mathrm{wait}}$ 2012-01-08 15:12:41
 
-@life\_{}wont\_{}wait 規格化したいので正確には凸結合ですし,
+@life$_{\mathrm{wont}}$$_{\mathrm{wait}}$ 規格化したいので正確には凸結合ですし,
 ベクトルだけでなく, 汎関数, 空間, 演算子全て直積分で書くことになりますが大体そんな感じです
 
 phasetr 2012-01-08 15:16:57
-@phase\_{}tr 空間も…了解ありがとうございます. やはりルベーグ積分必須な感じですか?
+@phase$_{\mathrm{tr}}$ 空間も…了解ありがとうございます. やはりルベーグ積分必須な感じですか?
 
-life\_{}wont\_{}wait 2012-01-08 15:20:27
-@life\_{}wont\_{}wait 数学的にきちんとやりたいならもちろん必要ですが, そんなものはどうでもいいでしょう.
+life$_{\mathrm{wont}}$$_{\mathrm{wait}}$ 2012-01-08 15:20:27
+@life$_{\mathrm{wont}}$$_{\mathrm{wait}}$ 数学的にきちんとやりたいならもちろん必要ですが, そんなものはどうでもいいでしょう.
 対称性の群が連続群だから連続にして, それで積分になったというだけです.
 うるさいことを言う人には「数学やりたければ数学科に行け」と言っておいてください.
 phasetr 2012-01-08 15:23:00
@@ -12457,7 +14117,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
 今後の主役でもある.
 \begin{align}
  r_k (t)
- :=
+ \defeq
  1 - 2 \varepsilon_k (t), \quad k \in \bbZ_+. \label{Hinashiro_math_party_1_probability_4}
 \end{align}
 これを使って 2 進展開を書き直そう.
@@ -12713,7 +14373,7 @@ $r_1$ から $r_n$ のうち, ちょうど $l$ 個が $+1$ になる $t$ の集�
 となるから
 \begin{align}
  \phi (t)
- :=
+ \defeq
  \frac{1}{2 \pi} \int_0^{2 \pi} \exp \sqbk{ix \rbk{\sum_{k=1}^{n} r_k (t) - \rbk{2l-n}}} dx
  =
  \begin{cases}
@@ -13056,10 +14716,10 @@ $0 < \varepsilon$, $2 \varepsilon < \omega_2 - \omega_1$ として
 ところで $\xi$ の関数 ($\gvarepsilonplus$, $\gvarepsilonminus$ の逆 Fourier 変換)
 \begin{align}
  G_{\varepsilon}^{-} (\xi)
- :=
+ \defeq
  \int_{\bbR} \gvarepsilonminus (y) e^{iy \xi} dy, \quad
  G_{\varepsilon}^{+} (\xi)
- :=
+ \defeq
  \int_{\bbR} \gvarepsilonplus (y) e^{iy \xi} dy, \quad
 \end{align}
 は絶対可積分になる.
@@ -13111,21 +14771,21 @@ So we state a theorem on it.
 It relates to quantum field theory.
 
 We set some notations.
-The function $\omega \colon \mathbb{R}^3 \to \mathbb{R}_{\geq}$ is $\omega (k) := \sqrt{k^2 + m^2}$, $m > 0$,
+The function $\omega \colon \mathbb{R}^3 \to \mathbb{R}_{\geq}$ is $\omega (k) \defeq \sqrt{k^2 + m^2}$, $m > 0$,
 and the real Hilbert space $H^{-1/2} (\mathbb{R}^3)$ is defined by
 \begin{align}
  H^{-1/2} (\mathbb{R}^3)
- :=
+ \defeq
  \set{f \in \realtempereddist (\mathbb{R}^3)}{\omega^{-1/2} \hat{f} \in L^2 (\mathbb{R}^3)}.
 \end{align}
 For any (separable) Hilbert space $\calK$ we set a new Hilbert space, called a (boson) Fock space \cite{AsaoArai1, AsaoArai2}, by
 \begin{align}
  \calFb (\calK)
- :=
+ \defeq
  \bigoplus_{n=0}^{\infty} \bigotimes_{\mathrm{s}}^n \calK,
 \end{align}
 where $\oplus$ means a direct sum, $\otimes_{\mathrm{s}}$ means a symmetric tensor product,
-and  $\otimes_{\mathrm{s}}^0 \calK := \mathbb{C}$.
+and  $\otimes_{\mathrm{s}}^0 \calK \defeq \mathbb{C}$.
 
 Then we can state a
 \begin{thm}(\cite{AraiEzawa3}, Theorem 4.4.1)
@@ -13175,13 +14835,13 @@ Let $\calH$ and $\calK$ be separable Hilbert spaces
 and define a \textbf{Fermion Fock space} by
 \begin{align}
  \calFf (\calK)
- :=
+ \defeq
  \bigoplus_{n=0}^{\infty} \bigotimes_{\mathrm{as}}^n \calK,
 \end{align}
 where $\bigotimes_{\mathrm{as}}^n$ means an antisymmetric tensor product.
 We define the Hilbert space $\calF (\calH, \calK)$ by
 \begin{align}
- \calF := \calF (\calH, \calK) := \calFb (\calH) \bigotimes \calFf (\calK).
+ \calF \defeq \calF (\calH, \calK) \defeq \calFb (\calH) \bigotimes \calFf (\calK).
 \end{align}
 This space relates to supersymmetric quantum field theory.
 
@@ -13216,19 +14876,19 @@ $\Sigma$ is a $\sigma$-algebra on a space $M$ and $\mu$ is a probability measure
 A real-valued measurable function on a measurable space $(M, \Sigma)$ is called a \textbf{random variable}.
 For a random variable $f$ we define a \textbf{expectation} for $\mu$ by
 \begin{align}
- \E{f} := \int_M f \, d \mu.
+ \E{f} \defeq \int_M f \, d \mu.
 \end{align}
 
 A set of random variables of finite number $\cbk{f_1, \dots, f_n}$ is called \textbf{Gaussian}
 if its characteristic function has the following form:
 \begin{align}
  C_{f_1, \dots, f_n} (t_1, \dots, t_n)
- :=
+ \defeq
  \E{\exp \sqbk{i \sum_{i=1}^n t_i f_i}}
  =
  \exp \sqbk{- \frac{1}{2} \sum_{i,j}^{n} a_{i,j} t_i t_j}, \quad t_i \in \bbR,
 \end{align}
-where $A := \cbk{a_{i,j}}$ is a real positive definite matrix.
+where $A \defeq \cbk{a_{i,j}}$ is a real positive definite matrix.
 
 In the following we denote Gaussian random variables as GRV.
 One of GRVs' fundamental property is
@@ -13288,7 +14948,7 @@ and extend it by linearity for $\cbk{f_i}$ polynomials.
  Then, for any $\alpha \in \bbC$,
  \begin{align}
   \wick{e^{\alpha f}}
-  :=
+  \defeq
   \sum_{n=0}^{\infty} \frac{\wick{f^n}}{n!} \alpha^n
  \end{align}
  is defined by a.e. absolute convergence and it holds that
@@ -13336,7 +14996,7 @@ In the following we consider its fundamental structures, uniquness, existence.
  Suppose $\cbk{f_{\alpha}}_{\alpha \in I}$ is a set of random variables on a probability space $(M, \Sigma, \mu)$ with index $I$ and set
  \begin{align}
   \calA
-  :=
+  \defeq
   \set{F (f_{\alpha_1}, \dots, f_{\alpha_n})}{F \in \calS (\bbR^n), \alpha_i \in I, n \geq 1}.
  \end{align}
  A set $\cbk{f_{\alpha}}$ is full if and only if $\calA$ is dense in $L^2 (M, d \mu)$.
@@ -13346,7 +15006,7 @@ In the following we consider its fundamental structures, uniquness, existence.
  Denote $H = L^2 (M, d \mu)$.
  We consider the following action of $F \in \calA$ over $\Psi \in H$, i.e.,
  \begin{align}
-  (F \Psi) (m) := F (m) \Psi (m), \quad m \in M.
+  (F \Psi) (m) \defeq F (m) \Psi (m), \quad m \in M.
  \end{align}
  The set $\calA$ becomes a non-unital abelian *-subalgebra of the operator algebra of all bounded operators on $H$.
  Then the strong operator topological closure $\calA_S$ is an abelian von Neumann algebra.
@@ -13366,9 +15026,9 @@ In the following we consider its fundamental structures, uniquness, existence.
  We define closed subspaces $\Gamma_n (H)$, $n \geq 0$, of $L^2 (Q, d \mu)$ as follows:
  \begin{align}
   \Gamma_0 (H)
-  &:= \bbC, \\
+  &\defeq \bbC, \\
   \Gamma_n (H)
-  &:=
+  &\defeq
   \overline{\set{\colon \phi (f_1) \cdots \phi (f_n) \colon}{f_j \in H, j = 1, \cdots, n}}.
  \end{align}
  Then we have
@@ -13412,13 +15072,13 @@ In the proof we use the following interesting orthogonal properties.
  Let $H$ be a separable real Hilbert space and $\cbk{e_n}_{n=1}^{\infty}$ is a CONS.
  Set $\dot{\bbR}$ be the one-point compactification
   \begin{align}
-   \dot{\bbR} := \bbR \bigcup \cbk{\infty}
+   \dot{\bbR} \defeq \bbR \bigcup \cbk{\infty}
   \end{align}
  and $\bbR^{(n)}$ is a copy of $\dot{\bbR}$.
  Then
  \begin{align}
   Q
-  :=
+  \defeq
   \prod_{n=1}^{\infty} \bbR^{(n)}
  \end{align}
  is a compact Hausdorff space by Tychonoff's theorem.
@@ -13427,7 +15087,7 @@ In the proof we use the following interesting orthogonal properties.
  We set a functional $l$ for $F \in C_{\mathrm{fin}} (Q)$ by
  \begin{align}
   l (F)
-  :=
+  \defeq
   \frac{1}{\pi^{n/2}} \int_{\bbRn} F (x_1, \dots, x_n) \exp \sqbk{- \sum_{i=1}^{n} x_i^2} dx_1 \cdots dx_n.
  \end{align}
  The functional $l$ is a continuous linear functional on $C_{\mathrm{fin}} (Q)$.
@@ -13443,7 +15103,7 @@ In the proof we use the following interesting orthogonal properties.
 
  We define a real valued function $\phi (e_n)$ on $Q$, for each $e_n$, by
  \begin{align}
-  \phi (e_n) (q) := x_n, \quad q = \cbk{x_k}_{k=1}^{\infty} \in Q.
+  \phi (e_n) (q) \defeq x_n, \quad q = \cbk{x_k}_{k=1}^{\infty} \in Q.
  \end{align}
  Functions $\cbk{\phi (e_n)}$ are random variables on $Q$ and clearly $\phi (e_n) \in L^2 (Q, d \mu)$.
  Hence $\cbk{\phi (e_n)}_{n=1}^{\infty}$ is full.
@@ -13454,7 +15114,7 @@ In the proof we use the following interesting orthogonal properties.
  Set functions
  \begin{align}
   \phi_n (f)
-  :=
+  \defeq
   \sum_{k=1}^{n} \alpha_k \phi (e_k).
  \end{align}
  The sequence $\cbk{\phi_n (f)}$ converges in $L^2 (Q)$ because, for $n > m$, we have
@@ -13532,7 +15192,7 @@ genereted by the above cylinder sets.
 \begin{proof}
  A characteristic function of a Gaussian superprocess indexed by $H$ is given by
  \begin{align}
-  C (f) := \E{e^{i \phi (f)}} = \exp \sqbk{- \frac{1}{4} \norm{f}^2}.
+  C (f) \defeq \E{e^{i \phi (f)}} = \exp \sqbk{- \frac{1}{4} \norm{f}^2}.
  \end{align}
  Since $\realrapiddecrease (\bbRnu) \subset H$, $C (\cdot)$ is a functional on $\realrapiddecrease (\bbRnu)$ and $C (0)=1$.
  By the assumption 2, a correspondense $f \to C (f)$ is continuous in the strong topology of $\realrapiddecrease (\bbRnu)$.
@@ -13541,14 +15201,14 @@ genereted by the above cylinder sets.
  \begin{align}
   C (f) = \int_{\realtempereddist (\bbRnu)} e^{i T (f)} d \mu (T), \quad f \in \realrapiddecrease (\bbRnu).
  \end{align}
- Define $\phi (f) (T) := T (f)$, $T \in \realtempereddist$, $f \in \realrapiddecrease$.
+ Define $\phi (f) (T) \defeq T (f)$, $T \in \realtempereddist$, $f \in \realrapiddecrease$.
  Then $\phi (f)$ becomes a GRV on $(\realtempereddist (\bbRnu), d \mu)$ and satisfies
  \begin{align}
   \E{\phi (f) \phi (g)} = \frac{1}{2} \bkt{f}{g}, \quad f, g \in \realrapiddecrease (\bbRnu).
  \end{align}
  The assumption 1 shows that we can define $\phi (f)$ for $f \in H$ by
  \begin{align}
-  \phi (f) := \lim_{n \to \infty} \phi (f_n), \quad \norm{f_n - f}_{H} \to 0.
+  \phi (f) \defeq \lim_{n \to \infty} \phi (f_n), \quad \norm{f_n - f}_{H} \to 0.
  \end{align}
  Since $\abs{e^{ix} - e^{iy}} \leq \abs{x - y}$, we obtain
  \begin{align}
@@ -13608,9 +15268,6 @@ One is abstract and uses \textbf{nuclear extension}.
 The other is concrete and uses a \textbf{quantum mechanical harmonic oscillator}
 \chapter{Talk: Lecture on ergodic theory}
 \label{sec-8-3}
-
-This note is based on a course for third-year Bachelor students in the May of 2014.
-See \cite{OmriSarig1, MarkKac1} ror details.
 \chapter{Statistics for idol management}
 \label{sec-8-4}
 

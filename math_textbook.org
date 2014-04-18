@@ -1,19 +1,14 @@
 #+TITLE: Math textbook
 #+AUTHOR: 相転移 P (@phasetr)
-#+EMAIL: phasetr@gmail.com
+#+EMAIL: phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com
 #+LANGUAGE: ja
 #+OPTIONS: toc:t num:t author:t creator:nil LaTeX:t ^:t email:t H:10
 #+INFOJS_OPT: view:nil
 #+LATEX_CLASS: book
 #+LATEX_CLASS_OPTIONS: [openany, a4paper, oneside]
+#+LATEX_HEADER: \usepackage[top=10truemm,bottom=20truemm,left=15truemm,right=15truemm]{geometry}
 #+LATEX_HEADER: \usepackage[dvipdfmx]{graphicx, hyperref}
 #+LATEX_HYPER: nil
-#+LATEX_HEADER: % \usepackage{atbegshi}
-#+LATEX_HEADER: % \ifnum 42146=\euc"A4A2
-#+LATEX_HEADER: %   \AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}}
-#+LATEX_HEADER: % \else
-#+LATEX_HEADER: %   \AtBeginShipoutFirst{\special{pdf:tounicode 90ms-RKSJ-UCS2}}
-#+LATEX_HEADER: % \fi
 #+LATEX_HEADER: \usepackage{makeidx}
 #+LATEX_HEADER: \makeindex
 #+LATEX_HEADER: \usepackage{url}
@@ -62,7 +57,6 @@
 #+LATEX_HEADER: }{%
 #+LATEX_HEADER:   \end{list}%
 #+LATEX_HEADER: }
-#+LATEX_HEADER: \usepackage{amsthm}
 #+LATEX_HEADER:
 #+LATEX_HEADER: \makeatletter
 #+LATEX_HEADER:     \renewcommand{\theequation}{\thesection.\arabic{equation}}
@@ -433,6 +427,11 @@ The historical connections with topology, regular local rings, and semisimple Li
 - はじめにアーベル圏とは何だったか思い出す必要がある. \cite{CharlesWeibel1}
 First we need to recall what an abelian category is.
 
+- 前の節で説明したように, 粒子の座標は $\bbRthree \times \cbk{1, \dots, q}$ 内の点,
+  つまり点 $x \in \bbRthree$ と点 $\sigma \in \cbk{1, \dots, q}$ で表す. \cite{LiebSeiringer1}
+As explained in the previous section, the coordinate of a particle is a point in $\bbRthree \times \cbk{1, \dots, q}$, i.e.,
+a point $x \in \bbRthree$ and a point $\sigma \in \cbk{1, \dots, q}$.
+
 - まとめると.
 In summary.
 
@@ -521,6 +520,9 @@ Homological algebra is a tool used in several branches of mathematics: algebraic
 commutative ring theory, and algebraic geometry.
 ** Physical English
 *** Words
+- 要請.
+postulate.
+
 *** Sentences
 - Einstein の相対論的運動学がどんな効果をもたらすだろうか. \cite{LiebSeiringer1}
 What effect does Einstein's relativistic kinematics have?
@@ -528,6 +530,10 @@ What effect does Einstein's relativistic kinematics have?
 - $Z \alpha$ が非常に大きい婆に 1 原子のときですら磁場が不安定性を引き起こす可能性があるとわかったとき, また新たな不等式が必要になった. \cite{LiebSeiringer1}
 Again new inequalities were needed when it was realized that magnetic fields
 could also cause instabilities, even for just one atom, if $Z \alpha$ is too large.
+
+- ある粒子種の波動関数として許される関数はその種に特有のある置換対称性を持つ型に限られるというのが量子力学の基本的な要請だ. \cite{LiebSeiringer1}
+It is a basic postulate of quantum mechanics that the allowed wave functions for a given particle species
+must belong to some definite permutation symmetry type which is characteristic of that species.
 
 - 安定性に関する結論は精妙で普通の物理の学生が使える初等的な道具立てで簡単に導出できるわけでもないのに,
   今日でさえほとんどの物理の教科書で議論されておらず, 問題が指摘されることすらない. \cite{LiebSeiringer1}
@@ -586,6 +592,10 @@ The fundamental theory that underlies the physicist's description of the materia
 
 - 物理学者は量子力学を原子・分子レベルでの`万物の理論'だと固く信じている. \cite{LiebSeiringer1}
 Physicists firmly believe that quantum mechanics is a `theory of everything' at the level of atoms and molecules.
+
+- 物理の文献では対称性の型の選択を波動関数か粒子の\textbf{統計}と呼ぶことがよくある. \cite{LiebSeiringer1}
+It is common in the physics literature to refer to the choice of symmetry type as the
+*statistics* of the particles or of their wave function.
 
 - 量子力学と古典力学の関係は半古典近似で明らかになる. \cite{LiebSeiringer1}
 The connection between quantum mechanics and classical mechanics becomes apparent
@@ -729,7 +739,7 @@ Sum and scalar multiplication defined above satisfy the axioms of a linear space
 Thus we conclude a space of functions is a linear one[fn:linear-algebra-and-calculus-5].
 [fn:linear-algebra-and-calculus-5]A function space is linear if an image of its elements is a linear space.
 Function spaces can be non-linear, e.g., an image of its elements is a manifold or general set.
-**** Function spaces: examples of infinite dimensional dimensional spaces
+**** Function spaces: examples of infinite dimensional spaces
 We have infinitely many infinite dimensional objects.
 Examples are weather maps and wind direction maps.
 
@@ -827,7 +837,8 @@ However they sometimes appears in entrance exams.
  A real number $\lambda$ resp. a vector $f$ are called an \upbf{eigenvalue} resp. \upbf{eigenvector}
  if they satisfy
  \begin{align}
-  A f = \lambda f.
+  A f = \lambda f, \quad
+  f \neq 0.
  \end{align}
 \end{defn}
 Here are examples.
@@ -889,6 +900,13 @@ We use statistics in many branches, including humanities and sociology.
 E.g., natural language processing has many humanity and infomation theoretic elements.
 This area needs broad knowledge including probability and statistics.
 Interested readers should learn, e.g., principal component analysis.
+**** Linear algebra and computer science
+We have applications in computer science.
+In numerical analysis we use linear algebra.
+See the code theoery or Google's page rank for real world application.[fn:linear-algebra-and-calculus-introduction-to-university-mathematics1]
+
+[fn:linear-algebra-and-calculus-introduction-to-university-mathematics1]See, e.g, my movies,
+http://www.nicovideo.jp/watch/sm7599426, http://www.nicovideo.jp/watch/sm10684363.
 *** Integration
 **** Let's define inner products!
 In this talk we mainly consider real linear spaces, e.g., $\bbRd$.
@@ -902,7 +920,8 @@ this projection comes from orthogonal projection,
 and it is just a shadow of objects in three dimensional objects when
 one shine a light from above.
 
-At first we consider how to define angles between infinite dimensional vectors.
+At first we consider how to define angles between infinite dimensional vectors,
+especially, functions.
 Take a look at the following inner product formula in high school.
 \begin{align}
  a \cdot b
@@ -941,7 +960,7 @@ There are several notations for an inner product such as
 \begin{align}
  \rbk{f, g}, \quad \rbk{f | g}, \quad \langle f | g \rangle.
 \end{align}
-The last one is the Dirac's braket notation in quantum mechanics.
+The last one is the famous Dirac's braket notation in quantum mechanics.
 ***** Inner products in higher dimensional spaces
 We wrote an inner product as
 \begin{align}
@@ -1037,6 +1056,9 @@ A Hilbert space is famous as a space where wave functions in quantum mechanics l
    \bkt{f}{f} = 0 \Longleftrightarrow f = 0.
   \end{align}
 \end{axm}
+\begin{rem}
+ The usual three dimensional inner product satisfies the above, of course.
+\end{rem}
 **** Examples of inner products
 There are many inner products in a function space.
 Let $\Omega$ be a (open) subset of $\bbR$ and $h \colon \Omega \to \bbR_{\geq}$ be a function satisfying
@@ -1082,7 +1104,7 @@ Then we get the following expressions.
  &= 0.
 \end{align}
 This means that the functions $\cbk{\cos nx}$ and $\cbk{\sin nx}$ are orthogonal.
-This relates to the famous Forier series expansion.
+This relates to the famous Fourier series expansion.
 This is used for wave analysis in physics.
 **** Physics for the space $L^2 \rbk{\Omega}$
 The symbol $L^2 \rbk{\Omega}$ in the title means
@@ -1214,10 +1236,10 @@ self-adjoint operator $p$)
 \end{align}
 Then the above solutions are
 \begin{align}
- k \in \bbZ, \quad
  f_k(x)
  =
- e^{ikx}.
+ e^{ikx}, \quad
+ k \in \bbZ.
 \end{align}
 Euler's formula says
 \begin{align}

@@ -10184,6 +10184,328 @@ Stone の定理と量子力学の話とかも一応入れる予定.
 また, こちらに興味があるという人は声をかけてほしい.
 トークしろと言われると困る部分はあるが, 一緒に勉強しようというなら時間さえ合えば付き合いたい.
 そしてプロデュースしたい.
+** Introduction to fixed point theorem and its simple application
+*** Introduction
+学部四年のセミナーで話した内容の一部です[fn:functional_analysis_fixed_point_theorem_and_its_simple_application_yukimi1].
+参考文献は\cite{HisayaMasuda1, HisayaMasuda2, ShizuoMiyajima2}.
+[fn:functional_analysis_fixed_point_theorem_and_its_simple_application_yukimi1]From a yukimi's page, http://yukimigo.com/math/.
+The original version is reprinted with the written consent of the author.
+*** Contents
+\begin{defn}
+ $f$ を集合 $\Omega$ から $\Omega$ への写像とする.
+ $f (x)=x$ をみたす $x \in \Omega$ を $f$ の \textbf{不動点} という.
+\end{defn}
+
+たとえば
+\begin{equation}
+ x (t)
+ =
+ t + \frac{1}{2} \sin x (t) \quad (-1 \le t \le 1)
+\end{equation}
+をみたす $[-1, 1]$ 上の連続関数  $x (t)$  が存在するか, という問題は
+\begin{equation}
+ f (x) (t)
+ =
+ t + \frac{1}{2} \sin x (t) \quad  (-1 \le t \le 1)
+\end{equation}
+なる $f$ が不動点をもつか, という問題に帰着される.
+そのためにもっとも簡単なのは $f$ が縮小写像の場合である.
+*** Banach's fixed point theorem
+\begin{thm}[Banach の不動点定理]
+ $(X, d)$ を完備距離空間とする.
+ $f \colon X \to X$ が縮小写像, つまりある $0 < k <1$ で
+ \begin{equation}
+  d (f (x), f (y))
+  \le
+  kd (x, y) \quad  (x, y \in X)
+ \end{equation}
+ となるとき, $f$ は $X$ にただ 1 つの不動点をもつ.
+\end{thm}
+\begin{proof}
+仮定から
+\begin{equation}
+ d (f^n (x), f^n (y))
+ \le
+ kd \rbk{f^{n-1}(x), f^{n-1}(y)}
+ \le
+ \cdots
+ \le
+ k^nd (x, y)
+\end{equation}
+である.
+$n, p \ge 0$ として三角不等式を使うと
+\begin{align}\label{functional_analysis_fixed_point_theorem_and_its_simple_application_yukimi2}
+ d (f^n (y), f^{n+p}(y))
+ &\le d (f^n (y), f^{n+1}(y)) + \cdots
+  +d (f^{n+p-1}(y), f^{n+p}(y))  \\
+ &\le
+ \rbk{k^n + \cdots + k^{n+p-1}} d (y, f (y))
+\end{align}
+$\sum_{n=1}^{\infty} k^n = \frac{k}{1-k} < \infty$ に注意すると,
+$n, p \to \infty$ で (\ref{functional_analysis_fixed_point_theorem_and_its_simple_application_yukimi2}) の右辺が $0$ に収束するから,
+$\cbk{f^n (y)}$ は Cauchy 列である.
+$X$ が完備なのである $x \in X$ で $f^n (y) \to x$ となる.
+\begin{align}
+ d(x, f (x))
+ &\le
+ d (x, f^{n+1}(y)) + d (f^{n+1}(y), f (x))  \\
+ &\le
+ d (x, f^{n+1}(y)) + kd (f^n (y), x) \to 0 \quad \rbk{n \to \infty}
+\end{align}
+したがって $f (x) = x$ がわかる.
+一意性も三角不等式と $f^n (x) = x$ で示せる.
+$\heartsuit$
+\end{proof}
+
+上の問題の場合, 完備距離空間として $[-1, 1]$ 上の連続関数の全体
+$C ([-1, 1])$ をとれば, 任意の $x, y \in X$ について
+\begin{align}
+ f(y) (t) - f(x) (t)
+ &=
+ \frac{1}{2} \int_0^1 \frac{d}{ds} \sin \rbk{x (t) + s \rbk{y (t) - x (t)}} ds \\
+ &=
+ \frac{1}{2} \int_0^1 \cos \rbk{x (t) + s \rbk{y (t) - x (t)}} ds \rbk{y (t) - x (t)}
+\end{align}
+だから max をとれば $k = 1/2$ で $f$ が縮小写像となることがわかる.
+*** Brouwer' fixed point theorem
+$[-1, 1]$ から自分自身への連続関数は一般に縮小写像でないが, 中間値の定理から不動点をもつことはわかる.
+実際, $g (x) \defeq x - f (x)$ とすると $g (-1) \le 0$,
+$g (1) \ge 0$ だからどちらかが等号成立のときは対応する点が不動点となり,
+$g (-1) < 0$,  $g (1) > 0$ ならば $g (x_0) = 0$ となる $x_0$ が区間 $(-1, 1)$ に存在するから, その点が不動点となる.
+このことを有限次元空間に一般化したのが Brouwer の不動点定理である.
+\begin{thm}[Brouwer の不動点定理]
+ $\Omega$ を $\mathbb{R}^n$ の有界凸閉集合とする.
+ $f \colon \Omega \to \Omega$ が連続写像であれば $f$ は $\Omega$ に不動点をもつ.
+\end{thm}
+これから代数学の基本定理などが証明される.
+初等的な証明と写像度を使う証明があるが, どちらにしろたいへん.
+\cite{HisayaMasuda2} 参照.
+*** Schauder's fixed point theorem
+Brouwer の不動点定理は一般に無限次元空間では成立しないが,
+無限次元空間における不動点定理として Schauder の不動点定理がある.
+\begin{lem}
+ $X$ をノルム空間, $\Omega$ を $X$ の空でない凸集合,
+ $K$ を $\Omega$ のコンパクト集合とする.
+ このとき任意の $\varepsilon > 0$ に対して $K$ の元 $x_1, \dots , x_m$ を適当に選べば
+ \begin{equation}
+  \norm{Px - x}
+  <
+  \varepsilon \quad \rbk{x \in K}
+ \end{equation}
+ となる, $K$ から $\co K \defeq \co \rbk{x_1, \dots , x_m}$ への連続写像 $P$ がある.
+ ここで $\co \rbk{x_1, \dots , x_m}$ は
+ $x_1, \dots , x_m$ をふくむ最小の凸集合 (凸包) である.
+ この $P$ を\textbf{Schauder 射影作用素}という.
+\end{lem}
+\begin{proof}
+$K$ は全有界だからある $K$ の元 $x_1, \dots , x_m$ で
+\begin{equation}\label{functional_analysis_fixed_point_theorem_and_its_simple_application_yukimi3}
+ K
+ \subset
+ \bigcup_{j=1}^m B \rbk{x_j, \frac{\varepsilon}{2}}
+\end{equation}
+とできる.
+ここで $B (x_j, \varepsilon / 2)$ は中心 $x_j$, 半径 $\varepsilon$ の開球.
+さらに
+\begin{equation}
+ \mu_j(x)
+ \defeq
+ \max \cbk{1 - \frac{2}{\varepsilon} \norm{x - x_j}, 0}, \quad
+ \mu (x)
+ \defeq
+ \sum_{j=1}^m \mu_j (x)
+\end{equation}
+とすると, 各 $x \in K$ に対して $\mu_j (x) > 0$ を満たす $j$ がひとつはある.
+実際, そうでないとすると $\varepsilon / 2 \le \norm{x - x_j}$ となり,
+(\ref{functional_analysis_fixed_point_theorem_and_its_simple_application_yukimi3}) に反する.
+したがって $\mu (x) > 0$ である.
+ノルムの連続性から $\mu_j (x)$ は $x$ について連続で,
+$\lambda_j (x) \defeq \mu_j (x) / {\mu (x)}$ も $K$ 上連続である.
+\begin{align}
+ \co K
+ =
+ \set{\sum_{j=1}^m \lambda_j x_j}{\lambda_j \ge 0, \sum_{j=1}^m \lambda_j = 1}
+\end{align}
+だから,
+\begin{equation}
+ Px
+ \defeq
+ \sum_{j=1}^m \lambda_j (x) x_j \quad (x \in K)
+\end{equation}
+と定めると, $P$ は $K$ から $\co K$ への連続写像である.
+\begin{equation}
+ \norm{Px - x}
+ \le
+ \sum_{j=1}^m \lambda_j (x) \norm{x_j - x}
+\end{equation}
+だが,  $\norm{x_j - x} \ge \varepsilon / 2$ なら $\mu_j (x) = 0$ だから $\norm{x - x_j} < \varepsilon / 2$ についての和だけ考えればよく,
+\begin{equation}
+ \norm{Px - x}
+ <
+ \frac{\varepsilon}{2} \sum_{j=1}^m \lambda_j (x)
+ =
+ \frac{\varepsilon} {2}
+ < \varepsilon
+\end{equation}
+である.
+$\heartsuit$
+\end{proof}
+\begin{thm}[Schauder の不動点定理]
+ $X$ をノルム空間, $\Omega$ を空でない $X$ の凸集合とする.
+ ある $\Omega$ のコンパクト集合 $K$ があって,  $f \colon \Omega \to K$ が連続写像ならば $f$ は $\Omega$ の中に不動点をもつ.
+\end{thm}
+\begin{proof}
+$\Omega$ は凸集合で $K \subset \Omega$ と $\co K$ が $x_1, \dots , x_m$
+をふくむ最小の凸集合であることから $\co K \subset \Omega$ である.
+$\bbRn$ の有界凸閉集合
+\begin{align}
+ S
+ \defeq
+ \set{\sigma = (\sigma_1, \dots , \sigma_m) \in \bbRn}{\sum_{j=1}^m \sigma_j = 1, \sigma_j \ge 0}
+\end{align}
+から $\co K$ への連続写像を
+\begin{equation}
+ J \sigma
+ \defeq
+ \sum_{j=1}^m \sigma_j x_j
+\end{equation}
+で定めると, 補題の $\lambda_i$ で
+\begin{equation}
+ g (\sigma)
+ \defeq
+ \rbk{\lambda_1 (f (J\sigma)), \dots , \lambda_m (f (J\sigma))}
+\end{equation}
+は $\lambda_i$, $f$,  $J$ のすべてが連続だから $S$ から $S$ への連続写像となる.
+したがって Brouwer の不動点定理から $g$ は不動点 $\sigma^\varepsilon$ を $S$ の中にもつ.
+つまり,
+\begin{equation}
+ \lambda_j (f (J\sigma^\varepsilon))
+ =
+ \sigma_j^\varepsilon
+\end{equation}
+で, これは $\sigma^\varepsilon$ の $j$ 成分だ.
+ここから
+\begin{equation}
+ P (f (J\sigma^{\varepsilon}))
+ =
+ \sum_{j=1}^m \lambda_j (f (J\sigma^{\varepsilon})) x_j
+ =
+ \sum_{j=1}^m \sigma_j^{\varepsilon} x_j
+ =
+ J\sigma^{\varepsilon}
+\end{equation}
+だから, $x_\varepsilon \defeq J \sigma^\varepsilon$ は $P(f(x))$ の不動点である.
+さらに, $x_\varepsilon \in \co K \subset \Omega$ なので定理の仮定から
+$f (x_\varepsilon) \in K$ である.
+よって補題の $\norm{Px - x} < \varepsilon$ から
+\begin{equation}
+ \norm{x_{\varepsilon} - f (x_{\varepsilon})}
+ =
+ \norm{P (f (x_\varepsilon)) - f (x_\varepsilon)}
+ <
+ \varepsilon.
+\end{equation}
+$K$ はコンパクトだから $\{f (x_\varepsilon)\}$ から $\varepsilon \to 0$ のとき収束する部分列
+$\cbk{f (x_{\varepsilon'})}$ がとれる.
+$f (x_{\varepsilon'}) \to x_0$ とすれば, $K$ は閉だから $x_0 \in K$ であり,
+\begin{align}
+ \norm{x_{\varepsilon'} - x_0}
+ &\le
+ \norm{x_{\varepsilon'} - f (x_{\varepsilon'})}
+  +\norm{f (x_{\varepsilon'}) - x_0}   \\
+ &\le
+ \varepsilon' + \norm{f(x_{\varepsilon'}) - x_0}
+ \to 0, \quad \varepsilon' \to 0
+\end{align}
+となり $x_{\varepsilon'} \to x_0$ である.
+$f$ は連続だから $f (x_{\varepsilon'}) \to f (x_0)$ である.
+もともと $f (x_{\varepsilon'}) \to x_0$ だったから $f (x_0) = x_0$ であり, $x_0$ は $f$ の不動点である.
+$\heartsuit$
+\end{proof}
+*** Application of Schauder's fixed point theorem
+Schauder の不動点定理を微分方程式に応用しよう.
+\begin{thm}[Peano の存在定理]
+常微分方程式の初期値問題
+\begin{equation}
+ \frac{dy}{dt}
+ =
+ g (y, t), \quad y(t_0) =y_0
+\end{equation}
+は $g$ が
+\begin{align}
+ D
+ \defeq
+ \set{(y, t)}{t_0 \le t \le t_0 + a, |y - y_0| \le b}
+\end{align}
+で連続のとき $I \defeq [t_0, t_0 + a']$ に解をもつ.
+ここで
+\begin{equation}
+ M = \max_{(y, t) \in D} |y (t)|, \quad a' = \min \rbk{a, \frac{b}{M}}
+\end{equation}
+である.
+\end{thm}
+\begin{proof}
+$I$ で定義された $\bbRn$ への連続写像の全体 $C (I, \mathbb{R}^n)$ は max ノルムで Banach 空間 $X$ になる.
+\begin{equation}
+ B
+ \defeq
+ B (y_0, b)
+ =
+ \set{y \in X}{\norm{y - y_0} \le b }
+\end{equation}
+は閉球だから明らかに $X$ の凸閉集合である.
+$B$ 上の写像 $f$ を
+\begin{equation}
+ f(y) (t)
+ \defeq
+ y_0 + \int_{t_0}^t g (y (s), s) ds
+\end{equation}
+と定めると, $y \in B$ から $f$ は $I$ 上の連続関数として意味をもち,
+\begin{align}
+ \norm{f (y) - y_0}
+ &\le
+ \int_{t_0}^t \norm{g (y (s), s)} ds \\
+ &\le
+ M (t - t_0)
+ \le
+ Ma'
+ \le
+ M\frac{b}{M}
+ =
+ b
+\end{align}
+だから $f (y) \in B$ である.
+さらに,
+\begin{align}
+ \norm{f (y)}
+ &\le
+ \norm{y_0} + \rbk{\int_{t_0}^t g (y (s),s) ds} \\
+ &=
+ \norm{y_0} + \norm{f (y) - y_0}
+ \le
+ \norm{y_0} + b
+\end{align}
+だから一様有界である.
+また,
+\begin{equation}
+ \abs{f (y) (t) - f (y) (t')}
+ \le
+ \int_{t'}^t \abs{g (y (s), s)} ds
+ \le
+ M \abs{t - t'}
+\end{equation}
+だから $f$ は同程度連続である.
+したがって, Ascoli-Arzel\`a の定理から $f (B)$ は相対コンパクトである.
+Schauder の不動点定理の $K$ として $f (B)$ の閉包を取れて $f$ は $B$ の中に不動点 $y$ をもつ.
+問題の常微分方程式は
+\begin{equation}
+ y (t)
+ =
+ y_0 + \int_{t_0}^t g (y (s), s) ds
+\end{equation}
+と同等だから, $y$ はその解でもある.
+$\heartsuit$
+\end{proof}
 ** Fourier Analysis
 動画から適当に切り出してくる.
 ** 重ね合わせの原理と Fourier 解析

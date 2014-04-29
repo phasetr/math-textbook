@@ -1,4 +1,4 @@
-% Created 2014-04-18 金 21:02
+% Created 2014-04-29 火 13:02
 \documentclass[openany, a4paper, oneside]{book}
 
 \usepackage[top=10truemm,bottom=20truemm,left=15truemm,right=15truemm]{geometry}
@@ -61,12 +61,17 @@
 \raisebox{0.3ex}{$\m@th\cdot$}}%
 \raisebox{-0.3ex}{$\m@th\cdot$}}%
 =}
+\newcommand*{\eqdef}{=\mathrel{\hbox to 0pt{%
+\raisebox{0.3ex}{$\m@th\cdot$}}%
+\raisebox{-0.3ex}{$\m@th\cdot$}}%
+}
 \makeatother
 
 \DeclareMathOperator*{\slim}{s-lim}
 \DeclareMathOperator*{\wlim}{w-lim}
 \DeclareMathOperator{\diag}{diag}
 \newcommand{\co}{\mathrm{co}\,}
+\newcommand{\const}{\mathrm{const.}}
 \newcommand{\dom}{\mathrm{dom}\,}
 \newcommand{\ran}{\mathrm{ran}\,}
 \newcommand{\divergence}{\mathrm{div}\,}
@@ -77,21 +82,22 @@
 \DeclareMathOperator{\rot}{rot}
 \renewcommand{\div}{\mathrm{div}}
 
-\newtheorem{axm}{Axiom.}[section]
-\newtheorem{thm}{Theorem.}[subsection]
+\renewcommand\proofname{\upbf{Proof}}
+\newtheorem{thm}{Theorem.}[section]
 \newtheorem{cor}[thm]{Corollary.}
 \newtheorem{lem}[thm]{Lemma.}
+\newtheorem{pos}[thm]{Postulate.}
+\newtheorem{req}[thm]{Request.}
 \newtheorem{prop}[thm]{Proposition.}
+\newtheorem{axm}[thm]{Axiom.}
+\theoremstyle{definition}
 \newtheorem{defn}[thm]{Definition.}
 \newtheorem{ex}[thm]{Example.}
 \newtheorem{rem}[thm]{Remark.}
 \newtheorem{fact}[thm]{Fact.}
-\newtheorem{assump}{Assumption.}[subsection]
-\newtheorem{pos}[thm]{Postulate.}
-\newtheorem{req}{Request.}[section]
+\newtheorem{assump}[thm]{Assumption.}
 
-\renewcommand{\thethm}{\arabic{section}.\arabic{subsection}.\arabic{thm}}
-\renewcommand{\theassump}{\arabic{section}.\arabic{subsection}.\arabic{assump}}
+\renewcommand{\thethm}{\arabic{chapter}.\arabic{section}.\arabic{thm}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   brackets and such
@@ -103,6 +109,7 @@
 \newcommand{\sqbk}[1]{\left[#1\right]}
 \newcommand{\cbk}[1]{\left\{#1\right\}}
 \newcommand{\bkt}[2]{\left\langle#1,\,#2\right\rangle}
+\newcommand{\rbkt}[2]{\left( #1,\,#2 \right)}
 \newcommand{\set}[2]{\left\{#1 : #2\right\}}
 \newcommand{\trans}{\,^t\!}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -299,7 +306,7 @@
 
 \title{Math textbook}
 \author{相転移 P (@phasetr)\thanks{phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com}}
-\date{2014-04-18}
+\date{2014-04-29}
 \hypersetup{
   pdfkeywords={},
   pdfsubject={},
@@ -362,172 +369,61 @@ and connections among many branches.
 そういう用途もあるので, ある程度一般的な英語もまとめていきたい.
 \chapter{General English}
 \label{sec-2-1}
-
-\begin{itemize}
-\item 京都でワークショップを 4/20 (日) に開くことになったのでお知らせしたい.
-\end{itemize}
-We has the pleasure to announce our workshop in Kyoto on April 20th (Sunday).
-
-\begin{itemize}
-\item ぜひワークショップに参加されたい.
-\end{itemize}
-Please join us to enjoy a special workshop.
-
-\begin{itemize}
-\item 参加をお待ちしている.
-\end{itemize}
-We look forward to your participation.
 \chapter{Common phrases}
 \label{sec-2-2}
-
-\begin{itemize}
-\item 以下では $\calA$ が明らかな場合, $\bf{Ch}$ の代わりに単に $\bf{Ch} \rbk{\calA}$ と書く. \cite{CharlesWeibel1}
-\end{itemize}
-In the sequel we will merely write $\bf{Ch}$ for $\bf{Ch} \rbk{\calA}$ when $\calA$ is understood.
-
-\begin{itemize}
-\item 多くの初等的な量子力学の教科書を参照してほしい. これらのいくつかは数学者にも適した形で内容が説明されている. \cite{LiebSeiringer1}
-\end{itemize}
-They can refer to a huge number of elementary quantum mechanics texts,
-some of which present the subject in a way that is congenial to mathematicians.
-
-\begin{itemize}
-\item 簡単にいうと.
-\end{itemize}
-Simply speaking.
-
-\begin{itemize}
-\item 記法を決める.
-\end{itemize}
-We fix notation.
-
-\begin{itemize}
-\item 教員は興味や時間の制約に応じて話題を取捨選択してもいい. \cite{CharlesWeibel1}
-\end{itemize}
-The teacher may pick and choose topics according to interest and time constraints.
-
-\begin{itemize}
-\item 詳しくは A を参照すること.
-\end{itemize}
-See A for details.
-
-\begin{itemize}
-\item ここに書かれた内容は多かれ少なかれ自己充足的な複素代数幾何のコースを元にしている. \cite{ChrisPeters1}
-\end{itemize}
-The material presented here consists of a more or less
-self-contained advanced course in complex algebraic geometry.
-
-\begin{itemize}
-\item この章の残りでは議論を 1 粒子に制限する. \cite{LiebSeiringer1}
-\end{itemize}
-In the remainder of the present chapter we limit the discussion to a single particle.
-
-\begin{itemize}
-\item この章は以後の章で繰り返し使われる結果も含んでいる. \cite{LiebSeiringer1}
-\end{itemize}
-The chapter also contains several results that will be used repeatedly in the chapters to follow.
-
-\begin{itemize}
-\item この節での結果は次のようにまとめられる. \cite{LiebSeiringer1}
-\end{itemize}
-The results of this section can be summarized in the following statement.
-
-\begin{itemize}
-\item この節での主な論点は鎖複体がアーベル圏をなすことだ. \cite{CharlesWeibel1}
-\end{itemize}
-The main point of this section will be that chain complexes form an abelian category.
-
-\begin{itemize}
-\item このノートは 1992 年秋の Leiden 大学での講義に基いている. \cite{ChrisPeters1}
-\end{itemize}
-These notes are based on courses given in the fall of 1992 at the University of Leiden.
-
-\begin{itemize}
-\item この本は量子力学のいろいろな分野の研究者に向けた内容になっている. \cite{LiebSeiringer1}
-\end{itemize}
-The book is directed towards researchers on various aspects of quantum mechanics.
-
-\begin{itemize}
-\item この理論の目的は $n$ を無限大にする極限をとったときの $T^n(x)$ の振る舞いを調べることにある. \cite{OmriSarig1}
-\end{itemize}
-The aim of the theory is to describe the behavior of $T^n(x)$ as $n \to \infty$.
-
-\begin{itemize}
-\item これは大学院の 2-3 年生に向けた本だ. \cite{CharlesWeibel1}
-\end{itemize}
-This book is aimed at a second- or third-year graduate student.
-
-\begin{itemize}
-\item これらの点は次の単純な問題を考えるとわかる. \cite{CharlesWeibel1}
-\end{itemize}
-The following simple quesion illustrates these points.
-
-\begin{itemize}
-\item 相対論的力学をハミルトン形式で書くことはすぐできる. \cite{LiebSeiringer1}
-\end{itemize}
-It is straightforward to describe relativistic mechanics in the Hamiltonian formalism.
-
-\begin{itemize}
-\item 相対論的運動学にしろ非相対論的運動学にしろ, ハミルトン形式で多体系を書くことは全く難しくない. \cite{LiebSeiringer1}
-\end{itemize}
-There is no difficulty in describing many-body systems in the Hamitonian formalism
--- with either relativistic or non-relativistic kinematics.
-
-\begin{itemize}
-\item その間もホモロジー代数は発展を続けた. \cite{CharlesWeibel1}
-\end{itemize}
-In the meantime, homological algebra continued to evolve.
-
-\begin{itemize}
-\item 同様にして.
-\end{itemize}
-In a similar vain.
-
-\begin{itemize}
-\item 読者は他のいくつかの話題についての紹介に出会うだろう.  \cite{CharlesWeibel1}
-\end{itemize}
-The reader will find introductions to several other subjects.
-
-\begin{itemize}
-\item トポロジー, 正則局所環や半単純 Lie 環との歴史的な関係も説明する. \cite{CharlesWeibel1}
-\end{itemize}
-The historical connections with topology, regular local rings, and semisimple Lie algebras are also described.
-
-\begin{itemize}
-\item はじめにアーベル圏とは何だったか思い出す必要がある. \cite{CharlesWeibel1}
-\end{itemize}
-First we need to recall what an abelian category is.
-
-\begin{itemize}
-\item 前の節で説明したように, 粒子の座標は $\bbRthree \times \cbk{1, \dots, q}$ 内の点,
-  つまり点 $x \in \bbRthree$ と点 $\sigma \in \cbk{1, \dots, q}$ で表す. \cite{LiebSeiringer1}
-\end{itemize}
-As explained in the previous section, the coordinate of a particle is a point in $\bbRthree \times \cbk{1, \dots, q}$, i.e.,
-a point $x \in \bbRthree$ and a point $\sigma \in \cbk{1, \dots, q}$.
-
-\begin{itemize}
-\item まとめると.
-\end{itemize}
-In summary.
-
-\begin{itemize}
-\item 最も単純に言えば, 力学系とは集合 $X$ 上に定義された関数 $T$ のことだ. \cite{OmriSarig1}
-\end{itemize}
-At its simplest form, a dynamical system is a function $T$ defined on a set $X$.
-
-\begin{itemize}
-\item 歴史的な経緯は追わない.
-\end{itemize}
-We will not necessarily follow the historical route.
 \chapter{Mathematical English}
 \label{sec-2-3}
 \section{Words}
 \label{sec-2-3-1}
+\subsection{英数}
+\label{sec-2-3-1-1}
+\subsection{あ行}
+\label{sec-2-3-1-2}
+
+\begin{itemize}
+\item 演算子, 作用素.
+\end{itemize}
+An operator.
+\subsection{か行}
+\label{sec-2-3-1-3}
+
+\begin{itemize}
+\item 下界.
+\end{itemize}
+A lower bound.
+
+\begin{itemize}
+\item 下限.
+\end{itemize}
+An infimum.
+\subsection{さ行}
+\label{sec-2-3-1-4}
+
+\begin{itemize}
+\item 事実.
+\end{itemize}
+A fact.
 
 \begin{itemize}
 \item 剰余項.
 \end{itemize}
 The remainder term.
+\subsection{た行}
+\label{sec-2-3-1-5}
+
+\begin{itemize}
+\item 単調性.
+\end{itemize}
+Monotonicity.
+\subsection{な行}
+\label{sec-2-3-1-6}
+\subsection{は行}
+\label{sec-2-3-1-7}
+
+\begin{itemize}
+\item 汎関数. \cite{LiebSeiringer1}
+\end{itemize}
+A functional.
 
 \begin{itemize}
 \item 微分積分学の基本定理.
@@ -538,19 +434,54 @@ Fundamental theorem of calculus.
 \item 部分積分.
 \end{itemize}
 Integration by parts.
+\subsection{ま行}
+\label{sec-2-3-1-8}
+
+\begin{itemize}
+\item 未解決問題.
+\end{itemize}
+An open problem.
+
+\begin{itemize}
+\item 命題.
+\end{itemize}
+A proposition.
+\subsection{や行}
+\label{sec-2-3-1-9}
+\subsection{ら行}
+\label{sec-2-3-1-10}
 
 \begin{itemize}
 \item 連分数
 \end{itemize}
 Continued fraction.
+\subsection{わ行}
+\label{sec-2-3-1-11}
 \section{Sentences}
 \label{sec-2-3-2}
+\subsection{英数}
+\label{sec-2-3-2-1}
+
+\begin{itemize}
+\item $N!/(N-k)!$ 以外の規格化も他の文献でよく使われる. \cite{LiebSeiringer1}
+\end{itemize}
+Normalization conventions other than $N!/(N-k)!$ are often used in the literature.
+
+\begin{itemize}
+\item $\Tr^{(N-k)}$ は (3.1.22) で与えられる核と作用素に関して, 単純に (3.1.27) に対する略記として考える. \cite{LiebSeiringer1}
+\end{itemize}
+For our purposes, $\Tr^{(N-k)}$ can be thought of simply as a mnemonic device for (3.1.27),
+with the relation between kernel and operator given by (3.1.22).
+\subsection{あ行}
+\label{sec-2-3-2-2}
 
 \begin{itemize}
 \item エルゴード理論の威力と有用性の多くは, 上で議論した抽象的な設定に関する次の確率的な解釈によっている. \cite{OmriSarig1}
 \end{itemize}
 Much of the power and usefulness of ergodic theory is due to
 the following probabilistic interpretation of the abstract set up discussed above.
+\subsection{か行}
+\label{sec-2-3-2-3}
 
 \begin{itemize}
 \item 核がベクトル束になることはすぐわかる.
@@ -566,6 +497,18 @@ differential equations which together with the initial conditions
 $x(t_0)$ and $v(t_0)$ determine $x(t)$ and thus $v(t)$ for all times.
 
 \begin{itemize}
+\item 簡単のため, 考察下の系はフェルミオンかボソンか, ただ一種類の粒子だけを含むと仮定しよう. \cite{LiebSeiringer1}
+\end{itemize}
+Assume, for simplicity, that the system under consideration contains only one species of particles,
+either fermions or bosons.
+
+\begin{itemize}
+\item 記法を単純にするため, 以下では一番一般的に式を書いていくことは避ける. \cite{LiebSeiringer1}
+\end{itemize}
+In the interest of keeping the notation simple, we shall regist the temptation to write down
+the most general formula in the following treatment.
+
+\begin{itemize}
 \item 強混合性は測度論的同型の不変量であることはすぐにわかる.
 \end{itemize}
 It is easy to see that strong mixing is an invariant of measure theoretic isomorphism.
@@ -576,14 +519,19 @@ It is easy to see that strong mixing is an invariant of measure theoretic isomor
 A group $G$ acts on a space $S$.
 
 \begin{itemize}
-\item ``どのようにして決定論的な系がランダムに振舞い得るのか''という問題の現代的な取り扱いはこのアイデアによっている. \cite{OmriSarig1}
+\item こうして次式を得るが, これはあとで役に立つ. \cite{LiebSeiringer1}
 \end{itemize}
-The modern treatment of the question ``how come a deterministic system can behave randomly'' is based on this idea.
+We thus have the following expression, a fact that will be useful later.
 
 \begin{itemize}
 \item このとき, 写像 $f$ は次の式で表される鎖写像になる. \cite{CharlesWeibel1}
 \end{itemize}
 Then a map $f$ is the chain map given by the formula.
+
+\begin{itemize}
+\item これは読者の演習とする. \cite{LiebSeiringer1}
+\end{itemize}
+The reader is invited to prove this.
 
 \begin{itemize}
 \item これが彼の結果を単純化しかつ改良する興味深い新たな不等式の導出に繋がった. \cite{LiebSeiringer1}
@@ -604,6 +552,13 @@ These inequalities play a crucial role in our understanding of stability of matt
 \item これを確認するため, $\calA$ を $\calC$ で最も小さいアーベル部分圏としよう.
 \end{itemize}
 To see this, let $\calA$ be the smallest abelian subcategory of $\calC$.
+\subsection{さ行}
+\label{sec-2-3-2-4}
+
+\begin{itemize}
+\item 作用素 $A$ はトレース 1 に規格化されていない. \cite{LiebSeiringer1}
+\end{itemize}
+The operator $A$ is not normalized to have trace equal to one.
 
 \begin{itemize}
 \item 指数 $m$ が $f_D$ と選んだ点 $p \in M$ に依存しないことはすぐにわかる.
@@ -627,6 +582,27 @@ $M$ modulo isomorphism form a group under the tensor product.
 \end{itemize}
 In order to avoid measure theoretic pathologies, we will always assume that
 $\rbk{X, \calB, \mu}$ is the completion of a standard measure space.
+\subsection{た行}
+\label{sec-2-3-2-5}
+
+\begin{itemize}
+\item 次の概念の多粒子系への一般化は自明であり読者に任せる. \cite{LiebSeiringer1}
+\end{itemize}
+The generalization of the following concepts to multiple species is obvious and left to the reader.
+
+\begin{itemize}
+\item ``どのようにして決定論的な系がランダムに振舞い得るのか''という問題の現代的な取り扱いはこのアイデアによっている. \cite{OmriSarig1}
+\end{itemize}
+The modern treatment of the question ``how come a deterministic system can behave randomly'' is based on this idea.
+\subsection{な行}
+\label{sec-2-3-2-6}
+\subsection{は行}
+\label{sec-2-3-2-7}
+
+\begin{itemize}
+\item はじめに (3.1.35) が $\Gamma$ の存在を示すのに十分であることを示そう. \cite{LiebSeiringer1}
+\end{itemize}
+We first prove that (3.1.35) suffices to insure the existence of a $\Gamma$.
 
 \begin{itemize}
 \item 複素代数幾何を研究する上で基本的な対象と写像を思い出そう. \cite{ChrisPeters1}
@@ -639,6 +615,11 @@ I recall the basic objects and maps one works with in complex algebraic geometry
 Generalities on complex and projective manifolds.
 
 \begin{itemize}
+\item 変数 $z_{k+1}, \dots, z_N$ で積分される. \cite{LiebSeiringer1}
+\end{itemize}
+The variables $z_{k+1}, \dots, z_N$ are integrated out.
+
+\begin{itemize}
 \item 便利な関数空間はいろいろあり, それらを状況に応じて使いわけていく.
 \end{itemize}
 There are many useful function spaces and we select a proper space as the situation demands.
@@ -648,28 +629,187 @@ There are many useful function spaces and we select a proper space as the situat
 \end{itemize}
 Homological algebra is a tool used in several branches of mathematics: algebraic topology, group theory,
 commutative ring theory, and algebraic geometry.
+\subsection{ま行}
+\label{sec-2-3-2-8}
+\subsection{や行}
+\label{sec-2-3-2-9}
+\subsection{ら行}
+\label{sec-2-3-2-10}
+\subsection{わ行}
+\label{sec-2-3-2-11}
 \chapter{Physical English}
 \label{sec-2-4}
 \section{Words}
 \label{sec-2-4-1}
+\subsection{英数}
+\label{sec-2-4-1-1}
+\subsection{あ行}
+\label{sec-2-4-1-2}
+
+\begin{itemize}
+\item 安定性.
+\end{itemize}
+Stability.
+
+\begin{itemize}
+\item 運動エネルギー.
+\end{itemize}
+A kinetic energy.
+\subsection{か行}
+\label{sec-2-4-1-3}
+
+\begin{itemize}
+\item 核電荷.
+\end{itemize}
+A nuclear charge.
+
+\begin{itemize}
+\item 基底エネルギー.
+\end{itemize}
+A ground state energy.
+
+\begin{itemize}
+\item 基底状態.
+\end{itemize}
+A ground state.
+
+\begin{itemize}
+\item 原子核.
+\end{itemize}
+A nucleus (nuclei).
+\subsection{さ行}
+\label{sec-2-4-1-4}
+
+\begin{itemize}
+\item 質量.
+\end{itemize}
+Mass.
+
+\begin{itemize}
+\item 磁場.
+\end{itemize}
+A magnetic field.
+\subsection{た行}
+\label{sec-2-4-1-5}
+
+\begin{itemize}
+\item 単位.
+\end{itemize}
+A unit.
+
+\begin{itemize}
+\item チャンドラセカール (質量) 限界 \cite{LiebSeiringer1}
+\end{itemize}
+The Chandrasekhar (mass) limit.
+
+\begin{itemize}
+\item 中性子. \cite{LiebSeiringer1}
+\end{itemize}
+A neutron.
+
+\begin{itemize}
+\item 中性子星. \cite{LiebSeiringer1}
+\end{itemize}
+A neutron star.
+
+\begin{itemize}
+\item 電荷.
+\end{itemize}
+A charge.
+
+\begin{itemize}
+\item 電子.
+\end{itemize}
+An electron.
+\subsection{な行}
+\label{sec-2-4-1-6}
+\subsection{は行}
+\label{sec-2-4-1-7}
+
+\begin{itemize}
+\item 白色矮星. \cite{LiebSeiringer1}
+\end{itemize}
+A white dwarf.
+
+\begin{itemize}
+\item ハミルトニアン.
+\end{itemize}
+A Hamiltonian.
+
+\begin{itemize}
+\item 微細構造定数. \cite{LiebSeiringer1}
+\end{itemize}
+The fine-structure constant.
+
+\begin{itemize}
+\item フェルミオン. \cite{LiebSeiringer1}
+\end{itemize}
+A fermion.
+
+\begin{itemize}
+\item 物質.
+\end{itemize}
+A matter.
+
+\begin{itemize}
+\item ヘリウム.
+\end{itemize}
+A helium.
+
+\begin{itemize}
+\item ボゾン (ボソン). \cite{LiebSeiringer1}
+\end{itemize}
+A boson.
+
+\begin{itemize}
+\item ポテンシャルエネルギー.
+\end{itemize}
+A potential energy.
+\subsection{ま行}
+\label{sec-2-4-1-8}
+\subsection{や行}
+\label{sec-2-4-1-9}
 
 \begin{itemize}
 \item 要請.
 \end{itemize}
-postulate.
-\section{Sentences}
-\label{sec-2-4-2}
+Postulate.
+\subsection{ら行}
+\label{sec-2-4-1-10}
 
 \begin{itemize}
-\item Einstein の相対論的運動学がどんな効果をもたらすだろうか. \cite{LiebSeiringer1}
+\item ラグランジアン.
 \end{itemize}
-What effect does Einstein's relativistic kinematics have?
+A Lagrangian.
+
+\begin{itemize}
+\item (量子力学的粒子の) 統計 \cite{LiebSeiringer1}
+\end{itemize}
+A statistics (of a quantum particle).
+
+\begin{itemize}
+\item 臨界定数. \cite{LiebSeiringer1}
+\end{itemize}
+A critical number (constant).
+\subsection{わ行}
+\label{sec-2-4-1-11}
+\section{Sentences}
+\label{sec-2-4-2}
+\subsection{英数}
+\label{sec-2-4-2-1}
 
 \begin{itemize}
 \item $Z \alpha$ が非常に大きい婆に 1 原子のときですら磁場が不安定性を引き起こす可能性があるとわかったとき, また新たな不等式が必要になった. \cite{LiebSeiringer1}
 \end{itemize}
 Again new inequalities were needed when it was realized that magnetic fields
 could also cause instabilities, even for just one atom, if $Z \alpha$ is too large.
+\subsection{あ行}
+\label{sec-2-4-2-2}
+
+\begin{itemize}
+\item アインシュタインの相対論的運動学がどんな効果をもたらすだろうか. \cite{LiebSeiringer1}
+\end{itemize}
+What effect does Einstein's relativistic kinematics have?
 
 \begin{itemize}
 \item ある粒子種の波動関数として許される関数はその種に特有のある置換対称性を持つ型に限られるというのが量子力学の基本的な要請だ. \cite{LiebSeiringer1}
@@ -684,6 +824,8 @@ must belong to some definite permutation symmetry type which is characteristic o
 Even today hardly any physics textbook discusses, or even raises this question,
 even though the basic conclusion of stability is subtle and not easily derived
 using the elementary means available to the usual physics student.
+\subsection{か行}
+\label{sec-2-4-2-3}
 
 \begin{itemize}
 \item 原子の存在と世界の安定性を理解するために解決しなければならない基本的な問題は次のように表現できる:
@@ -731,12 +873,21 @@ particles interacting via electric and magnetic forces.
 The topics covered in this book include quantum electrodynamics, stability of large Coulomb systems,
 gravitational statbility of stars, basics of equilibrium statistical mechanics,
 and the existence of the thermodynamic limit.
+\subsection{さ行}
+\label{sec-2-4-2-4}
+
+\begin{itemize}
+\item さらに同じ理由からもし $H$ に置換対称性があれば次の式が成立する. \cite{LiebSeiringer1}
+\end{itemize}
+Moreover, for the same reason the following expression holds if $H$ is invariant under permutations.
 
 \begin{itemize}
 \item 素粒子は $S = 0, 1/2, 1, 3/2, \dots$ のどれかの値を取る量で特徴づけられるスピンと呼ばれる内部自由度を持つ. \cite{LiebSeiringer1}
 \end{itemize}
 Elementary particles have an internal degree of freedom called spin which is characterized
 by a specific number that can take one of the values $S = 0, 1/2, 1, 3/2, \dots$.
+\subsection{た行}
+\label{sec-2-4-2-5}
 
 \begin{itemize}
 \item 次の式 $\abs{p} \geq \sqrt{p^2 + m^2} - m \geq \abs{p} - m$ が成り立つので, 超相対論的なエネルギー
@@ -749,6 +900,10 @@ the ultra-relativistic energy $T_{\psi} = \bkt{\psi}{\abs{p} \psi}$.
 \item 電気力は異なる符号の電荷を持つ荷電粒子間では引力になり, 同じ符号の電荷を持つ粒子間では斥力になる. \cite{LiebSeiringer1}
 \end{itemize}
 The electric force is attractive between oppositely charged particles and repulsive between like-charged particles.
+\subsection{な行}
+\label{sec-2-4-2-6}
+\subsection{は行}
+\label{sec-2-4-2-7}
 
 \begin{itemize}
 \item 普通の物質の基本的な構成要素は電子と原子核だ. \cite{LiebSeiringer1}
@@ -770,6 +925,21 @@ Physicists firmly believe that quantum mechanics is a `theory of everything' at 
 \end{itemize}
 It is common in the physics literature to refer to the choice of symmetry type as the
 \textbf{statistics} of the particles or of their wave function.
+\subsection{ま行}
+\label{sec-2-4-2-8}
+
+\begin{itemize}
+\item もし $H$ が置換対称性を持つなら, 回転対称性を持つ $H$ に対するエネルギーを最小化する状態がある角運動量の値を持つのとちょうど同じように,
+  全ての (規格化された) 可能な関数のうち $\rbkt{\phi}{H \phi}$ の最小値を与える
+  $\phi$ はある統計性を持つと一般性を失うことなく仮定できることに注意する. \cite{LiebSeiringer1}
+\end{itemize}
+We note that if $H$ is permutation invariant, the $\phi$ that yields the lowest value of $\rbkt{\phi}{H \phi}$ among
+all possible (normalized) functions can be taken to have a definite symmetry type without loss of generality,
+just as an energy minimizing state for a rotation invariant $H$ can be taken to have a definite angular momentum.
+\subsection{や行}
+\label{sec-2-4-2-9}
+\subsection{ら行}
+\label{sec-2-4-2-10}
 
 \begin{itemize}
 \item 量子力学と古典力学の関係は半古典近似で明らかになる. \cite{LiebSeiringer1}
@@ -781,6 +951,8 @@ in the semiclassical limit.
 \item 例としてクーロン力で相互作用する $N$ 個の電子と $M$ 個の静止した原子核の問題を考えよう. \cite{LiebSeiringer1}
 \end{itemize}
 As an example, consider the problem of $N$ electrons and $M$ nuclei interacting with each other via the Coulomb force.
+\subsection{わ行}
+\label{sec-2-4-2-11}
 \part{Set theory}
 \label{sec-3}
 \chapter{Introduction to cardinal number}
@@ -2966,9 +3138,9 @@ $\partial f (x ,y , z) / \partial x , \partial f (r , \theta, \varphi) / \partia
 として定まる $\bC^n$ から $\bC^m$ への写像 $f_A$ のことをいいます.
 まずは標準基底 $\langle \bm{e}_i \rangle _{i=1}^n,\langle \bm{e}'_i \rangle _{i=1}^m$ に関して定式化します.
 \begin{thm}
-$\bC^n$ から $\bC^m$ への写像が線型写像であるための必要十分条件は,
-写像がある $(m,n)$ 型行列 $A$ によって定まることである.
-またこのとき $A$ はただ 1 つに定まる.
+ $\bC^n$ から $\bC^m$ への写像が線型写像であるための必要十分条件は,
+ 写像がある $(m,n)$ 型行列 $A$ によって定まることである.
+ またこのとき $A$ はただ 1 つに定まる.
 \end{thm}
 (証明)
 十分性の方は
@@ -3054,23 +3226,22 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
 まず予備定理を証明します.
 \begin{thm}
  $f : \bC^n \to \bC^m$ を線型写像,  $\bC^n, \bC^m$ の新たな座標系を
-それぞれ $\langle \bm{u}_i \rangle _{i=1}^n,\langle \bm{v}_j \rangle _{j=1}^m$
-とする.
-さらに $\bm{\xi} \defeq {^t} ( \xi_1 \dotsb \xi_n )$ ,  $\bm{\eta} \defeq {^t} ( \eta_1 \dotsb \eta_m)$ とする.
-このとき $(m,n)$ 型行列 $B$ がただ 1 つ存在し, 次の関係が成立する.
-    \begin{align}
-        ( f ( \bm{u}_1 ) \dotsb f ( \bm{u}_n ) )
-        =
-        ( \bm{v}_1 \dotsb \bm{v}_m) B
-        , \quad
-        \bm{\eta}
-        =
-        B \bm{\xi} .
-    \end{align}
+ それぞれ $\langle \bm{u}_i \rangle _{i=1}^n,\langle \bm{v}_j \rangle _{j=1}^m$
+ とする.
+ さらに $\bm{\xi} \defeq {^t} ( \xi_1 \dotsb \xi_n )$ ,  $\bm{\eta} \defeq {^t} ( \eta_1 \dotsb \eta_m)$ とする.
+ このとき $(m,n)$ 型行列 $B$ がただ 1 つ存在し, 次の関係が成立する.
+ \begin{align}
+  ( f ( \bm{u}_1 ) \dotsb f ( \bm{u}_n ) )
+  =
+  ( \bm{v}_1 \dotsb \bm{v}_m) B, \quad
+  \bm{\eta}
+  =
+  B \bm{\xi} .
+ \end{align}
 \end{thm}
 (証明)
- $\bm{x} = \xi_1 \bm{u}_1 + \dotsb + \xi_n \bm{u}_n$ の $f$ による像は
- $f ( \bm{x} ) = \xi_1 f ( \bm{u}_1 ) + \dotsb + \xi_n f ( \bm{u}_n )$ となります.
+$\bm{x} = \xi_1 \bm{u}_1 + \dotsb + \xi_n \bm{u}_n$ の $f$ による像は
+$f ( \bm{x} ) = \xi_1 f ( \bm{u}_1 ) + \dotsb + \xi_n f ( \bm{u}_n )$ となります.
 そこで $f (\bm{u}_j)$ の $\langle \bm{v}_j \rangle _{j=1}^m$ に関する座標成分を
     \begin{align}
         \bm{b}_j
@@ -3143,8 +3314,8 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
 それでは本題に入りましょう.
 \begin{thm}
  $\bC^n$ から $\bC^m$ への写像 $f$ が線型写像であるための必要十分条件は,
-任意に座標系 (基底) を定めたとき写像がある $(m,n)$ 型行列によって定まることである.
-またこのとき $A$ は各座標系に対しただ 1 つに定まる.
+ 任意に座標系 (基底) を定めたとき写像がある $(m,n)$ 型行列によって定まることである.
+ またこのとき $A$ は各座標系に対しただ 1 つに定まる.
 \end{thm}
 (証明)
 まず $\langle \bm{e}_i \rangle _{i=1}^n \to \langle \bm{u}_i \rangle _{i=1}^n$ ,
@@ -3346,8 +3517,9 @@ $\bC^n$ の座標系を $n$ 項単位ベクトルの組 $\langle \bm{e}_i \rangl
 \end{gather}
 
 まず次の定理を示しましょう.
-    \begin{thm} 二つの列が一致すれば $\det A = 0$ となる.
-    \end{thm}
+\begin{thm}
+ 二つの列が一致すれば $\det A = 0$ となる.
+\end{thm}
 (証明)
 これは交代性からほとんど明らかです. 確認してみましょう. 例えば $\bm{a}_{1}=\bm{a}_{2}$ とすると交代性から
     \begin{align}
@@ -4118,8 +4290,9 @@ x_{1}y_{2} - x_{2}y_{1}
 行列 $A$ が\textgt{正規行列}であるということは $AA^{*} = A^{*}A$ で定義されました.
 ここで $A^{*}$ は $A^{*} = \,^{t}\overline{A}$ で定義される随伴行列と呼ばれるものでした.
 ここで示したい定理は
-\begin{thm}正方行列 $A$ に対し $U^{-1}AU$ が対角行列になるようなユニタリ行列 $U$ が存在する為には
-$A$ が正規行列であることが必要十分である.
+\begin{thm}
+ 正方行列 $A$ に対し $U^{-1}AU$ が対角行列になるようなユニタリ行列 $U$ が存在する為には
+ $A$ が正規行列であることが必要十分である.
 \end{thm}
 というものです.
 しかし実用性の観点からは次の定理を示せば十分です.
@@ -4504,7 +4677,8 @@ A + B \longrightarrow (A + B) f\defeq Af + Bf \\
 \end{defn}
 
 ここで
-\begin{thm}関数空間は無限次元である.
+\begin{thm}
+ 関数空間は無限次元である.
 \end{thm}
 を証明しましょう.
 関数空間としては, 一旦実数から実数への関数の集合を取ります. この部分集合としては $f_n (x) = x^n$ となる関数の集合
@@ -4538,10 +4712,12 @@ A + B \longrightarrow (A + B) f\defeq Af + Bf \\
 「空間」とつけてしまいましたが, これは問題があります. 何故かと言うと, これは数列全体の部分集合には
 なりますが, 部分\textgt{空間}になるか分かりません. きちんと部分空間になることを示しましょう.
 後できちんと書くか分かりませんが,
-    \begin{thm}上に有界な単調増加実数列は収束する.
-    \end{thm}
-    \begin{thm}絶対収束する数列は収束する.
-    \end{thm}
+\begin{thm}
+ 上に有界な単調増加実数列は収束する.
+\end{thm}
+\begin{thm}
+ 絶対収束する数列は収束する.
+\end{thm}
 という 2 つの定理を拝借してきます.
 
 部分空間の定義から
@@ -5148,7 +5324,7 @@ $A$ の上界全体の集合を $U (A)$ と書く.
 任意の $n \in \mathbb{N}$ に対し $a_n \geq M$ となることをいいます.
 また $x$ のべき $x^n$ からなる級数 $\sum \, a_n x^n$ を\textgt{べき級数}\index{べききゅうすう@べき級数}といいます.
 
-\begin{thm}(級数に関する Cauchy の収束条件)
+\begin{thm}[級数に関する Cauchy の収束条件]
 級数 $\sum\, a_n$ に対し次の 2 条件は互いに同値である.
 \begin{enumerate}
     \item[1)] $\sum\,a_n$ は収束する. すなわち部分和の数列 $\sn$ が収束する.
@@ -5198,10 +5374,10 @@ Cauchy 列は収束することを公理として要請していますから, �
 表すものとします.
 第 $n$ 項 $s_n$ を考えたとき,  $n\leq N_0$ ならば $\mathrm{max}$ の定義から
  $s_n \leq M$ で,  $n \geq N_0$ でも $s_n <s+10^{-2098} \leq M$ であり,
-確かに上に有界です. これは\begin{thm}収束する数列は有界である\end{thm}
+確かに上に有界です. これは「収束する数列は有界である」
 を示したことになります.  $\blacksquare$
 
-\begin{thm}(比較定理)
+\begin{thm}[比較定理]
  $\sum a_n,\sum c_n$ は正項級数で
  $\sum c_n$ は収束するものとする. このとき全ての $n$ に対し $a_n \geq c_n$
 ならば $\sum a_n$ は収束する.
@@ -5224,7 +5400,7 @@ Cauchy 列は収束することを公理として要請していますから, �
  $\sum a_n$ は収束します.  $\blacksquare$
 
 
-\begin{thm}(ratio test)
+\begin{thm}[ratio test]
 正項級数 $\sum a_n$ に対して
 \begin{align}
     \lim_{n \to \infty}\frac{a_{n+1}}{a_n}=l
@@ -5353,7 +5529,7 @@ Cauchy 列は収束することを公理として要請していますから, �
 かどうかということを考えてみましょう.
 考えるのは $O\left ( (x-0)^2 \right)$ を正確に評価することです.
 ここで高校で学んだ平均値の定理を考えましょう.
-    \begin{thm}(平均値の定理)
+\begin{thm}[平均値の定理]
  $a<b$ とする.  $f:I=[a,b]\to \bm{R}$ が
  $I$ で連続,  $I^i=(a,b)$ で微分可能ならば定数 $\theta \in (0,1)$ が存在して, \begin{align}
             f (b)-f (a)=f'\left ( b+\theta (b-a)\right) (b-a)
@@ -5395,7 +5571,7 @@ $x \to x_0$ としたときにきちんと両辺が一致するようにつけ�
 近似の度合いは高まっていることが予測されます.
 
 これを繰り返していくことで以下の定理が得られます.
-    \begin{thm}(Taylor (テイラー) の定理)\index{ていらーのていり@Taylor の定理}
+\begin{thm}[Taylor (テイラー) の定理]\index{ていらーのていり@Taylor の定理}
  $\bm{N} \ni n \geq 1$ とする.
 区間 $[a,x]=I \,\, \mathrm{or} \,\, [x,a]=I$ で $n$ 回微分可能な実数値関数 $f$ に対し
 \begin{align}
@@ -5422,24 +5598,27 @@ $x \to x_0$ としたときにきちんと両辺が一致するようにつけ�
  $x$ の\textgt{べき級数に展開できます}.
 
 これを定理として提出しましょう.
-    \begin{thm}(Taylor 展開)\begin{enumerate}
-    \item  $f$ が $a$ を含む区間 $I$ において $C^{\infty}$ 級で,  $I$ の各点 $x$ で
-    \begin{align}
+\begin{thm}[Taylor 展開]
+ \begin{enumerate}
+  \item $f$ が $a$ を含む区間 $I$ において $C^{\infty}$ 級で,  $I$ の各点 $x$ で
+   \begin{align}
     \lim_{n \to \infty}R_n (x)=0
-    \end{align}
-    を満たすとき,  $f$ は $I$ 上で
-    \begin{align}
-    f (x)=\sum_{n=0}^{\infty}\frac{D^nf (a)}{n!}(x-a)^n
-    \end{align}
-    の形の級数 ( $a$ を中心とするべき級数) で表される. これを
-    $f$ の $a$ を中心とする\textgt{Taylor 展開}\index{ていらーてんかい@Taylor 展開}という.
-    \item 定数 $C\geq 0,M\geq 0$ が存在して, 全ての $n \in \bm{N}$ および
-    $x\in I$ に対し
-    \begin{align}
-    \abs{Df^n (x)}\leq CM^n
-    \end{align}
-    を満たすとき,  $f$ は $a$ を中心として Taylor 展開できる.
-    \end{enumerate}
+   \end{align}
+   を満たすとき,  $f$ は $I$ 上で
+   \begin{align}
+    f (x)
+    =
+    \sum_{n=0}^{\infty}\frac{D^nf (a)}{n!}(x-a)^n
+   \end{align}
+   の形の級数 ( $a$ を中心とするべき級数) で表される.
+   これを $f$ の $a$ を中心とする\textgt{Taylor 展開}\index{ていらーてんかい@Taylor 展開}という.
+  \item 定数 $C\geq 0,M\geq 0$ が存在して, 全ての $n \in \bm{N}$ および
+   $x\in I$ に対し
+   \begin{align}
+   \abs{Df^n (x)}\leq CM^n
+   \end{align}
+   を満たすとき,  $f$ は $a$ を中心として Taylor 展開できる.
+ \end{enumerate}
 \end{thm}
 (証明) まずは 1 から.  $S_n$ を
     \begin{align}
@@ -7029,7 +7208,7 @@ Lipschitz 条件はただの連続性よりは強い条件です.
 となります.
 
 さて, 定理の statement を述べましょう.
-\begin{thm}(微分方程式の解の存在と一意性 1) \label{th:微分方程式の解の一意性存在定理 1}
+\begin{thm}[微分方程式の解の存在と一意性 1]\label{th:微分方程式の解の一意性存在定理 1}
  $\bm{F} ( \bm{R} , t )$ を $D = \mbr^{N} \times I$ において Lipschitz 条件を満たす     連続関数とする.
  このとき $t_0 \in I$ ならば, 任意の初期値 $\bm{R}_0 \in \bbR^{N}$ に対して
  初期値問題
@@ -7535,7 +7714,7 @@ L_K | \bm{X} - \bm{Y} |
 はじめに色々と定義が書いてありますが, あまり気にしないで構いません.
 また, 定義域を狭めた所で成立する解のことを
 \textgt{局所解}\index{きょくしょかい@局所解}といいます.
-\begin{thm}(局所解の存在と一意性)
+\begin{thm}[局所解の存在と一意性]
 $I \defeq [t_0 , T)$ , $B ( \bm{R}_0 ; R ) \defeq \{ \bm{R} \in \mbr^m ; | \bm{R} - \bm{R}_0 | <R \} ( 0 < R \leq \infty)$ ,
 $\Omega \defeq B ( \bm{R}_0 ; R) \times I = \Omega ( \bm{R}_0 ,T ,R)$ とする.
 $\bm{F}$ が $\Omega$ で局所 Lipschitz 条件を満たすならば,
@@ -7737,7 +7916,7 @@ $T_m$ の定義に反します.
 これをある範囲内で示すことができます.
 ここではもう少し一般化して示しますが,
 その証明に入る前に予備定理を 1 つ証明します.
-\begin{thm}(Gronwall)
+\begin{thm}[Gronwall]
 $I = [a , b]$ ,  $x_0 \in I$ とする.
 $g ,h : I \to \mbr$ とし,  $g$ については任意の $x \in I$ に対して $g (x) \geq 0$ となる連続関数とする.
 このとき $a$ を定数として
@@ -7795,7 +7974,7 @@ a
 \end{gather}
 であり, これから示すべき不等式が導かれます.  $\bs$
 
-\begin{thm}(解の初期値および解に対する連続依存性)
+\begin{thm}[解の初期値および解に対する連続依存性]
 $\bm{F}^i (i=1,2)$ を Lipschitz 条件を満たす関数として
 \begin{gather}
 (E)_i
@@ -7915,7 +8094,7 @@ $q \not= \theta$ のとき\textgt{非斉次方程式}\index{ひせいじほう�
 \end{defn}
 次に斉次方程式について
 \textgt{重ね合わせの原理 (重畳原理)}\index{かさねあわせのげんり@重ね合わせの原理}\index{ちょうじょうげんり@重畳原理}を証明します.
-\begin{thm}(重ね合わせの原理)
+\begin{thm}[重ね合わせの原理]
 全ての係数関数 $p_i$ を連続関数とする $n$ 階の斉次の線型常微分方程式
 \begin{gather}
 \begin{split}
@@ -8527,7 +8706,7 @@ Note that we do not assume continuity of a derivative for holomorphy.
 \section{Cauchy-Riemann equation}
 \label{sec-6-1-2}
 
-\begin{thm}\textup{(The Cauchy-Riemann equation.)}
+\begin{thm}[The Cauchy-Riemann equation]
  Let $f \colon U \to \bbC$ be holomorphic and denote $f = u + iv$, $u=u (x,y)$ and $v=v (x,y)$.
  Then we have $u_x = v_y$ and $u_y = - v_x$.
 \end{thm}
@@ -8592,11 +8771,11 @@ We define two more concepts for assertion of the Cauchy's integral theorem.
  A domain $U$ is called \upbf{simply connected} if each piecewise $C^1$ closed curve $C$ is homolog 0 in $U$.
 \end{defn}
 Here we can state two forms of the Cauchy integral theorem.
-\begin{thm}\textup{(Cauchy's integral theorem 1: for any $U$ but confined $C$.)}
+\begin{thm}[Cauchy's integral theorem 1: for any $U$ but confined $C$]
  Assume a function $f$ on $U$ is holomorphic and a curve $C \subset U$ is a homolog 0 curve.
  Then we have $\int_C f (z) dz = 0$.
 \end{thm}
-\begin{thm}\textup{(Cauchy's integral theorem 2: for confined $U$ but any $C$.)}
+\begin{thm}[Cauchy's integral theorem 2: for confined $U$ but any $C$]
  Assume a function $f$ on $U$ is holomorphic, a region $U$ is simply connected, and a curve $C \subset U$ is piecewise $C^1$.
  Then we have $\int_C f (z) dz = 0$.
 \end{thm}
@@ -8647,7 +8826,7 @@ By similar functions $f, g$ the region $U$ is also described by
  =
  \set{(x,y) \in \bbR^2}{\alpha \leq y \leq \beta, \quad f (y) \leq x \leq g (y)}.
 \end{align}
-\begin{thm}\textup{(Green's theorem.)}
+\begin{thm}[Green's theorem]
  Assume a $C^1$ vector field $F = (u, v)$ is defined in $U$.
  Then it holds that
  \begin{align}
@@ -8729,7 +8908,7 @@ Then we obtain
 \end{proof}
 
 Then we obtain
-\begin{thm}\textup{(Morela's theorem.)}
+\begin{thm}[Morela's theorem]
  Assume a function $f \colon U \to \bbC$ is continuous and $\int_C f = 0$ for any piecewise $C^1$ closed curve $C \subset U$.
  Then $f$ is holomorphic in $U$.
 \end{thm}
@@ -8771,7 +8950,7 @@ we get, by Cauchy's integral theorem,
  \frac{1}{2 \pi i} \int_C \frac{f (z)}{z-a} dz - \frac{f (a)}{2 \pi i} \int_C \frac{1}{z-a} dz.
 \end{align}
 \end{proof}
-\begin{thm}\textup{(Taylor series expansion.)}
+\begin{thm}[Taylor series expansion]
  Assume a function $f \colon U \to \bbC$ is holomorphic.
  Then a function $f$ is complex analytic and has a following expansion:
  \begin{align}
@@ -8800,7 +8979,7 @@ Due to Cauchy's integral representation formula and exchange of limits we have
 \end{proof}
 
 A function $f \colon \bbC \to \bbC$ is called \textbf{entire} if it is holomorphic in all $\bbC$.
-\begin{thm}\textup{(Liouville's theorem)}
+\begin{thm}[Liouville's theorem]
  If an entire function $f$ is bounded $f$ is constant.
 \end{thm}
 \section{Simple application of fundamental theorems: convergence of holomorphic functions}
@@ -8817,7 +8996,7 @@ A function $f \colon \bbC \to \bbC$ is called \textbf{entire} if it is holomorph
  \end{align}
  We denote this convergence as $f_n \touw f$.
 \end{defn}
-\begin{thm}\textup{(Weierstrass. Theorem 3.5 in \cite{MitsuoSugiura2}.)}
+\begin{thm}[Weierstrass. Theorem 3.5 in \cite{MitsuoSugiura2}]
  Assume functions $f_n \colon U \to \bbC$ are holomorphic, $f \colon U \to \bbC$ is defined by
  a uniform limit in the wider sense, i.e., $f_n \touw f$.
 \begin{enumerate}
@@ -8871,7 +9050,7 @@ and that a sequence $(f_n)$ converges to a function $f$ on $K$.
 \section{Zero points for holomorphic functions and theorem of identity}
 \label{sec-6-1-7}
 
-\begin{thm}\textup{(Zero points for holomorphic functions are isolated.)}
+\begin{thm}[Zero points for holomorphic functions are isolated]
  Let a function $f \colon U \to \bbC$ be holomorphic.
  Then each zero point of $f$ is isolated.
 \end{thm}
@@ -8889,7 +9068,7 @@ Then, by Cauchy's integral representation formula, we get
 Since a function $g$ is continuous there exists a neighborhood $B \subset U$ of $z_0$ such that $g (w) \neq 0$ for all $w \in B$.
 Hence $f (z) \neq 0$ for all $z \in B \setminus {z_0}$.
 \end{proof}
-\begin{thm}\textup{(Theorem of identity)}
+\begin{thm}[Theorem of identity]
  Let functions $f, g \colon U \to \bbC$ be holomorphic and $C \subset U$ have a limit point in $U$.
  If $f = g$ on $C$ then $f=g$ in $U$.
 \end{thm}
@@ -8899,7 +9078,7 @@ Hence $f (z) \neq 0$ for all $z \in B \setminus {z_0}$.
  Since zero points are isolated for holomorphic functions in one variable it holds that $h = 0$.
 \end{proof}
 
-\begin{thm}\textup{(Theorem of identity in several complex variables.)}
+\begin{thm}[Theorem of identity in several complex variables]
  Let $U \subset \bbC^n$ be an open set.
  Assume $f \colon U \to \bbC$ is holomorphic.
  If $f|_V = 0$ for an open subset $V \subset U$ then $f=0$.
@@ -8931,7 +9110,7 @@ We call the following $B_0 (a, R)$ an \textbf{exclusive neighborhood} of $a$:
  then a point $a$ is called an \upbf{isolated singular point}.
  I.e., a function $f$ is not defined at a point $a$, or $f$ is defined and not differentiable at $a$.
 \end{defn}
-\begin{thm}\textup{(Laurent expansion.)}
+\begin{thm}[Laurent expansion]
  If a function $f$ is holomorphic in $B_0 (a, R)$ for a point $a \in U$, then
  $f$ is represented as the following \upbf{Laurent series} in $B = B_0 (a, R)$.
  \begin{align}
@@ -9029,7 +9208,7 @@ We have several analyses and characterizations for singular points but we omit t
   \res (f, a).
  \end{align}
 \end{defn}
-\begin{thm}\textup{(Theorem of residue.)}
+\begin{thm}[Theorem of residue]
  Assume a function $f$ is holomorphic in $U = B_0 (a, R)$ for $a \in U$ and $R > 0$.
  For any piecewise $C^1$ curves $C$ in $U$ it holds that
  \begin{align}
@@ -9083,7 +9262,7 @@ This result is generalized to the famous Argument principle and Louche's theorem
  Let $U \in \riemannsphere$ a domain.
  A function $f \colon U \to \bbC$ is holomorphic without several poles is called \upbf{meromorphic} in $U$.
 \end{defn}
-\begin{thm}\textup{(Argument principle.)}
+\begin{thm}[Argument principle]
  Assume a function $f \colon U \to \bbC$ is meromorphic in $U$, the set of zero points of $f$ is $\cbk{a_1, \dots, a_n}$ with multiplicity,
  and the set of poles is $\cbk{b_1, \dots, b_p}$ with multiplicity.
  If $C$ is a homolog 0 curve in $U$ and walk through no zero points and no poles of $f$ then it holds that
@@ -9096,14 +9275,14 @@ This result is generalized to the famous Argument principle and Louche's theorem
 \begin{proof}
  Use the theorem of residue.
 \end{proof}
-\begin{thm}\textup{(Louche's theorem.)}
+\begin{thm}[Louche]
  Assume a piecewise $C^1$ closed curve $C$ surround a region $U$ and that functions $f$ and $g$ are holomorphic in $U \bigcup C$.
  If $\abs{f (z) - g (z)} < \abs{f (z)}$ holds over $C$ then $f$ and $g$ have the same number of zero points in $U$ with multiplicity.
  \end{thm}
 \section{Convergence theorems}
 \label{sec-6-1-9}
 
-\begin{thm}\textup{(Hurwitz, \cite{LarsAhlfors1} P191.)}
+\begin{thm}[Hurwitz, \cite{LarsAhlfors1} P191]
  Assume functions $f_n \colon U \to \bbC$ are holomorphic and vanish nowhere
  and a function $f$ is defined by a uniform limit of a sequence $(f_n)$ in the wider sence.
  Then a function $f = 0$ or $f$ vanishes nowhere.
@@ -9134,7 +9313,7 @@ This result is generalized to the famous Argument principle and Louche's theorem
  A set $H \subset C (U)$ is \upbf{normal family} if, for any subset $(f_n)_n \subset H$, there exists a subsequence $(f_{n_k})_k$
  and a (continuous) function $f$ such that $f_{n_k} \touw f$.
 \end{defn}
-\begin{thm}\textup{(Ascoli-Arzela.)}
+\begin{thm}[Ascoli-Arzela]
  Let $U \subset \bbR^n$ and $H \subset C (U)$.
  A subset $H$ is a normal family if and only if the following two properties hold.
 \begin{enumerate}
@@ -9143,7 +9322,7 @@ This result is generalized to the famous Argument principle and Louche's theorem
 \end{enumerate}
 \end{thm}
 We denote an algebra of holomorphic functions on $U$ as $\calO (U)$.
-\begin{thm}\textup{(Montel.)}
+\begin{thm}[Montel]
  Let $H \subset \calO (U)$ be a subset.
  Then the followings are equivalent.
 \begin{enumerate}
@@ -9151,7 +9330,7 @@ We denote an algebra of holomorphic functions on $U$ as $\calO (U)$.
 \item $H$ is uniformly-bounded on any compact subset $K \subset U$.
 \end{enumerate}
 \end{thm}
-\begin{thm}\textup{(Vitali. See \cite{MitsuoSugiura2} P.374.)}
+\begin{thm}[Vitali. See \cite{MitsuoSugiura2} P.374]
  Let $E = {z_n}_{n \in \bbN} \subset U$, $z_n \to z \in U$, and a family $(f_n) \subset \calO (U)$ be uniformly-bounded in $U$.
  If sequences $(f_n (z))_n$ converge for all $z \in E$ then there exists a holomorphic function $f \in \calO (U)$ such that $f_n \touw f$.
 \end{thm}
@@ -9183,7 +9362,7 @@ Choosing natural numbers $k (n)$ for each $n \in \bbN$ properly and set function
  \sum_{k=0}^{k (n)} b_{n, k} z^k.
 \end{align}
 Put $\varphi_0 = 0$.
-\begin{thm}\textup{(Mittag-Leffler. Theorem 10.1 in \cite{MitsuoSugiura2}.)}
+\begin{thm}[Mittag-Leffler. Theorem 10.1 in \cite{MitsuoSugiura2}]
  We assume the above setup.
  Then the series
  \begin{align}
@@ -9230,7 +9409,7 @@ and the principal part of $g$ is $P_n$ at $a_n$.
  Mittag-Leffler's theorem in a several complex variables version is the famous Cousin first problem.
 \end{rem}
 
-\begin{thm}\textup{(Weierstrass. Theorem 5.5.4. in \cite{JunjiroNoguchi1})}
+\begin{thm}[Weierstrass. Theorem 5.5.4. in \cite{JunjiroNoguchi1}]
  Let $Z \subset U$ be a discrete set.
  Set numbers $\nu_{\zeta} \in \bbZ \setminus \cbk{0}$ for each $\zeta \in Z$.
  Then there exists a meromorphic function $f$ on $U$ such that, for each neighborhood of $\zeta$,
@@ -9253,7 +9432,7 @@ and the principal part of $g$ is $P_n$ at $a_n$.
  Two regions $U_1$ and $U_2$ are \textup{\textbf{analytically homeomorphic}} if
  there exists an biholomorphic function $f \colon U_1 \to U_2$.
 \end{defn}
-\begin{thm}\textup{(Theorem 13.1 in \cite{MitsuoSugiura2}.)}
+\begin{thm}[Theorem 13.1 in \cite{MitsuoSugiura2}]
  The following three simply connected regions are not analytically homeomorphic each other.
 \begin{enumerate}
 \item The Riemann sphere, $\riemannsphere$.
@@ -9269,7 +9448,7 @@ If a homeomorphic function $f$ on $\bbC$ satisfies $f (\bbC) \subset D$ then,
 since $f$ is a bounded entire function, Liouville's theorem asserts $f$ is a constant function,
 i.e., $f (\bbC) \neq D$.
 \end{proof}
-\begin{thm}\textup{(Riemann's mapping theorem. Theorem 13.2 in \cite{MitsuoSugiura2}.)}
+\begin{thm}[Riemann's mapping theorem. Theorem 13.2 in \cite{MitsuoSugiura2}]
  If $U$ is a simply connected region in $\bbC$ and $U \neq \bbC$, then
  there exists a holomorphic and univalent function $f$ on $U$ such that it maps $U$ onto the unit disc $D$.
  Furthermore we set an additional condition
@@ -9493,7 +9672,7 @@ We require the following points.
 \subsection{Definition}
 \label{sec-7-1-2-1}
 
-\begin{defn}\textup{(Finitely additive family.)}
+\begin{defn}[Finitely additive family]
  Suppose $X$ is a set and $\calF$ is a family of subsets $X$.
  Then the family $\calF$ is \upbf{finitely additive} if it satisfies the following three conditions.
 \begin{enumerate}
@@ -9509,7 +9688,7 @@ We require the following points.
 \item $\bigcup_{k=1}^n A_k$, $\bigcap_{k=1}^n A_k \in \calF$ if $A_k \in \calF$ for $k=1, \dots, n$.
 \end{enumerate}
 \end{prop}
-\begin{defn}\textup{(Finitely additive measure.)}
+\begin{defn}[Finitely additive measure]
  Suppose $X$ is a set and $\calF$ is a finitely additive family of subsets $X$.
  Then a function $m \colon \calF \to \bbR$ is called a \upbf{finitely additive measure (on $\calF$)}
  if it satisfies the following three conditions.
@@ -9540,17 +9719,17 @@ We require the following points.
     \end{align}
 \end{enumerate}
 \end{prop}
-\begin{defn}\textup{($\sigma$-additive family.)}
+\begin{defn}[$\sigma$-additive family]
  Suppose $X$ is a set and $\calB$ is a family of subsets of $X$.
  The family $\calB$ is called a \upbf{completely additive (contably additive, or $\sigma$-additive) family, or $\sigma$-algebra}
  if the following three conditions hold.
 \begin{enumerate}
 \item $\emptyset \in \calB$.
 \item A set $E^{c}$ is in $\calB$ if $E \in \calB$.
-\item $\bigcup_{n=1}^{\infty} A_n \in \calB$ if $E_n \in \calB$ for all $n$.
+\item $\bigcup_{n=1}^{\infty} A_n \in \calB$ if $A_n \in \calB$ for all $n$.
 \end{enumerate}
 \end{defn}
-\begin{defn}\textup{(Measure.)}
+\begin{defn}[Measure]
  Suppose $X$ is a set and $\calB$ is a $\sigma$-additive family of subsets $X$.
  Then a function $\mu \colon \calB \to \bbR$ is called a \upbf{measure (on $\calB$)}
  if it satisfies the following three conditions.
@@ -9606,7 +9785,7 @@ Then $A \subset B$ and
 \end{enumerate}
  then a set function $\Gamma$ is called Carath\'eodory's outer measure or, simply, outer measure.
 \end{defn}
-\begin{thm}\textup{(\cite{SeizoIto1} Theorem. 5.1)}
+\begin{thm}[\cite{SeizoIto1} Theorem. 5.1]
  Let $\calF$ be a finitely additive family of $X$ and $m$ be a finitely additive measure on $\calF$.
 \begin{enumerate}
 \item If we define a set function $\Gamma$ as
@@ -9640,14 +9819,14 @@ If a set $E \subset X$ satisfles the condition
  \quad \forall A \subset X,
 \end{align}
 then $E$ is called \upbf{$\Gamma$-measurable}.
-\begin{thm}\textup{(\cite{SeizoIto1} Theorem. 6.1)}
+\begin{thm}[\cite{SeizoIto1} Theorem. 6.1]
  If $\Gamma$ is an outer measure on $X$ then the family of $\Gamma$-measurable sets $\calM_{\Gamma}$ is
  a $\sigma$-algebra and $\Gamma$ is a measure on $\calM_{\Gamma}$.
 \end{thm}
 Consider the Lebesgue outer measure $\mu^*$.
 A set belonging to $\calM_{\mu^*}$ is called a \textbf{Lebesgue measurable set}.
 We denote $\mu$ for a measure $\mu^*$ on $\calM_{\mu^*}$ and call the \textbf{Lebesgue measure}.
-\begin{thm}\textup{(\cite{SeizoIto1} Theorem. 6.3)}
+\begin{thm}[\cite{SeizoIto1} Theorem. 6.3]
  Let $\calA_0$ be an arbitrary family of subsets of a set $X$.
  Then there is a smallest $\sigma$-algebra $\calB_0$ contains $\calA_0$.
  We denote this $\calB_0$ as $\calB (\calA_0)$.
@@ -9741,7 +9920,7 @@ is $0$ almost everywhere on $\bbR$ and we denote
 \section{Properties of measure}
 \label{sec-7-1-3}
 
-\begin{thm}\textup{(\cite{SeizoIto1} Theorem 6.2.)}
+\begin{thm}[\cite{SeizoIto1} Theorem 6.2]
  Suppose $(X, \calB, \mu)$ is a measure space and $(A_n)_n \subset \calB$.
  If a sequence of sets $(A_n)$ is monotone increasing or monotone decreasing and $\mu (A_1) < \infty$, then
  \begin{align}
@@ -9828,11 +10007,11 @@ For a rectangle $C = A \times B$, $\mu_X (A)$, $\mu_Y (B) < \infty$ we define
  \mu_X (A) \mu_Y (B).
 \end{align}
 We call $\mu$ a \textbf{product measure}.
-\begin{thm}\textup{(Theorem 9.4 \cite{SeizoIto1}.)}
+\begin{thm}[Theorem 9.4 \cite{SeizoIto1}]
  The above $\mu$ is unique.
 \end{thm}
 For the proof we need the following
-\begin{thm}\textup{(E. Hopf's extension theorem, Theorem 9.1 \cite{SeizoIto1}.)}
+\begin{thm}[E. Hopf's extension theorem, Theorem 9.1 \cite{SeizoIto1}]
  Suppose $X$ is a set, $\calF$ is a finitely additive family, $\calB = \calB (\calF)$, and $m$ is a finitely additive measure on $\calF$.
  A finitely additive measure $m$ can be extended to a measure $\mu$ on $\calB$ if and only if $m$ is countably additive on $\calF$.
  If, furthermore, $X$ is $\sigma$-finite then the extension is unique.
@@ -10200,7 +10379,7 @@ Clearly the converge inequality holds.
   \int_E \Re f d \mu + i \int_E \Im f d \mu.
  \end{align}
 \end{defn}
-\begin{thm}\textup{(Theorem 12.1 in \cite{SeizoIto1}.)}
+\begin{thm}[Theorem 12.1 in \cite{SeizoIto1}]
  If a function $f$ is integralable on $E$ then
  \begin{align}
   \abs{\int_E f d\mu}
@@ -10208,7 +10387,7 @@ Clearly the converge inequality holds.
   \int_E \abs{f} d\mu.
  \end{align}
 \end{thm}
-\begin{thm}\textup{(Theorem 12.2 in \cite{SeizoIto1}.)}
+\begin{thm}[Theorem 12.2 in \cite{SeizoIto1}]
 \begin{enumerate}
 \item If $\mu (E) = 0$ then
     \begin{align}
@@ -10235,7 +10414,7 @@ Then, for $\alpha > 0$, we obtain
 \end{align}
 Since $\alpha$ is arbitrary $\mu (E_0) = 0$.
 \end{proof}
-\begin{thm}\textup{(Theorem 12.3 in \cite{SeizoIto1}.)}
+\begin{thm}[Theorem 12.3 in \cite{SeizoIto1}]
 \begin{enumerate}
 \item \textup{(Linearity of integral)} For integralable functions $f, g$ and any complex number $\alpha, \beta$ it holds that
     \begin{align}
@@ -10255,7 +10434,7 @@ Since $\alpha$ is arbitrary $\mu (E_0) = 0$.
 \label{sec-7-1-7}
 
 We fix a measure space $(X, \calB, \mu)$.
-\begin{thm}\textup{(Theorem. 13.1 in \cite{SeizoIto1}.)}
+\begin{thm}[Theorem. 13.1 in \cite{SeizoIto1}]
  If functions $(f_n)$ is nonnegative and $f = \sum_{n=1}^{\infty} f_n$ then
  \begin{align}
   \int_E f \dmu
@@ -10263,7 +10442,7 @@ We fix a measure space $(X, \calB, \mu)$.
   \sum_{n=1}^{\infty} \int_E f_n \dmu.
  \end{align}
 \end{thm}
-\begin{thm}\textup{(Monotone convergence theorem, Beppo-Levi, Theorem. 13.2 in \cite{SeizoIto1}.)}
+\begin{thm}[Monotone convergence theorem, Beppo-Levi, Theorem. 13.2 in \cite{SeizoIto1}]
  If a sequence $(f_n)$ is nonnegative and monotonically increasing and that $\lim_{n \to \infty} f_n = f$ it holds that
  \begin{align}
   \int_E f \dmu
@@ -10299,7 +10478,7 @@ Then it follows that
  \lim_{n \to \infty} \int_E f_n \dmu.
 \end{align}
 \end{proof}
-\begin{thm}\textup{(Absolute continuity, Theorem 13.4 in \cite{SeizoIto1}.)}
+\begin{thm}[Absolute continuity, Theorem 13.4 in \cite{SeizoIto1}]
  Assume a function $f$ is integralable on $X$.
  Then, for any $\varepsilon > 0$, there is a $\delta > 0$ such that
  \begin{align}
@@ -10308,7 +10487,7 @@ Then it follows that
   \abs{\int_E f \dmu} < \varepsilon.
  \end{align}
 \end{thm}
-\begin{thm}\textup{(Fatou's lemmna, Theorem 13.5 in \cite{SeizoIto1}.)}
+\begin{thm}[Fatou's lemmna, Theorem 13.5 in \cite{SeizoIto1}]
  If functions $(f_n)$ is nonnegative then it holds that
  \begin{align}
   \int_E \liminf_{n \to \infty} f_n \dmu
@@ -10316,7 +10495,7 @@ Then it follows that
   \liminf_{n \to \infty} \int_E f_n \dmu.
  \end{align}
 \end{thm}
-\begin{thm}\textup{(Lebesgue's dominant convergence theorem, Theorem 13.6 in \cite{SeizoIto1}.)}
+\begin{thm}[Lebesgue's dominant convergence theorem, Theorem 13.6 in \cite{SeizoIto1}]
  If there is a function $\varphi$ on $E$ and that
  \begin{align}
   \abs{f_n} \leq \varphi \quad \rbk{n \in \bbN},
@@ -10337,7 +10516,7 @@ Then it follows that
   \int_E \lim_{n \to \infty} f_n \dmu.
  \end{align}
 \end{thm}
-\begin{thm}\textup{(Theorem 13.7 in \cite{SeizoIto1}.)}
+\begin{thm}[Theorem 13.7 in \cite{SeizoIto1}]
  If a sequence of functions $(f_n)$ satisfies
  \begin{align}
   \sum_{n=1}^{\infty} \int_E \abs{f_n} \dmu
@@ -10351,7 +10530,7 @@ Then it follows that
   \int_E \sum_{n=1}^{\infty} f_n \dmu.
  \end{align}
 \end{thm}
-\begin{thm}\textup{(Theorem 14.2 in \cite{SeizoIto1}.)}
+\begin{thm}[Theorem 14.2 in \cite{SeizoIto1}]
  If a function $f (x,t) = f \colon X \times \rbk{a, b} \to \bbC$ is integralable on $X$ for $x$ and differentiable for $t$
  and that there is a integralable function $\varphi$ such that $\abs{\frac{\partial f}{\partial t}} \leq \varphi$,
  then it holds that
@@ -10409,7 +10588,7 @@ P85, Theorem 12.8.
 \section{Introduction}
 \label{sec-7-4-1}
 
-\cite{KazuhikoAomoto1, AraiEzawa1, AraiEzawa2, AsaoArai4, HaimBrezis1,
+参考: \cite{KazuhikoAomoto1, AraiEzawa1, AraiEzawa2, AsaoArai4, HaimBrezis1,
 HaimBrezis2, HiaiYanagi1, KenichiKanaya1, NaokiKurasawa1,
 TomKoornwinder1, SeikiNishikawa1, NatsumeMoriyoshi1,
 NoborizakaOnishiYamamoto1, MakotoOkazaki1, KimYamamoto1, HiroshiTanaka1}
@@ -10972,34 +11151,521 @@ Schauder の不動点定理の $K$ として $f (B)$ の閉包を取れて $f$ �
 と同等だから, $y$ はその解でもある.
 $\heartsuit$
 \end{proof}
-\chapter{Fourier Analysis}
+\chapter{Introduction to Sobolev embedding theorems}
 \label{sec-7-6}
+
+どっかで話す予定がボツになってしまったので放出.\footnote{From a yukimi's page, http://yukimigo.com/math/.
+The original version is reprinted with the written consent of the author.
+ }
+$\mathbb{R}^n$ 全体での話しかしません (たまにさぼって略すかも).
+領域の話をしだすとややこしくなるからです.
+ともあれいつもどおり入門的な内容です.
+\section{Sobolev 空間}
+\label{sec-7-6-1}
+
+まず定義をしよう.
+\begin{defn}[Sobolev 空間]
+ $1 \le p \le \infty, m \in \bbZ_{\ge 0}$
+ と開集合 $\Omega \subset \bbRn$ について,
+ \begin{align}
+  W^{m, p}(\Omega)
+  \defeq
+  \set{u \in L^p \rbk{\Omega}}{\partial^{\alpha} u \in L^p \rbk{\Omega} \forall \alpha \in \bbZ_{\geq 0}^{m}\, \text{s.t.} \, \abs{\alpha} \le m }
+ \end{align}
+ $W^{m, p}(\Omega)$ は
+ \begin{align}
+  \norm{u}_{W^{m,p}}
+  \defeq
+  \rbk{\sum_{\abs{\alpha} \le m} \norm{\partial^{\alpha} u}_{L^p}^p}
+ \end{align}
+ をノルムとして Banach 空間となる.
+ これを \textbf{Sobolev 空間}という.
+ $p = 2$ のときは $H^m (\Omega)$ とかき, 内積
+ \begin{align}
+  \bkt{u}{v}_{H^m \rbk{\Omega}}
+  \defeq
+  \sum_{\abs{\alpha} \leq m}
+  \int_{\Omega} \overline{\partial^{\alpha}u (x)} \partial^{\alpha}v (x) dx
+ \end{align}
+ が意味をもち, Hilbert 空間になる.
+ べんり.
+ 完備性などの証明は略すので宮島\cite{ShizuoMiyajima1}などを参照.
+\end{defn}
+なんの話をするにしてもつぎを使わなければいけない.
+\begin{thm}[Density]
+ $\Ccinfty(\bbRn)$ は $W^{m, p}(\bbR^n)$ で稠密.
+\end{thm}
+\begin{rem}
+ 証明は$L^p$のときと似ているけれども, $\Omega \neq \bbR^n$ のときは\textbf{稠密でない}ことに注意して,
+ $\Ccinfty (\Omega)$ の $W^{m, p}(\Omega)$ での閉包を $W_0^{m, p}(\Omega)$ とかく.
+ 全空間の場合は $W_0^{m, p}(\mathbb{R}^n) = W^{m. p}(\mathbb{R}^n)$ でよい.
+ これもおおまかにいって境界で $0$ ということだけど, 意味は微妙で話をするとちょっとややこしい.
+ なのでしないで済む話だけにしぼります.
+\end{rem}
+\section{Sobolev 不等式}
+\label{sec-7-6-2}
+
+まずつぎの不等式が基本になる. とくに $p=2$ のときを (個人的な趣味の範囲で) よく使う.
+\begin{thm}[Sobolev 不等式]\label{yukimi-introduction-to-sobolev-embedding-theorems2}
+ $1 \le p < n$ とする (あまり正則性がよくない).
+ このとき, $u \in W^{1, p}(\bbRn)$ について,
+ \begin{align}
+  p^*
+  \defeq
+  \frac{pn}{n-p}
+   \rbk{\Leftrightarrow \frac{1}{p^*} = \frac{1}{p} - \frac{1}{n}}
+ \end{align}
+ で $p^*$ を定めると,
+ \begin{align}
+  \norm{u}_{p^*} \le \const \norm{\nabla u}_p
+ \end{align}
+ がなりたつ.
+\end{thm}
+証明は Hardy-Littlewood-Sobolev の不等式を使う方法もあるけども,
+たいへん (たとえば Lieb-Loss\cite{LiebLoss1}や小川\cite{TakayoshiOgawa1}).
+ここでは初等的な (不等式としては少し損をする) 方法を使う.
+\begin{lem}[一般化された H\"older の不等式]
+ $f_i \in L^{p_i}$, $\sum_{i=1}^m p_i^{-1} = 1$ とすると
+ \begin{align}
+  \int \prod_{i=1}^m \abs{f_i}
+  \le
+  \prod_i^m \norm{f_i}_{p_i}
+ \end{align}
+\end{lem}
+証明は H\"older の不等式から帰納法で出る.
+\begin{proof}[proof of Theorem \ref{yukimi-introduction-to-sobolev-embedding-theorems2}]
+まず$u \in C_c^1 (\bbRn)$とする.
+このときは各 $i$ について
+\begin{align}\label{yukimi-introduction-to-sobolev-embedding-theorems3}
+ \abs{u(x)}
+ &=
+ \abs{\int_{-\infty}^{x_i} \frac{\partial}{\partial t} u \rbk{x_1, \dots , x_{i-1}, t, x_{i+1} \dots, x_n} dt} \\
+ &\le
+ \int_{-\infty}^{\infty}
+  \abs{\frac{\partial}{\partial t} u \rbk{x_1, \dots , x_{i-1}, t, x_{i+1} \dots, x_n}} dt
+  \eqdef g_i \rbk{\check{x}_i}
+\end{align}
+となっている.
+ここで $\check{x_i}$ は $i$ 成分をのぞくという意味.
+かんたんのため $n = 3$ とすると
+\begin{align}
+ \abs{u(x)}^{3/2}
+ &\leq
+ g_1(\check{x}_1)^{1/2} g_2(\check{x}_2)^{1/2} g_3(\check{x}_3)^{1/2}
+\end{align}
+だから, これを積分するとつぎのようになる:
+\begin{align}
+ \int_{\bbR^3} \abs{u(x)}^{\frac{3}{2}}dx
+ &\le
+ \int_{\bbR^3} g_1(\check{x}_1)^{1/2} g_2(\check{x}_2)^{1/2} g_3 (\check{x}_3)^{1/2} dx_1 dx_2 dx_3 \\
+ &=
+ \int_{\mathbb{R}^2} g_1(\check{x}_1)^{1/2}
+ \sqbk{\int_{\bbR} g_2(\check{x}_2)^{1/2} g_3(\check{x}_3)^{1/2} dx_1} dx_2 dx_3 \\
+ &\le
+ \int_{\bbR^2} g_1(\check{x_1})^{1/2}
+  \sqbk{\int_{\bbR} g_2 (\check{x}_2) dx_1}^{1/2}
+  \sqbk{\int_{\mathbb{R}} g_3 (\check{x}_3) dx_1}^{1/2} dx_2 dx_3 \quad \text{(Schwarz の不等式)} \\
+ &=
+ \int_{\bbR} \sqbk{\int_{\mathbb{R}} g_2(\check{x}_2) dx_1}^{1/2}
+  \rbk{\int_{\mathbb{R}}g_1 (\check{x}_1)^{1/2} \sqbk{\int_{\bbR} g_3(\check{x}_3) dx_1}^{1/2} dx_2} dx_3 \\
+ &\le
+ \int_{\bbR} \sqbk{\int_{\mathbb{R}} g_2(\check{x}_2) dx_1}^{1/2}
+  \sqbk{\int_{\bbR} g_1(\check{x}_1) dx_2}^{1/2}
+  \sqbk{\int_{\bbR} g_3(\check{x}_3) dx_1 dx_2}^{1/2} dx_3 \quad \text{(Schwarz)} \\
+ &=
+ \int_{\bbR}
+  \rbk{\sqbk{\int_{\bbR} g_1(\check{x}_1) dx_2}^{1/2} \sqbk{\int_{\bbR} g_2(\check{x}_2) dx_1}^{1/2} dx_3}
+  \sqbk{\int_{\bbR^2} g_3(\check{x}_3) dx_1 dx_2}^{1/2} dx_3 \\
+ &\le
+ \sqbk{\int_{\bbR^2} g_1(\check{x}_1) dx_2 dx_3}^{1/2}
+  \sqbk{\int_{\bbR^2} g_2(\check{x}_2) dx_1 dx_3}^{1/2}
+  \sqbk{\int_{\bbR^2} g_3(\check{x}_3) dx_1 dx_2}^{1/2}
+  \quad \text{(Schwarz)}
+\end{align}
+だから, これの一般的な形は Schwarz の不等式を使ったところで一般化された H\"older の不等式を使うように修正して,
+\begin{align}
+ \int \abs{u(x)}^{\frac{n}{n-1}}dx
+ &\le
+ \prod_{i=1}^n \rbk{\int_{\bbR^{n-1}} g(\check{x}_i) d \check{x}_i}^{\frac{1}{n-1}} \\
+ &=
+ \prod_{i=1}^n \rbk{\int_{\bbR^{n}} \abs{\frac{\partial}{\partial x_i} u (x)} dx}^{\frac{1}{n-1}}
+\end{align}
+となる.
+したがって,
+\begin{align}
+ \norm{u}_{\frac{n}{n-1}}
+ &\le
+ \prod_{i=1}^n \rbk{\int_{\bbR^{n}} \abs{\frac{\partial}{\partial x_i} u (x)} dx}^{\frac{1}{n}} \\
+ &\le
+ \frac{1}{n} \sum_{i=1}^n \int_{\bbR^{n}} \abs{\frac{\partial}{\partial x_i} u(x)} dx \quad \text{(相加相乗平均)} \\
+ &\le
+ \frac{1}{\sqrt{n}} \int_{\bbR^{n}} \abs{\nabla u(x)} dx \quad \text{(和についての Schwarz の不等式)}
+\end{align}
+がわかったから, $p=1$ のときはこれで O.K.
+$p>1$ のときは任意の $s>1$ について $u$ のかわりに $\abs{u}^s \in C_c^1 (\bbR^n)$ を考えて,
+\begin{align}\label{yukimi-introduction-to-sobolev-embedding-theorems4}
+ \norm{u}_{\frac{sn}{n-1}}^s
+ &\le
+ \frac{1}{\sqrt{n}} \int_{\bbR^{n}} \abs{\nabla \abs{u(x)}^s} dx \\
+ &=
+ \frac{s}{\sqrt{n}} \rbk{\int_{\bbR^{n}} \abs{u (x)}^{s-1} \abs{\nabla u(x)} dx} \\
+ &\le
+ \frac{s}{\sqrt{n}} \norm{\nabla u}_{p} \rbk{\int_{\bbRn} \abs{u(x)}^{p'(s-1)}dx}^{\frac{1}{p'}} \quad \text{(H\"older の不等式)}
+\end{align}
+となっていることがわかるから,
+$sn/ (n-1) = p'(s-1)$ と $s>1$ をきめて $1/p + 1/{p'} = 1$ に注意すれば,
+かんたんな計算で $sn/ (n-1) = p^*$ がわかり,
+$u \in C_c^1 (\bbR^n)$ の場合に
+\begin{align}\label{yukimi-introduction-to-sobolev-embedding-theorems5}
+ \norm{u}_{p^*}
+ \le
+ \const \norm{\nabla u}_p
+\end{align}
+がなりたっている.
+一般の $u \in W^{1, p}(\bbR^n)$ については
+$u_n \in C_c^1 (\bbR^n)$ を $\norm{u_n - u}_{W^{m, p}} \to 0$ ととる (density).
+このとき部分列にうつれば各点で $u_n \to u$ a.e. とできる.
+$u_n$ は (\ref{yukimi-introduction-to-sobolev-embedding-theorems5}) から$L^{p^*}$の Cauchy 列となっているから,
+また部分列にうつれば$u_n \to u$ in $L^{p^*}$ とできる.
+よって
+\begin{align}
+ \norm{u_n}_{p^*}
+ \leq
+ \const \norm{\nabla u}_p
+\end{align}
+で $n \to \infty$ とすればよい.
+\end{proof}
+\begin{cor}\label{yukimi-introduction-to-sobolev-embedding-theorems6}
+$1 \le p < n$, $u \in W^{1, p}(\bbR^n)$, $p^* \defeq \frac{pn}{n-p}$ とすると, 任意の$q \in [p, p^*]$について
+\begin{align}
+ \norm{u}_{q}
+ \le
+ \const \norm{u}_{W^{1,p}}
+\end{align}
+がなりたつ.
+つまり
+\begin{align}
+ W^{1, p}(\bbR^n) \hookrightarrow L^q (\bbR^n) \quad (\text{連続的埋め込み})
+\end{align}
+が成立.
+\end{cor}
+\begin{proof}
+$q \in (p, p^*)$として示せばよい.
+このときは$1 \le p$だから $1/q = \theta/p + (1-\theta)/p^*$ と$\theta \in (0, 1)$ がとれて,
+$\abs{u}^{\theta q} \in L^{p / (\theta q)}$などに注意すれば, $u \in W^{1, p}(\bbR^n)$について
+\begin{align}
+ \int \abs{u}^q
+ &=
+ \int \abs{u}^{q \theta} \abs{u}^{(1 - \theta) q} \\
+ &\le
+ \rbk{\int \abs{u}^{p}}^{q \theta / p}
+  \rbk{\int \abs{u}^{p^*}}^{(1 - \theta) q / p^*} \quad \text{(H\"older の不等式)}
+\end{align}
+がわかるからよい (これを対数凸性という).
+くわしくかくと,
+\begin{align}
+ \norm{u}_q
+ &\le
+ \norm{u}_p^{\theta} \norm{u}_{p^*}^{1-\theta} \\
+ &\le
+ C \norm{u}_p^{\theta} \norm{\nabla u}_{p}^{1 - \theta} \quad \text{(Sobolev 不等式)} \\
+ &\le
+ C \norm{u}_{W^{1, p}}^{\theta + 1-\theta} \quad \text{(Sobolev ノルムの定義)} \\
+ &\le
+ C \norm{u}_{W^{1, p}}
+\end{align}
+だから O.K.
+\end{proof}
+\begin{cor}
+ $1 \le p = n$, $u \in W^{1, n}(\bbR^n)$, とすると,
+ 任意の$q \in [n, \infty)$について
+ \begin{align}
+  \norm{u}_{q}
+  \leq
+  \const \norm{u}_{W^{1, n}}
+ \end{align}
+ がなりたつ.
+\end{cor}
+\begin{proof}
+$n=1$のときは (\ref{yukimi-introduction-to-sobolev-embedding-theorems3}) でみたように
+\begin{align}
+ \abs{u(x)}
+ \le
+ \norm{u}_1
+\end{align}
+なので,
+\begin{align}
+ \int \abs{u(x)}^q
+ &=
+ \int \abs{u}^{(1-\theta) q} \abs{u}^{\theta q} \\
+ &\le
+ \norm{u}_{\infty}^{(1-\theta) q} \norm{u}_1^{\theta q} \\
+ &\le
+ \norm{u'}_1^{(1-\theta) q} \norm{u}_1^{\theta q}
+\end{align}
+で O.K.
+$n > 1$ のときは (\ref{yukimi-introduction-to-sobolev-embedding-theorems4}) から
+\begin{align}
+ \rbk{\int_{\bbR^{n}} \abs{u(x)}^{\frac{sn}{n-1}}dx}^{\frac{n-1}{n}}
+ \le
+ \frac{s}{\sqrt{n}} \norm{\nabla u}_n
+  \rbk{\int_{\bbR^{n}} \abs{u(x)}^{\frac{n}{n-1}(s-1)} dx}^{\frac{n-1}{n}}
+\end{align}
+だから, これをじっとみてつぎつぎと使うと,
+\begin{align}
+ \rbk{\int_{\bbR^{n}} \abs{u(x)}^{\frac{sn}{n-1}} dx}^{\frac{n-1}{n}}
+ &\le
+ s (s-1) \cdots n \norm{\nabla u}_n^{s-n+1}
+  \rbk{\int_{\bbR^{n}} \abs{u(x)}^n dx}^{\frac{n-1}{n}} \\
+ &\le
+ C \norm{u}_{W^{1, n}}^{s}
+\end{align}
+が任意の $s > 1$ でなりたつからよいことがわかる.
+\end{proof}
+\begin{thm}[Morray]
+ $1 \le n < p < \infty$ とする (正則性がよい).
+ このときはすべての $x$, $y \in \bbR^n$ について $u \in W^{1. p}$ は $L^p$ 関数として連続な代表元をもち,
+ \begin{align}
+  \abs{u(x) - u(y)}
+  \le
+  C \abs{x - y}^{1-n/p} \norm{\nabla u}_p
+ \end{align}
+ がなりたつ.
+ さらに
+ \begin{align}
+  \norm{u}_{\infty}
+  \leq
+  C \norm{u}{W^{1, p}}
+ \end{align}
+ がなりたつ.
+ つまり
+ \begin{align}
+  W^{1, p}(\bbR^n)
+  \hookrightarrow
+  C^{0, 1-n/p}(\bbR^n).
+ \end{align}
+\end{thm}
+\begin{proof}
+極限移行すればよいので, $u \in C_c^1 (\bbR^n)$ として示せば十分.
+$\bbR^n$ の各面が軸に平行で各辺の長さ $r$ の $n$ 次元立方体 $Q$ を考える.
+$x \in Q$ についてその平均を
+\begin{align}
+ u_Q
+ \defeq
+ \frac{1}{|Q|} \int_Q u (x) dx
+\end{align}
+とする.
+ここで $\abs{Q} = r^n$ は Lebesgue 測度.
+$x_0 \in Q$ について
+\begin{align}
+ \abs{u_Q - u(x_0)}
+ &=
+ \abs{\frac{1}{|Q|} \int_Q u (x) - u (x_0) dx} \\
+ &=
+ \frac{1}{|Q|} \abs{\int_Q \int_0^1 \frac{d}{dt} u (x_0 - t (x_0 - x)) dt dx} \quad \text{(微分積分学の基本定理)} \\
+ &\le
+ \frac{1}{|Q|} \int_Q \int_0^1 \abs{x - x_0} \abs{\nabla u (x_0 - t (x_0 - x))} dt dx \quad \text{(微分した)} \\
+\end{align}
+ここで$\abs{x - x_0} \le r \sqrt{n}$に注意して $y \defeq x_0 - t (x_0 - x)$ と変数変換すると,
+積分の順序交換はできるから,
+\begin{align}
+ \abs{u_Q - u(x_0)}
+ &\le
+ \frac{1}{|Q|} \int_Q \int_0^1 \abs{x - x_0} \abs{\nabla u (x_0 - t (x_0 - x))} dt dx \\
+ &=
+ \frac{\sqrt{n} r}{|Q|} \int_0^1 \int_{tQ} \abs{\nabla u (y)} \frac{1}{t^n} dy dt \\
+ &\le
+ \frac{\sqrt{n} r}{|Q|} \int_0^1 \norm{\nabla u}_{p (tQ)} \abs{tQ}^{1/{p'}} \frac{1}{t^n} dt \quad \text{(H\"older の不等式)} \\
+ &\le
+ \frac{\sqrt{n} r}{|Q|} \norm{\nabla u}_{p (Q)} \int_0^1 \abs{tQ}^{1/{p'}} \frac{1}{t^n} dt \\
+ &=
+ \frac{\sqrt{n} r}{r^{n-n/{p'}}} \norm{\nabla u}_{p (Q)} \int_0^1 t^{n/{p'} - n} dt \\
+ &=
+ \sqrt{n} r^{1 - n/p} \norm{\nabla u}_{p (Q)} \int_0^1 t^{n/p} dt \\
+ &=
+ \frac{\sqrt{n} r^{1 - n/p}}{1 - n/p} \norm{\nabla u}_{p (Q)}
+\end{align}
+となっている.
+よって, 任意の$x, y \in \bbR^n$ について上の $Q$ を $x, y \in Q, r \le \abs{x-y}$ ととると,
+三角不等式から
+\begin{align}
+ \abs{u (x) - u (y)}
+ &\le
+ \abs{u (x) - u_Q} + \abs{u_Q - u (y)} \\
+ &\le
+ \frac{2\sqrt{n} \abs{x-y}^{1 - n/p}}{1 - n/p} \norm{\nabla u}_{p (Q)}
+\end{align}
+だから, 定理のはじめの主張がなりたつ.
+つぎに, 任意の $x \in \bbR^n$ について $Q$ を各辺 $1$, $x \in Q$ととれば,
+H\"older の不等式から
+\begin{align}
+ \abs{u_Q}
+ \le
+ \norm{u}_p
+\end{align}
+だから, 三角不等式によって
+\begin{align}
+ \abs{u(x)}
+ &\le
+ \abs{u(x)- u_!} + \abs{u_Q} \\
+ &\le
+ \frac{\sqrt{n}}{1 - n/p} \norm{\nabla u}_p + \norm{u}_p
+\end{align}
+となり, なりたつことがわかる.
+\end{proof}
+\section{Sobolev の埋蔵定理}
+\label{sec-7-6-3}
+
+これまで微分が一回だけの場合を考えてきたが, これからはもっと高階の場合も考え,
+\textbf{Sobolev の埋蔵定理 (embedding theorem)} を証明しよう.
+これによって正則性がよい, わるいなどかっこでつけていた意味がわかることと思う.
+そのまえに念のために H\"older 空間を定義しよう.
+\begin{defn}[H\"{o}lder 空間]
+ $u \in C^k (\bbR^n)$ であって, $\abs{\alpha} \le k$ となるすべての多重指数$\alpha$について
+ $\partial^{\alpha} u$が一様有界で, $|\alpha| = k$ となるすべての$\alpha$で
+ $\partial^{\alpha} u$が一様に$\sigma$次 H\"older 連続のとき,
+ $u \in C^{k, \sigma}(\bbR^n)$ とかく.
+ $C^{k, \sigma}(\bbR^n)$はノルム
+ \begin{align}
+  \norm{u}_{C^{k, \sigma}}
+  \defeq
+  \sum_{\alpha \le k}\sup_{x} \abs{\partial^{\alpha}u (x)} +
+   \sum_{\alpha = k}\sup_{x \neq y}
+    \frac{\abs{\partial^{\alpha}u (x) - \partial^{\alpha}u (y)}}{\abs{x - y}^{\sigma}}
+ \end{align}
+ によって Banach 空間となる.
+\end{defn}
+
+主張はつぎのとおり.
+\begin{thm}[Sobolev の埋蔵定理]\label{yukimi-introduction-to-sobolev-embedding-theorems7}
+ 以下$u \in W^{m, p}$とする.
+\begin{enumerate}
+\item $m - n/p < 0$のとき, $1/p^{*} \defeq 1/p - m/n$とすると,
+    すべての$q\in [p, p^*]$について
+    \begin{align}
+     W^{m, p}(\bbR^n) \hookrightarrow L^q (\bbR^n).
+    \end{align}
+\item $m - n/p = 0$のとき, すべての$q\in [p, \infty)$について
+    \begin{align}
+     W^{m, p}(\bbR^n) \hookrightarrow L^q (\bbR^n).
+    \end{align}
+\item $m - n/p = k + \sigma$ $(k \in \mathbb{Z}_{\ge 0}, \sigma \in (0, 1))$ のとき,
+    \begin{align}
+     W^{m, p}(\bbR^n) \hookrightarrow C^{k, \sigma}(\bbR^n)
+    \end{align}
+\item $m - n/p = k$ $(k \in \mathbb{Z}_{\ge 0})$のとき, すべての$\sigma \in (0, 1)$について
+    \begin{align}
+     W^{m, p}(\bbR^n) \hookrightarrow C^{k - 1, \sigma}(\bbR^n).
+    \end{align}
+\end{enumerate}
+\end{thm}
+この定理から $(m - n/p)$ が「実質的な正則性」とでもいえそうだという気分で, 正則性がよいとかいっていたわけです.
+とくに H\"older 空間への埋め込みは正則性定理への応用で使われる.
+\begin{proof}[proof of theorem \ref{yukimi-introduction-to-sobolev-embedding-theorems7}]
+\begin{enumerate}
+\item $m$についての帰納法による.
+   まず$m = 1$ のときは Sobolev 不等式 (Cor \ref{yukimi-introduction-to-sobolev-embedding-theorems6}) である.
+   $m > 1, m-1$ まで成立とする.
+   このときは $1/{p'} = 1/p - 1/n$ とすればすべての$\alpha (|\alpha| \le m-1)$について
+   $\partial^{\alpha} u \in W^{1, p}$ なので, Sobolev 不等式から
+   \begin{align}
+    W^{m, p}(\bbR^n) \hookrightarrow W^{m-1, p'}(\bbR^n)
+   \end{align}
+   が成立.
+   $m-1 - n/{p'} = m - n/p < 0$と, $1/{p'} - (m-1)/n = 1/{p^*}$ を使うと帰納法の仮定から
+   \begin{align}
+    W^{m-1, p'}(\bbR^n) \hookrightarrow L^{p^*}(\bbR^n)
+   \end{align}
+   だから,
+   \begin{align}
+    W^{m, p}(\bbR^n) \hookrightarrow L^{p^*}(\bbR^n)
+   \end{align}
+   となる.
+   あとは Cor \ref{yukimi-introduction-to-sobolev-embedding-theorems6}と同様にすれば
+   $W^{m, p}(\bbR^n) \hookrightarrow L^{q}(\bbR^n)$がわかる.
+\item 同様にすればよい.
+\item $m = 1$のときは$k = 0$だから Morray.
+   $m-1$まで成立とする.
+   はじめに$k = 0$としよう.
+   このときは $u, \partial_j u \in W^{m-1, p}(\bbR^n)$ と $m-1 - n/p < 0$により,
+   $1/{p^*} \defeq 1/p - (m-1)/n$とすれば, 1. から
+   $\partial_j u \in L^{p^*}$ だから
+   \begin{align}
+    W^{m, p}(\bbR^n) \hookrightarrow W^{1, p^*}(\bbR^n)
+   \end{align}
+   となっている.
+   よって, $1 - n/{p^*} = m - n/p = \sigma$ だから, $m = 1$の場合から
+   \begin{align}
+    W^{1, p^*}(\bbR^n \hookrightarrow C^{0, \sigma}(\bbR^n)
+   \end{align}
+   となる.
+   $k \ge 1$については $m - k - n/p = \sigma$, $m - k \le m -1$ だから,
+   帰納法の仮定を使って
+   \begin{align}
+    W^{m - k, p}(\bbR^n \hookrightarrow C^{0, \sigma}(\bbR^n)
+   \end{align}
+   から
+   \begin{align}
+    W^{m, p}(\bbR^n \hookrightarrow C^{k, \sigma}(\bbR^n)
+   \end{align}
+   となる.
+\item すべての$\alpha (|\alpha| \le k)$について
+   $\partial^{\alpha}u \in W^{m-k, p}, m-k - n/p =0$ だから, 2. によって任意の$q \in [p, \infty)$について
+   $\partial^{\alpha}u \in L^q$ となる.
+   よって
+   \begin{align}
+    W^{m, p}(\bbR^n) \hookrightarrow W^{k, q}(\bbR^n).
+   \end{align}
+   $q > n$について
+   \begin{align}
+    k - \frac{n}{q}
+    =
+    k - 1 + \rbk{1 - \frac{n}{q}}
+   \end{align}
+   だから, 3. から
+   \begin{align}
+    W^{k, q}(\bbR^n \hookrightarrow C^{k - 1, 1 - n/q}(\bbR^n)
+   \end{align}
+   となり, $q$は任意だから$1 - n/q$は$(0, 1)$を任意に動き, 定理が証明できた.
+\end{enumerate}
+\end{proof}
+\section{End of talk}
+\label{sec-7-6-4}
+
+元ネタは宮島\cite{ShizuoMiyajima1}と Gilbarg-Trudinger\cite{GilbargTrudinger1}あたりです.
+Sobolev 不等式のべつの証明で使う Hardy-Littlewood-Sobolev についても宮島先生の本には載ってるし,
+小川\cite{TakayoshiOgawa1}も Lieb-Loss よりは読みやすいと思う.
+宮島先生最高.
+というわけで目標を達成できたので, これからはたぶんもうすこし応用的なことをやると思う.
+きっと.
+\chapter{Fourier Analysis}
+\label{sec-7-7}
 
 動画から適当に切り出してくる.
 \chapter{重ね合わせの原理と Fourier 解析}
-\label{sec-7-7}
-\section{Fourier 級数--関数の大域近似}
-\label{sec-7-7-1}
-\section{Fourier 変換}
-\label{sec-7-7-2}
-\section{Dirac の $\delta$ 関数}
-\label{sec-7-7-3}
-\section{波動方程式の解}
-\label{sec-7-7-4}
-\section{Green 関数}
-\label{sec-7-7-5}
-\section{スペクトル分解}
-\label{sec-7-7-6}
-\chapter{Talk: Inverse analysis for heat equation--mathematics, physics, engineering}
 \label{sec-7-8}
+\section{Fourier 級数--関数の大域近似}
+\label{sec-7-8-1}
+\section{Fourier 変換}
+\label{sec-7-8-2}
+\section{Dirac の $\delta$ 関数}
+\label{sec-7-8-3}
+\section{波動方程式の解}
+\label{sec-7-8-4}
+\section{Green 関数}
+\label{sec-7-8-5}
+\section{スペクトル分解}
+\label{sec-7-8-6}
+\chapter{Talk: Inverse analysis for heat equation--mathematics, physics, engineering}
+\label{sec-7-9}
 
 DVD の原稿をもう少し整理して張る.
 \chapter{Talk: Analysis for the Thomas-Fermi functional after Lieb-Loss \cite{LiebLoss1}}
-\label{sec-7-9}
+\label{sec-7-10}
 \section{Introduction}
-\label{sec-7-9-1}
+\label{sec-7-10-1}
 \subsection{Comparison for the two problems}
-\label{sec-7-9-1-1}
+\label{sec-7-10-1-1}
 
 Here we talk about two problems, i.e.,
 \begin{enumerate}
@@ -11024,7 +11690,7 @@ In the seminar on Feb. 14th, 2014  we talk about the latter because
 the first talking plan is to explain the latter and the latter is a little bit easier
 because the latter needs less knowledge.
 \subsection{Variational problem and its mathematical background}
-\label{sec-7-9-1-2}
+\label{sec-7-10-1-2}
 
 We give a lecture on a book \cite{LiebLoss1} and a paper \cite{LiebSimon1}.
 
@@ -11100,7 +11766,7 @@ then there exists a subsequence $\psi_j$ such that $\psi_j \wto \psi$, and hence
 \end{align}
 Therefore, $\calF \rbk{\psi} = \lambda$, and the goal is achieved!
 \subsection{Schr\"odinger equation}
-\label{sec-7-9-1-3}
+\label{sec-7-10-1-3}
 
 The \textbf{time independent Schr\"odinger equation} for a particle in $\bbR^n$, interacting with a force field $F (x) = - \nabla V (x)$, is
 \begin{align}
@@ -11190,13 +11856,13 @@ If we want to solve algebraic equations we first consider solutions in $\bbC$ fo
 Then we consider properties of solutions.
 Considering distributional solutions amounts to considering in $\bbC$.
 \subsection{Connection to other mathematical branches}
-\label{sec-7-9-1-4}
+\label{sec-7-10-1-4}
 \subsubsection{Mathematics for quautum mechanics}
-\label{sec-7-9-1-4-1}
+\label{sec-7-10-1-4-1}
 \begin{itemize}
 
 \item Time dependent Schr\"odinger equation\\
-\label{sec-7-9-1-4-1-1}%
+\label{sec-7-10-1-4-1-1}%
 A time dependent Schr\"odinger equation is
 \begin{align}
  i \frac{\partial}{\partial t} \phi = H \psi,
@@ -11205,7 +11871,7 @@ where $H$ is a Hamiltonian, i.e., selfadjoint operator.
 There are many PDE analysis including scattering theory, etc.
 
 \item Operator theory\\
-\label{sec-7-9-1-4-1-2}%
+\label{sec-7-10-1-4-1-2}%
 In operator theoretic language, our main task in this seminar is a proof that
 \begin{enumerate}
 \item the \textbf{Hamiltonian} $H = - \Delta + V$ is bounded below,
@@ -11226,7 +11892,7 @@ Since my main concern is physics my main mathematical tool is operator theory or
 Today's analysis is one for an operator by real analytic methods.
 
 \item Probability\\
-\label{sec-7-9-1-4-1-3}%
+\label{sec-7-10-1-4-1-3}%
 We can use probability theory for operator analysis.
 Usually we can only see propeties before or after action of an operator.
 However, using probability, we can see some property `in course of action'.
@@ -11259,13 +11925,13 @@ For the Nelson model we obtain
 See \cite{LorincziHiroshimaBetz1}, \cite{AsaoArai5}, \cite{SimonBarry2} for details.
 
 \item Algebraic analysis\\
-\label{sec-7-9-1-4-1-4}%
+\label{sec-7-10-1-4-1-4}%
 I do not know this area well.
 A Keyword is the exact WKB analysis.
 See, for example, \cite{KawaiTakei1}.
 
 \item Nonstandard analysis\\
-\label{sec-7-9-1-4-1-5}%
+\label{sec-7-10-1-4-1-5}%
 I do not know also this area well.
 See, for example, \cite{TohruNakamura1}.
 This book explains, e.g., Feynman's path integral.
@@ -11273,7 +11939,7 @@ Nonstandard analysis relates to the domain of mathematical logic:
 quantum physics connects mathematical logic to other mathematical branches!
 
 \item Number theory: noncommutative harmonic oscillator\\
-\label{sec-7-9-1-4-1-6}%
+\label{sec-7-10-1-4-1-6}%
 I do not know also this area well.
 See, for example, \cite{AlbertoParmeggiani1, MasatoWakayama1}.
 
@@ -11320,7 +11986,7 @@ Furthermore Taniguchi shows some interesting property using stochastic analysis.
 For details see \cite{AlbertoParmeggiani1}.
 
 \item In connection to topology: Aharonov-Bohm effect\\
-\label{sec-7-9-1-4-1-7}%
+\label{sec-7-10-1-4-1-7}%
 We may consider Schr\"odinger operators on topologically defected regions,
 especially, non-simply connected regions.
 Topological properties on the domain give some effects on the properties of the operator.
@@ -11328,7 +11994,7 @@ In this respect Aharonov-Bohm effect is very famous and important in physics or 
 See, e.g., chapter 3 in \cite{AsaoArai4} and its references.
 \end{itemize} % ends low level
 \subsubsection{Geometric variational problem}
-\label{sec-7-9-1-4-2}
+\label{sec-7-10-1-4-2}
 
 A variational method is a basic tool in many physical branches.
 Analytical mechanics and its relation to (differential) geometry is famous.
@@ -11340,7 +12006,7 @@ Geometric variational problem also relates to Morse theory.
 See \cite{SeikiNishikawa1}.
 See also the isoperimetric problem.
 \subsubsection{Nonlinear analysis}
-\label{sec-7-9-1-4-3}
+\label{sec-7-10-1-4-3}
 
 In the analysis for the Thomas-Fermi theory we face nonlinear analysis.
 In physics there are many nonlinear partial differential equations
@@ -11349,7 +12015,7 @@ In geometry we have many interesting nonlinear functionals and nonlinear partial
 such as the Yamabe equation or the Monge-Amp\`ere equation.
 See \cite{ThierryAubin1}.
 \subsubsection{Index theorem}
-\label{sec-7-9-1-4-4}
+\label{sec-7-10-1-4-4}
 
 In Aharonov-Bohm effect the topology of spaces affects operators on it.
 E.g., if a Riemannian manifold is compact the spectrum of Laplacian becomes discrete\footnote{数学ではよくある.
@@ -11370,7 +12036,7 @@ such as the Riemann – Roch theorem, as special cases, and has applications in 
 Path integral (functional integral) has a deep connection to this problem.
 We have a (formal?) proof for index theorem using path integral.
 \subsubsection{Stochastic optimization}
-\label{sec-7-9-1-4-5}
+\label{sec-7-10-1-4-5}
 
 Stochastic optimization is the process of maximizing or minimizing
 the value of a mathematical or statistical function when one or more of the input parameters is subject to randomness.
@@ -11378,12 +12044,12 @@ The word stochastic means involving chance or probability.
 This is applied to, e.g., machine learning.
 This is used to improve a user's dictionary in converting ``kanji-kana''.
 \subsubsection{Other optimization problem}
-\label{sec-7-9-1-4-6}
+\label{sec-7-10-1-4-6}
 
 In real world we encounter many optimization problems.
 In general engineering solves optimization problems in real constraints.
 \subsubsection{Singular analysis}
-\label{sec-7-9-1-4-7}
+\label{sec-7-10-1-4-7}
 
 The Coulomb potential has a singular point at $x = 0$ and a solution has a singularity at $x = 0$.
 That is, singularity of a potential affects a singularity of a solution.
@@ -11393,11 +12059,11 @@ such as resolution of singularity in algebraic geometry,
 the residue theorem in complex analysis,
 existence of black holes in general relativity, definition of phase transition, and so on.
 \section{Mathematical preliminaries}
-\label{sec-7-9-2}
+\label{sec-7-10-2}
 
 In this section we assume $\Omega \subset \bbRn$ is an open set.
 \subsection{The important difference in integration and differentiation}
-\label{sec-7-9-2-1}
+\label{sec-7-10-2-1}
 
 In analysis integration is very important because it saves an order of functions:
 we define $f \leq g$ by
@@ -11418,11 +12084,11 @@ This is called the strong monotonicity of integration.
 
 Can you make counterexamples for differentiation?
 \subsection{Important spaces}
-\label{sec-7-9-2-2}
+\label{sec-7-10-2-2}
 
 In this seminar we mainly consider $L^p$ spaces and Sobolev spaces $H^k$ on $\bbRn$.
 \subsubsection{$L^p$ spaces}
-\label{sec-7-9-2-2-1}
+\label{sec-7-10-2-2-1}
 
 Here we consider only Lebesgue or Borel measurable functions.
 For details see \cite{SeizoIto1} or \cite{LiebLoss1}.
@@ -11462,7 +12128,7 @@ Moreover, for $p=2$, we can introduce the inner product:
 \end{align}
 For this inner product the space $L^2$ becomes a Hilbert space.
 \subsubsection{$L^p+L^q$ spaces}
-\label{sec-7-9-2-2-2}
+\label{sec-7-10-2-2-2}
 
 Let $p$, $q \in \sqbk{1, \infty}$.
 Then a function $f$ is in $L^p + L^q$ if $f$ can be decomposed as
@@ -11490,7 +12156,7 @@ This decomposition is simple but ingenious.
  \end{align}
 \end{ex}
 \subsubsection{the $\Loneloc$ space}
-\label{sec-7-9-2-2-3}
+\label{sec-7-10-2-2-3}
 
 The space $\Loneloc \rbk{\Omega}$ is defined by
 \begin{align}
@@ -11501,7 +12167,7 @@ The space $\Loneloc \rbk{\Omega}$ is defined by
 where a function $\chi_A$ is an indicator function for $A \subset \Omega$.
 This space is useful when considering the theory of distributions.
 \subsubsection{Sobolev spaces $H^k$}
-\label{sec-7-9-2-2-4}
+\label{sec-7-10-2-2-4}
 
 A Sobolev space $H^1 (\bbRn)$ is defined by
 \begin{align}
@@ -11517,9 +12183,9 @@ We have another definition of a Sobolev space $H^1 (\bbRn)$ using Fourier transf
  \set{\psi \in \LtwoRn}{\int_{\bbRn} \rbk{\abs{k \hat{\psi} (k)}^2 + \abs{\hat{\psi} (k)}^2} dk < \infty}.
 \end{align}
 \subsection{Convolution}
-\label{sec-7-9-2-3}
+\label{sec-7-10-2-3}
 \subsubsection{Definition}
-\label{sec-7-9-2-3-1}
+\label{sec-7-10-2-3-1}
 
 Here we consider $\Omega = \bbRd$.
 For suitable functions $f$ and $g$ we can define a some type of product, called the convolution, by
@@ -11531,7 +12197,7 @@ For suitable functions $f$ and $g$ we can define a some type of product, called 
 For this product the space $L^1 (\bbRd)$ becomes a Banach algebra.
 There exists a useful inequality, Young's inequality: see Theorem \ref{Lieb-Loss_Analysis_chap11_37}.
 \subsubsection{Convolutions of functions in dual $L^p$ spaces are continuous}
-\label{sec-7-9-2-3-2}
+\label{sec-7-10-2-3-2}
 
       \begin{lem}\textup{(Lemma 2.20. \cite{LiebLoss1})}\label{Lieb-Loss_Analysis_chap11_41}
  Let $f \in L^p \rbk{\bbRn}$ and $g \in L^q (\bbRn)$ with $p$, $q > 1$ dual indices, i.e.,
@@ -11545,11 +12211,11 @@ There exists a useful inequality, Young's inequality: see Theorem \ref{Lieb-Loss
  \end{align}
 \end{lem}
 \subsection{Various inequalities}
-\label{sec-7-9-2-4}
+\label{sec-7-10-2-4}
 \subsubsection{H\"older's inequality}
-\label{sec-7-9-2-4-1}
+\label{sec-7-10-2-4-1}
 
-\begin{thm}\textup{(Theorem 2.3 \cite{LiebLoss1}.)}
+\begin{thm}[Theorem 2.3 \cite{LiebLoss1}]
  Let $p$ and $q$ be dual indices, i.e., $1/p + 1/q = 1$ with $1 \leq p \leq \infty$.
  Let $\Omega \subset \bbRn$ be open, $f \in L^p (\Omega)$ and $f \in L^q \rbk{\Omega}$.
  Then $fg \in L^1 (\Omega)$ and
@@ -11575,9 +12241,9 @@ i.e., $L^p$ spaces are \textbf{reflexive} for $p \in (1, \infty)$.
 It is well-known $L^{\infty}$ is not reflexive.
 See, e.g., \cite{HaimBrezis1, HaimBrezis2}.
 \subsubsection{Young's inequality}
-\label{sec-7-9-2-4-2}
+\label{sec-7-10-2-4-2}
 
-\begin{thm}\textup{(Theorem 4.2 \cite{LiebLoss1}.)}\label{Lieb-Loss_Analysis_chap11_37}
+\begin{thm}[Theorem 4.2 \cite{LiebLoss1}]\label{Lieb-Loss_Analysis_chap11_37}
  Let $\Omega = \bbRn$.
 \begin{enumerate}
 \item Assume that
@@ -11603,14 +12269,14 @@ See, e.g., \cite{HaimBrezis1, HaimBrezis2}.
 \end{enumerate}
 \end{thm}
 \subsubsection{Sobolev's inequality}
-\label{sec-7-9-2-4-3}
+\label{sec-7-10-2-4-3}
 
 A function $f \colon \bbRn \to \bbC$ is in $D^1 (\bbRn)$ if it is in $\Loneloc (\bbRn)$, if its distributional derivative $\nabla f \in \LtwoRn$,
 and if $f$ vanishes at infinity, i.e.,
 \begin{align}
  \abs{\set{x}{\abs{f (x)} > a}} < \infty, \quad \forall a > 0.
 \end{align}
-\begin{thm}\textup{(Sobolev's inequality for $n \geq 3$, Section 8.3 in \cite{LiebLoss1}.)}\label{Lieb-Loss_Analysis_chap11_4}
+\begin{thm}[Sobolev's inequality for $n \geq 3$, Section 8.3 in \cite{LiebLoss1}]\label{Lieb-Loss_Analysis_chap11_4}
  For $n \geq 3$ let $f \in D^1 (\bbRn)$.
  Then $f \in L^q (\bbRn)$ with $q = 2n/ (n-2)$ and the following inequality holds:
 \begin{align}
@@ -11628,9 +12294,9 @@ where
 \end{align}
 \end{thm}
 \subsection{Topologies \label{Lieb-Loss_Analysis_chap11_36}}
-\label{sec-7-9-2-5}
+\label{sec-7-10-2-5}
 \subsubsection{Strong topology and weak topology in Hilbart spaces}
-\label{sec-7-9-2-5-1}
+\label{sec-7-10-2-5-1}
 
 Here we explain only Hilbert spaces since it suffices in this seminar.
 
@@ -11661,10 +12327,10 @@ By Cauchy-Schwarz.
  However $F$ is not necessarily weakly continuous.
 \end{rem}
 \subsubsection{Example of weakly convergent sequence}
-\label{sec-7-9-2-5-2}
+\label{sec-7-10-2-5-2}
 
 Before introducing concrete examples, we state a general example.
-\begin{thm}\textup{(Inequality of Bessel, Sec. 2.21 \cite{LiebLoss1}.)}
+\begin{thm}[Inequality of Bessel, Sec. 2.21 \cite{LiebLoss1}]
  If $\psi_j$ is orthonormal system, then we have, for any $\phi \in \calH$,
  \begin{align}
   \sum_{j = 1}^{\infty} \abs{\bkt{\psi_j}{\phi}}^2
@@ -11682,7 +12348,7 @@ Then a sequence $(\psi_j)$ is orthonormal and $\psi_j \wto 0$.
 This $(\psi_j)$ also converges to $0$ pointwise but $(\psi_j)$ does not converge strongly.
 The weak topology fills in this discrepancy.
 \subsubsection{Why we use the pointwise convergence instead of weak convergence?}
-\label{sec-7-9-2-5-3}
+\label{sec-7-10-2-5-3}
 
 A function space has many interesting and important convergence, e.g., pointwise convergence and uniform convergence.
 The weak topology is natural if we consider its linear space strucure.
@@ -11690,11 +12356,11 @@ A (normed) linear space always has its dual space\footnote{これがまた分か
  } and the weak topology uses a dual space in its definition.
 Furthermore the importance of the weak topology is also due to the theorem \ref{Lieb-Loss_Analysis_chap11_2}.
 \subsection{Theorems in Lebesgue integral and functional analysis}
-\label{sec-7-9-2-6}
+\label{sec-7-10-2-6}
 \subsubsection{Dominated convergence}
-\label{sec-7-9-2-6-1}
+\label{sec-7-10-2-6-1}
 
-\begin{thm}\textup{(Theorem 1.8. \cite{LiebLoss1}) }\label{Lieb-Loss_Analysis_chap11_6}
+\begin{thm}[Theorem 1.8. \cite{LiebLoss1}]\label{Lieb-Loss_Analysis_chap11_6}
  Assume functions $(f_j)$ and $f$ are measurable and $f_j \to f$ pointwise.
  If a function $g \in L^1 (\Omega)$ exists and $\abs{f_j} \leq g$ then $\abs{f} \leq g$ and
  \begin{align}
@@ -11704,9 +12370,9 @@ Furthermore the importance of the weak topology is also due to the theorem \ref{
  \end{align}
 \end{thm}
 \subsubsection{Differentiaility of norms, Gateaux derivative}
-\label{sec-7-9-2-6-2}
+\label{sec-7-10-2-6-2}
 
-\begin{thm}\textup{(Theorem 2.6. \cite{LiebLoss1})}\label{Lieb-Loss_Analysis_chap11_26}
+\begin{thm}[Theorem 2.6. \cite{LiebLoss1}]\label{Lieb-Loss_Analysis_chap11_26}
  Suppose $f$ and $g$ are functions in $L^p (\Omega)$ with $p \in \rbk{1, \infty}$.
  The function defined on $\bbR$ by
  \begin{align}
@@ -11722,9 +12388,9 @@ Furthermore the importance of the weak topology is also due to the theorem \ref{
  \end{align}
 \end{thm}
 \subsubsection{Uniform boundedness principle}
-\label{sec-7-9-2-6-3}
+\label{sec-7-10-2-6-3}
 
-\begin{thm}\textup{(Theorem 2.12. \cite{LiebLoss1})}\label{Lieb-Loss_Analysis_chap11_2}
+\begin{thm}[Theorem 2.12. \cite{LiebLoss1}]\label{Lieb-Loss_Analysis_chap11_2}
  Let $f_j \in L^p (\Omega)$ with the property
  \begin{align}
   \set{L (f_j)}{j \in \bbN} < \infty \quad \forall L \in L^p \rbk{\Omega}^*.
@@ -11732,9 +12398,9 @@ Furthermore the importance of the weak topology is also due to the theorem \ref{
  Then the sequence of norms $(\norm{f_j}_p)$ is bounded.
 \end{thm}
 \subsubsection{Banach-Alaoglu theorem}
-\label{sec-7-9-2-6-4}
+\label{sec-7-10-2-6-4}
 
-\begin{thm}\textup{(Theorem 2.18. \cite{LiebLoss1})}\label{Lieb-Loss_Analysis_chap11_8}
+\begin{thm}[Theorem 2.18. \cite{LiebLoss1}]\label{Lieb-Loss_Analysis_chap11_8}
 \begin{enumerate}
 \item Strongly Bounded and strongly closed sets of a Hilbert space $\calH$ are weakly compact.
 \item Strongly Bounded and strongly closed sets of each $L^p \rbk{\Omega}$ space are weakly compact.
@@ -11745,9 +12411,9 @@ Furthermore the importance of the weak topology is also due to the theorem \ref{
  Note also that this is the extremely important property for the analysis on $\bbR$.
 \end{rem}
 \subsubsection{Derivative of the absolute value}
-\label{sec-7-9-2-6-5}
+\label{sec-7-10-2-6-5}
 
-\begin{thm}\textup{(Theorem 6.17. \cite{LiebLoss1})}\label{Lieb-Loss_Analysis_chap11_11}
+\begin{thm}[Theorem 6.17. \cite{LiebLoss1}]\label{Lieb-Loss_Analysis_chap11_11}
  Let $f$ be in $W^{1,p} (\Omega)$.
  Then the function $\abs{f}$, defined by $\abs{f}(x) \defeq \abs{f (x)}$, is in $W^{1,p} (\Omega)$ with $\nabla \abs{f}$ being the function
  \begin{align}
@@ -11776,9 +12442,9 @@ Furthermore the importance of the weak topology is also due to the theorem \ref{
 \end{enumerate}
 \end{thm}
 \subsubsection{Convexity inequality for gradients}
-\label{sec-7-9-2-6-6}
+\label{sec-7-10-2-6-6}
 
-\begin{thm}\textup{(Theorem 7.8. \cite{LiebLoss1})}\label{Lieb-Loss_Analysis_chap11_12}
+\begin{thm}[Theorem 7.8. \cite{LiebLoss1}]\label{Lieb-Loss_Analysis_chap11_12}
  Let $f, g$ be real-valued functions in $H^1 (\bbRn)$.
  Then
  \begin{align}
@@ -11800,7 +12466,7 @@ Furthermore the importance of the weak topology is also due to the theorem \ref{
  \end{align}
 \end{rem}
 \subsubsection{Fundamental theorem of variational method, du Bois-Reymond's lemma}
-\label{sec-7-9-2-6-7}
+\label{sec-7-10-2-6-7}
 
 \begin{thm}
  Let $f \in \Loneloc$. If, for any $\phi \in \Ccinfty (\Omega)$, it holds that
@@ -11810,12 +12476,12 @@ Furthermore the importance of the weak topology is also due to the theorem \ref{
  then we must have $f = 0$.
 \end{thm}
 \subsection{Potential theory}
-\label{sec-7-9-2-7}
+\label{sec-7-10-2-7}
 
 We use this theory in Section \ref{Lieb-Loss_Analysis_chap11_39}.
 See the chapter 9 in \cite{LiebLoss1} for details.
 \subsubsection{Positivity properties of the Coulomb energy}
-\label{sec-7-9-2-7-1}
+\label{sec-7-10-2-7-1}
 
 We define a sesquilinear form $D$ as
 \begin{align}
@@ -11824,7 +12490,7 @@ We define a sesquilinear form $D$ as
  \frac{1}{2} \int_{\bbRn} \int_{\bbRn} \frac{f (x) g (x)}{\abs{x - y}} dx dy.
 \end{align}
 Then we have the
-\begin{thm}\textup{(Theorem 9.8. \cite{LiebLoss1})}\label{Lieb-Loss_Analysis_chap11_40}
+\begin{thm}[Theorem 9.8. \cite{LiebLoss1}]\label{Lieb-Loss_Analysis_chap11_40}
  If $f \colon \bbRn \to \bbC$ satisfies $D ( \abs{f}, \abs{f}) < \infty$, then
  \begin{align}
   D (f, f) \geq 0.
@@ -11839,11 +12505,11 @@ Then we have the
 \end{thm}
 In \cite{LiebLoss1} more properties for the Coulomb potential are explained.
 \section{Thomas-Fermi theory}
-\label{sec-7-9-3}
+\label{sec-7-10-3}
 \subsection{Thomas-Fermi problem}
-\label{sec-7-9-3-1}
+\label{sec-7-10-3-1}
 \subsubsection{Outline}
-\label{sec-7-9-3-1-1}
+\label{sec-7-10-3-1-1}
 
 We turn now to our second example of a variational problem--the Thomas-Fermi (TF) problem.
 See \cite{LiebSimon1} for details and further developments.
@@ -11930,10 +12596,10 @@ in fact, we already used this device in the study of the Schr\"odinger equation\
 When a minimizer for the constrained problem does exist it will later be seen to be the $\rho$ that is
 a minimizer for the unconstrained problem.
 \subsubsection{Existence of an unconstrained Thomas-Fermi minimizer}
-\label{sec-7-9-3-1-2}
+\label{sec-7-10-3-1-2}
 
 The main theorem in this section is as follows.
-\begin{thm}\textup{(Theorem 11.12. \cite{LiebLoss1})}\label{Lieb-Loss_Analysis_chap11_33}
+\begin{thm}[Theorem 11.12. \cite{LiebLoss1}]\label{Lieb-Loss_Analysis_chap11_33}
  For each $N > 0$ there is a unique minimizing $\rhoNinfty$ for the unconstrained TF problem (\ref{Lieb-Loss_Analysis_chap11_18}), i.e.,
  \begin{align}
   \calE \rbk{\rhoNinfty}
@@ -12226,9 +12892,9 @@ Here we use the fact that our domain is the whole of $\bbRthree$.
 
 Note that we travel around (infinitely) many $L^p$ spaces and use many useful and important properties for them!.
 \subsubsection{Thomas-Fermi equation}
-\label{sec-7-9-3-1-3}
+\label{sec-7-10-3-1-3}
 
-    \begin{thm}\textup{(Theorem 11.13 \cite{LiebLoss1}, Theorem II.10. \cite{LiebSimon1}.)}\label{Lieb-Loss_Analysis_chap11_34}
+\begin{thm}[Theorem 11.13 \cite{LiebLoss1}, Theorem II.10. \cite{LiebSimon1}]\label{Lieb-Loss_Analysis_chap11_34}
  The minimizer of the unconstrained problem, $\rhoNinfty$, is not the zero function and
  it satisfies the following equation, in which $\mu \geq 0$ is some constant that depends on $N$:
  \begin{align}
@@ -12348,9 +13014,9 @@ It $\rhoNinfty$ had this property it could not be in $L^1$.
 The Thomas-Fermi equation (\ref{Lieb-Loss_Analysis_chap11_32}) reveals many interesting properties of $\rhoNinfty$
 and we refer the reader to \cite{LiebSimon1} for this theory.
 \subsubsection{The Thomas-Fermi minimizer \label{Lieb-Loss_Analysis_chap11_39}}
-\label{sec-7-9-3-1-4}
+\label{sec-7-10-3-1-4}
 
-\begin{thm}\textup{(Theorem 11.14. \cite{LiebLoss1})}
+\begin{thm}[Theorem 11.14. \cite{LiebLoss1}]
  As before the function $\rhoNinfty$ be the minimizer for the unconstrained problem.
  Then it holds that
  \begin{align}
@@ -12461,13 +13127,13 @@ We have seen that $\Phi_N (x)$ behaves like $(Z - N_c)/ \abs{x}$ for large $\abs
 If $N_c < Z$, then, from (\ref{Lieb-Loss_Analysis_chap11_35}), $\rho_{N_c, \infty} \notin L^{5/3}$, which is a contradiction.
 \end{proof}
 \chapter{Talk: Analysis for the Friedrichs model: perturbation theory for embedded eigenvalues}
-\label{sec-7-10}
+\label{sec-7-11}
 
 手書きのメモしかないので, そのうち \TeX{} におこす.
 \chapter{Brief introduction to theory of distribution}
-\label{sec-7-11}
+\label{sec-7-12}
 \section{はじめに}
-\label{sec-7-11-1}
+\label{sec-7-12-1}
 
 某セミナーで話した内容です\footnote{From a yukimi's page, http://yukimigo.com/math/.
 The original version is reprinted with the written consent of the author.
@@ -12477,7 +13143,7 @@ The original version is reprinted with the written consent of the author.
 だいたい $\delta$ 関数を例にとりながらあんまり厳密な話はせずに入門しようというのがねらいです.
 なにかミスとかお前ここの記述おかしいんじゃねーのとかあったらこっそり教えてください.
 \section{Introduction}
-\label{sec-7-11-2}
+\label{sec-7-12-2}
 
 量子力学の創設者のひとりとして有名な Paul Dirac は
 \begin{align}
@@ -12551,7 +13217,7 @@ $\heartsuit$
 (たとえば江沢\cite{HiroshiEzawa3, HiroshiEzawa4}や
 清水\cite{AkiraShimizu2}. )
 \section{準備}
-\label{sec-7-11-3}
+\label{sec-7-12-3}
 
 関数解析の事実をいくつかは証明なしで羅列します.
 なんにでも書いてあるしね.
@@ -12658,7 +13324,7 @@ du Bois-Reymond の補題ともいう.
 
 mollifier を使ってがんばって証明します.
 \section{超関数入門}
-\label{sec-7-11-4}
+\label{sec-7-12-4}
 
 いきなり定義を述べる.
 \begin{defn}[テスト関数]
@@ -12954,7 +13620,7 @@ $\heartsuit$
  宮島\cite{ShizuoMiyajima2}などで補完しながら読むといいかも.
 \end{rem}
 \section{おまけ, 今後}
-\label{sec-7-11-5}
+\label{sec-7-12-5}
 
 というわけで $\delta$ 関数の例をいろいろ見てきたわけですが,
 書いたとおり $\mathcal{D}'(\Omega)$ という空間はとても''広い''.
@@ -12970,54 +13636,54 @@ Schr\"odinger 方程式は偏微分方程式なので,
 それが Sobolev 空間で, 詳しくはいつか書くかもしれない.
 たぶん.
 
-記述はだいたい Lieb-Loss\~{}\cite{LiebLoss1}と宮島\~{}\cite{ShizuoMiyajima1}にしたがった.
+記述はだいたい Lieb-Loss\cite{LiebLoss1}と宮島\cite{ShizuoMiyajima1}にしたがった.
 Lieb-Loss は Lebesgue 積分からはじめて関数空間の話や不等式,
 超関数に Sobolev 空間, それらの応用と幅広く扱ってる実解析の教科書で,
 おもしろいけれども読者に証明をまかせているところもよくありけっこうむずかしくてあんまり最初に読む本じゃないと思う.
 
-それよりも読みやすいのが宮島\~{}\cite{ShizuoMiyajima1}で,
+それよりも読みやすいのが宮島\cite{ShizuoMiyajima1}で,
 これは前提知識は Lebesgue 積分くらいで Sobolev 空間の話を詳述していて,
 たぶんこれより読みやすい本はないんじゃないかしら.
 偏微分方程式への応用や実解析の入門的な話題に触れられているのもうれしい.
 宮島先生の本大好き.
 
-新井・江沢\~{}\cite{AraiEzawa1}は量子力学の数学に関する「数学書」で,
+新井・江沢\cite{AraiEzawa1}は量子力学の数学に関する「数学書」で,
 1 ではヒルベルト空間から自己共役作用素のスペクトル分解までを詳述している.
 証明はかなりていねいだけども, それなりに話題自体がきついのであんまり最初に読む本じゃないかも?
 ただ付録 C 「超関数論要項」は超関数の内容が簡潔にまとまってて, たいへん読みやすい.
 2 では量子力学への応用をこれまたかなりていねいに議論している.
 以下同文 (付録はどっちにもある).
 
-記号の問題もあって, 量子力学への応用を知りたい数学の人は新井\~{}\cite{AsaoArai22}のほうが読みやすいかもしれない.
+記号の問題もあって, 量子力学への応用を知りたい数学の人は新井\cite{AsaoArai22}のほうが読みやすいかもしれない.
 こちらはスペクトル分解の使い方に慣れることを目標としていて,
 スペクトル分解の証明は略されているけど議論自体はていねい.
-(新井・江沢\~{}\cite{AraiEzawa1, AraiEzawa2}に比べると) 薄い.
+(新井・江沢\cite{AraiEzawa1, AraiEzawa2}に比べると) 薄い.
 
-ここで略した関数解析の基本事項 (変分法の基本補題含む) は増田\~{}\cite{HisayaMasuda1}や黒田\~{}\cite{ShigetoshiKuroda1},
-宮島\~{}\cite{ShizuoMiyajima2}が詳しい.
+ここで略した関数解析の基本事項 (変分法の基本補題含む) は増田\cite{HisayaMasuda1}や黒田\cite{ShigetoshiKuroda1},
+宮島\cite{ShizuoMiyajima2}が詳しい.
 増田先生, 黒田先生の本大好き.
 
-電磁気は物理としては一応砂川\~{}\cite{ShigenobuSunagawa2}を挙げておくけど,
+電磁気は物理としては一応砂川\cite{ShigenobuSunagawa2}を挙げておくけど,
 詳しくは物理の人にきいてください.
 わたしも知りたい.
-数学の人は深谷\~{}\cite{KenjiFukaya2}がいいのかな?
+数学の人は深谷\cite{KenjiFukaya2}がいいのかな?
 ベクトル解析むずい.
 どっちも $\delta$ 関数の話はかるく書いてあるので挙げてみました.
 
-湯川ポテンシャルは新井\~{}\cite{AsaoArai4}と Lieb-Loss\~{}\cite{LiebLoss1}に書いてありますが,
+湯川ポテンシャルは新井\cite{AsaoArai4}と Lieb-Loss\cite{LiebLoss1}に書いてありますが,
 物理としては書いてある本すら知らないです.
 だれか教えてください.
 \chapter{Short summary for theory of Hilbert spaces}
-\label{sec-7-12}
+\label{sec-7-13}
 \section{Introduction}
-\label{sec-7-12-1}
+\label{sec-7-13-1}
 
 院試勉強のときに暗記用に作った原稿です.\footnote{From a yukimi's page, http://yukimigo.com/math/.
 The original version is reprinted with the written consent of the author.
  }
 なのであんまり読めるものじゃない感ありますが, 証明の参照用に.
 \section{内積空間}
-\label{sec-7-12-2}
+\label{sec-7-13-2}
 
 \begin{defn}[内積空間]
 $H$ を線型空間とする.
@@ -13241,7 +13907,7 @@ $x_{n} \in D^{\perp}$ から $\bkt{x_n}{y} = 0$ となり, $\bkt{x}{y} = 0$.
 $\heartsuit$
 \end{proof}
 \section{直交性}
-\label{sec-7-12-3}
+\label{sec-7-13-3}
 
 \begin{thm}[射影定理]
  $L \subset H$ を閉部分空間とするとき, 任意の $x \in H$ は
@@ -13379,7 +14045,7 @@ $x = x_{\overline{M}}$ がわかったから, $x \in \overline{M}$ となって�
 $\heartsuit$
 \end{proof}
 \section{ONS, CONS}
-\label{sec-7-12-4}
+\label{sec-7-13-4}
 
 \begin{lem}\label{functional_analysis_hilbert_space_yukimi_7}
  $\cbk{x_{n}}_{n}$ を $H$ の ONS とする.
@@ -13590,7 +14256,7 @@ $(\cbk{x_n}_n)^\perp = \cbk{0}$ である.
 $\heartsuit$
 \end{proof}
 \section{可分性と具体例}
-\label{sec-7-12-5}
+\label{sec-7-13-5}
 
 \begin{prop}
  $\ell^2$ は可分.
@@ -13653,7 +14319,7 @@ $C_{\mathrm{c}}$ が $L^2 (\bbRd)$ で稠密だから, $\calL (D)$ は $L^2 (\bb
 $\heartsuit$
 \end{proof}
 \section{作用素論}
-\label{sec-7-12-6}
+\label{sec-7-13-6}
 
 \begin{prop}
  線型作用素 $A$ が単射である必要十分条件は $\ker A = \cbk{0}$ である.
@@ -13969,18 +14635,18 @@ $\heartsuit$
  可分な無限次元 Hilbert 空間は同型を除けば $\ell^2$ しかない!
 \end{rem}
 
-元ネタは新井・江沢\~{}\cite{AraiEzawa1, AraiEzawa2}です.
-それに証明をてきとうに増田\~{}\cite{HisayaMasuda1}の方向に書きかえながらつくったという感じでしょうか.
+元ネタは新井・江沢\cite{AraiEzawa1, AraiEzawa2}です.
+それに証明をてきとうに増田\cite{HisayaMasuda1}の方向に書きかえながらつくったという感じでしょうか.
 \chapter{Mathematical foundations for quantum mechanics}
-\label{sec-7-13}
-
-動画から適当に切り出してくる.
-\chapter{Mathematical foundations for quantum statistical mechanics}
 \label{sec-7-14}
 
 動画から適当に切り出してくる.
-\chapter{Mathematical problems in quantum mechanics, quantum field theory, and quantum statistical mechanics}
+\chapter{Mathematical foundations for quantum statistical mechanics}
 \label{sec-7-15}
+
+動画から適当に切り出してくる.
+\chapter{Mathematical problems in quantum mechanics, quantum field theory, and quantum statistical mechanics}
+\label{sec-7-16}
 
 Togetter (Twitter) からの転載.
 
@@ -14041,7 +14707,7 @@ $t>0$ のときはまともな関数なのに極限を取ると超関数にな�
 学部に毛が生えた程度, または本当に学部の物理水準でも既に数学としては色々問題があります.
 解決済みですが, 量子統計だと平衡状態が物理で書かれる $\Tr e^{- \beta H}$ という形では存在しないという問題もあったのでした.
 \chapter{Fundamental problems of peruturbation theory in quantum mechanics as an approximation}
-\label{sec-7-16}
+\label{sec-7-17}
 
 Twitter での次の発言に対する応答をまとめた.
 \begin{quote}
@@ -14069,7 +14735,7 @@ $V_1 = x^2$, \$V$_2$=-r$^{\mathrm{-1}}$\$としましょう.
 もはや数学徒としては研究レベルの問題だから」と書きましたが,
 今本当にこの辺の数理物理の研究が進行中です.
 \chapter{Direct integral and its physics}
-\label{sec-7-17}
+\label{sec-7-18}
 
 これは Togetter に【微分ヤクザPによる直積分講座】というのでまとまっている.
 いったん, やりとりをそのまま書いておく.
@@ -14428,7 +15094,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
  x \label{Hinashiro_math_party_1_probability_2}
 \end{align}
 が導ける.
-最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[31].
+最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[32].
 
 再び $x \neq 0$ を仮定しよう \footnote{ハイパーどうでもいいが「再びマタタビ楕円型」という天啓を得たことを記録しておく.
  }.
@@ -14451,7 +15117,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
 \subsection{Rademacher 関数}
 \label{sec-8-1-4-2}
 
-これまではまさに高校の数学だった \footnotemark[28].
+これまではまさに高校の数学だった \footnotemark[29].
 本番はここからだ.
 式 (\ref{Hinashiro_math_party_1_probability_3}) を別の観点から眺めてみようという体で,
 唐突に次の無茶苦茶な理論展開を見せる.
@@ -14526,7 +15192,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
 本質が見えるようになるまでは偶然というほかない.
 ここで式 (\ref{Hinashiro_math_party_1_probability_3}) を別の方法で導いてみよう.
 
-唐突だが次の関数を考える \footnotemark[29].
+唐突だが次の関数を考える \footnotemark[30].
 いったん少し面倒な方法で取り組んでみよう.
 \ref{Hinashiro_math_party_1_probability_14} 節で整理するので少しのあいだ我慢してほしい.
 \begin{align}
@@ -14548,7 +15214,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
  =
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}.
 \end{align}
-ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[30].
+ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[31].
 したがって
 \begin{align}
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}
@@ -14916,7 +15582,7 @@ Chebyshev による簡明かつ重要な結果を使った証明だけ紹介し�
 これで簡単に (\ref{Hinashiro_math_party_1_probability_8}) が証明できた.
 
 Chebyshev の不等式だけでなく, Rademacher 関数の独立性, つまり \ref{Hinashiro_math_party_1_probability_11} の結果も本質的に効いている.
-実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[32].
+実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[33].
 弱法則ではまだまだほしい内容に足りない.
 「儲けが際限なく大きくなる確率が 0 に収束する」くらいの微妙なことしか言っていないからだ.
 平均がばっちり 0 に行くことを証明したい.
@@ -14925,7 +15591,7 @@ Chebyshev の不等式だけでなく, Rademacher 関数の独立性, つまり 
 \label{sec-8-1-5-2}
 
 Borel は次の定理を示した.
-\begin{thm}\textup{(Borel)}
+\begin{thm}[Borel]
  ほとんど全ての $t \in \sqbk{0, 1}$ に対して
  \begin{align}
   \limntoinfty \frac{r_1 (t) + r_2 (t) + \cdots + r_n (t)}{n} = 0
@@ -15154,7 +15820,7 @@ where $\oplus$ means a direct sum, $\otimes_{\mathrm{s}}$ means a symmetric tens
 and  $\otimes_{\mathrm{s}}^0 \calK \defeq \mathbb{C}$.
 
 Then we can state a
-\begin{thm}(\cite{AraiEzawa3}, Theorem 4.4.1)
+\begin{thm}[\cite{AraiEzawa3}, Theorem 4.4.1]
  We have a unitary equivalence $\calFb (L^2 (\mathbb{R}^3)) = L^2 (\realtempereddist (\mathbb{R}^3), d \mu)$,
  where $d \mu$ is a probability measure.
 \end{thm}
@@ -15518,7 +16184,7 @@ is called a \textbf{cylinder set}.
 In the following the $\sigma$-algebra of $\realtempereddist (\bbRnu)$ is the minimal $\sigma$-algebra
 genereted by the above cylinder sets.
 
-\begin{thm}(Minlos, Theorem 3.2.12 in \cite{AraiEzawa3}, Theorem D.20 in \cite{AsaoArai5})
+\begin{thm}[Minlos, Theorem 3.2.12 in \cite{AraiEzawa3}, Theorem D.20 in \cite{AsaoArai5}]
  Let $C$ be a functional on $\realrapiddecrease (\bbRnu)$.
  Then the existence of a probability measure on $\realtempereddist (\bbRnu)$ satisfying
  \begin{align}
@@ -15615,7 +16281,7 @@ A function $\phi \colon \bbRn \to \bbC$ is of positive type if, for any $x_1, \d
 \begin{align}
  \sum_{i,j=1}^n \bar{z_i} z_j \phi (x_i - x_j) \geq 0.
 \end{align}
-\begin{thm} (Bochner, \cite{SeizoIto1}, Section 30)
+\begin{thm}[Bochner, \cite{SeizoIto1}, Section 30]
  A function $\phi \colon \bbRn \to \bbC$ is of positive type with $\phi (0) = 1$ if and only if $\phi$ has the form
  \begin{align}
   \phi (x)
@@ -15654,10 +16320,41 @@ The other is concrete and uses a \textbf{quantum mechanical harmonic oscillator}
 \label{sec-9-1-5}
 \part{Geometry}
 \label{sec-10}
-\part{Interesting counter examples}
+\part{Interesting (counter) examples}
 \label{sec-11}
-\chapter{DVD: Playing with interesting counter examples}
+\chapter{Algebra}
 \label{sec-11-1}
+
+\begin{ex}[Nonunital commutative ring]
+\begin{enumerate}
+\item Let $L^1(\bbRd)$ be the space of absolutely Lebesgue integrable functions.
+    A product is defined by convolution:
+    \begin{align}
+     \rbk{f * g} (x)
+     \defeq
+     \int_{\bbRd} f(y) g(x - y) dy.
+    \end{align}
+    Then $L^1(\bbRd)$ becomes a commutative ring but nonunital.
+    A unit would be the Dirac's $\delta$ distribution.
+    Note that the Kronecker's $\delta$ becomes a unit for the space of absolutely summable sequences $\ell^1$.
+\item Let $X$ be a locally compact Hausdorff space and $C_0(X)$ be a space of continuous functions vanishing at infinity.
+    Then the space $C_0(X)$ becomes a nonunital commutative ring.
+    This algebra is a commutative $C^*$-algebra.
+\end{enumerate}
+\end{ex}
+\begin{ex}[Nonunital noncommutative ring]
+ Let $\calH$ be a infinite dimensional (separable) Hilbert space and $C \rbk{\calH}$ be a set of compact operators on $\calH$.
+ Then $C (\calH)$ becomes a nonunital noncommutative algebra.
+ This algebra is a noncommutative $C^*$-algebra.
+\end{ex}
+\chapter{Geometry}
+\label{sec-11-2}
+
+\begin{ex}[Manifolds without countable base]
+ See \cite{CalabiRosenlicht1} for details.
+\end{ex}
+\chapter{DVD: Playing with interesting counter examples}
+\label{sec-11-3}
 
 DVD の原稿をもう少し整理して張る.
 \part{Applied mathematics}

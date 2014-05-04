@@ -2,7 +2,7 @@
 #+AUTHOR: 相転移 P (@phasetr)
 #+EMAIL: phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com
 #+LANGUAGE: ja
-#+OPTIONS: toc:t num:t author:t creator:nil LaTeX:t ^:t email:t H:10
+#+OPTIONS: toc:t num:t author:t creator:nil LaTeX:t ^:t email:t H:10 timestamp:nil
 #+INFOJS_OPT: view:nil
 #+LATEX_CLASS: book
 #+LATEX_CLASS_OPTIONS: [openany, a4paper, oneside]
@@ -16,6 +16,7 @@
 #+LATEX_HEADER: \usepackage{amsmath}
 #+LATEX_HEADER: \usepackage{amssymb}
 #+LATEX_HEADER: \usepackage{amsfonts}
+#+LATEX_HEADER: \usepackage{mathrsfs}
 #+LATEX_HEADER: \usepackage{bm}
 #+LATEX_HEADER: \bibliographystyle{jplain}
 #+LATEX_HEADER: \pagestyle{plain}
@@ -80,15 +81,14 @@
 #+LATEX_HEADER: \newcommand{\const}{\mathrm{const.}}
 #+LATEX_HEADER: \newcommand{\dom}{\mathrm{dom}\,}
 #+LATEX_HEADER: \newcommand{\ran}{\mathrm{ran}\,}
-#+LATEX_HEADER: \newcommand{\divergence}{\mathrm{div}\,}
 #+LATEX_HEADER: \newcommand{\algoplus}{\mathop{\hat{\bigoplus}}}
 #+LATEX_HEADER: \newcommand{\algotimes}{\mathop{\hat{\bigotimes}}}
 #+LATEX_HEADER: \newcommand{\esssup}{\mathop{\mathrm{ess.sup}}}
-#+LATEX_HEADER: \DeclareMathOperator{\grad}{grad}
-#+LATEX_HEADER: \DeclareMathOperator{\rot}{rot}
-#+LATEX_HEADER: \renewcommand{\div}{\mathrm{div}}
+#+LATEX_HEADER: \DeclareMathOperator{\grad}{grad \,}
+#+LATEX_HEADER: \DeclareMathOperator{\rot}{rot \,}
+#+LATEX_HEADER: \DeclareMathOperator{\divergence}{div \,}
 #+LATEX_HEADER:
-#+LATEX_HEADER: \renewcommand\proofname{\upbf{Proof}}
+#+LATEX_HEADER: \renewcommand{\proofname}{\upbf{Proof}}
 #+LATEX_HEADER: \newtheorem{thm}{Theorem.}[section]
 #+LATEX_HEADER: \newtheorem{cor}[thm]{Corollary.}
 #+LATEX_HEADER: \newtheorem{lem}[thm]{Lemma.}
@@ -165,7 +165,8 @@
 #+LATEX_HEADER: \newcommand{\Ccinfty}{C_{\mathrm{c}}^{\infty}}
 #+LATEX_HEADER: \newcommand{\dmu}{d \mu}
 #+LATEX_HEADER: \newcommand{\E}[1]{\rmE\sqbk{#1}}
-#+LATEX_HEADER: \newcommand{\Hom}[1]{\mathrm{Hom} \rbk{#1}}
+#+LATEX_HEADER: \newcommand{\End}{\mathrm{End}}
+#+LATEX_HEADER: \newcommand{\Hom}{\mathrm{Hom}}
 #+LATEX_HEADER: \newcommand{\Var}[1]{\mathrm{Var}\sqbk{#1}}
 #+LATEX_HEADER: \newcommand{\Cov}[1]{\mathrm{Cov}\sqbk{#1}}
 #+LATEX_HEADER: \newcommand{\EleqN}{E_{\leq}(N)}
@@ -203,6 +204,7 @@
 #+LATEX_HEADER: \newcommand{\rmRe}{\mathrm{Re}}
 #+LATEX_HEADER: \newcommand{\rmp}{\mathrm{p}}
 #+LATEX_HEADER: \newcommand{\rmph}{\mathrm{ph}}
+#+LATEX_HEADER: \newcommand{\scrF}{\mathscr{F}}
 #+LATEX_HEADER: \newcommand{\sto}{\xrightarrow{\text{s}}}
 #+LATEX_HEADER: \newcommand{\sumonetoinfty}[1]{\sum_{#1 = 1}^{\infty}}
 #+LATEX_HEADER: \newcommand{\sumzerotoinfty}[1]{\sum_{#1 = 0}^{\infty}}
@@ -354,39 +356,161 @@ and connections among many branches.
 研究会開催などで英文メールを打つこともあるだろう.
 そういう用途もあるので, ある程度一般的な英語もまとめていきたい.
 ** General English
-**** 英数
-**** あ行
-**** か行
+*** 英数
+*** あ行
+*** か行
 - 京都でワークショップを 4/20 (日) に開くことになったのでお知らせしたい.
 We has the pleasure to announce our workshop in Kyoto on April 20th (Sunday).
-**** さ行
+*** さ行
 - 参加をお待ちしている.
 We look forward to your participation.
 
 - ぜひワークショップに参加されたい.
 Please join us to enjoy a special workshop.
-**** た行
-**** な行
-**** は行
-**** ま行
-**** や行
-**** ら行
-**** わ行
-** Common phrases
-**** 英数
+*** た行
+*** な行
+*** は行
+*** ま行
+*** や行
+*** ら行
+*** わ行
+** Mathematical/Physical English
+*** Abbreviation
+- bdle: bundle
+- mfd: manifold
+- TFAE: then the followings are equivalent
+*** 英数
+- $E_N(Z, \vR)$ は原子核が動かない場合の基底エネルギーを表わし, $E_{N, M}(Z)$ は原子核が動く場合の基底エネルギーであることを思い出そう. \cite{LiebSeiringer1}
+Recall that $E_N(Z, \vR)$ denotes the ground state energy in the fixed nuclear case,
+and $E_{N, M}(Z)$ is the ground state energy in the case of dynamic nuclei.
+
+- $k$ を標数 $0$ の体とし, $\rbk{x_i}_{i \in I}$ を有限集合 $I$ を添字とする独立変数の族とする.
+Let $k$ be a field of characteristic zero and let $\rbk{x_i}_{i \in I}$ be a family
+of independent variables indexed by a finite set $I$.
+
+- $N!/(N-k)!$ 以外の規格化も他の文献でよく使われる. \cite{LiebSeiringer1}
+Normalization conventions other than $N!/(N-k)!$ are often used in the literature.
+
+- $\psi$ が $\calE$ に対する最小化関数ならば $\psi_{s} / \norm{\psi_s}$ もそうであるとわかる. \cite{LiebSeiringer1}
+We conclude that if $\psi$ is a miniminzer for $\calE$ so is $\psi_{s} / \norm{\psi_s}$.
+
+- $R$ を (必ずしも可換とは限らない) 環とする.
+Let $R$ be a ring (not necessarily commutative).
+
+- $\Tr^{(N-k)}$ は (3.1.22) で与えられる核と作用素に関して, 単純に (3.1.27) に対する略記として考える. \cite{LiebSeiringer1}
+For our purposes, $\Tr^{(N-k)}$ can be thought of simply as a mnemonic device for (3.1.27),
+with the relation between kernel and operator given by (3.1.22).
+
+- $Z \alpha$ が非常に大きい場合 1 原子に対してですら磁場が不安定性を引き起こす可能性があるとわかったとき, また新たな不等式が必要になった. \cite{LiebSeiringer1}
+Again new inequalities were needed when it was realized that magnetic fields
+could also cause instabilities, even for just one atom, if $Z \alpha$ is too large.
+
 - 13 章を参照すること. \cite{LiebSeiringer1}
 The reader is referred to Chapter 13.
-**** あ行
+*** あ行
+- アインシュタインの相対論的運動学がどんな効果をもたらすだろうか. \cite{LiebSeiringer1}
+What effect does Einstein's relativistic kinematics have?
+
+- 与えられた非負の $\psi$ に対して $\psi = \psi_{s} + \psi_{r}$ と書く. \cite{LiebSeiringer1}
+For given nonnegative $\psi$, we write $\psi = \psi_{s} + \psi_{r}$.
+
+- ある粒子種の波動関数として許される関数はその種に特有のある置換対称性を持つ型に限られるというのが量子力学の基本的な要請だ. \cite{LiebSeiringer1}
+It is a basic postulate of quantum mechanics that the allowed wave functions for a given particle species
+must belong to some definite permutation symmetry type which is characteristic of that species.
+
+- 安定性に関する結論は精妙で普通の物理の学生が使える初等的な道具立てで簡単に導出できるわけでもないのに,
+  今日でさえほとんどの物理の教科書で議論されておらず, 問題が指摘されることすらない. \cite{LiebSeiringer1}
+Even today hardly any physics textbook discusses, or even raises this question,
+even though the basic conclusion of stability is subtle and not easily derived
+using the elementary means available to the usual physics student.
+
+- 安定性.
+Stability.
+
+- 一般性を失うことなく.
+Without loss of generality.
+
+- 言い換えると.
+In other words.
+
+- 以下で説明するように. \cite{LiebSeiringer1}
+As shall be explained below.
+
+- 以下では. \cite{LiebSeiringer1, CharlesWeibel1}
+In what follows. In the sequel.
+
 - 以下では $\calA$ が明らかな場合, $\bf{Ch}$ の代わりに単に $\bf{Ch} \rbk{\calA}$ と書く. \cite{CharlesWeibel1}
 In the sequel we will merely write $\bf{Ch}$ for $\bf{Ch} \rbk{\calA}$ when $\calA$ is understood.
+
+- 動く原子核が磁場と相互作用する. \cite{LiebSeiringer1}
+The dynamic nuclei are coupled to a magnetic field.
+
+- 運動エネルギー.
+A kinetic energy.
+
+- エルゴード理論の威力と有用性の多くは, 上で議論した抽象的な設定に関する次の確率的な解釈によっている. \cite{OmriSarig1}
+Much of the power and usefulness of ergodic theory is due to
+the following probabilistic interpretation of the abstract set up discussed above.
+
+- 演算子, 作用素.
+An operator.
+
+- 凹.
+Concave.
 
 - 多くの初等的な量子力学の教科書を参照してほしい. これらのいくつかは数学者にも適した形で内容が説明されている. \cite{LiebSeiringer1}
 They can refer to a huge number of elementary quantum mechanics texts,
 some of which present the subject in a way that is congenial to mathematicians.
-**** か行
+
+- 多くの数学者がこの不等式の一般化と最良定数に関する評価に多大な時間を捧げてきた. \cite{LiebSeiringer1}
+Quite a few mathematicians have devoted a lot of time to explore generalizations of
+the inequalities and bounds on the optimal constants.
+*** か行
+- 下界.
+A lower bound.
+
+- 核がベクトル束になることはすぐわかる.
+One can easily see that the kernel forms a vector bundle.
+
+- 核電荷.
+A nuclear charge.
+
+- 下限.
+An infimum.
+
+- 仮定.
+Assumption.
+
+- 環 $R$ が $0$ ではなく $0$ と $R$ 以外の両側イデアルが存在しないとき, $R$ は単純であるという.
+A ring $R$ is simple if $R$ is not $0$ and has no two sided ideals except $0$ and $R$.
+
+- 環 $R$ が可換とする. このとき $R$ の単純性は $R$ が体であることと同値になる.
+Let $R$ be commutative.
+Then $R$ is simple if and only if $R$ is a field.
+
+- 関数 $F(x, \dot{x}, t)$ が与えられると, 上式は初期条件 $x(t_0)$ と $v(t_0) = \dot{x}(t_0)$ とともに
+  全ての時間で $x(t)$ と $v(t)$ を決める 2 階の常微分方程式系になる. \cite{LiebSeiringer1}
+With $F(x, \dot{x}, t)$ given, the above expression is a system of second order
+differential equations which together with the initial conditions
+$x(t_0)$ and $v(t_0)$ determine $x(t)$ and thus $v(t)$ for all times.
+
+- 簡単のため, 考察下の系はフェルミオンかボソンか, ただ一種類の粒子だけを含むと仮定しよう. \cite{LiebSeiringer1}
+Assume, for simplicity, that the system under consideration contains only one species of particles,
+either fermions or bosons.
+
 - 簡単にいうと, 簡単のため. \cite{LiebSeiringer1}
 Simply speaking.
 For simplicity.
+
+- 基底エネルギー.
+A ground state energy.
+
+- 基底状態.
+A ground state.
+
+- 記法を単純にするため, 以下では一番一般的に式を書いていくことは避ける. \cite{LiebSeiringer1}
+In the interest of keeping the notation simple, we shall regist the temptation to write down
+the most general formula in the following treatment.
 
 - 記法を決める.
 We fix notation.
@@ -394,12 +518,48 @@ We fix notation.
 - 教員は興味や時間の制約に応じて話題を取捨選択してもいい. \cite{CharlesWeibel1}
 The teacher may pick and choose topics according to interest and time constraints.
 
+- 強混合性は測度論的同型の不変量であることはすぐにわかる.
+It is easy to see that strong mixing is an invariant of measure theoretic isomorphism.
+
 - 詳しくは A を参照すること.
 See A for details.
+
+- 群 $G$ は空間 $S$ に作用する.
+A group $G$ acts on a space $S$.
+
+- 系.
+A system.
+
+- 原子核.
+A nucleus (nuclei).
+
+- 原子の存在と世界の安定性を理解するために解決しなければならない基本的な問題は次のように表現できる:
+  何故点粒子である電子が (ほぼ) 点粒子とみなせる原子核に落ちこんでいかないのか? \cite{LiebSeiringer1}
+The basic question that has to be resolved in order to understand the existence of atoms and stability of our world is:
+Why don't the point-like electrons fall into the (nearly) point-like nuclei?
+
+- こうして次式を得るが, これはあとで役に立つ. \cite{LiebSeiringer1}
+We thus have the following expression, a fact that will be useful later.
+
+- 恒等的に.
+Identically.
+
+- ここで $x_i \in \bbR^3$ は $i$ 番目の粒子の空間座標だ. \cite{LiebSeiringer1}
+Here $x_i \in \bbR^3$ is the (spatial) coodinate of the $i$-th particle.
 
 - ここに書かれた内容は多かれ少なかれ自己充足的な複素代数幾何のコースを元にしている. \cite{ChrisPeters1}
 The material presented here consists of a more or less
 self-contained advanced course in complex algebraic geometry.
+
+- ここまでは非相対論的な運動エネルギー, $T_{\psi} = (1/2) \bkt{\psi}{p^2 \psi}$ を考えてきた. \cite{LiebSeiringer1}
+So far we have considered the non-relativistic kinetic energy, $T_{\psi} = (1/2) \bkt{\psi}{p^2 \psi}$.
+
+- 古典力学から見たときのこの問題は 1915 年に Jeans によってうまくまとめられている. \cite{LiebSeiringer1}
+This problem of classical mechanics wa nicely summarized by Jeans in 1915.
+
+- この奇妙で全く予期していなかった事実を理解するため, 適切な Schr\"odinger 方程式がゼロモードを持つことを認識する必要があった.
+The understading of this strange, and totally unforeseen, fact requires the knowledge that the
+appropriate Schr\"odinger equation has `\textit{zero-modes}'.
 
 - この章の残りでは議論を 1 粒子に制限する. \cite{LiebSeiringer1}
 In the remainder of the present chapter we limit the discussion to a single particle.
@@ -417,8 +577,31 @@ The main point of this section will be that chain complexes form an abelian cate
 In this section, we will describe in detail some of the many-body Hamiltonians whose
 ground state energy will be studied in this book.
 
+- この第 2 章では量子力学に関する数学・物理の基本的事実を復習し, 物理の単位と記号を確認する.  \cite{LiebSeiringer1}
+In this second chapter we will review the basic mathematical and physical facts
+about quantum mechanics and establish physical units and notation.
+
+- この導入部では様々な不等式を説明しよう. \cite{LiebSeiringer1}
+In this introduction we shall explain the various inequalities.
+
+- このとき, 写像 $f$ は次の式で表される鎖写像になる. \cite{CharlesWeibel1}
+Then a map $f$ is the chain map given by the formula.
+
 - このノートは 1992 年秋の Leiden 大学での講義に基いている. \cite{ChrisPeters1}
 These notes are based on courses given in the fall of 1992 at the University of Leiden.
+
+- このフィルトレーションは $\scrF_d \cdot \scrF_e \subset \scrF_{d+e}$ という意味で $W_n(k)$ の積と整合性がある.
+This filtration is compatible with the multiplication in $W_n(k)$
+in the sense that $\scrF_d \cdot \scrF_e \subset \scrF_{d+e}$.
+
+- この本では量子電気力学, Coulomb 多体系の安定性, 星の重力安定性, 平衡統計の基礎, そして熱力学的極限の存在を議論している. \cite{LiebSeiringer1}
+The topics covered in this book include quantum electrodynamics, stability of large Coulomb systems,
+gravitational statbility of stars, basics of equilibrium statistical mechanics,
+and the existence of the thermodynamic limit.
+
+- この本の主な目的は電磁力で相互作用する量子力学的な粒子系の基底エネルギーを研究することだ. \cite{LiebSeiringer1}
+The main purpose of this book is to study the ground state energies of quantum mechanical systems of
+particles interacting via electric and magnetic forces.
 
 - この本は量子力学のいろいろな分野の研究者に向けた内容になっている. \cite{LiebSeiringer1}
 The book is directed towards researchers on various aspects of quantum mechanics.
@@ -426,12 +609,78 @@ The book is directed towards researchers on various aspects of quantum mechanics
 - この理論の目的は $n$ を無限大にする極限をとったときの $T^n(x)$ の振る舞いを調べることにある. \cite{OmriSarig1}
 The aim of the theory is to describe the behavior of $T^n(x)$ as $n \to \infty$.
 
+- これが彼の結果を単純化しかつ改良する興味深い新たな不等式の導出に繋がった. \cite{LiebSeiringer1}
+This led to the invention of interesiting new inequalities to simplify and improve his result.
+
 - これは大学院の 2-3 年生に向けた本だ. \cite{CharlesWeibel1}
 This book is aimed at a second- or third-year graduate student.
 
+- これが定理を証明するために必要な最小限の設定だ. \cite{OmriSarig1}
+This is the minimal setup needed to prove the theorem.
+
+- これは読者の演習とする. \cite{LiebSeiringer1}
+The reader is invited to prove this.
+
+- これはホロノミック $W_n(k)$-加群という中心的な概念を示唆する.
+This leads to the central notion of holonomic $W_n(k)$-modules.
+
 - これらの点は次の単純な問題を考えるとわかる. \cite{CharlesWeibel1}
 The following simple quesion illustrates these points.
-**** さ行
+
+- これらの定数に対する LT 不等式は任意のベクトルポテンシャル $A$ に対して成り立つことを強調しておこう. \cite{LiebSeiringer1}
+We emphasize that the LT inequalities with these constants hold for arbitrary magnetic vector potentials $A$.
+
+- これらの不等式は物質の安定性を理解する上で決定的な役割を果たす. \cite{LiebSeiringer1}
+These inequalities play a crucial role in our understanding of stability of matter.
+
+- これを確認するため, $\calA$ を $\calC$ で最も小さいアーベル部分圏としよう.
+To see this, let $\calA$ be the smallest abelian subcategory of $\calC$.
+*** さ行
+- 作用素 $A$ はトレース 1 に規格化されていない. \cite{LiebSeiringer1}
+The operator $A$ is not normalized to have trace equal to one.
+
+- 作用素値関数. \cite{LiebSeiringer1}
+An operator valued function.
+
+- さらに同じ理由からもし $H$ に置換対称性があれば次の式が成立する. \cite{LiebSeiringer1}
+Moreover, for the same reason the following expression holds if $H$ is invariant under permutations.
+
+- 事実.
+A fact.
+
+- 指数 $m$ が $f_D$ と選んだ点 $p \in M$ に依存しないことはすぐにわかる.
+It is easily verified that $m$ does not depend on $f_D$ and the chosen point $p \in M$.
+
+- 次数づけられたベクトル空間 $\mathrm{gr}_{\Gamma} (M)$ (混乱が生じない限り単に $\mathrm{gr} (M)$) と書こう.
+we denote by $\mathrm{gr}_{\Gamma} (M)$ (or simply $\mathrm{gr} (M)$) if no confusion can arise) the graded vector space.
+
+- 質量.
+Mass.
+
+- 磁場.
+A magnetic field.
+
+- 示したい不等式の成立と $\gamma$, $d$ が (以下の定理で定式化する) ある条件を満たすことが同値であることが分かる. \cite{LiebSeiringer1}
+It turns out that the desired inequalities can be achieved if and only if
+$\gamma$ and $d$ satisfy certain conditions (stated in the theorem below).
+
+- 射影曲線の種数を一般化した 2 つの数が高次元で重要な役割を果たす. \cite{ChrisPeters1}
+Two numbers, generalizing the genus of a projective curve, play
+an important rose in higher dimensions.
+
+- 剰余項.
+The remainder term.
+
+- 既に述べたように, 複素多様体 $M$ 上, 同型を法とした正則な直線束の集合はテンソル積に関して群をなす. \cite{ChrisPeters1}
+As already said before, the collection of holomorphic line bundles on a complex manifold
+$M$ modulo isomorphism form a group under the tensor product.
+
+- 正.
+Positive.
+
+- 相対論.
+Theory of relativity.
+
 - 相対論的力学をハミルトン形式で書くことはすぐできる. \cite{LiebSeiringer1}
 It is straightforward to describe relativistic mechanics in the Hamiltonian formalism.
 
@@ -439,213 +688,27 @@ It is straightforward to describe relativistic mechanics in the Hamiltonian form
 There is no difficulty in describing many-body systems in the Hamitonian formalism
 -- with either relativistic or non-relativistic kinematics.
 
-- その間もホモロジー代数は発展を続けた. \cite{CharlesWeibel1}
-In the meantime, homological algebra continued to evolve.
-**** た行
-- 同様にして.
-In a similar vain.
-
-- 読者は他のいくつかの話題についての紹介に出会うだろう.  \cite{CharlesWeibel1}
-The reader will find introductions to several other subjects.
-
-- トポロジー, 正則局所環や半単純 Lie 環との歴史的な関係も説明する. \cite{CharlesWeibel1}
-The historical connections with topology, regular local rings, and semisimple Lie algebras are also described.
-**** な行
-**** は行
-- はじめにアーベル圏とは何だったか思い出す必要がある. \cite{CharlesWeibel1}
-First we need to recall what an abelian category is.
-**** ま行
-- 前の節で説明したように, 粒子の座標は $\bbRthree \times \cbk{1, \dots, q}$ 内の点,
-  つまり点 $x \in \bbRthree$ と点 $\sigma \in \cbk{1, \dots, q}$ で表す. \cite{LiebSeiringer1}
-As explained in the previous section, the coordinate of a particle is a point in $\bbRthree \times \cbk{1, \dots, q}$, i.e.,
-a point $x \in \bbRthree$ and a point $\sigma \in \cbk{1, \dots, q}$.
-
-- まとめると.
-In summary.
-
-- 最も単純に言えば, 力学系とは集合 $X$ 上に定義された関数 $T$ のことだ. \cite{OmriSarig1}
-At its simplest form, a dynamical system is a function $T$ defined on a set $X$.
-**** や行
-**** ら行
-- 歴史的な経緯は追わない.
-We will not necessarily follow the historical route.
-**** わ行
-** Mathematical English
-*** Words
-**** 英数
-**** あ行
-- 演算子, 作用素.
-An operator.
-**** か行
-- 下界.
-A lower bound.
-
-- 下限.
-An infimum.
-**** さ行
-- 事実.
-A fact.
-
-- 剰余項.
-The remainder term.
-**** た行
-- 単調性.
-Monotonicity.
-**** な行
-**** は行
-- 汎関数. \cite{LiebSeiringer1}
-A functional.
-
-- 微分積分学の基本定理.
-Fundamental theorem of calculus.
-
-- 部分積分.
-Integration by parts.
-**** ま行
-- 未解決問題.
-An open problem.
-
-- 命題.
-A proposition.
-**** や行
-**** ら行
-- 連分数
-Continued fraction.
-**** わ行
-*** Sentences
-**** 英数
-- $N!/(N-k)!$ 以外の規格化も他の文献でよく使われる. \cite{LiebSeiringer1}
-Normalization conventions other than $N!/(N-k)!$ are often used in the literature.
-
-- $\Tr^{(N-k)}$ は (3.1.22) で与えられる核と作用素に関して, 単純に (3.1.27) に対する略記として考える. \cite{LiebSeiringer1}
-For our purposes, $\Tr^{(N-k)}$ can be thought of simply as a mnemonic device for (3.1.27),
-with the relation between kernel and operator given by (3.1.22).
-**** あ行
-- エルゴード理論の威力と有用性の多くは, 上で議論した抽象的な設定に関する次の確率的な解釈によっている. \cite{OmriSarig1}
-Much of the power and usefulness of ergodic theory is due to
-the following probabilistic interpretation of the abstract set up discussed above.
-**** か行
-- 核がベクトル束になることはすぐわかる.
-One can easily see that the kernel forms a vector bundle.
-
-- 関数 $F(x, \dot{x}, t)$ が与えられると, 上式は初期条件 $x(t_0)$ と $v(t_0) = \dot{x}(t_0)$ とともに
-  全ての時間で $x(t)$ と $v(t)$ を決める 2 階の常微分方程式系になる. \cite{LiebSeiringer1}
-With $F(x, \dot{x}, t)$ given, the above expression is a system of second order
-differential equations which together with the initial conditions
-$x(t_0)$ and $v(t_0)$ determine $x(t)$ and thus $v(t)$ for all times.
-
-- 簡単のため, 考察下の系はフェルミオンかボソンか, ただ一種類の粒子だけを含むと仮定しよう. \cite{LiebSeiringer1}
-Assume, for simplicity, that the system under consideration contains only one species of particles,
-either fermions or bosons.
-
-- 記法を単純にするため, 以下では一番一般的に式を書いていくことは避ける. \cite{LiebSeiringer1}
-In the interest of keeping the notation simple, we shall regist the temptation to write down
-the most general formula in the following treatment.
-
-- 強混合性は測度論的同型の不変量であることはすぐにわかる.
-It is easy to see that strong mixing is an invariant of measure theoretic isomorphism.
-
-- 群 $G$ は空間 $S$ に作用する.
-A group $G$ acts on a space $S$.
-
-- こうして次式を得るが, これはあとで役に立つ. \cite{LiebSeiringer1}
-We thus have the following expression, a fact that will be useful later.
-
-- このとき, 写像 $f$ は次の式で表される鎖写像になる. \cite{CharlesWeibel1}
-Then a map $f$ is the chain map given by the formula.
-
-- これは読者の演習とする. \cite{LiebSeiringer1}
-The reader is invited to prove this.
-
-- これが彼の結果を単純化しかつ改良する興味深い新たな不等式の導出に繋がった. \cite{LiebSeiringer1}
-This led to the invention of interesiting new inequalities to simplify and improve his result.
-
-- これが定理を証明するために必要な最小限の設定だ. \cite{OmriSarig1}
-This is the minimal setup needed to prove the theorem.
-
-- これらの不等式は物質の安定性を理解する上で決定的な役割を果たす. \cite{LiebSeiringer1}
-These inequalities play a crucial role in our understanding of stability of matter.
-
-- これを確認するため, $\calA$ を $\calC$ で最も小さいアーベル部分圏としよう.
-To see this, let $\calA$ be the smallest abelian subcategory of $\calC$.
-**** さ行
-- 作用素 $A$ はトレース 1 に規格化されていない. \cite{LiebSeiringer1}
-The operator $A$ is not normalized to have trace equal to one.
-
-- 指数 $m$ が $f_D$ と選んだ点 $p \in M$ に依存しないことはすぐにわかる.
-It is easily verified that $m$ does not depend on $f_D$ and the chosen point $p \in M$.
-
-- 射影曲線の種数を一般化した 2 つの数が高次元で重要な役割を果たす. \cite{ChrisPeters1}
-Two numbers, generalizing the genus of a projective curve, play
-an important rose in higher dimensions.
-
-- 既に述べたように, 複素多様体 $M$ 上, 同型を法とした正則な直線束の集合はテンソル積に関して群をなす. \cite{ChrisPeters1}
-As already said before, the collection of holomorphic line bundles on a complex manifold
-$M$ modulo isomorphism form a group under the tensor product.
-
 - 測度論での病的な現象を避けるため, $\rbk{X, \calB, \mu}$ は常に標準確率空間の完備化と仮定する.
 In order to avoid measure theoretic pathologies, we will always assume that
 $\rbk{X, \calB, \mu}$ is the completion of a standard measure space.
-**** た行
-- 次の概念の多粒子系への一般化は自明であり読者に任せる. \cite{LiebSeiringer1}
-The generalization of the following concepts to multiple species is obvious and left to the reader.
 
-- ``どのようにして決定論的な系がランダムに振舞い得るのか"という問題の現代的な取り扱いはこのアイデアによっている. \cite{OmriSarig1}
-The modern treatment of the question ``how come a deterministic system can behave randomly" is based on this idea.
-**** な行
-**** は行
-- はじめに (3.1.35) が $\Gamma$ の存在を示すのに十分であることを示そう. \cite{LiebSeiringer1}
-We first prove that (3.1.35) suffices to insure the existence of a $\Gamma$.
+- その間もホモロジー代数は発展を続けた. \cite{CharlesWeibel1}
+In the meantime, homological algebra continued to evolve.
+- 素粒子は $S = 0, 1/2, 1, 3/2, \dots$ のどれかの値を取る量で特徴づけられるスピンと呼ばれる内部自由度を持つ. \cite{LiebSeiringer1}
+Elementary particles have an internal degree of freedom called spin which is characterized
+by a specific number that can take one of the values $S = 0, 1/2, 1, 3/2, \dots$.
+*** た行
+- 対称性.
+Symmetry.
 
-- 複素代数幾何を研究する上で基本的な対象と写像を思い出そう. \cite{ChrisPeters1}
-I recall the basic objects and maps one works with in complex algebraic geometry.
-
-- 複素または射影多様体に関する一般論. \cite{ChrisPeters1}
-Generalities on complex and projective manifolds.
-
-- 変数 $z_{k+1}, \dots, z_N$ で積分される. \cite{LiebSeiringer1}
-The variables $z_{k+1}, \dots, z_N$ are integrated out.
-
-- 便利な関数空間はいろいろあり, それらを状況に応じて使いわけていく.
-There are many useful function spaces and we select a proper space as the situation demands.
-
-- ホモロジー代数は代数的位相幾何, 群論, 可換環論, そして代数幾何などのいくつかの数学の分野で使われる道具だ. \cite{CharlesWeibel1}
-Homological algebra is a tool used in several branches of mathematics: algebraic topology, group theory,
-commutative ring theory, and algebraic geometry.
-**** ま行
-**** や行
-**** ら行
-**** わ行
-** Physical English
-*** Words
-**** 英数
-**** あ行
-- 安定性.
-Stability.
-
-- 運動エネルギー.
-A kinetic energy.
-**** か行
-- 核電荷.
-A nuclear charge.
-
-- 基底エネルギー.
-A ground state energy.
-
-- 基底状態.
-A ground state.
-
-- 原子核.
-A nucleus (nuclei).
-**** さ行
-- 質量.
-Mass.
-
-- 磁場.
-A magnetic field.
-**** た行
 - 単位.
 A unit.
+
+- 単調性.
+Monotonicity.
+
+- 置換.
+A permutation.
 
 - チャンドラセカール (質量) 限界 \cite{LiebSeiringer1}
 The Chandrasekhar (mass) limit.
@@ -656,118 +719,116 @@ A neutron.
 - 中性子星. \cite{LiebSeiringer1}
 A neutron star.
 
-- 電荷.
-A charge.
+- 次の概念の多粒子系への一般化は自明であり読者に任せる. \cite{LiebSeiringer1}
+The generalization of the following concepts to multiple species is obvious and left to the reader.
 
-- 電子.
-An electron.
-**** な行
-**** は行
-- 白色矮星. \cite{LiebSeiringer1}
-A white dwarf.
+- 次の言明を示すことが殘っている.
+It remains to show the following statement.
 
-- ハミルトニアン.
-A Hamiltonian.
-
-- 微細構造定数. \cite{LiebSeiringer1}
-The fine-structure constant.
-
-- フェルミオン. \cite{LiebSeiringer1}
-A fermion.
-
-- 物質.
-A matter.
-
-- ヘリウム.
-A helium.
-
-- ボゾン (ボソン). \cite{LiebSeiringer1}
-A boson.
-
-- ポテンシャルエネルギー.
-A potential energy.
-**** ま行
-**** や行
-- 要請.
-Postulate.
-**** ら行
-- ラグランジアン.
-A Lagrangian.
-
-- (量子力学的粒子の) 統計 \cite{LiebSeiringer1}
-A statistics (of a quantum particle).
-
-- 臨界定数. \cite{LiebSeiringer1}
-A critical number (constant).
-**** わ行
-*** Sentences
-**** 英数
-- $Z \alpha$ が非常に大きい婆に 1 原子のときですら磁場が不安定性を引き起こす可能性があるとわかったとき, また新たな不等式が必要になった. \cite{LiebSeiringer1}
-Again new inequalities were needed when it was realized that magnetic fields
-could also cause instabilities, even for just one atom, if $Z \alpha$ is too large.
-**** あ行
-- アインシュタインの相対論的運動学がどんな効果をもたらすだろうか. \cite{LiebSeiringer1}
-What effect does Einstein's relativistic kinematics have?
-
-- ある粒子種の波動関数として許される関数はその種に特有のある置換対称性を持つ型に限られるというのが量子力学の基本的な要請だ. \cite{LiebSeiringer1}
-It is a basic postulate of quantum mechanics that the allowed wave functions for a given particle species
-must belong to some definite permutation symmetry type which is characteristic of that species.
-
-- 安定性に関する結論は精妙で普通の物理の学生が使える初等的な道具立てで簡単に導出できるわけでもないのに,
-  今日でさえほとんどの物理の教科書で議論されておらず, 問題が指摘されることすらない. \cite{LiebSeiringer1}
-Even today hardly any physics textbook discusses, or even raises this question,
-even though the basic conclusion of stability is subtle and not easily derived
-using the elementary means available to the usual physics student.
-**** か行
-- 原子の存在と世界の安定性を理解するために解決しなければならない基本的な問題は次のように表現できる:
-  何故点粒子である電子が (ほぼ) 点粒子とみなせる原子核に落ちこんでいかないのか? \cite{LiebSeiringer1}
-The basic question that has to be resolved in order to understand the existence of atoms and stability of our world is:
-Why don't the point-like electrons fall into the (nearly) point-like nuclei?
-
-- ここで $x_i \in \bbR^3$ は $i$ 番目の粒子の空間座標だ. \cite{LiebSeiringer1}
-Here $x_i \in \bbR^3$ is the (spatial) coodinate of the $i$-th particle.
-
-- ここまでは非相対論的な運動エネルギー, $T_{\psi} = (1/2) \bkt{\psi}{p^2 \psi}$ を考えてきた. \cite{LiebSeiringer1}
-So far we have considered the non-relativistic kinetic energy, $T_{\psi} = (1/2) \bkt{\psi}{p^2 \psi}$.
-
-- 古典力学から見たときのこの問題は 1915 年に Jeans によってうまくまとめられている. \cite{LiebSeiringer1}
-This problem of classical mechanics wa nicely summarized by Jeans in 1915.
-
-- この奇妙で全く予期していなかった事実を理解するため, 適切な Schr\"odinger 方程式がゼロモードを持つことを認識する必要があった.
-The understading of this strange, and totally unforeseen, fact requires the knowledge that the
-appropriate Schr\"odinger equation has `\textit{zero-modes}'.
-
-- この第 2 章では量子力学に関する数学・物理の基本的事実を復習し, 物理の単位と記号を確認する.  \cite{LiebSeiringer1}
-In this second chapter we will review the basic mathematical and physical facts
-about quantum mechanics and establish physical units and notation.
-
-- この本の主な目的は電磁力で相互作用する量子力学的な粒子系の基底エネルギーを研究することだ. \cite{LiebSeiringer1}
-The main purpose of this book is to study the ground state energies of quantum mechanical systems of
-particles interacting via electric and magnetic forces.
-
-- この本では量子電気力学, Coulomb 多体系の安定性, 星の重力安定性, 平衡統計の基礎, そして熱力学的極限の存在を議論している. \cite{LiebSeiringer1}
-The topics covered in this book include quantum electrodynamics, stability of large Coulomb systems,
-gravitational statbility of stars, basics of equilibrium statistical mechanics,
-and the existence of the thermodynamic limit.
-**** さ行
-- さらに同じ理由からもし $H$ に置換対称性があれば次の式が成立する. \cite{LiebSeiringer1}
-Moreover, for the same reason the following expression holds if $H$ is invariant under permutations.
-
-- 素粒子は $S = 0, 1/2, 1, 3/2, \dots$ のどれかの値を取る量で特徴づけられるスピンと呼ばれる内部自由度を持つ. \cite{LiebSeiringer1}
-Elementary particles have an internal degree of freedom called spin which is characterized
-by a specific number that can take one of the values $S = 0, 1/2, 1, 3/2, \dots$.
-**** た行
 - 次の式 $\abs{p} \geq \sqrt{p^2 + m^2} - m \geq \abs{p} - m$ が成り立つので, 超相対論的なエネルギー
   $T_{\psi} = \bkt{\psi}{\abs{p} \psi}$ を考えれば十分. \cite{LiebSeiringer1}
 Because $\abs{p} \geq \sqrt{p^2 + m^2} - m \geq \abs{p} - m$, it suffices to consider
 the ultra-relativistic energy $T_{\psi} = \bkt{\psi}{\abs{p} \psi}$.
 
+- 次のようにして $\mathrm{gr}_{\Gamma} (M)$ に次数つき $\mathrm{gr} W_n(K)$-加群としての自然な構造を与えられる.
+We can endow $\mathrm{gr}_{\Gamma} (M)$ with a natural structure of a graded $\mathrm{gr} W_n(k)$-module as follows.
+
+- 定数.
+A constant.
+
+- 定理 4.1 の $V$ に対する仮定のもとで $E_0 > - \infty$ となることは 2.2.1 節の式 (2.2.14) での議論からわかる. \cite{LiebSeiringer1}
+The fact that $E_0 > - \infty$ under the assumption on $V$ stated in Theorem 4.1 already follows from the
+discussion in Section 2.2.1, Eq. (2.2.14).
+
+- 電荷.
+A charge.
+
 - 電気力は異なる符号の電荷を持つ荷電粒子間では引力になり, 同じ符号の電荷を持つ粒子間では斥力になる. \cite{LiebSeiringer1}
 The electric force is attractive between oppositely charged particles and repulsive between like-charged particles.
-**** な行
-**** は行
+
+- 電子.
+An electron.
+
+- 等式.
+An equality.
+
+- 同様にして.
+In a similar vain.
+
+- 読者は他のいくつかの話題についての紹介に出会うだろう.  \cite{CharlesWeibel1}
+The reader will find introductions to several other subjects.
+
+- 特に.
+In particular. Especially.
+
+- 特に断わらない限り.
+Unless otherwise stated.
+
+- 凸.
+Convex.
+
+- ``どのようにして決定論的な系がランダムに振舞い得るのか"という問題の現代的な取り扱いはこのアイデアによっている. \cite{OmriSarig1}
+The modern treatment of the question ``how come a deterministic system can behave randomly" is based on this idea.
+
+- トポロジー, 正則局所環や半単純 Lie 環との歴史的な関係も説明する. \cite{CharlesWeibel1}
+The historical connections with topology, regular local rings, and semisimple Lie algebras are also described.
+*** な行
+- 二次形式.
+A quadratic form.
+*** は行
+- 白色矮星. \cite{LiebSeiringer1}
+A white dwarf.
+
+- はじめに (3.1.35) が $\Gamma$ の存在を示すのに十分であることを示そう. \cite{LiebSeiringer1}
+We first prove that (3.1.35) suffices to insure the existence of a $\Gamma$.
+
+- はじめにアーベル圏とは何だったか思い出す必要がある. \cite{CharlesWeibel1}
+First we need to recall what an abelian category is.
+
+- はじめに非相対論的な場合の LT 不等式を議論しよう. \cite{LiebSeiringer1}
+We shall first discuss the LT inequalities in the non-relativistic case.
+
+- ハミルトニアン.
+A Hamiltonian.
+
+- 汎関数. \cite{LiebSeiringer1}
+A functional.
+
+- 半古典近似. \cite{LiebSeiringer1}
+The semiclassical approximation.
+
+- 半双線型形式.
+A sesquilinear form.
+
+- 微細構造定数. \cite{LiebSeiringer1}
+The fine-structure constant.
+
+- 非相対論的.
+Nonrelativistic. Non-relativistic. Non relativistic.
+
+- 必要十分.
+If and only if.
+
+- 非負.
+Nonnegative.
+
+- 微分積分学の基本定理.
+Fundamental theorem of calculus.
+
+- フェルミオン. \cite{LiebSeiringer1}
+A fermion.
+
+- 複素代数幾何を研究する上で基本的な対象と写像を思い出そう. \cite{ChrisPeters1}
+I recall the basic objects and maps one works with in complex algebraic geometry.
+
+- 複素または射影多様体に関する一般論. \cite{ChrisPeters1}
+Generalities on complex and projective manifolds.
+
 - 普通の物質の基本的な構成要素は電子と原子核だ. \cite{LiebSeiringer1}
 The basic constituents of ordinary matter are electrons and atomic nuclei.
+
+- 物質.
+A matter.
 
 - 物理学者が物質の世界を記述する基盤となる基礎理論は量子力学だ. \cite{LiebSeiringer1}
 The fundamental theory that underlies the physicist's description of the material world is quantum mechanics.
@@ -778,22 +839,99 @@ Physicists firmly believe that quantum mechanics is a `theory of everything' at 
 - 物理の文献では対称性の型の選択を波動関数か粒子の\textbf{統計}と呼ぶことがよくある. \cite{LiebSeiringer1}
 It is common in the physics literature to refer to the choice of symmetry type as the
 *statistics* of the particles or of their wave function.
-**** ま行
+
+- 不等式を出す前にその`半古典'近似について議論しよう. これで不等式をわかりやすく自然に理解できるようになる. \cite{LiebSeiringer1}
+Before presenting the inequalities let us discuss their `semiclassical' interpretation,
+which will make them more transparent and natural.
+
+- 不等式.
+An inequality.
+
+- 部分積分.
+Integration by parts.
+
+- ヘリウム.
+A helium.
+
+- 変数 $z_{k+1}, \dots, z_N$ で積分される. \cite{LiebSeiringer1}
+The variables $z_{k+1}, \dots, z_N$ are integrated out.
+
+- 便利な関数空間はいろいろあり, それらを状況に応じて使いわけていく.
+There are many useful function spaces and we select a proper space as the situation demands.
+
+- ボゾン (ボソン). \cite{LiebSeiringer1}
+A boson.
+
+- ポテンシャルエネルギー.
+A potential energy.
+
+- ホモロジー代数は代数的位相幾何, 群論, 可換環論, そして代数幾何などのいくつかの数学の分野で使われる道具だ. \cite{CharlesWeibel1}
+Homological algebra is a tool used in several branches of mathematics: algebraic topology, group theory,
+commutative ring theory, and algebraic geometry.
+*** ま行
+- 前の節で説明したように, 粒子の座標は $\bbRthree \times \cbk{1, \dots, q}$ 内の点,
+  つまり点 $x \in \bbRthree$ と点 $\sigma \in \cbk{1, \dots, q}$ で表す. \cite{LiebSeiringer1}
+As explained in the previous section, the coordinate of a particle is a point in $\bbRthree \times \cbk{1, \dots, q}$, i.e.,
+a point $x \in \bbRthree$ and a point $\sigma \in \cbk{1, \dots, q}$.
+
+- まとめると.
+In summary.
+
+- 未解決問題.
+An open problem.
+
+- 命題.
+A proposition.
+
 - もし $H$ が置換対称性を持つなら, 回転対称性を持つ $H$ に対するエネルギーを最小化する状態がある角運動量の値を持つのとちょうど同じように,
   全ての (規格化された) 可能な関数のうち $\rbkt{\phi}{H \phi}$ の最小値を与える
   $\phi$ はある統計性を持つと一般性を失うことなく仮定できることに注意する. \cite{LiebSeiringer1}
 We note that if $H$ is permutation invariant, the $\phi$ that yields the lowest value of $\rbkt{\phi}{H \phi}$ among
 all possible (normalized) functions can be taken to have a definite symmetry type without loss of generality,
 just as an energy minimizing state for a rotation invariant $H$ can be taken to have a definite angular momentum.
-**** や行
-**** ら行
+
+- 最も単純に言えば, 力学系とは集合 $X$ 上に定義された関数 $T$ のことだ. \cite{OmriSarig1}
+At its simplest form, a dynamical system is a function $T$ defined on a set $X$.
+*** や行
+- 有界.
+Bounded.
+
+- 要請.
+Postulate.
+*** ら行
+- ラグランジアン.
+A Lagrangian.
+
+- 粒子.
+A particle.
+
+- (量子力学的粒子の) 統計 \cite{LiebSeiringer1}
+A statistics (of a quantum particle).
+
 - 量子力学と古典力学の関係は半古典近似で明らかになる. \cite{LiebSeiringer1}
 The connection between quantum mechanics and classical mechanics becomes apparent
 in the semiclassical limit.
 
+- 量子力学の最初期にルーツを持つ半古典的なアプローチによれば, ($p \in \bbRd$, $x \in \bbRd$ として $\rbk(p, x)$
+  の点の組からなる) $2d$-次元の相空間の各体積 $\rbk{2 \pi \hbar}^d$ は 1 つの量子状態に対応する. \cite{LiebSeiringer1}
+According to the semiclassical approach, which goes back to the earliest days of quantum mechanics,
+each volume $\rbk{2 \pi}^d$ in $2d$-dimensional phase space (consisting of pairs of points
+$(p, x)$ with $p \in \bbRd$ and $x \in \bbRd$) can support one quantum state.
+
+- 臨界定数. \cite{LiebSeiringer1}
+A critical number (constant).
+
 - 例としてクーロン力で相互作用する $N$ 個の電子と $M$ 個の静止した原子核の問題を考えよう. \cite{LiebSeiringer1}
 As an example, consider the problem of $N$ electrons and $M$ nuclei interacting with each other via the Coulomb force.
-**** わ行
+
+- 歴史的な経緯は追わない.
+We will not necessarily follow the historical route.
+
+- 連分数
+Continued fraction.
+*** わ行
+- ワイル代数が部分ベクトル空間による自然なフィルター構造を持つことを思い出そう.
+Recall that the Weyl algebra $W_n(k)$ is naturally filtered by the sub-vectorspaces.
 * Set theory
 ** Introduction to cardinal number
 動画から適当に切り出してくる.

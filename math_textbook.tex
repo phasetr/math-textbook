@@ -307,11 +307,7 @@
 
 \title{Math textbook}
 \author{相転移 P (@phasetr)\thanks{phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com}}
-\date{2014-05-04}
-\hypersetup{
-  pdfkeywords={},
-  pdfsubject={},
-  pdfcreator={Emacs Org-mode version 7.9.3f}}
+\date{2014-05-12}
 
 \begin{document}
 
@@ -360,29 +356,35 @@ but they are systematic and ``boring'' sometimes.
 I want to fill the gaps:
 I want to write applicative contents in physics, engineering or mathematics itself,
 and connections among many branches.
-\part{Mathematical/Physical English}
+\part{Writhing mathematical/physical English}
 \label{sec-2}
 
 数学や物理に関する英語表現や具体的な例文を少しずつ足していく.
 基本的な表現については体系的なまとめもほしいので, そういうのもやっていこう.
+また (\TeX{} を使って) 式がたくさんある文章を書くという部分にもフォーカスしたい.
 辞書については \cite{YusakuKomatsu1} などを参考にしている.
 研究会開催などで英文メールを打つこともあるだろう.
 そういう用途もあるので, ある程度一般的な英語もまとめていきたい.
-\chapter{General English}
+\chapter{How to write tex sources}
 \label{sec-2-1}
+
+基本的な入力方法については \cite{TakashiSakai1} が参考になる.
+論文などきちんとした体裁の数学の文章を書く上での注意については \cite{TadaoOda1} 必読.
+\chapter{General English}
+\label{sec-2-2}
 \section{英数}
-\label{sec-2-1-1}
+\label{sec-2-2-1}
 \section{あ行}
-\label{sec-2-1-2}
+\label{sec-2-2-2}
 \section{か行}
-\label{sec-2-1-3}
+\label{sec-2-2-3}
 
 \begin{itemize}
 \item 京都でワークショップを 4/20 (日) に開くことになったのでお知らせしたい.
 \end{itemize}
 We has the pleasure to announce our workshop in Kyoto on April 20th (Sunday).
 \section{さ行}
-\label{sec-2-1-4}
+\label{sec-2-2-4}
 
 \begin{itemize}
 \item 参加をお待ちしている.
@@ -394,23 +396,23 @@ We look forward to your participation.
 \end{itemize}
 Please join us to enjoy a special workshop.
 \section{た行}
-\label{sec-2-1-5}
+\label{sec-2-2-5}
 \section{な行}
-\label{sec-2-1-6}
+\label{sec-2-2-6}
 \section{は行}
-\label{sec-2-1-7}
+\label{sec-2-2-7}
 \section{ま行}
-\label{sec-2-1-8}
+\label{sec-2-2-8}
 \section{や行}
-\label{sec-2-1-9}
+\label{sec-2-2-9}
 \section{ら行}
-\label{sec-2-1-10}
+\label{sec-2-2-10}
 \section{わ行}
-\label{sec-2-1-11}
+\label{sec-2-2-11}
 \chapter{Mathematical/Physical English}
-\label{sec-2-2}
+\label{sec-2-3}
 \section{Abbreviation}
-\label{sec-2-2-1}
+\label{sec-2-3-1}
 
 \begin{itemize}
 \item bdle: bundle
@@ -418,7 +420,7 @@ Please join us to enjoy a special workshop.
 \item TFAE: then the followings are equivalent
 \end{itemize}
 \section{英数}
-\label{sec-2-2-2}
+\label{sec-2-3-2}
 
 \begin{itemize}
 \item $E_N(Z, \vR)$ は原子核が動かない場合の基底エネルギーを表わし, $E_{N, M}(Z)$ は原子核が動く場合の基底エネルギーであることを思い出そう. \cite{LiebSeiringer1}
@@ -427,10 +429,30 @@ Recall that $E_N(Z, \vR)$ denotes the ground state energy in the fixed nuclear c
 and $E_{N, M}(Z)$ is the ground state energy in the case of dynamic nuclei.
 
 \begin{itemize}
+\item $\gamma = 1$ の場合に着目しよう. \cite{LiebSeiringer1}
+\end{itemize}
+Let us focus on the case $\gamma = 1$.
+
+\begin{itemize}
 \item $k$ を標数 $0$ の体とし, $\rbk{x_i}_{i \in I}$ を有限集合 $I$ を添字とする独立変数の族とする.
 \end{itemize}
 Let $k$ be a field of characteristic zero and let $\rbk{x_i}_{i \in I}$ be a family
 of independent variables indexed by a finite set $I$.
+
+\begin{itemize}
+\item LT 不等式の導出. \cite{LiebSeiringer1}
+\end{itemize}
+Derivation of the LT inequalities.
+
+\begin{itemize}
+\item $M$ がよいフィルトレーションを持つのは $M$ が有限生成のときでかつそのときに限る.
+\end{itemize}
+$M$ admits a good filtration if and only if $M$ is finitely generated.
+
+\begin{itemize}
+\item $M$ をよいフィルトレーション $\Gamma$ を持つ左 $W_n (k)$ 加群とする.
+\end{itemize}
+Let $M$ be a left $W_n(k)$-module endowed with a good filtration $\Gamma$.
 
 \begin{itemize}
 \item $N!/(N-k)!$ 以外の規格化も他の文献でよく使われる. \cite{LiebSeiringer1}
@@ -464,7 +486,7 @@ could also cause instabilities, even for just one atom, if $Z \alpha$ is too lar
 \end{itemize}
 The reader is referred to Chapter 13.
 \section{あ行}
-\label{sec-2-2-3}
+\label{sec-2-3-3}
 
 \begin{itemize}
 \item アインシュタインの相対論的運動学がどんな効果をもたらすだろうか. \cite{LiebSeiringer1}
@@ -511,6 +533,12 @@ In other words.
 As shall be explained below.
 
 \begin{itemize}
+\item 以下での証明で出てくるのとは違う手法を使って彼女は相対論的な場合に次の不等式を示した. \cite{LiebSeiringer1}
+\end{itemize}
+Using a different method from the one presented in the proof below
+she has shown the following inequality in the relativistic case.
+
+\begin{itemize}
 \item 以下では. \cite{LiebSeiringer1, CharlesWeibel1}
 \end{itemize}
 In what follows. In the sequel.
@@ -519,6 +547,11 @@ In what follows. In the sequel.
 \item 以下では $\calA$ が明らかな場合, $\bf{Ch}$ の代わりに単に $\bf{Ch} \rbk{\calA}$ と書く. \cite{CharlesWeibel1}
 \end{itemize}
 In the sequel we will merely write $\bf{Ch}$ for $\bf{Ch} \rbk{\calA}$ when $\calA$ is understood.
+
+\begin{itemize}
+\item 今知られている $d=3$ に対する最良の定数は $C$ だ. \cite{LiebSeiringer1}
+\end{itemize}
+The currently best known constant for $d=3$ is $C$.
 
 \begin{itemize}
 \item 動く原子核が磁場と相互作用する. \cite{LiebSeiringer1}
@@ -558,7 +591,7 @@ some of which present the subject in a way that is congenial to mathematicians.
 Quite a few mathematicians have devoted a lot of time to explore generalizations of
 the inequalities and bounds on the optimal constants.
 \section{か行}
-\label{sec-2-2-4}
+\label{sec-2-3-4}
 
 \begin{itemize}
 \item 下界.
@@ -574,6 +607,11 @@ One can easily see that the kernel forms a vector bundle.
 \item 核電荷.
 \end{itemize}
 A nuclear charge.
+
+\begin{itemize}
+\item 考えることはできる. \cite{LiebSeiringer1}
+\end{itemize}
+One can ask if. One can ask whether.
 
 \begin{itemize}
 \item 下限.
@@ -680,6 +718,11 @@ Why don't the point-like electrons fall into the (nearly) point-like nuclei?
 We thus have the following expression, a fact that will be useful later.
 
 \begin{itemize}
+\item 後者の量は固有値の数に等しい. \cite{LiebSeiringer1}
+\end{itemize}
+This latter quantity equals the number of eigenvalues.
+
+\begin{itemize}
 \item 恒等的に.
 \end{itemize}
 Identically.
@@ -688,6 +731,12 @@ Identically.
 \item ここで $x_i \in \bbR^3$ は $i$ 番目の粒子の空間座標だ. \cite{LiebSeiringer1}
 \end{itemize}
 Here $x_i \in \bbR^3$ is the (spatial) coodinate of the $i$-th particle.
+
+\begin{itemize}
+\item ここで 3 章の式 (3.1.5) と同じように, $\hat{dx_i}$ という記法は $x_i$ 以外の全ての変数について積分するという意味で使っている. \cite{LiebSeiringer1}
+\end{itemize}
+Here we use the same notation as in Chapter 3, Eq. (3.1.5), with $\hat{dx_i}$
+meaning that integration is over all variables but $x_i$.
 
 \begin{itemize}
 \item ここに書かれた内容は多かれ少なかれ自己充足的な複素代数幾何のコースを元にしている. \cite{ChrisPeters1}
@@ -832,7 +881,12 @@ These inequalities play a crucial role in our understanding of stability of matt
 \end{itemize}
 To see this, let $\calA$ be the smallest abelian subcategory of $\calC$.
 \section{さ行}
-\label{sec-2-2-5}
+\label{sec-2-3-5}
+
+\begin{itemize}
+\item 先の議論と組み合わせると次の命題が成立することがわかる. \cite{LiebSeiringer1}
+\end{itemize}
+In combination with the argument above this actually implies the following proposition.
 
 \begin{itemize}
 \item 作用素 $A$ はトレース 1 に規格化されていない. \cite{LiebSeiringer1}
@@ -934,7 +988,7 @@ In the meantime, homological algebra continued to evolve.
 Elementary particles have an internal degree of freedom called spin which is characterized
 by a specific number that can take one of the values $S = 0, 1/2, 1, 3/2, \dots$.
 \section{た行}
-\label{sec-2-2-6}
+\label{sec-2-3-6}
 
 \begin{itemize}
 \item 対称性.
@@ -1059,14 +1113,14 @@ The modern treatment of the question ``how come a deterministic system can behav
 \end{itemize}
 The historical connections with topology, regular local rings, and semisimple Lie algebras are also described.
 \section{な行}
-\label{sec-2-2-7}
+\label{sec-2-3-7}
 
 \begin{itemize}
 \item 二次形式.
 \end{itemize}
 A quadratic form.
 \section{は行}
-\label{sec-2-2-8}
+\label{sec-2-3-8}
 
 \begin{itemize}
 \item 白色矮星. \cite{LiebSeiringer1}
@@ -1221,7 +1275,7 @@ A potential energy.
 Homological algebra is a tool used in several branches of mathematics: algebraic topology, group theory,
 commutative ring theory, and algebraic geometry.
 \section{ま行}
-\label{sec-2-2-9}
+\label{sec-2-3-9}
 
 \begin{itemize}
 \item 前の節で説明したように, 粒子の座標は $\bbRthree \times \cbk{1, \dots, q}$ 内の点,
@@ -1229,6 +1283,11 @@ commutative ring theory, and algebraic geometry.
 \end{itemize}
 As explained in the previous section, the coordinate of a particle is a point in $\bbRthree \times \cbk{1, \dots, q}$, i.e.,
 a point $x \in \bbRthree$ and a point $\sigma \in \cbk{1, \dots, q}$.
+
+\begin{itemize}
+\item まず $e>0$ の場合を考えよう. \cite{LiebSeiringer1}
+\end{itemize}
+We first consider the case $e > 0$.
 
 \begin{itemize}
 \item まとめると.
@@ -1246,6 +1305,11 @@ An open problem.
 A proposition.
 
 \begin{itemize}
+\item 目的は (4.2.1) を $E_j$ の代わりに $T$ をおさえるのに使うことだ. \cite{LiebSeiringer1}
+\end{itemize}
+Our goal is to use (4.2.1) to bound $T$ instead of the $E_j$.
+
+\begin{itemize}
 \item もし $H$ が置換対称性を持つなら, 回転対称性を持つ $H$ に対するエネルギーを最小化する状態がある角運動量の値を持つのとちょうど同じように,
   全ての (規格化された) 可能な関数のうち $\rbkt{\phi}{H \phi}$ の最小値を与える
   $\phi$ はある統計性を持つと一般性を失うことなく仮定できることに注意する. \cite{LiebSeiringer1}
@@ -1255,11 +1319,16 @@ all possible (normalized) functions can be taken to have a definite symmetry typ
 just as an energy minimizing state for a rotation invariant $H$ can be taken to have a definite angular momentum.
 
 \begin{itemize}
+\item もしあれば, もし存在すれば. \cite{LiebSeiringer1}
+\end{itemize}
+If any.
+
+\begin{itemize}
 \item 最も単純に言えば, 力学系とは集合 $X$ 上に定義された関数 $T$ のことだ. \cite{OmriSarig1}
 \end{itemize}
 At its simplest form, a dynamical system is a function $T$ defined on a set $X$.
 \section{や行}
-\label{sec-2-2-10}
+\label{sec-2-3-10}
 
 \begin{itemize}
 \item 有界.
@@ -1271,7 +1340,7 @@ Bounded.
 \end{itemize}
 Postulate.
 \section{ら行}
-\label{sec-2-2-11}
+\label{sec-2-3-11}
 
 \begin{itemize}
 \item ラグランジアン.
@@ -1322,7 +1391,7 @@ We will not necessarily follow the historical route.
 \end{itemize}
 Continued fraction.
 \section{わ行}
-\label{sec-2-2-12}
+\label{sec-2-3-12}
 
 \begin{itemize}
 \item ワイル代数が部分ベクトル空間による自然なフィルター構造を持つことを思い出そう.
@@ -1376,27 +1445,27 @@ These words have the same meaning.
  A set $L$ is called a \textup{\textbf{linear space}} if its elements have the following properties.
  Elements $x, y, z \in L$ are vectors and $a, b \in \bbR$ are real numbers in the following expressions.
 \begin{enumerate}
-\item \textup{Associativity:}
+\item Associativity:
   \begin{align}
    \rbk{x + y} + z
    =
    x + \rbk{y + z}, \quad \forall x, y, z \in L.
   \end{align}
-\item \textup{Commutativity of sum:}
+\item Commutativity of sum:
   \begin{align}
    x + y = y + x,  \quad \forall x, y \in L.
   \end{align}
-\item \textup{Existence of unit for sum:} there is an element $0 \in L$ such that
+\item Existence of unit for sum: there is an element $0 \in L$ such that
   \begin{align}
    x + 0 = x, \quad \forall x \in L.
   \end{align}
-\item \textup{Existence of an inverse element for sum:} for any $x \in L$ there is an element $y \in L$ such that
+\item Existence of an inverse element for sum: for any $x \in L$ there is an element $y \in L$ such that
   \begin{align}
    x + y = 0
   \end{align}
     for the above $0$.
     In fact we can prove the uniqueness of an inverse element.
-\item \textup{Relation of scalers (real numbers) and vectors:}
+\item Relation of scalers (real numbers) and vectors:
   \begin{align}
    a \cdot \rbk{x + y}
    &=
@@ -1408,7 +1477,7 @@ These words have the same meaning.
    &=
    a \cdot x + b \cdot x,
   \end{align}
-\item \textup{Multiplication law for a scaler unit in} $\bbR$\textup{:}
+\item Multiplication law for a scaler unit in $\bbR$:
   \begin{align}
    1 \cdot x = x, \quad \forall x \in L.
   \end{align}
@@ -1540,7 +1609,7 @@ First we define a linear map and linear functionnal.
 Here are some examples.
 \begin{ex}
 \begin{enumerate}
-\item \textup{Coordinate maps.} Let $f = (f(1), f(2), \dots, f(d)) \in \bbR^d$.
+\item Coordinate maps. Let $f = (f(1), f(2), \dots, f(d)) \in \bbR^d$.
     We write a vector $f = (f_1, f_2, \dots, f_d)$ as $f = (f(1), f(2), \dots, f(d))$ for later use.
     This is just a notational convention.
     Then we get functionals by
@@ -1553,7 +1622,7 @@ Here are some examples.
     =
     \alpha x_i \rbk{f} + \beta x_i \rbk{g}.
    \end{align}
-\item \textup{Definite integrals:} First we define a map $I$ as
+\item Definite integrals: First we define a map $I$ as
    \begin{align}
      I \colon
      f \mapsto \int_{\bbR^d} f(x) dx \in \bbR.
@@ -1564,14 +1633,14 @@ Here are some examples.
     =
     \alpha I \rbk{f} + \beta I \rbk{g}.
    \end{align}
-\item \textup{An other type of a definite integral:}
+\item Another type of a definite integral:
    \begin{align}
     E \colon
     f \mapsto \int_{\bbR^d} \rbk{\abs{\nabla f(x, t)}^2 + \rbk{\frac{\partial f(x, t)}{\partial t}}^2} dx. \label{linear-algebra-and-calculus-4}
    \end{align}
    This is a nonlinear functional.
    In physics this $E$ is called an energy functional.
-\item \textup{Differential operators:} Define an operator as
+\item Differential operators: Define an operator as
    \begin{align}
     D \colon f \mapsto \frac{d}{dx} f.
    \end{align}
@@ -1673,7 +1742,7 @@ Interested readers should learn, e.g., principal component analysis.
 We have applications in computer science.
 In numerical analysis we use linear algebra.
 See the code theoery or Google's page rank for real world application.\footnote{See, e.g, my movies,
-http://www.nicovideo.jp/watch/sm7599426, http://www.nicovideo.jp/watch/sm10684363.
+\href{http://www.nicovideo.jp/watch/sm7599426}{http://www.nicovideo.jp/watch/sm7599426}, \href{http://www.nicovideo.jp/watch/sm10684363}{http://www.nicovideo.jp/watch/sm10684363}.
  }
 \section{Integration}
 \label{sec-4-1-3}
@@ -1816,17 +1885,17 @@ A Hilbert space is famous as a space where wave functions in quantum mechanics l
  The pair $\rbk{L, \bkt{\cdot}{\cdot}}$ is an inner product space if the map $\bkt{\cdot}{\cdot}$ is an inner product,
  i.e., it satisfies the following properties.
 \begin{enumerate}
-\item \textup{Symmetry:}
+\item Symmetry:
   \begin{align}
    \bkt{f}{g} = \bkt{g}{f}.
   \end{align}
-\item \textup{Linearity in the second argument:}
+\item Linearity in the second argument:
   \begin{align}
    \bkt{f}{\alpha g + \beta h}
    =
    \alpha \bkt{f}{g} + \beta \bkt{f}{h}.
   \end{align}
-\item \textup{Positive definiteness:}
+\item Positive definiteness:
   \begin{align}
    \bkt{f}{f} \geq 0, \quad
    \bkt{f}{f} = 0 \Longleftrightarrow f = 0.
@@ -2095,12 +2164,221 @@ We often face this type of functionals in theory of partial differential equatio
 in particular, quantum mechanics and we need a minimum value of $E$ and its minimizer.
 These are physically important quantities, ground state energy and ground state.
 Some types of quantum mechanical problems are formulated as a variational problem.
-\chapter{あとで大幅 rewrite: 学部 3 年のときに書いた「本」}
+\chapter{Miscellaneous results on eigenvalue problems}
 \label{sec-4-2}
-\section{はじめに}
+
+線型代数応用編. 意外と知らないよね, くらいのお話.\footnote{From a yukimi's page, \href{http://yukimigo.com/math/}{http://yukimigo.com/math/}.
+The original version is reprinted with the written consent of the author.
+ }
+おおむね笠原 \cite{KoujiKasahara1}の内容です.
+モチベーションはクーラント・ヒルベルト \cite{CourantHilbert1}とか？
+\section{Gershgorinの定理}
 \label{sec-4-2-1}
+
+以下 $\mathbb{C}^n$ で考える. ただし対称行列のときはもちろん $\mathbb{R}^n$  でよい.
+\begin{thm}[Gershgorinの定理]
+ 正方行列 $A = (a_{ij})$ の固有値は $\mathbb{C}$ 上の半径
+  \begin{align}
+   r_i
+   =
+   \sum_{j\neq i}^n \abs{a_{ij}},
+  \end{align}
+ 中心 $a_{ii}$ の閉球にふくまれる.
+\end{thm}
+
+\begin{proof}
+$A$ のある固有値を $\lambda$, それに属する固有ベクトルを
+$l$ とすると,
+\begin{align}
+ \lambda l
+ =
+ Al
+\end{align}
+だから,
+\begin{align}
+ \lambda l_i
+ =
+ \sum_{j=1}^n
+ a_{ij} l_j
+ =
+ \sum_{j \neq i} a_{ij} l_j  + a_{ii} l_i
+\end{align}
+によって
+\begin{align}
+ \rbk{\lambda - a_{ii}} l_i
+ =
+ \sum_{j \neq i} a_{ij} l_j
+\end{align}
+となっている.
+$\max \abs{l_k} = \abs{l_i}$ とすると,
+\begin{align}
+ \abs{\lambda - a_{ii}}
+ =
+ \abs{l_i}
+ \le
+ \sum_{j \neq i} \abs{a_{ij}} \abs{l_j}
+ \le
+ \abs{l_i} \sum_{j \neq i} \abs{a_{ij}}
+\end{align}
+だから, $|l_i|$ で割ればよい.
+\end{proof}
+\section{固有値の性質}
+\label{sec-4-2-2}
+
+さて, ここですこしだけ線型代数の復習をしよう.
+一般に対称行列 $A$ は直交行列によって対角化される.
+固有値を $\lambda_1, \dots, \lambda_n$ とすると適当なベクトル $y$ によって二次形式の標準形が次のようになる.
+\begin{align}
+ \bkt{x}{Ax}
+ =
+ \lambda_1 y_1^2 + \dots + \lambda_n y_n^2
+\end{align}
+そこで次の定理がなりたつ.
+\begin{thm}
+ $A$ を対称行列とすると,
+ \begin{align}
+  W(A)
+  \defeq
+  \set{\bkt{x}{Ax}}{|x| = 1}
+ \end{align}
+ は実数の閉区間になり, その両端はそれぞれ $A$ の最小, 最大の固有値に等しく,
+ その両端の値を取る $\bkt{x}{Ax}$ の $x$ は $A$ の固有ベクトルになる.
+\end{thm}
+\begin{proof}
+\begin{align}
+ \bkt{x}{Ax}
+ =
+ \sum_{i=1}^n \lambda_i y_i^2
+\end{align}
+で, てきとうに番号を入れかえて $\lambda_1 \le \dots \le \lambda_n$ としておく.
+ふつうに計算して
+\begin{align}
+ \lambda_1 \sum_i y_i^2
+ \le
+ \sum_i \lambda_i y_i^2
+ \le
+ \lambda_n \sum_i y_i^2
+\end{align}
+だから, $\abs{x}=1$ とすると
+\begin{align}
+ \lambda_1
+ \le
+ \sum_i \lambda_i y_i^2
+ \le
+ \lambda_n
+\end{align}
+によって $W(A) \subset [\lambda_1, \lambda_n]$
+となる.
+$\lambda_1, \lambda_n \in W(A)$ であればよい.
+どちらでもおなじで, $\lambda_1$ の固有ベクトルを $l$ とすると $\bkt{l}{Al} \in W(A)$ で
+\begin{align}
+ \bkt{l}{Al}
+ =
+ \lambda_1 \abs{l}^2
+ =
+ \lambda_1
+\end{align}
+となる.
+\end{proof}
+\section{Min-Maxの原理}
+\label{sec-4-2-3}
+
+つぎは量子力学でとても重要だけどあまり知られていない.
+らしい(田崎 \cite{HalTasaki3}の付録によると).
+というわけでかんたんな場合をかいておこう.
+もっと一般に関数解析をばりばり使う場合はLieb-Loss \cite{LiebLoss1}にある.
+ちなみに悪名高いRuelle \cite{DavidRuelle1}にもあるそうで.
+\begin{thm}[Min-Max Principles]
+ $A$ を対称行列とし, その固有値を $\lambda_1 \le \dots \le \lambda_n$
+ とする.
+ $F$ を $\mathbb{R}^n$ の部分空間とするとき,
+ \begin{align}
+  \lambda_k
+  =
+  \min_{\dim F=k} \max_{x \in F} \set{\bkt{x}{Ax}}{\abs{x} = 1}
+ \end{align}
+ がすべての $k$ でなりたつ.
+\end{thm}
+\begin{proof}
+$A$ の固有ベクトルからなる ONS を $l_1, \dots , l_n$ とする.
+てきとうに番号をつけかえて
+\begin{align}
+ Al_i
+ =
+ \lambda_i l_i
+\end{align}
+としてよい.
+$l_k, \dots , l_n$ で張られる部分空間を $E_{n-k+1}$ とすると,
+その次元は $n-k+1$ だから, 任意の $k$ 次元部分空間 $F$ とゼロでない共有元をもつ.
+それを $x$ として,
+\begin{align}
+ x
+ =
+ y_k l_k + \dots + y_n l_n \quad (\abs{x} = 1)
+\end{align}
+とすると,
+\begin{align}
+ \bkt{x}{Ax}
+ &=
+ \lambda_k y_k^2 + \dots + \lambda_n y_n^2 \\
+ &\ge
+ \lambda_k |x|^2
+ =
+ \lambda_k
+\end{align}
+だから
+\begin{align}
+ \max_{x\in F } \set{\bkt{x}{Ax}}{\abs{x} = 1}
+ \ge
+ \lambda_k
+\end{align}
+となっていて, $F$ は任意だから
+\begin{align}
+ \min_{\dim F=k} \max_{x\in F} \set{\bkt{x}{Ax}}{\abs{x} = 1}
+ \ge
+ \lambda_k
+\end{align}
+がなりたっている.
+一方, $l_1, \dots , l_k$ で張られる部分空間 $F_k$ は $k$ 次元だから $x \in F (\abs{x} = 1)$ を
+\begin{align}
+ x
+ =
+ y_1 l_1 + \dots + y_k l_k
+\end{align}
+とかくと,
+\begin{align}
+ \bkt{x}{Ax}
+ &=
+ \lambda_1 y_1^2 + \dots + \lambda_k y_k^2  \\
+ &\le
+ \lambda_k \norm{x}x^2
+ =
+ \lambda_k
+\end{align}
+だから
+\begin{align}
+ \max_{x \in F_k} \set{\bkt{x}{Ax}}{\abs{x} = 1}
+ \le
+ \lambda_k
+\end{align}
+によって前の結果とあわせて
+\begin{align}
+ \lambda_k
+ \le
+ \min_{\dim F=k} \max_{x \in F} \set{\bkt{x}{Ax}}{\abs{x} = 1}
+ \le
+ \max_{x \in F_k } \set{\bkt{x}{Ax}}{\abs{x} = 1}
+ \le
+ \lambda_k
+\end{align}
+となって, 証明できた.
+\end{proof}
+\chapter{あとで大幅 rewrite: 学部 3 年のときに書いた「本」}
+\label{sec-4-3}
+\section{はじめに}
+\label{sec-4-3-1}
 \subsection{数学「を」学ぶ}
-\label{sec-4-2-1-1}
+\label{sec-4-3-1-1}
 
 これは基本的に数学の本です.
 物理現象を解析するのに, ある数学の理論が有用なので,
@@ -2184,11 +2462,11 @@ de Broglie によって与えられました.
 定義は納得するまで考えてください.
 定義こそが生命線です.
 \subsection{数学「で」学ぶ}
-\label{sec-4-2-1-2}
+\label{sec-4-3-1-2}
 
 作りかけ.
 \subsection{一年で物理の講義がほとんど無い理由}
-\label{sec-4-2-1-3}
+\label{sec-4-3-1-3}
 
 人によっては衝撃的なタイトルであるかもしれません.
 応物・物理に来たというのに, 一年生では物理をほとんどやらない, というのですから.
@@ -2302,7 +2580,7 @@ $\vf (\vr, t)$ を力のベクトルとすると
 見なくても分からなくても良い注だという印をつけておきます.
 きちんと考えるとややこしいことがあるようだ, ということだけ把握してあれば十分です.
 \subsection{物理で使う数学}
-\label{sec-4-2-1-4}
+\label{sec-4-3-1-4}
 
 基本的に物理学で使う数学は, 微分・積分と線形代数です.
 これらの計算と, 多少の理論を (理解できずとも) 知ってさえいれば,
@@ -2351,7 +2629,7 @@ $\vf (\vr, t)$ を力のベクトルとすると
 見た方が早いです.
 実際に振動現象の解析に入ってみましょう.
 \subsection{数学記号の記法}
-\label{sec-4-2-1-5}
+\label{sec-4-3-1-5}
 
 本書では記述を簡便にするために, 数学の記法をいくつか導入します.
 その中で基本的な記法と概念をいくつかここで紹介します.
@@ -2460,7 +2738,7 @@ $\vf (\vr, t)$ を力のベクトルとすると
 この共変性は群論という数学と深く関わっていることが知られています.
 これを電磁気学での Lorentz 変換と絡めて説明しようと思います.
 \subsection{物理と近似: まだ書きかけ}
-\label{sec-4-2-1-6}
+\label{sec-4-3-1-6}
 
 良い近似とは何か, みたいなことを書きたい.
 まだうまくまとまらない.
@@ -2502,9 +2780,9 @@ $\vf (\vr, t)$ を力のベクトルとすると
 新たな物理を見せ, 説明してくれます.
 多体系での原子たちは, 少数粒子のときとは全く別の論理に従っているようです.
 \section{調和振動子と線型代数}
-\label{sec-4-2-2}
+\label{sec-4-3-2}
 \subsection{導入}
-\label{sec-4-2-2-1}
+\label{sec-4-3-2-1}
 
 高校で単振動を学んだことと思います.
 これは調和振動とも呼ばれます.
@@ -2588,7 +2866,7 @@ m\ddot{X}_3 &= -(2 + \sqrt{2}) X_3
 安定点が存在すればその近傍ではそのポテンシャルに支配された系の運動が微小振動になることを証明します.
 そこへの接続に十分な範囲での議論をしなければなりませんが, それ以外にも重要なことは補足しながらいくことにします.
 \subsection{記法の確認と線型写像}
-\label{sec-4-2-2-2}
+\label{sec-4-3-2-2}
 
 いくつかの一般的な記法をまとめておきます.
 今この場で覚えようとしても無理なので, 使いながら覚えていって下さい.
@@ -2878,9 +3156,9 @@ $\bm{y} = A \bm{x}$ と書けます.
 線型写像と行列には密接な関連があることさえ把握しておけば, 今は十分です.
 細かいことは気にせず今は突っ走ってみましょう.
 \subsection{線型空間の導入\label{線型空間の導入}}
-\label{sec-4-2-2-3}
+\label{sec-4-3-2-3}
 \subsubsection{物理法則とベクトル}
-\label{sec-4-2-2-3-1}
+\label{sec-4-3-2-3-1}
 
 本章は主に行列に関することを述べるのですが, その前に
 線型代数で最も重要な概念である\textgt{線型空間 (ベクトル空間)}について議論することにします.
@@ -2950,7 +3228,7 @@ $\bm{y} = A \bm{x}$ と書けます.
 \textgt{自動的に共変性が満たされているような上手い数学的な表現法}があれば非常に便利です.
 答から言うならば, それは\textgt{ベクトル}(一般にはテンソル) によって物理法則を表現すれば良いことが分かっています.
 \subsubsection{抽象ベクトル}
-\label{sec-4-2-2-3-2}
+\label{sec-4-3-2-3-2}
 
 ここでベクトルについて考察を深めます.
 上で「物理現象を調べる際に様々な座標系を用いる」と書きましたが,
@@ -3067,7 +3345,7 @@ $\langle \bm{e}_1 , \bm{e}_2, \bm{e}_3 \rangle = \langle \bm{e}_i \rangle _{i=1}
 拡大・縮小のない回転で長さは当然不変であり,
 同時に同じだけ 2 つのベクトルを回転させれば角度も当然変換に対して不変になります.
 \subsubsection{回転の表現}
-\label{sec-4-2-2-3-3}
+\label{sec-4-3-2-3-3}
 
 そこでこれから回転を数理的に定式化します.
 下調べとして平面で考えましょう.
@@ -3172,7 +3450,7 @@ $A^*A=(c_{ij})$ とすれば $c_{ij}=\overline{(\bm{a}_i,\bm{a}_j)}$ であり,
 $( T_O ( \bm{x} ) , T_O ( \bm{y} ) ) = ( \bm{x} , \bm{y} )$ となる
 線型変換  $T_O$  を\textgt{直交変換}\index{ちょっこうへんかん@直交変換}と呼びます.
 \subsubsection{Galilei の相対性原理}
-\label{sec-4-2-2-3-4}
+\label{sec-4-3-2-3-4}
 
 ここで物理法則の記述という問題に帰ります.
 現象の解析を行なう際には適当な座標系 (と座標原点) を取ると書きました.
@@ -3401,7 +3679,7 @@ Galilei 変換を表す行列を $\hat{G}$ とすると,
 この計算をした後,  $\tilde{ \bm{R} }'$ のはじめの 4 つの成分を取れば,
 めでたく座標変換が得られます.
 \subsubsection{抽象ベクトルの微分}
-\label{sec-4-2-2-3-5}
+\label{sec-4-3-2-3-5}
 
 さて, 実はここまで曖昧にぼかしてきた部分があります.
 それは\textgt{抽象ベクトルの微分とは何者か}ということです.
@@ -3499,7 +3777,7 @@ $\partial f (x ,y , z) / \partial x , \partial f (r , \theta, \varphi) / \partia
 第一の方法に従うことにしましょう
 作りかけ.
 \subsubsection{定理の証明}
-\label{sec-4-2-2-3-6}
+\label{sec-4-3-2-3-6}
 
 最後に積み残した「有限次元の間の線型写像は行列で表現出来る」ということを証明します.
 まず 1 つ言葉を定義します.
@@ -3783,7 +4061,7 @@ $f ( \bm{x} ) = \xi_1 f ( \bm{u}_1 ) + \dotsb + \xi_n f ( \bm{u}_n )$ となり�
 その行列は標準基底で線型写像を表現した行列と座標系の変換 (基底変換の行列) で
 表されることが分かりました.  $\bs$
 \subsection{行列式}
-\label{sec-4-2-2-4}
+\label{sec-4-3-2-4}
 
 前節で述べたように
 線型変換は座標系 (基底) を選んだ上で一意的に行列で表すことが出来ます.
@@ -4322,7 +4600,7 @@ $C$ の第 $i$ \textgt{行}ベクトルを $\bm{c}_i$ として今まで証明�
 行列式の値は $0$ ではありません.
 すなわち逆変換が存在するか否かは適当な座標系を取ったときの行列式を計算すれば十分であることが分かりました.
 \subsection{内積と外積}
-\label{sec-4-2-2-5}
+\label{sec-4-3-2-5}
 
 内積から書きます.
 ここでの内積は高校のときと同じです.
@@ -4392,7 +4670,7 @@ x_{1}y_{2} - x_{2}y_{1}
 となり, 確かに上の定義と一致します. これを記憶法といって定義としなかった理由は
 成分にベクトルと実数が共存する行列式を定義していないからです.
 \subsection{線型独立と基底, 次元 \label{sec:basis}}
-\label{sec-4-2-2-6}
+\label{sec-4-3-2-6}
 
 とりあえず天下りですが, 線型結合と線型独立, 線型従属の定義を述べます.
 あまり変わらないので, 本節は一般の $n$ で述べます.
@@ -4486,7 +4764,7 @@ x_{1}y_{2} - x_{2}y_{1}
 となるもの, つまりベクトルの長さが $1$ であるということです. \textgt{直交}というのはもちろん $i\not = j$ のとき
  $(\bm{e}_{i},\bm{e}_{j})=0$ となることです. 例えば標準基底は正規直交基底です.
 \subsection{固有値, 固有ベクトル \label{eigen}}
-\label{sec-4-2-2-7}
+\label{sec-4-3-2-7}
 
 まず固有値・固有ベクトルを定義しましょう.
     \begin{defn}行列 $A$ に対し零ベクトルでないベクトル $\bm{x}$ と\textgt{複素数} $\lambda $
@@ -4655,7 +4933,7 @@ x_{1}y_{2} - x_{2}y_{1}
     \end{align}
 となるので, 先程と同様にして $( \bm{x}_1 , \bm{x}_2 ) = 0$ です.  $\bs$
 \subsection{対称行列の対角化とスペクトル分解\label{taikakuka}}
-\label{sec-4-2-2-8}
+\label{sec-4-3-2-8}
 
 さて行列の話も大詰めです. ここでは\textgt{対称行列が対角化可能である}ことを示します.
 対角化\index{たいかくか@対角化}とは, ある行列 $A$ に適当な行列 $U$ をかけることで対角行列 $\Lambda$ にしてしまうことです.
@@ -4769,7 +5047,7 @@ A = \beta _1 P_1 + \beta _2 P_2 + \dots + \beta _k P_k
 こうすると「行列をかける (作用させる) 」という直観的に捉えにくいものが, ただの定数倍に還元され, 非常に見やすくなります.
 あとでスペクトル分解と Fourier 解析との関係を少し紹介する予定なので, 軽く紹介してみました.
 \subsection{物理への適用}
-\label{sec-4-2-2-9}
+\label{sec-4-3-2-9}
 
 準備が終わったので, 早速これをはじめに言ってあった現象の解析に応用してみましょう.
 3 質点系での解析を行ないます. 問題を再録しましょう.
@@ -4833,12 +5111,12 @@ A = \beta _1 P_1 + \beta _2 P_2 + \dots + \beta _k P_k
 本節もまだ残り一節ありますが, 次の予告をしましょう.
 次章は一般のポテンシャルとその安定点近傍での振動です. 数学的には微分積分学です.
 \subsection{無限次元の線型代数学}
-\label{sec-4-2-2-10}
+\label{sec-4-3-2-10}
 
 この節は後々への接続と量子力学のためのものです
 気楽に読んでみて下さい.
 \subsubsection{抽象ベクトル 2}
-\label{sec-4-2-2-10-1}
+\label{sec-4-3-2-10-1}
 
 \ref{線型空間の導入}節ではベクトルについて少し突っ込んだ議論をしました.
 ここではもう少し踏み込んでいきます.
@@ -4869,7 +5147,7 @@ A = \beta _1 P_1 + \beta _2 P_2 + \dots + \beta _k P_k
 あまりいないでしょう.
 ここではそれをさらに先鋭化させていきます.
 \subsubsection{線型空間}
-\label{sec-4-2-2-10-2}
+\label{sec-4-3-2-10-2}
 
 ここで一般的なベクトルの定義 (線型空間の定義) をしてもう一度はっきりさせておきましょう.
 \begin{defn}
@@ -5019,7 +5297,7 @@ A + B \longrightarrow (A + B) f\defeq Af + Bf \\
 \alpha A \longrightarrow  (\alpha A ) f \defeq \alpha Af
 \end{gather}
 \subsubsection{線型独立と次元, 基底 2}
-\label{sec-4-2-2-10-3}
+\label{sec-4-3-2-10-3}
 
 退屈な話が続きました.
 そろそろもう少し身のある話に行きます. ここからは今までに有限次元 ( $\bC^n$ ) でしてきた話を
@@ -5068,7 +5346,7 @@ A + B \longrightarrow (A + B) f\defeq Af + Bf \\
 ついでに言っておくと, この $f_n$ は適当な $V$ の部分空間を取ると, その基底になることがあります.
 このあたりは後で Taylor 展開と絡めて説明する予定です.
 \subsubsection{内積}
-\label{sec-4-2-2-10-4}
+\label{sec-4-3-2-10-4}
 
 次に内積の話をします. 無限次元での内積をどう定義するか, ということですが, まずは有限次元を思い出しましょう.
  $\bm{x},\bm{y} \in \bC^n$ とします. このとき内積は
@@ -5190,7 +5468,7 @@ Hilbert (ヒルベルト) 空間と呼ばれるものの具体例です.
 これは数学的に行列力学は $l^2$ で考え, 波動力学 $L^2$ で考えていたので, 同型定理から
 数学的には同じ結果が出てもおかしくない, とかいう紆余曲折があったそうです.
 \subsubsection{直交多項式と基底}
-\label{sec-4-2-2-10-5}
+\label{sec-4-3-2-10-5}
 
 打って変わって基底のところで「この $f_n$ は適当な $V$ の部分空間を取ると, その基底になることがあります」と書きました.
 そのような基底になる直交多項式としていくつか挙げておきましょう.
@@ -5227,7 +5505,7 @@ f (x)
 \int_{-\infty}^{\infty} f (x) e^{-i \xi x} \, dx
 \end{gather}
 \subsubsection{微分方程式と Fourier 解析ことはじめ}
-\label{sec-4-2-2-10-6}
+\label{sec-4-3-2-10-6}
 
 そろそろ筆者の知識と認識の限界に来ているのですが, もう少し書きましょう.
 線型作用素についてです.  $t$ を時間として微分作用素を $D\defeq\frac{d}{dt}$ とします.
@@ -5269,11 +5547,11 @@ Euler (オイラー) の公式という次式になります.
 
 それではそろそろ微分積分に行きましょう.
 \chapter{Application to Google's pagerank}
-\label{sec-4-3}
+\label{sec-4-4}
 
 動画の原稿から取ってくる.
 \chapter{量子力学を理解するために斎藤正彦『線型代数入門』\cite{MasahikoSaitoh1}を読む人が注目すべき点}
-\label{sec-4-4}
+\label{sec-4-5}
 
 Togetter からの転載.
 
@@ -11196,7 +11474,7 @@ Stone の定理と量子力学の話とかも一応入れる予定.
 \section{Introduction}
 \label{sec-7-5-1}
 
-学部四年のセミナーで話した内容の一部です\footnote{From a yukimi's page, http://yukimigo.com/math/.
+学部四年のセミナーで話した内容の一部です\footnote{From a yukimi's page, \href{http://yukimigo.com/math/}{http://yukimigo.com/math/}.
 The original version is reprinted with the written consent of the author.
  }.
 参考文献は\cite{HisayaMasuda1, HisayaMasuda2, ShizuoMiyajima2}.
@@ -11529,7 +11807,7 @@ $\heartsuit$
 \chapter{Introduction to Sobolev embedding theorems}
 \label{sec-7-6}
 
-どっかで話す予定がボツになってしまったので放出.\footnote{From a yukimi's page, http://yukimigo.com/math/.
+どっかで話す予定がボツになってしまったので放出.\footnote{From a yukimi's page, \href{http://yukimigo.com/math/}{http://yukimigo.com/math/}.
 The original version is reprinted with the written consent of the author.
  }
 $\mathbb{R}^n$ 全体での話しかしません (たまにさぼって略すかも).
@@ -13510,7 +13788,7 @@ If $N_c < Z$, then, from (\ref{Lieb-Loss_Analysis_chap11_35}), $\rho_{N_c, \inft
 \section{はじめに}
 \label{sec-7-12-1}
 
-某セミナーで話した内容です\footnote{From a yukimi's page, http://yukimigo.com/math/.
+某セミナーで話した内容です\footnote{From a yukimi's page, \href{http://yukimigo.com/math/}{http://yukimigo.com/math/}.
 The original version is reprinted with the written consent of the author.
  }.
 (あたりまえですが) Schwartz 超関数 (distribution) の話で, 怖いほうじゃないですよ, 念のため.
@@ -14053,7 +14331,7 @@ Lieb-Loss は Lebesgue 積分からはじめて関数空間の話や不等式,
 \section{Introduction}
 \label{sec-7-13-1}
 
-院試勉強のときに暗記用に作った原稿です.\footnote{From a yukimi's page, http://yukimigo.com/math/.
+院試勉強のときに暗記用に作った原稿です.\footnote{From a yukimi's page, \href{http://yukimigo.com/math/}{http://yukimigo.com/math/}.
 The original version is reprinted with the written consent of the author.
  }
 なのであんまり読めるものじゃない感ありますが, 証明の参照用に.
@@ -15160,7 +15438,7 @@ alg$_d$ 2012-01-08 14:43:40
 alg$_d$ 2012-01-08 14:45:17
 
 【 Direct integral 】
-http://t.co/sTQT3B6T
+\href{http://t.co/sTQT3B6T}{http://t.co/sTQT3B6T}
 alg$_d$ 2012-01-08 14:45:38
 
 インテグラルの上に$\oplus$ が付いていて笑劇を受けている.
@@ -15469,7 +15747,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
  x \label{Hinashiro_math_party_1_probability_2}
 \end{align}
 が導ける.
-最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[32].
+最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[33].
 
 再び $x \neq 0$ を仮定しよう \footnote{ハイパーどうでもいいが「再びマタタビ楕円型」という天啓を得たことを記録しておく.
  }.
@@ -15492,7 +15770,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
 \subsection{Rademacher 関数}
 \label{sec-8-1-4-2}
 
-これまではまさに高校の数学だった \footnotemark[29].
+これまではまさに高校の数学だった \footnotemark[30].
 本番はここからだ.
 式 (\ref{Hinashiro_math_party_1_probability_3}) を別の観点から眺めてみようという体で,
 唐突に次の無茶苦茶な理論展開を見せる.
@@ -15567,7 +15845,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
 本質が見えるようになるまでは偶然というほかない.
 ここで式 (\ref{Hinashiro_math_party_1_probability_3}) を別の方法で導いてみよう.
 
-唐突だが次の関数を考える \footnotemark[30].
+唐突だが次の関数を考える \footnotemark[31].
 いったん少し面倒な方法で取り組んでみよう.
 \ref{Hinashiro_math_party_1_probability_14} 節で整理するので少しのあいだ我慢してほしい.
 \begin{align}
@@ -15589,7 +15867,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
  =
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}.
 \end{align}
-ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[31].
+ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[32].
 したがって
 \begin{align}
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}
@@ -15957,7 +16235,7 @@ Chebyshev による簡明かつ重要な結果を使った証明だけ紹介し�
 これで簡単に (\ref{Hinashiro_math_party_1_probability_8}) が証明できた.
 
 Chebyshev の不等式だけでなく, Rademacher 関数の独立性, つまり \ref{Hinashiro_math_party_1_probability_11} の結果も本質的に効いている.
-実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[33].
+実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[34].
 弱法則ではまだまだほしい内容に足りない.
 「儲けが際限なく大きくなる確率が 0 に収束する」くらいの微妙なことしか言っていないからだ.
 平均がばっちり 0 に行くことを証明したい.

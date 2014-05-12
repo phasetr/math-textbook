@@ -1,5 +1,4 @@
-#!/bin/bash
-watchmedo shell-command \
-    --patterns="*.org" \
-    --recursive \
-    --command='org_to_tex.sh; tex.sh' ./
+ watchmedo shell-command \
+     --patterns="*.org" \
+     --recursive \
+     --command='./org_to_tex.sh; ./tex.sh' ./

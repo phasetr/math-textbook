@@ -349,12 +349,16 @@ but they are systematic and ``boring" sometimes.
 I want to fill the gaps:
 I want to write applicative contents in physics, engineering or mathematics itself,
 and connections among many branches.
-* Mathematical/Physical English
+* Writhing mathematical/physical English
 数学や物理に関する英語表現や具体的な例文を少しずつ足していく.
 基本的な表現については体系的なまとめもほしいので, そういうのもやっていこう.
+また (TeX を使って) 式がたくさんある文章を書くという部分にもフォーカスしたい.
 辞書については \cite{YusakuKomatsu1} などを参考にしている.
 研究会開催などで英文メールを打つこともあるだろう.
 そういう用途もあるので, ある程度一般的な英語もまとめていきたい.
+** How to write tex sources
+基本的な入力方法については \cite{TakashiSakai1} が参考になる.
+論文などきちんとした体裁の数学の文章を書く上での注意については \cite{TadaoOda1} 必読.
 ** General English
 *** 英数
 *** あ行
@@ -384,9 +388,21 @@ Please join us to enjoy a special workshop.
 Recall that $E_N(Z, \vR)$ denotes the ground state energy in the fixed nuclear case,
 and $E_{N, M}(Z)$ is the ground state energy in the case of dynamic nuclei.
 
+- $\gamma = 1$ の場合に着目しよう. \cite{LiebSeiringer1}
+Let us focus on the case $\gamma = 1$.
+
 - $k$ を標数 $0$ の体とし, $\rbk{x_i}_{i \in I}$ を有限集合 $I$ を添字とする独立変数の族とする.
 Let $k$ be a field of characteristic zero and let $\rbk{x_i}_{i \in I}$ be a family
 of independent variables indexed by a finite set $I$.
+
+- LT 不等式の導出. \cite{LiebSeiringer1}
+Derivation of the LT inequalities.
+
+- $M$ がよいフィルトレーションを持つのは $M$ が有限生成のときでかつそのときに限る.
+$M$ admits a good filtration if and only if $M$ is finitely generated.
+
+- $M$ をよいフィルトレーション $\Gamma$ を持つ左 $W_n (k)$ 加群とする.
+Let $M$ be a left $W_n(k)$-module endowed with a good filtration $\Gamma$.
 
 - $N!/(N-k)!$ 以外の規格化も他の文献でよく使われる. \cite{LiebSeiringer1}
 Normalization conventions other than $N!/(N-k)!$ are often used in the literature.
@@ -436,11 +452,18 @@ In other words.
 - 以下で説明するように. \cite{LiebSeiringer1}
 As shall be explained below.
 
+- 以下での証明で出てくるのとは違う手法を使って彼女は相対論的な場合に次の不等式を示した. \cite{LiebSeiringer1}
+Using a different method from the one presented in the proof below
+she has shown the following inequality in the relativistic case.
+
 - 以下では. \cite{LiebSeiringer1, CharlesWeibel1}
 In what follows. In the sequel.
 
 - 以下では $\calA$ が明らかな場合, $\bf{Ch}$ の代わりに単に $\bf{Ch} \rbk{\calA}$ と書く. \cite{CharlesWeibel1}
 In the sequel we will merely write $\bf{Ch}$ for $\bf{Ch} \rbk{\calA}$ when $\calA$ is understood.
+
+- 今知られている $d=3$ に対する最良の定数は $C$ だ. \cite{LiebSeiringer1}
+The currently best known constant for $d=3$ is $C$.
 
 - 動く原子核が磁場と相互作用する. \cite{LiebSeiringer1}
 The dynamic nuclei are coupled to a magnetic field.
@@ -474,6 +497,9 @@ One can easily see that the kernel forms a vector bundle.
 
 - 核電荷.
 A nuclear charge.
+
+- 考えることはできる. \cite{LiebSeiringer1}
+One can ask if. One can ask whether.
 
 - 下限.
 An infimum.
@@ -541,11 +567,18 @@ Why don't the point-like electrons fall into the (nearly) point-like nuclei?
 - こうして次式を得るが, これはあとで役に立つ. \cite{LiebSeiringer1}
 We thus have the following expression, a fact that will be useful later.
 
+- 後者の量は固有値の数に等しい. \cite{LiebSeiringer1}
+This latter quantity equals the number of eigenvalues.
+
 - 恒等的に.
 Identically.
 
 - ここで $x_i \in \bbR^3$ は $i$ 番目の粒子の空間座標だ. \cite{LiebSeiringer1}
 Here $x_i \in \bbR^3$ is the (spatial) coodinate of the $i$-th particle.
+
+- ここで 3 章の式 (3.1.5) と同じように, $\hat{dx_i}$ という記法は $x_i$ 以外の全ての変数について積分するという意味で使っている. \cite{LiebSeiringer1}
+Here we use the same notation as in Chapter 3, Eq. (3.1.5), with $\hat{dx_i}$
+meaning that integration is over all variables but $x_i$.
 
 - ここに書かれた内容は多かれ少なかれ自己充足的な複素代数幾何のコースを元にしている. \cite{ChrisPeters1}
 The material presented here consists of a more or less
@@ -636,6 +669,9 @@ These inequalities play a crucial role in our understanding of stability of matt
 - これを確認するため, $\calA$ を $\calC$ で最も小さいアーベル部分圏としよう.
 To see this, let $\calA$ be the smallest abelian subcategory of $\calC$.
 *** さ行
+- 先の議論と組み合わせると次の命題が成立することがわかる. \cite{LiebSeiringer1}
+In combination with the argument above this actually implies the following proposition.
+
 - 作用素 $A$ はトレース 1 に規格化されていない. \cite{LiebSeiringer1}
 The operator $A$ is not normalized to have trace equal to one.
 
@@ -874,6 +910,9 @@ commutative ring theory, and algebraic geometry.
 As explained in the previous section, the coordinate of a particle is a point in $\bbRthree \times \cbk{1, \dots, q}$, i.e.,
 a point $x \in \bbRthree$ and a point $\sigma \in \cbk{1, \dots, q}$.
 
+- まず $e>0$ の場合を考えよう. \cite{LiebSeiringer1}
+We first consider the case $e > 0$.
+
 - まとめると.
 In summary.
 
@@ -883,12 +922,18 @@ An open problem.
 - 命題.
 A proposition.
 
+- 目的は (4.2.1) を $E_j$ の代わりに $T$ をおさえるのに使うことだ. \cite{LiebSeiringer1}
+Our goal is to use (4.2.1) to bound $T$ instead of the $E_j$.
+
 - もし $H$ が置換対称性を持つなら, 回転対称性を持つ $H$ に対するエネルギーを最小化する状態がある角運動量の値を持つのとちょうど同じように,
   全ての (規格化された) 可能な関数のうち $\rbkt{\phi}{H \phi}$ の最小値を与える
   $\phi$ はある統計性を持つと一般性を失うことなく仮定できることに注意する. \cite{LiebSeiringer1}
 We note that if $H$ is permutation invariant, the $\phi$ that yields the lowest value of $\rbkt{\phi}{H \phi}$ among
 all possible (normalized) functions can be taken to have a definite symmetry type without loss of generality,
 just as an energy minimizing state for a rotation invariant $H$ can be taken to have a definite angular momentum.
+
+- もしあれば, もし存在すれば. \cite{LiebSeiringer1}
+If any.
 
 - 最も単純に言えば, 力学系とは集合 $X$ 上に定義された関数 $T$ のことだ. \cite{OmriSarig1}
 At its simplest form, a dynamical system is a function $T$ defined on a set $X$.
@@ -967,27 +1012,27 @@ These words have the same meaning.
  Let $\bbR$ be a field of real numbers: a real number is also called a scaler.
  A set $L$ is called a \textup{\textbf{linear space}} if its elements have the following properties.
  Elements $x, y, z \in L$ are vectors and $a, b \in \bbR$ are real numbers in the following expressions.
- 1) \textup{Associativity:}
+ 1) Associativity:
   \begin{align}
    \rbk{x + y} + z
    =
    x + \rbk{y + z}, \quad \forall x, y, z \in L.
   \end{align}
- 2) \textup{Commutativity of sum:}
+ 2) Commutativity of sum:
   \begin{align}
    x + y = y + x,  \quad \forall x, y \in L.
   \end{align}
- 3) \textup{Existence of unit for sum:} there is an element $0 \in L$ such that
+ 3) Existence of unit for sum: there is an element $0 \in L$ such that
   \begin{align}
    x + 0 = x, \quad \forall x \in L.
   \end{align}
- 4) \textup{Existence of an inverse element for sum:} for any $x \in L$ there is an element $y \in L$ such that
+ 4) Existence of an inverse element for sum: for any $x \in L$ there is an element $y \in L$ such that
   \begin{align}
    x + y = 0
   \end{align}
     for the above $0$.
     In fact we can prove the uniqueness of an inverse element.
- 5) \textup{Relation of scalers (real numbers) and vectors:}
+ 5) Relation of scalers (real numbers) and vectors:
   \begin{align}
    a \cdot \rbk{x + y}
    &=
@@ -999,7 +1044,7 @@ These words have the same meaning.
    &=
    a \cdot x + b \cdot x,
   \end{align}
- 6) \textup{Multiplication law for a scaler unit in} $\bbR$\textup{:}
+ 6) Multiplication law for a scaler unit in $\bbR$:
   \begin{align}
    1 \cdot x = x, \quad \forall x \in L.
   \end{align}
@@ -1113,7 +1158,7 @@ First we define a linear map and linear functionnal.
 \end{defn}
 Here are some examples.
 \begin{ex}
- 1) \textup{Coordinate maps.} Let $f = (f(1), f(2), \dots, f(d)) \in \bbR^d$.
+ 1) Coordinate maps. Let $f = (f(1), f(2), \dots, f(d)) \in \bbR^d$.
     We write a vector $f = (f_1, f_2, \dots, f_d)$ as $f = (f(1), f(2), \dots, f(d))$ for later use.
     This is just a notational convention.
     Then we get functionals by
@@ -1126,7 +1171,7 @@ Here are some examples.
     =
     \alpha x_i \rbk{f} + \beta x_i \rbk{g}.
    \end{align}
- 2) \textup{Definite integrals:} First we define a map $I$ as
+ 2) Definite integrals: First we define a map $I$ as
    \begin{align}
      I \colon
      f \mapsto \int_{\bbR^d} f(x) dx \in \bbR.
@@ -1137,14 +1182,14 @@ Here are some examples.
     =
     \alpha I \rbk{f} + \beta I \rbk{g}.
    \end{align}
- 3) \textup{An other type of a definite integral:}
+ 3) Another type of a definite integral:
    \begin{align}
     E \colon
     f \mapsto \int_{\bbR^d} \rbk{\abs{\nabla f(x, t)}^2 + \rbk{\frac{\partial f(x, t)}{\partial t}}^2} dx. \label{linear-algebra-and-calculus-4}
    \end{align}
    This is a nonlinear functional.
    In physics this $E$ is called an energy functional.
- 4) \textup{Differential operators:} Define an operator as
+ 4) Differential operators: Define an operator as
    \begin{align}
     D \colon f \mapsto \frac{d}{dx} f.
    \end{align}
@@ -1369,17 +1414,17 @@ A Hilbert space is famous as a space where wave functions in quantum mechanics l
  Let $L$ be a linear space and $\bkt{\cdot}{\cdot} \colon L \times L \to \bbR$ is a map of two variables.
  The pair $\rbk{L, \bkt{\cdot}{\cdot}}$ is an inner product space if the map $\bkt{\cdot}{\cdot}$ is an inner product,
  i.e., it satisfies the following properties.
- 1) \textup{Symmetry:}
+ 1) Symmetry:
   \begin{align}
    \bkt{f}{g} = \bkt{g}{f}.
   \end{align}
- 2) \textup{Linearity in the second argument:}
+ 2) Linearity in the second argument:
   \begin{align}
    \bkt{f}{\alpha g + \beta h}
    =
    \alpha \bkt{f}{g} + \beta \bkt{f}{h}.
   \end{align}
- 3) \textup{Positive definiteness:}
+ 3) Positive definiteness:
   \begin{align}
    \bkt{f}{f} \geq 0, \quad
    \bkt{f}{f} = 0 \Longleftrightarrow f = 0.
@@ -1625,6 +1670,208 @@ We often face this type of functionals in theory of partial differential equatio
 in particular, quantum mechanics and we need a minimum value of $E$ and its minimizer.
 These are physically important quantities, ground state energy and ground state.
 Some types of quantum mechanical problems are formulated as a variational problem.
+** Miscellaneous results on eigenvalue problems
+線型代数応用編. 意外と知らないよね, くらいのお話.[fn:yukimi-linear-algebra-miscellaneous-resuls-on-eigenvalue-problem1]
+おおむね笠原 \cite{KoujiKasahara1}の内容です.
+モチベーションはクーラント・ヒルベルト \cite{CourantHilbert1}とか？
+
+[fn:yukimi-linear-algebra-miscellaneous-resuls-on-eigenvalue-problem1]From a yukimi's page, http://yukimigo.com/math/.
+The original version is reprinted with the written consent of the author.
+*** Gershgorinの定理
+以下 $\mathbb{C}^n$ で考える. ただし対称行列のときはもちろん $\mathbb{R}^n$  でよい.
+\begin{thm}[Gershgorinの定理]
+ 正方行列 $A = (a_{ij})$ の固有値は $\mathbb{C}$ 上の半径
+  \begin{align}
+   r_i
+   =
+   \sum_{j\neq i}^n \abs{a_{ij}},
+  \end{align}
+ 中心 $a_{ii}$ の閉球にふくまれる.
+\end{thm}
+
+\begin{proof}
+$A$ のある固有値を $\lambda$, それに属する固有ベクトルを
+$l$ とすると,
+\begin{align}
+ \lambda l
+ =
+ Al
+\end{align}
+だから,
+\begin{align}
+ \lambda l_i
+ =
+ \sum_{j=1}^n
+ a_{ij} l_j
+ =
+ \sum_{j \neq i} a_{ij} l_j  + a_{ii} l_i
+\end{align}
+によって
+\begin{align}
+ \rbk{\lambda - a_{ii}} l_i
+ =
+ \sum_{j \neq i} a_{ij} l_j
+\end{align}
+となっている.
+$\max \abs{l_k} = \abs{l_i}$ とすると,
+\begin{align}
+ \abs{\lambda - a_{ii}}
+ =
+ \abs{l_i}
+ \le
+ \sum_{j \neq i} \abs{a_{ij}} \abs{l_j}
+ \le
+ \abs{l_i} \sum_{j \neq i} \abs{a_{ij}}
+\end{align}
+だから, $|l_i|$ で割ればよい.
+\end{proof}
+*** 固有値の性質
+さて, ここですこしだけ線型代数の復習をしよう.
+一般に対称行列 $A$ は直交行列によって対角化される.
+固有値を $\lambda_1, \dots, \lambda_n$ とすると適当なベクトル $y$ によって二次形式の標準形が次のようになる.
+\begin{align}
+ \bkt{x}{Ax}
+ =
+ \lambda_1 y_1^2 + \dots + \lambda_n y_n^2
+\end{align}
+そこで次の定理がなりたつ.
+\begin{thm}
+ $A$ を対称行列とすると,
+ \begin{align}
+  W(A)
+  \defeq
+  \set{\bkt{x}{Ax}}{|x| = 1}
+ \end{align}
+ は実数の閉区間になり, その両端はそれぞれ $A$ の最小, 最大の固有値に等しく,
+ その両端の値を取る $\bkt{x}{Ax}$ の $x$ は $A$ の固有ベクトルになる.
+\end{thm}
+\begin{proof}
+\begin{align}
+ \bkt{x}{Ax}
+ =
+ \sum_{i=1}^n \lambda_i y_i^2
+\end{align}
+で, てきとうに番号を入れかえて $\lambda_1 \le \dots \le \lambda_n$ としておく.
+ふつうに計算して
+\begin{align}
+ \lambda_1 \sum_i y_i^2
+ \le
+ \sum_i \lambda_i y_i^2
+ \le
+ \lambda_n \sum_i y_i^2
+\end{align}
+だから, $\abs{x}=1$ とすると
+\begin{align}
+ \lambda_1
+ \le
+ \sum_i \lambda_i y_i^2
+ \le
+ \lambda_n
+\end{align}
+によって $W(A) \subset [\lambda_1, \lambda_n]$
+となる.
+$\lambda_1, \lambda_n \in W(A)$ であればよい.
+どちらでもおなじで, $\lambda_1$ の固有ベクトルを $l$ とすると $\bkt{l}{Al} \in W(A)$ で
+\begin{align}
+ \bkt{l}{Al}
+ =
+ \lambda_1 \abs{l}^2
+ =
+ \lambda_1
+\end{align}
+となる.
+\end{proof}
+*** Min-Maxの原理
+つぎは量子力学でとても重要だけどあまり知られていない.
+らしい(田崎 \cite{HalTasaki3}の付録によると).
+というわけでかんたんな場合をかいておこう.
+もっと一般に関数解析をばりばり使う場合はLieb-Loss \cite{LiebLoss1}にある.
+ちなみに悪名高いRuelle \cite{DavidRuelle1}にもあるそうで.
+\begin{thm}[Min-Max Principles]
+ $A$ を対称行列とし, その固有値を $\lambda_1 \le \dots \le \lambda_n$
+ とする.
+ $F$ を $\mathbb{R}^n$ の部分空間とするとき,
+ \begin{align}
+  \lambda_k
+  =
+  \min_{\dim F=k} \max_{x \in F} \set{\bkt{x}{Ax}}{\abs{x} = 1}
+ \end{align}
+ がすべての $k$ でなりたつ.
+\end{thm}
+\begin{proof}
+$A$ の固有ベクトルからなる ONS を $l_1, \dots , l_n$ とする.
+てきとうに番号をつけかえて
+\begin{align}
+ Al_i
+ =
+ \lambda_i l_i
+\end{align}
+としてよい.
+$l_k, \dots , l_n$ で張られる部分空間を $E_{n-k+1}$ とすると,
+その次元は $n-k+1$ だから, 任意の $k$ 次元部分空間 $F$ とゼロでない共有元をもつ.
+それを $x$ として,
+\begin{align}
+ x
+ =
+ y_k l_k + \dots + y_n l_n \quad (\abs{x} = 1)
+\end{align}
+とすると,
+\begin{align}
+ \bkt{x}{Ax}
+ &=
+ \lambda_k y_k^2 + \dots + \lambda_n y_n^2 \\
+ &\ge
+ \lambda_k |x|^2
+ =
+ \lambda_k
+\end{align}
+だから
+\begin{align}
+ \max_{x\in F } \set{\bkt{x}{Ax}}{\abs{x} = 1}
+ \ge
+ \lambda_k
+\end{align}
+となっていて, $F$ は任意だから
+\begin{align}
+ \min_{\dim F=k} \max_{x\in F} \set{\bkt{x}{Ax}}{\abs{x} = 1}
+ \ge
+ \lambda_k
+\end{align}
+がなりたっている.
+一方, $l_1, \dots , l_k$ で張られる部分空間 $F_k$ は $k$ 次元だから $x \in F (\abs{x} = 1)$ を
+\begin{align}
+ x
+ =
+ y_1 l_1 + \dots + y_k l_k
+\end{align}
+とかくと,
+\begin{align}
+ \bkt{x}{Ax}
+ &=
+ \lambda_1 y_1^2 + \dots + \lambda_k y_k^2  \\
+ &\le
+ \lambda_k \norm{x}x^2
+ =
+ \lambda_k
+\end{align}
+だから
+\begin{align}
+ \max_{x \in F_k} \set{\bkt{x}{Ax}}{\abs{x} = 1}
+ \le
+ \lambda_k
+\end{align}
+によって前の結果とあわせて
+\begin{align}
+ \lambda_k
+ \le
+ \min_{\dim F=k} \max_{x \in F} \set{\bkt{x}{Ax}}{\abs{x} = 1}
+ \le
+ \max_{x \in F_k } \set{\bkt{x}{Ax}}{\abs{x} = 1}
+ \le
+ \lambda_k
+\end{align}
+となって, 証明できた.
+\end{proof}
 ** あとで大幅 rewrite: 学部 3 年のときに書いた「本」
 *** はじめに
 **** 数学「を」学ぶ

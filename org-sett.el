@@ -51,3 +51,13 @@
 (setq org-export-latex-default-packages-alist
       '()
 )
+
+(setq org-export-latex-href-format "\\href{%s}{%s}")
+(setq org-export-latex-hyperref-format "\\href{%s}{%s}")
+(setq org-export-latex-hyperref-options-format "")
+
+(setq org-export-with-fixed-width nil)
+(setq org-export-with-sub-superscripts nil)
+(setq org-export-with-special-strings nil)
+(setq org-export-with-TeX-macros nil)
+(setq org-export-with-LaTeX-fragments nil)

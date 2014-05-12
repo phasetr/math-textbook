@@ -1,7 +1,3 @@
-Gemfile
-Gemfile.lock
-Guardfile
-Rakefile
 org-sett.elc
 *.aux
 *.bbl

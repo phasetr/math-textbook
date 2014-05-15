@@ -2,8 +2,10 @@
 #+AUTHOR: phasetr
 #+EMAIL: phasetr@gmail.com
 
+* PDF
+You get the book pdf from [[https://raw.githubusercontent.com/phasetr/math-textbook/master/math_textbook.pdf][here]].
 * Math textbook
-I would like to write this math textbook by *social coding* Github..
+I would like to write this math textbook by *social coding* Github.
 It will be written in English and Japanese.
 I will also write numerical computation, animation,
 or simulation codes by some computer languages.

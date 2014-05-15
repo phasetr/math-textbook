@@ -81,6 +81,17 @@
 \DeclareMathOperator{\rot}{rot \,}
 \DeclareMathOperator{\divergence}{div \,}
 
+\newtheoremstyle{break}
+{\topsep}{\topsep}%
+{\itshape}{}%
+{\bfseries}{}%
+{\newline}{}%
+\newtheoremstyle{breakdefn}
+{\topsep}{\topsep}%
+{\normalfont}{}%
+{\bfseries}{}%
+{\newline}{}%
+\theoremstyle{break}
 \renewcommand{\proofname}{\upbf{Proof}}
 \newtheorem{thm}{Theorem.}[section]
 \newtheorem{cor}[thm]{Corollary.}
@@ -89,7 +100,7 @@
 \newtheorem{req}[thm]{Request.}
 \newtheorem{prop}[thm]{Proposition.}
 \newtheorem{axm}[thm]{Axiom.}
-\theoremstyle{definition}
+\theoremstyle{breakdefn}
 \newtheorem{defn}[thm]{Definition.}
 \newtheorem{ex}[thm]{Example.}
 \newtheorem{rem}[thm]{Remark.}
@@ -307,7 +318,7 @@
 
 \title{Math textbook}
 \author{相転移 P (@phasetr)\thanks{phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com}}
-\date{2014-05-12}
+\date{2014-05-15}
 
 \begin{document}
 
@@ -505,6 +516,11 @@ It is a basic postulate of quantum mechanics that the allowed wave functions for
 must belong to some definite permutation symmetry type which is characteristic of that species.
 
 \begin{itemize}
+\item 暗号論的疑似乱数生成器.
+\end{itemize}
+Cryptographically secure pseudo random number generator.
+
+\begin{itemize}
 \item 安定性に関する結論は精妙で普通の物理の学生が使える初等的な道具立てで簡単に導出できるわけでもないのに,
   今日でさえほとんどの物理の教科書で議論されておらず, 問題が指摘されることすらない. \cite{LiebSeiringer1}
 \end{itemize}
@@ -655,6 +671,11 @@ Simply speaking.
 For simplicity.
 
 \begin{itemize}
+\item 記号を濫用する. \cite{LiebSeiringer1}
+\end{itemize}
+We shall slightly abuse notaion.
+
+\begin{itemize}
 \item 基底エネルギー.
 \end{itemize}
 A ground state energy.
@@ -684,6 +705,16 @@ The teacher may pick and choose topics according to interest and time constraint
 \item 強混合性は測度論的同型の不変量であることはすぐにわかる.
 \end{itemize}
 It is easy to see that strong mixing is an invariant of measure theoretic isomorphism.
+
+\begin{itemize}
+\item クーロンポテンシャルに関するもうひとつの重要な事実にニュートンの定理がある.
+  ある点 $x_0$ のまわりで球対称な電荷分布の外側では付随するポテンシャルがまるで点
+  $x_0$ に集中しているかのように見えることを主張する. \cite{LiebSeiringer1}
+\end{itemize}
+Another fact about the Coulomb potential, which will be of great importance,
+is Newton's theorem.
+It states that outside a charge distribution that is rotationally symmetric at the
+point $x_0$, the associated potential looks as if the charge is concenttated at the point $x_0$.
 
 \begin{itemize}
 \item 詳しくは A を参照すること.
@@ -726,6 +757,12 @@ This latter quantity equals the number of eigenvalues.
 \item 恒等的に.
 \end{itemize}
 Identically.
+
+\begin{itemize}
+\item ここからこの本の最後まで, 物理的な $\bbRthree$ の場合に制限して議論する. \cite{LiebSeiringer1}
+\end{itemize}
+From this point on, until the end of this book, we will restrict our attention to
+the physical case of $\bbRthree$.
 
 \begin{itemize}
 \item ここで $x_i \in \bbR^3$ は $i$ 番目の粒子の空間座標だ. \cite{LiebSeiringer1}
@@ -957,6 +994,17 @@ $M$ modulo isomorphism form a group under the tensor product.
 Positive.
 
 \begin{itemize}
+\item 静電不等式. \cite{LiebSeiringer1}
+\end{itemize}
+Electrostatic inequalities.
+
+\begin{itemize}
+\item 前節で示した Lieb-Thirring 不等式の証明は本質的な変更なしに磁場がある場合にも適用できる. \cite{LiebSeiringer1}
+\end{itemize}
+The proof of the Lieb-Thirring inequalities presented in the previous section
+carries over to the magnetic case essentially without change.
+
+\begin{itemize}
 \item 相対論.
 \end{itemize}
 Theory of relativity.
@@ -982,6 +1030,7 @@ $\rbk{X, \calB, \mu}$ is the completion of a standard measure space.
 \item その間もホモロジー代数は発展を続けた. \cite{CharlesWeibel1}
 \end{itemize}
 In the meantime, homological algebra continued to evolve.
+
 \begin{itemize}
 \item 素粒子は $S = 0, 1/2, 1, 3/2, \dots$ のどれかの値を取る量で特徴づけられるスピンと呼ばれる内部自由度を持つ. \cite{LiebSeiringer1}
 \end{itemize}
@@ -1062,6 +1111,12 @@ discussion in Section 2.2.1, Eq. (2.2.14).
 \item 電荷.
 \end{itemize}
 A charge.
+
+\begin{itemize}
+\item 電荷分布は連続または離散的な場合もありうるので, ボレル測度とみなすのが便利だ. \cite{LiebSeiringer1}
+\end{itemize}
+Charge distributions may be continuous or discrete and hence it is convenient to consider
+them as Borel measures.
 
 \begin{itemize}
 \item 電気力は異なる符号の電荷を持つ荷電粒子間では引力になり, 同じ符号の電荷を持つ粒子間では斥力になる. \cite{LiebSeiringer1}
@@ -1158,6 +1213,11 @@ A functional.
 The semiclassical approximation.
 
 \begin{itemize}
+\item 反磁性不等式. \cite{LiebSeiringer1}
+\end{itemize}
+Diamagnetic inequality.
+
+\begin{itemize}
 \item 半双線型形式.
 \end{itemize}
 A sesquilinear form.
@@ -1186,6 +1246,11 @@ Nonnegative.
 \item 微分積分学の基本定理.
 \end{itemize}
 Fundamental theorem of calculus.
+
+\begin{itemize}
+\item 標数.
+\end{itemize}
+Characteristic.
 
 \begin{itemize}
 \item フェルミオン. \cite{LiebSeiringer1}
@@ -1440,6 +1505,11 @@ Then, what properies should vectors have?
 
 In the following we sometimes use the terms linear spaces or vector spaces.
 These words have the same meaning.
+In the below definition a set of scalers is the set of real numbers $\bbR$ for simplicity\footnote{Of course a field may be general (positive characterstic) field.
+For applictions to information science characterstic sometimes must be positive, e.g. for code theory or
+cryptographically secure pseudo random number generator (Mersenne twister).
+ }.
+
 \begin{defn}\textup{(Definition of linear/vector spaces)}
  Let $\bbR$ be a field of real numbers: a real number is also called a scaler.
  A set $L$ is called a \textup{\textbf{linear space}} if its elements have the following properties.
@@ -1608,6 +1678,7 @@ First we define a linear map and linear functionnal.
 \end{defn}
 Here are some examples.
 \begin{ex}
+ We show some examples.
 \begin{enumerate}
 \item Coordinate maps. Let $f = (f(1), f(2), \dots, f(d)) \in \bbR^d$.
     We write a vector $f = (f_1, f_2, \dots, f_d)$ as $f = (f(1), f(2), \dots, f(d))$ for later use.
@@ -1736,14 +1807,15 @@ We use statistics in many branches, including humanities and sociology.
 E.g., natural language processing has many humanity and infomation theoretic elements.
 This area needs broad knowledge including probability and statistics.
 Interested readers should learn, e.g., principal component analysis.
-\subsection{Linear algebra and computer science}
+\subsection{Linear algebra and computer/information science}
 \label{sec-4-1-2-11}
 
 We have applications in computer science.
 In numerical analysis we use linear algebra.
-See the code theoery or Google's page rank for real world application.\footnote{See, e.g, my movies,
+See the code theory, pseudo random numbers, image compression, or Google's
+PageRank for real world application\footnote{See, e.g, my movies,
 \href{http://www.nicovideo.jp/watch/sm7599426}{http://www.nicovideo.jp/watch/sm7599426}, \href{http://www.nicovideo.jp/watch/sm10684363}{http://www.nicovideo.jp/watch/sm10684363}.
- }
+ }.
 \section{Integration}
 \label{sec-4-1-3}
 \subsection{Let's define inner products!}
@@ -12312,7 +12384,444 @@ Sobolev 不等式のべつの証明で使う Hardy-Littlewood-Sobolev につい�
 \chapter{Talk: Inverse analysis for heat equation--mathematics, physics, engineering}
 \label{sec-7-9}
 
-DVD の原稿をもう少し整理して張る.
+これは 2013-09-21 第 4 回関西すうがく徒のつどいでの講演,
+【偏微分方程式の逆問題--拡散方程式の数学と物理と工学】で話した内容の原稿にあたる.
+そのうち \cite{phasetr1} のように DVD 化もしたい.
+\section{apply}
+\label{sec-7-9-1}
+
+件名:第 4 回関西つどい講演希望
+関西すうがく徒のつどい 事務局の方
+
+第 4 回の関西つどいでの講演希望を提出します.
+
+(第一希望)
+\begin{enumerate}
+\item twitter アカウント名 [*]: phasetr
+\item 講演者のお名前 [*]: 市民 (相転移 P)
+\item 講演者のメールアドレス: phasetr@gmail.com
+\item 希望する発表形式 [*]: 60 分講演
+\item 大分野 [*]: 応用数学
+\item 小分野 [*]: 偏微分方程式, 逆問題, 産業数学
+\item 講演タイトル [*]: 偏微分方程式の逆問題--拡散方程式の数学と物理と工学
+\item 講演内容概要 [*]: 大雑把に言って入力から出力を求める問題を順問題といい,
+   出力から入力を推定する問題を逆問題という.
+   原発事故が起きて放射性物質が漏れ出したという場合を考えると, 2 号炉で事故が起きたときに
+   放射性物質がどう拡散していくかを考えるのが順問題で,
+   放射性物質の拡散具合からどの炉で事故が起きたかを推測するのが逆問題と思っていい.
+   レントゲンや非破壊検査も逆問題であり,
+   逆問題はとても身近な問題だが, とくに数学科で触れられることは少ないだろう.
+   講演ではこのような逆問題について初等的な話をしたい.
+   数学として突っ込んだ話よりも, 数学を使う上で何が難しいかといった話や
+   物理・工学的に考えてどうかという部分を考えたい.
+   例えばシミュレーションに関わる問題として, 解の存在や一意性, 安定性が現実的に決定的に大事になる.
+   またシミュレーションする上でまともな時間内で計算結果を出すことをも大事であって,
+   プログラミングや計算効率・収束速度についても真剣に検討する必要だ.
+   また拡散方程式自体, 本当に現象をきちんと表現しきれているのか, という問題もある.
+   こうした問題を議論する.
+\item 講演の対象 [*]: 学部 2-3 年程度を対象にする.
+   予備知識としては拡散方程式と空間領域 $\mathbb{R}^1$ のときの基本解 (熱核) を知っていること,
+   拡散現象に関する (おそらく) 常識的な感覚を前提にする.
+   詳しいことを知っている必要は全くないが,
+   物理的な問題を考えるときに特殊相対論 (光速度一定の法則) なども出てくる.
+\item 講演にプロジェクターを使用するか否か: 使わない.
+\item その他, 要望など (もしあればお書きください): なし.
+\end{enumerate}
+
+(第二希望)
+\begin{enumerate}
+\item twitter アカウント名 [*]: phasetr
+\item 講演者のお名前 [*]: 市民 (相転移 P)
+\item 講演者のメールアドレス: phasetr@gmail.com
+\item 希望する発表形式 [*]: 60 分講演
+\item 大分野 [*]: 応用数学
+\item 小分野 [*]: 線型代数, 確率論
+\item 講演タイトル [*]: Google ページランクの数理
+\item 講演内容概要 [*]: Google の検索ではその精度を上げるために 100 を越える要素を考えていることが知られている.
+   このうち, Google 自身が「ネット上の民主主義」として特に強調しているページランクについて議論する.
+   インターネット上の Web ページをノードと思い,
+   ネットワークをグラフとして抽象化して, 線型代数の問題に叩き落とす.
+   検索結果の即時性・計算機資源の有限性など現実的な制約も多いが,
+   数値計算に関する理論的なバックアップまで含め, 知識としては教養レベルで解決できる.
+   何から何まで教養レベルで簡単に解決すると思われても困るが,
+   線型代数が支配する領域の広さと高い攻撃力を実感してほしい.
+   最後に純数学的な問題として, 確率論から見ると離散時間の Markov 連鎖とエルゴード問題に関係していること,
+   理論物理では Hubbard モデルの強磁性相転移に関係していることを簡単に紹介したい.
+\item 講演の対象 [*]: 対象は限定しない.
+    純粋な予備知識としては教養の線型代数で十分.
+    力量としてはその辺の数学科の学生を素手で粉砕できるレベルで線型代数が使えれば問題ない.
+\item 講演にプロジェクターを使用するか否か: 使わない.
+\item その他, 要望など (もしあればお書きください): なし.
+\end{enumerate}
+\section{abstract}
+\label{sec-7-9-2}
+\subsection{概要}
+\label{sec-7-9-2-1}
+
+大雑把に言って入力から出力を求める問題を順問題といい,
+出力から入力を推定する問題を逆問題という.
+つどいで物理・工学系の話題が少ないので, 自分の専門ではないが反応を取る目的も兼ね,
+この方面に関して入門的な話をしたい.
+今回は不幸なことに身近な問題になってしまった放射性物質の拡散問題を題材にする.
+現実に即し過ぎるとあまりに難しいので, 状況は適当に扱いやすく変える.
+
+順問題と逆問題という問題の設定法がある.
+原発事故が起きて放射性物質が漏れ出したという場合を考えると,
+例えば 2 号炉で事故が起きたときに放射性物質がどう拡散していくかという問題設定をするのが順問題で,
+放射性物質の拡散具合からどの炉で事故が起きたかを推測するのが逆問題と思っていい.
+レントゲンや非破壊検査も逆問題であり, 逆問題はとても身近な問題だが,
+とくに数学科で触れられることは少ないだろう.
+講演ではこのような逆問題について初等的な話をしたい.
+
+数学として突っ込んだ話よりも, 数学を使う上で何が難しいかといった話や
+物理・工学的に考えてどうかという部分を中心にする.
+例えばシミュレーションに関わる問題として, 解の存在や一意性, 安定性が現実的に決定的に大事になる.
+またシミュレーションする上でまともな時間内で計算結果を出すことをも大事であって,
+プログラミングや計算効率・収束速度についても真剣に検討する必要がある.
+また拡散方程式自体, 本当に現象をきちんと表現しきれているのか, という問題もある.
+応用数学が死ぬ程つらいことを実感してもらえるよう,
+こうした問題の中から適宜話題をピックアップして概観する.
+\subsection{予定内容}
+\label{sec-7-9-2-2}
+
+順番や内容の詳細は変わる可能性がある.
+\begin{enumerate}
+\item 工学的要求: 解の安定性など
+\item $\mathbb{R}^1$ 上の拡散方程式の基本解の物理
+\item 拡散の逆問題の物理的難しさ
+\item 解の存在と正則性: 工学的現実と数学的困難
+\item 数値計算との関係
+\end{enumerate}
+\subsection{講演の対象}
+\label{sec-7-9-2-3}
+
+学部 2-3 年程度を対象にする.
+予備知識としては拡散方程式と空間領域 $\mathbb{R}^1$ のときの基本解 (熱核) を知っていること,
+拡散現象に関する常識的な感覚を前提にする.
+詳しいことを知っている必要は全くないが,
+物理的な問題を考えるときに特殊相対論 (光速度一定の法則) なども話題にする予定.
+\subsection{予備知識}
+\label{sec-7-9-2-4}
+
+数学的な詳細については \cite{Kotorin1, KimYamamoto1, NoborizakaOnishiYamamoto1} が参考になる.
+\section{講演概要}
+\label{sec-7-9-3}
+
+数学として突っ込んだ話よりも, 物理や工学で数学を使っていく上で何が難しいかといった話や,
+物理・工学的に考えてどうかという部分を中心にする.
+例えばシミュレーションに関わる問題として, 解の存在や一意性, 安定性が現実的に決定的に大事になる.
+またシミュレーションする上でまともな時間内で計算結果を出すことをも大事であって,
+プログラミングや計算効率・収束速度についても真剣に検討する必要がある.
+また拡散方程式自体, 本当に現象をきちんと表現しきれているのか, という問題もある.
+応用数学が死ぬ程つらいことを実感してもらえるよう,
+こうした問題の中から適宜話題をピックアップして概観する.
+
+話そうと思った内容は次の通り.
+実際には下 2 つまではいかない: これが一番数学的な内容が強いのだが.
+\begin{enumerate}
+\item 目的.
+\item 導入: 順問題と逆問題, 逆問題とは何か.
+\item 具体的な問題の説明: 原発事故と放射性物質の拡散.
+\item 拡散の逆問題の物理的難しさ.
+\item 工学的要求: 解の安定性など.
+\item モデルの正当性.
+\item 解の存在と正則性: 工学的現実と数学的困難.
+\item 数値計算との関係.
+\end{enumerate}
+\section{目的}
+\label{sec-7-9-4}
+
+つどいで物理・工学系の話題が少ないため, どういうリアクションが返ってくるかまで含めて試験的にやってみたい.
+物理の学部生が当たり前と思っているくらいのことで, どこまでが本当に当たり前として通じるかというところを知りたい.
+少なくとも超弦関係では物理と数学の交流が活発になっているので,
+そうした業界に足を踏み込もうという数学の人にとっては物理の人間の感覚を把握しておくと, 交流しやすくなるだろう.
+必ずしも伝統的な数学の意識下にない話題でもあり, そうした数学に馴染めない人がこうした境界分野に活路を見出せるかもしれない.
+また, つどいに来る人の中で数は少ないだろうが, 物理や工学など非数学の人が数学の人と交流するとき,
+自分の常識について自覚的に話せるようになれば交流がスムーズにいくようになるだろう, ということもある.
+\section{導入: 順問題と逆問題, 逆問題とは何か}
+\label{sec-7-9-5}
+
+大雑把に言って入力から出力を求める問題を順問題といい,
+出力から入力を推定する問題を逆問題という.
+原因から結果を求めるのが順問題, 結果から原因を探るのが逆問題と言ってもいい.
+原発事故が起きて放射性物質が漏れ出したという場合を考えると,
+例えば 2 号炉で事故が起きたときに放射性物質がどう拡散していくかという問題設定をするのが順問題で,
+放射性物質の拡散具合からどの炉で事故が起きたかを推測するのが逆問題と思っていい.
+
+もう少し身近なところで言うと, 話をしていて相手の表情から地雷を踏んだことを知るのが逆問題と言っていい.
+相手に言葉を投げたとき, 相手が嫌な顔をしたとする.
+嫌な顔という結果から, 相手が不快な思いをしているという原因を突き止めた, という感じ.
+
+物理的・工学的応用についていくつか具体的に見てみよう.
+\subsection{順問題の例}
+\label{sec-7-9-5-1}
+
+\begin{enumerate}
+\item 初期条件を設定しておいて, その後どうなるかを考える問題.
+\item 試験 (大学受験) で出てくる問題.
+\end{enumerate}
+\subsection{逆問題の例}
+\label{sec-7-9-5-2}
+
+\begin{enumerate}
+\item 有機化学の構造決定.
+\item 化学コンビナートでの汚染源特定.
+\item 現在の地表面の温度から太古の地球の温度を推定する. (熱的考古学. )
+\item 死体の血液温度からの死亡時刻の推定. (熱伝導方程式, つまり拡散方程式で処理する. )
+\item レントゲン.
+\item 非破壊検査: X 線の回折像からその回折をうんだ内部構造を推定.
+\item 地震での震源の決定: 放射線事故と合わせて適宜扱う.
+\end{enumerate}
+\section{具体的な問題の説明: 原発事故と放射性物質の拡散}
+\label{sec-7-9-6}
+
+原発事故が起きて放射性物質が漏れ出したという場合を考える.
+例えば 2 号炉で爆発事故が起きたときに放射性物質がどう拡散していくかという問題設定をするのが順問題.
+一方, 放射性物質の拡散具合からどの炉で事故が起きたかを推測するのが逆問題と思っていい.
+
+絵も描く.
+
+拡散の問題は拡散方程式で記述できるということにされている.
+ここでは偏微分方程式, 特に拡散方程式の解析という形で話を進めていく.
+拡散方程式というのは次の偏微分方程式のこと.
+\begin{align}
+ \frac{\partial u}{\partial t}
+ =
+ \triangle u, \quad
+ \triangle
+ =
+ \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2}.
+\end{align}
+身近な現象となってしまった放射性物質の拡散だが,
+そうかといって直観的に感じられる人もあまりいないだろう.
+拡散方程式の振る舞いと調べるという意味では,
+身近な拡散現象を考えればある程度類推ができるようになる.
+これが物理や工学の問題を数学に落としこむご利益の 1 つでもある:
+同じまたは似た方程式で記述されるならそこから類推がきき,
+1 つの方程式を調べるだけで色々なことが一気に分かるようになる.
+身近な現象として例えばコーヒーにミルクを静かに垂らした後の拡散を想定しよう.
+水槽に汲んだ水の中にインクを垂らしたと思ってもいい.
+
+話を分かりやすくするためにこれからも適宜具体例を出していくが,
+それに合わせて方程式もいくつか使い分ける.
+なるべく混乱が起きないように努力はする.
+\section{拡散の逆問題の物理的難しさ}
+\label{sec-7-9-7}
+
+先程書いた通り, イメージしやすくするためここではコーヒーにミルクを静かに垂らした後の拡散について考えたい.
+水槽に汲んだ水の中にインクを垂らしたと思ってもいい.
+
+この場合, どの炉が放射性漏れを起こしたか特定する問題は,
+次のように言い換えられる: 「コーヒーにミルクを垂らしたあと, 1 時間放置した.
+この 1 時間後の状況だけを見てどこにミルクを垂らしたかが推定できるか」.
+
+ここで絵を描く.
+
+家に帰ったら実際に実験してみてもらうといいが, 基本的に推定は不可能だ.
+ミルクを垂らした直後では, コーヒーの黒色とミルクの白色はかなりよく分離されているが,
+十分時間が経ったあとではコーヒーは一面茶色になっている.
+一面茶色になったところからどこにミルクを垂らしたかを推定しろと言われてもつらい.
+
+あとでモデルの正当性という話をする: これは現象を数学に, 今の場合は微分方程式に落とし込むということ.
+モデル化するときに適当な近似が入ったりするので, 必ずしも立てた方程式が忠実に現象を再現しているかは調べてみないと分からない.
+モデルが現実を反映していればいるほど, 数学的にも物理現象をよりよく反映するようになる.
+つまりモデルが難しくなればなるほど,
+ただでさえ線型の方程式が非線型になるなど単純に数学的に難しくなることが予想されるだけでなく,
+元の物理現象自体の難しさを反映した数学的な困難が立ち現れてくる.
+ここからシミュレーションをするときの難しさもついでに出てくる.
+「モデルの正当性と状況に応じたモデル・仮定の設定」という問題はここでも強く関係する.
+\section{工学的要求: 特に解の安定性}
+\label{sec-7-9-8}
+
+実際に SPEEDI でのシミュレーションの話があったが, 工学的 (現実的) にはシミュレーション (数値計算) が大事になる.
+ここでシミュレーションをするときに大事なことを考える.
+次の 3 つの大事な概念がある.
+\begin{enumerate}
+\item 解の存在.
+\item 解の一意性.
+\item 解の安定性.
+\end{enumerate}
+順番に議論しよう.
+
+考えやすくするため, ここでは順問題で考える.
+問題設定をきちんとした上での話だが解の存在と一意性は決定的に重要だ.
+存在は存在で大事な話だが, 一旦一意性に集中する \footnote{ものすごくうるさいことを言えば, 相対論的量子電気力学の存在に関して色々と面倒な話がある. ここでは議論しきれないので割愛するが.
+ }.
+
+問題をはっきりさせるため坂からボールを転がす問題を考える.
+これは適切に実験すれば必ず同じ条件でボールを転がしたときに同じ転がり方をすると思える.
+つまり現象そのものに一意性がある.
+この現象を表していると思われている方程式に解の一意性がない場合,
+それはモデル化に失敗していると言わざるをえない.
+存在についても適切な設定のもとでモデル化の失敗を意味している可能性がある.
+
+また一意性がなければ計算した結果が何を表しているか分からなくなる.
+いくつかある解のうち現実に表れてくるのはどの解なのか, ということ.
+どれが出てくるかまで予測できればいいのだが, それは解の一意性に対応していると思える.
+
+もう 1 つ大事な概念として安定性がある.
+安定性というのは「条件が少し変わったら対応する解も少しだけ変わる」という性質のことをいう.
+坂でボールを転がすとき,
+ボールの位置を少しずらして転がしはじめると坂を転がり落ちるときにも軌道のずれは少しだけ, という感じ.
+
+参考: \href{http://ja.wikipedia.org/wiki/%E5%AE%89%E5%AE%9A%E6%80%A7%E7%90%86%E8%AB%96}{Wikipedia の安定性の項目}.
+
+これはシミュレーション上とても大事:
+まず第一に観測データを元にシミュレーションを始めるわけだが,
+観測データの精度の問題がある.
+つまり真の値から必ずずれがあると想定しなければいけない.
+少しのずれなら解も少しだけしか変わらない性質を持っていないと,
+シミュレーションの意味がなくなってしまいかねない.
+
+また, 数値計算自体にも丸め誤差などの問題がある.
+数値計算法が安定かどうかにも数学的検証が必要だ.
+
+当たり前の性質と思うかもしれないが, 高校生でも「反例」 (実験系) を作れる.
+
+例を出す: 問題として会場に聞く.
+
+一意性については本当はもっときちんと考えないといけない.
+二股の角の直上からボールをゆっくり離したとしよう.
+このとき, 実際に実験すると必ず左右どちらかに跳ね返るが, 虚心坦懐に実験するのなら左右どちらに跳ね返るかは予想できない.
+この状況下でのシミュレーションにはどういう意味があるのか, むしろどう意味付けすればいいのか.
+それ程自明な話ではないはずだ.
+私自身よく分からないのでこれ以上突っ込めないが.
+\section{モデルの正当性}
+\label{sec-7-9-9}
+
+まず「拡散であるはずの現象が波動方程式で記述されていたらおかしい」といった問題があるが,
+方程式を導出する過程はある程度正しそうなのに,
+方程式の解を調べてみたら「非現実的な解が出てきた」ということもある.
+このとき, 実は導出過程がおかしかったということもあるだろうし,
+出てきた解を適切に解釈しなければいけないということもある.
+
+いくつか具体的に考えてみよう.
+\subsection{拡散方程式}
+\label{sec-7-9-9-1}
+
+ここでは「非現実的な解とその適切な解釈」という線で検討する.
+$\mathbb{R}^1$ 上の拡散方程式の基本解の物理を考えよう.
+
+数学的には次の設定で考える.
+\begin{align}
+ u_t &     = u_{xx}, \\
+ u (0, x) & = \delta (x).
+\end{align}
+$u = u (t,x)$ とし, $t$ が時間変数, $x$ が空間変数だ.
+初期値 $u (0, x)$ は Dirac の $\delta$ とする \footnote{初期値が超関数の偏微分方程式, 物理学科では 1 年の段階で登場する.
+ミルクを注ぐというときわざわざカップに満遍なく垂らしていくという人はいないだろう.
+あるところに注ぐ形になるはずだ.
+これを理想化して数学的な意味で一点に注いだということにすると,
+初期値が Dirac の $\delta$ ということになる.
+もちろん数学的にきちんとやると大変だが, 適当に処理する分にはそれほど大きな問題はない.
+さらに余談だが私は学部 1 年のときに必修のセミナー形式の演習で,
+この数学部分について調査し教官の前で発表するという苦行をやらされた.
+数学というか (数学に著しく偏った) 数理物理との戦いはここから始まる.
+ }.
+
+この解は初期値まで含めて次のように書ける:
+\begin{align}
+ u (t, x) = \frac{1}{\sqrt{4 \pi t}} \exp \left[ - \frac{x^2}{4 t} \right].
+\end{align}
+杓子定規に考えるならこの解は (特殊) 相対論に反している.
+特殊相対論的には粒子の速度が真空中の光速を越えることはできないが,
+この解は原点に垂らしたミルクが一瞬で無限遠まで飛んでいっている.
+
+こういう非現実的な解が出てきてしまうにも関わらず, 物理や工学で良く使われる理由は,
+これを適切に解釈する方法があるからだ.
+具体的には指数関数の数学的特徴を使う.
+指数関数, 特に $e^{-x^2}$ は $\left| x \right|$ が少し大きくなっただけで急速に小さくなる.
+現実問題として, あまりにも小さくなると最早 0 と区別がつかない.
+つまり少し遠くなると現実的にはそこまで遠くに粒子は飛んでいっていないという解釈ができるようになる.
+これはミルクを垂らした直後には垂らした周りの色しか変わらないという事実に対応する.
+
+数学的・定性的には解が解析的ではいけないと言ってもいい.
+幾何でよく出てくる「無限階微分可能だが解析的ではない関数」があるが,
+これはある区間で 0 になってしまうことが原因となっている.
+実際にはある区間 (一定以上遠方) で 0 になってほしいため, 正に解が解析的にはなってほしくないという状況だ.
+
+このように一見非現実的な解であっても適切な解釈によって現実的に意味があるように解釈し直せる.
+ただしこれは純粋な数学の範囲外で適切な判断が必要な問題であって,
+この判断ができるようになるにはそれなりの訓練が必要になる.
+こうした基本的な認識の齟齬が,
+実は数学科とそれ以外の応用という点で相当大きなコミュニケーション障害の原因になっているのではないかと思っている.
+\subsection{波動方程式}
+\label{sec-7-9-9-2}
+
+問題として地震源特定を考える.
+地震は振動であり要は波なので波動方程式を使う.
+
+どうすれば地震源を特定できるか.
+一旦震源が分かっているとして考えよう.
+地震が起こってから適当な速度で波が伝わってくる.
+面倒なので一旦媒質によって波が伝わる速度が変わらないとし,
+さらに地球の湾曲も無視して平面的に考える.
+するとある時間が経つと地震源から同心円上に振動が伝わっている.
+この円上に観測地点があって, 振動を受け取る.
+
+逆に, 観測地点から見た円を描く.
+1 つの観測所からだけだと震源が円上どこにあるか分からないが,
+2 つ観測所があれば, 円の交点 2 つにまで絞れる.
+3 つ観測所があれば, 3 つの円が全て交わるのは (存在したとして) 1 つだけだから震源が特定できる.
+
+ここで問題になるのは, まず 3 つの円が交わるかどうかというところだ.
+数値計算の誤差などで, 本当に 1 点で交わるということは考えられないので「何となく交点っぽいところ」を計算で出す必要がある.
+円を描いて人間の目で見れば明らかなことでも計算機にやらせるのは難しい.
+適当な誤差を許す必要があるが, その誤差を大きく取りすぎると「震源」が複数出てしまう.
+1 分 1 秒を争う状況で検知したらすぐに速報を出す必要があるため, 人間の目などは使っていられない.
+
+速報性という意味でもう 1 つ問題がある.
+計算を精密にするためにも方程式もある程度精密にしなければいけないが, 精密にし過ぎると今度は計算に時間がかかるようになる.
+媒質の様子をもの凄く細かく見る方程式で計算してしまうと, 現象の記述は正確になるが, それに反比例して時間がかかる.
+
+正確性と速度はトレードオフの関係にある.
+今は速度の方が遥かに大事で, しかも場所はある程度いい加減でも問題ない.
+そのためなるべくシンプルな方程式で処理する必要がある.
+
+シミュレーションを考えないといけない状況だと, 使う方程式は必ずしも物理的に精密である必要はない.
+目的を忘れてはいけない.
+\section{解の存在と正則性: 工学的現実と数学的困難}
+\label{sec-7-9-10}
+
+\cite{NoborizakaOnishiYamamoto1} 2.9 節, 特に (2.86) 式を参照.
+数学色が強いが, その分準備がいるので今回は見送り.
+
+$\norm{p}_{H^1 (0,1)}$ と Sobolev ノルムを使っているが,
+そもそも放射性物質の拡散問題で空間方向のデータを得ることがとても難しい.
+微分のデータはなおさら.
+つまり空間方向の微分のデータまで見た情報を使って得られた定理を現実問題に適用できるか, という問題.
+\section{数値計算との関係}
+\label{sec-7-9-11}
+
+\cite{KimYamamoto1} 5 章参照.
+\section{impressions}
+\label{sec-7-9-12}
+
+\begin{enumerate}
+\item 前提知識がなく聞きやすかった.
+   もっと数学的な内容に踏み込んでもらえたらよかった.
+\item 数学でない他分野関連の話で, 私は数学科じゃないので参考になり面白かったです.
+\item 内容がとても分かりやすかったです.
+   スピードもちょうどよく, 板書も見やすかったです.
+\item 具体例が多く, わかりやすかった.
+   工学生が持つべき考えを少し知ることが出来たと思います.
+\item 逆問題についてもっと聞きたかったです. 自分は工学の人間なのでとても共感できました.
+\item 面白かった. 逆問題の話をもっと聞きたかったな.
+\item PDE の応用がきけて有意義でした.
+\item 物理や工学方面からのアプローチが知れてよかった.
+   分野ごとの常識, 問題意識の違いなどが面白かったです.
+\item 自分はどちらかというと物理・工学側の人間なので, 逆に数学側の人の考え方を知ることが出来て良かった.
+\item 物理の話を聞けるとは思っていなかったので興味深かった.
+\item 数学の外の世界に触れられてよかったです.
+\item 考え方みたいなものが多く面白かった. もう少し数学の話が欲しかった.
+\item テクニカルでない「お話」もよいものだと思いました. 個人的にこういう動機づけみたいな話に最近興味があります.
+\item PDE を専攻している身としては大変勉強になりました.
+    普段気にしていない工学・物理の意見が参考になりました.
+\item 物理や工学のことを数学の方に話すにはかなり導入の部分から話していかなきゃならないなと思った.
+    自分が発表するときの指針がすごく得られた.
+\item 物理の問題意識のようなものが少しわかって有意義だった.
+    具体例と話の組み立てがよかった.
+\end{enumerate}
 \chapter{Talk: Analysis for the Thomas-Fermi functional after Lieb-Loss \cite{LiebLoss1}}
 \label{sec-7-10}
 \section{Introduction}
@@ -15747,7 +16256,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
  x \label{Hinashiro_math_party_1_probability_2}
 \end{align}
 が導ける.
-最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[33].
+最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[36].
 
 再び $x \neq 0$ を仮定しよう \footnote{ハイパーどうでもいいが「再びマタタビ楕円型」という天啓を得たことを記録しておく.
  }.
@@ -15770,7 +16279,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
 \subsection{Rademacher 関数}
 \label{sec-8-1-4-2}
 
-これまではまさに高校の数学だった \footnotemark[30].
+これまではまさに高校の数学だった \footnotemark[33].
 本番はここからだ.
 式 (\ref{Hinashiro_math_party_1_probability_3}) を別の観点から眺めてみようという体で,
 唐突に次の無茶苦茶な理論展開を見せる.
@@ -15845,7 +16354,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
 本質が見えるようになるまでは偶然というほかない.
 ここで式 (\ref{Hinashiro_math_party_1_probability_3}) を別の方法で導いてみよう.
 
-唐突だが次の関数を考える \footnotemark[31].
+唐突だが次の関数を考える \footnotemark[34].
 いったん少し面倒な方法で取り組んでみよう.
 \ref{Hinashiro_math_party_1_probability_14} 節で整理するので少しのあいだ我慢してほしい.
 \begin{align}
@@ -15867,7 +16376,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
  =
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}.
 \end{align}
-ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[32].
+ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[35].
 したがって
 \begin{align}
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}
@@ -16235,7 +16744,7 @@ Chebyshev による簡明かつ重要な結果を使った証明だけ紹介し�
 これで簡単に (\ref{Hinashiro_math_party_1_probability_8}) が証明できた.
 
 Chebyshev の不等式だけでなく, Rademacher 関数の独立性, つまり \ref{Hinashiro_math_party_1_probability_11} の結果も本質的に効いている.
-実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[34].
+実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[37].
 弱法則ではまだまだほしい内容に足りない.
 「儲けが際限なく大きくなる確率が 0 に収束する」くらいの微妙なことしか言っていないからだ.
 平均がばっちり 0 に行くことを証明したい.
@@ -17009,7 +17518,913 @@ The other is concrete and uses a \textbf{quantum mechanical harmonic oscillator}
 \chapter{DVD: Playing with interesting counter examples}
 \label{sec-11-3}
 
-DVD の原稿をもう少し整理して張る.
+これは 2013-03-16 第 3 回関西すうがく徒のつどいでの講演,
+【色々な反例を作って遊ぼう】で話した内容の原稿にあたる.
+また \cite{phasetr1} として DVD 化もしている.
+\section{abstract}
+\label{sec-11-3-1}
+
+つどいでは実数論, 初等的な微分積分学周辺で
+【色々な反例を作って遊ぼう】という題目で講演する.
+講演の対象は学部 1-2 年生と非専門家とする.
+
+文献 \cite{GelbaumOlmsted1} の紹介を兼ねて, 色々な反例を紹介する.
+数学科レベルの概念に関する反例であっても
+高校で学ぶレベルで初等的に構成できる例も多い.
+特に非専門家には「難しい理論」の勉強ばかりが数学との接し方ではないことを伝えたい.
+非常に良くないことだが, 個人的にもこれまであまり具体例に接する
+勉強をしたことがなかったので, 自らの再勉強を含め,
+数学科学生には (反) 例を作る重要さを確認してもらいたい.
+また, ただ例を挙げるだけではつまらないので
+何故その例が面白いのかを説明することと合わせ,
+何か背景にある理論や定理があればそれも適宜紹介したい.
+
+時間的に本番では全部話せないが, 今候補に挙げている例をいくつか挙げておく.
+より良い例が見つかれば例は適宜変更するので, 参考程度に考えておいてほしい.
+文献 \cite{GelbaumOlmsted1} にある例に限らず, 面白い例を出したい.
+参考文献としては他にも \cite{HikosaburoKomatsu1, DavidWilliams1, WilliamDumham1} などを挙げておく.
+
+\begin{enumerate}
+\item 環から部分環を除いた集合が環にならない例.
+\item 至る所不連続だが絶対値を取ると連続になる関数 \cite{GelbaumOlmsted1}, p22.
+\item 「中間値の定理」が成り立つ不連続関数 \cite{WilliamDumham1} p158.
+\item 連続だが微分可能でない関数:ワイエルシュトラスの関数 \cite{WilliamDumham1} p141, 高木関数, ブラウン運動.
+\item 微分方程式の解だが, 必要な回数だけ微分できない関数.
+\item 有界閉区間上連続だが一様連続ではない関数 \cite{GelbaumOlmsted1} p19.
+\item 可微分関数の一様収束と微分の挙動制御.
+\item 多変数関数:各変数に対する連続性・微分可能性と多変数関数としての連続性・微分可能性 \cite{GelbaumOlmsted1} p115.
+\item 多変数関数:複素変数の場合.
+\item 距離空間上, 非コンパクト集合に対して共通部分がない閉集合で距離が 0 になってしまう 2 つの集合 \cite{GelbaumOlmsted1} p130.
+\item 連続濃度を持つ長さ 0 の $\mathbb{R}$ 上の集合 \cite{GelbaumOlmsted1} p85.
+\item $\Omega \in \mathbb{R}^d$ としたとき, 異なる $p$ に対する $L^p (\Omega)$ の包含関係が $\Omega$ に依存する例 \cite{DavidWilliams1} p64.
+\end{enumerate}
+\section{導入}
+\label{sec-11-3-2}
+
+\begin{enumerate}
+\item 自分で問題を作って遊ぶ.
+\item 小さくてもいいから自分で問題を作って, 自分の数学を育てる.
+\item 証明のギャップを埋めることも (小さな) 問題.
+\item 色々なところに役立つ.
+\item 面白い問題を見つける能力をつける.
+\item 漠然とした感覚を具体的な問題にまで練り上げる力をつける.
+\item 他人に質問するとき, コミュニケーションを取るときに役立つ.
+\item 日々少しずつやっていくしかない.
+\item 具体的にどうすればいいのか.
+\item 簡単なのは例を作ること, 特に定理の反例を考えること.
+\begin{enumerate}
+\item 既にはっきりした形になっている定理を元にしているので問題を明確化させやすい.
+\item 問題の元になる定理が既にたくさんある.
+\item 定評のあるやり方でもある.
+\end{enumerate}
+\item 具体的にどうやればいいのか.
+\item 本を参考にしてみる.
+\end{enumerate}
+\section{ポイント}
+\label{sec-11-3-3}
+
+\begin{enumerate}
+\item 問題の作り方, 予想の立て方.
+\item 例の作り方:1 つの例を元に色々な例が作れるし, 同じ構成法が別の所にも使える (「以下同様に」と同じ感じ).
+\item 背景にある理論.
+\end{enumerate}
+\section{環から部分環を除いた集合は環になるか}
+\label{sec-11-3-4}
+
+$\mathbb{R} \setminus \mathbb{Q}$ と $F (I) \setminus C^0 (I)$.
+前者は無理数の集合, 後者は不連続関数の集合.
+ここで開区間 $I$ に対して, $F (I)$ は $I$ 上の関数全体が作る環で,
+$C^k (I)$ は $I$ 上 $k$ 回連続微分可能な関数のなす環.
+$C^0 (I)$ は $I$ 上連続な関数のなす環とする.
+和と積は各点の積で入れる.
+
+ポイントは両方とも同じような作り方で反例が構成できること.
+\begin{ex}\textup{($\mathbb{R} \setminus \mathbb{Q}$)}
+ \begin{align}
+  \sqrt{2} + \rbk{- \sqrt{2}} &= 0 \in \mathbb{Q}, \\
+  \sqrt{2} * \sqrt{2} &= 2 \in \mathbb{Q}.
+ \end{align}
+\end{ex}
+\begin{ex}\textup{($F (\mathbb{R}) \setminus C^0 (\mathbb{R})$)}
+$f$ を $[0,1]$ でだけ 1 であとは 0 になる関数とすると, $f + (-f) = 0$ になる.
+$g$ を $[2,3]$ でだけ 1 であとは 0 になる関数とすると, $f * g = 0$ になる.
+\end{ex}
+\subsection{構成法について}
+\label{sec-11-3-4-1}
+
+双方とも, 和については「同じものを足し引き」しているので同じ構成法.
+不連続関数については, 和と積が同じ発想で例を作っている: 恒等的に 0 の関数に叩き落とす.
+
+ついでにいうと, 連続関数環は整域でない環の例にもなっている.
+\section{絶対値を取ることで関数の滑らかさは下がるか \cite{GelbaumOlmsted1}, p22}
+\label{sec-11-3-5}
+
+高校で $f (x) = |x|$ が「元の関数が微分可能なのに絶対値を取ると微分不可能になる例」として出てくる.
+要はこれがいつでも成り立つかということ.
+
+明白な反例はあって, 定符号の関数, 例えば $f (x) = x^2$ は絶対値を取っても可微分性に変わりはない.
+$f (x) = |x|$ で実際そうなっているように, 符号が変わると問題が出る場合があるので, 次はそこで考える.
+
+符号が変わるところで急に値が変わるから問題なのであって, 滑らかに変わるような関数なら問題ない.
+実際, 例としては次の関数がある.
+\begin{align}
+ f (x)
+ :=
+ \begin{cases}
+  -x^2 & x < 0, \\
+  x^2   & x \geq 0.
+ \end{cases}
+\end{align}
+この $f$ は $f \in C^1 \setminus C^2$, $|f| \in C^2$ なので, 絶対値をつけた方がむしろ滑らかになる.
+
+上の例は元の関数が連続関数だった.
+さらに強く, 不連続な関数が絶対値を取ると滑らかになる例があるかを考えたい.
+実際, 次のように「至る所不連続だが絶対値を取ると解析的になる」例がある.
+\begin{align}
+ f (x)
+ :=
+ \begin{cases}
+  1  & x \in \mathbb{Q}, \\
+  -1 & x \in \mathbb{R} \setminus \mathbb{Q}.
+ \end{cases}
+\end{align}
+有理数と無理数で値を分けて作る例としては, Dirichlet の (Riemann) 積分不可能な関数なども有名.
+
+「本質的に解析的な例が作れるか」という問題も作れる.
+ここで「本質的」というのは三角関数のようなものを想定している.
+これは宿題にしておこう.
+
+また, 自明な例でもきちんと知っておくことはとても大事.
+やや別件だが, 「自明なものしか存在しないという事実が非自明」という場合もある.
+例えば「コンパクトな複素多様体上で正則な関数は定数しかない」.
+\section{連続だがいたるところ微分可能でない関数は存在するか:ワイエルシュトラスの関数 \cite{WilliamDumham1} p141, 高木関数, ブラウン運動}
+\label{sec-11-3-6}
+
+$C^0 (I) \setminus C^1 (I)$ や $C^1 (I) \setminus C^2 (I)$ に含まれる関数は作った.
+ただし, 例に挙げた関数は微分不可能な点が 1 つしかなかった.
+微分不可能な点がたくさんある関数も簡単に作れるが, ここでは全く微分できない関数があるかどうかについて考えたい.
+\subsection{ワイエルシュトラスの関数}
+\label{sec-11-3-6-1}
+
+まず反例の有名どころとして Weierstrass によるいたるところ微分不可能な連続関数を挙げる.
+太古の昔, 一般に連続関数は微分可能であると信じられ, アンペールによる「証明」まであった.
+それを突き崩したワイエルシュトラスによる偉大な結果である.
+$a \geq 3$ を奇数, $b \in (0, 1)$, $ab > 1 + \frac{3 \pi}{2}$ とするとき,
+ワイエルシュトラスの関数 $w_0$ は次のように定義される.
+\begin{align}
+ w_0 (x)
+ =
+ \sum_{k=0}^{\infty} b^k \cos (\pi a^k x)
+\end{align}
+これの連続性や微分不可能性は省略するが, 微分不可能性の気分だけは説明する.
+形式的に $w_0$ を微分すると
+\begin{align}
+ w_0'(x)
+ =
+ -\pi \sum_{k=0}^{\infty} (ab)^k \sin (\pi a^k x)
+\end{align}
+となる.
+仮定から $ab > 1$ なので, 何となく発散の兆候がある.
+もちろん $\sin$ の部分があるのでそこの処理をする必要がある.
+
+これで「連続だがいたるところ微分できない関数の例」ができたので $C^1 \subset C^0$ の包含が狭義のものであると分かる.
+ちなみに 1 つ具体例を作るとそこから芋づる式に無限個の具体例が作れる (場合) があることにも注意したい.
+例えば $w_1 (x)=\int_0^x w_0 (t) dt$ は
+「一回微分できて導関数は連続だが, 2 回は微分できない関数」例になる.
+ここから $C^2 \subset C^1$ が分かる.
+帰納的に $w_{n+1}(x)=\int_0^x w_n (t) dt$ とすると $C^{n+1} \subset C^n$ の包含が狭義であると分かる.
+\subsubsection{微分不可能性の証明}
+\label{sec-11-3-6-1-1}
+
+\textbf{あとでワイエルシュトラスの関数の微分不可能性証明をつける.}
+\subsubsection{色々な側面}
+\label{sec-11-3-6-1-2}
+
+他の例もあわせてどこまでやれるかわからないが, 1 つの例が他にも色々な側面を持っていることもあわせて伝えたい.
+例えば, 実数が距離空間, 位相空間, 体という代数構造など色々な切り口があるように.
+ワイエルシュトラスの関数は三角級数なので, そこから派生することが色々ある.
+まず, ワイエルシュトラスの関数は有限和では連続, 無限階微分可能性を通り越えて解析的にすらなっている.
+有限和での解析性は極限を取ると崩れさって連続にしかならなくなるというのは重要な指摘になる.
+一般には連続にすらならない.
+こういう話は Fourier 級数論として色々な議論がある.
+Fourier 級数論は Cantor が集合論に入っていく端緒となった理論で, 歴史的にもとても大事.
+
+回路理論で出てくる 0-1 の関数は不連続な三角級数になる
+より激しくは三角級数が関数にすらならない例がある.
+Dirac の $\delta$ 関数について調べればすぐ出てくるが, 三角級数が関数の枠すら飛び出して超関数になる.
+
+色々な話があるが, より一般には Hardy あたりによってフーリエ解析の complex method というのが始まり,
+その辺から佐藤超関数とも関係あるような話が何かあるらしい.
+これは小松彦三郎の講義録 \cite{HikosaburoKomatsu1} を参照されたい.
+ここまで来ると解析関数の極限の特異的な振る舞いという方向も考えられる.
+この観点からすると相転移という例も挙げられる.
+これも解析関数の極限, 特に熱力学的極限として現れる特異的な振る舞いとして相転移を記述しようというのが統計力学の主目的の一つだ.
+\subsection{その他の関数, 展開}
+\label{sec-11-3-6-2}
+\subsubsection{高木関数}
+\label{sec-11-3-6-2-1}
+
+Wikipedia などにも説明がある.
+定義は次の通り:
+\begin{align}
+ T (x)
+ :=
+ \sum_{n=0}^{\infty} \frac{s (2^n x)}{2^n}, \quad
+ s (x)
+ :=
+ \min_{n \in \mathbb{Z}} | x - n |.
+\end{align}
+フラクタルと関係がある.
+\subsubsection{ブラウン運動}
+\label{sec-11-3-6-2-2}
+
+確率論で基本的な対象.
+H\"older 連続にはなるが, 微分不可能.
+\section{有界閉集合上連続な関数は一様連続になるか}
+\label{sec-11-3-7}
+\subsection{距離空間}
+\label{sec-11-3-7-1}
+
+背景となる定理がある.
+大事な定理を 3 つあげよう.
+\begin{thm}
+ $\mathbb{R}^d$ の部分集合 $\Omega$ について次の 2 条件は同値になる.
+\begin{enumerate}
+\item $\Omega$ は有界閉集合である.
+\item $\Omega$ はコンパクトである.
+\end{enumerate}
+\end{thm}
+\begin{thm}
+ 距離空間のコンパクト集合から距離空間への連続関数は一様連続になる.
+\end{thm}
+\begin{thm}
+ 距離空間の部分集合 $\Omega$ について次の条件は同値になる.
+\begin{enumerate}
+\item $\Omega$ はコンパクトである.
+\item $\Omega$ は点列コンパクトである.
+\item $\Omega$ は完備で全有界である.
+\end{enumerate}
+\end{thm}
+
+$\mathbb{R}^d$ の部分集合で考えると, 有界閉集合はコンパクトになる.
+コンパクトな距離空間上の連続関数は一様連続になる.
+従って有界閉集合がコンパクトになってしまうような空間では上記予想の反例は作れない.
+実際, 無限次元の空間では有界閉集合がコンパクトにはならないので, そういう空間は存在する.
+
+また 3 番目の定理から, 距離空間ではコンパクト性と完備性 ($+$ 全有界性) が同値になる.
+つまり完備性を持たない空間で考えれば上記予想の反例が作れる可能性がある.
+\subsection{反例}
+\label{sec-11-3-7-2}
+
+有界閉集合上連続で有界だが一様連続ではない関数が存在する.
+$f \colon \mathbb{Q} \cap [0, 2] \to \mathbb{Q} \cap [0, 1]$ を次のように定義する.
+\begin{align}
+ f (x)
+ =
+ \begin{cases}
+  0, \quad x < \sqrt{2}, \\
+  1, \quad x > \sqrt{2}.
+ \end{cases}
+\end{align}
+ここから色々な話が出てくるが, まずポイントなのはこの関数が連続であることだろう.
+実数で考えると【$\sqrt{2}$ で不連続】になりそうだが, それを抑えるのが定義域を有理数に絞っている部分だ.
+実数で言うと \$[0,1] $\cup$ [2,3] \$ のようにギャップがある感じになっているため連続になる.
+
+$\mathbb{Q} \cap[0, 2]$ は $\mathbb{Q}$ で有界で閉だが,
+これがコンパクトでないことが 2 つセットにした定理から分かる.
+(完備ではないことは直接分かるけれども.)
+この辺の距離空間の一般論の具体例にもなっている.
+
+この他にも $\mathbb{Q}$ 上では, 完備性またはコンパクト性が効いてくる連続関数の性質がいくつか成り立たなくなる.
+詳しくは \cite{GelbaumOlmsted1} の p19 を参照.
+\subsection{その他関係する話}
+\label{sec-11-3-7-3}
+\subsubsection{位相幾何}
+\label{sec-11-3-7-3-1}
+
+さらに, 定義域を実数にして$f \colon [0,1] \cup [1,2] \to [0,1]$ にすると別の話が出てくる.
+この $f$ は局所定数関数になるが, 定義域の特性から連続になる.
+こういう局所定数関数がいくつあるか数える.
+先程一つ例を作ると無限個あるという話をした.
+今回も無限個あるのだが, ここに少し踏み込む.
+局所定数関数は $[0,1]$ 上で任意の実数を取り, $[1,2]$ 上でも任意の実数を取るので,
+$\mathbb{R} \times \mathbb{R} = \mathbb{R}^2$ 個だけ局所定数関数がある.
+この「 2 」は $[0,1]$, $[1,2]$ という「島 (連結成分) の数」に対応する.
+凄まじいのはこの逆が成立することだ.
+
+ここから位相幾何が登場する.
+幾何は大雑把に図形の性質を調べる学問といえるが, 図形の性質を調べるのにその上に住む関数の方を調べるという発想が出てくる.
+代数幾何などでもこの発想は生きているし, 作用素環からの非可換幾何でも大事な発想になる.
+具体例がいくつかあるか数えるというところから別の大きな理論が出てくる話.
+\subsubsection{画像処理}
+\label{sec-11-3-7-3-2}
+
+$f \colon [0,2] \to [0,1]$ として有理数の制限を外した関数を考えると画像処理のような応用も出てくる.
+画像の鮮明化とかその辺の応用があるので, 別のところでも大事な具体例になる.
+
+微分不可能な点 (線) は色が急激に変わるところだと思う.
+例えば深夜に人の顔に光を当てると, 顔は白っぽくなるが, 顔を外れると黒くなる.
+この微分不可能性, 特異性を使って, 画像を鮮明にする.
+\section{各点で関数列の値が収束するなら積分の値も収束するか}
+\label{sec-11-3-8}
+
+\cite{GelbaumOlmsted1} の P79 の Ex.6 もあるが, 個人的な思い入れから別の関数列を紹介したい.
+熱核と呼ばれるが, $t$ に関して $\delta$ 関数近似列になる.
+\begin{align}
+ f_t (x)
+ =
+ \frac{1}{\sqrt{2 \pi t}} \exp \left[ - \frac{x^2}{2t} \right].
+\end{align}
+まず極限は次のようになる.
+\begin{align}
+ f_0 (x)
+ :=
+ \lim_{t \downarrow 0} f_t (x)
+ =
+ \begin{cases}
+  \infty, & x = 0, \\
+  0,      & \mathrm{otherwise}.
+ \end{cases}
+\end{align}
+全ての $t > 0$ について $\int_{\mathbb{R}} f_t (x) dx = 1$ なので,
+$\lim_{t \downarrow 0} \int_{\mathbb{R}} f_t (x) dx = 1$ だが
+$\int_{\mathbb{R}} \lim_{t \downarrow 0} f_t (x) dx = 0$ になる.
+\subsection{超関数}
+\label{sec-11-3-8-1}
+
+普通 $f_0$ は超関数, $\delta$ 関数と呼ばれる.
+$f_0$ 自体は関数として意味を持つので, なぜ超関数と呼ばれるかということが問題になる.
+
+数学としては $\int f_0 (x) dx = 0$ にしかならない.
+だが物理の人が $\int f_0 (x) dx = 1$ であってほしいと言い出した.
+関数として考えるのならどうしても無理で, von Neumann は有名な『量子力学の数学的基礎』で $\delta$ 関数が関数でない証明までしているという.
+
+何とかして $f_0$ の値と $\int f_0 (x) dx = 1$ という性質が両立できないか, というところを追求して (Schwartz の) 超関数が生まれた.
+実際には波動方程式の特異性の伝播も大事だったらしいが, 詳しくは知らない.
+
+これと同じ問題が場の量子論でも起きていて, そちらは今も研究が進行中でかつ物理としても意味がある問題になっている.
+朝永振一郎のノーベル賞の業績でもある発散の困難と深く関係している.
+\section{$\Omega \subset \mathbb{R}^d$ としたとき, 異なる $p$ に対する $L^p (\Omega)$ の包含関係が $\Omega$ の幾何学的特性に依存する例 \cite{DavidWilliams1} p64}
+\label{sec-11-3-9}
+\subsection{幾何学的意味}
+\label{sec-11-3-9-1}
+
+この区間に対する関数空間が持つ特性は微分方程式論でも大事で色々な形で出てくるが, ここでは幾何学的なところから見てみたい.
+この例では区間 (図形) の特性がその上に住む関数の空間に影響を与えることを見た.
+特に区間の長さ (一般には測度) が有限か無限かで $L^p$ 空間の包含関係に影響が出るということだった.
+
+ここで逆が言える場合がある:図形の上に住んでいる関数の空間から図形自体の情報を取り出せる場合がある.
+こうした事情を上手く使うのがホモロジーやホモトピーだ.
+詳しくは nolimbre さんや宇宙賢者, 小泉さんの話で触れるだろうからここでは気分だけ説明する.
+
+数学ガール $M$ がいて, 興味のある対象 (男の子でも女の子でも多様体でもいい) $X$ のことを知りたいとする.
+ここで $X$ に直接アタックする方法もあるが, 外堀から攻める方法もある.
+とりあえず $X$ が女の子だとして, バスケ部だったとしよう.
+バスケ部でのポジションを知りたかったら $X$ のバスケ部の友人 $B$ に聞くだろう.
+$X$ が吹奏楽部も兼部していたとしよう.
+吹奏楽部での話を聞きたければ, 吹奏楽部の友人 $W$ に聞くだろう.
+$B$ に聞くことはないはずだ.
+
+このように聞きたい情報に合わせて共通の友人を上手く見つけて聞き出そうというのが幾何学でのホモロジーの使い方にあたる.
+朱に交じわれば赤くなるというように, $X$ の友人 $B$ や $W$ は $X$ の影響を受けつつ, 逆に $X$ に影響を与えてもいる.
+\subsection{例の構成}
+\label{sec-11-3-9-2}
+
+一般にやってもいいが, 面倒なので $d = 1$ として $L^1$ と $L^2$ で話をする.
+$I_1 = (0, \infty)$ と $I_2 = (0, 1)$ の場合を比べる.
+結果から書くと $I_1$ の場合, $L^1 (I_1)$ と $L^2 (I_1)$ に共通部分はあるが包含はないが, $L^2 (I_2) \subset L^1 (I_2)$ となる.
+
+\textbf{$I_1$ の場合}:
+次のように $f$, $g$ を取る.
+\begin{align}
+ f (x)
+ &=
+ \begin{cases}
+  1      & x \in (0, 1), \\
+  x^{-1} & \mathrm{otherwise},
+ \end{cases} \\
+ g (x)
+ &=
+ \begin{cases}
+  x^{-1/2} & x \in (0,1), \\
+  0        & \mathrm{otherwise}.
+ \end{cases}
+\end{align}
+すると, $f \in L^2 (I_1) \setminus L^1 (I_1)$ で $g \in L^1 (I_1) \setminus L^2 (I_1)$ になる.
+
+\textbf{$I_2$ の場合}:
+上記 $g$ は $g \in L^1 (I_2) \setminus L^2 (I_2)$ の例にもなる.
+今度は $L^2 (I_2) \subset L^1 (I_2)$ となることを示せばいい.
+これには Cauchy-Schawarz の不等式を使う.
+$I_2$ の長さが 1 であることに注意すると, 任意の $h \in L^2 (I_2)$ に対して
+\begin{align}
+ \sqrt{ \int_{I_2} h (x) dx}
+ \leq
+ \int_{I_2} 1 dx \int_{I_2} h (x)^2 dx < \infty.
+\end{align}
+\section{「中間値の定理」が成り立つ不連続関数 \cite{WilliamDumham1} p158}
+\label{sec-11-3-10}
+
+次の関数は原点で不連続だが, 中間値の定理が成り立つ.
+ここで「中間値の定理」とは, 「関数 $f \colon (a, b) \to \mathbb{R}$ は $f (a)$ と $f (b)$ の間の任意の値を取る」という意味で使っている.
+
+\begin{align}
+ S (x)
+ =
+ \begin{cases}
+  \cos \frac{1}{x} & x \neq 0 \\
+  0 & \mathrm{otherwise}.
+ \end{cases}
+\end{align}
+$x_k = 1 / k \pi$ とすると $S (x_k) = (-1)^k$ となるから, $S$ は原点で不連続になる.
+
+これは図で見ると明らかな連続関数の性質が連続関数を特徴づけるには不十分であるというところがポイント.
+上の例は「任意の部分区間で中間値の定理が成り立つが不連続な関数」の具体例になっている.
+\subsection{関連する 2 つの関数}
+\label{sec-11-3-10-1}
+
+\begin{align}
+ T (x)
+ &=
+ \begin{cases}
+  x \sin \frac{1}{x} & x \neq 0 \\
+  0 & \mathrm{otherwise},
+ \end{cases} \\
+ U (x)
+ &=
+ \begin{cases}
+  x^2 \sin \frac{1}{x} & x \neq 0 \\
+  0 & \mathrm{otherwise}.
+ \end{cases}
+\end{align}
+とすると, $T$ は連続になり, $U$ は不連続な導関数を持つ可微分関数になる.
+\subsection{Darboux の定理 \cite{WilliamDumham1} P159}
+\label{sec-11-3-10-2}
+
+$f$ は $[a, b]$ 上で微分可能で, $r$ を $f'(a) < r < f'(b)$ とする.
+このとき, $f'(c) = r$ となる $c$ が $(a, b)$ に存在する.
+
+\begin{proof}
+ $g (x) = f (x) - rx$ とすると, $g$ は閉区間 $[a, b]$ 上連続なので $c \in (a, b)$ で最小値を取る.
+ 一般論から $g'(c) = f'(c) - r = 0$ となる.
+ 一方, $g'(a) = f'(a) - r < 0$ かつ $g'(b) = f'(b) - r > 0$ なので $c \neq a, b$ となる.
+\end{proof}
+\section{微分不可能な微分方程式の解}
+\label{sec-11-3-11}
+
+次の例として次の微分方程式というのが挙げられる.下記の繰り返しで定義される微分方程式を考えよう:
+\begin{align}
+ \frac{d^2 x}{dt^2}
+ =
+ \begin{cases}
+ +1, \quad x \in [0,1] \\
+ -1, \quad x \in [1,2].
+ \end{cases}
+\end{align}
+これは高校物理で出てくる設定と思える.
+初速度 0 で, 時間 $n$ ごとにぱっと切り替わる力を加えたときの運動の様子を表す運動方程式だ.
+これは高校物理の例だが【 (適当な意味で) 微分ができないどころか導関数が連続ですらない微分方程式の解】を与える.
+あと軌跡自体 (もとの x) は可微分だが, 導関数は微分不可能な点があり, その導関数をさらに微分すると不連続になるという例.
+時間もないのでここでは省略するが, 「微分不可能性を物理的に要求する微分方程式の解」という例になる.
+物理としての理想化というところとか色々言いたいことはある.
+
+物理由来の色々な例があるが, 詳しくは ROUNIN\_MAIDEN さんの講演参照.
+物理由来の例ということでは, 超関数を初期値とする偏微分方程式などもある.
+その他, 適当な意味で特異性を持つ偏微分方程式の解がある.
+例えば Einstein 方程式とその Schwarzschild 解に対して, その特異性はブラックホールに関係する.
+\section{可微分関数の一様収束と微分の挙動制御}
+\label{sec-11-3-12}
+
+応用面で微分方程式の解の近似をするときに大事になる.
+速度など解の導関数も意味を持つ場合, 導関数の挙動まで制御しないといけないので, その辺で色々問題になることを考える.
+
+$f (x) = 0$ とし, $g_n (x) = \frac{1}{n} \sin n^2 x$ とする.
+全ての $x$ で $g_n (x) \to f (x)$ となるが, $g_n'(x)$ は $f'(x)$ に収束しない.
+収束しないという問題もあるが, $g_n$ は $n$ が大きくなる程 $f$ に近くなるが, $g_n'$ は $n$ が大きくなるほど $f'$ から遠くなる.
+もちろん「遠近」というのをどう表現するか, どういう位相を入れるかという問題もある.
+詳しくは関数解析などの話題になる.
+\section{多変数関数}
+\label{sec-11-3-13}
+\subsection{各変数に対する連続・可微分性と多変数としての連続性・可微分性 \cite{GelbaumOlmsted1} p115}
+\label{sec-11-3-13-1}
+
+\begin{align}
+ f (x, y)
+ =
+ \begin{cases}
+  0,                  & (x, y) = (0, 0) \\
+  \frac{xy}{x^2+y^2}, & \mathrm{otherwise}.
+ \end{cases}
+\end{align}
+これは各変数については $C^{\infty}$ だが, 2 変数関数としては (原点で) 不連続になる.
+$y = k x$, $k > 0$ とすると $f (x, y) = \frac{k}{1 + k^2}$ となり, $k$ の値によって$x \to 0$ の値が変わることが分かる.
+\subsection{複素変数の場合}
+\label{sec-11-3-13-2}
+
+複素多変数の場合は状況が劇的に変わり, Hartogs の定理というのがある.
+\begin{thm}
+ $f (z) = f (z_1, z_2)$ が $z_1$, $z_2$ それぞれについて正則のとき, $f$ は $z$ の関数として正則になる.
+\end{thm}
+上記例の通り, 実変数で $C^{\infty}$ のときには類似の定理は成り立たず, 複素変数で正則性を課したときにだけ成立する強烈な定理だ.
+\section{距離空間上, 非コンパクト集合に対して共通部分がない閉集合で距離が 0 になってしまう 2 つの集合 \cite{GelbaumOlmsted1} p130}
+\label{sec-11-3-14}
+\section{測度論 \cite{GelbaumOlmsted1} p85}
+\label{sec-11-3-15}
+
+挙げる時間があれば, 任意の直線に対し高々二点を共有する非可測集合の存在証明に整列定理とツォルンの補題を使うことくらいは紹介したい.
+本 \cite{GelbaumOlmsted1} には Cantor 集合がたくさん出てくる:Cantor 集合を基点にした多くの例がある.
+こういうのも知っておくと多分 (数学で遊ぶ上で) 役に立つ.
+社会の役に立つかは知らないのでそこは各自で自分の人生に責任を持つように.
+
+Cantor 集合は田尻さんの講演を参照.
+\section{まとめ}
+\label{sec-11-3-16}
+
+あとで見ると, 特異な振舞いに着目した例が多かったという印象になるが私の研究は数学としては「特異性の数学」と言えなくもないので,
+やはりそういう趣味が出る.
+何を見るかという所に自分の趣味はどうしても出てしまうもの.
+各自, 自分の数学をのんびり育ててほしい.
+\section{Appendix}
+\label{sec-11-3-17}
+\subsection{環の定義}
+\label{sec-11-3-17-1}
+
+代数, 特に群や環については \cite{ToshiyukiKatsura1} を参考にしてほしい.
+\subsubsection{環とは何か}
+\label{sec-11-3-17-1-1}
+
+和, 差, 積がある代数的対象.
+商があるとは限らない.
+\begin{itemize}
+
+\item 例 1:整数 $\mathbb{Z}$\\
+\label{sec-11-3-17-1-1-1}%
+和, 差, 積はいい.
+商が問題: $4/2 = 2 \in \mathbb{Z}$ と入る場合はあるが, 一般には $2/4 = 1/2 \notin \mathbb{Z}$ のようになる.
+商はあるが, それが外の空間 (集合) にはみ出る.
+
+\item 例 2:連続関数\\
+\label{sec-11-3-17-1-1-2}%
+(和と積を定義する.)
+和, 差, 積はいい. (実際には証明が必要. $\varepsilon \mathrm{-} \delta$ を使う.)
+商が問題: $\cos x / x$ は原点で値が定義できない (連続関数にならない).
+
+\item 例 3:Banach 環 $L^1 (\mathbb{R}^d)$\\
+\label{sec-11-3-17-1-1-3}%
+積は次のように畳み込みで定義する.
+\begin{align}
+ (f*g) (x)
+ :=
+ \int_{\mathbb{R}^d} f (y) g (x - y) dy.
+\end{align}
+この環には積の単位元がないことに注意:逆元の定義自体に問題がある.
+
+$\ell^1$ にした離散版も定義できる.
+\end{itemize} % ends low level
+\subsubsection{環の定義}
+\label{sec-11-3-17-1-2}
+
+$R \neq \{0\}$ に対して 2 つの演算, 和「 $+$ 」と積「 $\cdot$ 」があり, これらが次の条件を満たすとき, $R$ を環という.
+\begin{enumerate}
+\item 和が次の条件を満たす.
+\begin{enumerate}
+\item (結合律) 任意の $a$, $b$, $c \in R$ に対して $a + (b + c) = (a + b) + c$ となる.
+\item (単位元の存在) $0 \in R$ が存在して任意の $a \in R$ に対して $a + 0 = 0 + a = a$ となる.
+\item (逆元の存在) 任意の \$a $\in$ R に対して $x \in R$ があり, $a + x = x + a = 0$ となる. この $x$ を $-a$ と書く.
+\item (可換性) 任意の $a$, $b \in R$ に対して $a + b = b + a$ となる.
+\end{enumerate}
+\item (結合律) 任意の $a$, $b$, $c \in R$ に対して $a \cdot (b \cdot c) = (a \cdot b) \cdot c$ となる.
+\item (分配法則) 任意の $a$, $b$, $c \in R$ に対して $a \cdot (b + c) = a \cdot b + a \cdot c$, $(a + b) \cdot c = a \cdot c + b \cdot c$ となる.
+\end{enumerate}
+\begin{itemize}
+
+\item 注意\\
+\label{sec-11-3-17-1-2-1}%
+和に関する条件のうち, 上 3 つを満たす代数的対象を群という.
+最後の 1 つも満たす場合, 可換群という.
+\end{itemize} % ends low level
+\subsubsection{環にならない例 自然数 $\mathbb{N}$}
+\label{sec-11-3-17-1-3}
+
+ここでは $0 \in \mathbb{N}$ としている.
+和, 積はいい.
+差, 商が問題.
+商は整数と同じ.
+差は $2 - 1 = 1 \in \mathbb{N}$ だが, $1 - 2 = - 1\notin \mathbb{N}$.
+\subsection{Fourier 解析}
+\label{sec-11-3-17-2}
+
+これは例えば (線型の) (偏) 微分方程式を解くときに使う.
+物理のあらゆる所で使うし, 電気回路の理論でも使う.
+表現論という数学の大きな流れの中でもとても大事で基本的な対象になっている.
+\subsubsection{Fourier 級数}
+\label{sec-11-3-17-2-1}
+
+関数 $f \colon (-L, L) \to \mathbb{C}$ に対して, 次のように Fourier 級数を定義する.
+一旦収束は無視する.
+また, 下で $f (x) =$ と書いているが, この等号の意味も本当は難しい.
+\begin{align}
+ f (x)
+ & =
+   \frac{1}{2}a_0 + \sum_{n=1}^{\infty}
+   \left[ a_n \cos \frac{n \pi x}{L} + b_n \sin \frac{n \pi x}{L} \right], \\
+ a_n
+ &:=
+ \frac{1}{L} \int_{- L}^{L} f (x) \cos \frac{n \pi x}{L} dx, \\
+ b_n
+ &:=
+ \frac{1}{L} \int_{- L}^{L} f (x) \sin \frac{n \pi x}{L} dx.
+\end{align}
+Euler の公式を使って次のようにまとめることもある.
+\begin{align}
+ f (x)
+ &=
+ \sum_{n = - \infty}^{\infty} c_n e^{i \frac{n \pi x}{L}}, \\
+ c_n
+ &=
+ \int_{- L}^{L} f (x) e^{- i \frac{n \pi x}{L}} dx.
+\end{align}
+
+(連続関数に対する) 収束や応用まで含めた議論については \cite{KimYamamoto1} などを参考にしてほしい.
+Lebesgue 積分, 特に $L^2$ 空間を使った議論については \cite{SeizoIto1, LiebLoss1} が応用向きにも読みやすいと思う.
+これらはむしろ次の Fourier 変換の方の参考書なのだが.
+\subsubsection{Fourier 変換}
+\label{sec-11-3-17-2-2}
+
+大雑把に言って, 上の場合に $L \to \infty$ とした場合を Fourier 変換と呼ぶ.
+数学的に多少扱いが変わる部分があるので呼び方も変えている.
+それについては表現論的なバックグラウンドもあるので, 興味がある向きはそちらを調べてほしい.
+例えば \cite{KobayashiOshima1} などがある.
+Fourier 級数のところでも書いたが, \cite{SeizoIto1, LiebLoss1} も参考になる.
+
+定義を書いておこう.
+\begin{align}
+ f (x)
+ &=
+ \frac{1}{\sqrt{2 \pi}} \int_{ \mathbb{R}} \hat{f}(k) e^{ikx} dk, \\
+ \hat{f}(k)
+ &=
+ \frac{1}{\sqrt{2 \pi}}  \int_{\mathbb{R}} f (x) e^{-ikx} dx.
+\end{align}
+時々, 違う定義を使っていることがあるので注意してほしい.
+特に $2 \pi$ がつく場所に注意.
+\subsection{超関数}
+\label{sec-11-3-17-3}
+\subsubsection{超関数の気持}
+\label{sec-11-3-17-3-1}
+
+きちんと書くと大変になるので正確な定義は \cite{LiebLoss1} など適当な本を読むか, Wikipedia で超関数を調べてほしい.
+ここでは気分だけ説明する.
+\begin{itemize}
+
+\item 参考文献\\
+\label{sec-11-3-17-3-1-1}%
+佐藤超関数は扱いきれないので, Schwartz の超関数だけ紹介する.
+佐藤超関数については \cite{MitsuoMorimoto1} などを見るといいだろう.
+
+佐藤超関数はコホモロジーや多変数関数論を使うので, 難しいというか私には扱いきれない.
+Schwartz 超関数も位相線型空間のかなりディープな話を使うので言うほど簡単でもないが,
+私にとってはこちらの方がまだ馴染みがある.
+
+\item 発端\\
+\label{sec-11-3-17-3-1-2}%
+ことの発端はいくつかあるが, 1 つの大きな問題は物理で出てくる計算の正当化にある.
+特にいわゆる $\delta$ 関数をどう定式化するかが問題になる.
+これは次のような ``関数'' だ.
+\begin{align}
+ \delta (x)
+ :=
+ \begin{cases}
+  \infty, & x = 0, \\
+  0, & x \neq 0,
+ \end{cases} \quad
+ \int_{\mathbb{R}} \delta (x) = 1.
+\end{align}
+
+上で ``関数'' と書いたが, 実際にはこれは関数ではない.
+von Neumann は \cite{vonNeumann1} で $\delta$ 関数が関数ではないことをわざわざ証明しているそうだ.
+(聞きかじりで自分で確認していない.)
+
+ここで凄まじいのは関数と思うからいけないのであって,
+関数と思わなければいいだろうとして議論を勧めたことだ.
+
+\item 汎関数\\
+\label{sec-11-3-17-3-1-3}%
+決定的に大事なことは普通の関数だと思わず (線型) 汎関数だと思うということにある.
+汎関数というのは, 関数 $\phi$ に対して適当な複素数 $T (\phi)$ を返す「関数」のことだ.
+あえて「関数」と書いたが, 線型写像と言った方がいいかもしれない.
+汎関数の大事な例は積分だ:積分は関数に対して複素数を返すだろう.
+これと同じだ.
+実際, 超関数論は関数の一般化という面よりもむしろ微分の一般化と見た方が適切な場合もある.
+部分積分を使って, 上の $\phi$ にうまいこと微分を押しつけることで,
+まともな意味では微分できない関数を微分する荒技といってもいい.
+
+\item 展開\\
+\label{sec-11-3-17-3-1-4}%
+現代的な微分方程式論でも解を見つけるための空間設定として基本的な見方になっている.
+詳しく知りたい人は Sobolev 空間という言葉を調べてほしい.
+これは \cite{LiebLoss1} にも載っている.
+\cite{LiebLoss1} には量子力学への応用について詳しく議論されているので, 興味がある向きにはおすすめしたい.
+\end{itemize} % ends low level
+\subsubsection{distribution}
+\label{sec-11-3-17-3-2}
+
+佐藤超関数は扱いきれないので, Schwartz の超関数だけ紹介する.
+緩増加超関数というのもあり, Fourier 変換を議論するならこちらの方が大事になる.
+そこでこちらだけ紹介することにしよう.
+一般に $\mathbb{R}^d$ 上で考える.
+
+試験関数の空間は Schwartz 空間と呼び, $\mathcal{S} (\mathbb{R}^d)$ と書く.
+これは無限回微分可能な急減少関数全体が作る関数空間として定義する.
+
+ここで試験関数 $\phi$ が急減少 (rapidly decreasing) であるとは,
+\begin{align}
+ p_{\alpha, \beta} (\phi)
+ :=
+ sup_{\mathbb{R}^d} \left| x^{\alpha} D^{\beta} \phi (x) \right|
+ < \infty
+\end{align}
+となることをいう.
+ここで多重指数 $\alpha \in \mathbb{N}^k$, $\beta \in \mathbb{N}^l$ に対して
+\begin{align}
+ x^{\alpha}
+ :=
+ \prod x_i^{\alpha_i}, \quad
+ D^{\beta}
+ :=
+ \prod \left ( \frac{\partial}{\partial x_i} \right)^{\beta_i}
+\end{align}
+と定義する.
+\subsection{距離空間論}
+\label{sec-11-3-17-4}
+
+参考書として \cite{ShigeoIchiraku1} や \cite{KazuoMatsuzaka1} を挙げておく.
+\subsubsection{公理}
+\label{sec-11-3-17-4-1}
+
+$X$ を集合, $d \colon X \times X \to \mathbb{R}$ を次の性質を満たす関数とするとき, $(X, d)$ を距離空間という.
+\begin{enumerate}
+\item 任意の $x$, $y \in X$ に対し $d (x, y) \geq 0$.
+\item $x$, $y \in X$ に対し $d (x, y) = 0$ となるのは $x=y$ のときで, 逆も成り立つ.
+\item 任意の $x$, $y \in X$ に対し, $d (x,y) = d (y,x)$.
+\item 任意の $x$, $y$, $z \in X$ に対して三角不等式が成り立つ: $d (x,z) \leq d (x,y) + d (y,z)$.
+\end{enumerate}
+$d$ を距離または距離関数という.
+時々 $X$ だけで距離空間ということがある.
+
+以下, $(X, d)$ は距離空間とする.
+\begin{itemize}
+
+\item 例\\
+\label{sec-11-3-17-4-1-1}%
+$\mathbb{R}^n$ に対して $d (x, y) = \left| x - y \right|$ (絶対値) とするとこれが距離になり,
+$(\mathbb{R}^n, d)$ が距離空間になる.
+他の距離の入れ方もある.
+詳しくは \cite{ShigeoIchiraku1, KazuoMatsuzaka1} を参照してほしい.
+
+\item 距離空間での開集合\\
+\label{sec-11-3-17-4-1-2}%
+距離空間の部分集合 $O \subset X$ が次の性質を満たすとき, $O$ は開集合であるという:
+任意の $a \in O$ に対して $\varepsilon > 0$ が存在して $B (a; \varepsilon) \subset O$ が成り立つ.
+ここで開球と呼ばれる $B (a; \varepsilon)$ は次のように定義する.
+\begin{align}
+ B (a; \varepsilon)
+ :=
+ \left\{ x \in X : d (a, x) < \varepsilon \right\}.
+\end{align}
+これを平面図形で直観的にいうと, 「素直な図形」については「境界線の内側」を指す.
+(図を入れる.)
+\end{itemize} % ends low level
+\subsubsection{$\mathbb{R}^n$ での有界閉性とコンパクト性}
+\label{sec-11-3-17-4-2}
+
+$\mathbb{R}^n$ では有界閉性とコンパクト性が同値になる.
+一般的なコンパクトの定義は恐しく分かりづらいので, まずはこちらで慣れてもらいたい.
+そのため, まず有界性と閉性を定義する.
+他の部分と揃えるため, $X = \mathbb{R}^d$ と書く.
+\begin{itemize}
+
+\item 有界\\
+\label{sec-11-3-17-4-2-1}%
+$A \subset X$ が次の条件を満たすとき, $A$ が有界であるという:
+正の数 $r > 0$ があり $A \subset B (0; r)$ となる.
+
+\item 閉集合\\
+\label{sec-11-3-17-4-2-2}%
+$A \subset X$ が次の条件を満たすとき, $A$ が閉集合であるという:
+任意の $a \in A$ と任意の $\varepsilon > 0$ に対して $A \cap B (a; \varepsilon) \neq \emptyset$ となる.
+(図を入れて説明する.)
+
+\item イメージ\\
+\label{sec-11-3-17-4-2-3}%
+これを平面図形で直観的にいうと, 「素直な図形」については「境界線の内側と境界線を含めた図形」を指す.
+(図を入れる.)
+
+\item 有界閉\\
+\label{sec-11-3-17-4-2-4}%
+有界閉集合は有界かつ閉な $X$ の部分集合のことを指す.
+
+\item $\mathbb{R}^n$ での定理\\
+\label{sec-11-3-17-4-2-5}%
+$A \subset \mathbb{R}^n$ では $A$ が有界閉であることとコンパクトであることは同値.
+\end{itemize} % ends low level
+\subsubsection{コンパクト}
+\label{sec-11-3-17-4-3}
+
+コンパクトの定義のために, まず被覆を定義する必要がある.
+\begin{itemize}
+
+\item 被覆, 開被覆, 有限被覆\\
+\label{sec-11-3-17-4-3-1}%
+$\mathcal{U}$ が $X$ の部分集合系だとする.
+$\cup_{U \in \mathcal{U}} = X$ となるとき, $\mathcal{U}$ は $X$ の被覆であるという.
+被覆 $\mathcal{U}$ の元が全て開集合のとき, $\mathcal{U}$ を開被覆という.
+また $\mathcal{U}$ の元が有限個しかないとき, $\mathcal{U}$ は有限被覆という.
+
+\item コンパクト\\
+\label{sec-11-3-17-4-3-2}%
+$A \subset X$ が次の条件を満たすとき, $A$ はコンパクトであるという:
+$X$ の任意の開被覆 $\mathcal{U}$ を取る.
+$\mathcal{U}$ から適当に有限個の集合を取り出して部分集合系 $\mathcal{U}'$ を取れば,
+$\mathcal{U}'$ も $X$ の開被覆になる.
+
+\item 有界だが閉でない場合の非コンパクト性\\
+\label{sec-11-3-17-4-3-3}%
+平面図形の右と上の辺が開いている長方形 $A$ に対し, 長方形の上 1/4 を切った図形による開被覆を例にする.
+\end{itemize} % ends low level
+\subsubsection{完備性}
+\label{sec-11-3-17-4-4}
+
+$X$ の任意の Cauchy 列が収束するとき, 距離空間 $X$ は完備であるという.
+ここで $\left ( a_n \right)$ が次の条件を満たすとき, これが Cauchy 列であるという:
+任意の $\varepsilon > 0$ に対して自然数 $N$ が存在し, $n$, $m > N$ ならば $d (a_n, a_m) < \varepsilon$ となる.
+\subsubsection{全有界}
+\label{sec-11-3-17-4-5}
+
+これは何となくコンパクト性を感じさせる概念だ.
+全有界な集合は有界であることは注意しておこう.
+定義は次のようになる.
+
+$A \subset X$ が次の性質を満たすとき, $A$ を全有界という:
+任意の $\varepsilon > 0$ に対して必ず $X$ の有限な $\varepsilon$ 被覆がある.
+
+$\varepsilon$ 被覆を定義する必要があるが, そのために距離空間の部分集合の直径 $\delta$ をまず定義する.
+部分集合 $A \in X$ に対して
+\begin{align}
+ \delta (A)
+ :=
+ \sup \left\{ d (x, y) : x, y \in A \right\}.
+\end{align}
+(直径を説明する図を入れる.)
+
+$\varepsilon$ 被覆は次の条件を満たす被覆 $\mathcal{U}$ である:
+$\mathcal{U}$ の任意の元 $U$ に対して $\delta (U) < \varepsilon$ となる.
+\subsubsection{一様連続}
+\label{sec-11-3-17-4-6}
+
+$f \colon X \to \mathbb{R}$ が次の条件を満たすとき一様連続であるという:
+任意の $\varepsilon > 0$ に対して $\delta > 0$ が存在して $d (x, y) < \delta$ ならば $d (f (x), f (y)) < \varepsilon$.
+\begin{itemize}
+
+\item 1 点での連続性との違い\\
+\label{sec-11-3-17-4-6-1}%
+普通, 一点 $x$ における連続性を考えると $\delta > 0$ は $x$ に依存して決まる.
+一様連続だとこの制限が外れていて, $d (x, y) < \delta$ である限り, 全ての $x$, $y$ に対して最後の式が成り立つという所が違う.
+\end{itemize} % ends low level
+\section{講演の感想}
+\label{sec-11-3-18}
+
+\begin{enumerate}
+\item 命題に対して仮定を外してみるということはよく行うことですが, その大切さをあらためて再認識しました.
+\item Counter examples in Analysis がうらやましかった. 買おうと思う. 全有界について知ったのは良かった.
+\item もうちょっと密度があがってもよいと思いますが, たいへん楽しくわかりやすかったです.
+\item 深くは理解できているかわからないですが, 楽しめました. ありがとうございました.
+\item 反例を探すというのは普段意識してやることでなく新感覚でおもしろかった.
+\item 前提知識が少なくて, わかりやすい内容だった. 例を作る大事さがわかった. 時間が少なかったせいもあるが, もう少し進んだ内容が聞ければ, と思った.
+\item よくわかる例が多くてわかりやすかったです. 数学を学ぶ姿勢なども学ばせてもらいました.
+\item 市民
+\item 面白かった.
+\item ちょうど解析を復習していたので, そのモチベーションや勉強全般への態度を見直すいい機会になりました.
+\item ナイス市民講演!
+\item 発音が聞きとりづらかった.
+\item 元の本が面白そう.
+\item 自分で問題提起をすることの大切さを訴えていたような気がしますが, 気がついたらガウシアンとか言っていたので詰みました.
+\item 学ぶ姿勢を考え直すきっかけになりました.
+\item 自分で例をつくって遊ぶことの大切さを改めて関しました.
+\item もっとはげしいのが出てくるかと思った.
+\item 前半の内容は直感的に理解しやすく, 楽しめました. 数学を学ぶ姿勢について改めて考えさせられました.
+\item 講演内容も面白かったですが, 講演者の渋い服装がピンポイントでした.
+\item 素朴な内容だったように感じましたが, わかりやすくて面白かったです. Counter examples in Analysis ポチりました.
+\item 最近仰ってたような反例の作り方をして遊んでいた所なので, 尚更スゴク楽しかったです.
+\item 反例, 仮定を変えるのはあらためて重要だと思ったし, とても良い講演でした・
+\item 例, 反例の作り方 (思考回路) というのが, これからすごく役立ちそうです. 特に例から例を作るという方法を使っていきたいです.
+\item 例の大切さをあらためて感じました.
+\item 具体的な例が多くて楽しめました.
+\item 最後お話される予定だった内容を聴きたかったです.
+\item 分かりやすい話でしっかり聞けてよかったです.
+\item 基本的な例でしたが面白かったです.
+\item 身近な例でわかりやすかったです.
+\end{enumerate}
 \part{Applied mathematics}
 \label{sec-12}
 \chapter{Degital signal processing and algebraic geometry}

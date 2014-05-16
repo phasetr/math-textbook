@@ -11,6 +11,7 @@
 *.org
 *.out
 *.tex~
+*.swp
 *.toc
 *.pdf
 texput.log

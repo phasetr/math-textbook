@@ -10,5 +10,9 @@ elif [ -f $EMACS_MACOSX ]; then
     EMACS_PATH=$EMACS_MACOSX
 fi
 
-$EMACS_PATH $EMACS_OPTIONS
+if [ ! $EMACS_PATH ]; then
+    echo "Emacs Not Found"
+else
+    $EMACS_PATH $EMACS_OPTIONS
+fi
 

@@ -1,14 +1,22 @@
 #!/bin/bash
-rm -f math_textbook.aux
-rm -f math_textbook.bbl
-rm -f math_textbook.blg
-rm -f math_textbook.dvi
-rm -f math_textbook.fdb_latexmk
-rm -f math_textbook.fls
-rm -f math_textbook.idx
-rm -f math_textbook.ilg
-rm -f math_textbook.ind
-rm -f math_textbook.log
-rm -f math_textbook.out
-rm -f math_textbook.toc
-latexmk math_textbook
+fullfilename=${1}
+fname="${fullfilename%.*}"
+fdir="${fullfilename%/*}"
+/Applications/Emacs.app/Contents/MacOS/Emacs -nw \
+    --batch \
+    --load=org-sett.el \
+    --visit=${fname}.org \
+    --funcall org-export-as-latex
+rm -f ${fname}.aux
+rm -f ${fname}.bbl
+rm -f ${fname}.blg
+rm -f ${fname}.dvi
+rm -f ${fname}.fdb_latexmk
+rm -f ${fname}.fls
+rm -f ${fname}.idx
+rm -f ${fname}.ilg
+rm -f ${fname}.ind
+rm -f ${fname}.log
+rm -f ${fname}.out
+rm -f ${fname}.toc
+latexmk ${fname}

@@ -1,4 +1,5 @@
- watchmedo shell-command \
+#! /bin/bash
+watchmedo shell-command \
      --patterns="*.org" \
      --recursive \
-     --command='./org_to_tex.sh; ./tex.sh' ./
+     --command='./tex.sh "${watch_src_path}"' ./

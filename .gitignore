@@ -1,4 +1,3 @@
-org-sett.elc
 *.aux
 *.bbl
 *.blg
@@ -14,3 +13,5 @@ org-sett.elc
 *.toc
 *.pdf
 texput.log
+org-sett.elc
+README.tex

@@ -1,9 +1,12 @@
-#+TITLE: readme
+#+TITLE: README
 #+AUTHOR: phasetr
 #+EMAIL: phasetr@gmail.com
 
 * PDF
-You get the book pdf from [[https://raw.githubusercontent.com/phasetr/math-textbook/master/math_textbook.pdf][here]].
+You get the book pdf from [[https://github.com/phasetr/math-textbook/releases/tag/v1.0.0][here]].
+
+- [[https://github.com/phasetr/math-textbook/releases/download/v1.0.0/math_textbook_ja.pdf][日本語版]]
+- [[https://github.com/phasetr/math-textbook/releases/download/v1.0.0/math_textbook_en.pdf][English Version]].
 * Math textbook
 I would like to write this math textbook by *social coding* Github.
 It will be written in English and Japanese.

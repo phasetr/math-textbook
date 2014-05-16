@@ -12,6 +12,7 @@ fi
 
 if [ ! $EMACS_PATH ]; then
     echo "Emacs Not Found"
+    exit 1
 else
     $EMACS_PATH $EMACS_OPTIONS
 fi

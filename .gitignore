@@ -8,10 +8,14 @@
 *.ilg
 *.ind
 *.log
+*.org
 *.out
 *.tex~
 *.toc
 *.pdf
 texput.log
+org-sett.el
 org-sett.elc
+tex.sh
+watchmedo.sh
 README.tex

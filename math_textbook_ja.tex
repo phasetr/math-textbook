@@ -1475,45 +1475,45 @@ Recall that the Weyl algebra $W_n(k)$ is naturally filtered by the sub-vectorspa
 \chapter{講演原稿 線型代数と微積分: 大学数学入門}
 \label{sec-4-1}
 
-このノートは 2014 年春の東京工業大学での新入生向けの講義に基いています．
-\cite{MasahikoSaitoh1, AsaoArai3, AraiEzawa1, AraiEzawa2, KenjiFukaya2, ToshioNiwa1} 参照．
+このノートは 2014 年春の東京工業大学での新入生向けの講義に基いています.
+\cite{MasahikoSaitoh1, AsaoArai3, AraiEzawa1, AraiEzawa2, KenjiFukaya2, ToshioNiwa1} 参照.
 \section{はじめに}
 \label{sec-4-1-1}
 
-線型代数，特に微積分に関連する事柄について話します．
+線型代数, 特に微積分に関連する事柄について話します.
 
-ここでは日本語で話しますが，黒板には英語で板書します．
-新入生の皆さんに英語の読み書きに慣れて欲しいからです．
+ここでは日本語で話しますが, 黒板には英語で板書します.
+新入生の皆さんに英語の読み書きに慣れて欲しいからです.
 \section{線型代数とは何か}
 \label{sec-4-1-2}
 
-線型代数の主な目的はベクトルと行列です．
-これらは高校で学びますが，
-大学数学における線型代数は高校のものとは少々趣が異なります．
-さらに線型代数は，微積分と比べて使いどころを想像するのが困難です．
-そのためにまず，その異なる点と，数学と物理における用法について考えます．
+線型代数の主な目的はベクトルと行列です.
+これらは高校で学びますが,
+大学数学における線型代数は高校のものとは少々趣が異なります.
+さらに線型代数は, 微積分と比べて使いどころを想像するのが困難です.
+そのためにまず, その異なる点と, 数学と物理における用法について考えます.
 
-高校では幾何学的対象としてのベクトルについて考えます．
-けれども、ここでそれらは線型``代数''のものであるため，
+高校では幾何学的対象としてのベクトルについて考えます.
+けれども、ここでそれらは線型``代数''のものであるため,
 代数的対象として考えます!
-高校でのベクトルは一般化/抽象化されたものです．
-ベクトルは向きや長さを持っている必要はありません．
-では，ベクトルはどのようなどのような性質を持つべきでしょうか？
+高校でのベクトルは一般化/抽象化されたものです.
+ベクトルは向きや長さを持っている必要はありません.
+では, ベクトルはどのようなどのような性質を持つべきでしょうか?
 \subsection{ベクトルの抽象化された定義}
 \label{sec-4-1-2-1}
 
-以下では，線型空間とベクトル空間という用語をしばしば用います．
-これらの単語は同じ意味を持ちます．
-以下のスカラーの集合の定義は，簡単のために実数 $\bbR$ の集合とします\footnote{
+以下では, 線型空間とベクトル空間という用語をしばしば用います.
+これらの単語は同じ意味を持ちます.
+以下のスカラーの集合の定義は, 簡単のために実数 $\bbR$ の集合とします\footnote{
 Of course a field may be general (positive characterstic) field.
 For applictions to information science characterstic sometimes must be positive, e.g. for code theory or
 cryptographically secure pseudo random number generator (Mersenne twister).
-}．
+}.
 
 \begin{defn}\textup{(線型/ベクトル空間の定義)}
- ここで $\bbR$ を実数の体とする: 実数はスカラーとも呼ばれる．
- その元が以下の性質を持つ時，集合 $L$ は\textup{\textbf{線型空間}}と呼ばれる．
- 元 $x, y, z \in L$ はベクトル，$a, b \in \bbR$ は実数として次式により与えられる．
+ ここで $\bbR$ を実数の体とする: 実数はスカラーとも呼ばれる.
+ その元が以下の性質を持つ時, 集合 $L$ は\textup{\textbf{線型空間}}と呼ばれる.
+ 元 $x, y, z \in L$ はベクトル, $a, b \in \bbR$ は実数として次式により与えられる.
 \begin{enumerate}
 \item 結合律:
   \begin{align}
@@ -1533,8 +1533,8 @@ cryptographically secure pseudo random number generator (Mersenne twister).
   \begin{align}
    x + y = 0
   \end{align}
-    上記の $0$ に対しこの式が成り立つ．
-    すなわち逆元の一意性を示すことができる．
+    上記の $0$ に対しこの式が成り立つ.
+    すなわち逆元の一意性を示すことができる.
 \item スカラー（実数）とベクトルの関係:
   \begin{align}
    a \cdot \rbk{x + y}
@@ -1553,15 +1553,15 @@ cryptographically secure pseudo random number generator (Mersenne twister).
   \end{align}
 \end{enumerate}
 \end{defn}
-重要な点は次の通りです．
+重要な点は次の通りです.
 \begin{enumerate}
-\item ベクトルは加算可能であり，かつ加法は可換的演算であり，かつ
-\item ベクトルとスカラーはいくつかの乗法を満たす．
+\item ベクトルは加算可能であり, かつ加法は可換的演算であり, かつ
+\item ベクトルとスカラーはいくつかの乗法を満たす.
 \end{enumerate}
 
-上記の性質は，もちろん高校の幾何ベクトルにおいても維持されます．
-次のような違いを見出すことを目標にしましょう．
-代数的対象としてベクトルを捉えたり，
+上記の性質は, もちろん高校の幾何ベクトルにおいても維持されます.
+次のような違いを見出すことを目標にしましょう.
+代数的対象としてベクトルを捉えたり,
 (主に) 代数的思考を用いて様々な興味深い性質を導くことです!
 \subsection{Examples of linear spaces}
 \label{sec-4-1-2-2}
@@ -2244,7 +2244,7 @@ Some types of quantum mechanical problems are formulated as a variational proble
 The original version is reprinted with the written consent of the author.
  }
 おおむね笠原 \cite{KoujiKasahara1}の内容です.
-モチベーションはクーラント・ヒルベルト \cite{CourantHilbert1}とか？
+モチベーションはクーラント・ヒルベルト \cite{CourantHilbert1}とか?
 \section{Gershgorinの定理}
 \label{sec-4-2-1}
 

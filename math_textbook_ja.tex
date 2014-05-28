@@ -1475,69 +1475,67 @@ Recall that the Weyl algebra $W_n(k)$ is naturally filtered by the sub-vectorspa
 \chapter{講演原稿 線型代数と微積分: 大学数学入門}
 \label{sec-4-1}
 
-This note is based on a course for newcomers in the spring of 2014 at the Tokyo institute of Technology.
-See also \cite{MasahikoSaitoh1, AsaoArai3, AraiEzawa1, AraiEzawa2, KenjiFukaya2, ToshioNiwa1}.
-\section{Introduction}
+このノートは 2014 年春の東京工業大学での新入生向けの講義に基いています．
+\cite{MasahikoSaitoh1, AsaoArai3, AraiEzawa1, AraiEzawa2, KenjiFukaya2, ToshioNiwa1} 参照．
+\section{はじめに}
 \label{sec-4-1-1}
 
-We talk about linear algebra, especially
-it's relation to calculus, i.e., differentiation and integration.
+線型代数，特に微積分に関連する事柄について話します．
 
-In this talk we speak in Japanese but write in English on blackboard.
-It is because I want newcomers to get used to writing and reading in English.
-\section{What is linear algebra?}
+ここでは日本語で話しますが，黒板には英語で板書します．
+新入生の皆さんに英語の読み書きに慣れて欲しいからです．
+\section{線型代数とは何か}
 \label{sec-4-1-2}
 
-Main targets of linear algebra are vectors and matrices.
-We learn them in high school but linear algebra in
-university mathematics has somewhat different flavor from one in high school.
-Furthermore linear algebra is difficult to imagine
-where we use it compared to calculus.
-So we first consider its different points and its usage
-in mathematics and physics.
+線型代数の主な目的はベクトルと行列です．
+これらは高校で学びますが，
+大学数学における線型代数は高校のものとは少々趣が異なります．
+さらに線型代数は，微積分と比べて使いどころを想像するのが困難です．
+そのためにまず，その異なる点と，数学と物理における用法について考えます．
 
-In high school we consider vectors as geometric objects.
-However we now consider them as algebraic objects,
-since they are ones in linear ``algebra''!
-Our vectors are a generalized/abstract version of ones in high school.
-A vector needs not have direction nor length.
-Then, what properies should vectors have?
-\subsection{Abstract definition of vectors}
+高校では幾何学的対象としてのベクトルについて考えます．
+けれども、ここでそれらは線型``代数''のものであるため，
+代数的対象として考えます!
+高校でのベクトルは一般化/抽象化されたものです．
+ベクトルは向きや長さを持っている必要はありません．
+では，ベクトルはどのようなどのような性質を持つべきでしょうか？
+\subsection{ベクトルの抽象化された定義}
 \label{sec-4-1-2-1}
 
-In the following we sometimes use the terms linear spaces or vector spaces.
-These words have the same meaning.
-In the below definition a set of scalers is the set of real numbers $\bbR$ for simplicity\footnote{Of course a field may be general (positive characterstic) field.
+以下では，線型空間とベクトル空間という用語をしばしば用います．
+これらの単語は同じ意味を持ちます．
+以下のスカラーの集合の定義は，簡単のために実数 $\bbR$ の集合とします\footnote{
+Of course a field may be general (positive characterstic) field.
 For applictions to information science characterstic sometimes must be positive, e.g. for code theory or
 cryptographically secure pseudo random number generator (Mersenne twister).
- }.
+}．
 
-\begin{defn}\textup{(Definition of linear/vector spaces)}
- Let $\bbR$ be a field of real numbers: a real number is also called a scaler.
- A set $L$ is called a \textup{\textbf{linear space}} if its elements have the following properties.
- Elements $x, y, z \in L$ are vectors and $a, b \in \bbR$ are real numbers in the following expressions.
+\begin{defn}\textup{(線型/ベクトル空間の定義)}
+ ここで $\bbR$ を実数の体とする: 実数はスカラーとも呼ばれる．
+ その元が以下の性質を持つ時，集合 $L$ は\textup{\textbf{線型空間}}と呼ばれる．
+ 元 $x, y, z \in L$ はベクトル，$a, b \in \bbR$ は実数として次式により与えられる．
 \begin{enumerate}
-\item Associativity:
+\item 結合律:
   \begin{align}
    \rbk{x + y} + z
    =
    x + \rbk{y + z}, \quad \forall x, y, z \in L.
   \end{align}
-\item Commutativity of sum:
+\item 加法の可換律:
   \begin{align}
    x + y = y + x,  \quad \forall x, y \in L.
   \end{align}
-\item Existence of unit for sum: there is an element $0 \in L$ such that
+\item 加法単位元の存在: 元 $0 \in L$ が存在し以下を満たす
   \begin{align}
    x + 0 = x, \quad \forall x \in L.
   \end{align}
-\item Existence of an inverse element for sum: for any $x \in L$ there is an element $y \in L$ such that
+\item 加法逆元の存在: 任意の $x \in L$ について元 $y \in L$ が存在し
   \begin{align}
    x + y = 0
   \end{align}
-    for the above $0$.
-    In fact we can prove the uniqueness of an inverse element.
-\item Relation of scalers (real numbers) and vectors:
+    上記の $0$ に対しこの式が成り立つ．
+    すなわち逆元の一意性を示すことができる．
+\item スカラー（実数）とベクトルの関係:
   \begin{align}
    a \cdot \rbk{x + y}
    &=
@@ -1549,21 +1547,21 @@ cryptographically secure pseudo random number generator (Mersenne twister).
    &=
    a \cdot x + b \cdot x,
   \end{align}
-\item Multiplication law for a scaler unit in $\bbR$:
+\item $\bbR$ におけるスカラー単位元の乗法:
   \begin{align}
    1 \cdot x = x, \quad \forall x \in L.
   \end{align}
 \end{enumerate}
 \end{defn}
-Important points are
+重要な点は
 \begin{enumerate}
-\item vectors are summable and sum is commutative operation, and
-\item vectors and scalers satisfy some multiplication laws.
+\item ベクトルは加算可能であり，かつ加法は可換的演算であり，かつ
+\item ベクトルとスカラーはいくつかの乗法を満たす．
 \end{enumerate}
 
-The above properties hold for geometric vectors in high school, of course.
-Our purpose is different from it: we consider vectors as algebraic objects and
-we derive many interesting properites using (mainly) algebraic thinking!
+上記の性質は，もちろん高校の幾何ベクトルにおいても維持されます．
+そこから次のような違いを見出すことを目的としています: 代数的対象としてベクトルを捉えたり，
+(主に) 代数的思考を用いて様々な興味深い性質を導くことです!
 \subsection{Examples of linear spaces}
 \label{sec-4-1-2-2}
 

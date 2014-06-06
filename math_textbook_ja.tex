@@ -125,6 +125,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\abs}[1]{\left|#1\right|}
 \newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\inftynorm}[1]{\left\Vert#1\right\Vert_{\infty}}
+\newcommand{\pnorm}[1]{\left\Vert#1\right\Vert_p}
+\newcommand{\qnorm}[1]{\left\Vert#1\right\Vert_q}
 \newcommand{\twonorm}[1]{\norm{#1}_2}
 \newcommand{\rbk}[1]{\left (#1\right)}
 \newcommand{\sqbk}[1]{\left[#1\right]}
@@ -384,7 +387,7 @@
 
 \title{Math textbook}
 \author{相転移 P (@phasetr)\thanks{phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com}}
-\date{2014-06-05}
+\date{2014-06-07}
 
 \begin{document}
 
@@ -395,7 +398,7 @@
 \vspace*{1cm}
 
 \part{この本の目的}
-\label{sec-1}
+
 
 こちらは日本語ソースなので随時翻訳を作っていく.
 
@@ -436,7 +439,7 @@ I want to fill the gaps:
 I want to write applicative contents in physics, engineering or mathematics itself,
 and connections among many branches.
 \part{数学・物理の英語を読み書きしよう}
-\label{sec-2}
+
 
 数学や物理に関する英語表現や具体的な例文を少しずつ足していく.
 基本的な表現については体系的なまとめもほしいので, そういうのもやっていこう.
@@ -445,25 +448,25 @@ and connections among many branches.
 研究会開催などで英文メールを打つこともあるだろう.
 そういう用途もあるので, ある程度一般的な英語もまとめていきたい.
 \chapter{\TeX{} で書いてみよう}
-\label{sec-2-1}
+
 
 基本的な入力方法については \cite{TakashiSakai1} が参考になる.
 論文などきちんとした体裁の数学の文章を書く上での注意については \cite{TadaoOda1} 必読.
 \chapter{普通の英語}
-\label{sec-2-2}
+
 \section{英数}
-\label{sec-2-2-1}
+
 \section{あ行}
-\label{sec-2-2-2}
+
 \section{か行}
-\label{sec-2-2-3}
+
 
 \begin{itemize}
 \item 京都でワークショップを 4/20 (日) に開くことになったのでお知らせしたい.
 \end{itemize}
 We has the pleasure to announce our workshop in Kyoto on April 20th (Sunday).
 \section{さ行}
-\label{sec-2-2-4}
+
 
 \begin{itemize}
 \item 参加をお待ちしている.
@@ -475,23 +478,23 @@ We look forward to your participation.
 \end{itemize}
 Please join us to enjoy a special workshop.
 \section{た行}
-\label{sec-2-2-5}
+
 \section{な行}
-\label{sec-2-2-6}
+
 \section{は行}
-\label{sec-2-2-7}
+
 \section{ま行}
-\label{sec-2-2-8}
+
 \section{や行}
-\label{sec-2-2-9}
+
 \section{ら行}
-\label{sec-2-2-10}
+
 \section{わ行}
-\label{sec-2-2-11}
+
 \chapter{数学・物理の英語}
-\label{sec-2-3}
+
 \section{Abbreviation}
-\label{sec-2-3-1}
+
 
 \begin{itemize}
 \item bdle: bundle
@@ -499,7 +502,7 @@ Please join us to enjoy a special workshop.
 \item TFAE: then the followings are equivalent
 \end{itemize}
 \section{英数}
-\label{sec-2-3-2}
+
 
 \begin{itemize}
 \item $E_N(Z, \vR)$ は原子核が動かない場合の基底エネルギーを表わし, $E_{N, M}(Z)$ は原子核が動く場合の基底エネルギーであることを思い出そう. \cite{LiebSeiringer1}
@@ -570,7 +573,7 @@ could also cause instabilities, even for just one atom, if $Z \alpha$ is too lar
 \end{itemize}
 The reader is referred to Chapter 13.
 \section{あ行}
-\label{sec-2-3-3}
+
 
 \begin{itemize}
 \item アインシュタインの相対論的運動学がどんな効果をもたらすだろうか. \cite{LiebSeiringer1}
@@ -685,7 +688,7 @@ some of which present the subject in a way that is congenial to mathematicians.
 Quite a few mathematicians have devoted a lot of time to explore generalizations of
 the inequalities and bounds on the optimal constants.
 \section{か行}
-\label{sec-2-3-4}
+
 
 \begin{itemize}
 \item 下界.
@@ -1032,7 +1035,7 @@ These inequalities play a crucial role in our understanding of stability of matt
 \end{itemize}
 To see this, let $\calA$ be the smallest abelian subcategory of $\calC$.
 \section{さ行}
-\label{sec-2-3-5}
+
 
 \begin{itemize}
 \item 先の議論と組み合わせると次の命題が成立することがわかる. \cite{LiebSeiringer1}
@@ -1186,7 +1189,7 @@ In the meantime, homological algebra continued to evolve.
 Elementary particles have an internal degree of freedom called spin which is characterized
 by a specific number that can take one of the values $S = 0, 1/2, 1, 3/2, \dots$.
 \section{た行}
-\label{sec-2-3-6}
+
 
 \begin{itemize}
 \item 対称性.
@@ -1327,14 +1330,14 @@ The modern treatment of the question ``how come a deterministic system can behav
 \end{itemize}
 The historical connections with topology, regular local rings, and semisimple Lie algebras are also described.
 \section{な行}
-\label{sec-2-3-7}
+
 
 \begin{itemize}
 \item 二次形式.
 \end{itemize}
 A quadratic form.
 \section{は行}
-\label{sec-2-3-8}
+
 
 \begin{itemize}
 \item 白色矮星. \cite{LiebSeiringer1}
@@ -1509,7 +1512,7 @@ A potential energy.
 Homological algebra is a tool used in several branches of mathematics: algebraic topology, group theory,
 commutative ring theory, and algebraic geometry.
 \section{ま行}
-\label{sec-2-3-9}
+
 
 \begin{itemize}
 \item 前の節で説明したように, 粒子の座標は $\bbRthree \times \cbk{1, \dots, q}$ 内の点,
@@ -1562,7 +1565,7 @@ If any.
 \end{itemize}
 At its simplest form, a dynamical system is a function $T$ defined on a set $X$.
 \section{や行}
-\label{sec-2-3-10}
+
 
 \begin{itemize}
 \item 有界.
@@ -1574,7 +1577,7 @@ Bounded.
 \end{itemize}
 Postulate.
 \section{ら行}
-\label{sec-2-3-11}
+
 
 \begin{itemize}
 \item ラグランジアン.
@@ -1625,34 +1628,34 @@ We will not necessarily follow the historical route.
 \end{itemize}
 Continued fraction.
 \section{わ行}
-\label{sec-2-3-12}
+
 
 \begin{itemize}
 \item ワイル代数が部分ベクトル空間による自然なフィルター構造を持つことを思い出そう.
 \end{itemize}
 Recall that the Weyl algebra $W_n(k)$ is naturally filtered by the sub-vectorspaces.
 \part{集合論}
-\label{sec-3}
+
 \chapter{濃度入門}
-\label{sec-3-1}
+
 
 動画から適当に切り出してくる.
 \part{線型代数}
-\label{sec-4}
+
 \chapter{講演原稿 線型代数と微積分: 大学数学入門}
-\label{sec-4-1}
+
 
 このノートは 2014 年春の東京工業大学での新入生向けの講義に基いています.
 \cite{MasahikoSaitoh1, AsaoArai3, AraiEzawa1, AraiEzawa2, KenjiFukaya2, ToshioNiwa1} 参照.
 \section{はじめに}
-\label{sec-4-1-1}
+
 
 線型代数, 特に微積分に関連する事柄について話します.
 
 ここでは日本語で話しますが, 黒板には英語で板書します.
 新入生の皆さんに英語の読み書きに慣れて欲しいからです.
 \section{線型代数とは何か}
-\label{sec-4-1-2}
+
 
 線型代数の主な目的はベクトルと行列です.
 これらは高校で学びますが,
@@ -1667,7 +1670,7 @@ Recall that the Weyl algebra $W_n(k)$ is naturally filtered by the sub-vectorspa
 ベクトルは向きや長さを持っている必要はありません.
 では, ベクトルはどのようなどのような性質を持つべきでしょうか?
 \subsection{ベクトルの抽象化された定義}
-\label{sec-4-1-2-1}
+
 
 以下では, 線型空間とベクトル空間という用語をしばしば用います.
 これらの単語は同じ意味を持ちます.
@@ -1729,7 +1732,7 @@ Recall that the Weyl algebra $W_n(k)$ is naturally filtered by the sub-vectorspa
 代数的対象としてベクトルを捉えたり,
 (主に) 代数的思考を用いて様々な興味深い性質を導くことです!
 \subsection{Examples of linear spaces}
-\label{sec-4-1-2-2}
+
 
 \begin{enumerate}
 \item The set of real numbers $\bbR$ itself with scaler $\bbR$.
@@ -1745,7 +1748,7 @@ Recall that the Weyl algebra $W_n(k)$ is naturally filtered by the sub-vectorspa
 
 Today's main targets are introduction to the last three items and its relation to calculus.
 \subsection{Examples of finite, but higher dimensional spaces than three}
-\label{sec-4-1-2-3}
+
 
 We have many examples for higher dimensional objects in real world, e.g.,
 \begin{enumerate}
@@ -1762,7 +1765,7 @@ These are related to analytical mechanics in physics.
 Moreover analytical mechanics is closely related to geometry.
 See \cite{KenjiFukaya1, NakamuraYamamoto1, NakamuraYamamoto2}.
 \subsection{Function as a vector}
-\label{sec-4-1-2-4}
+
 
 First recall the definition of vectors in three dimension:
 letting $f = (f(1), f(2), f(3))$ and $g = (g(1), g(2), g(3))$ be three dimensional vectors
@@ -1796,7 +1799,7 @@ Thus we conclude a space of functions is a linear one\footnote{A function space 
 Function spaces can be non-linear, e.g., an image of its elements is a manifold or general set.
  }.
 \subsection{Function spaces: examples of infinite dimensional spaces}
-\label{sec-4-1-2-5}
+
 
 We have infinitely many infinite dimensional objects.
 Examples are weather maps and wind direction maps.
@@ -1823,11 +1826,11 @@ In this way, in mathematics we will encounter various types of spaces
 other than a three dimensional, geometric space.
 We consider spaces where functions live and ones where spaces itself live.
 \subsection{Dimension}
-\label{sec-4-1-2-6}
+
 
 Later I will write this section.
 \subsection{Linear maps, functionals}
-\label{sec-4-1-2-7}
+
 
 We usually consider maps instead of functions in university mathematics.
 In fact a map is just a function whose domain and range are general sets.
@@ -1897,7 +1900,7 @@ In this way we connects linear algebra with calculus.
 For analysis of nonlinear functionals we also need various linear spaces and
 some technique from linear algebra.
 \subsection{Eigenvalues, eigenvectors}
-\label{sec-4-1-2-8}
+
 
 These are not learned explicitly in high school.
 However they sometimes appears in entrance exams.
@@ -1944,7 +1947,7 @@ Here are examples.
  See, e.g., \cite{HaimBrezis1, HaimBrezis2} for details.
 \end{ex}
 \subsection{Mathematical application of linear algebra}
-\label{sec-4-1-2-9}
+
 
 There many branches related to linear algebra.
 Here are some examples.
@@ -1958,7 +1961,7 @@ See also \cite{phasetr2}.
 \item Operator algebra.
 \end{enumerate}
 \subsection{Physical application}
-\label{sec-4-1-2-10}
+
 
 There many branches related to linear algebra in physics, too.
 See also \cite{phasetr2}.
@@ -1971,14 +1974,14 @@ and this ``superposition'' means linearity.
 In high school we learn a superposition principle for wave.
 This holds because our wave equation is linear in high school.
 \subsection{Linear algebra and statistics}
-\label{sec-4-1-2-11}
+
 
 We use statistics in many branches, including humanities and sociology.
 E.g., natural language processing has many humanity and information theoretic elements.
 This area needs broad knowledge including probability and statistics.
 Interested readers should learn, e.g., principal component analysis.
 \subsection{Linear algebra and computer/information science}
-\label{sec-4-1-2-12}
+
 
 We have applications in computer science.
 In numerical analysis we use linear algebra.
@@ -1987,9 +1990,9 @@ PageRank for real world application\footnote{See, e.g, my movies,
 \href{http://www.nicovideo.jp/watch/sm7599426}{http://www.nicovideo.jp/watch/sm7599426}, \href{http://www.nicovideo.jp/watch/sm10684363}{http://www.nicovideo.jp/watch/sm10684363}.
  }.
 \section{Integration}
-\label{sec-4-1-3}
+
 \subsection{Let's define inner products!}
-\label{sec-4-1-3-1}
+
 
 In this talk we mainly consider real linear spaces, e.g., $\bbRd$.
 You may consider complex linear spaces if you know complex numbers.
@@ -2044,7 +2047,7 @@ There are several notations for an inner product such as
 \end{align}
 The last one is the famous Dirac's braket notation in quantum mechanics.
 \subsubsection{Inner products in higher dimensional spaces}
-\label{sec-4-1-3-1-1}
+
 
 We wrote an inner product as
 \begin{align}
@@ -2120,7 +2123,7 @@ A linear space with inner product is called pre-Hilbert space.
 A pre-Hilbert space is called a Hilbert space if it is complete for metric induced by inner product.
 A Hilbert space is famous as a space where wave functions in quantum mechanics live.
 \subsection{Axiom for inner products}
-\label{sec-4-1-3-2}
+
 
 \begin{axm}
  Let $L$ be a linear space and $\bkt{\cdot}{\cdot} \colon L \times L \to \bbR$ is a map of two variables.
@@ -2148,7 +2151,7 @@ A Hilbert space is famous as a space where wave functions in quantum mechanics l
  The usual three dimensional inner product satisfies the above, of course.
 \end{rem}
 \subsection{Examples of inner products}
-\label{sec-4-1-3-3}
+
 
 There are many inner products in a function space.
 Let $\Omega$ be a (open) subset of $\bbR$ and $h \colon \Omega \to \bbR_{\geq}$ be a function satisfying
@@ -2197,7 +2200,7 @@ This means that the functions $\cbk{\cos nx}$ and $\cbk{\sin nx}$ are orthogonal
 This relates to the famous Fourier series expansion.
 This is used for wave analysis in physics.
 \subsection{Physics for the space $L^2 \rbk{\Omega}$}
-\label{sec-4-1-3-4}
+
 
 The symbol $L^2 \rbk{\Omega}$ in the title means
 the space of square integrable functions in the sense of Lebesgue on $\Omega$.
@@ -2233,9 +2236,9 @@ i.e., the domain of Hamiltonians.
 Linear operators have their domains
 and, for Hamiltonians, their domains are functions having finite energy.
 \section{Differentiation}
-\label{sec-4-1-4}
+
 \subsection{Taylor expansion}
-\label{sec-4-1-4-1}
+
 
 We start from Taylor's theorem.
 Assume a function $f$ is differentiable.
@@ -2297,7 +2300,7 @@ If we use quantum mechanical notation, $p = -i D$, the above expression becomes
  \left( e^{ixp} f \right) (0).
 \end{align}
 \subsection{Unitary representation of a group}
-\label{sec-4-1-4-2}
+
 
 The above story closely related to a unitary representation theory of a group.
 Simply speaking a underlying space $\bbR$ itself is a group
@@ -2316,7 +2319,7 @@ i.e., we can define an action of $e^{ixp}$ for more general functions.
 However if we define it by a Taylor expansion,
 the operator $e^{ixp}$ is defined for only analytic functions.
 \subsubsection{Fourier expansion}
-\label{sec-4-1-4-2-1}
+
 
 A simple argument can deduce a Fourier expansion.
 We can formally consider for $\bbR$,
@@ -2348,7 +2351,7 @@ Euler's formula says
 \end{align}
 and this leads a Fourier expansion.
 \subsection{Analitical mechanics and quantum mechanics}
-\label{sec-4-1-4-3}
+
 
 In quantum mechanics a momentum becomes a differential operator
 and denotes $p = -i D$.
@@ -2361,13 +2364,13 @@ Hence these are common property, generator of space shift.
 This is an important \textbf{formal} connection to classical mechanics and quantum mechanics.
 This connection is also important in geometry.
 \subsection{Physics and representation theory}
-\label{sec-4-1-4-4}
+
 
 Representation theory is also important for
 theory of relativity and relativistic quantum field theory.
 See \cite{TakeshiHirai1, TakeshiHirai2} for details.
 \section{Variational problem: mixture of differentiation and integration}
-\label{sec-4-1-5}
+
 
 A variational problem is an infinite dimensional version of differential theory.
 This is important and interesting in both physics and mathematics.
@@ -2376,9 +2379,9 @@ It is a mathematically and physically famous problem that why soap bubble become
 This type of problems is called a geometric variational problem.
 See \cite{SeikiNishikawa1} for details.
 \subsection{Examples of variational problems}
-\label{sec-4-1-5-1}
+
 \subsubsection{shortest time problem}
-\label{sec-4-1-5-1-1}
+
 
 Assume you are a lifesaver on beach and there is a person drowning.
 You have to save the person.
@@ -2392,7 +2395,7 @@ How to search it?
 A similar physical problem is discussed in high school: optics, refraction.
 In society this is related to how to design optical fibers to reduce light-loss.
 \subsection{Mathematical formulatrion: functionals, linear operators}
-\label{sec-4-1-5-2}
+
 
 We formulate the above problem mathematically.
 In usual we make a some \textbf{functional} and search a function
@@ -2407,7 +2410,7 @@ in particular, quantum mechanics and we need a minimum value of $E$ and its mini
 These are physically important quantities, ground state energy and ground state.
 Some types of quantum mechanical problems are formulated as a variational problem.
 \chapter{固有値いくつか}
-\label{sec-4-2}
+
 
 線型代数応用編. 意外と知らないよね, くらいのお話.\footnote{From a yukimi's page, \href{http://yukimigo.com/math/}{http://yukimigo.com/math/}.
 The original version is reprinted with the written consent of the author.
@@ -2415,7 +2418,7 @@ The original version is reprinted with the written consent of the author.
 おおむね笠原 \cite{KoujiKasahara1}の内容です.
 モチベーションはクーラント・ヒルベルト \cite{CourantHilbert1}とか？
 \section{Gershgorinの定理}
-\label{sec-4-2-1}
+
 
 以下 $\mathbb{C}^n$ で考える. ただし対称行列のときはもちろん $\mathbb{R}^n$  でよい.
 \begin{thm}[Gershgorinの定理]
@@ -2465,7 +2468,7 @@ $\max \abs{l_k} = \abs{l_i}$ とすると,
 だから, $|l_i|$ で割ればよい.
 \end{proof}
 \section{固有値の性質}
-\label{sec-4-2-2}
+
 
 さて, ここですこしだけ線型代数の復習をしよう.
 一般に対称行列 $A$ は直交行列によって対角化される.
@@ -2523,7 +2526,7 @@ $\lambda_1, \lambda_n \in W(A)$ であればよい.
 となる.
 \end{proof}
 \section{Min-Maxの原理}
-\label{sec-4-2-3}
+
 
 つぎは量子力学でとても重要だけどあまり知られていない.
 らしい(田崎 \cite{HalTasaki3}の付録によると).
@@ -2616,11 +2619,11 @@ $l_k, \dots , l_n$ で張られる部分空間を $E_{n-k+1}$ とすると,
 となって, 証明できた.
 \end{proof}
 \chapter{あとで大幅 rewrite: 学部 3 年のときに書いた「本」}
-\label{sec-4-3}
+
 \section{はじめに}
-\label{sec-4-3-1}
+
 \subsection{数学「を」学ぶ}
-\label{sec-4-3-1-1}
+
 
 これは基本的に数学の本です.
 物理現象を解析するのに, ある数学の理論が有用なので,
@@ -2704,11 +2707,11 @@ de Broglie によって与えられました.
 定義は納得するまで考えてください.
 定義こそが生命線です.
 \subsection{数学「で」学ぶ}
-\label{sec-4-3-1-2}
+
 
 作りかけ.
 \subsection{一年で物理の講義がほとんど無い理由}
-\label{sec-4-3-1-3}
+
 
 人によっては衝撃的なタイトルであるかもしれません.
 応物・物理に来たというのに, 一年生では物理をほとんどやらない, というのですから.
@@ -2822,7 +2825,7 @@ $\vf (\vr, t)$ を力のベクトルとすると
 見なくても分からなくても良い注だという印をつけておきます.
 きちんと考えるとややこしいことがあるようだ, ということだけ把握してあれば十分です.
 \subsection{物理で使う数学}
-\label{sec-4-3-1-4}
+
 
 基本的に物理学で使う数学は, 微分・積分と線形代数です.
 これらの計算と, 多少の理論を (理解できずとも) 知ってさえいれば,
@@ -2871,7 +2874,7 @@ $\vf (\vr, t)$ を力のベクトルとすると
 見た方が早いです.
 実際に振動現象の解析に入ってみましょう.
 \subsection{数学記号の記法}
-\label{sec-4-3-1-5}
+
 
 本書では記述を簡便にするために, 数学の記法をいくつか導入します.
 その中で基本的な記法と概念をいくつかここで紹介します.
@@ -2980,7 +2983,7 @@ $\vf (\vr, t)$ を力のベクトルとすると
 この共変性は群論という数学と深く関わっていることが知られています.
 これを電磁気学での Lorentz 変換と絡めて説明しようと思います.
 \subsection{物理と近似: まだ書きかけ}
-\label{sec-4-3-1-6}
+
 
 良い近似とは何か, みたいなことを書きたい.
 まだうまくまとまらない.
@@ -3022,9 +3025,9 @@ $\vf (\vr, t)$ を力のベクトルとすると
 新たな物理を見せ, 説明してくれます.
 多体系での原子たちは, 少数粒子のときとは全く別の論理に従っているようです.
 \section{調和振動子と線型代数}
-\label{sec-4-3-2}
+
 \subsection{導入}
-\label{sec-4-3-2-1}
+
 
 高校で単振動を学んだことと思います.
 これは調和振動とも呼ばれます.
@@ -3108,7 +3111,7 @@ m\ddot{X}_3 &= -(2 + \sqrt{2}) X_3
 安定点が存在すればその近傍ではそのポテンシャルに支配された系の運動が微小振動になることを証明します.
 そこへの接続に十分な範囲での議論をしなければなりませんが, それ以外にも重要なことは補足しながらいくことにします.
 \subsection{記法の確認と線型写像}
-\label{sec-4-3-2-2}
+
 
 いくつかの一般的な記法をまとめておきます.
 今この場で覚えようとしても無理なので, 使いながら覚えていって下さい.
@@ -3398,9 +3401,9 @@ $\bm{y} = A \bm{x}$ と書けます.
 線型写像と行列には密接な関連があることさえ把握しておけば, 今は十分です.
 細かいことは気にせず今は突っ走ってみましょう.
 \subsection{線型空間の導入\label{線型空間の導入}}
-\label{sec-4-3-2-3}
+
 \subsubsection{物理法則とベクトル}
-\label{sec-4-3-2-3-1}
+
 
 本章は主に行列に関することを述べるのですが, その前に
 線型代数で最も重要な概念である\textgt{線型空間 (ベクトル空間)}について議論することにします.
@@ -3470,7 +3473,7 @@ $\bm{y} = A \bm{x}$ と書けます.
 \textgt{自動的に共変性が満たされているような上手い数学的な表現法}があれば非常に便利です.
 答から言うならば, それは\textgt{ベクトル}(一般にはテンソル) によって物理法則を表現すれば良いことが分かっています.
 \subsubsection{抽象ベクトル}
-\label{sec-4-3-2-3-2}
+
 
 ここでベクトルについて考察を深めます.
 上で「物理現象を調べる際に様々な座標系を用いる」と書きましたが,
@@ -3587,7 +3590,7 @@ $\langle \bm{e}_1 , \bm{e}_2, \bm{e}_3 \rangle = \langle \bm{e}_i \rangle _{i=1}
 拡大・縮小のない回転で長さは当然不変であり,
 同時に同じだけ 2 つのベクトルを回転させれば角度も当然変換に対して不変になります.
 \subsubsection{回転の表現}
-\label{sec-4-3-2-3-3}
+
 
 そこでこれから回転を数理的に定式化します.
 下調べとして平面で考えましょう.
@@ -3692,7 +3695,7 @@ $A^*A=(c_{ij})$ とすれば $c_{ij}=\overline{(\bm{a}_i,\bm{a}_j)}$ であり,
 $( T_O ( \bm{x} ) , T_O ( \bm{y} ) ) = ( \bm{x} , \bm{y} )$ となる
 線型変換  $T_O$  を\textgt{直交変換}\index{ちょっこうへんかん@直交変換}と呼びます.
 \subsubsection{Galilei の相対性原理}
-\label{sec-4-3-2-3-4}
+
 
 ここで物理法則の記述という問題に帰ります.
 現象の解析を行なう際には適当な座標系 (と座標原点) を取ると書きました.
@@ -3921,7 +3924,7 @@ Galilei 変換を表す行列を $\hat{G}$ とすると,
 この計算をした後,  $\tilde{ \bm{R} }'$ のはじめの 4 つの成分を取れば,
 めでたく座標変換が得られます.
 \subsubsection{抽象ベクトルの微分}
-\label{sec-4-3-2-3-5}
+
 
 さて, 実はここまで曖昧にぼかしてきた部分があります.
 それは\textgt{抽象ベクトルの微分とは何者か}ということです.
@@ -4019,7 +4022,7 @@ $\partial f (x ,y , z) / \partial x , \partial f (r , \theta, \varphi) / \partia
 第一の方法に従うことにしましょう
 作りかけ.
 \subsubsection{定理の証明}
-\label{sec-4-3-2-3-6}
+
 
 最後に積み残した「有限次元の間の線型写像は行列で表現出来る」ということを証明します.
 まず 1 つ言葉を定義します.
@@ -4303,7 +4306,7 @@ $f ( \bm{x} ) = \xi_1 f ( \bm{u}_1 ) + \dotsb + \xi_n f ( \bm{u}_n )$ となり�
 その行列は標準基底で線型写像を表現した行列と座標系の変換 (基底変換の行列) で
 表されることが分かりました.  $\blacksquare$
 \subsection{行列式}
-\label{sec-4-3-2-4}
+
 
 前節で述べたように
 線型変換は座標系 (基底) を選んだ上で一意的に行列で表すことが出来ます.
@@ -4842,7 +4845,7 @@ $C$ の第 $i$ \textgt{行}ベクトルを $\bm{c}_i$ として今まで証明�
 行列式の値は $0$ ではありません.
 すなわち逆変換が存在するか否かは適当な座標系を取ったときの行列式を計算すれば十分であることが分かりました.
 \subsection{内積と外積}
-\label{sec-4-3-2-5}
+
 
 内積から書きます.
 ここでの内積は高校のときと同じです.
@@ -4912,7 +4915,7 @@ x_{1}y_{2} - x_{2}y_{1}
 となり, 確かに上の定義と一致します. これを記憶法といって定義としなかった理由は
 成分にベクトルと実数が共存する行列式を定義していないからです.
 \subsection{線型独立と基底, 次元 \label{sec:basis}}
-\label{sec-4-3-2-6}
+
 
 とりあえず天下りですが, 線型結合と線型独立, 線型従属の定義を述べます.
 あまり変わらないので, 本節は一般の $n$ で述べます.
@@ -5006,7 +5009,7 @@ x_{1}y_{2} - x_{2}y_{1}
 となるもの, つまりベクトルの長さが $1$ であるということです. \textgt{直交}というのはもちろん $i\not = j$ のとき
  $(\bm{e}_{i},\bm{e}_{j})=0$ となることです. 例えば標準基底は正規直交基底です.
 \subsection{固有値, 固有ベクトル \label{eigen}}
-\label{sec-4-3-2-7}
+
 
 まず固有値・固有ベクトルを定義しましょう.
     \begin{defn}行列 $A$ に対し零ベクトルでないベクトル $\bm{x}$ と\textgt{複素数} $\lambda $
@@ -5175,7 +5178,7 @@ x_{1}y_{2} - x_{2}y_{1}
     \end{align}
 となるので, 先程と同様にして $( \bm{x}_1 , \bm{x}_2 ) = 0$ です.  $\blacksquare$
 \subsection{対称行列の対角化とスペクトル分解\label{taikakuka}}
-\label{sec-4-3-2-8}
+
 
 さて行列の話も大詰めです. ここでは\textgt{対称行列が対角化可能である}ことを示します.
 対角化\index{たいかくか@対角化}とは, ある行列 $A$ に適当な行列 $U$ をかけることで対角行列 $\Lambda$ にしてしまうことです.
@@ -5289,7 +5292,7 @@ A = \beta _1 P_1 + \beta _2 P_2 + \dots + \beta _k P_k
 こうすると「行列をかける (作用させる) 」という直観的に捉えにくいものが, ただの定数倍に還元され, 非常に見やすくなります.
 あとでスペクトル分解と Fourier 解析との関係を少し紹介する予定なので, 軽く紹介してみました.
 \subsection{物理への適用}
-\label{sec-4-3-2-9}
+
 
 準備が終わったので, 早速これをはじめに言ってあった現象の解析に応用してみましょう.
 3 質点系での解析を行ないます. 問題を再録しましょう.
@@ -5353,12 +5356,12 @@ A = \beta _1 P_1 + \beta _2 P_2 + \dots + \beta _k P_k
 本節もまだ残り一節ありますが, 次の予告をしましょう.
 次章は一般のポテンシャルとその安定点近傍での振動です. 数学的には微分積分学です.
 \subsection{無限次元の線型代数学}
-\label{sec-4-3-2-10}
+
 
 この節は後々への接続と量子力学のためのものです
 気楽に読んでみて下さい.
 \subsubsection{抽象ベクトル 2}
-\label{sec-4-3-2-10-1}
+
 
 \ref{線型空間の導入}節ではベクトルについて少し突っ込んだ議論をしました.
 ここではもう少し踏み込んでいきます.
@@ -5389,7 +5392,7 @@ A = \beta _1 P_1 + \beta _2 P_2 + \dots + \beta _k P_k
 あまりいないでしょう.
 ここではそれをさらに先鋭化させていきます.
 \subsubsection{線型空間}
-\label{sec-4-3-2-10-2}
+
 
 ここで一般的なベクトルの定義 (線型空間の定義) をしてもう一度はっきりさせておきましょう.
 \begin{defn}
@@ -5539,7 +5542,7 @@ A + B \longrightarrow (A + B) f\defeq Af + Bf \\
 \alpha A \longrightarrow  (\alpha A ) f \defeq \alpha Af
 \end{gather}
 \subsubsection{線型独立と次元, 基底 2}
-\label{sec-4-3-2-10-3}
+
 
 退屈な話が続きました.
 そろそろもう少し身のある話に行きます. ここからは今までに有限次元 ( $\bC^n$ ) でしてきた話を
@@ -5588,7 +5591,7 @@ A + B \longrightarrow (A + B) f\defeq Af + Bf \\
 ついでに言っておくと, この $f_n$ は適当な $V$ の部分空間を取ると, その基底になることがあります.
 このあたりは後で Taylor 展開と絡めて説明する予定です.
 \subsubsection{内積}
-\label{sec-4-3-2-10-4}
+
 
 次に内積の話をします. 無限次元での内積をどう定義するか, ということですが, まずは有限次元を思い出しましょう.
  $\bm{x},\bm{y} \in \bC^n$ とします. このとき内積は
@@ -5710,7 +5713,7 @@ Hilbert (ヒルベルト) 空間と呼ばれるものの具体例です.
 これは数学的に行列力学は $l^2$ で考え, 波動力学 $L^2$ で考えていたので, 同型定理から
 数学的には同じ結果が出てもおかしくない, とかいう紆余曲折があったそうです.
 \subsubsection{直交多項式と基底}
-\label{sec-4-3-2-10-5}
+
 
 打って変わって基底のところで「この $f_n$ は適当な $V$ の部分空間を取ると, その基底になることがあります」と書きました.
 そのような基底になる直交多項式としていくつか挙げておきましょう.
@@ -5747,7 +5750,7 @@ f (x)
 \int_{-\infty}^{\infty} f (x) e^{-i \xi x} \, dx
 \end{gather}
 \subsubsection{微分方程式と Fourier 解析ことはじめ}
-\label{sec-4-3-2-10-6}
+
 
 そろそろ筆者の知識と認識の限界に来ているのですが, もう少し書きましょう.
 線型作用素についてです.  $t$ を時間として微分作用素を $D\defeq\frac{d}{dt}$ とします.
@@ -5789,11 +5792,11 @@ Euler (オイラー) の公式という次式になります.
 
 それではそろそろ微分積分に行きましょう.
 \chapter{Goole の PageRank への応用}
-\label{sec-4-4}
+
 
 動画の原稿から取ってくる.
 \chapter{量子力学を理解するために斎藤正彦『線型代数入門』\cite{MasahikoSaitoh1}を読む人が注目すべき点}
-\label{sec-4-5}
+
 
 Togetter からの転載.
 
@@ -5855,15 +5858,15 @@ p217, ペロン・フロベニウスの定理.
 詳しくは田崎さんの本 \cite{HalTasaki6} を参考にされたい.
 Google のページランクでも使う定理で応用は広い.
 \part{微分積分}
-\label{sec-5}
+
 \chapter{点・線分・直線の面積は 0?}
-\label{sec-5-1}
+
 
 動画から適当に切り出してくる.
 \chapter{あとで大幅書き直し: ポテンシャルの振る舞いと微分積分}
-\label{sec-5-2}
+
 \section{導入}
-\label{sec-5-2-1}
+
 
 前章ではばねにつながれた質点の運動の解析を行ないました.
 本章では一般のポテンシャルにしたがう力学系 (多数の質点) の運動の解析を行ない
@@ -5965,9 +5968,9 @@ $\frac{1}{2}kx^2,-G\frac{Mm}{r}$ などの項が
 せっかくなので本章では微分だけでなく積分も説明します.
 こちらは微分方程式の実際の解法を考えることから導入してみたいと思います.
 \section{$\varepsilon$ - $\delta$ 論法と収束}
-\label{sec-5-2-2}
+
 \subsection{$\varepsilon$ - $\delta$ 論法}
-\label{sec-5-2-2-1}
+
 
 これから微分・積分を論じます.
 積分は微分の逆, という感じであまり極限の香りがしないと思っている方もいるかもしれません.
@@ -6075,7 +6078,7 @@ $\frac{1}{2}kx^2,-G\frac{Mm}{r}$ などの項が
 物理をやっている場合, 普通は性質の良いものを扱うからこうした順序交換が許される, という仮定の元でどんどん計算を進めていきますが,
 量子力学では, こうした演算の順序が交換出来ないということが本質的な条件として登場してきますので, 一応注意を喚起しておきます.
 \subsection{Cauchy 列と実数の性質}
-\label{sec-5-2-2-2}
+
 
 高校までは基本的に具体的な数列を扱い (例えば $a_n = 1/n$ ),
 かつ極限も比較的楽に求まるようなものばかり扱ってきたと思います.
@@ -6207,7 +6210,7 @@ $A$ の上界全体の集合を $U (A)$ と書く.
 偶数番目, 奇数番目だけ集めた数列 $(a_{2n})_{n\in\bN},(a_{2n+1})_{n\in\bN}$ はそれぞれ $+1,-1$ に収束します.
 これらの公理は全て同値ですが, この同値性を証明するのは面倒なので略します.
 \subsection{数列, 級数の収束}
-\label{sec-5-2-2-3}
+
 
 本冊子では全ての定理を完全に証明しきることは出来ませんが,
 あとで登場する Taylor の定理ぐらいはきちんと証明したいので, そのための準備をします.
@@ -6311,7 +6314,7 @@ $\sum\,a_n$ も Cauchy の条件を満たします.  $\blacksquare$
 をみたす実数 $k$ が存在します. これから $\frac{a_{n+1}}{a_n}<k<1$ となり,
 前定理より級数 $\sum a_n$ は収束します.  $\blacksquare$
 \subsection{開集合, 閉集合, 近傍}
-\label{sec-5-2-2-4}
+
 
 後の叙述の便宜の為にいくつかの概念を紹介します.
 まず\textgt{集合族 (系)}\index{しゅうごうぞく@集合族}というものを定義します.
@@ -6358,21 +6361,21 @@ $\sum\,a_n$ も Cauchy の条件を満たします.  $\blacksquare$
 
 まだ作りかけ. 収束の話はなるべくきちんとする.
 \subsection{コンパクト性}
-\label{sec-5-2-2-5}
+
 
 作りかけ.
 \subsection{連続と一様連続}
-\label{sec-5-2-2-6}
+
 
 作りかけ.
 \subsection{連結と弧状連結}
-\label{sec-5-2-2-7}
+
 
 領域
 \subsection{完備な空間}
-\label{sec-5-2-2-8}
+
 \section{1 変数の微分と Taylor 展開}
-\label{sec-5-2-3}
+
 
 まずは定義域が開区間 $I =(a,b) \in \bm{R}$ の 1 変数実数値関数
  $f (x)$ の線型化\index{せんけいか@線型化}を考えてみましょう.
@@ -6544,7 +6547,7 @@ $x \to x_0$ としたときにきちんと両辺が一致するようにつけ�
 次節ではいくつか良く使う Taylor 展開がありますから
 それを示すことにします.
 \section{初等超越関数の Taylor 展開}
-\label{sec-5-2-4}
+
 
 何はともあれ初等超越関数とは何か, ですが $\cos x,\sin x,e^x, \log x$ のことです.
 まずはこれらの Taylor 展開を求めます.
@@ -6606,7 +6609,7 @@ $x \to x_0$ としたときにきちんと両辺が一致するようにつけ�
 と言っているだけですから, 1 のまわり, 2 のまわりで展開すれば
 また少し事情が変わるはずです.
 \section{Euler の公式}
-\label{sec-5-2-5}
+
 
 Euler (オイラー) の公式\index{おいらーのこうしき@Euler の公式}とは以下の想像を絶する式です.
     \begin{align}
@@ -6640,7 +6643,7 @@ Euler (オイラー) の公式\index{おいらーのこうしき@Euler の公式
 我々は三角関数の新たな表現を手に入れたことになります.
 特に微分方程式を解くとき, これを導入すると計算が著しく簡単になります.
 \section{多変数の微分と Taylor 展開}
-\label{sec-5-2-6}
+
 
 変数が多いとややこしくなるので主に 2 変数 $x,y$ (定義域は適当に $(a_1,b_1)\times (a_2,b_2)$ としておきます) の
 実数値関数に対して話を進めます.
@@ -6905,7 +6908,7 @@ f_{yx}(\bm{c})
 \end{align}
 と出来ます. これで $f_{xy}(\bm{c})=f_{yx}(\bm{c})$ が証明されました.  $\blacksquare$
 \section{微分公式}
-\label{sec-5-2-7}
+
 
 この節では合成関数の微分と関数の積の微分公式を扱います.
 まず合成関数の微分公式を示します.
@@ -7097,7 +7100,7 @@ fB + gA
 と書けます.
 すぐ上の式と比べれば, 積の微分可能性と $C = fB + gA = f \cdot Dg + g \cdot Df$ となることが分かります.  $\blacksquare$
 \section{多変数の Taylor の定理と微分}
-\label{sec-5-2-8}
+
 
 多変数の実数値関数に関しても Taylor の定理が成立します.
 1 変数のときと同じようにして線型化を中心に組み立てれば良いのですが,
@@ -7219,7 +7222,7 @@ Taylor の定理から, ある実数 $\theta\in (0,1)$ が存在して
 これは微分が基底の取り方に関係なく存在する量であることを示しています.
 つまり, 方向に対する依存性がないということですから, これは「あらゆる方向への微分」に対応するものであるといえます.
 \subsection{Taylor 展開の応用-波動方程式の導出}
-\label{sec-5-2-8-1}
+
 
 流れとしてはこのまま本筋の極値問題へ行くべきですが, その前にもう 1 つの本筋である振動・波動論に対して
 非常に重要な
@@ -7377,7 +7380,7 @@ e^{i (k x - \omega t)} \, d k \, d\omega
 となります. ただし, これは作用素としての等式です.
 ここでは線型代数が無限次元に拡張されていく様を見ておいてください.
 \section{最大最小, 極値問題}
-\label{sec-5-2-9}
+
 
 本章のメインとなる節です.
 本節最後に安定点の定式化を行ないます.
@@ -7711,7 +7714,7 @@ U ( \bm{r}_0 )
 \textgt{ポテンシャルの安定点近傍で質点系は微小振動を行なう}ことを示します.
 これは一旦節を改めましょう.
 \section{物理への適用}
-\label{sec-5-2-10}
+
 
 本節では時間によらないポテンシャルの安定点近傍で質点系は微小振動を行なうことを示します.
 まず $\bm{r}_i$ の質点の質量を $m_i$ とします.
@@ -7796,7 +7799,7 @@ $N$ 個の互いに独立な調和振動子\index{ちょうわしんどうし@�
 積分についても議論することにします.
 その前に微分方程式と絡めて動機づけをしておきます.
 \section{微分と積分の掛け橋-微分方程式\label{sec:微分と積分の掛け橋}}
-\label{sec-5-2-11}
+
 
 運動方程式 $m \ddot{ \bm{r} } = \bm{f}$ は 2 階の時間微分を含んでおり,
 さらにその微分されて埋まっている関数が求めるべきものです.
@@ -7892,9 +7895,9 @@ $\deltat$ の間 $\bm{f} ( \bm{r}_{ t_i } , \dot{ \bm{r} }_{t_i} )$ で
 そのあたりを以下で簡単に見る他,
 実際に必要となる計算結果, 変数変換公式などを導出していきます.
 \section{運動方程式と常微分方程式}
-\label{sec-5-2-12}
+
 \subsection{常微分方程式}
-\label{sec-5-2-12-1}
+
 
 何度か述べたように, 力学の基本法則である運動方程式は
 数学的には\textgt{(常) 微分方程式}\index{びぶんほうていしき@微分方程式}というものになります.
@@ -7934,9 +7937,9 @@ q \left \{ \bm{E} ( \bm{r} (t) , t ) + \dot{ \bm{r} } (t) \times \bm{B} ( \bm{r}
 この解の存在と一意性は数学的に比較的緩い条件下で\textgt{厳密に示す}ことができます.
 この章ではこの解の存在と一意性を示したのち, 具体的ないくつかの微分方程式の解法を述べることにします.
 \subsection{初期値問題の解の存在と一意性}
-\label{sec-5-2-12-2}
+
 \subsubsection{準備}
-\label{sec-5-2-12-2-1}
+
 
 1 番初めに私達に課せられた課題がかなり重いものであることを改めて確認します.
 前章で $N$ 質点系の安定点近傍での微小振動を示しました.
@@ -8090,7 +8093,7 @@ $| \bm{F} ( \bbR_1 , t ) - \bm{F} ( \bbR_2 , t ) | < \vep$ ,
 ただし $x^2$ などはこの Lipschitz 条件を満たしませんから,
 Lipschitz 条件はただの連続性よりは強い条件です.
 \subsubsection{微分方程式の解の存在と一意性の証明 1}
-\label{sec-5-2-12-2-2}
+
 
 以下では有界閉領域
 \begin{gather}
@@ -8430,7 +8433,7 @@ $\bm{P}$ を誤差 $\vep '=0$ の近似解と考えると
 したがって $\vep = 1/n$ の $n$ を $\infty$ にすると $\bm{R}=\bm{P}$
 となり, 証明終了です.  $\blacksquare$
 \subsubsection{微分方程式の解の存在と一意性の証明 2 の準備-局所 Lipschitz 条件}
-\label{sec-5-2-12-2-3}
+
 
 まず次の定理の証明からはじめます.
 \begin{thm}
@@ -8740,7 +8743,7 @@ $\chi _{R_1} ( \tilde{ \bm{R} } ) = \tilde{ \bm{R} }$ となります.
 を満たす, つまり定義域を制限した所で成立する
 局所的な解であることが分かりました.  $\blacksquare$
 \subsubsection{解の延長}
-\label{sec-5-2-12-2-4}
+
 
 前小節で局所解の一意的な存在を証明できましたが,
 上の証明では定義域 (時刻) を狭めた所まででしか一意的な存在を保証できません.
@@ -8804,7 +8807,7 @@ $T_m$ の定義に反します.
 \end{gather}
 となり, 証明終了です.  $\blacksquare$
 \subsubsection{解の初期値および解に対する連続依存性}
-\label{sec-5-2-12-2-5}
+
 
 これまでは決まった初期値に対する解の存在と一意性について調べてきました.
 実験的な状況を考えれば, カオス的な振る舞いでもない限り, 初期値が少し異なる場合
@@ -8969,7 +8972,7 @@ $h (x) \leq H (x)$ から
 となります.
 つまり解の一意性の別証明が得られました.
 \subsection{常微分方程式の解法の為の一般論}
-\label{sec-5-2-12-3}
+
 
 具体的な微分方程式として 1 階と 2 階の常微分方程式をあとで扱います.
 以下で主に使うものは単独の (連立でない) 方程式であり,
@@ -9239,7 +9242,7 @@ q (t)
 これは $z$ が斉次方程式 (\ref{eq:4-26.3}) の解であることを表します.
  $x_1 = z + x_2$ と書けますが, これが証明すべきことでした.  $\blacksquare$
 \section{1 階線型方程式の解法}
-\label{sec-5-2-13}
+
 
 物理的に重要な微分方程式の結果をいくつか紹介しました.
 ここからは良く出てくる具体的な微分方程式の解法を紹介します.
@@ -9310,7 +9313,7 @@ c e^{\frac{R} {L} t} + \frac{1} {L} \int v (s) e^{\frac{R} {L}(t-s)} \, ds
 \end{gather}
 となります.
 \section{2 階線型方程式の解法}
-\label{sec-5-2-14}
+
 
 2 階の線型方程式は振動の方程式です.
 摩擦などの抵抗が速度に比例するものとしましょう.
@@ -9548,30 +9551,30 @@ x_0 (t)
 \end{gather}
 となります.
 \chapter{Maxwell 方程式とベクトル解析}
-\label{sec-5-3}
+
 \section{導入}
-\label{sec-5-3-1}
+
 \section{微分作用素ナブラ}
-\label{sec-5-3-2}
+
 \section{諸公式の導出とテンソル}
-\label{sec-5-3-3}
+
 \section{Green の定理}
-\label{sec-5-3-4}
+
 \section{Stokes の定理}
-\label{sec-5-3-5}
+
 \section{Gauss の定理}
-\label{sec-5-3-6}
+
 \section{微分形式とベクトル解析}
-\label{sec-5-3-7}
+
 \part{複素解析}
-\label{sec-6}
+
 \chapter{講演原稿 1 変数関数論}
-\label{sec-6-1}
+
 
 See, e.g., \cite{MitsuoSugiura2} for consultation.
 In the following we assume $U \subset \bbC$ is a domain without further mention.
 \section{Definition: complex differentiablity}
-\label{sec-6-1-1}
+
 
 \begin{defn}
  Let $f \colon U \to \bbC$ be a function.
@@ -9600,7 +9603,7 @@ Note that we do not assume continuity of a derivative for holomorphy.
  See, e.g., \cite{ToshioNishino1}.
 \end{rem}
 \section{Cauchy-Riemann equation}
-\label{sec-6-1-2}
+
 
 \begin{thm}[The Cauchy-Riemann equation]
  Let $f \colon U \to \bbC$ be holomorphic and denote $f = u + iv$, $u=u (x,y)$ and $v=v (x,y)$.
@@ -9617,7 +9620,7 @@ Note that we do not assume continuity of a derivative for holomorphy.
  \end{align}
 \end{proof}
 \section{Complex line integral}
-\label{sec-6-1-3}
+
 
 First we review a line integral in $\bbR^2$.
 \begin{defn}\textup{(Line integral in $\bbR^2$)}
@@ -9703,7 +9706,7 @@ This theorem is wonderful in, at least, two points.
    See Morela's theorem.
 \end{enumerate}
 \subsection{Appendix: Green's theorem}
-\label{sec-6-1-3-1}
+
 
 We introduce a simple version.
 Consider $C^1$ functions $\varphi$ and $\psi$ defined on a compact interval $I=[a, b]$ satisfying
@@ -9758,7 +9761,7 @@ Similar computation for $v$ shows
 Summing up the above two expressions leads the result.
 \end{proof}
 \section{Morela's theorem}
-\label{sec-6-1-4}
+
 
 Morela's theorem is a converse of Cauchy's integral theorem:
 i.e., differentiablity and integrability coincide for holomorphic functions.
@@ -9813,7 +9816,7 @@ By the above theorem we have a function $F$ such that $F' = f$.
 The following Cauchy's integral representation formula and Taylor series expansion theorem show that $F$ and $f$ are holomorphic.
 \end{proof}
 \section{Cauchy's integral representation formula and Taylor series expansion}
-\label{sec-6-1-5}
+
 
 \begin{thm}
  Let $f \colon U \to \bbC$ be holomorphic and $C \subset U$ be a homolog 0 curve.
@@ -9879,7 +9882,7 @@ A function $f \colon \bbC \to \bbC$ is called \textbf{entire} if it is holomorph
  If an entire function $f$ is bounded $f$ is constant.
 \end{thm}
 \section{Simple application of fundamental theorems: convergence of holomorphic functions}
-\label{sec-6-1-6}
+
 
 \begin{defn}\textup{(Uniform convergence in the wider sense.)}
  Let $f_n, f \colon U \to \bbC$ be functions.
@@ -9944,7 +9947,7 @@ and that a sequence $(f_n)$ converges to a function $f$ on $K$.
 \end{enumerate}
 \end{rem}
 \section{Zero points for holomorphic functions and theorem of identity}
-\label{sec-6-1-7}
+
 
 \begin{thm}[Zero points for holomorphic functions are isolated]
  Let a function $f \colon U \to \bbC$ be holomorphic.
@@ -9989,9 +9992,9 @@ Hence $f (z) \neq 0$ for all $z \in B \setminus {z_0}$.
 \end{enumerate}
 \end{ex}
 \section{Theorem of residues}
-\label{sec-6-1-8}
+
 \subsection{Laurent expansion}
-\label{sec-6-1-8-1}
+
 
 Let $a \in U$ and $R > 0$.
 We call the following $B_0 (a, R)$ an \textbf{exclusive neighborhood} of $a$:
@@ -10087,7 +10090,7 @@ Taking limits for $R_1$ and $R_2$ and arguments for changes of paths end the pro
 \end{defn}
 We have several analyses and characterizations for singular points but we omit them.
 \subsection{Theorem of residue}
-\label{sec-6-1-8-2}
+
 
 \begin{defn}
  Let $a \in U$ and $R > 0$ and a function $f \colon B_0 (a, R) \to \bbC$ is holomorphic.
@@ -10117,7 +10120,7 @@ We have several analyses and characterizations for singular points but we omit t
  Trivial.
 \end{proof}
 \subsection{Argument principle}
-\label{sec-6-1-8-3}
+
 
 \begin{prop}
  Assume a function $f$ is holomorphic in $B_0 (a, R)$ for $a \in U$ and $R > 0$,
@@ -10176,7 +10179,7 @@ This result is generalized to the famous Argument principle and Louche's theorem
  If $\abs{f (z) - g (z)} < \abs{f (z)}$ holds over $C$ then $f$ and $g$ have the same number of zero points in $U$ with multiplicity.
  \end{thm}
 \section{Convergence theorems}
-\label{sec-6-1-9}
+
 
 \begin{thm}[Hurwitz, \cite{LarsAhlfors1} P191]
  Assume functions $f_n \colon U \to \bbC$ are holomorphic and vanish nowhere
@@ -10231,7 +10234,7 @@ We denote an algebra of holomorphic functions on $U$ as $\calO (U)$.
  If sequences $(f_n (z))_n$ converge for all $z \in E$ then there exists a holomorphic function $f \in \calO (U)$ such that $f_n \touw f$.
 \end{thm}
 \section{Representation of holomorphic functions}
-\label{sec-6-1-10}
+
 
 First we explain the setup of Mittag-Leffler's theorem.
 Assume an arbitrary sequence $(a_n)_{n \in \bbN}$ satisfying
@@ -10322,7 +10325,7 @@ and the principal part of $g$ is $P_n$ at $a_n$.
  Weierstrass' theorem in a several complex variables version is the famous Cousin second problem.
 \end{rem}
 \section{Riemann's mapping theorem}
-\label{sec-6-1-11}
+
 
 \begin{defn}
  Two regions $U_1$ and $U_2$ are \textup{\textbf{analytically homeomorphic}} if
@@ -10355,7 +10358,7 @@ i.e., $f (\bbC) \neq D$.
  Under the above additional condition a function $f$ is unique and it is a analytically holomorphic map from $U$ to $D$.
 \end{thm}
 \section{Miscellaneous results}
-\label{sec-6-1-12}
+
 
 We give examples of unexplained but important results.
 \begin{enumerate}
@@ -10372,28 +10375,28 @@ We give examples of unexplained but important results.
 \item Theory of Riemann surface.
 \end{enumerate}
 \section{Appendix}
-\label{sec-6-1-13}
+
 \subsection{Vector Analysis}
-\label{sec-6-1-13-1}
+
 \subsection{Analytic continuation}
-\label{sec-6-1-13-2}
+
 \chapter{講演原稿 Ising モデルのための複素解析}
-\label{sec-6-2}
+
 \chapter{多変数関数論}
-\label{sec-6-3}
+
 
 Cousin's problems.
 \part{関数解析}
-\label{sec-7}
+
 \chapter{関数空間を調べるということ}
-\label{sec-7-1}
+
 
 この節の内容は @f\_tangent さんのセミナー原稿にもとづく.
 ご当人の許可を頂いたのでここに転載する.
 \section{Banach 空間}
-\label{sec-7-1-1}
+
 \subsection{初めに}
-\label{sec-7-1-1-1}
+
 
 数列や方程式を考える際, 実数 $\mathbb{R}$ の性質を知っていることが不可欠であった.
 同様に, 関数列や微分方程式を扱うには「関数からなる集合」の性質を知る事が不可欠である.
@@ -10403,7 +10406,7 @@ Cousin's problems.
 本稿で扱う関数空間はBanach空間, つまり完備なノルム空間になる.
 最初にBanach空間の定義とその性質を使うものに限り紹介する.
 \subsection{Banach 空間の定義}
-\label{sec-7-1-1-2}
+
 
 \begin{defn}
  $V$ がベクトル空間であるとは, $x, y \in V$ に対し $x + y \in V$,
@@ -10468,7 +10471,7 @@ $\norm{x - y}$ は $x, y$ の通常の距離を表す.
  $V$ 上の任意の Cauchy 列が収束列であるとき, $(V, \norm{\cdot})$ を Banach 空間という.
 \end{defn}
 \subsection{Banach 空間の簡単な性質}
-\label{sec-7-1-1-3}
+
 
 \begin{prop}(級数の優収束定理)\label{introductory-study-function-spaces1}
  $(V, \norm{\cdot})$ をBanach空間とし, 点列 $\rbk{x_k} \subset V$ に対し $\rbk{a_k} \subset \bbR$ が存在して
@@ -10585,9 +10588,9 @@ $\norm{x - y} > 0$ とすると $1 \leq \theta$ が導かれ矛盾.
 $\norm{x - y} = 0$ から $x = y$ となり一意性が示せた.
 \end{proof}
 \section{関数空間}
-\label{sec-7-1-2}
+
 \subsection{関数空間の構造}
-\label{sec-7-1-2-1}
+
 
 \begin{defn}
  $I\subset\mathbb{R}$ を空でない開集合とする.
@@ -10799,7 +10802,7 @@ $x \in I$ は任意であったから, $f$ は $I$ で連続.
 以上より $f \in C^0_b(I)$ であり, $(C^0_b(I), \norm{\cdot}_{\infty})$ は Banach 空間である.
 \end{proof}
 \section{応用}
-\label{sec-7-1-3}
+
 
 \begin{thm}(Weierstrass)
  連続関数列 $f_n \colon I \to \bbR$ $(n \in \bbN)$ について,
@@ -11034,7 +11037,7 @@ $f$ が (\ref{introductory-study-function-spaces6}) の解になる.
 実際この $f$ は (\ref{introductory-study-function-spaces6})の解になっている.
 \end{ex}
 \section{最後に}
-\label{sec-7-1-4}
+
 
 本稿では連続関数からなる空間上の解析を導入した.
 空間の完備性や写像の性質に着目するだけで Weierstrass の $M$ テストや Pic\'ard-Lindel\"of の定理を示す事ができた.
@@ -11046,11 +11049,11 @@ $f$ が (\ref{introductory-study-function-spaces6}) の解になる.
 連続であるが微分不可能な関数の例は\cite{WilliamDunham1}から,
 解が一意に定まらないODEの例は\cite{YoichiroTakahashi1}から引用した.
 \chapter{Lebesgue 積分入門}
-\label{sec-7-2}
+
 \section{Why Lebesgue integral?}
-\label{sec-7-2-1}
+
 \subsection{Area}
-\label{sec-7-2-1-1}
+
 
 Theory of Lebesgue integral is one for integral, of course.
 However integral is closely connected with a theory of area.
@@ -11079,7 +11082,7 @@ It suffice to consider an area of circle.
 
 How do we define an area for a (disjoint) union of infinitely many sets?
 \subsection{Function space: approximation of functions}
-\label{sec-7-2-1-2}
+
 
 In application it is important to consider approximation of functions,
 e.g., application to analysis of differential equations.
@@ -11087,7 +11090,7 @@ Then we would like to set distances for functions since,
 in computer simulation, we cannot use an exact solution but an approximated solution.
 However what is the distance between functions?
 \subsection{Distance by supremum norm}
-\label{sec-7-2-1-3}
+
 
 We can use a distance defined by supremum norm, e.g.,
 \begin{align}
@@ -11151,7 +11154,7 @@ A division number $N$ is virtual, so we would like to take a limit $N \to \infty
 \end{align}
 This is an (almost) $L^2$.
 \subsection{Comparison of these two distances}
-\label{sec-7-2-1-4}
+
 
 There are some difference in these two distances.
 We want to see these ``sense of distances'' are totally different.
@@ -11211,7 +11214,7 @@ Furthermore a function $h_{\infty}$ is not Riemann integrable.
 Since a line has an area 0 (later we will prove) an area of the graph of $h_{\infty}$ must be finite, or 1.
 Then how do we define an integral for functions which may have an infinite value?
 \subsection{Limiting procedure}
-\label{sec-7-2-1-5}
+
 
 In analysis our main task is to control various limits.
 In ``functional'' analysis we must control limits for functions.
@@ -11224,9 +11227,9 @@ We require the following points.
 \item Our limit theorems are simple, easy to memorize, and analogous to the famous theorems in the theory of real numbers.
 \end{enumerate}
 \section{Definition and Properties of measure}
-\label{sec-7-2-2}
+
 \subsection{Definition}
-\label{sec-7-2-2-1}
+
 
 \begin{defn}[Finitely additive family]
  Suppose $X$ is a set and $\calF$ is a family of subsets $X$.
@@ -11299,7 +11302,7 @@ We require the following points.
  We call a pair $(X, \calB, \mu)$ a \upbf{measure space}.
 \end{defn}
 \subsection{Why countable?}
-\label{sec-7-2-2-2}
+
 
 Assume a Lebesgue measure (ordinary area) $\mu$ is uncountable additive.
 Suppose sets $A_y = \sqbk{0, 1} \times \cbk{y}$ for $y \in \sqbk{0, 1}$
@@ -11330,7 +11333,7 @@ Then $A \subset B$ and
 \end{align}
 \end{proof}
 \subsection{Definition of Lebesgue measure}
-\label{sec-7-2-2-3}
+
 
 \begin{defn}\upbf{(Careth\'eodory outer measure.)}
  If there is a set function $\Gamma \colon 2^X \to \bbR$ on $X$ and $\Gamma$ satisfies the following three conditions
@@ -11401,7 +11404,7 @@ In the following our main concern is a measure space $(\bbRn, \calB^n, \mu)$,
 where $\mu$ is the Lebesgue measure.
 However main arguments holds for general measure spaces.
 \subsection{Null sets}
-\label{sec-7-2-2-4}
+
 
 \begin{defn}
  Suppose $(X, \calB, \mu)$ is a measure space and $A \in \calB$.
@@ -11418,7 +11421,7 @@ A countable set $A = \cbk{a_n}_n \in \bbRn$ is also null since
 Note that there is an uncountable Lebesgue null set in $\bbR$, e.g., the \textbf{Cantor set}.
 For details see P.41 in $\cite{SeizoIto1}$.
 \subsection{Almost everywhere}
-\label{sec-7-2-2-5}
+
 
 Suppose $(X, \calB, \mu)$ is a measure space.
 If there is a proposition P related to points in a set $E \in \calB$
@@ -11441,7 +11444,7 @@ is $0$ almost everywhere on $\bbR$ and we denote
  f (x) = 0 \quad \text{a.e.}
 \end{align}
 \subsection{Examples of other measures or measure spaces}
-\label{sec-7-2-2-6}
+
 
 \begin{ex}
  Let $\calB^n$ be the Borel $\sigma$-algebra and $\mu$ is the Lebesgue measure.
@@ -11474,7 +11477,7 @@ is $0$ almost everywhere on $\bbR$ and we denote
  Hence a series theory must be contained in Lebesgue integration theory.
 \end{ex}
 \section{Properties of measure}
-\label{sec-7-2-3}
+
 
 \begin{thm}[\cite{SeizoIto1} Theorem 6.2]
  Suppose $(X, \calB, \mu)$ is a measure space and $(A_n)_n \subset \calB$.
@@ -11535,7 +11538,7 @@ Hence it holds that
 The remaining parts are derived from similar arguments.
 \end{proof}
 \section{Product measure and extension theorem}
-\label{sec-7-2-4}
+
 
 \begin{defn}
  Suppose $(X, \calB_X, \mu_X)$ is a measure space.
@@ -11573,7 +11576,7 @@ For the proof we need the following
  If, furthermore, $X$ is $\sigma$-finite then the extension is unique.
 \end{thm}
 \section{Measurable functions}
-\label{sec-7-2-5}
+
 
 Suppose $X$ is a set and $\calB$ is a $\sigma$-algebra on $X$.
 Fix $E \in X$ and set a function $f \colon E \to \bbRbar$, where $\bbRbar \defeq \bbR \cup \cbk{\pm \infty}$
@@ -11717,7 +11720,7 @@ Sum up:
  The set of measurable functions is a linear space and closed in pointwise limits.
 \end{thm}
 \section{Definition of Lebesgue integral and its properties}
-\label{sec-7-2-6}
+
 
 Fix a measure space $(X, \calB, \mu)$ and $E \in \calB$.
 \begin{defn}\textup{(Definition of integral for non-negative simple functions.)}
@@ -11987,7 +11990,7 @@ Since $\alpha$ is arbitrary $\mu (E_0) = 0$.
 \end{enumerate}
 \end{thm}
 \section{Famous theorems for exchanging orders of limits}
-\label{sec-7-2-7}
+
 
 We fix a measure space $(X, \calB, \mu)$.
 \begin{thm}[Theorem. 13.1 in \cite{SeizoIto1}]
@@ -12097,9 +12100,9 @@ Then it follows that
  \end{align}
 \end{thm}
 \section{Fubini's theorem}
-\label{sec-7-2-8}
+
 \section{Function spaces $L^p$}
-\label{sec-7-2-9}
+
 
 Riemann-Lebesgue.
 Def of Sobolev using Fourier transform.
@@ -12107,19 +12110,19 @@ P83, Theorem 12.6.
 P84, Theorem 12.7,
 P85, Theorem 12.8.
 \section{Riesz-Markov-Kakutani's theorem}
-\label{sec-7-2-10}
+
 \section{Fourier Analysis}
-\label{sec-7-2-11}
+
 \subsection{Hilbert space}
-\label{sec-7-2-11-1}
+
 \subsection{Fourier series}
-\label{sec-7-2-11-2}
+
 \subsection{Fourier transform}
-\label{sec-7-2-11-3}
+
 \subsection{Functions of positive type: Bochner's theorem}
-\label{sec-7-2-11-4}
+
 \section{Miscellaneous results}
-\label{sec-7-2-12}
+
 
 \begin{enumerate}
 \item Omitted proofs.
@@ -12132,24 +12135,24 @@ P85, Theorem 12.8.
 \item Probability theory. (\cite{DavidWilliams1, TadahisaFunaki1})
 \end{enumerate}
 \chapter{関数解析入門}
-\label{sec-7-3}
+
 \chapter{作用素論入門}
-\label{sec-7-4}
+
 \section{Functional calculus}
-\label{sec-7-4-1}
+
 \section{Normed field}
-\label{sec-7-4-2}
+
 \chapter{Hilbert 空間論と作用素論入門}
-\label{sec-7-5}
+
 \section{Introduction}
-\label{sec-7-5-1}
+
 
 参考: \cite{KazuhikoAomoto1, AraiEzawa1, AraiEzawa2, AsaoArai4, HaimBrezis1,
 HaimBrezis2, HiaiYanagi1, KenichiKanaya1, NaokiKurasawa1,
 TomKoornwinder1, SeikiNishikawa1, NatsumeMoriyoshi1,
 NoborizakaOnishiYamamoto1, MakotoOkazaki1, KimYamamoto1, HiroshiTanaka1}.
 \subsection{概要}
-\label{sec-7-5-1-1}
+
 
 この間 Twitter で新入生が線型代数何ぞ的なこと言っていたのもあるので,
 新入生向けに線型代数の世界を見せたい.
@@ -12169,13 +12172,13 @@ Hilbert 空間と線型作用素を基本に話す.
 まず超大雑把に言って教養でやる線型代数らしい線型代数と,
 微分方程式方面と関わる方面の話と, 関数解析または作用素論的な抽象論みたいな感じの話がある的な話をする.
 \subsection{線型代数からの代数的展開}
-\label{sec-7-5-1-2}
+
 
 加群への展開とか, Lie 群への展開とか数学として取り逃すところは色々出てくるが,
 この辺は私の数学力的に手に負えないところが出てくるので色々ある, とだけ言って逃げる.
 ただ表現論と Fourier と, みたいなところと量子力学とかは少し触れたい.
 \subsection{標準的なコースで出てくる諸概念の重要性}
-\label{sec-7-5-1-3}
+
 
 あと標準的なコースの重要性はきちんと言わないといけない.
 行列式と固有値, 固有ベクトルあたりは何をネタにしよう.
@@ -12194,7 +12197,7 @@ Google のページランクみたいな話もしよう.
 無限次元というか微分積分への接続として平衡点近傍の話をもってくる方がいいか.
 あとは微分作用素と積分作用素の線型性は必ず触れる.
 \subsection{線型代数と物理や工学への応用}
-\label{sec-7-5-1-4}
+
 
 有限次元と言ったところで専門に近い所で見ても色々あるし困る.
 とりあえずハバードだとか, 直接的に研究に結び付くくらいやばい, という話はしよう
@@ -12211,12 +12214,12 @@ Google のページランクみたいな話もしよう.
 
 考えてみれば, Hubbard や Google のページランクについては動画を作ったのだった.
 \subsection{線型代数と量子力学}
-\label{sec-7-5-1-5}
+
 
 Hilbert 空間の抽象論と作用素論的な展開と量子力学との関係的なアレはあとで詳しくやるから, 軽くこなす.
 まずは有限次元の方か.
 \subsection{線型代数と Hilbert 空間}
-\label{sec-7-5-1-6}
+
 
 線型代数は (数学内部または少なくとも物理と物理に近い工学で) 役に立つという話はされるだろうが,
 あまり具体的な話はされない (時間がない) だろうから, その辺の話から入る.
@@ -12226,7 +12229,7 @@ Hilbert 空間の抽象論と作用素論的な展開と量子力学との関係
 また, 物理でそれなりに色々な数学が出てくるが, 線型代数という視点でクリアで統一的な理解ができるから大事という話をする.
 微分作用素, 積分作用素の線型性とかも話す必要がある.
 \subsection{微分方程式}
-\label{sec-7-5-1-7}
+
 
 物理または工学上大事な数学的道具立てとして大事な微分方程式があるが,
 初等的な方程式なら具体的に解ける.
@@ -12243,7 +12246,7 @@ Hilbert 空間の抽象論と作用素論的な展開と量子力学との関係
 単なる数学ではない部分もある的なアレ.
 変分とか無限次元の微分とかいう話はすると楽しいかよくわからないが, ネタとして書いておこう.
 \subsection{微分方程式を解くときに出てくる直交多項式}
-\label{sec-7-5-1-8}
+
 
 第 1 回のイントロでは特に特殊関数周りの具体例を色々あげておきたいと思っている.
 全体的な話として, まだ買っていないのだが \cite{KazuhikoAomoto1} がかなり気になっている.
@@ -12252,7 +12255,7 @@ Hilbert 空間の抽象論と作用素論的な展開と量子力学との関係
 Hermite 多項式, Laguerre 多項式, Fourier 級数のあたりだ.
 ちなみに今はじめて知ったのだが, Chebyshev 多項式は \cite{HiroshiTanaka1} によると, 計算機の中での応用があるらしい.
 \subsubsection{Legendre 多項式, 球 Bessel 多項式}
-\label{sec-7-5-1-8-1}
+
 
 Legendre や球 Bessel については \cite{NorikatsuMio1} が参考になるかと思う.
 自分が知っている話, ということで物理への応用について話す予定で, 正にそういう話だ.
@@ -12262,7 +12265,7 @@ Laguerre は例えば \cite{KenichiKanaya1} を検討している.
 今すぐ参考文献を知りたい向きは, 基本的には偏微分方程式を解くところで使うので, その辺で探すといい.
 「物理数学 Legendre 多項式」などで探せば色々出てくる.
 \subsubsection{Fourier}
-\label{sec-7-5-1-8-2}
+
 
 Fourier は熱方程式, 波動方程式, 電磁気学あたりで探すといいだろう,
 数学の本ではあるが, 逆問題を通じた応用的な色彩が強い本として,
@@ -12278,7 +12281,7 @@ Fourier は熱方程式, 波動方程式, 電磁気学あたりで探すとい�
 微分作用素の固有値展開からの Fourier という線もある.
 Fourier は高校でやった三角の積分が直交関係を表す.
 \subsection{変分}
-\label{sec-7-5-1-9}
+
 
 多項式から話題を変えるが, 例えば変分というのがある.
 変分原理として物理の各所で現われるが, 量子力学で基底エネルギーを出すのに使うこともある.
@@ -12292,7 +12295,7 @@ Hilbert 空間を中心に議論されている.
 また, 何度も紹介しているが, 解析力学というか幾何学での変分ということでは \cite{SeikiNishikawa1} が比較的分かりやすく, しかも面白い.
 読んだことはないのだが, 物理での変分原理については \cite{MakotoOkazaki1} もある.
 \subsection{作用素のスペクトル}
-\label{sec-7-5-1-10}
+
 
 これまでの微分方程式の話とは大分変わるが, 作用素論につなげるので,
 量子力学とスペクトルの話もしたいと思っている.
@@ -12303,7 +12306,7 @@ Hilbert 空間を中心に議論されている.
 作用素の関数については先日ワヘイヘイオフで詳しい話を聞かせろ, という要望を受けたので,
 別途早めにまとめようと思っている.
 \subsection{Taylor 展開と作用素論}
-\label{sec-7-5-1-11}
+
 
 また, Taylor 展開と作用素論ということで $e^{ipx}$ の話もしよう.
 簡単に説明しておくとこんな感じ.
@@ -12342,7 +12345,7 @@ $x$ だけずらす作用素と思えば一般の関数に対して定義でき�
 
 以上大体イントロで話す予定のこと.
 \subsection{2 回目の概論}
-\label{sec-7-5-1-12}
+
 
 2 回目から実際にもう少し踏み込んだ話をしていく.
 まずは Hilbert 空間自体の話をする.
@@ -12350,7 +12353,7 @@ $x$ だけずらす作用素と思えば一般の関数に対して定義でき�
 演習問題になっている定理にも少し触れたい.
 完備性の話などもあるので, 証明もポイントをおさえて触れていきたい.
 \subsection{3-4 回目の概論}
-\label{sec-7-5-1-13}
+
 
 引き続き 2, 3 章を力づくでやっていく.
 非有界作用素はゴツ過ぎて触れられないが, スペクトル定理は紹介する.
@@ -12359,7 +12362,7 @@ $x$ だけずらす作用素と思えば一般の関数に対して定義でき�
 むしろ色々な数学との関係を話す機会として採り上げたい.
 Stone の定理と量子力学の話とかも一応入れる予定.
 \subsection{参考文献の紹介}
-\label{sec-7-5-1-14}
+
 
 参考文献をまとめておこう.
 \cite{HiaiYanagi1, AraiEzawa1} の他, 1 つの展開としての作用素環方面, 特に (非可換) 幾何方面ということで,
@@ -12373,16 +12376,16 @@ Stone の定理と量子力学の話とかも一応入れる予定.
 トークしろと言われると困る部分はあるが, 一緒に勉強しようというなら時間さえ合えば付き合いたい.
 そしてプロデュースしたい.
 \chapter{不動点定理とかんたんな応用}
-\label{sec-7-6}
+
 \section{Introduction}
-\label{sec-7-6-1}
+
 
 学部四年のセミナーで話した内容の一部です\footnote{From a yukimi's page, \href{http://yukimigo.com/math/}{http://yukimigo.com/math/}.
 The original version is reprinted with the written consent of the author.
  }.
 参考文献は\cite{HisayaMasuda1, HisayaMasuda2, ShizuoMiyajima2}.
 \section{Contents}
-\label{sec-7-6-2}
+
 
 \begin{defn}
  $f$ を集合 $\Omega$ から $\Omega$ への写像とする.
@@ -12404,7 +12407,7 @@ The original version is reprinted with the written consent of the author.
 なる $f$ が不動点をもつか, という問題に帰着される.
 そのためにもっとも簡単なのは $f$ が縮小写像の場合である.
 \section{Banach's fixed point theorem}
-\label{sec-7-6-3}
+
 
 \begin{thm}[Banach の不動点定理]
  $(X, d)$ を完備距離空間とする.
@@ -12462,7 +12465,7 @@ $C ([-1, 1])$ をとれば, 任意の $x, y \in X$ について
 \end{align}
 だから max をとれば $k = 1/2$ で $f$ が縮小写像となることがわかる.
 \section{Brouwer' fixed point theorem}
-\label{sec-7-6-4}
+
 
 $[-1, 1]$ から自分自身への連続関数は一般に縮小写像でないが, 中間値の定理から不動点をもつことはわかる.
 実際, $g (x) \defeq x - f (x)$ とすると $g (-1) \le 0$,
@@ -12477,7 +12480,7 @@ $g (-1) < 0$,  $g (1) > 0$ ならば $g (x_0) = 0$ となる $x_0$ が区間 $(-
 初等的な証明と写像度を使う証明があるが, どちらにしろたいへん.
 \cite{HisayaMasuda2} 参照.
 \section{Schauder's fixed point theorem}
-\label{sec-7-6-5}
+
 
 Brouwer の不動点定理は一般に無限次元空間では成立しないが,
 無限次元空間における不動点定理として Schauder の不動点定理がある.
@@ -12619,7 +12622,7 @@ $f$ は連続だから $f (x_{\varepsilon'}) \to f (x_0)$ である.
 もともと $f (x_{\varepsilon'}) \to x_0$ だったから $f (x_0) = x_0$ であり, $x_0$ は $f$ の不動点である.
 \end{proof}
 \section{Application of Schauder's fixed point theorem}
-\label{sec-7-6-6}
+
 
 Schauder の不動点定理を微分方程式に応用しよう.
 \begin{thm}[Peano の存在定理]
@@ -12704,7 +12707,7 @@ Schauder の不動点定理の $K$ として $f (B)$ の閉包を取れて $f$ �
 と同等だから, $y$ はその解でもある.
 \end{proof}
 \chapter{Sobolev の埋蔵定理}
-\label{sec-7-7}
+
 
 どっかで話す予定がボツになってしまったので放出.\footnote{From a yukimi's page, \href{http://yukimigo.com/math/}{http://yukimigo.com/math/}.
 The original version is reprinted with the written consent of the author.
@@ -12713,7 +12716,7 @@ $\mathbb{R}^n$ 全体での話しかしません (たまにさぼって略すか
 領域の話をしだすとややこしくなるからです.
 ともあれいつもどおり入門的な内容です.
 \section{Sobolev 空間}
-\label{sec-7-7-1}
+
 
 まず定義をしよう.
 \begin{defn}[Sobolev 空間]
@@ -12755,7 +12758,7 @@ $\mathbb{R}^n$ 全体での話しかしません (たまにさぼって略すか
  なのでしないで済む話だけにしぼります.
 \end{rem}
 \section{Sobolev 不等式}
-\label{sec-7-7-2}
+
 
 まずつぎの不等式が基本になる. とくに $p=2$ のときを (個人的な趣味の範囲で) よく使う.
 \begin{thm}[Sobolev 不等式]\label{yukimi-introduction-to-sobolev-embedding-theorems2}
@@ -13066,7 +13069,7 @@ H\"older の不等式から
 となり, なりたつことがわかる.
 \end{proof}
 \section{Sobolev の埋蔵定理}
-\label{sec-7-7-3}
+
 
 これまで微分が一回だけの場合を考えてきたが, これからはもっと高階の場合も考え,
 \textbf{Sobolev の埋蔵定理 (embedding theorem)} を証明しよう.
@@ -13182,7 +13185,7 @@ H\"older の不等式から
 \end{enumerate}
 \end{proof}
 \section{End of talk}
-\label{sec-7-7-4}
+
 
 元ネタは宮島\cite{ShizuoMiyajima1}と Gilbarg-Trudinger\cite{GilbargTrudinger1}あたりです.
 Sobolev 不等式のべつの証明で使う Hardy-Littlewood-Sobolev についても宮島先生の本には載ってるし,
@@ -13190,32 +13193,444 @@ Sobolev 不等式のべつの証明で使う Hardy-Littlewood-Sobolev につい�
 宮島先生最高.
 というわけで目標を達成できたので, これからはたぶんもうすこし応用的なことをやると思う.
 きっと.
+\chapter{関数解析}
+
+
+現在進行形でやってるセミナーの記録です.\footnote{ゆきみさんのページ \href{http://yukimigo.com/math/}{http://yukimigo.com/math/} から持ってきた.
+ゆきみさんのセミナー原稿がオリジナルであり, 著者の許諾を得て適宜修正の上転載している.
+ }.
+\section{ノルム空間}
+
+
+\begin{defn}[ノルム]
+ $X$ を複素線型空間とする.
+ このとき,
+ \begin{align}
+  \norm{\cdot} \colon X \to \bbR
+ \end{align}
+ が以下の条件を満たすとき上の写像を $X$ の\textbf{ノルム}と呼ぶ.
+\begin{enumerate}
+\item $x \in X$ に対して $\norm{x} \ge 0$, $\norm{x} = 0 \Leftrightarrow x = 0$.
+\item $\alpha \in \bbC$, $x \in X$ に対して $\norm{\alpha x} = \abs{\alpha} \norm{x}$.
+\item $\norm{x + y} \le \norm{x} + \norm{y}$ (三角不等式).
+\end{enumerate}
+ $X$ にノルムが定義されているとき, $X$ を\textbf{(線型)ノルム空間}という.
+\end{defn}
+
+$X$ をノルム空間とすると
+\begin{align}
+ d(x, y)
+ \defeq
+ \norm{x - y}
+\end{align}
+で $X$ 上に距離が定義され, $X$ は距離空間になる.
+よってこの距離に関する収束が定義できる.
+つまり
+\begin{align}
+ \norm{x_n - x} \to 0 \quad (n \to \infty)
+\end{align}
+となるとき $(x_n)_n$ が $x$ に $X$ のノルムで\textbf{収束する}という.
+極限の一意性や演算の連続性は三角不等式からすぐわかる.
+
+ある空間 $X$ に入るノルムはひとつとは限らず, それぞれのノルムが決める位相も違うが,
+$X$ が有限次元のときはすべてのノルムが同値になる.
+(証明は \cite{ShigetoshiKuroda1} など. )
+ここでいう同値とは, $X$ の 2 つのノルムをそれぞれ $\norm{\cdot}_1$, $\norm{\cdot}_2$ としたとき,
+ある正数 $c_1$, $c_2$ があって全ての $x \in X$ に対して
+\begin{align}
+ c_1 \norm{x}_1
+ \leq
+ \norm{x}_2
+ \leq
+ c_2 \norm{x}_1
+\end{align}
+となること.
+
+これから単にノルム空間というときはおおむね無限次元の場合を想定する.
+念のためにいうと $X$ の基底の濃度が有限ではないとき $X$ を無限次元という.
+たとえば連続関数の空間 $C([0, 1])$ は無限次元となる.
+じっさい, $f_k(x) = x^{k-1}$ からどの $n$ 個を取ってもそれらは一次独立になる.
+
+\begin{defn}[Cauchy 列]
+ $X$ をノルム空間とする.
+ $(x_n)_n$ が
+ \begin{align}
+  \norm{x_n - x_m} \to 0 \quad (n, m \to \infty)
+ \end{align}
+ を満たすときこれを $X$ の\textbf{Cauchy列} と呼ぶ.
+\end{defn}
+収束列ならばCauchy列だが, 逆は一般に成り立たない.
+
+\begin{defn}[Banach 空間]
+すべての Cauchy 列が $X$ の中に極限をもつとき, $X$ は\textbf{完備(complete)}であるという.
+とくに完備なノルム空間を \textbf{Banach 空間}という.
+\end{defn}
+\section{Banach 空間の例}
+
+
+\begin{ex}
+$\mathbb{R}^n$ はノルム
+\begin{align}
+ \norm{x}
+ \defeq
+ \abs{x}
+ =
+ \rbk{\sum_{j=1}^n x_j^2}^{1/2}
+\end{align}
+によって Banach 空間になる.
+
+\begin{proof}
+ノルム空間になることは Schwarz の不等式からわかる.
+完備性を示そう.
+$(x^{(j)})_j = (x_1^{(j)}, \dots, x_n^{(j)})_j$ を $\bbRn$ の Cauchy 列とする.
+定義から
+\begin{align}
+ \abs{x_i^{(j)} - x_i^{(k)}}
+ \leq
+ \abs{x^{(j)} - x_i^{(k)}} \to 0 \quad (j, k \to \infty)
+\end{align}
+となるので, 各 $i$ について $(x_i^{(j)})_j$ は $\bbR$ の Cauchy 列.
+$\bbR$ は完備だからある $x_i \in \bbR$ があり $x_i^{(j)} \to x_i$ $(j \to \infty)$ となる.
+これを並べて
+\begin{align}
+ x
+ =
+ (x_1, \dots, x_n)
+\end{align}
+とすれば明らかに $x \in \bbR^n$ で
+\begin{align}
+ \abs{x^{(j)} - x}^2
+ =
+ \sum_{i=1}^n \abs{x_i^{(j)} - x} \to 0 \quad (j \to \infty)
+\end{align}
+となるから $\bbR^n$ は完備であり Banach 空間.
+\end{proof}
+
+同様にして $\mathbb{C}^n$ が Banach 空間になることもわかる.
+\end{ex}
+
+\begin{ex}
+$\Omega \subset \bbRn$ を有界開集合とする.
+$\overline{\Omega}$ 上連続な関数の全体を $C(\overline{\Omega})$ とかくと,
+これは一様ノルム
+\begin{align}
+ \norm{f}_C
+ \defeq
+ \sup_{x \in \overline{\Omega}} \abs{f(x)}
+\end{align}
+について Banach 空間になる.
+\begin{proof}
+ノルム空間になることはすぐわかる.
+$(f_j)_j$ を $C(\overline{\Omega})$ の Cauchy 列とする.
+このとき定義から
+\begin{align}
+ \norm{f_j(x) - f_k(x)}
+ \leq
+ \norm{f_j - f_k}_C \to 0 \quad (j, k \to \infty)
+\end{align}
+によって $(f_j(x))_j$ は $\mathbb{C}$ の Cauchy 列になっている.
+よって $\mathbb{C}$に極限をもち, それを $f(x)$ としよう.
+このとき $f(x)$ は連続になる.
+じっさい $f_j(x)$ は有界閉集合 $\overline{\Omega}$ 上連続だから一様連続であり
+\begin{align}
+ \abs{f(x) - f(y)}
+ \leq
+ \abs{f(x) - f_j(x)} + \abs{f_j(x) - f_j(y)} + \abs{f_j(y) - f(y)}
+\end{align}
+と評価できる.
+また任意の $\varepsilon$ と $x \in \overline{\Omega}$ に対してある $N\in \mathbb{N}$ が存在して
+\begin{align}
+ \abs{f_j (x) - f_k(x)}
+ \leq
+ \norm{f_j - f_k}_C
+ <
+ \varepsilon \quad (j, k \geq N)
+\end{align}
+となるから,
+\begin{align}
+ \abs{f_j(x) - f(x)}
+ &\leq
+ \abs{f_j(x) - f_k(x)} + \abs{f_k(x) - f(x)} \\
+ &<
+ \varepsilon + \abs{f_k(x) - f(x)} \quad (j, k > N)
+\end{align}
+となる.
+$k \to \infty$ とすれば,
+\begin{align}
+ \abs{f_j(x) - f(x)}
+ \leq
+ \varepsilon \quad (j > N)
+\end{align}
+となるから $\sup$ をとると $C(\overline{\Omega})$ 上 $f_j \to f$ となる.
+\end{proof}
+\end{ex}
+\section{$L^p$ 空間}
+
+
+\begin{defn}
+$1 \le p < \infty$, $\Omega \subset \bbRn$ を開集合とする.
+$\Omega$ 上 Lebesgue 可測で
+\begin{align}
+ \int_{\Omega} \abs{f(x)}^p dx
+ <
+ \infty
+\end{align}
+をみたす関数全体を $L^p(\Omega)$ とかく.
+ただし $f = g$ a.e. $x$ となる $f$ と $g$ は同一視する.
+次の写像が
+\begin{align}
+ \norm{f}_p
+ \defeq
+ \rbk{\int_{\Omega} \abs{f(x)}^p dx}^{1/p}
+\end{align}
+$L^p (\Omega)$ のノルムであり, このノルムで $L^p$ が Banach 空間になることを見ていこう.
+\end{defn}
+\begin{rem}
+$L^p(\Omega)$ の元というのは関数ではなく同値類で, それはときどき意識したほうがよい.
+\end{rem}
+
+まず不等式をいくつか示そう.
+\begin{lem}[Young の不等式]
+ $a \ge 0$, $b \ge 0$ とする.
+ $1 < p < \infty$ についてその dual index $q$ を $1/p + 1/q = 1$ となるように定めると,
+ \begin{align}
+  ab
+  \le
+  \frac{a^p}{p} + \frac{b^q}{q}
+ \end{align}
+ となる.
+\end{lem}
+\begin{proof}
+$a$, $b \neq 0$ としてよい.
+\begin{align}
+ \phi(a)
+ \defeq
+ \frac{a^p}{p} + \frac{b^q}{q} -ab
+\end{align}
+として微分すると $\phi'(a) = 0$ となるのは $a = b^{1/{(p-1)}}$ のときで, その点で最小値をとる.
+\begin{align}
+ \phi \rbk{b^{1/{(p-1)}}}
+ =
+ 0
+\end{align}
+だから
+\begin{align}
+ \phi(a) \ge 0
+\end{align}
+がわかる.
+\end{proof}
+
+\begin{thm}[H\"older の不等式]
+ $1 < p < \infty$, $1/p + 1/q = 1$ とする.
+ $f \in L^p(\Omega)$, $g \in L^q(\Omega)$
+ ならば
+ \begin{align}
+  \abs{\int_{\Omega} fg dx}
+  \leq
+  \norm{f}_p \, \norm{g}_q
+ \end{align}
+ がなりたつ.
+\end{thm}
+\begin{proof}
+$\norm{f}_p = 0$ ないし $\norm{g}_q = 0$ のときは $fg = 0$ a.e. $x$ となるから,
+どちらも $L^p$, $L^q$ の元として $0$ でないとする.
+Young の不等式で $a = \abs{f} / \norm{f}_p$, $b = \abs{g} / \norm{g}_q$ とすれば
+\begin{align}
+ \frac{\abs{f} \, \abs{g}}{\norm{f}_p \, \norm{g}_q}
+ \le
+ \frac{\abs{f}^p}{p \norm{f}_p^p} + \frac{\abs{g}^q}{q \norm{g}_q^q}
+\end{align}
+だからこれを積分すればよい.
+\end{proof}
+
+\begin{thm}[Minkowski の不等式]
+ $f$, $g \in L^p(\Omega)$ とするとき,
+ \begin{align}
+  \norm{f + g}_p
+  \leq
+  \norm{f}_p + \norm{g}_p
+ \end{align}
+ がなりたつ.
+\end{thm}
+\begin{proof}
+$p=1$ のときは積分の定義からすぐ出る.
+
+$p > 1$ のとき
+\begin{align}
+ \abs{f + g}^p
+ \le
+ \rbk{2 \max \cbk{\abs{f}, \abs{g}}}^p
+ \le
+ 2^p \rbk{\abs{f}^p + \abs{g}^p}
+\end{align}
+なので $f + g \in L^p(\Omega)$ となることに注意しよう.
+\begin{align}
+ \int \abs{f + g}^p dx
+ =
+ \int \abs{f + g}^{p-1} \abs{f + g} dx
+ \le
+ \int \abs{f + g}^{p-1} \abs{f}dx + \int \abs{f + g}^{p-1} \abs{g} dx
+\end{align}
+となっている.
+よって $1/p + 1/q = 1$ を満たす $q$ をとると $p-1 = p/q$ だから
+$\abs{f + g}^{p-1} \in L^q (\Omega)$ となって H\"older の不等式が使える:
+\begin{align}
+ \int \abs{f + g}^{p-1} \abs{f} dx
+ \le
+ \rbk{\int \abs{f + g}^p dx}^{1/q} \norm{f}_p
+\end{align}
+2 項目についても同様.
+\begin{align}
+ \int \abs{f + g}^p dx
+ =
+ 0
+\end{align}
+のときは自明な式なので, これが $0$ でないとして
+\begin{align}
+ \rbk{\int \abs{f + g}^p dx}^{1/q}
+\end{align}
+で両辺を割り $1-1/q = 1/p$ に注意すればいい.
+\end{proof}
+
+いよいよ目標の定理にうつろう.
+\begin{thm}
+ $1 \le p < \infty$ のとき $L^p(\Omega)$ はノルム $\norm{\cdot}_p$ に関して Banach 空間となる.
+\end{thm}
+\begin{proof}
+Minkowski の不等式から $L^p$ はノルム空間になるので完備性を示せばよい.
+$(f_j)_j$ を $L^p$ の Cauchy 列とする.
+このとき, ある $n_1$ があって
+\begin{align}
+ \norm{f_j - f_k}_p
+ <
+ \frac{1}{2} \quad (j, k \ge n_1)
+\end{align}
+とできる.
+また $n_2 \ge n_1$ を
+\begin{align}
+ \norm[f_j - f_k]_p
+ <
+ \frac{1}{2^2}
+\end{align}
+ととる.
+これをつづけて $n_l$ を
+\begin{align}
+ \norm{f_j - f_k}_p
+ <
+ \frac{1}{2^l} \quad (j, k \ge n_l)
+\end{align}
+ととる.
+とくに
+\begin{align}
+ \norm{f_{n_{l + 1}} - f_{n_l}}_p
+ <
+ \frac{1}{2^l}
+\end{align}
+となる.
+
+$g_l \defeq f_{n_l}$ とし
+\begin{align}
+ h_1(x)
+ \defeq
+ \abs{g_1 (x)}, \quad
+ h_n(x)
+ \defeq
+ \abs{g_1(x)} + \sum_j^{n-1} \abs{g_{j+1}(x) - g_j(x)}
+\end{align}
+とする.
+$h_n(x)$ は単調増加なので $\infty$ もふくめれば収束する.
+この極限を $h(x)$ としよう.
+三角不等式から
+\begin{align}
+ \norm{h_n}_p
+ \leq
+ \norm{g_1}_p + \sum_{j}^{n - 1} \abs{g_{j + 1} + g_j}
+\end{align}
+だから $n \to \infty$ とすれば単調収束定理から
+\begin{align}
+ \norm{h}_p
+ \leq
+ \norm{g_1} + 1
+\end{align}
+となり, $h \in L^p$ だから $h_n(x)$ はほとんどいたるところ有限な値に単調に収束する.
+また $k > l$ とすると
+\begin{align}
+ \abs{g_k(x) - g_l(x)}
+ \leq
+ h_k(x) - h_l(x) \to 0
+\end{align}
+となるから $(g_j)_j$ は $\bbC$ の Cauchy 列で
+\begin{align}
+ g_j(x) \to g(x) \quad \text{a.e. } x
+\end{align}
+とできる.
+$\abs{g(x)} \leq h(x)$ から $g \in L^p$ で
+\begin{align}
+ \abs{g_j(x) - g(x)}^p
+ \leq
+ h(x)^p
+\end{align}
+となって $h(x)^p$ は可積分だから Lebesgue 収束定理が使えて
+\begin{align}
+ \pnorm{g_j - g} \to 0
+\end{align}
+となる.
+最後に任意の $\varepsilon > 0$ に対して十分大きく $N$ をとれば
+\begin{align}
+ \pnorm{f_j - g}
+ &\leq
+ \pnorm{f_j - f_{n_k}} + \pnorm{g_k - g} \\
+ &<
+ \varepsilon + \pnorm{g_k - g} \quad (j, n_k \geq N)
+\end{align}
+とできるから, $k \to \infty$ として
+\begin{align}
+ \pnorm{f_j - g}
+ \leq
+ \varepsilon \quad (j \geq N)
+\end{align}
+となり Cauchy 列が収束する.
+\end{proof}
+
+\begin{defn}
+関数 $f \colon \Omega \to \bbC$ が次の性質を満たすとき $f$ を\textbf{本質的に有界}という:
+定数 $M > 0$ があって
+\begin{align}
+ \abs{x}
+ \leq
+ M \quad \text{a.e. } x.
+\end{align}
+このような $M$ の下限を $\inftynorm{f}$ とかき,
+$\Omega$ 上本質的に有界な Lebesgue 可測関数の全体を $L^{\infty}(\Omega)$ とかく.
+ただしほとんどいたるところ等しい関数は同一視する.
+これもノルム  $\inftynorm{\cdot}$ によって Banach 空間となる.
+\end{defn}
 \chapter{Fourier 解析}
-\label{sec-7-8}
+
 
 動画から適当に切り出してくる.
 \chapter{重ね合わせの原理と Fourier 解析}
-\label{sec-7-9}
+
 \section{Fourier 級数--関数の大域近似}
-\label{sec-7-9-1}
+
 \section{Fourier 変換}
-\label{sec-7-9-2}
+
 \section{Dirac の $\delta$ 関数}
-\label{sec-7-9-3}
+
 \section{波動方程式の解}
-\label{sec-7-9-4}
+
 \section{Green 関数}
-\label{sec-7-9-5}
+
 \section{スペクトル分解}
-\label{sec-7-9-6}
+
 \chapter{講演原稿: 偏微分方程式の逆問題--拡散方程式の数学と物理と工学}
-\label{sec-7-10}
+
 
 これは 2013-09-21 第 4 回関西すうがく徒のつどいでの講演,
 【偏微分方程式の逆問題--拡散方程式の数学と物理と工学】で話した内容の原稿にあたる.
 そのうち \cite{phasetr1} のように DVD 化もしたい.
 \section{apply}
-\label{sec-7-10-1}
+
 
 件名:第 4 回関西つどい講演希望
 関西すうがく徒のつどい 事務局の方
@@ -13281,9 +13696,9 @@ Sobolev 不等式のべつの証明で使う Hardy-Littlewood-Sobolev につい�
 \item その他, 要望など (もしあればお書きください): なし.
 \end{enumerate}
 \section{abstract}
-\label{sec-7-10-2}
+
 \subsection{概要}
-\label{sec-7-10-2-1}
+
 
 大雑把に言って入力から出力を求める問題を順問題といい,
 出力から入力を推定する問題を逆問題という.
@@ -13309,7 +13724,7 @@ Sobolev 不等式のべつの証明で使う Hardy-Littlewood-Sobolev につい�
 応用数学が死ぬ程つらいことを実感してもらえるよう,
 こうした問題の中から適宜話題をピックアップして概観する.
 \subsection{予定内容}
-\label{sec-7-10-2-2}
+
 
 順番や内容の詳細は変わる可能性がある.
 \begin{enumerate}
@@ -13320,7 +13735,7 @@ Sobolev 不等式のべつの証明で使う Hardy-Littlewood-Sobolev につい�
 \item 数値計算との関係
 \end{enumerate}
 \subsection{講演の対象}
-\label{sec-7-10-2-3}
+
 
 学部 2-3 年程度を対象にする.
 予備知識としては拡散方程式と空間領域 $\mathbb{R}^1$ のときの基本解 (熱核) を知っていること,
@@ -13328,11 +13743,11 @@ Sobolev 不等式のべつの証明で使う Hardy-Littlewood-Sobolev につい�
 詳しいことを知っている必要は全くないが,
 物理的な問題を考えるときに特殊相対論 (光速度一定の法則) なども話題にする予定.
 \subsection{予備知識}
-\label{sec-7-10-2-4}
+
 
 数学的な詳細については \cite{Kotorin1, KimYamamoto1, NoborizakaOnishiYamamoto1} が参考になる.
 \section{講演概要}
-\label{sec-7-10-3}
+
 
 数学として突っ込んだ話よりも, 物理や工学で数学を使っていく上で何が難しいかといった話や,
 物理・工学的に考えてどうかという部分を中心にする.
@@ -13356,7 +13771,7 @@ Sobolev 不等式のべつの証明で使う Hardy-Littlewood-Sobolev につい�
 \item 数値計算との関係.
 \end{enumerate}
 \section{目的}
-\label{sec-7-10-4}
+
 
 つどいで物理・工学系の話題が少ないため, どういうリアクションが返ってくるかまで含めて試験的にやってみたい.
 物理の学部生が当たり前と思っているくらいのことで, どこまでが本当に当たり前として通じるかというところを知りたい.
@@ -13366,7 +13781,7 @@ Sobolev 不等式のべつの証明で使う Hardy-Littlewood-Sobolev につい�
 また, つどいに来る人の中で数は少ないだろうが, 物理や工学など非数学の人が数学の人と交流するとき,
 自分の常識について自覚的に話せるようになれば交流がスムーズにいくようになるだろう, ということもある.
 \section{導入: 順問題と逆問題, 逆問題とは何か}
-\label{sec-7-10-5}
+
 
 大雑把に言って入力から出力を求める問題を順問題といい,
 出力から入力を推定する問題を逆問題という.
@@ -13381,14 +13796,14 @@ Sobolev 不等式のべつの証明で使う Hardy-Littlewood-Sobolev につい�
 
 物理的・工学的応用についていくつか具体的に見てみよう.
 \subsection{順問題の例}
-\label{sec-7-10-5-1}
+
 
 \begin{enumerate}
 \item 初期条件を設定しておいて, その後どうなるかを考える問題.
 \item 試験 (大学受験) で出てくる問題.
 \end{enumerate}
 \subsection{逆問題の例}
-\label{sec-7-10-5-2}
+
 
 \begin{enumerate}
 \item 有機化学の構造決定.
@@ -13400,7 +13815,7 @@ Sobolev 不等式のべつの証明で使う Hardy-Littlewood-Sobolev につい�
 \item 地震での震源の決定: 放射線事故と合わせて適宜扱う.
 \end{enumerate}
 \section{具体的な問題の説明: 原発事故と放射性物質の拡散}
-\label{sec-7-10-6}
+
 
 原発事故が起きて放射性物質が漏れ出したという場合を考える.
 例えば 2 号炉で爆発事故が起きたときに放射性物質がどう拡散していくかという問題設定をするのが順問題.
@@ -13433,7 +13848,7 @@ Sobolev 不等式のべつの証明で使う Hardy-Littlewood-Sobolev につい�
 それに合わせて方程式もいくつか使い分ける.
 なるべく混乱が起きないように努力はする.
 \section{拡散の逆問題の物理的難しさ}
-\label{sec-7-10-7}
+
 
 先程書いた通り, イメージしやすくするためここではコーヒーにミルクを静かに垂らした後の拡散について考えたい.
 水槽に汲んだ水の中にインクを垂らしたと思ってもいい.
@@ -13458,7 +13873,7 @@ Sobolev 不等式のべつの証明で使う Hardy-Littlewood-Sobolev につい�
 ここからシミュレーションをするときの難しさもついでに出てくる.
 「モデルの正当性と状況に応じたモデル・仮定の設定」という問題はここでも強く関係する.
 \section{工学的要求: 特に解の安定性}
-\label{sec-7-10-8}
+
 
 実際に SPEEDI でのシミュレーションの話があったが, 工学的 (現実的) にはシミュレーション (数値計算) が大事になる.
 ここでシミュレーションをするときに大事なことを考える.
@@ -13514,7 +13929,7 @@ Sobolev 不等式のべつの証明で使う Hardy-Littlewood-Sobolev につい�
 それ程自明な話ではないはずだ.
 私自身よく分からないのでこれ以上突っ込めないが.
 \section{モデルの正当性}
-\label{sec-7-10-9}
+
 
 まず「拡散であるはずの現象が波動方程式で記述されていたらおかしい」といった問題があるが,
 方程式を導出する過程はある程度正しそうなのに,
@@ -13524,7 +13939,7 @@ Sobolev 不等式のべつの証明で使う Hardy-Littlewood-Sobolev につい�
 
 いくつか具体的に考えてみよう.
 \subsection{拡散方程式}
-\label{sec-7-10-9-1}
+
 
 ここでは「非現実的な解とその適切な解釈」という線で検討する.
 $\mathbb{R}^1$ 上の拡散方程式の基本解の物理を考えよう.
@@ -13573,7 +13988,7 @@ $u = u (t,x)$ とし, $t$ が時間変数, $x$ が空間変数だ.
 こうした基本的な認識の齟齬が,
 実は数学科とそれ以外の応用という点で相当大きなコミュニケーション障害の原因になっているのではないかと思っている.
 \subsection{波動方程式}
-\label{sec-7-10-9-2}
+
 
 問題として地震源特定を考える.
 地震は振動であり要は波なので波動方程式を使う.
@@ -13608,7 +14023,7 @@ $u = u (t,x)$ とし, $t$ が時間変数, $x$ が空間変数だ.
 シミュレーションを考えないといけない状況だと, 使う方程式は必ずしも物理的に精密である必要はない.
 目的を忘れてはいけない.
 \section{解の存在と正則性: 工学的現実と数学的困難}
-\label{sec-7-10-10}
+
 
 \cite{NoborizakaOnishiYamamoto1} 2.9 節, 特に (2.86) 式を参照.
 数学色が強いが, その分準備がいるので今回は見送り.
@@ -13618,11 +14033,11 @@ $\norm{p}_{H^1 (0,1)}$ と Sobolev ノルムを使っているが,
 微分のデータはなおさら.
 つまり空間方向の微分のデータまで見た情報を使って得られた定理を現実問題に適用できるか, という問題.
 \section{数値計算との関係}
-\label{sec-7-10-11}
+
 
 \cite{KimYamamoto1} 5 章参照.
 \section{impressions}
-\label{sec-7-10-12}
+
 
 \begin{enumerate}
 \item 前提知識がなく聞きやすかった.
@@ -13650,11 +14065,11 @@ $\norm{p}_{H^1 (0,1)}$ と Sobolev ノルムを使っているが,
     具体例と話の組み立てがよかった.
 \end{enumerate}
 \chapter{講演原稿: Thomas-Fermi functional の解析-- Lieb-Loss \cite{LiebLoss1} を元に}
-\label{sec-7-11}
+
 \section{Introduction}
-\label{sec-7-11-1}
+
 \subsection{Comparison for the two problems}
-\label{sec-7-11-1-1}
+
 
 Here we talk about two problems, i.e.,
 \begin{enumerate}
@@ -13679,7 +14094,7 @@ In the seminar on Feb. 14th, 2014  we talk about the latter because
 the first talking plan is to explain the latter and the latter is a little bit easier
 because the latter needs less knowledge.
 \subsection{Variational problem and its mathematical background}
-\label{sec-7-11-1-2}
+
 
 We give a lecture on a book \cite{LiebLoss1} and a paper \cite{LiebSimon1}.
 
@@ -13755,7 +14170,7 @@ then there exists a sub-sequence $\psi_j$ such that $\psi_j \wto \psi$, and henc
 \end{align}
 Therefore, $\calF \rbk{\psi} = \lambda$, and the goal is achieved!
 \subsection{Schr\"odinger equation}
-\label{sec-7-11-1-3}
+
 
 The \textbf{time independent Schr\"odinger equation} for a particle in $\bbR^n$, interacting with a force field $F (x) = - \nabla V (x)$, is
 \begin{align}
@@ -13845,13 +14260,13 @@ If we want to solve algebraic equations we first consider solutions in $\bbC$ fo
 Then we consider properties of solutions.
 Considering distributional solutions amounts to considering in $\bbC$.
 \subsection{Connection to other mathematical branches}
-\label{sec-7-11-1-4}
+
 \subsubsection{Mathematics for quantum mechanics}
-\label{sec-7-11-1-4-1}
+
 \begin{itemize}
 
 \item Time dependent Schr\"odinger equation\\
-\label{sec-7-11-1-4-1-1}%
+%
 A time dependent Schr\"odinger equation is
 \begin{align}
  i \frac{\partial}{\partial t} \phi = H \psi,
@@ -13860,7 +14275,7 @@ where $H$ is a Hamiltonian, i.e., self-adjoint operator.
 There are many PDE analysis including scattering theory, etc.
 
 \item Operator theory\\
-\label{sec-7-11-1-4-1-2}%
+%
 In operator theoretic language, our main task in this seminar is a proof that
 \begin{enumerate}
 \item the \textbf{Hamiltonian} $H = - \Delta + V$ is bounded below,
@@ -13881,7 +14296,7 @@ Since my main concern is physics my main mathematical tool is operator theory or
 Today's analysis is one for an operator by real analytic methods.
 
 \item Probability\\
-\label{sec-7-11-1-4-1-3}%
+%
 We can use probability theory for operator analysis.
 Usually we can only see properties before or after action of an operator.
 However, using probability, we can see some property `in course of action'.
@@ -13914,13 +14329,13 @@ For the Nelson model we obtain
 See \cite{LorincziHiroshimaBetz1}, \cite{AsaoArai5}, \cite{SimonBarry2} for details.
 
 \item Algebraic analysis\\
-\label{sec-7-11-1-4-1-4}%
+%
 I do not know this area well.
 A Keyword is the exact WKB analysis.
 See, for example, \cite{KawaiTakei1}.
 
 \item Nonstandard analysis\\
-\label{sec-7-11-1-4-1-5}%
+%
 I do not know also this area well.
 See, for example, \cite{TohruNakamura1}.
 This book explains, e.g., Feynman's path integral.
@@ -13928,7 +14343,7 @@ Nonstandard analysis relates to the domain of mathematical logic:
 quantum physics connects mathematical logic to other mathematical branches!
 
 \item Number theory: non-commutative harmonic oscillator\\
-\label{sec-7-11-1-4-1-6}%
+%
 I do not know also this area well.
 See, for example, \cite{AlbertoParmeggiani1, MasatoWakayama1}.
 
@@ -13975,7 +14390,7 @@ Furthermore Taniguchi shows some interesting property using stochastic analysis.
 For details see \cite{AlbertoParmeggiani1}.
 
 \item In connection to topology: Aharonov-Bohm effect\\
-\label{sec-7-11-1-4-1-7}%
+%
 We may consider Schr\"odinger operators on topologically defected regions,
 especially, non-simply connected regions.
 Topological properties on the domain give some effects on the properties of the operator.
@@ -13983,7 +14398,7 @@ In this respect Aharonov-Bohm effect is very famous and important in physics or 
 See, e.g., chapter 3 in \cite{AsaoArai4} and its references.
 \end{itemize} % ends low level
 \subsubsection{Geometric variational problem}
-\label{sec-7-11-1-4-2}
+
 
 A variational method is a basic tool in many physical branches.
 Analytical mechanics and its relation to (differential) geometry is famous.
@@ -13995,7 +14410,7 @@ Geometric variational problem also relates to Morse theory.
 See \cite{SeikiNishikawa1}.
 See also the isoperimetric problem.
 \subsubsection{Nonlinear analysis}
-\label{sec-7-11-1-4-3}
+
 
 In the analysis for the Thomas-Fermi theory we face nonlinear analysis.
 In physics there are many nonlinear partial differential equations
@@ -14004,7 +14419,7 @@ In geometry we have many interesting nonlinear functionals and nonlinear partial
 such as the Yamabe equation or the Monge-Amp\`ere equation.
 See \cite{ThierryAubin1}.
 \subsubsection{Index theorem}
-\label{sec-7-11-1-4-4}
+
 
 In Aharonov-Bohm effect the topology of spaces affects operators on it.
 E.g., if a Riemannian manifold is compact the spectrum of Laplacian becomes discrete\footnote{数学ではよくある.
@@ -14025,7 +14440,7 @@ such as the Riemann–Roch theorem, as special cases, and has applications in th
 Path integral (functional integral) has a deep connection to this problem.
 We have a (formal?) proof for index theorem using path integral.
 \subsubsection{Stochastic optimization}
-\label{sec-7-11-1-4-5}
+
 
 Stochastic optimization is the process of maximizing or minimizing
 the value of a mathematical or statistical function when one or more of the input parameters is subject to randomness.
@@ -14033,12 +14448,12 @@ The word stochastic means involving chance or probability.
 This is applied to, e.g., machine learning.
 This is used to improve a user's dictionary in converting ``kanji-kana''.
 \subsubsection{Other optimization problem}
-\label{sec-7-11-1-4-6}
+
 
 In real world we encounter many optimization problems.
 In general engineering solves optimization problems in real constraints.
 \subsubsection{Singular analysis}
-\label{sec-7-11-1-4-7}
+
 
 The Coulomb potential has a singular point at $x = 0$ and a solution has a singularity at $x = 0$.
 That is, singularity of a potential affects a singularity of a solution.
@@ -14048,11 +14463,11 @@ such as resolution of singularity in algebraic geometry,
 the residue theorem in complex analysis,
 existence of black holes in general relativity, definition of phase transition, and so on.
 \section{Mathematical preliminaries}
-\label{sec-7-11-2}
+
 
 In this section we assume $\Omega \subset \bbRn$ is an open set.
 \subsection{The important difference in integration and differentiation}
-\label{sec-7-11-2-1}
+
 
 In analysis integration is very important because it saves an order of functions:
 we define $f \leq g$ by
@@ -14073,11 +14488,11 @@ This is called the strong monotonicity of integration.
 
 Can you make counterexamples for differentiation?
 \subsection{Important spaces}
-\label{sec-7-11-2-2}
+
 
 In this seminar we mainly consider $L^p$ spaces and Sobolev spaces $H^k$ on $\bbRn$.
 \subsubsection{$L^p$ spaces}
-\label{sec-7-11-2-2-1}
+
 
 Here we consider only Lebesgue or Borel measurable functions.
 For details see \cite{SeizoIto1} or \cite{LiebLoss1}.
@@ -14117,7 +14532,7 @@ Moreover, for $p=2$, we can introduce the inner product:
 \end{align}
 For this inner product the space $L^2$ becomes a Hilbert space.
 \subsubsection{$L^p+L^q$ spaces}
-\label{sec-7-11-2-2-2}
+
 
 Let $p$, $q \in \sqbk{1, \infty}$.
 Then a function $f$ is in $L^p + L^q$ if $f$ can be decomposed as
@@ -14145,7 +14560,7 @@ This decomposition is simple but ingenious.
  \end{align}
 \end{ex}
 \subsubsection{the $\Loneloc$ space}
-\label{sec-7-11-2-2-3}
+
 
 The space $\Loneloc \rbk{\Omega}$ is defined by
 \begin{align}
@@ -14156,7 +14571,7 @@ The space $\Loneloc \rbk{\Omega}$ is defined by
 where a function $\chi_A$ is an indicator function for $A \subset \Omega$.
 This space is useful when considering the theory of distributions.
 \subsubsection{Sobolev spaces $H^k$}
-\label{sec-7-11-2-2-4}
+
 
 A Sobolev space $H^1 (\bbRn)$ is defined by
 \begin{align}
@@ -14172,9 +14587,9 @@ We have another definition of a Sobolev space $H^1 (\bbRn)$ using Fourier transf
  \set{\psi \in \LtwoRn}{\int_{\bbRn} \rbk{\abs{k \hat{\psi} (k)}^2 + \abs{\hat{\psi} (k)}^2} d k < \infty}.
 \end{align}
 \subsection{Convolution}
-\label{sec-7-11-2-3}
+
 \subsubsection{Definition}
-\label{sec-7-11-2-3-1}
+
 
 Here we consider $\Omega = \bbRd$.
 For suitable functions $f$ and $g$ we can define a some type of product, called the convolution, by
@@ -14186,7 +14601,7 @@ For suitable functions $f$ and $g$ we can define a some type of product, called 
 For this product the space $L^1 (\bbRd)$ becomes a Banach algebra.
 There exists a useful inequality, Young's inequality: see Theorem \ref{Lieb-Loss_Analysis_chap11_37}.
 \subsubsection{Convolutions of functions in dual $L^p$ spaces are continuous}
-\label{sec-7-11-2-3-2}
+
 
       \begin{lem}\textup{(Lemma 2.20. \cite{LiebLoss1})}\label{Lieb-Loss_Analysis_chap11_41}
  Let $f \in L^p \rbk{\bbRn}$ and $g \in L^q (\bbRn)$ with $p$, $q > 1$ dual indices, i.e.,
@@ -14200,9 +14615,9 @@ There exists a useful inequality, Young's inequality: see Theorem \ref{Lieb-Loss
  \end{align}
 \end{lem}
 \subsection{Various inequalities}
-\label{sec-7-11-2-4}
+
 \subsubsection{H\"older's inequality}
-\label{sec-7-11-2-4-1}
+
 
 \begin{thm}[Theorem 2.3 \cite{LiebLoss1}]
  Let $p$ and $q$ be dual indices, i.e., $1/p + 1/q = 1$ with $1 \leq p \leq \infty$.
@@ -14230,7 +14645,7 @@ i.e., $L^p$ spaces are \textbf{reflexive} for $p \in (1, \infty)$.
 It is well-known $L^{\infty}$ is not reflexive.
 See, e.g., \cite{HaimBrezis1, HaimBrezis2}.
 \subsubsection{Young's inequality}
-\label{sec-7-11-2-4-2}
+
 
 \begin{thm}[Theorem 4.2 \cite{LiebLoss1}]\label{Lieb-Loss_Analysis_chap11_37}
  Let $\Omega = \bbRn$.
@@ -14258,7 +14673,7 @@ See, e.g., \cite{HaimBrezis1, HaimBrezis2}.
 \end{enumerate}
 \end{thm}
 \subsubsection{Sobolev's inequality}
-\label{sec-7-11-2-4-3}
+
 
 A function $f \colon \bbRn \to \bbC$ is in $D^1 (\bbRn)$ if it is in $\Loneloc (\bbRn)$, if its distributional derivative $\nabla f \in \LtwoRn$,
 and if $f$ vanishes at infinity, i.e.,
@@ -14283,9 +14698,9 @@ where
 \end{align}
 \end{thm}
 \subsection{Topologies \label{Lieb-Loss_Analysis_chap11_36}}
-\label{sec-7-11-2-5}
+
 \subsubsection{Strong topology and weak topology in Hilbert spaces}
-\label{sec-7-11-2-5-1}
+
 
 Here we explain only Hilbert spaces since it suffices in this seminar.
 
@@ -14316,7 +14731,7 @@ By Cauchy-Schwarz.
  However $F$ is not necessarily weakly continuous.
 \end{rem}
 \subsubsection{Example of weakly convergent sequence}
-\label{sec-7-11-2-5-2}
+
 
 Before introducing concrete examples, we state a general example.
 \begin{thm}[Inequality of Bessel, Sec. 2.21 \cite{LiebLoss1}]
@@ -14337,7 +14752,7 @@ Then a sequence $(\psi_j)$ is orthonormal and $\psi_j \wto 0$.
 This $(\psi_j)$ also converges to $0$ pointwise but $(\psi_j)$ does not converge strongly.
 The weak topology fills in this discrepancy.
 \subsubsection{Why we use the pointwise convergence instead of weak convergence?}
-\label{sec-7-11-2-5-3}
+
 
 A function space has many interesting and important convergence, e.g., pointwise convergence and uniform convergence.
 The weak topology is natural if we consider its linear space structure.
@@ -14345,9 +14760,9 @@ A (normed) linear space always has its dual space\footnote{これがまた分か
  } and the weak topology uses a dual space in its definition.
 Furthermore the importance of the weak topology is also due to the theorem \ref{Lieb-Loss_Analysis_chap11_2}.
 \subsection{Theorems in Lebesgue integral and functional analysis}
-\label{sec-7-11-2-6}
+
 \subsubsection{Dominated convergence}
-\label{sec-7-11-2-6-1}
+
 
 \begin{thm}[Theorem 1.8. \cite{LiebLoss1}]\label{Lieb-Loss_Analysis_chap11_6}
  Assume functions $(f_j)$ and $f$ are measurable and $f_j \to f$ pointwise.
@@ -14359,7 +14774,7 @@ Furthermore the importance of the weak topology is also due to the theorem \ref{
  \end{align}
 \end{thm}
 \subsubsection{Differentiability of norms, Gateaux derivative}
-\label{sec-7-11-2-6-2}
+
 
 \begin{thm}[Theorem 2.6. \cite{LiebLoss1}]\label{Lieb-Loss_Analysis_chap11_26}
  Suppose $f$ and $g$ are functions in $L^p (\Omega)$ with $p \in \rbk{1, \infty}$.
@@ -14377,7 +14792,7 @@ Furthermore the importance of the weak topology is also due to the theorem \ref{
  \end{align}
 \end{thm}
 \subsubsection{Uniform boundedness principle}
-\label{sec-7-11-2-6-3}
+
 
 \begin{thm}[Theorem 2.12. \cite{LiebLoss1}]\label{Lieb-Loss_Analysis_chap11_2}
  Let $f_j \in L^p (\Omega)$ with the property
@@ -14387,7 +14802,7 @@ Furthermore the importance of the weak topology is also due to the theorem \ref{
  Then the sequence of norms $(\norm{f_j}_p)$ is bounded.
 \end{thm}
 \subsubsection{Banach-Alaoglu theorem}
-\label{sec-7-11-2-6-4}
+
 
 \begin{thm}[Theorem 2.18. \cite{LiebLoss1}]\label{Lieb-Loss_Analysis_chap11_8}
 \begin{enumerate}
@@ -14400,7 +14815,7 @@ Furthermore the importance of the weak topology is also due to the theorem \ref{
  Note also that this is the extremely important property for the analysis on $\bbR$.
 \end{rem}
 \subsubsection{Derivative of the absolute value}
-\label{sec-7-11-2-6-5}
+
 
 \begin{thm}[Theorem 6.17. \cite{LiebLoss1}]\label{Lieb-Loss_Analysis_chap11_11}
  Let $f$ be in $W^{1,p} (\Omega)$.
@@ -14431,7 +14846,7 @@ Furthermore the importance of the weak topology is also due to the theorem \ref{
 \end{enumerate}
 \end{thm}
 \subsubsection{Convexity inequality for gradients}
-\label{sec-7-11-2-6-6}
+
 
 \begin{thm}[Theorem 7.8. \cite{LiebLoss1}]\label{Lieb-Loss_Analysis_chap11_12}
  Let $f, g$ be real-valued functions in $H^1 (\bbRn)$.
@@ -14455,7 +14870,7 @@ Furthermore the importance of the weak topology is also due to the theorem \ref{
  \end{align}
 \end{rem}
 \subsubsection{Fundamental theorem of variational method, du Bois-Reymond's lemma}
-\label{sec-7-11-2-6-7}
+
 
 \begin{thm}
  Let $f \in \Loneloc$. If, for any $\phi \in \Ccinfty (\Omega)$, it holds that
@@ -14465,12 +14880,12 @@ Furthermore the importance of the weak topology is also due to the theorem \ref{
  then we must have $f = 0$.
 \end{thm}
 \subsection{Potential theory}
-\label{sec-7-11-2-7}
+
 
 We use this theory in Section \ref{Lieb-Loss_Analysis_chap11_39}.
 See the chapter 9 in \cite{LiebLoss1} for details.
 \subsubsection{Positivity properties of the Coulomb energy}
-\label{sec-7-11-2-7-1}
+
 
 We define a sesquilinear form $D$ as
 \begin{align}
@@ -14494,11 +14909,11 @@ Then we have the
 \end{thm}
 In \cite{LiebLoss1} more properties for the Coulomb potential are explained.
 \section{Thomas-Fermi theory}
-\label{sec-7-11-3}
+
 \subsection{Thomas-Fermi problem}
-\label{sec-7-11-3-1}
+
 \subsubsection{Outline}
-\label{sec-7-11-3-1-1}
+
 
 We turn now to our second example of a variational problem--the Thomas-Fermi (TF) problem.
 See \cite{LiebSimon1} for details and further developments.
@@ -14585,7 +15000,7 @@ in fact, we already used this device in the study of the Schr\"odinger equation\
 When a minimizer for the constrained problem does exist it will later be seen to be the $\rho$ that is
 a minimizer for the unconstrained problem.
 \subsubsection{Existence of an unconstrained Thomas-Fermi minimizer}
-\label{sec-7-11-3-1-2}
+
 
 The main theorem in this section is as follows.
 \begin{thm}[Theorem 11.12. \cite{LiebLoss1}]\label{Lieb-Loss_Analysis_chap11_33}
@@ -14881,7 +15296,7 @@ Here we use the fact that our domain is the whole of $\bbRthree$.
 
 Note that we travel around (infinitely) many $L^p$ spaces and use many useful and important properties for them!.
 \subsubsection{Thomas-Fermi equation}
-\label{sec-7-11-3-1-3}
+
 
 \begin{thm}[Theorem 11.13 \cite{LiebLoss1}, Theorem II.10. \cite{LiebSimon1}]\label{Lieb-Loss_Analysis_chap11_34}
  The minimizer of the unconstrained problem, $\rhoNinfty$, is not the zero function and
@@ -15003,7 +15418,7 @@ It $\rhoNinfty$ had this property it could not be in $L^1$.
 The Thomas-Fermi equation (\ref{Lieb-Loss_Analysis_chap11_32}) reveals many interesting properties of $\rhoNinfty$
 and we refer the reader to \cite{LiebSimon1} for this theory.
 \subsubsection{The Thomas-Fermi minimizer \label{Lieb-Loss_Analysis_chap11_39}}
-\label{sec-7-11-3-1-4}
+
 
 \begin{thm}[Theorem 11.14. \cite{LiebLoss1}]
  As before the function $\rhoNinfty$ be the minimizer for the unconstrained problem.
@@ -15116,13 +15531,13 @@ We have seen that $\Phi_N (x)$ behaves like $(Z - N_c)/ \abs{x}$ for large $\abs
 If $N_c < Z$, then, from (\ref{Lieb-Loss_Analysis_chap11_35}), $\rho_{N_c, \infty} \notin L^{5/3}$, which is a contradiction.
 \end{proof}
 \chapter{講演原稿: Friedrichs model の解析: 埋蔵固有値の摂動論}
-\label{sec-7-12}
+
 
 手書きのメモしかないので, そのうち \TeX{} におこす.
 \chapter{$\delta$ 関数と超関数}
-\label{sec-7-13}
+
 \section{はじめに}
-\label{sec-7-13-1}
+
 
 某セミナーで話した内容です\footnote{From a yukimi's page, \href{http://yukimigo.com/math/}{http://yukimigo.com/math/}.
 The original version is reprinted with the written consent of the author.
@@ -15132,7 +15547,7 @@ The original version is reprinted with the written consent of the author.
 だいたい $\delta$ 関数を例にとりながらあんまり厳密な話はせずに入門しようというのがねらいです.
 なにかミスとかお前ここの記述おかしいんじゃねーのとかあったらこっそり教えてください.
 \section{Introduction}
-\label{sec-7-13-2}
+
 
 量子力学の創設者のひとりとして有名な Paul Dirac は
 \begin{align}
@@ -15205,7 +15620,7 @@ $q$ は上の $\delta$ 関数とみなせる:
 (たとえば江沢\cite{HiroshiEzawa3, HiroshiEzawa4}や
 清水\cite{AkiraShimizu2}. )
 \section{準備}
-\label{sec-7-13-3}
+
 
 関数解析の事実をいくつかは証明なしで羅列します.
 なんにでも書いてあるしね.
@@ -15312,7 +15727,7 @@ du Bois-Reymond の補題ともいう.
 
 mollifier を使ってがんばって証明します.
 \section{超関数入門}
-\label{sec-7-13-4}
+
 
 いきなり定義を述べる.
 \begin{defn}[テスト関数]
@@ -15602,7 +16017,7 @@ $\phi$ をテスト関数として
  宮島\cite{ShizuoMiyajima2}などで補完しながら読むといいかも.
 \end{rem}
 \section{おまけ, 今後}
-\label{sec-7-13-5}
+
 
 というわけで $\delta$ 関数の例をいろいろ見てきたわけですが,
 書いたとおり $\mathcal{D}'(\Omega)$ という空間はとても''広い''.
@@ -15656,16 +16071,16 @@ Lieb-Loss は Lebesgue 積分からはじめて関数空間の話や不等式,
 物理としては書いてある本すら知らないです.
 だれか教えてください.
 \chapter{Hilbert 空間概要}
-\label{sec-7-14}
+
 \section{Introduction}
-\label{sec-7-14-1}
+
 
 院試勉強のときに暗記用に作った原稿です.\footnote{From a yukimi's page, \href{http://yukimigo.com/math/}{http://yukimigo.com/math/}.
 The original version is reprinted with the written consent of the author.
  }
 なのであんまり読めるものじゃない感ありますが, 証明の参照用に.
 \section{内積空間}
-\label{sec-7-14-2}
+
 
 \begin{defn}[内積空間]
 $H$ を線型空間とする.
@@ -15883,7 +16298,7 @@ $x_{n} \in D^{\perp}$ から $\bkt{x_n}{y} = 0$ となり, $\bkt{x}{y} = 0$.
 よって $x \in D^{\perp}$ となる.
 \end{proof}
 \section{直交性}
-\label{sec-7-14-3}
+
 
 \begin{thm}[射影定理]
  $L \subset H$ を閉部分空間とするとき, 任意の $x \in H$ は
@@ -16019,7 +16434,7 @@ $y \in (\overline{M})^\perp$ となって, $(\overline{M})^\perp = M^\perp$ が�
 $x = x_{\overline{M}}$ がわかったから, $x \in \overline{M}$ となって証明がおわった.
 \end{proof}
 \section{ONS, CONS}
-\label{sec-7-14-4}
+
 
 \begin{lem}\label{functional_analysis_hilbert_space_yukimi_7}
  $\cbk{x_{n}}_{n}$ を $H$ の ONS とする.
@@ -16224,7 +16639,7 @@ $(\cbk{x_n}_n)^\perp = \cbk{0}$ である.
 よって $\cbk{x_n}_n$ は CONS.
 \end{proof}
 \section{可分性と具体例}
-\label{sec-7-14-5}
+
 
 \begin{prop}
  $\ell^2$ は可分.
@@ -16284,7 +16699,7 @@ $\norm{p - f}_{\infty} < \varepsilon$ となる.
 $C_{\mathrm{c}}$ が $L^2 (\bbRd)$ で稠密だから, $\calL (D)$ は $L^2 (\bbRd)$ で稠密.
 \end{proof}
 \section{作用素論}
-\label{sec-7-14-6}
+
 
 \begin{prop}
  線型作用素 $A$ が単射である必要十分条件は $\ker A = \cbk{0}$ である.
@@ -16597,15 +17012,15 @@ $e_n = \cbk{\delta_{n,j}}_j$ の集合 $\cbk{e_n}$ は前にみたように $\el
 元ネタは新井・江沢\cite{AraiEzawa1, AraiEzawa2}です.
 それに証明をてきとうに増田\cite{HisayaMasuda1}の方向に書きかえながらつくったという感じでしょうか.
 \chapter{量子力学の数学的基礎}
-\label{sec-7-15}
+
 
 動画から適当に切り出してくる.
 \chapter{量子統計力学の数学的基礎}
-\label{sec-7-16}
+
 
 動画から適当に切り出してくる.
 \chapter{量子力学・場の量子論・量子統計力学の数学系諸問題}
-\label{sec-7-17}
+
 
 Togetter (Twitter) からの転載.
 
@@ -16666,7 +17081,7 @@ $t>0$ のときはまともな関数なのに極限を取ると超関数にな�
 学部に毛が生えた程度, または本当に学部の物理水準でも既に数学としては色々問題があります.
 解決済みですが, 量子統計だと平衡状態が物理で書かれる $\Tr e^{- \beta H}$ という形では存在しないという問題もあったのでした.
 \chapter{近似としての量子力学での摂動論の原理的問題}
-\label{sec-7-18}
+
 
 Twitter での次の発言に対する応答をまとめた.
 \begin{quote}
@@ -16694,7 +17109,7 @@ $V_1 = x^2$, \$V$_2$=-r$^{\mathrm{-1}}$\$としましょう.
 もはや数学徒としては研究レベルの問題だから」と書きましたが,
 今本当にこの辺の数理物理の研究が進行中です.
 \chapter{直積分と物理}
-\label{sec-7-19}
+
 
 これは Togetter に【微分ヤクザPによる直積分講座】というのでまとまっている.
 いったん, やりとりをそのまま書いておく.
@@ -16788,18 +17203,18 @@ phasetr 2012-01-08 15:23:00
 faogr 2012-01-08 15:23:37
 \end{quote}
 \part{確率・統計}
-\label{sec-8}
+
 \chapter{講演原稿: 硬貨投げからの大数の法則と中心極限定理}
-\label{sec-8-1}
+
 \section{参考文献}
-\label{sec-8-1-1}
+
 
 話は \cite{MarkKac1} を元に組んでいる.
 確率論それ自体については \cite{TadahisaFunaki1} が参考になる.
 \section{数学的準備}
-\label{sec-8-1-2}
+
 \subsection{加法定理・倍角の公式 \label{Hinashiro_math_party_1_probability_17}}
-\label{sec-8-1-2-1}
+
 
 きちんとした証明は面倒なので, Euler の公式 $e^{ix} = \cos x + i \sin x$ を使う簡単な導出だけしておこう.
 \begin{align}
@@ -16813,7 +17228,7 @@ faogr 2012-01-08 15:23:37
 \end{align}
 あとは実部と虚部を比較する.
 \subsection{指数関数の微分積分}
-\label{sec-8-1-2-2}
+
 
 まず微分.
 \begin{align}
@@ -16832,7 +17247,7 @@ faogr 2012-01-08 15:23:37
  \frac{\sin x}{x}.
 \end{align}
 \subsection{Rademacher 関数}
-\label{sec-8-1-2-3}
+
 
 定義は式 (\ref{Hinashiro_math_party_1_probability_4}) だ.
 周期 1 の周期関数として考えると関数 $r_k (t)$ は
@@ -16842,7 +17257,7 @@ faogr 2012-01-08 15:23:37
 と書ける.
 この周期性は実際の計算のときに役に立つ.
 \subsection{Rademacher 関数の積分公式 \label{Hinashiro_math_party_1_probability_16}}
-\label{sec-8-1-2-4}
+
 
 Rademacher 関数 (\ref{Hinashiro_math_party_1_probability_4}) に関する積分公式を導出しておく.
 \begin{thm}
@@ -16875,7 +17290,7 @@ Rademacher 関数 (\ref{Hinashiro_math_party_1_probability_4}) に関する積�
 \end{align}
 \end{proof}
 \subsection{Rademacher 関数の積分公式 2 \label{Hinashiro_math_party_1_probability_10}}
-\label{sec-8-1-2-5}
+
 
 あとで使うので, \cite{MarkKac1} P.11 の演習問題 3. を解く.
 \begin{prop}
@@ -16900,7 +17315,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
 一般の $s$ でも同じことを議論すればいい.
 \end{proof}
 \subsection{Lebesgue 積分の定理}
-\label{sec-8-1-2-6}
+
 
 \begin{thm}\label{Hinashiro_math_party_1_probability_18}
  関数列 $(f_n)$ の各関数は非負で可積分だとする.
@@ -16914,7 +17329,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
  はほとんどいたる所で収束する.
 \end{thm}
 \section{導入}
-\label{sec-8-1-3}
+
 
 今回のひなしろ数学会では確率論, 特に大数の法則と中心極限定理について議論しよう.
 まず大数の法則と中心極限定理の説明が必要だ.
@@ -17006,9 +17421,9 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
 メインテーマはひたすらにコイン投げだ.
 それでは始めよう.
 \section{硬貨投げの数理と独立性}
-\label{sec-8-1-4}
+
 \subsection{Vi\`ete の公式 \label{Hinashiro_math_party_1_probability_15}}
-\label{sec-8-1-4-1}
+
 
 まずは Vi\`ete の公式を出してみよう.
 次の式を Vi\`ete の公式という.
@@ -17053,7 +17468,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
  x \label{Hinashiro_math_party_1_probability_2}
 \end{align}
 が導ける.
-最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[36].
+最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[37].
 
 再び $x \neq 0$ を仮定しよう \footnote{ハイパーどうでもいいが「再びマタタビ楕円型」という天啓を得たことを記録しておく.
  }.
@@ -17074,9 +17489,9 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
 \end{align}
 これが示したかった Vi\`ete の公式だ.
 \subsection{Rademacher 関数}
-\label{sec-8-1-4-2}
 
-これまではまさに高校の数学だった \footnotemark[33].
+
+これまではまさに高校の数学だった \footnotemark[34].
 本番はここからだ.
 式 (\ref{Hinashiro_math_party_1_probability_3}) を別の観点から眺めてみようという体で,
 唐突に次の無茶苦茶な理論展開を見せる.
@@ -17145,13 +17560,13 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
 そう思うと上式は積分と無限積が交換できることを言っていることになる!
 印象的にいうなら「積の積分が積分の積になる」のだ.
 \subsection{どういうことなの?}
-\label{sec-8-1-4-3}
+
 
 式 (\ref{Hinashiro_math_party_1_probability_5}) は偶然だろうか.
 本質が見えるようになるまでは偶然というほかない.
 ここで式 (\ref{Hinashiro_math_party_1_probability_3}) を別の方法で導いてみよう.
 
-唐突だが次の関数を考える \footnotemark[34].
+唐突だが次の関数を考える \footnotemark[35].
 いったん少し面倒な方法で取り組んでみよう.
 \ref{Hinashiro_math_party_1_probability_14} 節で整理するので少しのあいだ我慢してほしい.
 \begin{align}
@@ -17173,7 +17588,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
  =
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}.
 \end{align}
-ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[35].
+ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[36].
 したがって
 \begin{align}
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}
@@ -17224,7 +17639,7 @@ $c_k = x / 2^k$ とすると,
 これは一体何だろうか.
 ここからは 2 進展開と上の証明について深く考えていこう.
 \subsection{2 進展開の確率論ことはじめ \label{Hinashiro_math_party_1_probability_14}}
-\label{sec-8-1-4-4}
+
 
 次の条件を満たす実数 $t$ はいくつあるだろうか.
 正確にいうなら次の条件を満たす $t$ の集合は何だろうか:
@@ -17281,7 +17696,7 @@ $c_k = x / 2^k$ とすると,
 前の議論だと組み合わせ的に面倒な話が必要で, 少なくとも私には難しい \footnote{センターレベルの組み合わせ・確率論ですら私には難しい.
  }.
 \subsection{独立性ことはじめ \label{Hinashiro_math_party_1_probability_13}}
-\label{sec-8-1-4-5}
+
 
 硬貨投げを考えるとき, 普通は次の条件を仮定している.
 \begin{enumerate}
@@ -17447,7 +17862,7 @@ $r_1$ から $r_n$ のうち, ちょうど $l$ 個が $+1$ になる $t$ の集�
 計算ではさらっと流してしまっているので,
 Rademacher 関数の独立性, (\ref{Hinashiro_math_party_1_probability_7}) が本質的に効いていることを注意し直しておきたい.
 \section{大数の法則}
-\label{sec-8-1-5}
+
 
 前節では Vi\`ete の公式の初等的な証明からはじめ, 硬貨投げにどう落とし込むか,
 さらには確率論, 特に独立性がどう効いてくるのかを見た.
@@ -17456,7 +17871,7 @@ Rademacher 関数の独立性, (\ref{Hinashiro_math_party_1_probability_7}) が�
 弱法則と強法則の 2 種類がある.
 ここで「強弱」は論理的な強弱を表わしている.
 \subsection{大数の弱法則}
-\label{sec-8-1-5-1}
+
 
 また硬貨投げを考えよう.
 「公平」な硬貨を 1 枚投げたとき, 表が出れば 1 円もらえ, 裏が出れば 1 円払う ($-1$ 円もらう) ことにする \footnote{Rademacher 関数を適当に変換すれば他の金額設定もできないことはないはずだが, 独立性などがうまくいくのか確認していない.
@@ -17541,13 +17956,13 @@ Chebyshev による簡明かつ重要な結果を使った証明だけ紹介し�
 これで簡単に (\ref{Hinashiro_math_party_1_probability_8}) が証明できた.
 
 Chebyshev の不等式だけでなく, Rademacher 関数の独立性, つまり \ref{Hinashiro_math_party_1_probability_11} の結果も本質的に効いている.
-実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[37].
+実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[38].
 弱法則ではまだまだほしい内容に足りない.
 「儲けが際限なく大きくなる確率が 0 に収束する」くらいの微妙なことしか言っていないからだ.
 平均がばっちり 0 に行くことを証明したい.
 これは次節で議論する大数の強法則として数学的に定式化されている.
 \subsection{大数の強法則}
-\label{sec-8-1-5-2}
+
 
 Borel は次の定理を示した.
 \begin{thm}[Borel]
@@ -17633,9 +18048,9 @@ Rademacher 関数 $r_k (t)$ での「硬貨投げ」では期待値 (平均) $0$
 魔界の住人のような結果もある.
 興味がある向きは \cite{MarkKac1} 2.2 節を読み, さらに解析数論にもアタックしてみてほしい.
 \section{中心極限定理}
-\label{sec-8-1-6}
+
 \subsection{正規分布}
-\label{sec-8-1-6-1}
+
 
 まずは定義を書く.
 平均 $\mu$, 分散 $\sigma^2$ の正規分布というのは次の確率密度関数を持つ分布のことだ.
@@ -17646,7 +18061,7 @@ Rademacher 関数 $r_k (t)$ での「硬貨投げ」では期待値 (平均) $0$
 \end{align}
 適当な仮定, 特に独立性がある場合, 試行の確率分布が試行を無限回繰り返す極限で正規分布に漸近していくという言明が中心極限定理なのだった.
 \subsection{中心極限定理の正確な言明: Rademacher 関数版}
-\label{sec-8-1-6-2}
+
 
 まず中心極限定理 (の Rademacher 関数版) を数学的に正確に書いておこう.
 \begin{thm}
@@ -17661,7 +18076,7 @@ Rademacher 関数 $r_k (t)$ での「硬貨投げ」では期待値 (平均) $0$
 これは Stirling の公式と組み合わせ的な議論からも導ける.
 しかしもっと確率論的にクリアな形で導出したい.
 \subsection{Markov の方法とその厳密化}
-\label{sec-8-1-6-3}
+
 
 \begin{proof}
 実数 $\omega_1 < \omega_2$ を固定しておき,
@@ -17748,9 +18163,9 @@ Fubini の定理が使えるから,
 その他のトピックへの展開も面白い.
 興味がある向きは是非 \cite{MarkKac1} の 3 章を読んでほしい.
 \chapter{講演原稿: Gauss 超過程とその場の量子論への応用--ささくれセミナー}
-\label{sec-8-2}
+
 \section{Introduction}
-\label{sec-8-2-1}
+
 
 Today we consider Gaussian super-processes and its application to quantum field theory.
 We talk about construction of a probability space on the space of real tempered distributions,
@@ -17789,7 +18204,7 @@ Then we can state a
 
 Note that Prof. Obata in University of Tohoku uses the above Fock space in his study of quantum probability \cite{AccardiObata1}.
 \subsection{Application to quantum field theory \cite{AsaoArai1, AsaoArai2}}
-\label{sec-8-2-1-1}
+
 
 The above Fock space $\calFb$ is used in quantum field theory.
 We use the space $L^2 (\mathbb{R}^3)$ for one particle \textbf{quantum mechanics},
@@ -17820,7 +18235,7 @@ So our space must be constructed as integration theory on the space over $C (\bb
 We use L\'evy processes for probabilistic representations of quantum mechanical systems.
 See \cite{LorincziHiroshimaBetz1} for details.
 \subsection{Application to geometry \cite{AsaoArai1} chap. 6}
-\label{sec-8-2-1-2}
+
 
 Let $\calH$ and $\calK$ be separable Hilbert spaces
 and define a \textbf{Fermion Fock space} by
@@ -17849,16 +18264,16 @@ and its functional integral (path integral) representations
 for their indices.
 This suggests a geometric study, in particular, topological invariants for infinite dimensional spaces.
 \subsection{Application to analytic number theory \cite{AsaoArai17}}
-\label{sec-8-2-1-3}
+
 
 We can derive the Dirichlet series and other arithmetic functions including the famous Riemann $\zeta$,
 using quantum statistical partition functions.
 This relates to the Hilbert-Polya conjecture.
 Super-symmetric quantum theory and duality are encoded into many relations of functional equations of arithmetic functions.
 \section{Gaussian super-process and its construction}
-\label{sec-8-2-2}
+
 \subsection{Basics for probability}
-\label{sec-8-2-2-1}
+
 
 First we introduce some probabilistic notions.
 
@@ -17951,7 +18366,7 @@ and extend it by linearity for $\cbk{f_i}$ polynomials.
  The RHS of the above converges in $L^p (M, d \mu)$ for all $p \in [1, \infty)$.
 \end{prop}
 \subsection{Gaussian super-processes}
-\label{sec-8-2-2-2}
+
 
 \begin{defn}
  Suppose $(M, \Sigma, \mu)$ is a probability space, $H$ is a real Hilbert space,
@@ -17981,7 +18396,7 @@ If there is no confusion we simply denote them $Q$, $\mu$, and $\phi (f)$.
 
 In the following we consider its fundamental structures, uniqueness, existence.
 \subsubsection{Fundamental structures}
-\label{sec-8-2-2-2-1}
+
 
 \begin{lem}
  Suppose $\cbk{f_{\alpha}}_{\alpha \in I}$ is a set of random variables on a probability space $(M, \Sigma, \mu)$ with index $I$ and set
@@ -18046,7 +18461,7 @@ In the proof we use the following interesting orthogonal properties.
  The above spaces $\Gamma_n (H)$ are `$n$-particle sub-spaces'.
 \end{rem}
 \subsubsection{Uniqueness}
-\label{sec-8-2-2-2-2}
+
 
 \begin{thm}
  Suppose $\phi_1$ and $\phi_2$ are Gaussian super-processes for $H$ and their probability spaces are $(Q_i, d \mu_i)$, $i=1,2$.
@@ -18057,7 +18472,7 @@ In the proof we use the following interesting orthogonal properties.
  \end{align}
 \end{thm}
 \subsubsection{Existence of a Gaussian super-process for any separable $H$}
-\label{sec-8-2-2-2-3}
+
 
 \begin{proof}
  Let $H$ be a separable real Hilbert space and $\cbk{e_n}_{n=1}^{\infty}$ is a CONS.
@@ -18125,7 +18540,7 @@ In the proof we use the following interesting orthogonal properties.
  the constructed $\phi (\cdot)$ is a Gaussian super-process indexed by $H$.
 \end{proof}
 \section{Concrete realization of the set $Q$}
-\label{sec-8-2-3}
+
 
 Finally we consider a useful realization of $Q$ because we would like to describe $Q$ concretely for concrete $H$.
 The reason why we want to use $\realtempereddist$ is a representation theory:
@@ -18213,13 +18628,13 @@ generated by the above cylinder sets.
  Hence $\phi (f)$ is a GRV.
 \end{proof}
 \section{Application to quantum field theory and relation to operator algebraic formulation}
-\label{sec-8-2-4}
+
 
 If having time.
 \section{Appendix}
-\label{sec-8-2-5}
+
 \subsection{Stone-Weierstrass theorem}
-\label{sec-8-2-5-1}
+
 
 We consider the algebra $C_0 (X, \bbC)$ of complex-valued continuous functions on
 a locally compact Hausdorff space $X$ with the topology of uniform convergence.
@@ -18233,7 +18648,7 @@ This is a $C^*$-algebra with the *-operation given by pointwise complex conjugat
  Then the complex unital *-algebra generated by $A$ is dense in $C_0 (X, \bbC)$.
 \end{thm}
 \subsection{Minlos' theorem}
-\label{sec-8-2-5-2}
+
 
 First we review Bochner' theorem.
 A function $\phi \colon \bbRn \to \bbC$ is of positive type if, for any $x_1, \dots, x_n \in \bbRn$ and any $z_1, \dots, z_n \in \bbC$,
@@ -18258,17 +18673,17 @@ There are two proofs in \cite{AsaoArai5}.
 One is abstract and uses \textbf{nuclear extension}.
 The other is concrete and uses a \textbf{quantum mechanical harmonic oscillator}
 \chapter{講演原稿: エルゴード理論}
-\label{sec-8-3}
+
 \chapter{アイドルと学ぶ統計学}
-\label{sec-8-4}
+
 
 動画から適当に切り出してくる.
 \part{代数}
-\label{sec-9}
+
 \chapter{可換環論}
-\label{sec-9-1}
+
 \section{定義と基本的な諸性質}
-\label{sec-9-1-1}
+
 
 \begin{defn}
  $R$ が (加法に対して) 可換群で, 加法に対して分配的な付随する積を持つとき, $R$ を\textbf{環}という.
@@ -18326,23 +18741,23 @@ The other is concrete and uses a \textbf{quantum mechanical harmonic oscillator}
 \end{align}
 \end{proof}
 \chapter{対称性と群論}
-\label{sec-9-2}
+
 \section{運動方程式を不変にする変換}
-\label{sec-9-2-1}
+
 \section{エネルギーを不変にする変換}
-\label{sec-9-2-2}
+
 \section{群}
-\label{sec-9-2-3}
+
 \section{Lorentz 群と Maxwell 方程式}
-\label{sec-9-2-4}
+
 \section{解析力学小論}
-\label{sec-9-2-5}
+
 \part{幾何}
-\label{sec-10}
+
 \part{面白い (反) 例集}
-\label{sec-11}
+
 \chapter{代数}
-\label{sec-11-1}
+
 
 \begin{ex}[Nonunital commutative ring]
 \begin{enumerate}
@@ -18371,19 +18786,19 @@ The other is concrete and uses a \textbf{quantum mechanical harmonic oscillator}
  $Re$ は $e$ を単位元とする環で $R$ のイデアルにはなるが, $e = 1$ でない限り $R$ の部分環にはならない.
 \end{ex}
 \chapter{幾何}
-\label{sec-11-2}
+
 
 \begin{ex}[Manifolds without countable base]
  See \cite{CalabiRosenlicht1} for details.
 \end{ex}
 \chapter{講演原稿・DVD 原稿:  色々な反例を作って遊ぼう}
-\label{sec-11-3}
+
 
 これは 2013-03-16 第 3 回関西すうがく徒のつどいでの講演,
 【色々な反例を作って遊ぼう】で話した内容の原稿にあたる.
 また \cite{phasetr1} として DVD 化もしている.
 \section{abstract}
-\label{sec-11-3-1}
+
 
 つどいでは実数論, 初等的な微分積分学周辺で
 【色々な反例を作って遊ぼう】という題目で講演する.
@@ -18420,7 +18835,7 @@ The other is concrete and uses a \textbf{quantum mechanical harmonic oscillator}
 \item $\Omega \in \mathbb{R}^d$ としたとき, 異なる $p$ に対する $L^p (\Omega)$ の包含関係が $\Omega$ に依存する例 \cite{DavidWilliams1} p64.
 \end{enumerate}
 \section{導入}
-\label{sec-11-3-2}
+
 
 \begin{enumerate}
 \item 自分で問題を作って遊ぶ.
@@ -18442,7 +18857,7 @@ The other is concrete and uses a \textbf{quantum mechanical harmonic oscillator}
 \item 本を参考にしてみる.
 \end{enumerate}
 \section{ポイント}
-\label{sec-11-3-3}
+
 
 \begin{enumerate}
 \item 問題の作り方, 予想の立て方.
@@ -18450,7 +18865,7 @@ The other is concrete and uses a \textbf{quantum mechanical harmonic oscillator}
 \item 背景にある理論.
 \end{enumerate}
 \section{環から部分環を除いた集合は環になるか}
-\label{sec-11-3-4}
+
 
 $\mathbb{R} \setminus \mathbb{Q}$ と $F (I) \setminus C^0 (I)$.
 前者は無理数の集合, 後者は不連続関数の集合.
@@ -18471,14 +18886,14 @@ $f$ を $[0,1]$ でだけ 1 であとは 0 になる関数とすると, $f + (-f
 $g$ を $[2,3]$ でだけ 1 であとは 0 になる関数とすると, $f * g = 0$ になる.
 \end{ex}
 \subsection{構成法について}
-\label{sec-11-3-4-1}
+
 
 双方とも, 和については「同じものを足し引き」しているので同じ構成法.
 不連続関数については, 和と積が同じ発想で例を作っている: 恒等的に 0 の関数に叩き落とす.
 
 ついでにいうと, 連続関数環は整域でない環の例にもなっている.
 \section{絶対値を取ることで関数の滑らかさは下がるか \cite{GelbaumOlmsted1}, p22}
-\label{sec-11-3-5}
+
 
 高校で $f (x) = |x|$ が「元の関数が微分可能なのに絶対値を取ると微分不可能になる例」として出てくる.
 要はこれがいつでも成り立つかということ.
@@ -18519,13 +18934,13 @@ $f (x) = |x|$ で実際そうなっているように, 符号が変わると問�
 やや別件だが, 「自明なものしか存在しないという事実が非自明」という場合もある.
 例えば「コンパクトな複素多様体上で正則な関数は定数しかない」.
 \section{連続だがいたるところ微分可能でない関数は存在するか:ワイエルシュトラスの関数 \cite{WilliamDumham1} p141, 高木関数, ブラウン運動}
-\label{sec-11-3-6}
+
 
 $C^0 (I) \setminus C^1 (I)$ や $C^1 (I) \setminus C^2 (I)$ に含まれる関数は作った.
 ただし, 例に挙げた関数は微分不可能な点が 1 つしかなかった.
 微分不可能な点がたくさんある関数も簡単に作れるが, ここでは全く微分できない関数があるかどうかについて考えたい.
 \subsection{ワイエルシュトラスの関数}
-\label{sec-11-3-6-1}
+
 
 まず反例の有名どころとして Weierstrass によるいたるところ微分不可能な連続関数を挙げる.
 太古の昔, 一般に連続関数は微分可能であると信じられ, アンペールによる「証明」まであった.
@@ -18555,11 +18970,11 @@ $a \geq 3$ を奇数, $b \in (0, 1)$, $ab > 1 + \frac{3 \pi}{2}$ とするとき
 ここから $C^2 \subset C^1$ が分かる.
 帰納的に $w_{n+1}(x)=\int_0^x w_n (t) dt$ とすると $C^{n+1} \subset C^n$ の包含が狭義であると分かる.
 \subsubsection{微分不可能性の証明}
-\label{sec-11-3-6-1-1}
+
 
 \textbf{あとでワイエルシュトラスの関数の微分不可能性証明をつける.}
 \subsubsection{色々な側面}
-\label{sec-11-3-6-1-2}
+
 
 他の例もあわせてどこまでやれるかわからないが, 1 つの例が他にも色々な側面を持っていることもあわせて伝えたい.
 例えば, 実数が距離空間, 位相空間, 体という代数構造など色々な切り口があるように.
@@ -18581,9 +18996,9 @@ Dirac の $\delta$ 関数について調べればすぐ出てくるが, 三角�
 この観点からすると相転移という例も挙げられる.
 これも解析関数の極限, 特に熱力学的極限として現れる特異的な振る舞いとして相転移を記述しようというのが統計力学の主目的の一つだ.
 \subsection{その他の関数, 展開}
-\label{sec-11-3-6-2}
+
 \subsubsection{高木関数}
-\label{sec-11-3-6-2-1}
+
 
 Wikipedia などにも説明がある.
 定義は次の通り:
@@ -18597,14 +19012,14 @@ Wikipedia などにも説明がある.
 \end{align}
 フラクタルと関係がある.
 \subsubsection{ブラウン運動}
-\label{sec-11-3-6-2-2}
+
 
 確率論で基本的な対象.
 H\"older 連続にはなるが, 微分不可能.
 \section{有界閉集合上連続な関数は一様連続になるか}
-\label{sec-11-3-7}
+
 \subsection{距離空間}
-\label{sec-11-3-7-1}
+
 
 背景となる定理がある.
 大事な定理を 3 つあげよう.
@@ -18635,7 +19050,7 @@ $\mathbb{R}^d$ の部分集合で考えると, 有界閉集合はコンパクト
 また 3 番目の定理から, 距離空間ではコンパクト性と完備性 ($+$ 全有界性) が同値になる.
 つまり完備性を持たない空間で考えれば上記予想の反例が作れる可能性がある.
 \subsection{反例}
-\label{sec-11-3-7-2}
+
 
 有界閉集合上連続で有界だが一様連続ではない関数が存在する.
 $f \colon \mathbb{Q} \cap [0, 2] \to \mathbb{Q} \cap [0, 1]$ を次のように定義する.
@@ -18659,9 +19074,9 @@ $\mathbb{Q} \cap[0, 2]$ は $\mathbb{Q}$ で有界で閉だが,
 この他にも $\mathbb{Q}$ 上では, 完備性またはコンパクト性が効いてくる連続関数の性質がいくつか成り立たなくなる.
 詳しくは \cite{GelbaumOlmsted1} の p19 を参照.
 \subsection{その他関係する話}
-\label{sec-11-3-7-3}
+
 \subsubsection{位相幾何}
-\label{sec-11-3-7-3-1}
+
 
 さらに, 定義域を実数にして$f \colon [0,1] \cup [1,2] \to [0,1]$ にすると別の話が出てくる.
 この $f$ は局所定数関数になるが, 定義域の特性から連続になる.
@@ -18678,7 +19093,7 @@ $\mathbb{R} \times \mathbb{R} = \mathbb{R}^2$ 個だけ局所定数関数があ�
 代数幾何などでもこの発想は生きているし, 作用素環からの非可換幾何でも大事な発想になる.
 具体例がいくつかあるか数えるというところから別の大きな理論が出てくる話.
 \subsubsection{画像処理}
-\label{sec-11-3-7-3-2}
+
 
 $f \colon [0,2] \to [0,1]$ として有理数の制限を外した関数を考えると画像処理のような応用も出てくる.
 画像の鮮明化とかその辺の応用があるので, 別のところでも大事な具体例になる.
@@ -18687,7 +19102,7 @@ $f \colon [0,2] \to [0,1]$ として有理数の制限を外した関数を考�
 例えば深夜に人の顔に光を当てると, 顔は白っぽくなるが, 顔を外れると黒くなる.
 この微分不可能性, 特異性を使って, 画像を鮮明にする.
 \section{各点で関数列の値が収束するなら積分の値も収束するか}
-\label{sec-11-3-8}
+
 
 \cite{GelbaumOlmsted1} の P79 の Ex.6 もあるが, 個人的な思い入れから別の関数列を紹介したい.
 熱核と呼ばれるが, $t$ に関して $\delta$ 関数近似列になる.
@@ -18711,7 +19126,7 @@ $f \colon [0,2] \to [0,1]$ として有理数の制限を外した関数を考�
 $\lim_{t \downarrow 0} \int_{\mathbb{R}} f_t (x) dx = 1$ だが
 $\int_{\mathbb{R}} \lim_{t \downarrow 0} f_t (x) dx = 0$ になる.
 \subsection{超関数}
-\label{sec-11-3-8-1}
+
 
 普通 $f_0$ は超関数, $\delta$ 関数と呼ばれる.
 $f_0$ 自体は関数として意味を持つので, なぜ超関数と呼ばれるかということが問題になる.
@@ -18726,9 +19141,9 @@ $f_0$ 自体は関数として意味を持つので, なぜ超関数と呼ばれ
 これと同じ問題が場の量子論でも起きていて, そちらは今も研究が進行中でかつ物理としても意味がある問題になっている.
 朝永振一郎のノーベル賞の業績でもある発散の困難と深く関係している.
 \section{$\Omega \subset \mathbb{R}^d$ としたとき, 異なる $p$ に対する $L^p (\Omega)$ の包含関係が $\Omega$ の幾何学的特性に依存する例 \cite{DavidWilliams1} p64}
-\label{sec-11-3-9}
+
 \subsection{幾何学的意味}
-\label{sec-11-3-9-1}
+
 
 この区間に対する関数空間が持つ特性は微分方程式論でも大事で色々な形で出てくるが, ここでは幾何学的なところから見てみたい.
 この例では区間 (図形) の特性がその上に住む関数の空間に影響を与えることを見た.
@@ -18749,7 +19164,7 @@ $B$ に聞くことはないはずだ.
 このように聞きたい情報に合わせて共通の友人を上手く見つけて聞き出そうというのが幾何学でのホモロジーの使い方にあたる.
 朱に交じわれば赤くなるというように, $X$ の友人 $B$ や $W$ は $X$ の影響を受けつつ, 逆に $X$ に影響を与えてもいる.
 \subsection{例の構成}
-\label{sec-11-3-9-2}
+
 
 一般にやってもいいが, 面倒なので $d = 1$ として $L^1$ と $L^2$ で話をする.
 $I_1 = (0, \infty)$ と $I_2 = (0, 1)$ の場合を比べる.
@@ -18784,7 +19199,7 @@ $I_2$ の長さが 1 であることに注意すると, 任意の $h \in L^2 (I_
  \int_{I_2} 1 dx \int_{I_2} h (x)^2 dx < \infty.
 \end{align}
 \section{「中間値の定理」が成り立つ不連続関数 \cite{WilliamDumham1} p158}
-\label{sec-11-3-10}
+
 
 次の関数は原点で不連続だが, 中間値の定理が成り立つ.
 ここで「中間値の定理」とは, 「関数 $f \colon (a, b) \to \mathbb{R}$ は $f (a)$ と $f (b)$ の間の任意の値を取る」という意味で使っている.
@@ -18802,7 +19217,7 @@ $x_k = 1 / k \pi$ とすると $S (x_k) = (-1)^k$ となるから, $S$ は原点
 これは図で見ると明らかな連続関数の性質が連続関数を特徴づけるには不十分であるというところがポイント.
 上の例は「任意の部分区間で中間値の定理が成り立つが不連続な関数」の具体例になっている.
 \subsection{関連する 2 つの関数}
-\label{sec-11-3-10-1}
+
 
 \begin{align}
  T (x)
@@ -18820,7 +19235,7 @@ $x_k = 1 / k \pi$ とすると $S (x_k) = (-1)^k$ となるから, $S$ は原点
 \end{align}
 とすると, $T$ は連続になり, $U$ は不連続な導関数を持つ可微分関数になる.
 \subsection{Darboux の定理 \cite{WilliamDumham1} P159}
-\label{sec-11-3-10-2}
+
 
 $f$ は $[a, b]$ 上で微分可能で, $r$ を $f'(a) < r < f'(b)$ とする.
 このとき, $f'(c) = r$ となる $c$ が $(a, b)$ に存在する.
@@ -18831,7 +19246,7 @@ $f$ は $[a, b]$ 上で微分可能で, $r$ を $f'(a) < r < f'(b)$ とする.
  一方, $g'(a) = f'(a) - r < 0$ かつ $g'(b) = f'(b) - r > 0$ なので $c \neq a, b$ となる.
 \end{proof}
 \section{微分不可能な微分方程式の解}
-\label{sec-11-3-11}
+
 
 次の例として次の微分方程式というのが挙げられる.下記の繰り返しで定義される微分方程式を考えよう:
 \begin{align}
@@ -18854,7 +19269,7 @@ $f$ は $[a, b]$ 上で微分可能で, $r$ を $f'(a) < r < f'(b)$ とする.
 その他, 適当な意味で特異性を持つ偏微分方程式の解がある.
 例えば Einstein 方程式とその Schwarzschild 解に対して, その特異性はブラックホールに関係する.
 \section{可微分関数の一様収束と微分の挙動制御}
-\label{sec-11-3-12}
+
 
 応用面で微分方程式の解の近似をするときに大事になる.
 速度など解の導関数も意味を持つ場合, 導関数の挙動まで制御しないといけないので, その辺で色々問題になることを考える.
@@ -18865,9 +19280,9 @@ $f (x) = 0$ とし, $g_n (x) = \frac{1}{n} \sin n^2 x$ とする.
 もちろん「遠近」というのをどう表現するか, どういう位相を入れるかという問題もある.
 詳しくは関数解析などの話題になる.
 \section{多変数関数}
-\label{sec-11-3-13}
+
 \subsection{各変数に対する連続・可微分性と多変数としての連続性・可微分性 \cite{GelbaumOlmsted1} p115}
-\label{sec-11-3-13-1}
+
 
 \begin{align}
  f (x, y)
@@ -18880,7 +19295,7 @@ $f (x) = 0$ とし, $g_n (x) = \frac{1}{n} \sin n^2 x$ とする.
 これは各変数については $C^{\infty}$ だが, 2 変数関数としては (原点で) 不連続になる.
 $y = k x$, $k > 0$ とすると $f (x, y) = \frac{k}{1 + k^2}$ となり, $k$ の値によって$x \to 0$ の値が変わることが分かる.
 \subsection{複素変数の場合}
-\label{sec-11-3-13-2}
+
 
 複素多変数の場合は状況が劇的に変わり, Hartogs の定理というのがある.
 \begin{thm}
@@ -18888,9 +19303,9 @@ $y = k x$, $k > 0$ とすると $f (x, y) = \frac{k}{1 + k^2}$ となり, $k$ �
 \end{thm}
 上記例の通り, 実変数で $C^{\infty}$ のときには類似の定理は成り立たず, 複素変数で正則性を課したときにだけ成立する強烈な定理だ.
 \section{距離空間上, 非コンパクト集合に対して共通部分がない閉集合で距離が 0 になってしまう 2 つの集合 \cite{GelbaumOlmsted1} p130}
-\label{sec-11-3-14}
+
 \section{測度論 \cite{GelbaumOlmsted1} p85}
-\label{sec-11-3-15}
+
 
 挙げる時間があれば, 任意の直線に対し高々二点を共有する非可測集合の存在証明に整列定理とツォルンの補題を使うことくらいは紹介したい.
 本 \cite{GelbaumOlmsted1} には Cantor 集合がたくさん出てくる:Cantor 集合を基点にした多くの例がある.
@@ -18899,39 +19314,39 @@ $y = k x$, $k > 0$ とすると $f (x, y) = \frac{k}{1 + k^2}$ となり, $k$ �
 
 Cantor 集合は田尻さんの講演を参照.
 \section{まとめ}
-\label{sec-11-3-16}
+
 
 あとで見ると, 特異な振舞いに着目した例が多かったという印象になるが私の研究は数学としては「特異性の数学」と言えなくもないので,
 やはりそういう趣味が出る.
 何を見るかという所に自分の趣味はどうしても出てしまうもの.
 各自, 自分の数学をのんびり育ててほしい.
 \section{Appendix}
-\label{sec-11-3-17}
+
 \subsection{環の定義}
-\label{sec-11-3-17-1}
+
 
 代数, 特に群や環については \cite{ToshiyukiKatsura1} を参考にしてほしい.
 \subsubsection{環とは何か}
-\label{sec-11-3-17-1-1}
+
 
 和, 差, 積がある代数的対象.
 商があるとは限らない.
 \begin{itemize}
 
 \item 例 1:整数 $\mathbb{Z}$\\
-\label{sec-11-3-17-1-1-1}%
+%
 和, 差, 積はいい.
 商が問題: $4/2 = 2 \in \mathbb{Z}$ と入る場合はあるが, 一般には $2/4 = 1/2 \notin \mathbb{Z}$ のようになる.
 商はあるが, それが外の空間 (集合) にはみ出る.
 
 \item 例 2:連続関数\\
-\label{sec-11-3-17-1-1-2}%
+%
 (和と積を定義する.)
 和, 差, 積はいい. (実際には証明が必要. $\varepsilon \mathrm{-} \delta$ を使う.)
 商が問題: $\cos x / x$ は原点で値が定義できない (連続関数にならない).
 
 \item 例 3:Banach 環 $L^1 (\mathbb{R}^d)$\\
-\label{sec-11-3-17-1-1-3}%
+%
 積は次のように畳み込みで定義する.
 \begin{align}
  (f*g) (x)
@@ -18943,7 +19358,7 @@ Cantor 集合は田尻さんの講演を参照.
 $\ell^1$ にした離散版も定義できる.
 \end{itemize} % ends low level
 \subsubsection{環の定義}
-\label{sec-11-3-17-1-2}
+
 
 $R \neq \{0\}$ に対して 2 つの演算, 和「 $+$ 」と積「 $\cdot$ 」があり, これらが次の条件を満たすとき, $R$ を環という.
 \begin{enumerate}
@@ -18960,12 +19375,12 @@ $R \neq \{0\}$ に対して 2 つの演算, 和「 $+$ 」と積「 $\cdot$ 」�
 \begin{itemize}
 
 \item 注意\\
-\label{sec-11-3-17-1-2-1}%
+%
 和に関する条件のうち, 上 3 つを満たす代数的対象を群という.
 最後の 1 つも満たす場合, 可換群という.
 \end{itemize} % ends low level
 \subsubsection{環にならない例 自然数 $\mathbb{N}$}
-\label{sec-11-3-17-1-3}
+
 
 ここでは $0 \in \mathbb{N}$ としている.
 和, 積はいい.
@@ -18973,13 +19388,13 @@ $R \neq \{0\}$ に対して 2 つの演算, 和「 $+$ 」と積「 $\cdot$ 」�
 商は整数と同じ.
 差は $2 - 1 = 1 \in \mathbb{N}$ だが, $1 - 2 = - 1\notin \mathbb{N}$.
 \subsection{Fourier 解析}
-\label{sec-11-3-17-2}
+
 
 これは例えば (線型の) (偏) 微分方程式を解くときに使う.
 物理のあらゆる所で使うし, 電気回路の理論でも使う.
 表現論という数学の大きな流れの中でもとても大事で基本的な対象になっている.
 \subsubsection{Fourier 級数}
-\label{sec-11-3-17-2-1}
+
 
 関数 $f \colon (-L, L) \to \mathbb{C}$ に対して, 次のように Fourier 級数を定義する.
 一旦収束は無視する.
@@ -19010,7 +19425,7 @@ Euler の公式を使って次のようにまとめることもある.
 Lebesgue 積分, 特に $L^2$ 空間を使った議論については \cite{SeizoIto1, LiebLoss1} が応用向きにも読みやすいと思う.
 これらはむしろ次の Fourier 変換の方の参考書なのだが.
 \subsubsection{Fourier 変換}
-\label{sec-11-3-17-2-2}
+
 
 大雑把に言って, 上の場合に $L \to \infty$ とした場合を Fourier 変換と呼ぶ.
 数学的に多少扱いが変わる部分があるので呼び方も変えている.
@@ -19030,16 +19445,16 @@ Fourier 級数のところでも書いたが, \cite{SeizoIto1, LiebLoss1} も参
 時々, 違う定義を使っていることがあるので注意してほしい.
 特に $2 \pi$ がつく場所に注意.
 \subsection{超関数}
-\label{sec-11-3-17-3}
+
 \subsubsection{超関数の気持}
-\label{sec-11-3-17-3-1}
+
 
 きちんと書くと大変になるので正確な定義は \cite{LiebLoss1} など適当な本を読むか, Wikipedia で超関数を調べてほしい.
 ここでは気分だけ説明する.
 \begin{itemize}
 
 \item 参考文献\\
-\label{sec-11-3-17-3-1-1}%
+%
 佐藤超関数は扱いきれないので, Schwartz の超関数だけ紹介する.
 佐藤超関数については \cite{MitsuoMorimoto1} などを見るといいだろう.
 
@@ -19048,7 +19463,7 @@ Schwartz 超関数も位相線型空間のかなりディープな話を使う�
 私にとってはこちらの方がまだ馴染みがある.
 
 \item 発端\\
-\label{sec-11-3-17-3-1-2}%
+%
 ことの発端はいくつかあるが, 1 つの大きな問題は物理で出てくる計算の正当化にある.
 特にいわゆる $\delta$ 関数をどう定式化するかが問題になる.
 これは次のような ``関数'' だ.
@@ -19070,7 +19485,7 @@ von Neumann は \cite{vonNeumann1} で $\delta$ 関数が関数ではないこ�
 関数と思わなければいいだろうとして議論を勧めたことだ.
 
 \item 汎関数\\
-\label{sec-11-3-17-3-1-3}%
+%
 決定的に大事なことは普通の関数だと思わず (線型) 汎関数だと思うということにある.
 汎関数というのは, 関数 $\phi$ に対して適当な複素数 $T (\phi)$ を返す「関数」のことだ.
 あえて「関数」と書いたが, 線型写像と言った方がいいかもしれない.
@@ -19081,14 +19496,14 @@ von Neumann は \cite{vonNeumann1} で $\delta$ 関数が関数ではないこ�
 まともな意味では微分できない関数を微分する荒技といってもいい.
 
 \item 展開\\
-\label{sec-11-3-17-3-1-4}%
+%
 現代的な微分方程式論でも解を見つけるための空間設定として基本的な見方になっている.
 詳しく知りたい人は Sobolev 空間という言葉を調べてほしい.
 これは \cite{LiebLoss1} にも載っている.
 \cite{LiebLoss1} には量子力学への応用について詳しく議論されているので, 興味がある向きにはおすすめしたい.
 \end{itemize} % ends low level
 \subsubsection{distribution}
-\label{sec-11-3-17-3-2}
+
 
 佐藤超関数は扱いきれないので, Schwartz の超関数だけ紹介する.
 緩増加超関数というのもあり, Fourier 変換を議論するならこちらの方が大事になる.
@@ -19117,11 +19532,11 @@ von Neumann は \cite{vonNeumann1} で $\delta$ 関数が関数ではないこ�
 \end{align}
 と定義する.
 \subsection{距離空間論}
-\label{sec-11-3-17-4}
+
 
 参考書として \cite{ShigeoIchiraku1} や \cite{KazuoMatsuzaka1} を挙げておく.
 \subsubsection{公理}
-\label{sec-11-3-17-4-1}
+
 
 $X$ を集合, $d \colon X \times X \to \mathbb{R}$ を次の性質を満たす関数とするとき, $(X, d)$ を距離空間という.
 \begin{enumerate}
@@ -19137,14 +19552,14 @@ $d$ を距離または距離関数という.
 \begin{itemize}
 
 \item 例\\
-\label{sec-11-3-17-4-1-1}%
+%
 $\mathbb{R}^n$ に対して $d (x, y) = \left| x - y \right|$ (絶対値) とするとこれが距離になり,
 $(\mathbb{R}^n, d)$ が距離空間になる.
 他の距離の入れ方もある.
 詳しくは \cite{ShigeoIchiraku1, KazuoMatsuzaka1} を参照してほしい.
 
 \item 距離空間での開集合\\
-\label{sec-11-3-17-4-1-2}%
+%
 距離空間の部分集合 $O \subset X$ が次の性質を満たすとき, $O$ は開集合であるという:
 任意の $a \in O$ に対して $\varepsilon > 0$ が存在して $B (a; \varepsilon) \subset O$ が成り立つ.
 ここで開球と呼ばれる $B (a; \varepsilon)$ は次のように定義する.
@@ -19157,7 +19572,7 @@ $(\mathbb{R}^n, d)$ が距離空間になる.
 (図を入れる.)
 \end{itemize} % ends low level
 \subsubsection{$\mathbb{R}^n$ での有界閉性とコンパクト性}
-\label{sec-11-3-17-4-2}
+
 
 $\mathbb{R}^n$ では有界閉性とコンパクト性が同値になる.
 一般的なコンパクトの定義は恐しく分かりづらいので, まずはこちらで慣れてもらいたい.
@@ -19166,61 +19581,61 @@ $\mathbb{R}^n$ では有界閉性とコンパクト性が同値になる.
 \begin{itemize}
 
 \item 有界\\
-\label{sec-11-3-17-4-2-1}%
+%
 $A \subset X$ が次の条件を満たすとき, $A$ が有界であるという:
 正の数 $r > 0$ があり $A \subset B (0; r)$ となる.
 
 \item 閉集合\\
-\label{sec-11-3-17-4-2-2}%
+%
 $A \subset X$ が次の条件を満たすとき, $A$ が閉集合であるという:
 任意の $a \in A$ と任意の $\varepsilon > 0$ に対して $A \cap B (a; \varepsilon) \neq \emptyset$ となる.
 (図を入れて説明する.)
 
 \item イメージ\\
-\label{sec-11-3-17-4-2-3}%
+%
 これを平面図形で直観的にいうと, 「素直な図形」については「境界線の内側と境界線を含めた図形」を指す.
 (図を入れる.)
 
 \item 有界閉\\
-\label{sec-11-3-17-4-2-4}%
+%
 有界閉集合は有界かつ閉な $X$ の部分集合のことを指す.
 
 \item $\mathbb{R}^n$ での定理\\
-\label{sec-11-3-17-4-2-5}%
+%
 $A \subset \mathbb{R}^n$ では $A$ が有界閉であることとコンパクトであることは同値.
 \end{itemize} % ends low level
 \subsubsection{コンパクト}
-\label{sec-11-3-17-4-3}
+
 
 コンパクトの定義のために, まず被覆を定義する必要がある.
 \begin{itemize}
 
 \item 被覆, 開被覆, 有限被覆\\
-\label{sec-11-3-17-4-3-1}%
+%
 $\mathcal{U}$ が $X$ の部分集合系だとする.
 $\cup_{U \in \mathcal{U}} = X$ となるとき, $\mathcal{U}$ は $X$ の被覆であるという.
 被覆 $\mathcal{U}$ の元が全て開集合のとき, $\mathcal{U}$ を開被覆という.
 また $\mathcal{U}$ の元が有限個しかないとき, $\mathcal{U}$ は有限被覆という.
 
 \item コンパクト\\
-\label{sec-11-3-17-4-3-2}%
+%
 $A \subset X$ が次の条件を満たすとき, $A$ はコンパクトであるという:
 $X$ の任意の開被覆 $\mathcal{U}$ を取る.
 $\mathcal{U}$ から適当に有限個の集合を取り出して部分集合系 $\mathcal{U}'$ を取れば,
 $\mathcal{U}'$ も $X$ の開被覆になる.
 
 \item 有界だが閉でない場合の非コンパクト性\\
-\label{sec-11-3-17-4-3-3}%
+%
 平面図形の右と上の辺が開いている長方形 $A$ に対し, 長方形の上 1/4 を切った図形による開被覆を例にする.
 \end{itemize} % ends low level
 \subsubsection{完備性}
-\label{sec-11-3-17-4-4}
+
 
 $X$ の任意の Cauchy 列が収束するとき, 距離空間 $X$ は完備であるという.
 ここで $\left ( a_n \right)$ が次の条件を満たすとき, これが Cauchy 列であるという:
 任意の $\varepsilon > 0$ に対して自然数 $N$ が存在し, $n$, $m > N$ ならば $d (a_n, a_m) < \varepsilon$ となる.
 \subsubsection{全有界}
-\label{sec-11-3-17-4-5}
+
 
 これは何となくコンパクト性を感じさせる概念だ.
 全有界な集合は有界であることは注意しておこう.
@@ -19241,19 +19656,19 @@ $\varepsilon$ 被覆を定義する必要があるが, そのために距離空�
 $\varepsilon$ 被覆は次の条件を満たす被覆 $\mathcal{U}$ である:
 $\mathcal{U}$ の任意の元 $U$ に対して $\delta (U) < \varepsilon$ となる.
 \subsubsection{一様連続}
-\label{sec-11-3-17-4-6}
+
 
 $f \colon X \to \mathbb{R}$ が次の条件を満たすとき一様連続であるという:
 任意の $\varepsilon > 0$ に対して $\delta > 0$ が存在して $d (x, y) < \delta$ ならば $d (f (x), f (y)) < \varepsilon$.
 \begin{itemize}
 
 \item 1 点での連続性との違い\\
-\label{sec-11-3-17-4-6-1}%
+%
 普通, 一点 $x$ における連続性を考えると $\delta > 0$ は $x$ に依存して決まる.
 一様連続だとこの制限が外れていて, $d (x, y) < \delta$ である限り, 全ての $x$, $y$ に対して最後の式が成り立つという所が違う.
 \end{itemize} % ends low level
 \section{講演の感想}
-\label{sec-11-3-18}
+
 
 \begin{enumerate}
 \item 命題に対して仮定を外してみるということはよく行うことですが, その大切さをあらためて再認識しました.
@@ -19287,35 +19702,35 @@ $f \colon X \to \mathbb{R}$ が次の条件を満たすとき一様連続であ�
 \item 身近な例でわかりやすかったです.
 \end{enumerate}
 \part{応用数学}
-\label{sec-12}
+
 \chapter{デジタル信号と代数幾何}
-\label{sec-12-1}
+
 
 動画から適当に切り出してくる.
 \chapter{Peano 曲線とその工学的応用}
-\label{sec-12-2}
+
 
 動画から適当に切り出してくる.
 \part{量子力学と場の量子論}
-\label{sec-13}
+
 \part{統計力学と物性論}
-\label{sec-14}
+
 \chapter{レーザー: 電子が歌う歌}
-\label{sec-14-1}
+
 
 動画から適当に切り出してくる.
 \chapter{Hubbard モデルの解析}
-\label{sec-14-2}
+
 
 動画から適当に切り出してくる.
 \part{物理いろいろ}
-\label{sec-15}
+
 \chapter{流体力学と一般相対論の類似}
-\label{sec-15-1}
+
 
 動画から適当に切り出してくる.
 \part{参考文献など}
-\label{sec-16}
+
 
 \nocite{*}
 \printindex

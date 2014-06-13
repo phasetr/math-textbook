@@ -387,7 +387,7 @@
 
 \title{Math textbook}
 \author{相転移 P (@phasetr)\thanks{phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com}}
-\date{2014-06-07}
+\date{2014-06-14}
 
 \begin{document}
 
@@ -537,14 +537,15 @@ $M$ admits a good filtration if and only if $M$ is finitely generated.
 Let $M$ be a left $W_n(k)$-module endowed with a good filtration $\Gamma$.
 
 \begin{itemize}
-\item しかし $\mu$ の自己相互作用によるエネルギーが無限大になるため不等式 (5.2.6) は今は役に立たない. \cite{LiebSeiringer1}
-\end{itemize}
-Inequality (5.2.6) is of no use in this case, however, because of the infinite self-energy of $\mu$.
-
-\begin{itemize}
 \item $N!/(N-k)!$ 以外の規格化も他の文献でよく使われる. \cite{LiebSeiringer1}
 \end{itemize}
 Normalization conventions other than $N!/(N-k)!$ are often used in the literature.
+
+\begin{itemize}
+\item $\abs{p}$ と $1 / \abs{x}$ は両方長さの逆数でスケールするので, 第 1 種の安定性でさえなりたたない臨界結合定数がある. \cite{LiebSeiringer1}
+\end{itemize}
+Since $\abs{p}$ and $1 / \abs{x}$ both scale like an inverse length, there is a critical
+coupling constant above which even stability of the first kind fails.
 
 \begin{itemize}
 \item $\psi$ が $\calE$ に対する最小化関数ならば $\psi_{s} / \norm{\psi_s}$ もそうであるとわかる. \cite{LiebSeiringer1}
@@ -1056,6 +1057,11 @@ An operator valued function.
 \item さらに同じ理由からもし $H$ に置換対称性があれば次の式が成立する. \cite{LiebSeiringer1}
 \end{itemize}
 Moreover, for the same reason the following expression holds if $H$ is invariant under permutations.
+
+\begin{itemize}
+\item しかし $\mu$ の自己相互作用によるエネルギーが無限大になるため不等式 (5.2.6) は今は役に立たない. \cite{LiebSeiringer1}
+\end{itemize}
+Inequality (5.2.6) is of no use in this case, however, because of the infinite self-energy of $\mu$.
 
 \begin{itemize}
 \item 事実.
@@ -5863,6 +5869,291 @@ Google のページランクでも使う定理で応用は広い.
 
 
 動画から適当に切り出してくる.
+\chapter{n次元球の体積と表面積}
+
+
+ゆきみさんのページ \href{http://yukimigo.com/math/}{http://yukimigo.com/math/} から持ってきた.
+ゆきみさんの (セミナー) 原稿がオリジナルであり, 著者の許諾を得て適宜修正の上転載している.
+\cite{MitsuoSugiura1, MitsuoSugiura2} 参照.
+\section{$\bbRn$ の極座標}
+
+
+以下 $x \in \bbRn$, $r \defeq \abs{x} = \sqrt{\sum_i^n x_i^2}$ とする.
+$x$ と $e_1 = (1, 0, \dots, 0)$ のなす角を $\theta_1$ とすると,
+\begin{align}
+ x_1
+ =
+ r \cos \theta_1, \quad
+ \sqrt{\sum_{i=2}^n x_i^2}
+ =
+ r \sin \theta_1
+\end{align}
+となる.
+ここで $0 \le \theta_1 \le \pi$ とえらぶとこれは一意に決まる.
+つぎに $(x_2, \dots , x_n) \in \bbR^{n-1}$ について
+$r$ を $r \sin \theta_1$ として, $(0, x_2, \dots, x_n)$ と
+$e_2 = (0, 1, 0, \dots, 0)$ のなす角を $\theta_2 (0 \le \theta_2 \le \pi)$ とすれば,
+\begin{align}
+ x_2
+ =
+ r \sin \theta_1, \quad
+ \sqrt{\sum_{i=3}^n x_i^2}
+ =
+ r\sin \theta_1 \sin \theta_2
+\end{align}
+となる.
+同様にして,
+\begin{align}
+ x_1
+ &=
+ r\cos \theta_1, \\
+ x_2
+ &=
+ r\sin \theta_1\cos \theta_2, \\
+ \vdots \\
+ x_{n-1}
+ &=
+ r\sin \theta_1 \cdots \sin \theta_{n-2} \cos \theta_{n-1}, \\
+ x_n
+ &=
+ r\sin \theta_1 \cdots \sin \theta_{n-2} \sin \theta_{n-1}
+\end{align}
+となる.
+ここで $0 \le r < \infty$,  $0 \le \theta_i \le \pi (1 \le i \le n-2)$,
+$0 \le \theta_{n-1} \le 2\pi$ で, この変換の Jacobian は
+\begin{align}
+ J(r, \theta_1, \dots, \theta_{n-1})
+ =
+ r^{n-1} \sin^{n-2} \theta_1 \sin^{n-3}\theta_2 \cdots \sin \theta_{n-2}
+\end{align}
+になる. (帰納法でがんばる.)
+\section{$\Gamma$ 関数と $B$ 関数}
+
+
+\begin{defn}
+関数 $\Gamma$, $B$ を
+\begin{align}
+ \Gamma (s)
+ \defeq
+ \int_0^{\infty} x^{s-1} e^{-x} dx \quad (s > 0 ),
+ \quad
+ B(p, q)
+ \defeq
+ \int_0^1 x^{p-1}(1-x)^{q-1} dx \quad (p, q > 0)
+\end{align}
+と定義する.
+それぞれ \textbf{Gamma 関数}, \textbf{Beta 関数}という.
+\end{defn}
+まず Beta 関数については上の式で $x = \sin^2 \theta$ とすると,
+\begin{align}
+ B(p, q)
+ &=
+ 2 \int_0^{\pi/2} \sin^{2p-2} \theta \cos^{2q-2} \theta \sin \theta \cos \theta d \theta \\
+ &=
+ 2\int_0^{\pi/2} \sin^{2p-1} \theta \cos^{2q-1}\theta d\theta
+\end{align}
+となる.
+
+$\Gamma(1) = 1$ はすぐわかる.
+\begin{prop}
+\begin{align}
+ \Gamma(s+1)
+ =
+ s \Gamma (s) \quad (s>0)
+\end{align}
+となる.
+\end{prop}
+\begin{proof}
+次の部分積分をすればいい.
+\begin{align}
+ \Gamma(s + 1)
+ &=
+ \int_0^{\infty} x^s e^{-x} dx \\
+ &=
+ s \int_0^{\infty} x^{s-1} e^{-x} dx \\
+ &=
+ s\Gamma(s).
+\end{align}
+\end{proof}
+
+\begin{prop}
+\begin{align}
+ B(p, q)
+ =
+ \frac{\Gamma(p) \Gamma(q)}{\Gamma(p+q)}.
+\end{align}
+\end{prop}
+\begin{proof}
+$x = t^2$ と変換すれば
+\begin{align}
+ \Gamma(p) \Gamma(q)
+ &=
+ 4 \int_0^{\infty}x^{2p-1} e^{-x^2}dx \int_0^{\infty}y^{2q-1} e^{-y^2} dy \\
+ &=
+ 4 \int_0^{\infty} \int_0^{\infty} x^{2p-1} y^{2q-1} e^{-(x^2+y^2)} dxdy \\
+ &=
+ 4 \int_0^{\pi/2} \left( \int_0^{\infty} r^{2(p+q)-1} e^{-r^2} dr \right)
+  \cos^{2p-1}\theta \sin^{2p-1}\theta d\theta
+  \quad \text{(極座標変換した)} \\
+ &=
+ 2\int_0^{\infty} r^{2(p+q)-1} e^{-r^2} dr
+  \cdot 2\int_0^{\pi/2} \cos^{2p-1}\theta \sin^{2p-1}\theta d\theta  \\
+ &=
+ \Gamma(p+q)B(p, q)
+\end{align}
+となる.
+\end{proof}
+
+とくに,
+\begin{align}
+ \Gamma(1/2)^2
+ =
+ B(1/2, 1/2)
+ =
+ 2\int_0^{\pi / 2}
+ =
+ \pi
+\end{align}
+だから,
+\begin{align}
+ \Gamma(1/2)
+ =
+ \sqrt{\pi} \quad (\Gamma(1/2) > 0)
+\end{align}
+となる.
+\section{$n$ 次元球の体積}
+
+
+\begin{ex}[$n$ 次元球の体積]
+$n$ 次元球の体積をもとめよう.
+それには
+\begin{align}
+ \Omega
+ \defeq
+ \set{x \in \bbRn}{\abs{x}^2 \le a^2}
+\end{align}
+としてこの上の積分を $n$ 次元極座標に変換すればよい:
+\begin{align}
+ \mu(\Omega)
+ &=
+ \int_{\Omega}dx \\
+ &=
+ \int_0^a\int_0^{2\pi} \int_0^{\pi} \cdots \int_0^{\pi} r^{n-1}\sin^{n-2} \theta_1
+  \cdots \sin \theta_{n-2} drd\theta_1 \cdots d\theta_{n-1} \\
+ &=
+ \frac{2\pi a^n}{n} \int_0^{\pi} \sin^{n-2}\theta_1d\theta_1
+  \cdots  \int_0^{\pi} \sin \theta_{n-2}d\theta_{n-2} \\
+ &=
+ \frac{2\pi a^n}{n} B\rbk{\frac{n-1}{2}, \frac{1}{2}} B\rbk{\frac{n-2}{2}, \frac{1}{2}}
+  \cdots B \rbk{1, \frac{1}{2}} \\
+ &=
+ \frac{2\pi a^n}{n}
+  \frac{\Gamma \rbk{\frac{n-1}{2}} \Gamma \rbk{\frac{1}{2}} \Gamma \rbk{\frac{n-2}{2}} \Gamma \rbk{\frac{1}{2}}
+  \cdots \Gamma(1) \Gamma \rbk{\frac{1}{2}}}
+  {\Gamma \rbk{\frac{n}{2}} \Gamma \rbk{\frac{n-1}{2}} \Gamma \rbk{\frac{n-2}{2}} \cdots \Gamma \rbk{\frac{3}{2}}} \\
+ &=
+ \frac{2\pi a^n}{n}
+  \frac{\Gamma \rbk{\frac{1}{2}}^{n-2}}{\Gamma \rbk{\frac{n}{2}}} \\
+ &=
+ \frac{2\pi^{n/2} a^n}{n \Gamma \rbk{\frac{n}{2}}}
+\end{align}
+と計算できる.
+\end{ex}
+\section{$n$ 次元球の表面積}
+
+
+半径 $a$ の $n$ 次元球面の方程式は
+\begin{align}
+ f(x)
+ =
+ \pm \sqrt{a^2 - \sum_{i=1}^{n-1} x_i^2}
+\end{align}
+とかける.
+\begin{align}
+ \rbk{1 + \sum_{i=1}^{n-1} \rbk{\partial_if(x)}^2}^{1/2}
+ &=
+ \rbk{1 + \frac{\sum_{i=1}^{n-1}x_i^2}{a^2 - \sum_{i=1}^{n-1} x_i^2}}^{1/2} \\
+ &=
+ \frac{a}{\sqrt{a^2 - \sum_{i=1}^{n-1} x_i^2}}
+\end{align}
+だから, $\Omega = \set{x \in \bbR^{n-1}}{\abs{x}^2 \le a^2}$ とするともとめたい曲面積分は
+\begin{align}
+ \mu_{n-1}(S)
+ =
+ 2\int_{\Omega}
+  \frac{a}{\sqrt{a^2 - \sum_{i=1}^{n-1} x_i^2}} dx_1 \cdots dx_{n-1}
+\end{align}
+で, これを極座標変換して計算する:
+\begin{align}
+ \mu_{n-1}(S)
+ &=
+ 2 \cdot 2\pi a\int_0^a\frac{r^{n-2}}{\sqrt{a^2 - r^2}} dr
+ \int_0^{\pi}\sin^{n-3}\theta_1d\theta_1
+  \cdots \int_0^{\pi}\sin\theta_{n-3}d\theta_{n-3} \\
+ &=
+ 2\pi a^{n-2} \cdot 2\int_0^{\pi/2} \sin^{n-2}\theta d\theta
+  \int_0^{\pi}\sin^{n-3}\theta_1d\theta_1
+  \cdots \int_0^{\pi}\sin\theta_{n-3}d\theta_{n-3} \\
+ &=
+ 2\pi a^{n-2}
+  B \rbk{\frac{n-1}{2}, \frac{1}{2}} B \rbk{\frac{n-2}{2}, \frac{1}{2}}
+   \cdots B \rbk{1, \frac{1}{2}} \\
+ &=
+ a^{n-2} \frac{2\pi^{n/2}}{\Gamma \rbk{\frac{n}{2}}}
+\end{align}
+となる.
+とくに半径 $a=1$ のとき
+\begin{align}
+ \abs{\mathbb{S}^{n-1}}
+ =
+ \frac{2\pi^{n/2}}{\Gamma \rbk{\frac{n}{2}}}
+\end{align}
+とかく.
+\section{おまけ}
+
+
+よく使うのでつぎもかいておこう.
+\begin{thm}
+$a \in \mathbb{R}^n$, $R > 0$, $\Omega \defeq \set{x \in \bbRn}{0 < \abs{x - a} \le R}$ とする.
+$f$ が $\Omega$ 上連続で
+\begin{align}
+ \abs{f(x)}
+ =
+ O \rbk{\frac{1}{\abs{x - a}^{\alpha}}} \quad (x \to a), \quad (\alpha < n)
+\end{align}
+のとき, $f$ は $\Omega$ 上可積分になる.
+\end{thm}
+\begin{proof}
+$a=0$ としてよい.
+\begin{align}
+ K_m
+ \defeq
+ \set{x \in \bbR^n}{\frac{1}{m} \le \abs{x} \le R}
+\end{align}
+とすれば極座標変換によって
+\begin{align}
+ \int_{K_m} 1/{|x|^{\alpha}} dx
+ &=
+ \abs{\mathbb{S}^{n-1}} \int_{1/m}^R r^{n-1-\alpha} \\
+ &=
+ \frac{\abs{\mathbb{S}^{n-1}}}{n - \alpha} \rbk{R^{n-\alpha} - \frac{1}{m^{n-\alpha}}} \\
+ &\to
+ \frac{\abs{\mathbb{S}^{n-1}}}{n-\alpha} R^{n-\alpha} \quad (m \to \infty)
+\end{align}
+となるから, 仮定によりある $m$ で
+\begin{align}
+ \abs{f(x)}
+ \le
+ \frac{C}{\abs{x}^{\alpha}} \quad \rbk{0 < \abs{x} < \frac{1}{m}}
+\end{align}
+になることとあわせて,
+\begin{align}
+ \int_{\Omega} \abs{f(x)} dx
+ \le
+ C \int_{\abs{x} < \frac{1}{m}} \frac{dx}{\abs{x}^{\alpha}} + \int_{K_m} \abs{f(x)} dx
+\end{align}
+によって可積分になる.
+\end{proof}
 \chapter{あとで大幅書き直し: ポテンシャルの振る舞いと微分積分}
 
 \section{導入}

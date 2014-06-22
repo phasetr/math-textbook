@@ -2,6 +2,7 @@
 
 \usepackage[top=10truemm,bottom=20truemm,left=15truemm,right=15truemm]{geometry}
 \usepackage[dvipdfmx]{graphicx, hyperref}
+\usepackage[all]{xy}
 \usepackage{makeidx}
 \makeindex
 \usepackage{url}
@@ -12,6 +13,7 @@
 \usepackage{mathrsfs}
 \usepackage{bm}
 \bibliographystyle{jplain}
+\addtolength{\footskip}{10mm}
 \makeatletter
 \def\ps@plainfoot{%
 \let\@mkboth\@gobbletwo
@@ -112,6 +114,7 @@
 \theoremstyle{breakdefn}
 \newtheorem{defn}[thm]{Definition.}
 \newtheorem{ex}[thm]{Example.}
+\newtheorem{exercise}[thm]{Exercise.}
 \newtheorem{rem}[thm]{Remark.}
 \newtheorem{fact}[thm]{Fact.}
 \newtheorem{assump}[thm]{Assumption.}
@@ -129,13 +132,15 @@
 \newcommand{\pnorm}[1]{\left\Vert#1\right\Vert_p}
 \newcommand{\qnorm}[1]{\left\Vert#1\right\Vert_q}
 \newcommand{\twonorm}[1]{\norm{#1}_2}
+\newcommand{\dbk}[1]{\left\langle #1 \right\rangle}
 \newcommand{\rbk}[1]{\left (#1\right)}
 \newcommand{\sqbk}[1]{\left[#1\right]}
 \newcommand{\cbk}[1]{\left\{#1\right\}}
 \newcommand{\abk}[1]{\left\langle #1 \right\rangle}
 \newcommand{\bkt}[2]{\left\langle#1,\,#2\right\rangle}
-\newcommand{\rbkt}[2]{\left( #1,\,#2 \right)}
-\newcommand{\set}[2]{\left\{#1 : #2\right\}}
+\newcommand{\rbkt}[2]{\left ( #1,\,#2 \right)}
+\newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}}
+\newcommand{\set}[2]{\left\{#1 \relmiddle| #2\right\}}
 \newcommand{\trans}{\,^t\!}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   special sums and such
@@ -290,6 +295,27 @@
 \newcommand{\wick}[1]{\colon #1 \colon}
 \newcommand{\wto}{\xrightarrow{\text{w}}}
 \newcommand{\vep}{\varepsilon}
+\newcommand{\fin}{\hfill $\square$ \par}
+\newcommand{\ann}{\mathrm{Ann}\,}
+\newcommand{\ass}{\mathrm{Ass}\,}
+\newcommand{\blu}{\mathrm{Bl}}
+\newcommand{\cech}{\check{\mathrm{H}}}
+\newcommand{\coho}{\mathrm{H}}
+\newcommand{\divcl}{\mathrm{DivCl}\,}
+\newcommand{\divs}{\mathrm{Div}\,}
+\newcommand{\edivs}{\mathrm{Div}_+\,}
+\newcommand{\Frac}{\mathrm{Frac}\,}
+\newcommand{\homo}{\mathrm{Hom}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\injsh}{\mathcal{I}}
+\newcommand{\kernel}{\mathrm{Ker}\,}
+\newcommand{\map}{\longrightarrow}
+\newcommand{\pdivs}{\mathrm{Div}_{\mathrm{princ}}\,}
+\newcommand{\picard}{\mathrm{Pic}\,}
+\newcommand{\proj}{\mathrm{Proj}\,}
+\newcommand{\sh}{\mathcal{F}}
+\newcommand{\spec}{\mathrm{Spec}\,}
+\newcommand{\stsh}{\mathcal{O}}
 \bmdefine{\va}{a}
 \bmdefine{\vb}{b}
 \bmdefine{\vc}{c}
@@ -387,7 +413,7 @@
 
 \title{Math textbook}
 \author{相転移 P (@phasetr)\thanks{phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com}}
-\date{2014-06-14}
+\date{2014-06-22}
 
 \begin{document}
 
@@ -5869,7 +5895,7 @@ Google のページランクでも使う定理で応用は広い.
 
 
 動画から適当に切り出してくる.
-\chapter{n次元球の体積と表面積}
+\chapter{$n$ 次元球の体積と表面積\label{calculus-n-sphere-volume-surface-area0}}
 
 
 ゆきみさんのページ \href{http://yukimigo.com/math/}{http://yukimigo.com/math/} から持ってきた.
@@ -12425,8 +12451,6 @@ P85, Theorem 12.8.
 \item Radon-Nikodym's theorem. (\cite{SeizoIto1}, Section 18.)
 \item Probability theory. (\cite{DavidWilliams1, TadahisaFunaki1})
 \end{enumerate}
-\chapter{関数解析入門}
-
 \chapter{作用素論入門}
 
 \section{Functional calculus}
@@ -13896,6 +13920,829 @@ $\Omega$ 上本質的に有界な Lebesgue 可測関数の全体を $L^{\infty}(
 ただしほとんどいたるところ等しい関数は同一視する.
 これもノルム  $\inftynorm{\cdot}$ によって Banach 空間となる.
 \end{defn}
+
+\begin{ex}[$\ell^p$ 空間]
+\begin{align}
+ \ell^p
+ \defeq
+ \set{x = (x_1, x_2, \dots, x_n, \dots)}{x_i \in \bbC, \quad \sum_{j=1}^{\infty} \abs{x_j}^p < \infty}
+ \quad (1 \le p < \infty)
+\end{align}
+とかく.
+$\ell^p$はノルム
+\begin{align}
+ \norm{x}_{\ell^p}
+ \defeq
+ \rbk{\sum_{j=1}^{\infty} \abs{x_j}^p}^{1/p}
+\end{align}
+によってBanach空間になる.
+($L^p$ で積分を和に変えればほぼ同じ.)
+また
+\begin{align}
+ \ell^{\infty}
+ \defeq
+ \set{x = (x_1, x_2, \dots, x_n, \dots)}{x_i \in \bbC, \quad \norm{x}_{\ell^{\infty}} \defeq \sup_j \abs{x_j} < \infty}
+\end{align}
+も Banach 空間になる.
+\end{ex}
+\section{内積空間}
+
+
+ノルムによってベクトルの「長さ」が導入されたが,
+内積が定義されると「直交」という概念が導入され,
+幾何学的なイメージが描きやすくなる.
+
+\begin{defn}[内積空間]
+ $H$ を線型空間とする.
+ 次の双線型写像
+ \begin{align}
+  \rbkt{\cdot}{\cdot} \colon H \times H \to \bbC
+ \end{align}
+ が以下の条件を満たすとき, $\rbkt{\cdot}{\cdot}$ を $H$ の\textbf{内積}と呼ぶ.
+\begin{enumerate}
+\item (\textbf{正定値性}) $\rbkt{x}{x} \ge 0$, $\rbkt{x}{x} = 0 \Leftrightarrow x=0$,
+\item (\textbf{共役対称性}) $\rbkt{x}{y} = \overline{\rbkt{y}{x}}$,
+\item (\textbf{線型性})
+    \begin{align}
+     \rbkt{x}{y_1 + y_2}
+     &=
+      \rbkt{x}{y_1} + \rbkt{x}{y_2}, \\
+     \rbkt{x}{\alpha y}
+     &=
+     \alpha \rbkt{x}{y} \quad (x, y, y_i \in H, \quad \alpha \in \bbC).
+    \end{align}
+\end{enumerate}
+ また内積が定義されている線型空間を\textbf{内積空間}という.
+\end{defn}
+
+\begin{prop}
+ 次の関係式が成立する.
+ \begin{align}
+  \rbkt{x_1 + x_2}{y}
+  &=
+  \rbkt{x_1}{y} + \rbkt{x_2}{y}, \\
+  \rbkt{\alpha x}{y}
+  &=
+  \overline{\alpha} \rbkt{x}{y}
+ \end{align}
+\end{prop}
+\begin{proof}
+線型性と共役性からすぐにわかる.
+\end{proof}
+\begin{lem}[Schwarz's inequality]
+ 上で定めた $\norm{\cdot}$ について
+ \begin{align}
+  \abs{\rbkt{x}{y}}
+  \leq
+  \norm{x} \norm{y}
+ \end{align}
+ が成立する.
+\end{lem}
+\begin{proof}
+$x \neq 0$ としてよい.
+\begin{align}
+ \alpha
+ \defeq
+ -\frac{\rbkt{x}{y}}{\norm{x}^2}
+\end{align}
+とする.
+このとき定義通りに計算すれば
+\begin{align}
+ 0
+ &\le
+ \norm{\alpha x + y}^2 \\
+ &=
+ -\frac{\abs{\rbkt{x}{y}}^2}{\norm{x}^2} + \norm{y}^2.
+\end{align}
+\end{proof}
+
+\begin{prop}
+ $H$ を内積空間とする.
+ ノルムが
+ \begin{align}
+  \norm{x}
+  \defeq
+  \rbkt{x}{x}^{1/2}
+ \end{align}
+ で定義できて $H$ はノルム空間になる.
+\end{prop}
+\begin{proof}
+三角不等式以外はすぐわかる.
+Schwarz の不等式から,
+\begin{align}
+ \norm{x + y}^2
+ &=
+ \norm{x}^2 + \rbkt{x}{y} + \rbkt{y}{x} + \norm{y}^2 \\
+ &\le
+ \norm{x}^2  + 2 \norm{x} \, \norm{y} + \norm{y}^2 \\
+ &=
+ \rbk{\norm{x} + \norm{y}}^2
+\end{align}
+だから, 平方根をとれば三角不等式となる.
+\end{proof}
+\begin{rem}
+Schwarz の不等式はじつは
+$\rbkt{x}{x} = 0 \Leftrightarrow x = 0$
+を満たさない\textbf{半正定値内積}でもなりたち, ときどき使われる.
+\end{rem}
+
+つぎのふたつはただ計算すればできる.
+\begin{prop}[中線定理]
+ 内積から定まるノルムについては
+ \begin{align}
+  \norm{x + y}^2 + \norm{x - y}^2
+  =
+  2 \rbk{\norm{x}^2 + \norm{y}^2}
+ \end{align}
+ が成立する.
+\end{prop}
+\begin{prop}[偏極恒等式]
+次の式がなりたつ.
+\begin{align}
+ \rbkt{x}{y}
+ =
+ \frac{1}{4}\rbk{\norm{x + y}^2 - \norm{x - y}^2 + i \norm{x + iy}^2 - i \norm{x - iy}^2}.
+\end{align}
+\end{prop}
+\begin{rem}
+重要なのは内積がノルムで表されていることで,
+逆に中線定理をみたすノルムは偏極恒等式で内積が定義できる.
+\end{rem}
+
+\begin{prop}[内積の連続性]
+ $x_n \to x$, $y_n \to y$ とする.
+ このとき,
+ \begin{align}
+  \rbkt{x_n}{y_n} \to \rbkt{x}{y}
+ \end{align}
+ となる.
+\end{prop}
+\begin{proof}
+\begin{align}
+ \abs{\rbkt{x_n}{y_n}} - \rbkt{x}{y}
+ &=
+ \abs{\rbkt{x_n}{y_n - y} + \rbkt{x_n}{y} - \rbkt{x}{y}} \\
+ &\le
+ \norm{x_n} \, \norm{y_n - y} + \norm{x_n - x}{y} \to 0
+\end{align}
+となる.
+\end{proof}
+\section{Hilbert空間}
+
+
+\begin{defn}[Hilbert空間]
+上に定めたノルムに関して完備な内積空間を\textbf{Hilbert 空間}という.
+\end{defn}
+\begin{ex}
+$\bbC^n$, $\bbR^n$ はそれぞれ内積を
+\begin{align}
+ \rbkt{x}{y}
+ \defeq
+ \sum_{j=1}^n \overline{x_j} y_j ; \quad
+ \rbkt{x}{y}
+ \defeq
+ \sum_{j=1}^n x_j y_j
+\end{align}
+と定義すると Hilbert 空間になる.
+\end{ex}
+\begin{ex}
+$\ell^2$ は内積を
+\begin{align}
+ \rbkt{x}{y}
+ \defeq
+ \sum_{j=1}^{\infty} \overline{x_j} y_j
+\end{align}
+と定義できて Hilbert 空間になる.
+完備性の証明は \ref{functional_analysis_hilbert_space_yukimi0} 章などを参照.
+\end{ex}
+\begin{ex}
+$\Omega \subset \bbRn$ を開集合とする.
+$L^2(\Omega)$ は内積を
+\begin{align}
+ \rbkt{f}{g}
+ \defeq
+ \int_{\Omega} \overline{f(x)} g(x) dx
+\end{align}
+と定義することで Hilbert 空間になる.
+\end{ex}
+\begin{rem}
+数学の人は
+\begin{align}
+ \rbkt{f}{g}
+ =
+ \int f(x) \overline{g(x)} dx
+\end{align}
+のように線型性を左側につけることが多い.
+\end{rem}
+
+今後特に断らない限り $H$ とかいたら Hilbert 空間を表すものとする.
+\section{射影定理}
+
+
+\begin{defn}
+ $A, B \subset H$ とする.
+ すべての$x \in A$, $y \in B$ が $H$ の内積で $(x, y) = 0$ となるとき
+ $A, B \subset H$ が\textbf{直交する}という.
+ このとき $A \perp B$ とかく.
+
+ さらに,
+ $L \subset H$ について
+ \begin{align}
+  L^{\perp}
+  \defeq
+  \set{x \in H}{x \perp L}
+ \end{align}
+ とする.
+ $L^{\perp}$ を $L$ の\textbf{直交補空間}という.
+\end{defn}
+
+\begin{prop}
+ $L \subset H$ に対して $L^{\perp}$ は $H$ の閉部分空間になる.
+\end{prop}
+\begin{proof}
+閉であることをみればよい.
+$x_n \in L^{\perp}$, $x_n \to x$ とする.
+任意の $y \in L$ について
+\begin{align}
+ \rbkt{x}{y}
+ =
+ \lim_{n \to \infty} \rbkt{x_n}{y}
+ =
+ 0
+\end{align}
+だから $x \in L^{\perp}$.
+\end{proof}
+
+また,
+\begin{prop}[ピタゴラスの定理]
+$x \perp y$ ならば
+\begin{align}
+ \norm{x + y}^2
+ =
+ \norm{x}^2 + \norm{y}^2
+\end{align}
+がなりたつ.
+\end{prop}
+これはすぐわかるので証明略.
+
+重要なのはつぎの定理で, だいたいこれから出る.
+\begin{thm}[射影定理]
+ $L \subset H$ を閉部分空間とする.
+ \begin{align}
+  H
+  =
+  L \oplus L^{\perp},
+ \end{align}
+ つまり任意の $x \in H$ はある $y \in L$, $z \in L^{\perp}$ によって
+ \begin{align}
+  x = y + z
+ \end{align}
+ と一意的に分解できる.
+ $y = P_Lx$ などとかく.
+\end{thm}
+\begin{proof}
+$x \in H$ とする.
+$\delta \defeq \inf_{\xi \in L} \norm{x - \xi}$ としておく.
+下限の性質から, ある $\xi_n \in L$ で
+$\norm{x - \xi_n} \to \delta$ とできる.
+また中線定理から
+\begin{align}
+ \norm{\rbk{x - \xi_n} + \rbk{x - \xi_m}}^2 + \norm{\rbk{x - \xi_n} - \rbk{x - \xi_m}}^2
+ =
+  2 \rbk{\norm{x - \xi_n}^2 + \norm{x - \xi_m}^2}
+\end{align}
+となっている.
+$L$ は部分空間だから $\rbk{\xi_n + \xi_m} / 2 \in L$ に注意すると,
+\begin{align}
+ 0
+ &\le
+ \norm{\xi_n - \xi_m}^2 \\
+ &=
+ 2 \rbk{\norm{x - \xi_n}^2 + \norm{x - \xi_m}^2}
+  -4 \norm{x - \frac{\xi_m + \xi_n}{2}}^2 \\
+ &\le
+ 2 \rbk{\norm{x - \xi_n}^2 + \norm{x - \xi_m}^2} - 4 \delta^2 \\
+ &\to 0
+\end{align}
+で $(\xi_n)_n$ は Cauchy 列になっている.
+だから $\xi_n \to y \in H$ とでき, $L$ は閉だから $y \in L$.
+ノルムの連続性から $\norm{x - \xi_n} \to \delta = \norm{x - y}$ となる.
+
+$z \defeq x-y$ として $z \in L^{\perp}$ をたしかめよう.
+任意に $\xi \in L$ をとり, $\gamma \defeq (\xi, z)$ とする.
+$\gamma = 0$ であればよい.
+$t \in \mathbb{R}$ について $\phi(t) \defeq \norm{z - t \gamma \xi}^2$ とする.
+$y + t \gamma \xi \in L$ だから
+\begin{align}
+ \delta^2
+ &=
+  \phi(0) \\
+ &\le
+  \phi(t)
+ =
+ \norm{z}^2 - 2 t \abs{\gamma}^2 + t^2 \abs{\gamma}^2 \norm{x}^2
+\end{align}
+と計算できる.
+ここで $\gamma \neq 0$ とすると $t < 2 / \norm{x}^2$ のとき
+$\phi(t) < \delta^2$ となって下限であることに反するから $\gamma = \rbkt{z}{\xi} = 0$.
+つまり $z \in L^{\perp}$ となっていて $x = y + z$ だから分解できている.
+
+一意性をみよう.
+\begin{align}
+ x
+ =
+ y + z
+ =
+ y' + z'
+\end{align}
+とする.
+\begin{align}
+ y - y'
+ =
+ z - z'
+\end{align}
+だから,
+\begin{align}
+ \norm{y - y}^2
+ =
+ \rbkt{y - y'}{z - z'}
+ =
+ 0
+\end{align}
+によって $y=y', z=z'$ となるから一意性も O.K.
+\end{proof}
+
+\begin{cor}
+ $L \subset H$ を部分空間とする.
+ このとき
+ \begin{align}
+   L^{\perp \perp} = \overline{L}
+ \end{align}
+ となる.
+\end{cor}
+\begin{proof}
+たとえば \ref{functional_analysis_hilbert_space_yukimi_13}.
+\end{proof}
+\section{正規直交系}
+
+
+\begin{defn}
+$(x_j)_j^{\infty} \subset H$ が $(x_j, x_k) = \delta_{jk}$ となるとき
+$H$ の\textbf{正規直交系(ONS)} と呼ぶ.
+ここで $\delta_{jk}$ はクロネッカーのデルタ.
+\end{defn}
+\begin{ex}
+$L^2(0, 1)$ で $(\sqrt{2}\sin \pi jt)_{j=1}^{\infty}$ は ONS.
+\end{ex}
+\begin{proof}
+これは直接計算すればすぐわかる.
+\end{proof}
+同様に,
+\begin{ex}
+$L^2(0, 1)$ で $(e^{2 \pi i k t})_{k=1}^{\infty}$ は ONS.
+ここで $i = \sqrt{-1}$.
+\end{ex}
+
+つぎの不等式はよく使う.
+\begin{thm}[Bessel's inequality]
+ $(x_j)_j$ を $H$ の ONS とする.
+ このとき, すべての $x \in H $について
+ \begin{align}
+  \sum_j \abs{\rbkt{x_j}{x}}^2
+  \le
+  \norm{x}^2
+ \end{align}
+ が成立.
+ とくに $\rbkt{x_j}{x} \to 0$.
+\end{thm}
+\begin{proof}
+$\alpha_j \defeq \rbkt{x_j}{x}$ とする.
+\begin{align}
+ 0
+ \le
+ \norm{x - \sum_j^n \alpha_j x_j}^2
+ =
+ \norm{x}^2 - \sum_j^n \abs{\alpha}^2
+\end{align}
+だから,
+\begin{align}
+ \sum_j^n \abs{\rbkt{x_j}{x}}^2
+ \leq
+ \norm{x}^2
+\end{align}
+となる.
+この正項級数は単調非減少で有界だから $n \to \infty$ とすればいい.
+\end{proof}
+
+\begin{defn}[完全正規直交系]
+$(x_j)_j$ を $H$ の ONSとする.
+全ての $x \in H$ に対して
+\begin{align}
+ x
+ =
+ \sum_j \rbkt{x_j}{x} x_j
+\end{align}
+となるとき, $(x_j)_j$ を\textbf{完全}という.
+このとき $(x_j)_j$ を\textbf{完全正規直交系 (CONS)} という.
+\end{defn}
+$H$ が有限次元のときは CONS として基底が取れる.
+無限次元空間の場合基底を明示するのはむずかしいので,
+その展開でかけるという意味で基底のかわりをするのが CONS になる.
+応用で使われる Hilbert 空間ではおおむね CONS が存在するが,
+それを示すためにいくつか準備がいる.
+
+まずつぎを示しておこう.
+\begin{thm}
+ $(x_j)_j$ を $H$ の ONS とする.
+ $L_0 \defeq \set{\sum_j^n \alpha_j x_j}{\alpha_j \in \bbC}$
+ と $x_j$ で生成される部分空間をかいてその閉包を $L$ としておく.
+ このとき $x \in H$ に対して,
+ \begin{align}
+  P_L x
+  =
+  \sum_j \rbkt{x_j}{x} x_j
+ \end{align}
+ となる.
+ さらに $x$, $x' \in H$ について
+ \begin{align}
+  \rbkt{P_L x'}{P_L x}
+  =
+  \sum_j \overline{\rbkt{x_j}{x'}} \rbkt{x_j}{x}
+ \end{align}
+ \[
+ (P_Lx', P_Lx) = \sum_j \overline{(x_j, x')}(x_j, x)
+ \]
+ がなりたつ.
+ ここで後者の級数は絶対収束になる.
+\end{thm}
+\begin{proof}
+$\alpha_j \defeq \rbkt{x_j}{x}$ としておく.
+$n<m$ とすると Bessel's inequality から
+\begin{align}
+ \norm{\sum_j^m \alpha_j x_j - \sum_j^n \alpha_j x_j}^2
+ &=
+ \norm{sum_{j=n+1}^m \alpha_j x_j}^2 \\
+ &=
+ \sum_{j=n+1}^m \abs{\alpha_j}^2 \\
+ &\to
+ 0 \quad (n, m \to \infty)
+\end{align}
+となるから, $(\sum_j^n \alpha_j x_j)_n$ は Cauchy 列になっている.
+極限が存在するからそれを $y$ とする.
+任意の $k$ について
+\begin{align}
+ \rbkt{x_k}{x - y}
+ =
+ \rbkt{x_k}{x} - \rbkt{x_k}{x}
+ =
+ 0
+\end{align}
+$(x_j)_j$ が ONS であることからすぐわかる.
+よって $x-y \perp x_k$ で定義からその一次結合全体である $L_0$ とも直行している: $x-y \perp L_0$.
+一方 $L$ は $L_0$ の閉包だから任意の $\xi \in L$ に対してある $\xi_n \in L_0$ が存在して $\xi_n \to \xi$ とできる.
+内積の連続性から
+\begin{align}
+ \rbkt{\xi}{x - y}
+ =
+ \lim_{n \to \infty} \rbkt{\xi_n}{x - y}
+ =
+ 0
+\end{align}
+だから, 結局 $z = x-y \in L^{\perp}$ となっている.
+射影定理の一意性から
+\begin{align}
+ P_Lx
+ =
+ y
+ =
+ \sum_j \alpha_j x_j
+ =
+ \sum_j \rbkt{x_j}{x} x_j
+\end{align}
+が示された.
+
+また $\alpha_j' = (x_j, x')$ とすると $\bbC$ での Schwarz の不等式から
+\begin{align}
+ \sum_j^n \abs{\overline{\alpha_j'} \alpha_j}
+ &\le
+ \rbk{\sum_j^n|\alpha_j'|^2}^{1/2}
+  \rbk{\sum_j^n \abs{\alpha_j}^2}^{1/2} \\
+ &\le
+ \norm{x'} \, \norm{x}
+ \quad \text{(Bessel's inequality)}
+\end{align}
+だから $n \to \infty$ とすれば絶対収束していて,
+\begin{align}
+ \rbkt{P_L x'}{P_L x}
+ =
+ \sum_j \overline{\alpha_j'} \alpha_j
+ =
+ \sum_j \overline{\rbkt{x_j}{x'}} \rbkt{x_j}{x}
+\end{align}
+がわかる.
+\end{proof}
+
+\begin{thm}[CONS の同値条件]
+ $(x_j)_j$  を $H$ の ONS とする.
+ $(x_j)_j$ で生成される閉部分空間を $L$ とするとつぎは同値になる:
+\begin{enumerate}
+\item $(x_j)_j$ は $H$ の CONS.
+\item すべての $x$, $x' \in H$ について,
+    \begin{align}
+     \rbkt{x'}{x}
+     =
+     \sum_j \overline{\rbkt{x_j}{x'}} \rbkt{x_j}{x}.
+    \end{align}
+\item \upbf{(Parseval の等式)}
+    \begin{align}
+     \norm{x}^2
+     =
+     \sum_j \abs{\rbkt{x_j}{x}}^2
+    \end{align}
+\item すべての $j$ について $\rbkt{x_j}{x} = 0$ ならば $x=0$.
+\item $L=H$.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+(\textbf{$1 \Rightarrow 2$}):
+$x \in L$ だから前の定理より
+\begin{align}
+ \rbkt{x'}{x}
+ =
+ \rbkt{P_L x'}{P_L x}
+ =
+ \sum_j \overline{\rbkt{x_j}{x'}} \rbkt{x_j}{x}
+\end{align}
+となる.
+
+(\textbf{$2 \Rightarrow 3$}):
+$x = x'$とすればよい.
+
+(\textbf{$3 \Rightarrow 4$}):
+すべての $j$ で $\rbkt{x_j}{x} = 0$ とすると
+\begin{align}
+ \sum_j \abs{\rbkt{x_j}{x}}^2
+ =
+ \norm{x}^2
+ =
+ 0
+\end{align}
+となる.
+
+(\textbf{$4 \Rightarrow 5$}):
+$x \in L^{\perp}$ ならすべての $j$ について $\rbkt{x_j}{x} = 0$ となる.
+定義から $x_j \in L$.
+よって $x=0$.
+だから $L^{\perp} = \cbk{0}$ になる.
+射影定理からただちに $H=L$ になる.
+
+(\textbf{$5 \Rightarrow 1$}):
+前の定理から
+\begin{align}
+ x
+ =
+ P_L x
+ =
+ \sum_j \rbkt{x_j}{x} x_j
+\end{align}
+となる.
+\end{proof}
+
+\begin{ex}
+単位ベクトル
+$(e_j)_j^{\infty}$ は $\ell^2$ の CONS.
+\end{ex}
+\begin{proof}
+ONS であることはすぐわかる.
+\begin{align}
+ \sum_j \abs{\rbkt{e_j}{x}}^2
+ =
+ \norm{x}^2
+\end{align}
+がわかるから Parseval の等式から CONS になることがわかる.
+\end{proof}
+\section{Schmidt の直交化}
+
+
+\begin{thm}[Schmidt の直交化]
+ $(y_j)_j$ をたかだか可算個の $H$ の一次独立な元とする.
+ このとき, つぎの性質をもつ $H$ の ONS $(x_j)_j$ を一意的に構成できる:
+\begin{enumerate}
+\item 各 $x_n$ は $y_1, \dots, y_n$ の一次結合でかける.
+\item 各 $y_n$ は $x_1, \dots, x_n$ の一次結合でかける.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+線型代数なのでかんたんに述べる.
+\begin{align}
+ x_1
+ &=
+ \frac{y_1}{\norm{y_1}}, \\
+ x_2
+ &=
+ \frac{y_2 - \rbkt{y_2}{x_1}x_1}{\norm{y_2 - \rbkt{y_2}{x_1}x_1}}, \\
+ &\vdots \\
+ x_n
+ &=
+ \frac{y_n - \sum_{j=1}^{n-1} \rbkt{y_n}{x_j} x_j}{\norm{y_n - \sum_{j=1}^{n-1} \rbkt{y_n}{x_j} x_j}}
+\end{align}
+として $n$ についての帰納法で示せる.
+\end{proof}
+
+すこしだけ一般的な定義をしておこう.
+\begin{defn}
+$X$ に稠密な可算集合が存在するとき,
+Banach空間 $X$ を\textbf{可分}という.
+\end{defn}
+たとえば有界閉集合上の連続関数の空間や,
+$L^p(\Omega) (1 \le p < \infty)$
+など応用で使われる空間は``だいたい''可分だが,
+ちゃんと示すには多少の準備がいるのでここでは立ち入らない.
+
+\begin{thm}
+ $H$ を可分な無限次元 Hilbert 空間とする.
+ $H$ には可算個の元からなる CONS が存在する.
+\end{thm}
+\begin{proof}
+$(z_j)_j$ を $H$ の稠密な可算部分集合としよう.
+まず, これをつぎのようにして一次独立にする:
+$z_1 = 0$ ならのぞき, そうでないならのこす.
+$z_n$ が $z_1, \dots, z_{n-1}$ の一次結合でかけるならのぞき,
+そうでないならのこす.
+こうしてのこったものを $(y_j)_j$ とかくとつくりかたからこれは任意の $n$で $y_1, \dots, y_n$ は一次独立になる.
+Schmidt の直交化を適用してえられる ONS を $(x_j)_j$ とする.
+これが CONS であることをみるためにすべての $j$ について $\rbkt{x_j}{x} = 0$ と仮定しよう.
+(同値条件の 4 をたしかめる.)
+各 $x_n$ は $(y_j)_j^n$ の一次結合でかけるから,
+$\rbkt{y_j}{x} = 0$ $(j = 1, 2, \dots)$ としてよい.
+さらに任意の $k$ で
+\begin{align}
+ z_k
+ =
+ \sum_{j=1}^k y_j
+\end{align}
+とかけているから $\rbkt{z_k}{x} = 0$ となっている.
+$(z_j)_j$ は $H$ で稠密なので $z_k^{(n)} \to x \, (n \to \infty)$ となるものがとれるから内積の連続性によって
+\begin{align}
+ \rbkt{x}{x}
+ =
+ \lim_{n \to \infty} \rbkt{z_k^{(n)}}{x}
+ =
+ 0
+\end{align}
+となるから $x=0$ により $(x_j)_j$ は $H$ の CONS になる.
+\end{proof}
+
+Hilbert 空間は CONS で特徴づけられるが,
+ちょっとびっくりなつぎの定理がある.
+\begin{thm}
+ $H$ を可分な無限次元 Hilbert 空間とすると $H$ は $\ell^2$ と同型.
+\end{thm}
+\begin{proof}
+Theorem \ref{functional_analysis_hilbert_space_yukimi_14} 参照.
+\end{proof}
+じっさいは $\ell^2$ と同型だから問題がかんたんになる,
+ということはあんまりなかったりする.
+($\ell^2$ もむずかしい.)
+
+\begin{ex}[Legendre Polynomials]
+\begin{align}
+ 1, t, t^2, \dots, t^n, \dots
+\end{align}
+を $L^2(-1, 1) $で直交化することを考える.
+$y_n(t) = t^{n-1}$ としよう.
+Schmidt の直交化を使っていくと
+\begin{align}
+ \norm{y_1}_2
+ =
+ \sqrt{2}, \quad
+ x_1
+ =
+ \frac{1}{\sqrt{2}},
+\end{align}
+$(x_1, y_2) = 0$ から
+\begin{align}
+ x_2(t)
+ =
+ \frac{y_2(t)}{\norm{y_2}_2}
+ =
+ \sqrt{\frac{3}{2}}t
+\end{align}
+と順に $x_n$ が計算できる.
+($x_3$ は？)
+
+ここで \textbf{Legendre 多項式} $P_n(t)$ を
+\begin{align}
+ P_n(t)
+ \defeq
+ \frac{1}{2^n n!} \frac{d^n}{dt^n} \rbk{t^2 - 1}^n
+\end{align}
+と導入しよう.
+部分積分によって
+\begin{align}
+ I_{mn}
+ \defeq
+ \int_{-1}^1 P_m(t) P_n(t) dt
+ &=
+ \frac{1}{2^{m+n} m!n!} \int_{-1}^1
+  \sqbk{\frac{d^m}{dt^m} \rbk{t^2 - 1}^m}
+  \sqbk{\frac{d^n}{dt^n} \rbk{t^2 - 1}n} dt \\
+ &=
+ \sqbk{\frac{1}{2^{m+n} m!n!} \rbk{\frac{d^{m-1}}{dt^{m-1}} \rbk{t^2 - 1}^m} \rbk{\frac{d^n}{dt^n} \rbk{t^2 - 1}^n}}_{-1}^1 \\
+ &-
+  \frac{1}{2^{m+n} m!n!} \int_{-1}^1
+   \sqbk{\frac{d^{m-1}}{dt^{m-1}} \rbk{t^2 - 1}^m}
+   \sqbk{\frac{d^{n+1}}{dt^{n+1}} \rbk{t^2 - 1}^n} dt
+\end{align}
+となるが $(t^2 - 1) = (t+1)(t-1)$ だから $[\cdot]_{-1}^1$ の項は $0$ になる.
+これを $m$ 回くりかえして, つぎのようになる:
+\begin{align}
+ I_{mn}
+ =
+ (-1)^m \frac{1}{2^{m+n} m!n!} \int_{-1}^1
+  \rbk{t^2 - 1}^m
+  \sqbk{\frac{d^{n+m}}{dt^{n+m}} \rbk{t^2 - 1}^n} dt.
+\end{align}
+ここで $n<m$ のときは $t$ の最高次数より多く微分しているので右辺は $0$ になる.
+$m<n$ のときも同様.
+
+$n=m$ としよう.
+このときは微分を $t^{2n}$ のところだけ考えればよいから,
+\begin{align}
+ I_{nn}
+ &=
+ (-1)^n\frac{1}{2^{2n} (n!)^2} \int_{-1}^1
+  \rbk{t^2 - 1}^n
+  \sqbk{\frac{d^{2n}}{dt^{2n}} \rbk{t^2 - 1}^n}dt \\
+  &=
+  (-1)^n \frac{(2n)!}{2^{2n} (n!)^2} \int_{-1}^1
+   (t+1)^n(t -1)^n dt
+\end{align}
+となっている.
+ここで $t = 2x -1$ と変換すると
+\begin{align}
+ I_{nn}
+ =
+ (-1)^n \frac{2(2n)!}{2^{2n} (n!)^2} \int_0^1
+  (2x -2)^n (2x)^n dx
+ =
+ \frac{2(2n)!}{(n!)^2} \int_0^1
+  (1-x)^n x^n dx
+\end{align}
+がわかる.
+ここで $B$ 関数と $\Gamma$ 関数の性質を使おう.
+たとえば \ref{calculus-n-sphere-volume-surface-area0} 章などを参照.
+\begin{align}
+ I_{nn}
+ &=
+ \frac{2(2n)!}{(n!)^2} B(n+1, n+1) \\
+ &=
+ \frac{2(2n)!}{(n!)^2} \frac{\sqbk{\Gamma(n+1)}^2}{\Gamma(2n+2)}
+ \quad \rbk{B(p, q) = \frac{\Gamma(p) \Gamma(q)}{\Gamma(p+q)}} \\
+ &=
+ \frac{2(2n)!}{(n!)^2} \frac{(n!)^2}{(2n+1) \Gamma(2n+1)}
+ \quad \rbk{\Gamma(s+1) = s \Gamma(s)} \\
+ &=
+ \frac{2}{2n + 1}
+\end{align}
+と計算される.
+まとめると
+\begin{align}
+ \int_{-1}^1 P_n(t) P_m(t) dt
+ =
+ \frac{2}{2n + 1} \delta_{nm}
+\end{align}
+がわかった.
+$\delta_{nm}$ はクロネッカーのデルタ.
+
+ここで
+\begin{align}
+ x_{n+1}
+ =
+ \rbk{n+\frac{1}{2}}^{1/2} P_n(t)
+\end{align}
+とすると,
+\begin{align}
+ x_1(t)
+ &=
+ \frac{1}{\sqrt{2}} \\
+ x_2(t)
+ &=
+ \sqrt{\frac{3}{2}} t \\
+ &\vdots
+\end{align}
+となるが, この $(x_n)_n$ は Schmidt の直交化で構成される ONS の条件を満たし,
+直交化の一意性からこの $(x_n)_n$ がもとめるものになっている！
+
+ちなみに Legendre 多項式は \textbf{Legendre 微分方程式}
+\begin{align}
+ \rbk{1 - t^2} \frac{d^2}{dt^2} y(t) - 2t \frac{d}{dt} y(t) + n(n+1) y(t)
+ =
+ 0
+\end{align}
+の解になっているがここではそこまで立ち入らない.
+たとえばグライナー~\cite{WalterGreiner1}など参照.
+\end{ex}
 \chapter{Fourier 解析}
 
 
@@ -16361,7 +17208,7 @@ Lieb-Loss は Lebesgue 積分からはじめて関数空間の話や不等式,
 湯川ポテンシャルは新井\cite{AsaoArai4}と Lieb-Loss\cite{LiebLoss1}に書いてありますが,
 物理としては書いてある本すら知らないです.
 だれか教えてください.
-\chapter{Hilbert 空間概要}
+\chapter{Hilbert 空間概要\label{functional_analysis_hilbert_space_yukimi0}}
 
 \section{Introduction}
 
@@ -16696,7 +17543,7 @@ $\phi (t) < \phi (0) = \delta^2$ となって $\delta$ の定義に反するか�
 \end{align}
 となって, 定理が証明された.
 \end{proof}
-\begin{prop}
+\begin{prop}\label{functional_analysis_hilbert_space_yukimi_13}
  $M \subset H$ が部分空間ならば $(M^{\perp})^{\perp} = \overline{M}$.
 \end{prop}
 \begin{proof}
@@ -17275,7 +18122,7 @@ $\calL (\cbk{x_n}_n^\infty)$ が $H$ で稠密になる.
 \begin{defn}
  ある $H$ から $K$ への Unitary 作用素があるとき, $H$ と $K$ は同型という.
 \end{defn}
-\begin{thm}
+\begin{thm}\label{functional_analysis_hilbert_space_yukimi_14}
  $H$ を可分な Hilbert 空間とし, $\cbk{x_n}_n^\infty$ を $H$ の CONS とする.
  このとき
  \begin{align}
@@ -19045,6 +19892,1458 @@ The other is concrete and uses a \textbf{quantum mechanical harmonic oscillator}
 
 \part{幾何}
 
+\chapter{代数幾何ガイダンス}
+
+
+ワヘイヘイさんの (セミナー) 原稿がオリジナルであり,
+著者の許諾を得て適宜統合のために \TeX ソースを修正した上で転載している.
+
+\nocite{GrothendieckDieudonne1}
+\nocite{JeanPierreSerre1}
+\nocite{RobinHartshorne1}
+\nocite{GortzWedhorn1}
+\nocite{NagataMiyanishiMaruyama1}
+\nocite{ToshiyukiKatsura4}
+\nocite{YujiroKawamata1}
+\nocite{KenjiUeno1}
+\nocite{ShihokoIshii1}
+\nocite{MasayoshiNagata1}
+\nocite{Atiyah-Macdonald}
+\section{環と代数多様体}
+
+\subsection{環とイデアル}
+
+
+代数幾何の前に, そもそも代数学とは何だろうか.
+代数学とは掛け算, 足し算などが定められた「代数系」を扱うものである.
+代数学には (もちろん様々なものがあるが), 以下で定められる「環」と呼ばれるものが主役となっていることが多い.
+
+\begin{defn}[(可換) 環]
+集合 $R$ が (単位的可換) 環 (ring) であるとは,
+$R$ の中に 2 項演算和 $+$, および積 $\cdot$ が存在して次の性質を満たすときいう.
+( $a \cdot b$ を単に $ab$ で表す. )
+\begin{enumerate}
+\item 任意の $a,b,c \in R$ に対し,  $(a + b) + c = a + (b + c)$ が成り立つ.
+\item ある $0 \in R$ が存在して任意の $a \in R$ に対し $a+0=0+a=0$ となる.
+   このような $0$ は存在すれば一意的であり (check!), これを $R$ の零元という.
+\item 任意の $a \in R$ に対し $b \in R$ が存在して, $a+b=0$ となる.
+   $a$ に対するこの $b \in R$ は存在すれば一意 (check!) で, これをを $-a$ で表す.
+\item 任意の $a,b \in R$ に対し,  $a+b=b+a$ が成り立つ.
+\item 任意の $a,b,c \in R$ に対し,  $(ab) c=a (bc)$ が成り立つ.
+\item ある $1 \in R$ が存在して, 任意の $a \in R$ に対し,  $a1=1a=a$ となる.
+   このような $1$ は存在すれば一意的であり (check!), この $1$ を $R$ の単位元という.
+\item 任意の $a,b \in R$ に対し,  $ab=ba$ となる.
+\item 任意の $a,b,c \in R$ に対して $a (b+c)=ab+ac$ ,  $(a+b) c=ac+bc$ が成り立つ. $fin$
+\end{enumerate}
+\end{defn}
+\begin{exercise}
+環の定義より, 任意の $a \in R$ に対し $0a=a0=0$ を導け.
+また, 条件 6. または 7. のみが成り立たないような代数系の例を作れ. \fin
+\end{exercise}
+
+\begin{defn}[環準同型]\label{waheyhey-algebraic-geometry-guidance1}
+$R,R'$ を環としたとき, 環の間の写像 $f \colon R \to R'$ が環準同型 (ring homomorphism) であるとは,
+\begin{enumerate}
+\item 任意の $a,b \in R$ に対し, $f (a+b)=f (a) +f (b)$ が成り立つ.
+\item 任意の $a,b\in R$ に対し, $f (ab)=f (a) f (b)$ が成り立つ.
+\item $f (1_R)=1_{R'}$ となる.
+   ここで $1_R, 1_{R'}$ はそれぞれ $R, R'$ の単位元である.
+\end{enumerate}
+が成り立つときいう.
+環準同型 $f \colon R \to R'$ が全単射であるとき, 環同型であるという.
+環 $R,R'$ の間に環同型が存在するとき, $R$ と $R'$ は同型であるといい, $R \simeq R'$ で表す.
+環 $R$ から $R'$ への環準同型の全体からなる集合を $\homo (R,R')$ で表す.
+\end{defn}
+\begin{exercise}
+$0_R, 0_{R'}$ をそれぞれ $R, R'$ の零元としたとき,
+環準同型 $f:R\to R'$ に対し, $f (0_R)=0_{R'}$ となる.
+また, 任意の $a \in R$ に対し, $f (-a)=-f (a)$ が成り立つ. \fin
+\end{exercise}
+\begin{exercise}
+定義 \ref{waheyhey-algebraic-geometry-guidance1} の条件 (1), (2) からは条件 (3) の式は得られないことを確かめよ. \fin
+\end{exercise}
+\begin{ex}
+\begin{enumerate}
+\item 整数論を中心に最も基本的な環の例は有理整数環 $\mathbb{Z}$ である.
+   実際, これは通常の和と積で環になることが確かめられる.
+   さらにこの環は, 任意の (単位的可換) 環に対し環準同型が一意に存在する (check!) という著しい性質を持つ.
+\item 代数幾何学で重要になるのは複素数体 $\mathbb{C}$ である.
+   これも通常の和と積で環になることが直ちに分かるが, さらにこの環は $0$ 以外の元で「割り算」が出来るという性質がある.
+   より正確には, 任意の $0$ でない元 $0 \neq a \in \mathbb{C}$ に対し,
+   ある $a^{-1} \in \mathbb{C}$ が存在して,  $aa^{-1}=a^{-1}a=1$ が成り立つ.
+   このような性質をもつ環を, 体 (field) という.
+   以下で述べていくように, 代数幾何学は多変数の多項式の共通零点を考えるのが出発点になる.
+   その際, 複素数体の「複素係数の代数方程式は複素数の範囲で必ず解をもつ (代数学の基本定理) 」という性質が重要になってくるのである.
+\item たとえば, 有理数の全体 $\mathbb{Q}$ や実数の全体 $\mathbb{R}$ も体の例である.
+   既にみた有理整数環 $\mathbb{Z}$ は体ではない.
+\item 次に代数幾何学において重要なのは,  $n$ 変数多項式環 $\mathbb{C}[X_1,\dots,X_n]$ である.
+   これも単位的可換環であるが, 体ではない.
+   係数環は $\mathbb{C}$ である必要はないが,
+   今回は係数環を取り替えたときに起こる様々な問題を避けるため, このようにしておく.
+   環があったときにその上の多項式環を考えるというのは「新しい環を作る」重要な操作のうちの一つである.
+   全く新しい環を作っているという点ではほぼ唯一と言って過言でないと思う.
+\item 上の演習の答えの一つになるが,  $n$ 次正方行列全体 $M (n,\mathbb{C})$ は積が可換でない環の例を与えている.
+   もちろん体でもない.
+\item 偶数全体 $2\mathbb{Z}$ を考えよう.
+   これも和と積を自然に持ちしかも積は可換になるが, しかし積の単位元は持たない. \fin
+\end{enumerate}
+\end{ex}
+
+環論を考える上ではさらに次の「イデアル」という概念が重要となる.
+これが如何に重要な概念であるかは, 次節で代数多様体について説明するとき明らかになるであろう.
+\begin{defn}[イデアル]
+環 $R$ の部分集合 $\mathfrak{a} \subset R$ がイデアル (ideal) であるとは, 次の条件を満たすことである.
+\begin{enumerate}
+\item 任意の $a,b \in \mathfrak{a}$ に対し,  $a-b \in \mathfrak{a}$ が成り立つ.
+\item 任意の $a\in \mathfrak{a}$ と $r \in R$ に対し,  $ra \in \mathfrak{a}$ が成り立つ. \fin
+\end{enumerate}
+\end{defn}
+\begin{exercise}
+イデアル $\mathfrak{a} \subset R$ は加法に関して Abel 群になる, すなわち,
+\begin{enumerate}
+\item $0 \in \mathfrak{a}$,
+\item $a \in \mathfrak{a}$ に対し $-a \in \mathfrak{a}$
+\end{enumerate}
+となることを示せ. \fin
+\end{exercise}
+
+\begin{defn}[生成されるイデアル]
+部分集合 $S \subset R$ に対し, $S$ を含むような最小のイデアルを $S$ で生成されるイデアルという.
+このようなイデアルは $S$ を含むようなイデアル全体の共通部分からなるイデアルを考えれば,
+一意的に存在していることは明らかである.
+$S$ が有限集合 $\cbk{f_1, \dots, f_r}$ であるときは, $S$ で生成されるイデアルを $(f_1, \dots, f_r)$ で表す.
+このように有限集合から生成されるイデアルは有限生成 (finitely generated) であるという.
+特に一つの元から生成されるイデアルを単項イデアル (principal ideal) という.
+\end{defn}
+
+\begin{ex}
+\begin{enumerate}
+\item 有理整数環 $\mathbb{Z}$ に対し, $(n)$ はイデアルになる.
+   逆に, 簡単な計算により $\mathbb{Z}$ のイデアルはこの形のものに限られることを確かめることができる.
+   このように任意のイデアルが単項イデアルである環を単項イデアル環という.
+\item 複素数体 $\mathbb{C}$ のイデアルは, $(0)$ および $\mathbb{C}$ の 2 つのみである.
+\item 一般に環 $R$ に対して $(0)$ と $R$ 自身はイデアルになる.
+   これを指して自明なイデアルという.
+   体は自明なイデアルしか持たない.
+   逆に, 自明なイデアル以外持たない環は体であることも分かる.
+\item 環準同型 $f : R \to R'$ に対して, その核 (kernel),
+   \begin{align}
+    \kernel f
+    \defeq
+    \set{a \in R}{f (a) = 0}
+   \end{align}
+   はイデアルである. \fin
+\end{enumerate}
+\end{ex}
+\begin{exercise}
+上で列挙した事実のうち, 非自明と思われるものの証明を考えよ. \fin
+\end{exercise}
+
+イデアルの中で重要なものは次の 2 つである.
+\begin{defn}[素イデアル]
+$\mathfrak{p} \subset R$ をイデアルとする.
+$ab \in \mathfrak{p}$ ならば $a\in \mathfrak{p}$ または $b \in \mathfrak{p}$ が成り立つとき, $\mathfrak{p}$ を素イデアル (prime ideal) という. \fin
+\end{defn}
+\begin{defn}[極大イデアル]
+$R$ 自身でないイデアルの中で包含関係について極大であるとき, イデアル $\mathfrak{m} \subset R$ を極大イデアル (maximal ideal) という. \fin
+\end{defn}
+\begin{rem}
+$R$ 自身は素イデアルに含めない場合もある.
+また, Zorn の補題を用いれば任意の環に対し極大イデアルは常に存在することが分かる.
+Zorn の補題についての解説は集合位相の教科書, 実際に極大イデアルが存在することの証明は基本的な代数学の教科書に譲ることにする. \fin
+\end{rem}
+\begin{ex}
+\begin{enumerate}
+\item 素数 $p \in \mathbb{Z}$ に関して, $(p) \subset \mathbb{Z}$ は素イデアルになる.
+   また, これは同時に極大イデアルにもなる.
+\item $ab = 0 \in R$ ならば $a=0$ または $b=0$ が成り立つとき, 環 $R$ は整域 (integral domain) であるという.
+   定義から, 環 $R$ が整域であることと $(0)$ が素イデアルであることは同値である.
+\item 既約多項式 $f \in \mathbb{C}[X_1,\dots,X_n]$ から生成される単項イデアル $(f)$ は素イデアルである.
+\item 一般に環が与えられたとき, その素イデアルや極大イデアルを決定するのは難しい. \fin
+\end{enumerate}
+\end{ex}
+
+イデアルが与えられたとき, その剰余環を以下のように考えることができる.
+二項関係および同値関係とそれによる商集合については集合位相の教科書を参照されたい.
+\begin{defn}[剰余環]
+$R$ を環, $\mathfrak{a} \subset R$ をイデアルとする.
+$a,b \in R$ が同値 $a \sim b$ であることを, $a - b \in \mathfrak{a}$ と定める.
+この二項関係 $\sim$ は $R$ 上の同値関係になる.
+この同値関係による商集合を $R / \mathfrak{a}$ で表す.
+$a \in R$ が $R/\mathfrak{a}$ において属する同値類を $[a]$ で表す.
+$R/\mathfrak{a}$ の中に和と積を $[a]+[b] \defeq [a+b]$,  $[a][b] \defeq [ab]$ で自然に定めることができる.
+これは各類の代表元の取り方によらない.
+剰余環にはもとの環から標準的な全射環準同型 $R \twoheadrightarrow R/\mathfrak{a}$ が存在する.
+この準同型の核はもちろん $\mathfrak{a}$ である. \fin
+\end{defn}
+\begin{ex}
+$n$ を正の整数とする.
+有理整数環 $\mathbb{Z}$ のイデアル $n\mathbb{Z}$ による剰余環 $\mathbb{Z}/n\mathbb{Z}$ を考える.
+このとき, $\mathbb{Z}/n\mathbb{Z}$ の各代表元を $0, \dots, n-1$ で取ることができ,
+このように $\mathbb{Z} / n \mathbb{Z}$ の元を表しておけば,
+標準的な全射は各整数に対し $n$ で割ったときの剰余をとる写像と考えることができる.
+これがイデアルによる商を考えたものが剰余環と呼ばれる所以である. \fin
+\end{ex}
+\begin{exercise}
+環 $R$ のイデアル $\mathfrak{p}$ が素イデアルであるための必要十分条件は, 剰余環 $R/\mathfrak{p}$ が整域であることである.
+また, イデアル $\mathfrak{m} \subset R$ が極大イデアルであるための必要十分条件は, 剰余環 $R/\mathfrak{m}$ が体であることである.
+特に, 極大イデアルは素イデアルである. \fin
+\end{exercise}
+
+\begin{thm}[準同型定理]
+環準同型 $f \colon R \to R'$ に対し,
+$\Image f \defeq \set{a' \in R'}{\text{ある $a \in R$ が存在して $a' = f (a)$ となる}}$ と定めると, これは自然に環になる.
+このとき, $f$ は環同型
+\begin{align}
+ R / \kernel f
+ \simeq
+ \Image f
+\end{align}
+を誘導する. \fin
+\end{thm}
+
+以上で環論の本当に基本的な部分の説明を終わりにする.
+紙数の関係で省略したものも多いので, より詳しい説明は代数学の初歩的な教科書を参照されたい.
+\subsection{アフィン代数多様体}
+
+
+では, 改めて問おう.
+代数幾何とはなんであろうか.
+かなりおおざっぱな言い方をすれば, 代数幾何学とは``代数多様体''とよばれる図形の研究である.
+次に, 代数多様体とは何か.
+代数多様体とは局所的に多項式系の共通零点となるような図形のことである.
+たとえば, 小学校の頃から慣れ親しんできた $n$ 次関数のグラフは \$\text{($x$ の多項式)}-y=0\$ を満たす点の集まりであり,
+まさしく代数多様体の一つである.
+では, その代数多様体を研究するとはなにか.
+これは幾何学全般に対し言えることだとは思うが, 代数幾何も例に漏れず最終的な目標はやはり代数多様体の分類理論の構築であろう.
+では, 代数多様体の分類とはなんであろうか\dots{}.
+と, 出発点から一歩も踏み出さずにだらだらと問答を続けてもしょうがないであろうから,
+以下で代数幾何学の取り扱いの対象となる代数多様体の基礎理論について解説しよう.
+その過程で極力代数幾何学的な考え方, 動機づけについて解説し, 代数幾何学というものを肌で感じてもらえるように心がけた.
+より幾何学的な側面については次章で扱う.
+
+はじめにこの節でアフィン代数多様体を定義する.
+これは可微分多様体においてはユークリッド空間の開部分集合にあたるものであり,
+代数幾何学は主にこのアフィン代数多様体を貼り合わせてつくられる代数多様体について展開される.
+この節の原稿は会誌「数学の仲間 第 54 号」に掲載の発表者の原稿「B\'ezout の定理」の第 1 節に加筆と修正を加えたものである.
+本稿において位相空間については何も説明してこなかったが,
+この概念に不慣れな場合もあまり気にしないで読み進めて欲しい.
+また, この節に書いた注意の多くはある程度現代数学を学んでいることを前提として書かれており, 初学の場合は読み飛ばしてよい.
+
+\begin{defn}[アフィン代数的集合]
+アフィン空間 $\mathbb{A}^n = k^n$ において,
+有限個の多項式 $f_1, \dots, f_r \in \mathbb{C}[X_1, \dots, X_n]$ の共通零点の集合を
+$V (f_1, \dots, f_r)$ で表し, アフィン空間 $\mathbb{A}^n$ のザリスキ閉集合,
+またはアフィン代数的集合 (affine algebraic set) という. \fin
+\end{defn}\label{waheyhey-algebraic-geometry-guidance2}
+体上の多項式環については次が成り立つ.
+\begin{thm}[ヒルベルトの基底定理]
+体 $k$ 上の多項式環 $k[X_1, \dots, X_n]$ はネーター環である.
+すなわち, 任意のイデアルが有限生成になる. \fin
+\end{thm}
+この定理によれば, 多項式環 $\mathbb{C}[X_1, \dots, X_n]$ のイデアル $\mathfrak{a}$
+について有限個の生成元 ${f_1, \dots, f_r}$ が存在して $\mathfrak{a}=(f_1, \dots, f_r)$ となる.
+このとき, $V (\mathfrak{a}) = \set{x = (x_1, \dots, x_n) \in \mathbb{A}^n}{\forall g \in \mathfrak{a}, g (x)=0}$
+と定義すれば, 明らかに $V ( \mathfrak{a} ) = V (f_1, \dots, f_r)$ がなりたつ.
+したがって, $\mathbb{C}[X_1, \dots, X_n]$ のイデアル $\mathfrak{a}$ について $V ( \mathfrak{a} )$ を考えるのと,
+$\mathbb{C}[X_1, \dots, X_n]$ の有限個の元 \$ f$_1$, \dots{}, f$_r$ \$ について $V (f_1, \dots, f_r)$ を考えるのは同じことである.
+以下, $V ( \mathfrak{a} )$ の形のものもアフィン代数的集合ということにする.
+\begin{rem}
+環 $A$ がは次の同値な条件をみたすとき, ネーター環 (Noetherian ring) という.
+\begin{enumerate}
+\item $A$ のイデアルの空でない任意の集合は, 極大元を持つ.
+\item $A$ のイデアルの任意の昇鎖は停留的である.
+\item $A$ の任意のイデアルは有限生成.
+\item 任意の有限生成 $A$ 加群が有限表示 $A$ 加群. \fin
+\end{enumerate}
+\end{rem}
+
+\begin{prop}
+アフィン代数的集合については, 次が成り立つ.
+\begin{enumerate}
+\item $\mathbb{A}^n$ と $\emptyset$ はアフィン代数的集合である.
+\item $\mathfrak{a}$, $\mathfrak{b}$ を $\mathbb{C}[X_1, \dots, X_n]$ のイデアルとすると,
+   $V ( \mathfrak{a} ) \cup V ( \mathfrak{b} ) = V ( \mathfrak{a} \cap \mathfrak{b} ) = V ( \mathfrak{a} \mathfrak{b} )$.
+\item $\{ \mathfrak{a}_i \} _{i \in I}$ を $\mathbb{C}[X_1, \dots, X_n]$ のイデアルの族とすると,
+   $\bigcap_{i \in I} V ( \mathfrak{a}_i ) = V \left (  \sum_{ i \in I} \mathfrak{a}_i  \right)$.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+\begin{enumerate}
+\item $V (1) = \emptyset, V (0) = \mathbb{A}^n$.
+\item $\mathfrak{ab} \subset \mathfrak{a} \cap \mathfrak{b} \subset \mathfrak{a}, \mathfrak{b}$ より,
+   $V ( \mathfrak{a} ) \cup V ( \mathfrak{b} ) \subset V ( \mathfrak{a} \cap \mathfrak{b} ) \subset V ( \mathfrak{ab} ) $ は成り立つ.
+   ここで,  $x \in V ( \mathfrak{ab} ) , x \notin V ( \mathfrak{a} )$ なる元をとると,
+   ある $f \in \mathfrak{a}$ に対して $f (x) \neq 0$.
+   このとき, 任意の $g \in \mathfrak{b}$ に対し $fg \in \mathfrak{ab}$ だから $f (x) g (x) = ( fg ) (x) = 0$ より $g (x) = 0$,
+   すなわち $x \in V ( \mathfrak{b} )$.
+\item $\bigcap_{i \in I} V ( \mathfrak{a}_i ) = V \left ( \bigcup_{i \in I} \mathfrak{a}_i \right)$ であり,
+   $\sum_{i \in I} \mathfrak{a}_i$ は $ \bigcup_{i \in I} \mathfrak{a}_i$ で生成されることより従う.
+\end{enumerate}
+\end{proof}
+これにより, アフィン代数的集合は位相空間の閉集合の公理を満たすことが分かった.
+以下, アフィン空間 $\mathbb{A}^n$ にはアフィン代数的集合を閉集合とするような位相 (ザリスキ位相という) が入っているものとし,
+アフィン代数的集合というときも, $\mathbb{A}^n$ の部分空間として, この位相を考えることにする.
+
+\begin{defn}[イデアル]
+アフィン空間 $\mathbb{A}^n$ の部分集合 $U$ に対して,
+\begin{align}
+ I (U)
+ =
+ \set{f \in \mathbb{C}[X_1, \dots, X_n]}{\forall x \in U, f(x) = 0}
+\end{align}
+と定義し,  $U$ のイデアルという. \fin
+\end{defn}
+\begin{prop}
+アフィン空間 $\mathbb{A}^n$ の部分集合 $U$ に対して,
+\begin{align}
+ V ( I ( U ) )
+ =
+ \overline{U}
+\end{align}
+が成り立つ. \fin
+\end{prop}
+\begin{proof}
+$U \subset V ( I ( U ) ) $ は定義より明らかだから,
+$V ( I ( U ) )$ は $U$ を含む閉集合である.
+一方, $V ( \mathfrak{a} )$ を $U$ を含む任意の閉集合とすると,
+任意の $f \in \mathfrak{a}$ に対して, $x \in U \Rightarrow f (x) = 0$ が成り立つから,
+$ \mathfrak{a} \subset I ( U )$.
+よって $V ( I ( U ) ) \subset V ( \mathfrak{a} ) $ であるから,  $V ( I ( U ) ) = \overline{U} $ となる.
+\end{proof}
+
+次の定理は代数幾何学において重要な定理であるが,
+証明には可換環論の準備を多く要するので, ここでは成り立つと認めてしまうものとする.
+証明については代数幾何学の教科書か, 可換環論の教科書を参照されたい.
+\begin{thm}[ヒルベルトの零点定理]
+ $\mathfrak{a}$ を $\mathbb{C}[X_1, \dots, X_n]$ のイデアルとするとき,
+ \begin{align}
+  I (V ( \mathfrak{a} ) )
+  =
+  \sqrt{ \mathfrak{a} }
+ \end{align}
+が成り立つ. \fin
+\end{thm}
+\begin{cor}\label{waheyhey-algebraic-geometry-guidance3}
+ アフィン空間 $\mathbb{A}^n$ の閉集合 (すなわちアフィン代数的集合) と,
+ 多項式環 $\mathbb{C}[X_1, \dots, X_n]$ の被約イデアルは 1 対 1 に対応している.
+
+ また, アフィン空間の各点からなる 1 点集合 (これはアフィン空間の既約閉集合である) は多項式環の極大イデアルと 1 対 1 に対応している. \fin
+\end{cor}
+\begin{proof}
+前半はよい.
+後半については, $\mathbb{C}[X_1, \dots, X_n]$ の極大イデアルが
+$\mathfrak{m}_x = (X_1 - x_1, \dots, X_n - x_n)$ の形に限ることを言えばよい.
+この $\mathfrak{m}_x$ が極大イデアルになるのは,
+\begin{align}
+ \mathbb{C}[X_1, \dots, X_n]
+ \longrightarrow
+ \mathbb{C}, \quad X_i \mapsto x_i
+\end{align}
+の核を考えればよい.
+逆にある極大イデアル $\mathfrak{m}$ が存在したとして, $V ( \mathfrak{m} )$ は空でないから,
+ある $x = (x_1, \dots, x_n)$ に対して $x \in V ( \mathfrak{m} )$ であり,
+よって $ \mathfrak{m} \subset \mathfrak{m}_x$ で $ \mathfrak{m} = \mathfrak{m}_x$ となる.
+\end{proof}
+
+\begin{rem}
+系 \ref{waheyhey-algebraic-geometry-guidance3} の後半をさしてヒルベルトの弱零点定理ということもある.
+これより 1 点が閉集合になるから, アフィン空間 $\mathbb{A}^n$ および, その部分空間は $\mathrm{T}_1$ である.
+しかし, 一般には $\mathrm{T}_2$ 空間にはならない.
+
+また, アフィン代数的集合すなわちザリスキ閉集合は $\mathbb{C}^n$ の通常の位相においても閉集合である.
+なぜならば, 多項式 $f \in \mathbb{C}[X_1, \dots, X_n]$ を $\mathbb{C}^n$ から $\mathbb{C}$ への連続写像と見れば,
+$V ( f )$ は一点 $\cbk{0} \subset \mathbb{C}$ の $f$ による引き戻しになっているからである.
+すなわち,  $\mathbb{C}^n$ のザリスキ位相は $\mathbb{C}^n$ の通常の位相より真に弱い. \fin
+\end{rem}
+
+\begin{defn}[既約空間]
+空でない位相空間 $X$ は, $X$ と一致しない 2 つの $X$ の閉集合 $V_1, V_2$ を用いて $X= V_1 \cup V_2$ と表せないとき既約 (irreducible) であるという.
+$X$ の部分集合 $M$ は $M$ が $X$ の部分空間として既約であるときに, 既約であるという. \fin
+\end{defn}
+\begin{prop}\label{waheyhey-algebraic-geometry-guidance4}
+ アフィン代数的集合 $V \subset \mathbb{A}^n$ が既約であるための必要十分条件は,
+ $I ( V )$ が $\mathbb{C}[X_1, \dots, X_n]$ の素イデアルになることである. \fin
+\end{prop}
+\begin{proof}
+アフィン代数的集合 $V$ が既約であるとする.
+$f, g \in \mathbb{C}[X_1, \dots, X_n]$ に対して,
+既約性より $V \subset V ( f ) \cup V ( g ) = V (fg)$ ならば $V \subset V ( f )$ または $V \subset V ( g )$ であるから,
+$fg \in I ( V )$ ならば $f \in I (V)$ または $g \in I (V)$ が成り立つ.
+よって $I ( V )$ は素イデアルである.
+
+逆に $I (V)$ が素イデアルであるとする.
+$I (V)$ が素イデアルであることより, 任意の $ f, g \in \mathbb{C}[X_1, \dots, X_n]$ に対して,
+$V \subset V ( f ) \cup V ( g ) = V (fg)$ ならば $V \subset V (f)$ または $V \subset V (g)$ が成り立つ.
+ここで, $V \subset V ( \mathfrak{a} ) \cup V ( \mathfrak{b} )$ とすると,
+$V ( \mathfrak{a} ), V ( \mathfrak{b} )$ は,  $\mathfrak{a}$, $\mathfrak{b}$ のそれぞれの生成元
+$(f_1, \dots, f_r) , (g_1, \dots, g_l)$ を考えることで
+$V ( \mathfrak{a} ) = \bigcap_{i=1}^r V ( f_i ) , V ( \mathfrak{b} ) = \bigcap_{j=1}^l V ( g_j )$ と表せるから,
+$V \subset \bigcap_{i, j} \left ( V ( f_i ) \cup V (g_j) \right)$ と書ける.
+よって, 各組 $( i, j )$ に対して, $V \subset V (f_i)$ または $V \subset V (g_j)$ の少なくとも一方が成り立つ.
+このとき, 全ての $i$ に対し $V \subset V ( f_i)$ となるか,
+全ての $j$ に対し $V \subset V ( g_j )$ となるかの少なくとも一方が成り立つ (背理法からすぐわかる) から,
+$V \subset V ( \mathfrak{a} )$ または $V \subset V ( \mathfrak{b} )$ となり $V$ は既約である.
+\end{proof}
+以上からアフィン空間 $\mathbb{A}^n$ の既約閉集合と
+多項式環 $\mathbb{C}[X_1, \dots, X_n]$ の素イデアルが対応することが分かった.
+つまり, アフィン代数的集合と多項式環のイデアルには以下の関係がある.
+\begin{align}
+ \begin{xy}
+  \xymatrix{
+   \text{アフィン代数的集合} & \text{多項式環のイデアル} \\
+   \text{アフィン代数的集合} \ar@{}[d]|{\bigcup} \ar@{}[r]|{\longleftrightarrow} & \text{被約イデアル} \ar@{}[d]|{\bigcup} \\
+   \text{既約閉集合} \ar@{}[d]|{\bigcup} \ar@{}[r]|{\longleftrightarrow} & \text{素イデアル} \ar@{}[d]|{\bigcup} \\
+   \text{点} \ar@{}[r]|{\longleftrightarrow} & \text{極大イデアル}
+  }
+ \end{xy}
+\end{align}
+このように, 代数幾何学では「幾何的」なものと「代数的」なものが随所で対応するのである.
+\begin{rem}
+既約な空間の性質について列挙する.
+次は同値である.
+\begin{enumerate}
+\item $X$ は既約である.
+\item $X$ の空でない任意の 2 つの開集合の交わりは空でない.
+\item $X$ の空でない開集合は稠密である.
+\item $X$ の全体と一致しない閉集合は希薄である: すなわち空でない開集合を含まない.
+\item $X$ の空でない任意の開集合が連結である.
+\item $X$ の空でない任意の開集合は既約である.
+\end{enumerate}
+冗長になるので証明は詳しく述べないことにするが, 難しくない. \fin
+\end{rem}
+
+\begin{defn}[既約成分]
+位相空間 $X$ の既約閉集合全体は,
+それ自身空でないとき Zorn の補題により極大元を持ち, これを $X$ の既約成分という.
+(アフィン空間においては, 極小素イデアルに対応する閉集合といっても同じことである). \fin
+\end{defn}
+
+次にいよいよアフィン代数多様体を定義する.
+\begin{defn}[アフィン代数多様体]
+既約なアフィン代数的集合 $V$ を, アフィン代数多様体 (affine variety) という. \fin
+\end{defn}
+
+次に, 代数多様体の次元について定義する.
+\begin{prop}\label{waheyhey-algebraic-geometry-guidance5}
+任意のアフィン代数的集合の減少列
+\begin{align}
+ V_0 \supset V_1 \supset \dots \supset V_n \supset \dots
+\end{align}
+は停留的である. \fin
+\end{prop}
+\begin{proof}
+各 $V_n$ に対応するイデアルを考えれば, 定理 \ref{waheyhey-algebraic-geometry-guidance2} より成り立つ.
+\end{proof}
+\begin{rem}
+閉集合についての極小条件を満たす位相空間をネーター空間という.
+すでにみたようにザリスキ位相を考えたときアフィン空間はネーターである.
+ネーター空間の部分空間はまたネーターになる.
+逆に, ネーター的な部分空間の有限個の和もネーターになる. 証明は難しくない.
+
+また一般に, ネーター空間 $X$ は擬コンパクトである.
+なぜならば $\cbk{U_i}_{i \in I}$ を $X$ の開被覆とし,
+$\mathcal{U}$ を $U_i$ たちの有限個の和で表される $X$ の開集合の集合とすれば,
+条件より $\mathcal{U}$ は極大元 $V$ をもつ.
+$V=X$ である.
+なぜなら $V \subsetneq X$ とすると $x \in X \setminus V$ と
+$x \in U_i$ があって $V \subsetneq V \cup U_i \in \mathcal{U}$ となり極大性に矛盾する.
+よって $X$ は擬コンパクトになる.
+
+特に, アフィン空間は擬コンパクトになる.
+逆に, 任意の開集合が擬コンパクトな空間はネーター的になる.
+証明は難しくない. \fin
+\end{rem}
+
+\begin{prop}
+任意のアフィン代数的集合 $V$ は, 有限個の既約閉集合 (すなわちアフィン代数多様体) $V_i$ の和集合 $ V = \bigcup_{ i = 1}^d V_i $ の形に表せる. \fin
+\end{prop}
+\begin{proof}
+$\mathcal{U} \defeq \cbk{\text{空でない} V \text{の閉集合で既約閉集合の有限和で書けないもの}}$ とする.
+$\mathcal{U}$ が空でないと仮定すれば $\mathcal{U}$ は極小元を持つから, それを $V_0$ とする.
+$V_0$ は既約でないから, $V_0$ に真に含まれる閉集合 $V_1$ と $V_2$ があって $V_0 = V_1 \cup V_2$ と書ける.
+しかし,  $V_0$ の $\mathcal{U}$ での極小性より $V_1$ と $V_2$ は各々に含まれる既約閉集合の有限和でかけるから,
+$V_0$ も有限個の既約閉集合の和で書けることになり, これは矛盾である.
+\end{proof}
+\begin{rem}
+ネーター空間 $V$ は高々有限個の既約成分を持つ.
+なぜなら, $V = \bigcup_{i \in I} V_i$ (各 $V_i$ は既約) と表示したとき,
+既約閉集合 $Z$ について $Z \subset \bigcup V_i$ とすれば, $Z = \bigcup ( Z \cap V_i)$ となり,
+$Z$ の既約性よりある $i$ について $Z \subset V_i$ となる.
+特に $Z$ として既約成分をとればよい. \fin
+\end{rem}
+
+\begin{defn}[次元]
+$V$ をアフィン代数多様体とするとき,
+$V$ のザリスキ閉集合は, それ自身がアフィン代数多様体であるときに $V$ の閉部分多様体であるという.
+ザリスキ閉部分多様体の真の減少列
+\begin{align}
+ V
+ =
+ V_0
+ \supsetneq
+ V_1
+ \supsetneq
+ V_2
+ \supsetneq
+ \dots
+ \supsetneq
+ V_n
+ \neq
+ \emptyset
+\end{align}
+の長さ $n$ の上限を $V$ の次元といい, $\dim V $ で表す.
+代数的集合の次元については, 既約成分たちの次元の上限と定める. \fin
+\end{defn}
+
+幾何学を展開する上では, 対象となる``図形''である多様体のみでなく,
+それらを``比較''するための写像を考えることが不可欠である.
+では, 代数幾何を展開する上で採用すべき写像はどのようなものであろうか.
+アフィン代数多様体は多項式たちの共通零点で定義されていた.
+とすれば, それらの間の写像としては次の``多項式写像''を採用するのが自然であろう.
+
+\begin{defn}[多項式写像]
+$n$ 次元アフィン空間 $\mathbb{A}^n$ から $1$ 次元アフィン空間 $\mathbb{A}^1$ への写像で,
+ある多項式 $f \in \mathbb{C}[X_1,\dots,X_n]$ について,
+\begin{align}
+ \mathbb{A}^n
+ &\map
+ \mathbb{A}^1
+ \simeq
+ \mathbb{C} \\
+ (x_1,\dots,x_n)
+ &\longmapsto
+ f (x_1,\dots,x_n)
+\end{align}
+と書けるものを $\mathbb{A}^n$ 上の多項式関数という.
+
+また, $m$ 個の多項式関数 $f_1,\dots,f_m \in \mathbb{C}[X_1,\dots,X_n]$ に関し,
+\begin{align}
+ F
+ \defeq
+ (f_1,\dots,f_m) \colon \mathbb{A}^n \map \mathbb{A}^m, \quad x \mapsto (f_1 (x),\dots,f_m (x))
+\end{align}
+で定まる写像を $\mathbb{A}^n$ から $\mathbb{A}^m$ への多項式写像という.
+
+$V \subset \mathbb{A}^n$ をアフィン多様体とするとき,
+$\mathbb{A}^n$ から $\mathbb{A}^m$ への多項式関数 $F$ の $V$ 上への制限
+\begin{align}
+ F \colon V \map \mathbb{A}^m
+\end{align}
+を, $V$ から $\mathbb{A}^m$ への多項式関数という.
+
+さらにアフィン多様体 $W \subset \mathbb{A}^m$ に関して, $F (V) \subset W$ となるとき, $F$ は $V$ から $W$ への多項式写像という.
+
+$V$ から $W$ への多項式関数全体がなす集合を $\homo (V,W)$ で表す. \fin
+\end{defn}
+とくに, 多項式関数全体は重要な意味を持つ.
+$V$ 上の多項式関数全体は $V$ を復元するのである (注意\ref{waheyhey-algebraic-geometry-guidance6}).
+\begin{defn}[アフィン座標環]
+アフィン代数的集合 $V$ に対して,
+\begin{align}
+ \Gamma ( V )
+ \defeq
+ \mathbb{C}[X_1, \dots, X_n] /  I ( V )
+\end{align}
+と定める.
+これはアフィン代数多様体 $V$ については, $I (V)$ が素イデアルであることから整域になる.
+アフィン代数多様体 $V$ について, この $\Gamma (V)$ を $V$ のアフィン座標環 (affine coordinate ring) という. \fin
+\end{defn}
+\begin{lem}
+アフィン代数多様体 $V \subset \mathbb{A}^n$ 上の多項式関数全体 $\homo (V,\mathbb{A}^1)$ は自然な環構造をもつ.
+さらに, 環同型
+\begin{align}
+ \homo (V, \mathbb{A}^1)
+ \simeq
+ \Gamma (V)
+\end{align}
+が成り立つ. \fin
+\end{lem}
+\begin{proof}
+$f$, $g \in \mathbb{C}[X_1,\dots,X_n]$ が,
+$V$ 上の多項式関数として等しいことの定義は, 任意の $x \in V$ に対し $f (x) =g (x)$ となることである.
+すなわち, 任意の $x \in V$ に対し $(f-g) (x) \defeq  f (x) -g (x) = 0$ となる.
+すなわち, 多項式 $f-g \in \mathbb{C}[X_1,\dots,X_n]$ は $V$ のイデアルに含まれる.
+よって,  $\homo (V,\mathbb{A}^1) \simeq \mathbb{C}[X_1,\dots,X_n]/I (V) =: \Gamma (V)$ である. \qed
+\end{proof}
+\begin{rem}
+後にわかるように $\Gamma$ はアフィン代数多様体の圏から環の圏への反変圏同値であるが,
+上の補題はその関手が $\mathbb{A}^1$ で表現されているということを意味する.
+これは一般の $k$ スキームの圏から環の圏への大域切断をとる関手に対しても正しい.
+さらに一般のスキームに対しては $\mathbb{Z}$ 上相対次元 $1$ のアフィン空間 $\mathbb{A}_{\mathbb{Z}}^1$ に取り替えて議論すれば正しい.
+この関係はスキーム論において, スキームや層を環や加群, 層などから構成するときに, 根本にあるアイディアとして重要になる. \fin
+\end{rem}
+\begin{rem}\label{waheyhey-algebraic-geometry-guidance6}
+ヒルベルトの弱零点定理より, 点集合として,
+\begin{align}
+ V
+ =
+ \mathrm{Spm} \rbk{\Gamma ( V )}
+\end{align}
+が成り立つ.
+ここで, 環 $A$ に対して $\mathrm{Spm}(A)$ で $A$ の極大イデアル全体からなる集合を表す.
+また, $\mathfrak{a}$ を $\Gamma ( V )$ のイデアルとして,
+\begin{align}
+ \mathrm{V} ( \mathfrak{a} )
+ =
+ \set{\mathfrak{m} \in \mathrm{Spm} \rbk{\Gamma ( V )}}{\mathfrak{m} \supset \mathfrak{a}}
+\end{align}
+を閉集合とするような位相を $\mathrm{Spm} \left ( \Gamma ( V ) \right)$ に入れると
+(すなわち, アフィンスキーム $\mathrm{Spec} \left ( \Gamma ( V ) \right)$ の部分空間としての位相),
+同相
+\begin{align}
+ V
+ \cong
+ \mathrm{Spm} \left ( \Gamma ( V ) \right)
+\end{align}
+が成り立つ.
+これまでアフィン代数多様体 $V$ を考える上では常に ambient となるアフィン空間 $\mathbb{A}^n \supset V$ を考える必要があったが,
+この事実はこのような ambient によらない, $V$ の内在的な再定義を与えている. \fin
+\end{rem}
+
+次の命題も, 代数幾何における「代数的」なものと「幾何学的」なものの基本的な対応として重要である.
+\begin{prop}
+$V$, $W$ をアフィン代数多様体としたときに,
+多項式写像 $F \colon V \to W$ と環準同型 $\varphi \colon \Gamma (W) \to \Gamma (V)$ は 1 対 1 に対応する. \fin
+\end{prop}
+\begin{proof}
+環準同型 $\varphi \colon \Gamma (W) \to \Gamma (V)$ をとる.
+自然な全射, $\mathbb{C}[X_1,\dots,X_n] \to \Gamma (W)$ に対し $\varphi$ を合成することで,
+\begin{align}
+ \psi \colon \mathbb{C}[X_1,\dots,X_n] \map \Gamma (V)
+\end{align}
+を得る.
+ここで, $Y_i \defeq  \psi (X_i) \in \Gamma (V) = \homo (V, \mathbb{A}^1)$ とおくと, これは多項式写像
+\begin{align}
+ F
+ \defeq
+ (Y_1,\dots,Y_n) \colon V \map \mathbb{A}^n
+\end{align}
+を定める.
+多項式 $f \in \mathbb{C}[X_1,\dots,X_n]$ について,
+\begin{align}
+ f(Y_1,\dots,Y_n)
+ =
+ \psi(f(Y_1,\dots,Y_n))
+\end{align}
+であるが, もし $f \in I (W)$ であるなら $\psi (f)=0$ より,
+任意の $x \in V$ に対して $f (F (x))=0$ であること,
+すなわち $F (x) \in W$ であることが分かるので, $F$ は多項式写像 $F \colon V \to W$ を定めている.
+
+逆に多項式写像 $F \colon V \to W$ に関しては,
+\begin{align}
+ \varphi
+ =
+ F^* \colon \Gamma (W)
+ &\map
+ \Gamma (V) \\
+ f
+ &\longmapsto
+ f \circ F
+\end{align}
+によって環準同型が定まる.
+これが互いに逆写像になっている. \qed
+\end{proof}
+\begin{rem}
+多項式環から $\mathbb{C}$ の作用を保つような全射環準同型がある整域を,
+有限型 $\mathbb{C}$ 代数という.
+代数多様体のアフィン座標環は有限型 $\mathbb{C}$ 代数の例である.
+上の命題は有限型 $C$ 代数の圏とアフィン代数多様体と多項式写像の圏が圏同値になっていることを主張している. \fin
+\end{rem}
+\subsection{射影代数多様体}
+
+
+はじめに述べた通り, 代数幾何における取り扱いの対象である代数多様体はアフィン代数多様体の貼り合わせとして定義される.
+その最も基本的な例が射影空間である.
+$n$ 次元の射影空間は $n+1$ 個のアフィン空間の貼り合わせとして得られる.
+代数幾何学の多くは射影的空間の Zariski 閉部分空間として定義される射影代数多様体について展開される.
+\begin{defn}[射影空間]\label{waheyhey-algebraic-geometry-guidance7}
+$n+1$ 次元アフィン空間 (ここでは点集合としてのみ考える) から原点を除いた集合 $\mathbb{A}^{n+1} \setminus \cbk{0}$ に次で同値関係を定義する.
+\begin{align}
+ (a_0, \dots, a_n)
+ \sim
+ ( { a_0 }', \dots, { a_n }' )
+ \Leftrightarrow
+ \exists \lambda \in \mathbb{C}^*, \quad
+ (a_0, \dots, a_n)
+ =
+ ( \lambda { a_0 }', \dots, \lambda { a_n }' ).
+\end{align}
+このとき,
+\begin{align}
+ \mathbb{P}^n
+ \defeq
+ \rbk{\mathbb{A}^{n+1} \setminus \cbk{0}} / \sim
+\end{align}
+と定義し, この $\mathbb{P}^n$ を $n$ 次元射影空間という.
+$\mathbb{P}^n$ において $(a_o, \dots, a_n) \in \mathbb{A}^{n+1} \setminus \cbk{0}$ が属する類を
+$[a_0 : \dots : a_n]$ と表す.
+この射影空間における特別な座標の表示を射影空間の斉次座標という. \fin
+\end{defn}
+\begin{defn}[射影代数的集合]
+$m$ 次の同次多項式 $f \in \mathbb{C}[X_0, \dots, X_n]$ に対して,
+\begin{align}
+ V_+ ( f )
+ \defeq
+ \set{[a_0 : \dots : a_n] \in \mathbb{P}^n}{f ( a_0, \dots, a_n ) = 0}
+\end{align}
+で定義し,  $\mathbb{P}^n$ の射影代数的集合と言う. \fin
+\end{defn}
+\begin{rem}
+一般に, 非同次な多項式 $F \in k[X_0, \dots, X_n]$ と
+$a=[a_0: \dots : a_n] \in \mathbb{P}^n$ に対して $F (a)=0$ は well-defined でない.
+実際, 非同次多項式 $X^2-Y-0$ を考えたとき,
+$[X:Y]=[1:1]$ は一見これを満たすが, 同じ点である $[2:2]$ などはこれを満たしていない.
+同じ点であるのに $\text{(多項式)}=0$ の方程式を満たしたり満たさなかったりするのでは意味がよく分からない.
+これが well-defined でないということである. \fin
+\end{rem}
+
+\begin{defn}[同次イデアル]
+多項式環 $\mathbb{C}[X_0, \dots, X_n]$ において,
+有限個の同次多項式で生成されるイデアルを同次イデアルという. \fin
+\end{defn}
+
+アフィンのときと同じように,
+同次多項式 $F_1, \dots, F_r$ で生成するイデアルを $\mathfrak{a}$ とすると,
+$V_+ ( F_1, \dots, F_r ) = V_+ ( \mathfrak{a} )$ が成り立つ.
+以下,  $V_+ ( \mathfrak{a} )$ の形のものも射影代数的集合と言うことにする.
+
+\begin{defn}[射影空間のザリスキ位相]
+アフィン空間のときと同様にして, 射影代数的集合は閉集合の公理を満たし, 射影空間内に位相を定める.
+この位相を射影空間のザリスキ位相という.
+また, 射影空間 $\mathbb{P}^n$ のザリスキ位相において, 開集合は
+\begin{align}
+ D_+ ( \mathfrak{a} )
+ =
+ \mathbb{P}^n \setminus V_+ ( \mathfrak{a} )
+\end{align}
+の形である.
+特に $D_+ (f)$ の形のものを射影空間の基本開集合という. \fin
+\end{defn}
+
+\begin{defn}[射影代数多様体]
+既約な射影代数的集合を射影代数多様体という. \fin
+\end{defn}
+
+射影空間 $\mathbb{P}^n$ において, 基本開集合 $U_i = D_+ ( X_i )$ は次の全単射により, $\mathbb{A}^n$ と同一視できる.
+\begin{align}
+ U_i
+ =
+ D_+ ( X_i )
+ &\longrightarrow
+ \mathbb{A}^n \\
+ [x_0 : \dots : x_i : \dots : x_n]
+ &\longmapsto
+ \rbk{\frac{x_0}{x_i}, \dots, \widehat{ \frac{x_i}{x_i} }, \dots, \frac{x_n}{x_i}}
+\end{align}
+この対応が well-defnnd および全単射であることは明らかである.
+ここでは詳しい説明を省くが, 多項式の同次化, 非同次化という操作を考えることにより,
+この写像が $D_+ ( X_i )$ と $\mathbb{A}^n$ の同相写像を与えていることも分かる.
+\begin{align}
+ \mathbb{P}^n
+ =
+ \bigcup_{i=0}^n D_+ \rbk{X_i}
+\end{align}
+であるから, 射影空間 $\mathbb{P}^n$ は $n+1$ 個のアフィン空間 $\mathbb{A}^n$ の貼り合わせとして得られる.
+この貼り合わせの写像は次で与えられる.
+簡単のため, $U_0$ と $U_1$ での貼り合わせを考えるが, 他の基本開集合の組み合わせについても全く同様である.
+\begin{align}
+ \begin{xy}
+  \xymatrix{
+   \mathbb{A}^n \ar@{}[r]|{\map} & U_0 \cap U_1 \ar@{}[r]|{\map} & \mathbb{A}^n \\
+   (x_1,\dots,x_n) \ar@{}[r]|{\longmapsto} & [1:x_1:\dots:x_n] \ar@{}[r]|{\longmapsto} & \rbk{\frac{1}{x_1}, \frac{x_2}{x_1}, \dots, \frac{x_n}{x_1}}
+  }
+ \end{xy}
+\end{align}
+ここで, 自然に多項式写像でないような写像が得られてしまうことに気をつけたい.
+この写像はアフィン空間の開集合 $D (X_1) \subset \mathbb{C}[X_1,\dots,X_n]$ 上でのみ定義されており,
+後にみる有理射と呼ばれるものの一番最初に出会う例になっている.
+
+ここまででみたように, 射影空間は局所的にはアフィン空間になるが,
+射影空間内で大域的な情報をみるには, 次のアフィン錐というものを考えるとよい.
+\begin{defn}[アフィン錐]
+射影代数的集合 $ V = V_+ ( \mathfrak{a} ) \subset \mathbb{P}^n $ に対して,
+\begin{align}
+ CV
+ =
+ V ( \mathfrak{a} )
+ \subset
+ \mathbb{A}^{n+1}
+\end{align}
+と定義し, $CV$ を $V$ に対応するアフィン錐と言う. \fin
+\end{defn}
+\begin{lem}\label{waheyhey-algebraic-geometry-guidance8}
+$V$ を射影代数多様体として, $V$ の同次イデアルを,
+\begin{align}
+ I (V)
+ =
+ \dbk{\set{f \in \mathbb{C} [X_0, \dots , X_n]}{f \text{は同次で}, \forall x \in V , f (x)=0}}
+\end{align}
+と定義すれば, $V$ が既約であるための必要十分条件は $I (V)$ が素イデアルになることである. \fin
+\end{lem}
+\begin{proof}
+命題 \ref{waheyhey-algebraic-geometry-guidance4} とほとんど同じである.
+\end{proof}
+
+\begin{lem}
+ $V$ を射影代数的集合とする.
+ 対応するアフィン錐 $CV$ が既約である必要十分条件は $V$ が既約であることである. \fin
+\label{lem1} \end{lem}
+\begin{proof}
+命題 \ref{waheyhey-algebraic-geometry-guidance4} と補題 \ref{waheyhey-algebraic-geometry-guidance8} より従う.
+\end{proof}
+
+\begin{prop}\label{waheyhey-algebraic-geometry-guidance9}
+任意の射影代数的集合の減少列
+\begin{align}
+ V_0 \supset V_1 \supset \dots \supset V_n \supset \dots
+\end{align}
+は停留的である. \fin
+\end{prop}
+\begin{proof}
+各々のアフィン錐をとれば, 補題 \ref{lem1} と命題 \ref{waheyhey-algebraic-geometry-guidance5} より成り立つ. \qed
+\end{proof}
+
+\begin{prop}\label{waheyhey-algebraic-geometry-guidance10}
+任意の射影代数的集合 $V$ は, 有限個の既約閉集合 (すなわち射影代数多様体)
+$V_i$ の和集合 $V = \bigcup_{ i = 1}^d V_i$ の形に表せる. \fin
+\end{prop}
+\begin{proof}
+これは命題 \ref{waheyhey-algebraic-geometry-guidance9} より $\mathbb{P}^n$ がネーター空間であることより従う.
+\end{proof}
+
+\begin{defn}[射影代数的集合の次元]
+$V$ を射影代数多様体とするとき, $V$ のザリスキ閉集合は, それ自身が射影代数多様体であるときに $V$ の閉部分多様体であるという.
+$V$ のザリスキ閉部分多様体の真の減少列
+\begin{align}
+ V=V_0 \supsetneq V_1 \supsetneq V_1 \supsetneq \dots \supsetneq V_n \neq \emptyset
+\end{align}
+の長さ $n$ の上限を $V$ の次元といい,  $\dim V$ で表す.
+代数的集合の次元については, 既約成分たちの次元の上限と定める. \fin
+\end{defn}
+\begin{prop}
+射影代数多様体 $V$ と, そのアフィン錐 $CV$ について次が成り立つ.
+\begin{align}
+ \dim CV
+ =
+ \dim V + 1.
+\end{align}
+\fin
+\end{prop}
+\begin{proof}
+気持ちとしては, $\dim V = n$ とし,
+$V=V_0 \supsetneq V_1 \supsetneq \dots \supsetneq V_n \neq \emptyset$ を $V$ の既約閉集合の減少列とするとき,
+$CV_n$ はアフィン空間内で原点を通る直線であるから, 列
+$CV=CV_0 \supsetneq CV_1 \supsetneq \dots \supsetneq CV_n \supset \cbk{0} \neq \emptyset$ を得る.
+これが極大列になっていればよい.
+キチンと示すには, 座標環の次元を考える必要があるので, ここでは省略する.
+\end{proof}
+
+次に, アフィンの場合と同様にして射影空間上の関数を考えてみよう.
+単純に多項式 $f \in \mathbb{C}[X_0,\dots,X_n]$ について,
+\begin{align}
+ \mathbb{P}^n
+ &\map
+ \mathbb{A}^1
+ = \mathbb{C} \\
+ [x_0:\dots:x_n]
+ &\longmapsto
+ f(x_0,\dots,x_n)
+\end{align}
+で定めてしまうと, これが斉次座標に関して well-defined,
+すなわち任意の $\lambda \in \mathbb{C}^{\times}$ について
+$f(x_0,\dots,x_n) = f (\lambda x_0,\dots,\lambda x_n)$ であるためには,
+$f$ は定数関数にならなければいけないことが分かる.
+実際, $f$ は $m$ 次多項式であるとして, $f$ の $i$ 次部分を $f^{(i)}$ と表せば,
+\begin{align}
+ f
+ =
+ f^{(m)} + \cdots + f^{(1)} + f^{(0)}
+\end{align}
+である.
+$x \in \mathbb{P}^n$ に対し, $f^{(i)}(\lambda x) = \lambda^i f^{(i)}(x)$ であることより,
+任意の $\lambda \in \mathbb{C}^{\times}$ について $f (x) = f (\lambda x)$ であるならば,
+\begin{align}
+ \lambda^m f^{(m)}(x) + \cdots + \lambda f^{(1)}(x) + f^{(0)}
+ =
+ f (x)
+\end{align}
+となる.
+これはいずれかの $i =1,\dots,n$ について $f^{(i)}(x) \neq 0$ であれば $\lambda$ に関する多項式とみることができるが,
+上の等式が任意の $\lambda \in \mathbb{C}$ について成り立つことは,
+$l$ 次多項式は高々 $l$ 個の解しか持たないことに矛盾している.
+よって, $f^{(m)} = f^{(m-1)} = \cdots = f^{(1)} = 0$ だから  $f=f^{(0)}$ となり $f$ は定数関数になるのである.
+これからわかる肝腎なことは, 射影空間上には全体で (すなわち大域的に) 定まる関数はほとんどないということである.
+
+もうひとつ, 今度は射影空間内の有理写像 (rational map) を考えてみよう.
+$f_0,\dots,f_m \in \mathbb{C}[X_0,\dots,X_n]$ を $l$ 次の同次多項式とする.
+これを用いて射影空間の間の``射''を
+\begin{align}
+ F \colon \mathbb{P}^n
+ &\map
+ \mathbb{P}^m \\
+ x = [x_0:\dots:x_n]
+ &\longmapsto
+ [f_0 (x) : \dots : f_m (x)]
+\end{align}
+で定めてみよう.
+$f_0, \dots, f_m$ が全て同じ次数の同次式であることから,
+一見これは射影空間の間の (集合的な意味での) 写像を与えているようにみえる.
+しかしよく考えれば, $f_0 (x)=\cdots = f_m (x) = 0$ のとき
+$[f_0 (x):\dots:f_m (x)] = [0:\dots:0]$ は射影空間 $\mathbb{P}^m$ の点にならない.
+すなわち射影空間 $\mathbb{P}^n$ の射影代数的集合,
+\begin{align}
+ V
+ =
+ V_+ (f_0, \dots, f_m)
+ =
+ \set{x \in \mathbb{P}^n}{f_0 (x)= \dots =f_m (x) = 0}
+\end{align}
+上では, ``射'' $F$ は写像として定義されていない.
+射影空間上で全体に定義される関数や写像を考えることは難しいことなのである.
+
+しかし, ここで逆に「全体で定義されていなくてもいいや」と考えることにする.
+上の``射'' $F$ も裏を返せば開集合 $D = D_+ (f_0,\dots,f_n) = \mathbb{P}^n \setminus V$ 上では定義されているので,
+この写像として定義できる範囲 $D$ と組にして $(F,D) \colon \mathbb{P}^n \dashrightarrow \mathbb{P}^m$
+で表し有理写像 (rational map) と呼ぶことにする.
+有理写像 $(D,F)$ の $D$ を有理写像の定義域 (domain) という.
+ザリスキ位相は開集合が大きいので「大体全体で定まっている」射についてこのような定義が許されるのである.
+また, 2 つの有理写像 $(D,F)$, \& $(D',F')$ はある開集合 $D'' \subset D \cap D'$ において
+$F_{|D''} = F'_{|D''}$ となるとき同値であるという.
+厳密にはこのような同値関係で類別した上での各類を有理写像というが, この場ではあまり気にせず $(D,F)$ の形のものを有理写像と呼んでしまおう.
+気をつけたいのは $D = \mathbb{P}^n$ であってもなんら問題はないことである.
+
+有理写像 $(D,F) \colon \mathbb{P}^m \dashrightarrow \mathbb{P}^m$ が,
+ある開集合 $D' \subset \mathbb{P}^m$ に関して同型 $F \colon D \xrightarrow{\sim} D'$ を与えている (すなわちこの逆写像が作れる) とき,
+$(D,F)$ は双有理写像 (birational map) であるという.
+
+一般の代数多様体 $V$, $V'$ (といっても定義してないが, ここでは射影代数多様体など) についても,
+同様に開集合 $U \subset V$ と射 $\tilde{f} \colon U \to V'$ の組を定義して,
+$(U,\tilde{f})$ を有理写像と呼ぶことにする.
+特に, 代数多様体の間に双有理写像が存在するとき, 2 つの代数多様体は双有理同値 (birational equivalent) であるという.
+後で紹介するブローアップ (blowing-up) はこの双有理写像の重要な例を与えている.
+
+\begin{ex}
+なにも射影空間全体で定義される射で面白いものが何一つないわけではない.
+\begin{align}
+ \mathbb{P}^2
+ &\map
+ \mathbb{P}^5 \\
+ [x_0:x_1:x_2]
+ &\longmapsto
+ [x_0^2:x_0x_1:x_0x_2:x_1^2:x_1x_2:x_2^2]
+\end{align}
+は $\mathbb{P}^2$ 全体で定義されている写像であり, Veroneze 写像とよばれている. \fin
+\end{ex}
+\begin{ex}
+単純に,
+\begin{align}
+ \mathbb{P}^{n+1}
+ &\dashrightarrow
+ \mathbb{P}^n \\
+ [x_0:x_1:\dots:x_{n+1}]
+ &\longmapsto
+ [x_1:\dots:x_{n+1}]
+\end{align}
+で定義される有理写像を考えよう.
+これは $D (x_0)$ を定義域に持つ有理写像である. \fin
+\end{ex}
+
+\begin{rem}
+1 次元の代数多様体 (すなわち代数曲線) に比べて高次元の多様体は沢山ある.
+従って何らかの分類を考えたいときに多様体一つ一つをみるのではなく,
+何かの同値関係でまず代数多様体を区別しておいて,
+その上で各類同士の分類を考えようとするのは自然なことであろう.
+では, 「どのような同値関係を採用するのがよいか」ということになるが,
+そこでこの双有理同値を採用して多様体の分類理論を構築しようというのが双有理幾何学 (birational geometry) の大まかな考え方である.
+実際, 双有理同値な多様体同士は数多くの性質を共有し, 種数をはじめとする代数多様体の重要な量が双有理同値の不変量となる.
+よって, 数多くある高次元の代数多様体の中で双有理同値なものは大体同じであると見なしていてもよいのである.
+さらに, この双有理同値な多様体たちの間で一番``カンタン"なものを見つければ,
+それを研究することでそれと双有理同値な多様体のことが分かったことになる.
+この``カンタン"な多様体を極小モデル (minimal model) というが,
+「この極小モデルが本当に存在するか」ということが難しい問題で, 双有理機幾何学の一つの中心問題である.
+
+代数多様体を同一視する他の方法としては最近では導来圏同値 (derived equivalent) がある.
+発表者はここ半年弱程度の間, 頑張ってこの代数幾何学の一分野を勉強してきたが,
+残念ながら今回はこの幾何学に触れる機会はなさそうである. \fin
+\end{rem}
+\begin{rem}
+この有理写像の定義は, 既約すなわち任意の開集合が稠密であるという代数多様体の性質に非常に依存している.
+既約性が期待できないようなスキーム上で有理写像を考えたい場合は,
+スキーム的開稠密という概念を準備して, その上のスキームの射を考えることで有理写像を定義する. \fin
+\end{rem}
+\begin{rem}
+整スキームに対してその関数体というものを考えることができる.
+アフィン多様体に関してはこの関数体はアフィン座標環 $\Gamma (V)$ の商体に一致する.
+$\mathbb{C}$ 上局所有限型のスキームに関して関数体は複素数体 $\mathbb{C}$ の超越拡大になる (Hilbert の零点定理).
+関数体をとる関手は, 複素数体上有限型整スキームを対象とし支配的 (すなわち像が稠密になる) 有理写像を射とする圏と,
+複素数体の有限生成超越拡大体の圏の間の圏同値を与える. \fin
+\end{rem}
+\section{代数幾何学の展望〜特異点とブローアップを通して〜}
+
+\subsection{特異点}
+
+
+特異点という言葉を聞いたことがない人はいないであろう.
+幾何学における特異点とは, その点で多様体が``滑らかでない''ような点である.
+$x^3-y^2=0$ や $x^2 (x+1)-y^2=0$ のグラフを $\mathbb{R}^2$ 上で図示してみよ.
+原点の部分が「特異」と呼ぶに相応しい形をしているであろう.
+これが特異点である.
+では, 特異点を実際に定義してみよう.
+どのようにするのがよいであろうか.
+上に挙げた例から得られる一つの観察は, 特異点と呼ぶに相応しい点においては接線を考えることができない.
+このように接線, より一般に接空間に着目して特異点を定義することはできそうである.
+ここで, 今度は「その接空間を如何に定義するとよいか」という問題が発生する.
+特異点の定義に関するもう一つの観察は, 特異でない「滑らかな」点に十分近い近傍では,
+グラフは「$x$ の $y$ に関する微分可能な関数」または「$y$ の $x$ に関する微分可能な関数」のようにみることができる.
+ここで微積分で勉強した陰関数定理を想起されたい.
+これが特異点に関するもう一つの定義を与える.
+
+ここで, なぜ特異点を考えるかについて少しだけ述べておく.
+代数幾何における数々の理論, 定理の多くには特異点がない滑らかな多様体上でのみ成り立つような主張が多くある.
+裏を返せば, 多様体に特異点を許した場合に使用不能になる道具が山ほどあって,
+途端に多様体やそれに付随する様々なものの情報が得られなくなってしまう.
+よって, 一つの考え方としてはそのような面倒ごとを避けるために特異点付きの多様体を一切考えず smooth 星人となって生きるという道がありうる.
+しかし, 多様体に特異点を許した議論によってこれまで困難だった議論が本質的に進む場合がある.
+日本のフィールズ賞受賞者である森重文大先生による 3 次元極小モデル問題の解決においては末端特異点 (terminal singularity)
+やそれをやや弱めた標準特異点 (canonical singularity) などといわれる「よい」特異点を多様体上に許し,
+それを分類することが解決のポイントになった.
+発表者は森大先生による極小モデル・プログラム (minimal model program) を詳しく勉強したことがないのでこれ以上この話題について言及する資格はないが,
+このように特異点そのものを研究, 分類することが巡って滑らかな多様体の理論に大きく貢献することがあるという事実は伝わったであろうか.
+余談であるが, 特異点の理論と表現論が関係することもある.
+特異点はやっかいであるがその分奥が深いのだ.
+
+\begin{defn}[ザリスキ接空間]
+多項式環のイデアル $\mathfrak{a} \subset \mathbb{C}[X_1,\dots,X_n]$ について,
+$I$ の線型部分を, $I$ の各元の 1 次部分から生成されるイデアルとして定義し,
+$\mathfrak{a}^1$ で表す.
+アフィン代数多様体 $V = V (\mathfrak{p}) \subset \mathbb{A}^n$
+でアフィン空間の通常の座標に関する原点 $0 \in \mathbb{A}^n$ を含むものに関して,
+$V$ の原点における Zariski 接空間 (Zariski tangent space) を
+$T_0V \defeq  V (\mathfrak{p}^1)$ で定める.
+原点でないような点も原点に平行移動することで接空間 $T_xV$ が定義できる. \fin
+\end{defn}
+\begin{ex}
+\begin{enumerate}
+\item $V=V (X-Y) \subset \mathbb{A}^2$ において,
+   $\mathfrak{p}=(X-Y)$ の各元は $f (X-Y)$ の形であり,
+   その 1 次部分は $0$ または $\lambda (X-Y)$ である.
+   よって $\mathfrak{p}^1 = (X-Y)$ であるから原点の Zariski 接空間は $T_0V=V (X-Y)=V$ である.
+\item $V=V (X^2-Y) \subset \mathbb{A}^2$ において,
+   $\mathfrak{p}=(X^2-Y)$ の各元は $f (X^2-Y)$ の形であり,
+   その 1 次部分は $0$ または $\lambda Y$ である.
+   よって $\mathfrak{p}^1 = (Y)$ であるから原点の Zariski 接空間は $T_0V=V (Y)$ である.
+\item $V=V (X^3-Y^2) \subset \mathbb{A}^2$ において,
+   $\mathfrak{p}=(X-Y)$ の各元は $f (X^3-Y^2)$ の形であり,
+   その 1 次部分は常に $0$ である.
+   よって $\mathfrak{p}^1 = (0)$ であるから原点の Zariski 接空間は $T_0V=V (0)=\mathbb{A}^2$ である.
+   ここで, $\dim (V) < \dim (T_0V)$ となってしまったことに気をつけよう.
+   特異点であることと Zariski 接空間の次元には関係があるのである.
+   これが以下での特異点の定義となる. \fin
+\end{enumerate}
+\end{ex}
+\begin{exercise}
+$V=V (X^2 (X+1)-Y^2)$ の原点における Zariski 接空間を求めよ.
+また, その次元はどうなっているか. \fin
+\end{exercise}
+
+ここで, アフィン空間のみに Zariski 接空間を定義したが,
+一般の代数多様体についても局所的にはアフィンであるということから Zariski 接空間を同様に定義する.
+今後も全て局所的な話になることから, 多様体はアフィンに制限して考えることにする.
+アフィンで考えることとそのアフィン座標環を考えることは同じことなので,
+特異点論は代数幾何学の中でも特に可換環論と関連が深い分野である.
+実際に特異点論と可換環論は同時に研究される.
+\begin{defn}[特異点]
+$V$ をアフィン代数多様体とする.
+$V$ の点 $x \in V$ において $\dim (V)=\dim (T_xV)$ となるとき,
+$V$ は $x$ で滑らか (smooth) または正則 (regular) であるという.
+このときまた $x$ は $V$ の正則点 (regular point) や滑らかな点 (smooth point) であるという.
+滑らかでない点を $V$ の特異点 (singular point) という.
+特異点が存在しない, すなわち至る所滑らかである多様体は滑らか (smooth) であるという. \fin
+\end{defn}
+\begin{ex}
+\begin{enumerate}
+\item $V=V (X-Y)$ は滑らかな多様体である.
+\item $V=V (X^2-Y)$ も滑らかな多様体である.
+\item $V=V (X^3-Y^2)$ は原点のみ特異点である.
+\item $V=V (X^2 (X+1)-Y^2)$ も原点のみを特異点に持つ. \fin
+\end{enumerate}
+\end{ex}
+\begin{rem}
+一般に $\dim (V) \leq \dim (T_x V)$ となる.
+証明には次の注意の同型を用いて可換環論で証明する.
+詳しい説明は可換環論の教科書に譲ろう. \fin
+\end{rem}
+\begin{rem}
+点 $x \in V$ に対応する極大イデアル $\mathfrak{m} = \mathfrak{m}_x \subset \Gamma (V)$ に関して,
+$\mathbb{C}$ 上のベクトル空間としての同型,
+\begin{align}
+ T_x V
+ \simeq
+ (\mathfrak{m}/\mathfrak{m}^2)^{\vee}
+ \defeq
+ \homo_{\mathbb{C}}(\mathfrak{m} / \mathfrak{m}^2, \mathbb{C})
+\end{align}
+が存在する.
+逆に一般の体上有限生成環について極大イデアルは幾何学的な点と考えることができるが,
+この点における接空間を上の同型を用いて定義することができる. \fin
+\end{rem}
+\begin{rem}
+さらに, 短完全列
+\begin{align}
+ 0 \map \mathfrak{m} \map \Gamma (V)_{\mathfrak{m}} \map \mathbb{C} \map 0
+\end{align}
+について, $\homo_{\Gamma (V)_{\mathfrak{m}}}(-, \Gamma (V)_{\mathfrak{m}}/\mathfrak{m})$ の導来関手のコホモロジー長完全列を考えると,
+同型
+\begin{align}
+ T_xV
+ \simeq
+ \mathrm{Ext}_{\Gamma (V)_{\mathfrak{m}}}^1 (\mathbb{C},\mathbb{C})
+\end{align}
+が得られる.
+すなわち, 両端が $\mathbb{C}$ であるような $\Gamma (V)_{\mathfrak{m}}$ 加群の短完全列を
+$\mathfrak{m}$ に対応する多様体 $X$ の点における接ベクトルと考えることが出来るのである.
+この同一視は接空間のホモロジー代数的な文脈における取り扱いを容易にする.
+より詳しくは小平-スペンサー写像などの解説を参照されたい. \fin
+\end{rem}
+
+特異点を判定するには, 次の Jacobi 判定法が便利である.
+\begin{prop}[Jacobi 判定法]
+ $V = V (f_1,\dots,f_m) \subset \mathrm{A}^N$ を $n$ 次元のアフィン代数多様体とする.
+ このとき, 点 $x \in V$ が滑らかな点であるための必要十分条件は,
+ \begin{align}
+  \mathrm{rank} \left(
+  \begin{array}{ccc}
+   \frac{\partial f_1}{\partial X_1}(x) & \ldots &  \frac{\partial f_m}{\partial X_1}(x) \\
+   \vdots & \ddots & \vdots \\
+   \frac{\partial f_1}{\partial X_N}(x) & \ldots & \frac{\partial f_m}{\partial X_N}(x)
+  \end{array}
+  \right)
+  =
+  N -n
+ \end{align}
+ となることである. \fin
+\end{prop}
+
+特に余次元 1 の部分多様体, すなわち超平面 $V=V (f) \subset \mathbb{A}^N$ に関しては,
+$x \in V$ が滑らかであるための必要十分条件はいずれかの $i=1, \dots, N$ に関して $(\partial f / \partial X_i) (x) \neq 0$ となることである.
+\begin{ex}
+\begin{enumerate}
+\item $f=X-Y$, $V=(f) \subset \mathbb{A}^2$ について,
+   $(\partial f/\partial X, \partial f/\partial Y) = (1, -1)$ である.
+   これは任意の $x \in V$ について零ベクトルにならない.
+   よって $V$ は滑らかである.
+\item $f=X^2-Y$, $V=(f) \subset \mathbb{A}^2$ について, $(\partial f/\partial X, \partial f/\partial Y) = (2X , -1)$ である.
+   これも任意の $x \in V$ について零ベクトルにならない.
+   よって $V$ は滑らかである.
+\item $f=X^3-Y^2$, $V=(f) \subset \mathbb{A}^2$ について,
+   $(\partial f/\partial X, \partial f/\partial Y) = (3X^2 , -2Y)$ である.
+   これは $x = (0,0)  \in V$ についてのみ零ベクトルになる.
+   よって $V$ は原点のみを特異点にもつ.
+\item $f=X^2 (X+1)-Y^2$, $V=(f) \subset \mathbb{A}^2$ について,
+   $(\partial f / \partial X, \partial f/\partial Y) = (3X^2+2X , -2Y)$ である.
+   これは $x = (0,0) \in V$ についてのみ零ベクトルになる.
+   よって $V$ は原点のみを特異点にもつ. \fin
+\end{enumerate}
+\end{ex}
+
+始めの定義ではある 1 点が特異点であることしか判定できなかったが,
+Jacobi 判定法を用いると連立方程式を解くことで特異点を全て見つけることが出来る.
+\begin{rem}
+特異点 $x \in V$ はある近傍が $U \ni x$ が存在して $U$ の中の特異点が $x$ のみであるとき, 孤立特異点であるという.
+代数多様体の類似として正則関数の共通零点として定義される図形を解析空間というが,
+解析空間についても同様に特異点を定義することができる.
+実は解析空間の孤立特異点は代数的なものと同型であると考えることが出来る (Artin の代数化定理).
+この同型をこの場で厳密に説明することは出来ないが,
+例えば $(x-y) (x+y)=0$ と $\mathrm{sin}(x-y)\mathrm{sin}(x+y)=0$ は原点を特異点にもつが,
+2 つの関数は原点付近で同じものとみなせると説明すれば雰囲気は伝わるであろうか.
+古くから代数幾何学と複素幾何学の理論の間には多くの類似または一致が知られていたが,
+最近は複素幾何学の方面でも特異点を許した多様体の研究が行われているようである. \fin
+\end{rem}
+
+次に代数多様体の中にどのようにして特異点が現れてくるのかをみよう.
+特異点の現れ方にはいくつも種類があるが, 一つの典型的かつ重要なパターンは割って作られる商特異点とよばれるものである.
+
+例えば, 巡回群 $\mathcal{C}_2 \defeq \mathbb{Z} / 2\mathbb{Z} \defeq \cbk{1, -1}$ を考えよう.
+この $\mathcal{C}_2$ は $\mathbb{A}^2 = \mathbb{C}^2$ について
+$\sigma \cdot (a,b) \defeq (\sigma a, \sigma b)$ により $\mathbb{A}^2$ への作用
+$\mathcal{C}_2 \curvearrowright \mathbb{A}^2$ をもつ.
+この作用において $(a,b)$ と $(-a,-b)$ は互いに移りあう点である.
+このとき, $x=a^2, y=b^2, z=ab$ の値は作用によって変化しない.
+これを作用に関する不変式という.
+この不変式は $S=\mathbb{C}[a,b]$ の部分環,
+\begin{align}
+ S^{\mathcal{C}_2}
+ \defeq
+ \mathbb{C}[X,Y,Z]/ (XY-Z^2)
+\end{align}
+を生成している.
+これを不変式環という.
+この不変式環を座標環に持つようなアフィン多様体はもちろん $V=V (XY-Z^2)$ であるが,
+これは $X$ を $X-Y$ に, $Y$ を $X+Y$ に取り替えることで $V'=V (X^2-Y^2-Z^2)$ で定まるアフィン多様体になっている.
+アフィン代数多様体 $V (X^2-Y^2-Z^2)$ は, 計算すれば分かるように, 原点に特異点をもつ.
+実は, このアフィン多様体の各点は上で定めていた作用の軌道と 1 対 1 に対応しており, 軌道のパラメーター空間になっている.
+より正確には次のことが成り立つ.
+\begin{prop}
+ 特殊線型群 $\mathrm{SL}(2,\mathbb{C})$ の有限部分群 $G$ の $\mathbb{C}^2$ への作用について不変式環 $R^G$ が定まる.
+ このとき $R^G$ は有限型 $\mathbb{C}$ 代数,
+ すなわち同型 $\mathbb{C}[X_1,\dots,X_N]/\mathfrak{a} \simeq R^G$ が存在し,
+ 作用の軌道には全単射
+ \begin{align}
+  \mathbb{C}^2/G
+  =
+  V (\mathfrak{a}) ~ (= \mathrm{Spm}\,R^G )
+ \end{align}
+ によって代数多様体の構造が定まる. \fin
+\end{prop}
+ここには不変式環論やモジュライという非常に魅力的な理論があるのだが, 今回はそこには詳しくは触れない.
+得られた多項式 $X^2+Y^2+Z^2=0$ の原点に現れる特異点は $A_1$ 型であるという.
+より一般には $\mathrm{SL}(2,\mathbb{C})$ の有限部分群による作用の商に現れる特異点を
+Klein 特異点 (Kleinian singularity) というが,
+これは $\mathrm{SL}(2,\mathbb{C})$ の有限部分群の分類と対応して以下のような分類がある.
+\begin{enumerate}
+\item $A_n$ 型
+   \begin{align}
+    x^2 + y^2 + z^{n+1} = 0,
+   \end{align}
+\item $D_n$ 型
+   \begin{align}
+    x^2 + y^2z + z^{n-1} = 0,
+   \end{align}
+\item $E_6$ 型
+   \begin{align}
+    x^2+y^3+z^4=0,
+   \end{align}
+\item $E_7$ 型
+   \begin{align}
+    x^2+y^3+yz^3=0
+   \end{align}
+\item $E_8$ 型
+   \begin{align}
+    x^2+y^3+z^5=0.
+   \end{align}
+\end{enumerate}
+他にも特異点に関する魅力的な話題は尽きないが,
+それはまた別の機会に譲ることにして, とりあえず特異点の基本事項に関する説明を終わりにする.
+\subsection{ブローアップ}
+
+
+特異点をもつ多様体を研究するための方法として,
+特異点を爆発させる (ブローアップ, blowing-up) という操作がある.
+特異点を爆発させて作った新しい多様体はもとの多様体と双有理同値になり,
+しかも特異点を持たない滑らかな多様体になることがある.
+前章で述べた通り, 双有理同値な多様体は多くの情報を共有するから,
+このようにして滑らかにした多様体上での計算結果がそのままもとの特異点付きの多様体の情報を教えてくれるのである.
+複素数体上の代数多様体に関してはブローアップを繰り返すことで特異点のない滑らかな多様体を得ることが出来ることが知られている (広中の特異点解消定理).
+正標数の多様体に関してはこの問題は未解決である.
+
+\begin{defn}[ブローアップ]
+$n \geq 2$ とする.
+$n$ 次元アフィン空間 $\mathbb{A}^n$ について,
+\begin{align}
+ \widetilde{\mathbb{A}^n}
+ \defeq
+ \set{(x_1,\dots,x_n) [a_1:\dots:a_n] \in \mathbb{A}^n \times \mathbb{P}^{n-1}}{\text{任意の $i<j$ に対し, $a_jx_i = a_i x_j$ となる.}}
+\end{align}
+と自然な射影との合成 $\varphi \colon \widetilde{\mathbb{A}^n} \subset \mathbb{A}^n \times \mathbb{P}^{n-1} \to \mathbb{A}^n$ を,
+$\mathbb{A}^n$ の原点を中心とするブローアップ (blowing-up) という.
+\begin{align}
+ \begin{xy}
+  \xymatrix{
+   \widetilde{\mathbb{A}^n} \ar@{^{(}-{>}}[r] \ar[dr]_{\varphi} & \mathbb{A}^n \times \mathbb{P}^{n-1} \ar[d] \\
+   & \mathbb{A}^n
+  }
+ \end{xy}
+\end{align}
+原点を含むアフィン代数多様体 $V \subset \mathbb{A}^n$ については,
+$V$ の原点を中心とするブローアップを $\tilde{V} \defeq \overline{\varphi^{-1}(V\setminus \cbk{0})}$ によって定める.
+原点以外の点においても平行移動することでブローアップを定義できる. \fin
+\end{defn}
+
+ここで計算上重要であるのは, 開集合 $U_i$ を,
+\begin{align}
+ U_i
+ \defeq
+ \set{(x_1,\dots,x_n) [a_1:\dots:a_n] \in \widetilde{\mathbb{A}^n}}{a_i \neq 0}
+\end{align}
+と定めると, $\widetilde{\mathbb{A}^n} = \bigcup_{i=1}^n U_i$ であり,
+さらに各 $U_i$ はアフィン空間と同型になっていることである.
+よって, このアフィン開被覆を用いて特異点の場所が計算できるのである.
+\begin{rem}
+$\varphi^{-1}(0)$ は $\mathbb{P}^n$ と同型であり,
+有効 Cartier 因子とよばれている.
+これをブローアップの例外因子という.
+実は, ブローアップは代数多様体のカテゴリーにおいてこの条件を満たすようなもので普遍的なものとしての特徴付けがある.
+一方 $\varphi^{-1}(\mathbb{A}^n \setminus \{0\}) \simeq \mathbb{A}^n \setminus \cbk{0}$ である.
+すなわち稠密開集合における同型を与えているのでこの射は双有理写像である. \fin
+\end{rem}
+\begin{rem}
+$S=\mathbb{C}[T_1, \dots, T_n]$ を多項式環, $I=(T_1, \dots, T_n)$ を原点に対応する極大イデアルとする.
+$B=\bigoplus_{d \geq 0} I^d$ とする.
+ここで $T_i$ を $B_0$ の元としてみるか $B_1$ の元としてみるかを区別しておく必要がある.
+\begin{align}
+ S[X_1,\dots,X_n]
+ &\longrightarrow
+ B \\
+ X_i
+ &\longmapsto
+ T_i \quad (\in B_1)
+\end{align}
+で定めると, この準同型の核は $T_iX_j - T_jX_i$ たちで生成されるイデアルである.
+以上から同型
+\begin{align}
+ \proj B
+ \simeq
+ V_+ ((T_iX_j-T_jX_i)_{i,j})
+ \subset
+ \mathbb{P}_S^{n-1}
+ \simeq
+ \mathbb{P}^{n-1} \times_\mathbb{C} \spec S
+ =
+ \mathbb{P}^{n-1} \times \mathbb{A}^n
+\end{align}
+を得る.
+この観察によって, 点に限らない一般の閉部分多様体についてどのようにブローアップを定義すればよいのかが分かる.
+実際, 特異点解消は多くの場合に点のブローアップだけでは不十分である.
+ここで用いた記号についてはなにかしらの代数幾何の本を参照されたい. \fin
+\end{rem}
+
+では, 実際ブローアップを繰り返して特異点を解消してみよう.
+\begin{ex}
+$A_n$ 型特異点の解消をしてみよう.
+\begin{align}
+ X
+ =
+ V (X^2+Y^2+Z^{n+1})
+ =
+ \cbk{ (x,y,z) \in \mathbb{A}^3}{x^2+y^2+z^{n+1}=0}
+\end{align}
+をブローアップする.
+閉包をとる前の引きもどしを $X_0 \defeq \varphi^{-1}(X \setminus \{0\})$ とおく.
+
+まず $U_1$ において $X_0 \cap U_1$ を考える.
+\begin{align}
+ X_0 \cap U_1
+ =
+ \set{ (x,y,z) [a_1:a_2:a_3] \in \mathbb{A}^3 \times \mathbb{P}^2}{a_2x=a_1, a_3x=a_1z, a_3y=a_2z, a_1 \neq 0, (x,y,z) \neq (0,0,0)}
+\end{align}
+である.
+$y'=a_2/a_1, z'=a_3/a_1$ とおけば, $y=y'x, z=z'x$ であり, これを $x^2+y^2+z^{n+1}=0$ に代入すると,
+\begin{align}
+ x^2 (1+ y'^2+z'^{n+1}x^{n-1})
+ =
+ 0
+\end{align}
+となる.
+今は $x \neq 0$ であるから,
+\begin{align}
+ X_0 \cap U_1
+ =
+ \set{(x,y',z')}{1+y'^2+x^{n-1}z'^{n+1}, (x,y',z') \neq 0}
+\end{align}
+となる.
+よって,
+\begin{align}
+ \widetilde{X} \cap U_1
+ =
+ V (1+y'^2+x^{n-1}z'^{n+1}) \subset \mathbb{A}^3
+\end{align}
+となる.
+$f=1+y^2+x^{n-1}z^{n+1}$ とおけば $n \geq 2$ のときは,
+\begin{align}
+ \rbk{\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}}
+ =
+ \rbk{(n-1) x^{n-2}z^{n+1}, 2y, (n+1) x^{n-1}z^n}
+\end{align}
+$n=1$ のときは $\widetilde{X} \cap U_1 = V (1+y^2+z^2)$ であり,
+\begin{align}
+ \rbk{\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}}
+ =
+ \rbk{0, 2y, 2z}
+\end{align}
+となり, いずれの場合も $\widetilde{X}$ 上では零ベクトルにならず,
+したがって $\widetilde{X} \cap U_1$ は滑らかである.
+同様に $\widetilde{X} \cap U_2$ も滑らかなアフィン代数多様体であることが分かる.
+
+では,  $U_3$ 上ではどうか計算してみよう.
+\begin{align}
+ X_0 \cap U_1
+ =
+ \set{(x,y,z) [a_1:a_2:a_3] \in \mathbb{A}^3 \times \mathbb{P}^2}{a_2x=a_1, a_3x=a_1z, a_3y=a_2z, a_3 \neq 0, (x,y,z) \neq (0,0,0)}
+\end{align}
+である.
+$x'=a_1/a_3, y'=a_2/a_3$ とおけば, $x=x'z, y=y'z$ であり, これを $x^2+y^2+z^{n+1}=0$ に代入すると,
+\begin{align}
+ z^2 (x'^2+ y'^2+z^{n-1})
+ =
+ 0
+\end{align}
+であり, 今は $z \neq 0$ であるから,
+\begin{align}
+ X_0 \cap U_3
+ =
+ \set{(x,y',z')}{x'^2+y'^2+z^{n-1}, (x',y',z) \neq 0}
+\end{align}
+となる.
+よって,
+\begin{align}
+ \widetilde{X} \cap U_3
+ =
+ V (x'^2+y'^2+z^{n-1}) \subset \mathbb{A}^3
+\end{align}
+となる.
+$f=1+y^2+x^{n-1}z^{n+1}$ とおけば, $n \geq 2$ のときは,
+\begin{align}
+ \rbk{\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}}
+ =
+ \rbk{2x, 2y, (n-1) z^{n-2}}
+\end{align}
+であり, $n>2$ のときは原点が $A_{n-2}$ 型特異点, $n=2$ のときは滑らかになる.
+$n=1$ のときは $\widetilde{X} \cap U_3 = V (x^2+y^2+1)$ であり,
+\begin{align}
+ \rbk{\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}}
+ =
+ \rbk{2x, 2y, 0}
+\end{align}
+であるが, これは $\widetilde{X} \cap U_3$ 上では零ベクトルにならないので滑らか.
+
+以上をまとめると $A_n$ 型特異点は一回ブローアップすると,
+$n=1,2$ のときは滑らか, $n>2$ のときは $A_{n-2}$ 型の特異点になる.
+よって, ブローアップを繰り返すことで $A_n$ 型特異点は解消することが出来る. \fin
+\end{ex}
+\begin{exercise}
+$D_n$ 型, $E_6, E_7, E_8$ 型の特異点をブローアップを繰り返すことで解消せよ. \fin
+\end{exercise}
+\begin{rem}
+ブローアップに現れる例外因子は, それ自体が幾何学的対象として非常に面白いのであるが,
+今回はその部分まで原稿が間に合わなかった.
+これ以上紙数を増やすのもどうかとは思うが, 上手くまとまれば後日加筆したい. \fin
+\end{rem}
+
+最後に, 有名な広中の特異点解消定理について引用して終わりにしよう.
+\begin{thm}[広中の定理]
+ 代数多様体 $X$ について, ブローアップの列
+ \begin{align}
+  Y
+  =
+  X_n
+  \xrightarrow{\mu_n}
+  X_{n-1} \map \dots \map X_1 \xrightarrow{\mu_1} X_0
+  =
+  X
+ \end{align}
+ で,
+\begin{enumerate}
+\item $Y$ は滑らかである,
+\item 各ブローアップ $\mu_i : X_i \to X_{i-1}$ の中心 $V_i$ は滑らかで,  $X_{i-1}$ の特異点集合に含まれる,
+\item $X_i$ は $V_i$ に沿って normally flat である
+\end{enumerate}
+ となるようなものが存在する.
+ ここで, 代数多様体は標数 $0$ の体上で定義されているとする. \fin
+\end{thm}
+この 1964 年に出された原論文はかなりのページ数があり, 実際に読むのは困難のようである.
+しかし最近になってかなり弱いある種の有限性を仮定した, 標数 $0$ の体上のスキームについて簡潔な別証明が与えられている\cite{MichaelTemkin1}.
+また, この定理を正標数の体上にまで拡張しようという試みがなされているが, 現在に至るまでの 50 年間未解決のままである.
 \part{面白い (反) 例集}
 
 \chapter{代数}

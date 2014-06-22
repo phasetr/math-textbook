@@ -2,6 +2,7 @@
 
 \usepackage[top=10truemm,bottom=20truemm,left=15truemm,right=15truemm]{geometry}
 \usepackage[dvipdfmx]{graphicx, hyperref}
+\usepackage[all]{xy}
 \usepackage{makeidx}
 \makeindex
 \usepackage{url}
@@ -12,6 +13,16 @@
 \usepackage{mathrsfs}
 \usepackage{bm}
 \bibliographystyle{jplain}
+\addtolength{\footskip}{10mm}
+\makeatletter
+\def\ps@plainfoot{%
+\let\@mkboth\@gobbletwo
+\let\@oddhead\@empty
+\def\@oddfoot{\normalfont\hfil-- \thepage\ --\hfil}%
+\let\@evenhead\@empty
+\let\@evenfoot\@oddfoot}
+\let\ps@plain\ps@plainfoot
+\makeatother
 \pagestyle{plain}
 
 \makeatletter
@@ -103,6 +114,7 @@
 \theoremstyle{breakdefn}
 \newtheorem{defn}[thm]{Definition.}
 \newtheorem{ex}[thm]{Example.}
+\newtheorem{exercise}[thm]{Exercise.}
 \newtheorem{rem}[thm]{Remark.}
 \newtheorem{fact}[thm]{Fact.}
 \newtheorem{assump}[thm]{Assumption.}
@@ -120,13 +132,15 @@
 \newcommand{\pnorm}[1]{\left\Vert#1\right\Vert_p}
 \newcommand{\qnorm}[1]{\left\Vert#1\right\Vert_q}
 \newcommand{\twonorm}[1]{\norm{#1}_2}
+\newcommand{\dbk}[1]{\left\langle #1 \right\rangle}
 \newcommand{\rbk}[1]{\left (#1\right)}
 \newcommand{\sqbk}[1]{\left[#1\right]}
 \newcommand{\cbk}[1]{\left\{#1\right\}}
 \newcommand{\abk}[1]{\left\langle #1 \right\rangle}
 \newcommand{\bkt}[2]{\left\langle#1,\,#2\right\rangle}
-\newcommand{\rbkt}[2]{\left( #1,\,#2 \right)}
-\newcommand{\set}[2]{\left\{#1 : #2\right\}}
+\newcommand{\rbkt}[2]{\left ( #1,\,#2 \right)}
+\newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}}
+\newcommand{\set}[2]{\left\{#1 \relmiddle| #2\right\}}
 \newcommand{\trans}{\,^t\!}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   special sums and such
@@ -281,6 +295,27 @@
 \newcommand{\wick}[1]{\colon #1 \colon}
 \newcommand{\wto}{\xrightarrow{\text{w}}}
 \newcommand{\vep}{\varepsilon}
+\newcommand{\fin}{\hfill $\square$ \par}
+\newcommand{\ann}{\mathrm{Ann}\,}
+\newcommand{\ass}{\mathrm{Ass}\,}
+\newcommand{\blu}{\mathrm{Bl}}
+\newcommand{\cech}{\check{\mathrm{H}}}
+\newcommand{\coho}{\mathrm{H}}
+\newcommand{\divcl}{\mathrm{DivCl}\,}
+\newcommand{\divs}{\mathrm{Div}\,}
+\newcommand{\edivs}{\mathrm{Div}_+\,}
+\newcommand{\Frac}{\mathrm{Frac}\,}
+\newcommand{\homo}{\mathrm{Hom}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\injsh}{\mathcal{I}}
+\newcommand{\kernel}{\mathrm{Ker}\,}
+\newcommand{\map}{\longrightarrow}
+\newcommand{\pdivs}{\mathrm{Div}_{\mathrm{princ}}\,}
+\newcommand{\picard}{\mathrm{Pic}\,}
+\newcommand{\proj}{\mathrm{Proj}\,}
+\newcommand{\sh}{\mathcal{F}}
+\newcommand{\spec}{\mathrm{Spec}\,}
+\newcommand{\stsh}{\mathcal{O}}
 \bmdefine{\va}{a}
 \bmdefine{\vb}{b}
 \bmdefine{\vc}{c}
@@ -378,7 +413,7 @@
 
 \title{Math textbook}
 \author{Soutenni P (@phasetr)\thanks{phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com}}
-\date{2014-06-14}
+\date{2014-06-22}
 
 \begin{document}
 
@@ -10282,8 +10317,6 @@ P85, Theorem 12.8.
 \item Radon-Nikodym's theorem. (\cite{SeizoIto1}, Section 18.)
 \item Probability theory. (\cite{DavidWilliams1, TadahisaFunaki1})
 \end{enumerate}
-\chapter{Introduction to functional analysis}
-
 \chapter{Introduction to operator theory}
 
 \section{Functional calculus}
@@ -16434,6 +16467,10 @@ The other is concrete and uses a \textbf{quantum mechanical harmonic oscillator}
 
 \part{Geometry}
 
+\chapter{Guidance for algebraic geometry}
+
+
+I will translate this chapter from the Japanese version.
 \part{Interesting (counter) examples}
 
 \chapter{Algebra}

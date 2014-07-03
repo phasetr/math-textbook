@@ -115,11 +115,14 @@
 \newtheorem{defn}[thm]{Definition.}
 \newtheorem{ex}[thm]{Example.}
 \newtheorem{exercise}[thm]{Exercise.}
+\newtheorem{problem}[thm]{Problem.}
 \newtheorem{rem}[thm]{Remark.}
 \newtheorem{fact}[thm]{Fact.}
 \newtheorem{assump}[thm]{Assumption.}
 
 \renewcommand{\thethm}{\arabic{chapter}.\arabic{section}.\arabic{thm}}
+%For (js)article
+%\renewcommand{\thethm}{\arabic{section}.\arabic{subsection}.\arabic{thm}}
 
 \renewcommand{\Im}{\mathrm{Im} \,}
 \renewcommand{\Re}{\mathrm{Re} \,}
@@ -180,6 +183,7 @@
 \newcommand{\calFb}{\mathcal{F}_{\mathrm{b}}}
 \newcommand{\calFf}{\mathcal{F}_{\mathrm{f}}}
 \newcommand{\calH}{\mathcal{H}}
+\newcommand{\calI}{\mathcal{I}}
 \newcommand{\calK}{\mathcal{K}}
 \newcommand{\calL}{\mathcal{L}}
 \newcommand{\calV}{\mathcal{V}}
@@ -244,7 +248,8 @@
 \newcommand{\frakX}{\mathfrak{X}}
 \newcommand{\frakY}{\mathfrak{Y}}
 \newcommand{\frakZ}{\mathfrak{Z}}
-\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Hom}{\mathrm{Hom} \,}
+\newcommand{\Isom}{\mathrm{Isom} \,}
 \newcommand{\hyperbolicsegment}[2]{\left[ #1, \, #2 \right]_{\mathrm{h}}}
 \newcommand{\Var}[1]{\mathrm{Var}\sqbk{#1}}
 \newcommand{\Cov}[1]{\mathrm{Cov}\sqbk{#1}}
@@ -294,6 +299,7 @@
 \newcommand{\VC}{V_{\mathrm{C}}}
 \newcommand{\wick}[1]{\colon #1 \colon}
 \newcommand{\wto}{\xrightarrow{\text{w}}}
+\newcommand{\bs}{\blacksquare}
 \newcommand{\vep}{\varepsilon}
 \newcommand{\fin}{\hfill $\square$ \par}
 \newcommand{\ann}{\mathrm{Ann}\,}
@@ -400,6 +406,8 @@
 \newcommand{\mbfc}{\mathbf{C}}
 
 \newcommand{\mrm}[1]{\mathrm{#1}}
+\newcommand{\lrto}{\Longleftrightarrow}
+\newcommand{\slrto}{\Longleftrightarrow}
 \newcommand{\srto}{\Rightarrow}
 \newcommand{\rto}{\Longrightarrow}
 \newcommand{\slto}{\Leftarrow}
@@ -413,7 +421,7 @@
 
 \title{Math textbook}
 \author{相転移 P (@phasetr)\thanks{phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com}}
-\date{2014-06-22}
+\date{2014-07-04}
 
 \begin{document}
 
@@ -1767,14 +1775,14 @@ Recall that the Weyl algebra $W_n(k)$ is naturally filtered by the sub-vectorspa
 
 
 \begin{enumerate}
-\item スカラーとして $\bbR$ を取った実数全体がなす集合 $\bbR$ の集合.
-\item スカラーとして $\bbR$ を取った複素数全体がなす集合 $\bbC$ の集合.
-\item スカラーとして $\bbC$ を取った複素数全体がなす集合 $\bbC$ の集合.
+\item スカラーとして $\bbR$ を取った実数全体がなす集合 $\bbR$.
+\item スカラーとして $\bbR$ を取った複素数全体がなす集合 $\bbC$.
+\item スカラーとして $\bbC$ を取った複素数全体がなす集合 $\bbC$.
 \item スカラーとして $\bbR$ を取った平面 $\bbR^2$.
 \item スカラーとして $\bbR$ を取った 3 次元空間 $\bbR^3$.
 \item スカラーとして $\bbR$ を取った高次元空間 $\bbR^d$ ($d \geq 4$).
 \item スカラーとして $\bbR$ を取った数列のいくつかの部分集合, 例えば $c_0$, $c_{\infty}$, $\ell^2$.
-\item スカラーとして $\bbR$ を取った関数のいくつかの部分集合, 例えば $C^k(\Omega)$, $L^p \rbk{\Omega}$, $H^k \rbk{\Omega}$.
+\item スカラーとして $\bbR$ を取った関数空間のいくつかの部分集合, 例えば $C^k(\Omega)$, $L^p \rbk{\Omega}$, $H^k \rbk{\Omega}$.
 \item スカラーとして $\bbR$ を取った線型作用素の集合.
 \end{enumerate}
 
@@ -2212,6 +2220,8 @@ We show some examples of inner products.
 \end{align}
 The above inner products are related to
 the Legendre polynomials, Laguerre polynomials, Hermite polynomials.
+These are used to solve linear partial differential equations,
+especially, in electromagnetism or quantum mechanics.
 
 Furthermore we take the following inner product.
 \begin{align}
@@ -5823,7 +5833,7 @@ Euler (オイラー) の公式という次式になります.
 そして非常に難しいので, 現段階で分からなくても全く問題ありません.
 
 それではそろそろ微分積分に行きましょう.
-\chapter{Goole の PageRank への応用}
+\chapter{Google の PageRank への応用}
 
 
 動画の原稿から取ってくる.
@@ -21381,6 +21391,46 @@ $D_n$ 型, $E_6, E_7, E_8$ 型の特異点をブローアップを繰り返す�
 \begin{ex}[Manifolds without countable base]
  See \cite{CalabiRosenlicht1} for details.
 \end{ex}
+\chapter{解析学}
+
+\section{Moslehian 教授のサイトから}
+
+
+この節では Mohammad Sal Moslehian 教授のサイト \cite{MohammadSalMoslehian1} からの例を転載する.
+Moslehian 教授にメールしたところ, URL\footnote{http://profsite.um.ac.ir/\~{}moslehian/cfa/cfa.htm
+ } と教授のお名前に言及すればあとは自由に使ってよいとのご快諾を頂いた.
+Moslehian 教授には改めてこちらでも感謝の意を述べたい.
+
+\begin{ex}[単位元と Banach 環]
+$0$ と $1$ を自明な冪等元と呼ぶ.
+\begin{enumerate}
+\item 複素数体以外で非自明な冪等元を持たない単位的 Banach 環.
+\item 非自明な冪等元を持つ単位的 Banach 環.
+\end{enumerate}
+\end{ex}
+\begin{proof}
+$X$ をコンパクト Hausdorff 空間としよう.
+ここで可換 Banach 環 $C(X)$ が非自明な冪等元を持たないことと $X$ の連結性が同値であることを示す.
+
+$0 \neq f \neq 1$ を $C(X)$ の冪等元だとしよう.
+すると $X = f^{-1} \rbk{\cbk{0}} \cup f^{-1} \rbk{\cbk{1}}$ のとき $X$ は非連結になる.
+逆に $X$ が非連結で, 互いに素な開集合 $G_1$, $G_2$ に対して $X = G_1 \cup G_2$ となるなら,
+then
+\begin{align}
+ f(x)
+ =
+ \begin{cases}
+  1, & x \in G_1 \\
+  0, & x \in G_2
+ \end{cases}
+\end{align}
+は $C(X)$ の非自明な冪等元になる.
+\end{proof}
+\begin{rem}[{\cite[Remarks of Prop. 7.9]{BonsallDuncan1}}]
+もし $A$ が (必ずしも可換ではない) Banach 環でスペクトル
+$\sigma (a)$ が非連結な元 $a \in A$ を持つなら,
+$A$ は非自明な冪等元を持つ.
+\end{rem}
 \chapter{講演原稿・DVD 原稿:  色々な反例を作って遊ぼう}
 
 

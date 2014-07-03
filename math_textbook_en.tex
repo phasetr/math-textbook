@@ -115,11 +115,14 @@
 \newtheorem{defn}[thm]{Definition.}
 \newtheorem{ex}[thm]{Example.}
 \newtheorem{exercise}[thm]{Exercise.}
+\newtheorem{problem}[thm]{Problem.}
 \newtheorem{rem}[thm]{Remark.}
 \newtheorem{fact}[thm]{Fact.}
 \newtheorem{assump}[thm]{Assumption.}
 
 \renewcommand{\thethm}{\arabic{chapter}.\arabic{section}.\arabic{thm}}
+%For (js)article
+%\renewcommand{\thethm}{\arabic{section}.\arabic{subsection}.\arabic{thm}}
 
 \renewcommand{\Im}{\mathrm{Im} \,}
 \renewcommand{\Re}{\mathrm{Re} \,}
@@ -180,6 +183,7 @@
 \newcommand{\calFb}{\mathcal{F}_{\mathrm{b}}}
 \newcommand{\calFf}{\mathcal{F}_{\mathrm{f}}}
 \newcommand{\calH}{\mathcal{H}}
+\newcommand{\calI}{\mathcal{I}}
 \newcommand{\calK}{\mathcal{K}}
 \newcommand{\calL}{\mathcal{L}}
 \newcommand{\calV}{\mathcal{V}}
@@ -244,7 +248,8 @@
 \newcommand{\frakX}{\mathfrak{X}}
 \newcommand{\frakY}{\mathfrak{Y}}
 \newcommand{\frakZ}{\mathfrak{Z}}
-\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Hom}{\mathrm{Hom} \,}
+\newcommand{\Isom}{\mathrm{Isom} \,}
 \newcommand{\hyperbolicsegment}[2]{\left[ #1, \, #2 \right]_{\mathrm{h}}}
 \newcommand{\Var}[1]{\mathrm{Var}\sqbk{#1}}
 \newcommand{\Cov}[1]{\mathrm{Cov}\sqbk{#1}}
@@ -294,6 +299,7 @@
 \newcommand{\VC}{V_{\mathrm{C}}}
 \newcommand{\wick}[1]{\colon #1 \colon}
 \newcommand{\wto}{\xrightarrow{\text{w}}}
+\newcommand{\bs}{\blacksquare}
 \newcommand{\vep}{\varepsilon}
 \newcommand{\fin}{\hfill $\square$ \par}
 \newcommand{\ann}{\mathrm{Ann}\,}
@@ -400,6 +406,8 @@
 \newcommand{\mbfc}{\mathbf{C}}
 
 \newcommand{\mrm}[1]{\mathrm{#1}}
+\newcommand{\lrto}{\Longleftrightarrow}
+\newcommand{\slrto}{\Longleftrightarrow}
 \newcommand{\srto}{\Rightarrow}
 \newcommand{\rto}{\Longrightarrow}
 \newcommand{\slto}{\Leftarrow}
@@ -413,7 +421,7 @@
 
 \title{Math textbook}
 \author{Soutenni P (@phasetr)\thanks{phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com}}
-\date{2014-06-22}
+\date{2014-07-04}
 
 \begin{document}
 
@@ -577,7 +585,7 @@ we derive many interesting properties using (mainly) algebraic thinking!
 \item A three dimensional space $\bbR^3$ with scaler $\bbR$.
 \item Higher dimensional space $\bbR^d$ ($d \geq 4$) with scaler $\bbR$.
 \item Some subsets of (numerical) sequence, e.g., $c_0$, $c_{\infty}$, $\ell^2$ with scaler $\bbR$.
-\item Some subsets of functions, e.g., $C^k(\Omega)$, $L^p \rbk{\Omega}$, $H^k \rbk{\Omega}$ with scaler $\bbR$.
+\item Some subsets of function spaces, e.g., $C^k(\Omega)$, $L^p \rbk{\Omega}$, $H^k \rbk{\Omega}$ with scaler $\bbR$.
 \item A set of linear operators with scaler $\bbR$.
 \end{enumerate}
 
@@ -1015,6 +1023,8 @@ We show some examples of inner products.
 \end{align}
 The above inner products are related to
 the Legendre polynomials, Laguerre polynomials, Hermite polynomials.
+These are used to solve linear partial differential equations,
+especially, in electromagnetism or quantum mechanics.
 
 Furthermore we take the following inner product.
 \begin{align}
@@ -16504,6 +16514,47 @@ I will translate this chapter from the Japanese version.
 \begin{ex}[Manifolds without countable base]
  See \cite{CalabiRosenlicht1} for details.
 \end{ex}
+\chapter{Analysis}
+
+\section{From the site of Professor Moslehian}
+
+
+In this section we reprint the examples from the site of Professor Moslehian \cite{MohammadSalMoslehian1}
+When I mailed to him he permitted us to freely reuse
+if we refer the site URL\footnote{http://profsite.um.ac.ir/\~{}moslehian/cfa/cfa.htm
+ } and the professor's name, Mohammad Sal Moslehian, once.
+
+\begin{ex}[unital Banach algebra]
+Recall that $0$ and $1$ are called trivial idempotents.
+\begin{enumerate}
+\item A unital Banach algebra, except the algebra of complex numbers, without nontrivial idempotent.
+\item A unital Banach algebra with a nontrivial idempotent.
+\end{enumerate}
+\end{ex}
+\begin{proof}
+Assume $X$ is a compact Hausdorff space.
+We show that the Banach algebra $C(X)$ has no nontrivial idempotent iff $X$ is connected.
+
+Let $0 \neq f \neq 1$ be an idempotent in $C(X)$.
+Then $X = f^{-1} \rbk{\cbk{0}} \cup f^{-1} \rbk{\cbk{1}}$ implies that
+$X$ is not connected.
+Conversely if $X$ is disconnected and $X = G_1 \cup G_2$ with open disjoint sets $G_1$ and $G_2$,
+then
+\begin{align}
+ f(x)
+ =
+ \begin{cases}
+  1, & x \in G_1 \\
+  0, & x \in G_2
+ \end{cases}
+\end{align}
+is a nontrivial idempotent of $C(X)$.
+\end{proof}
+\begin{rem}[{\cite[Remarks of Prop. 7.9]{BonsallDuncan1}}]
+If $A$ is a (not necessarily commutative) Banach algebra with an
+element $a \in A$ such that $\sigma (A)$ is not connected,
+then $A$ has a nontrivial idempotent.
+\end{rem}
 \chapter{\textbf{TODO} TRANSLATE DVD: Playing with interesting counter examples}
 
 

@@ -2,6 +2,12 @@
 
 \usepackage[top=10truemm,bottom=20truemm,left=15truemm,right=15truemm]{geometry}
 \usepackage[dvipdfmx]{graphicx, hyperref}
+\usepackage{atbegshi}
+\ifnum 42146=\euc"A4A2
+\AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}}
+\else
+\AtBeginShipoutFirst{\special{pdf:tounicode 90ms-RKSJ-UCS2}}
+\fi
 \usepackage[all]{xy}
 \usepackage{makeidx}
 \makeindex
@@ -81,6 +87,7 @@
 \DeclareMathOperator*{\slim}{s-lim}
 \DeclareMathOperator*{\wlim}{w-lim}
 \DeclareMathOperator{\diag}{diag}
+\newcommand{\card}{\mathrm{card}\,}
 \newcommand{\co}{\mathrm{co}\,}
 \newcommand{\const}{\mathrm{const.}}
 \newcommand{\dom}{\mathrm{dom}\,}
@@ -421,7 +428,7 @@
 
 \title{Math textbook}
 \author{相転移 P (@phasetr)\thanks{phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com}}
-\date{2014-07-04}
+\date{2014-07-06}
 
 \begin{document}
 
@@ -14753,6 +14760,314 @@ $\delta_{nm}$ はクロネッカーのデルタ.
 の解になっているがここではそこまで立ち入らない.
 たとえばグライナー~\cite{WalterGreiner1}など参照.
 \end{ex}
+\section{線型作用素}
+
+
+以下 $X$, $Y$ を Banach 空間とする.
+\begin{defn}
+$D$ を $X$ の部分空間とするとき,
+
+$T \colon D \to Y$ が
+\begin{align}
+ T (\alpha x + \beta y)
+ =
+ \alpha Tx + \beta Ty
+ \quad (x, y \in D, \alpha, \beta \in \bbC)
+\end{align}
+をみたすとき, $T$ を\textbf{線型作用素}と呼ぶ.
+$D = \dom T$ を $T$ の\textbf{定義域}といい,
+$R(T) \defeq \set{Tx}{x \in D}$ を $T$ の\textbf{値域}という.
+
+$T, S \colon D \to Y$ を線型作用素に対し
+\begin{align}
+ (T + S)(x)
+ &=
+ Tx + Sx \quad (x \in X) \\
+ (\alpha T)(x)
+ &= \alpha Tx \quad (\alpha \in \bbC)
+\end{align}
+と定義する.
+
+$T \colon D \to Y$ が
+$x_n \to x$ in $X$ ならばつねに $Tx_n \to Tx$  in  $Y$
+となるとき, $T$ は\textbf{連続}であるという.
+また
+\begin{align}
+ \norm{Tx}_Y
+ \leq
+ M \norm{x}_X \quad (x \in D)
+\end{align}
+となる $M$ が存在するとき, $T$ は有界であるという.
+\end{defn}
+
+\begin{ex}
+$X=Y=D=C([0, 1])$ とする.
+\begin{align}
+ (Tx)(t)
+ \defeq
+ \int_0^t x(s)ds \quad (x \in X)
+\end{align}
+とすれば $T$ は明らかに連続線型作用素.
+( $x_n \to x$  in  $X$  の意味は？)
+\end{ex}
+\begin{ex}
+$X=Y=C([0, 1])$, $D = C^1([0, 1])$ とする.
+\begin{align}
+ (Tx)(t)
+ \defeq
+ \frac{d}{dt}x(t) \quad (x \in D)
+\end{align}
+とすれば $T$ は線型作用素だが連続ではない.
+たとえば $x_n(t) = (1/n) \sin nt$ を考えればいい.
+\end{ex}
+
+\begin{prop}
+$T \colon D \to Y$ が線型作用素とする.
+このとき $T$ が連続であることと $T$ が有界であることは同値.
+\end{prop}
+\begin{proof}
+まず $T$ が連続だが有界ではないとしよう.
+このとき任意の $n$ についてある $x_n \in D$ が存在して
+\begin{align}
+ \norm{Tx_n}_Y
+ >
+ n \norm{x_n}_X
+\end{align}
+となるが,
+\begin{align}
+ y_n
+ \defeq
+ \frac{x_n}{\sqrt{n} \norm{x_n}_x}
+\end{align}
+とすれば
+$y_n \to 0$ in $X$ となる一方
+\begin{align}
+ \norm{T y_n}_Y
+ =
+ \frac{\norm{T x_n}_X}{\sqrt{n} \norm{x_n}_X}
+ >
+ \frac{n}{\sqrt{n}} \to \infty
+\end{align}
+となり $T$ の連続性に反する.
+
+逆に $T$ を有界としよう.
+このとき $x_n \to x$ in $X$ とすると, 線型性から
+\begin{align}
+ \norm{Tx_n - Tx}_Y
+ \le
+ M \norm{x_n - x}_X \to 0 \quad (n \to \infty)
+\end{align}
+となるから連続.
+\end{proof}
+
+\begin{defn}
+$D(T) = X$ となる有界線型作用素全体を
+\begin{align}
+ \mathcal{L}(X, Y)
+\end{align}
+とかく.
+\textbf{以下, 有界線型作用素といったら $D(T)=X$ とする}.
+$\mathcal{L}(X, X) = \mathcal{L}(X)$ とかく.
+\end{defn}
+\begin{defn}
+有界線型作用素 $T$ に対してその有界定数の下限をノルムとして定める.
+つまり次のように定義する.
+\begin{align}
+ \norm{T}_{\calL (X, Y)}
+ \defeq
+ \sup_{x \neq 0} \frac{\norm{Tx}_Y}{\norm{x}_X}.
+\end{align}
+これがノルムとなることはすぐわかる.
+\end{defn}
+
+\begin{prop}
+\begin{align}
+ \norm{T}
+ =
+ \sup_{\norm{x}_X = 1} \norm{Tx}_Y
+\end{align}
+が成り立つ.
+\end{prop}
+\begin{proof}
+これは線型性と $x / {\norm{x}_X}$ のノルムが $1$ であることに注意すればよい.
+\end{proof}
+
+\begin{thm}
+$\calL (X, Y)$ は上で定めたノルムに関して Banach 空間となる.
+\end{thm}
+\begin{proof}
+完備性だけ示せば十分.
+$(T_n)_n$ を $\calL (X, Y)$ の Cauchy 列とする.
+つまり任意の $\varepsilon$ に対してある $N$ があって,
+\begin{align}
+ \norm{T_n - T_m}
+ <
+ \varepsilon \quad (n, m \geq N)
+\end{align}
+とする.
+このとき,
+\begin{align}
+ \norm{T_n x - T_m x}_Y
+ <
+ \varepsilon \norm{x}_X
+\end{align}
+だから $(T_nx)_n$ は $Y$ のCauchy列.
+$Y$ は完備なのでこの極限が存在する.
+$Tx \defeq \lim_{n \to \infty} T_nx$ とすれば $T$ は明らかに線型.
+また
+\begin{align}
+ \norm{T_n x - Tx}
+ \leq
+ \norm{T_n x - T_m x} + \norm{T_m x - T x}
+\end{align}
+で $m \to \infty$ とすれば,
+\begin{align}
+ \norm{T_n x - T x}
+ \leq
+ \varepsilon \norm{x}_X
+\end{align}
+となり,
+\begin{align}
+ \norm{Tx}
+ \leq
+ \norm{T_n x - T x} + \norm{T_n x}
+ \leq
+ \rbk{\varepsilon + \norm{T_n}} \norm{x}
+\end{align}
+となるから $T$ は有界線型作用素.
+\begin{align}
+ \norm{T_n x - Tx}
+ \leq
+ \varepsilon \norm{x}
+\end{align}
+で両辺割って $\sup_{x \neq 0}$ をとれば,
+\begin{align}
+ \norm{T_n - T}
+ \leq
+ \varepsilon
+\end{align}
+となり完備.
+\end{proof}
+
+\begin{prop}
+$T$, $S \in \calL (X)$ とするとき,
+\begin{align}
+ \norm{T \cdot S}
+ \leq
+ \norm{T} \norm{S}
+\end{align}
+がなりたつ.
+さらに
+\begin{align}
+ \norm{T^n}
+ \leq
+ \norm{T}^n
+\end{align}
+もなりたつ.
+\end{prop}
+\begin{proof}
+\begin{align}
+ \norm{TS x}
+ \leq
+ \norm{T} \norm{Sx}
+ \leq
+ \norm{T} \norm{S} \norm{x}
+\end{align}
+と帰納法からすぐわかる.
+\end{proof}
+\section{有界線型作用素の例}
+
+
+\begin{ex}[かけ算作用素]
+$\Omega$ を $\bbRn$ の開集合とし,
+$k \in L^{\infty}(\Omega)$ とする.
+このとき,
+\begin{align}
+ (Tx)(t)
+ \defeq
+ k(t)x(t) \quad (x \in L^p(\Omega))
+\end{align}
+とすると $T$ は有界線型作用素で
+\begin{align}
+ \norm{T}
+ =
+ \norm{k}_{\infty}
+\end{align}
+となる.
+\end{ex}
+\begin{proof}
+\begin{align}
+ \norm{T x}_p
+ \leq
+ \norm{k}_{\infty} \norm{x}_{p}
+\end{align}
+から $\norm{T} \leq \norm{k}_{\infty}$ はすぐわかる.
+また $\esssup$ の定義からある $\Omega_0 \subset \Omega$ があって,
+すべての $t \in \Omega_0$ について
+\begin{align}
+ \norm{k}_{\infty} - \varepsilon
+ \leq
+ \abs{k(t)}
+\end{align}
+とできる.
+ここで
+\begin{align}
+ x(t)
+ \defeq
+ \begin{cases}
+  \frac{1}{\abs{\Omega_o}^{1/p}}, & t \in \Omega_0, \\
+  0, & \text{otherwise}
+ \end{cases}
+\end{align}
+とすれば $\norm{x}_p = 1$ で
+\begin{align}
+ \norm{Tx}_p^p
+ =
+ \frac{1}{\abs{\Omega_0}} \int_{\Omega_0} \abs{k(t)}^p dt
+ \geq
+ (\norm{k}_{\infty} - \varepsilon)^p
+\end{align}
+となる.
+一方
+\begin{align}
+ \norm{k}_{\infty} - \varepsilon
+ \leq
+ \norm{Tx}_p
+ \leq
+ \norm{T}
+\end{align}
+となるから逆の不等式も成り立つ.
+\end{proof}
+
+\begin{ex}[Hilbert-Schmidt作用素]
+$\Omega$ を前とおなじものとする.
+$k = k(t, s) \in L^2(\Omega \times \Omega)$
+とする.
+\begin{align}
+ (Tx)(t)
+ \defeq
+ \int_{\Omega} k(t, s) x(s) ds \quad \rbk{x \in L^2(\Omega)}
+\end{align}
+と定義すると $T$ は有界線型作用素.
+この $k(t, s)$ を \textbf{Hilbert-Schmidt 作用素の積分核},
+$T$ を \textbf{Hilbert-Schmidt 型積分作用素}という.
+\end{ex}
+\begin{proof}
+Schwartsの不等式から
+\begin{align}
+ \abs{Tx(t)}
+ \leq
+ \norm{x}_2 \rbk{\int_{\Omega} \abs{k(t, s)}^2 ds}^{1/2}
+\end{align}
+となるから, これを積分すれば
+\begin{align}
+ \norm{Tx}_2
+ \leq
+ \norm{x}_2
+ \rbk{\int_{\Omega \times \Omega} \abs{k(t, s)}^2 ds dt}^{1/2}
+\end{align}
+となる.
+\end{proof}
 \chapter{Fourier 解析}
 
 
@@ -21397,15 +21712,15 @@ $D_n$ 型, $E_6, E_7, E_8$ 型の特異点をブローアップを繰り返す�
 
 
 この節では Mohammad Sal Moslehian 教授のサイト \cite{MohammadSalMoslehian1} からの例を転載する.
-Moslehian 教授にメールしたところ, URL\footnote{http://profsite.um.ac.ir/\~{}moslehian/cfa/cfa.htm
- } と教授のお名前に言及すればあとは自由に使ってよいとのご快諾を頂いた.
+Moslehian 教授にメールしたところ, URL と教授のお名前に言及すればあとは自由に使ってよいとのご快諾を頂いた.
 Moslehian 教授には改めてこちらでも感謝の意を述べたい.
+サイトの URL については参考文献の \cite{MohammadSalMoslehian1} を見てほしい.
 
-\begin{ex}[単位元と Banach 環]
+\begin{ex}[単位元と Banach 環]\label{counterexamples-analysis-moslehian1}
 $0$ と $1$ を自明な冪等元と呼ぶ.
 \begin{enumerate}
-\item 複素数体以外で非自明な冪等元を持たない単位的 Banach 環.
-\item 非自明な冪等元を持つ単位的 Banach 環.
+\item 複素数体以外で非自明な冪等元を持たない単位的 Banach 環が存在する.
+\item 非自明な冪等元を持つ単位的 Banach 環が存在する.
 \end{enumerate}
 \end{ex}
 \begin{proof}
@@ -21431,6 +21746,77 @@ then
 $\sigma (a)$ が非連結な元 $a \in A$ を持つなら,
 $A$ は非自明な冪等元を持つ.
 \end{rem}
+
+\begin{ex}
+冪等元, すなわち $x^2 = x$ となる元 $x$ から生成される Banach 環が存在する.
+\end{ex}
+\begin{proof}
+$X$ を $\card X >1$ のコンパクト Hausdorff 空間とする.
+Banach 環 $C(X)$ が冪等元から生成されることと $X$ が完全非連結であることは同値になる.
+
+$Y$ を位相空間とする.
+任意の $x_1$, $x_2 \in Y$ に対して互いに素な開集合 $G_1$ and $G_2$ が存在し,
+$x_1 \in G_1$, $x_2 \in G_2$ で $X = G_1 \cup G_2$ となるとき,
+$Y$ を完全非連結という.
+
+$X$ を完全非連結とし, $x_1 \neq x_2$, $x_1 \in G_1$,
+$x_2 \in G_2$, $X = G_1 \cup G_2$, $G_1 \cap G_2 = \emptyset$ で,
+$G_1$, $G_2$ を開集合とする.
+このとき次の連続関数
+\begin{align}
+ f(x)
+ =
+ \begin{cases}
+  1, & x \in G_1, \\
+  0, & x \in G_2,
+ \end{cases}
+\end{align}
+は $x_1$ と $x_2$ を分離する.
+したがって Stone-Weierstrass の定理から冪等元によって生成される自己共役な閉部分環は $C(X)$ になる.
+
+逆に $C(X)$ が冪等元から生成されるとし,
+$x_1$, $x_2 \in X$ で $x_1 \neq x_2$ とする.
+Urysohn の補題から $f(x_1) = 1$ かつ $f(x_2) = 0$ となる連続関数 $f \in C(X)$ が存在する.
+冪等元からなる自己共役部分環の任意の元は, 適当な冪等元 $g_i$ と $\lambda_i \in \bbC$ に対して次のように書ける.
+\begin{align}
+ h
+ =
+ \sum_{i=1}^k \lambda_i g_i.
+\end{align}
+仮定から上の形の関数列 $\rbk{h_n}$ が存在して $X$ 上一様に $h_n \to f$ となり,
+$h_n(x_1) \to 1$ かつ $h_n(x_2) \to 0$.
+さらに $\abs{h_{N} (x_1)} > 1 / 2$, $\abs{h_N (x_2)} < 1 / 2$ を満たす自然数 $N$ が存在する.
+したがって
+\begin{gather}
+ x_1
+ \in
+ h_N^{-1} \rbk{\set{z \in \bbC}{\abs{z} > 1}}
+ \eqdef
+ G_1, \\
+ x_2
+ \in
+ h_N^{-1} \rbk{\set{z \in \bbC}{\abs{z} < 1}}
+ \eqdef
+ G_2, \\
+ G_1 \cup G_2
+ =
+ X, \\
+ G_1 \cap G_2
+ =
+ \emptyset
+\end{gather}
+であり, $X$ は完全非連結である.
+\end{proof}
+\section{作用素環}
+
+
+\begin{ex}
+$X$ が連結でコンパクトな Hausdorff 空間のとき,
+(可換) $C^*$-環 $C(X)$ は非自明な射影を持たない.
+\end{ex}
+\begin{proof}
+例 \ref{counterexamples-analysis-moslehian1} の証明を見ること.
+\end{proof}
 \chapter{講演原稿・DVD 原稿:  色々な反例を作って遊ぼう}
 
 

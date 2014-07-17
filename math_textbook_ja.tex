@@ -1811,40 +1811,43 @@ Recall that the Weyl algebra $W_n(k)$ is naturally filtered by the sub-vectorspa
 これらは物理の解析力学に関連しています.
 更に, 解析力学は幾何学と密接な関係にあります.
 \cite{KenjiFukaya1, NakamuraYamamoto1, NakamuraYamamoto2} 参照.
-\subsection{Function as a vector}
+\subsection{ベクトルとしての関数}
 
 
-First recall the definition of vectors in three dimension:
-letting $f = (f(1), f(2), f(3))$ and $g = (g(1), g(2), g(3))$ be three dimensional vectors
-then their sum $f + g$ is defined by
+まず 3 次元におけるベクトルの定義を思い出してください:
+$f = (f(1), f(2), f(3))$ と $g = (g(1), g(2), g(3))$ を 3 次元ベクトルとすると,
+それらの和 $f + g$ は
 \begin{align}
  f + g
  \defeq
  \rbk{f\rbk{1} + g \rbk{1}, f(2) + g(2), f(3) + g(3)}.
 \end{align}
-I.e., sum of vectors is defined by component-wise.
-Hence we also try to define a sum of functions as
+と定義されます.
+すなわち, ベクトルの和は成分ごとに定義されています.
+従って, 関数の和を同様に
 \begin{align}
  f + g
  \defeq
  \rbk{f(x) + g(x), f(y) + g(y), \dots}.
 \end{align}
-In short we define a sum by
+と定義してみましょう.
+短い書き方の場合, 和を
 \begin{align}
  \rbk{f + g} (x)
  \defeq
  f(x) + g(x).
 \end{align}
-For scalar multiplication we set
+と定義します.
+スカラー乗法について
 \begin{align}
  \rbk{\alpha f} (x)
  \defeq
  \alpha f (x).
 \end{align}
-Sum and scalar multiplication defined above satisfy the axioms of a linear space.
-Thus we conclude a space of functions is a linear one\footnote{A function space is linear if an image of its elements is a linear space.
-Function spaces can be non-linear, e.g., an image of its elements is a manifold or general set.
- }.
+と定めます.
+上記の和とスカラー乗法は線型空間の公理を満たします.
+従って, 関数空間は線型であると結論づけます\footnote{ある元の像が線型空間である時, 関数空間は線型です.
+関数空間は非線型になる場合もあり, 例えば, ある元の像が多様体や一般集合の場合です.}.
 \subsection{Function spaces: examples of infinite dimensional spaces}
 
 

@@ -91,6 +91,7 @@
 \newcommand{\co}{\mathrm{co}\,}
 \newcommand{\const}{\mathrm{const.}}
 \newcommand{\dom}{\mathrm{dom}\,}
+\newcommand{\Rad}{\mathrm{Rad}\,}
 \newcommand{\ran}{\mathrm{ran}\,}
 \newcommand{\algoplus}{\mathop{\hat{\bigoplus}}}
 \newcommand{\algotimes}{\mathop{\hat{\bigotimes}}}
@@ -111,6 +112,7 @@
 {\newline}{}%
 \theoremstyle{break}
 \renewcommand{\proofname}{\upbf{Proof}}
+\theoremstyle{breakdefn}
 \newtheorem{thm}{Theorem.}[section]
 \newtheorem{cor}[thm]{Corollary.}
 \newtheorem{lem}[thm]{Lemma.}
@@ -118,7 +120,6 @@
 \newtheorem{req}[thm]{Request.}
 \newtheorem{prop}[thm]{Proposition.}
 \newtheorem{axm}[thm]{Axiom.}
-\theoremstyle{breakdefn}
 \newtheorem{defn}[thm]{Definition.}
 \newtheorem{ex}[thm]{Example.}
 \newtheorem{exercise}[thm]{Exercise.}
@@ -151,6 +152,8 @@
 \newcommand{\rbkt}[2]{\left ( #1,\,#2 \right)}
 \newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}}
 \newcommand{\set}[2]{\left\{#1 \relmiddle| #2\right\}}
+\newcommand{\bra}[1]{\left\langle #1 \right|}
+\newcommand{\ket}[1]{\left| #1 \right\rangle}
 \newcommand{\trans}{\,^t\!}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   special sums and such
@@ -300,7 +303,7 @@
 \newcommand{\sumonetoinfty}[1]{\sum_{#1 = 1}^{\infty}}
 \newcommand{\sumzerotoinfty}[1]{\sum_{#1 = 0}^{\infty}}
 \newcommand{\supp}{\mathrm{supp} \,}
-\newcommand{\Tr}{\mathrm{Tr}\,}
+\newcommand{\Trace}{\mathrm{Tr}\,}
 \newcommand{\touw}{\stackrel{\mathrm{uw}}{\to}\,}
 \newcommand{\upbf}[1]{\textup{\textbf{#1}}}
 \newcommand{\VC}{V_{\mathrm{C}}}
@@ -428,7 +431,7 @@
 
 \title{Math textbook}
 \author{Soutenni P (@phasetr)\thanks{phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com}}
-\date{2014-07-04}
+\date{2014-07-19}
 
 \begin{document}
 
@@ -529,47 +532,47 @@ For applications to information science characteristic sometimes must be positiv
 cryptographically secure pseudo random number generator (Mersenne twister).
  }.
 
-\begin{defn}\textup{(Definition of linear/vector spaces)}
- Let $\bbR$ be a field of real numbers: a real number is also called a scaler.
- A set $L$ is called a \textup{\textbf{linear space}} if its elements have the following properties.
- Elements $x, y, z \in L$ are vectors and $a, b \in \bbR$ are real numbers in the following expressions.
+\begin{defn}[Definition of linear/vector spaces]
+Let $\bbR$ be a field of real numbers: a real number is also called a scaler.
+A set $L$ is called a \upbf{linear space} if its elements have the following properties.
+Elements $x, y, z \in L$ are vectors and $a, b \in \bbR$ are real numbers in the following expressions.
 \begin{enumerate}
 \item Associativity:
-  \begin{align}
-   \rbk{x + y} + z
-   =
-   x + \rbk{y + z}, \quad \forall x, y, z \in L.
-  \end{align}
+ \begin{align}
+  \rbk{x + y} + z
+  =
+  x + \rbk{y + z}, \quad \forall x, y, z \in L.
+ \end{align}
 \item Commutativity of sum:
-  \begin{align}
-   x + y = y + x,  \quad \forall x, y \in L.
-  \end{align}
+ \begin{align}
+  x + y = y + x,  \quad \forall x, y \in L.
+ \end{align}
 \item Existence of unit for sum: there is an element $0 \in L$ such that
-  \begin{align}
-   x + 0 = x, \quad \forall x \in L.
-  \end{align}
+ \begin{align}
+  x + 0 = x, \quad \forall x \in L.
+ \end{align}
 \item Existence of an inverse element for sum: for any $x \in L$ there is an element $y \in L$ such that
-  \begin{align}
-   x + y = 0
-  \end{align}
-    for the above $0$.
-    In fact we can prove the uniqueness of an inverse element.
+ \begin{align}
+  x + y = 0
+ \end{align}
+   for the above $0$.
+   In fact we can prove the uniqueness of an inverse element.
 \item Relation of scalers (real numbers) and vectors:
-  \begin{align}
-   a \cdot \rbk{x + y}
-   &=
-   a \cdot x + a \cdot y, \\
-   \rbk{ab} \cdot x
-   &=
-   a \cdot \rbk{b x}, \\
-   \rbk{a + b} \cdot x
-   &=
-   a \cdot x + b \cdot x,
-  \end{align}
+ \begin{align}
+  a \cdot \rbk{x + y}
+  &=
+  a \cdot x + a \cdot y, \\
+  \rbk{ab} \cdot x
+  &=
+  a \cdot \rbk{b x}, \\
+  \rbk{a + b} \cdot x
+  &=
+  a \cdot x + b \cdot x,
+ \end{align}
 \item Multiplication law for a scaler unit in $\bbR$:
-  \begin{align}
-   1 \cdot x = x, \quad \forall x \in L.
-  \end{align}
+ \begin{align}
+  1 \cdot x = x, \quad \forall x \in L.
+ \end{align}
 \end{enumerate}
 \end{defn}
 Important points are
@@ -610,7 +613,7 @@ For (time evolution of) stock prices,
 there are many listing companies and its time evolution is important in real world.
 This evolution is mathematically representable in higher dimensional space picture.
 
-Other examples are also similar characterization.
+Other examples are also characterized similarly.
 These are related to analytical mechanics in physics.
 Moreover analytical mechanics is closely related to geometry.
 See \cite{KenjiFukaya1, NakamuraYamamoto1, NakamuraYamamoto2}.
@@ -632,7 +635,7 @@ Hence we also try to define a sum of functions as
  \defeq
  \rbk{f(x) + g(x), f(y) + g(y), \dots}.
 \end{align}
-In short we define a sum by
+In short hand notation we define a sum by
 \begin{align}
  \rbk{f + g} (x)
  \defeq
@@ -645,8 +648,10 @@ For scalar multiplication we set
  \alpha f (x).
 \end{align}
 Sum and scalar multiplication defined above satisfy the axioms of a linear space.
-Thus we conclude a space of functions is a linear one\footnote{A function space is linear if an image of its elements is a linear space.
-Function spaces can be non-linear, e.g., an image of its elements is a manifold or general set.
+Thus we conclude a space of functions is a linear one\footnote{A function space becomes linear if images of functions belonging to it are linear.
+Function spaces can be non-linear, e.g., images of functions belonging to it are manifolds or general sets.
+That is, it depends on the algebraic structure of images of functions belonging to a function space
+whether a function space has an algebraic structure.
  }.
 \subsection{Function spaces: examples of infinite dimensional spaces}
 
@@ -936,10 +941,10 @@ but we can overcome this by considering converging ones.
 \end{align}
 
 \begin{rem}
- A infinite dimensional vector $f = (f(1), f(2), \dots)$
- can be viewed as a sequence.
- In quantum mechanics we use sequences and matrices living in an infinite dimensional space
- when considering Heisenberg's matricial mechanics.
+An infinite dimensional vector $f = (f(1), f(2), \dots)$
+can be viewed as a sequence.
+In quantum mechanics we use sequences and matrices living in an infinite dimensional space
+when considering Heisenberg's matricial mechanics.
 \end{rem}
 
 Note that our temporal task is to make how to define an inner product for functions.
@@ -1004,13 +1009,14 @@ A Hilbert space is famous as a space where wave functions in quantum mechanics l
 
 
 There are many inner products in a function space.
-Let $\Omega$ be a (open) subset of $\bbR$ and $h \colon \Omega \to \bbR_{\geq}$ be a function satisfying
+Denote the set of nonnegative real numbers as $\bbR_{\geq 0}$.
+Let $\Omega$ be a (open) subset of $\bbR$ and $h \colon \Omega \to \bbR_{\geq 0}$ be a function satisfying
 \begin{align}
  h(x) \geq 0, \quad
  h \neq 0, \quad
  0 < \int_\Omega h(x) dx < \infty.
 \end{align}
-Then the following is becomes an inner product:
+Then the following becomes an inner product:
 \begin{align}
  \bkt{f}{g}_{h}
  \defeq
@@ -1074,7 +1080,7 @@ The energy for its solution is written by
  \int_{\mathbb{R}^d} \rbk{\rbk{\nabla u}^2 + \rbk{\frac{\partial u}{\partial t}}^2}dx.
 \end{align}
 We want to restrict solutions whose energy is finite
-since it is physically meaningless to consider infinite energy solutions.
+since it is physically meaningless to consider solutions with infinite energy.
 The elements of $L^2$ have finite energy, by definition,
 and hence it is the reason why the space $L^2$ is important in physics.
 To be precise our derived functions are in $L^2$, so
@@ -1106,7 +1112,7 @@ Fundamental theorem of calculus and integration by parts lead
  &=
  (x - x_0) f'(x_0) + \sqbk{- \frac{(x-y)^2}{2} f^{(2)}(y)}_{x_0}^x + \int_{x_0}^x \frac{(x - y)^2}{2} f^{(3)} (y)dy. \\
  &=
- (x - x_0) f'(x_0) + \frac{(x-y)^2}{2} f^{(2)}(x_0) + \int_{x_0}^x \frac{(x - y)^2}{2} f^{(3)} (y)dy.
+ (x - x_0) f'(x_0) + \frac{(x-x_0)^2}{2} f^{(2)}(x_0) + \int_{x_0}^x \frac{(x - y)^2}{2} f^{(3)} (y)dy.
 \end{align}
 Further iteration leads the following Taylor's theorem.
 \begin{align}
@@ -1192,9 +1198,13 @@ Then the above solutions are
 \begin{align}
  f_k(x)
  =
- e^{ikx}, \quad
- k \in \bbZ.
+ e^{ikx}
 \end{align}
+for each $k \in \bbZ$.
+Note that computation shows the set of eigenvalues $\cbk{k}$ is, in fact, $\bbZ$ and that
+the above solutions $\cbk{f_k}$ are the eigenfunctions of each eigenequation $p f_k = k f_k$ \footnote{The proof for uniqueness of the eigenequation for each $k \in \bbZ$ needs the
+uniqueness theorem for (linear) ordinary differential equations.
+ }.
 Euler's formula says
 \begin{align}
  e^{ikx}
@@ -14869,7 +14879,7 @@ $t>0$ のときはまともな関数なのに極限を取ると超関数にな�
 れは一次元調和振動子の摂動みたいなものなのでモデル自体は非常にシンプルですが, 最近ホットな話題と聞いています.
 あまり物理っぽい話を紹介できなくて申し訳ないのですが,
 学部に毛が生えた程度, または本当に学部の物理水準でも既に数学としては色々問題があります.
-解決済みですが, 量子統計だと平衡状態が物理で書かれる $\Tr e^{- \beta H}$ という形では存在しないという問題もあったのでした.
+解決済みですが, 量子統計だと平衡状態が物理で書かれる $\Trace e^{- \beta H}$ という形では存在しないという問題もあったのでした.
 \chapter{Fundamental problems of perturbation theory in quantum mechanics as an approximation}
 
 
@@ -15258,7 +15268,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
  x \label{Hinashiro_math_party_1_probability_2}
 \end{align}
 が導ける.
-最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[36].
+最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[37].
 
 再び $x \neq 0$ を仮定しよう \footnote{ハイパーどうでもいいが「再びマタタビ楕円型」という天啓を得たことを記録しておく.
  }.
@@ -15281,7 +15291,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
 \subsection{Rademacher 関数}
 
 
-これまではまさに高校の数学だった \footnotemark[33].
+これまではまさに高校の数学だった \footnotemark[34].
 本番はここからだ.
 式 (\ref{Hinashiro_math_party_1_probability_3}) を別の観点から眺めてみようという体で,
 唐突に次の無茶苦茶な理論展開を見せる.
@@ -15356,7 +15366,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
 本質が見えるようになるまでは偶然というほかない.
 ここで式 (\ref{Hinashiro_math_party_1_probability_3}) を別の方法で導いてみよう.
 
-唐突だが次の関数を考える \footnotemark[34].
+唐突だが次の関数を考える \footnotemark[35].
 いったん少し面倒な方法で取り組んでみよう.
 \ref{Hinashiro_math_party_1_probability_14} 節で整理するので少しのあいだ我慢してほしい.
 \begin{align}
@@ -15378,7 +15388,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
  =
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}.
 \end{align}
-ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[35].
+ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[36].
 したがって
 \begin{align}
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}
@@ -15746,7 +15756,7 @@ Chebyshev による簡明かつ重要な結果を使った証明だけ紹介し�
 これで簡単に (\ref{Hinashiro_math_party_1_probability_8}) が証明できた.
 
 Chebyshev の不等式だけでなく, Rademacher 関数の独立性, つまり \ref{Hinashiro_math_party_1_probability_11} の結果も本質的に効いている.
-実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[37].
+実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[38].
 弱法則ではまだまだほしい内容に足りない.
 「儲けが際限なく大きくなる確率が 0 に収束する」くらいの微妙なことしか言っていないからだ.
 平均がばっちり 0 に行くことを証明したい.
@@ -16519,10 +16529,47 @@ I will translate this chapter from the Japanese version.
 
 
 \begin{ex}[Manifolds without countable base]
- See \cite{CalabiRosenlicht1} for details.
+See \cite{CalabiRosenlicht1} for details.
 \end{ex}
+
+\begin{ex}[\cite{RichardGSwan1}]
+In general it is not true that a map of vector bundles
+has a kernel and image in the category of vector bundles.
+\end{ex}
+\begin{proof}
+Let $I$ be a one dimensional unit interval, $\xi$ be the product bundle $I \times \bbR$
+where $p(x, y) = x$.
+Let $f \colon \xi \to \xi$ by $f(x,y) = (x, xy)$.
+Then the image of $f$ has fiber of dimension 1 everwhere except at $x=0$
+where the fiber is zero.
+Thus $\Image f$ cannot be a vector bundle.
+Similarly $\ker f$ cannot be a vector bundle.
+\end{proof}
 \chapter{Analysis}
 
+
+\begin{ex}
+There are functions which are continuous on $\bbQ$ and $\bbR$ and
+which are continuous on $\bbQ$ but discontinuous on $\bbR$.
+\end{ex}
+\begin{proof}
+There many functions which are continuous on $\bbQ$ and $\bbR$ and
+many familiar functions are of this type.
+For example an exponential function $e^x$ is defined on $\bbZ$ at first,
+extended to $\bbQ$, and finally continuously extended to $\bbR$.
+Functions which are not continuously extended to $\bbR$ is interesting.
+
+Let us define a function as follows.
+\begin{align}
+ f(x)
+ \defeq
+ \begin{cases}
+  0, & x^2 < 2, \\
+  1, & \text{otherwise}.
+ \end{cases}
+\end{align}
+This is continuous on $\bbQ$ but is discontinuous at $x = \sqrt{2}$.
+\end{proof}
 \section{From the site of Professor Moslehian}
 
 
@@ -16530,6 +16577,8 @@ In this section we reprint the examples from the site of Professor Moslehian \ci
 When I mailed to him he permitted us to freely reuse
 if we refer the site URL and the professor's name, Mohammad Sal Moslehian, once.
 For the site URL, see the bibliography of \cite{MohammadSalMoslehian1}.
+\subsection{Banach algebra}
+
 
 \begin{ex}[unital Banach algebra]\label{counterexamples-analysis-moslehian1}
 Recall that $0$ and $1$ are called trivial idempotents.
@@ -16627,6 +16676,126 @@ So that
  \emptyset.
 \end{gather}
 Thus $X$ is totally disconnected.
+\end{proof}
+
+\begin{ex}
+A compact Hausdorff space $X$ and subalgebras of $C(X)$ satisfying
+in only three conditions of four following conditions:
+\begin{enumerate}
+\item uniformly closed,
+\item separating the points of $X$,
+\item containing constant functions,
+\item closed under complex conjugation.
+\end{enumerate}
+\end{ex}
+\begin{proof}
+(1., 2., 3.); i.e. a uniform algebra:
+Consider a compact subset $X$ of $\bbC$ and suppose that $A$ is the uniform closure
+of rational functions with poles out of $X$.
+
+(2., 3., 4.):
+With $X = [a, b]$, put $A$ to be the algebra of all polynomials in one variable.
+
+(1., 3., 4.):
+Let $X = [a, b]$, $x_1$ and $x_2$ are in $X$ and
+\begin{align}
+ A
+ =
+ \set{f \in C(X)}{f(x_1) = f(x_2)}.
+\end{align}
+\end{proof}
+
+\begin{ex}
+A Banach algebra $A$ such that $\Rad (A)$ is a proper subset of the set
+$\set{x}{r(x) = 0}$ of all quasi-nilpotent elements,
+where the above map $r$ is the spectral radius of an element $x \in A$
+and $x \in A$ is called quasi-nilpotent if its spectrum satisfies $\sigma x = \cbk{0}$.
+\end{ex}
+\begin{proof}
+(1.) Suppose that $H$ be a Hilbert space with $\dim H \geq 2$.
+Let $x$, $y \in H \setminus \cbk{0}$ and $\bkt{x}{y} = 0$.
+We use the notation $\ket{x} \bra{y}$ for the von Neumann-Schatten product, i.e.,
+\begin{align}
+ \ket{x} \bra{y} z
+ \defeq
+ \bkt{z}{y} x.
+\end{align}
+The norm of rank one operator $\ket{x} \bra{y}$ is $\norm{x} \norm{y} \neq 0$.
+So
+\begin{align}
+ \ket{x} \bra{y}
+ \neq 0.
+\end{align}
+Also
+\begin{align}
+ \rbk{\ket{x} \bra{y}}^2 z
+ =
+ \rbk{\ket{x} \bra{y}} \rbk{\bkt{z}{y} x}
+ =
+ \bkt{z}{y} \bkt{y}{x} x
+ = 0,
+\end{align}
+so we have
+\begin{align}
+ \rbk{\ket{x} \bra{y}}^2
+ = 0.
+\end{align}
+Hence it is quasi-nilpotent.
+Since $\bbB (H)$ is semi-simple, $\ket{x} \bra{y} \notin \Rad \rbk{\bbB (H)} = \cbk{0}$.
+
+We construct a concrete example.
+Let $A = M_2 (\bbC) \simeq \bbB (\bbC^2)$.
+Now $A$ is a $C^*$-algebra so $\Rad (A) = \cbk{0}$.
+The element
+\begin{align}
+ x
+ =
+ \begin{pmatrix}
+  0 & 1 \\
+  0 & 0
+ \end{pmatrix}
+\end{align}
+has the spectrum $\sigma (x) = \cbk{0}$ and so $r(x) = 0$.
+Hence $\Rad (A)$ is not equal to $\set{x}{r(x) = 0}$.
+\end{proof}
+
+\begin{ex}
+There is an algebraically semisimple non-commutative Banach algebra.
+\end{ex}
+\begin{proof}
+We show that $\bbB (H)$, the algebra of bounded linear operators
+from a Hilbert space $H$ into $H$ is semisimple.
+
+Suppose that $x_0 \neq 0$ is fixed in $H$.
+Then
+\begin{align}
+ I_{x_0}
+ \defeq
+ \set{T \in \bbB(H)}{T x_0 = 0}
+\end{align}
+is a left ideal in $\bbB (H)$.
+We shall show that it is maximal.
+Let $J$ be a left ideal properly containing $I_{x_0}$.
+Then
+\begin{align}
+ J x_0
+ \defeq
+ \set{T x_0}{T \in J}
+\end{align}
+is a nonzero linear subspace of $H$
+which is invariant under each $S \in \bbB(H)$.
+If $J x_0 \neq H$ then there is a nonzero $y \in J x_0$ and a nonzero element $z \in H$
+such that $z \notin J x_0$.
+Setting $S = \ket{z} \bra{y} / \norm{y}^2 \in \bbB(H)$ we have $Sy = z$,
+and then $z \in J x_{0}$ since $J x_0$ is invariant under all elements of $\bbB (H)$.
+Thus $J x_0 = H$.
+
+There is $U \in J$ such that $U x_0 = x_0$.
+For each $T \in \bbB(H)$ it holds that $TU - UT \in I_{x_0}$.
+Hence $T \in J + I_{x_0} \subset J$.
+Therefore $\bbB (H) = J$.
+Thus $\Rad (\bbB(H)) \subset \cap_{x \in H \setminus \cbk{0}} I_x = \cbk{0}$.
+Therefore $\bbB(H)$ is algebraically semisimple.
 \end{proof}
 \section{Operator algebra}
 

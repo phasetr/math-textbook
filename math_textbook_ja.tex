@@ -91,6 +91,7 @@
 \newcommand{\co}{\mathrm{co}\,}
 \newcommand{\const}{\mathrm{const.}}
 \newcommand{\dom}{\mathrm{dom}\,}
+\newcommand{\Rad}{\mathrm{Rad}\,}
 \newcommand{\ran}{\mathrm{ran}\,}
 \newcommand{\algoplus}{\mathop{\hat{\bigoplus}}}
 \newcommand{\algotimes}{\mathop{\hat{\bigotimes}}}
@@ -111,6 +112,7 @@
 {\newline}{}%
 \theoremstyle{break}
 \renewcommand{\proofname}{\upbf{Proof}}
+\theoremstyle{breakdefn}
 \newtheorem{thm}{Theorem.}[section]
 \newtheorem{cor}[thm]{Corollary.}
 \newtheorem{lem}[thm]{Lemma.}
@@ -118,7 +120,6 @@
 \newtheorem{req}[thm]{Request.}
 \newtheorem{prop}[thm]{Proposition.}
 \newtheorem{axm}[thm]{Axiom.}
-\theoremstyle{breakdefn}
 \newtheorem{defn}[thm]{Definition.}
 \newtheorem{ex}[thm]{Example.}
 \newtheorem{exercise}[thm]{Exercise.}
@@ -151,6 +152,8 @@
 \newcommand{\rbkt}[2]{\left ( #1,\,#2 \right)}
 \newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}}
 \newcommand{\set}[2]{\left\{#1 \relmiddle| #2\right\}}
+\newcommand{\bra}[1]{\left\langle #1 \right|}
+\newcommand{\ket}[1]{\left| #1 \right\rangle}
 \newcommand{\trans}{\,^t\!}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%   special sums and such
@@ -300,7 +303,7 @@
 \newcommand{\sumonetoinfty}[1]{\sum_{#1 = 1}^{\infty}}
 \newcommand{\sumzerotoinfty}[1]{\sum_{#1 = 0}^{\infty}}
 \newcommand{\supp}{\mathrm{supp} \,}
-\newcommand{\Tr}{\mathrm{Tr}\,}
+\newcommand{\Trace}{\mathrm{Tr}\,}
 \newcommand{\touw}{\stackrel{\mathrm{uw}}{\to}\,}
 \newcommand{\upbf}[1]{\textup{\textbf{#1}}}
 \newcommand{\VC}{V_{\mathrm{C}}}
@@ -428,7 +431,7 @@
 
 \title{Math textbook}
 \author{相転移 P (@phasetr)\thanks{phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com}}
-\date{2014-07-06}
+\date{2014-07-19}
 
 \begin{document}
 
@@ -506,6 +509,12 @@ and connections among many branches.
 \item 京都でワークショップを 4/20 (日) に開くことになったのでお知らせしたい.
 \end{itemize}
 We has the pleasure to announce our workshop in Kyoto on April 20th (Sunday).
+
+\begin{itemize}
+\item これらノートは実質的には 2002 年秋のクーラント研究所での私のミニコースの内容にあたる. \cite{VSVaradarajan1}
+\end{itemize}
+These notes are essentially the contents of a minicourse I gave
+at the Courant Institure in the fall of 2002.
 \section{さ行}
 
 
@@ -599,9 +608,9 @@ We conclude that if $\psi$ is a miniminzer for $\calE$ so is $\psi_{s} / \norm{\
 Let $R$ be a ring (not necessarily commutative).
 
 \begin{itemize}
-\item $\Tr^{(N-k)}$ は (3.1.22) で与えられる核と作用素に関して, 単純に (3.1.27) に対する略記として考える. \cite{LiebSeiringer1}
+\item $\Trace^{(N-k)}$ は (3.1.22) で与えられる核と作用素に関して, 単純に (3.1.27) に対する略記として考える. \cite{LiebSeiringer1}
 \end{itemize}
-For our purposes, $\Tr^{(N-k)}$ can be thought of simply as a mnemonic device for (3.1.27),
+For our purposes, $\Trace^{(N-k)}$ can be thought of simply as a mnemonic device for (3.1.27),
 with the relation between kernel and operator given by (3.1.22).
 
 \begin{itemize}
@@ -714,6 +723,11 @@ the following probabilistic interpretation of the abstract set up discussed abov
 An operator.
 
 \begin{itemize}
+\item オートマトン.
+\end{itemize}
+An automaton (plural: automata).
+
+\begin{itemize}
 \item 凹.
 \end{itemize}
 Concave.
@@ -802,6 +816,11 @@ either fermions or bosons.
 \end{itemize}
 Simply speaking.
 For simplicity.
+
+\begin{itemize}
+\item 記号力学系.
+\end{itemize}
+A symbolic dynamics.
 
 \begin{itemize}
 \item 記号を濫用する. \cite{LiebSeiringer1}
@@ -1242,6 +1261,11 @@ by a specific number that can take one of the values $S = 0, 1/2, 1, 3/2, \dots$
 \item 対称性.
 \end{itemize}
 Symmetry.
+
+\begin{itemize}
+\item 対称性は量子論で常に基本的な役割を果たしてきた. \cite{VSVaradarajan1}
+\end{itemize}
+Symmetry has always played a fundamental role in quantum theory.
 
 \begin{itemize}
 \item 単位.
@@ -1725,47 +1749,47 @@ Recall that the Weyl algebra $W_n(k)$ is naturally filtered by the sub-vectorspa
 符号理論や暗号論的に安全な疑似乱数生成器 (メルセンヌツイスタ) といった情報科学への応用では標数は正でなければならない.
  }.
 
-\begin{defn}\textup{(線型/ベクトル空間の定義)}
- ここで $\bbR$ を実数の体とする: 実数はスカラーとも呼ばれる.
- その元が以下の性質を持つ時, 集合 $L$ は\textup{\textbf{線型空間}}と呼ばれる.
- 元 $x, y, z \in L$ はベクトル, $a, b \in \bbR$ は実数として次式により与えられる.
+\begin{defn}[線型/ベクトル空間の定義]
+ここで $\bbR$ を実数の体とする: 実数はスカラーとも呼ばれる.
+その元が以下の性質を持つ時, 集合 $L$ は\textup{\textbf{線型空間}}と呼ばれる.
+元 $x, y, z \in L$ はベクトル, $a, b \in \bbR$ は実数として次式により与えられる.
 \begin{enumerate}
 \item 結合律:
-  \begin{align}
-   \rbk{x + y} + z
-   =
-   x + \rbk{y + z}, \quad \forall x, y, z \in L.
-  \end{align}
+ \begin{align}
+  \rbk{x + y} + z
+  =
+  x + \rbk{y + z}, \quad \forall x, y, z \in L.
+ \end{align}
 \item 加法の可換律:
-  \begin{align}
-   x + y = y + x,  \quad \forall x, y \in L.
-  \end{align}
+ \begin{align}
+  x + y = y + x,  \quad \forall x, y \in L.
+ \end{align}
 \item 加法単位元の存在: 元 $0 \in L$ が存在し以下を満たす
-  \begin{align}
-   x + 0 = x, \quad \forall x \in L.
-  \end{align}
+ \begin{align}
+  x + 0 = x, \quad \forall x \in L.
+ \end{align}
 \item 加法逆元の存在: 任意の $x \in L$ について元 $y \in L$ が存在し
-  \begin{align}
-   x + y = 0
-  \end{align}
-    上記の $0$ に対しこの式が成り立つ.
-    すなわち逆元の一意性を示すことができる.
+ \begin{align}
+  x + y = 0
+ \end{align}
+   上記の $0$ に対しこの式が成り立つ.
+   すなわち逆元の一意性を示すことができる.
 \item スカラー（実数）とベクトルの関係:
-  \begin{align}
-   a \cdot \rbk{x + y}
-   &=
-   a \cdot x + a \cdot y, \\
-   \rbk{ab} \cdot x
-   &=
-   a \cdot \rbk{b x}, \\
-   \rbk{a + b} \cdot x
-   &=
-   a \cdot x + b \cdot x,
-  \end{align}
+ \begin{align}
+  a \cdot \rbk{x + y}
+  &=
+  a \cdot x + a \cdot y, \\
+  \rbk{ab} \cdot x
+  &=
+  a \cdot \rbk{b x}, \\
+  \rbk{a + b} \cdot x
+  &=
+  a \cdot x + b \cdot x,
+ \end{align}
 \item $\bbR$ におけるスカラー単位元の乗法:
-  \begin{align}
-   1 \cdot x = x, \quad \forall x \in L.
-  \end{align}
+ \begin{align}
+  1 \cdot x = x, \quad \forall x \in L.
+ \end{align}
 \end{enumerate}
 \end{defn}
 重要な点は次の通りです.
@@ -1797,7 +1821,8 @@ Recall that the Weyl algebra $W_n(k)$ is naturally filtered by the sub-vectorspa
 \subsection{3 より大きな有限次元空間の例}
 
 
-我々は現実世界における高次元の対象をいくつも持っています. 例えば,
+現実世界にも高次元空間の例がたくさんあります.
+例えば,
 \begin{enumerate}
 \item 株価 (の時間発展),
 \item サッカーにおけるプレイヤーの動き,
@@ -1807,7 +1832,7 @@ Recall that the Weyl algebra $W_n(k)$ is naturally filtered by the sub-vectorspa
 多く上場企業が存在し, その時間発展が現実世界で重視されています.
 この発展は高次元空間の図で数学的に表すことができます.
 
-他の例も同様に特性評価に似ています.
+他の例も似たような特徴づけがあります.
 これらは物理の解析力学に関連しています.
 更に, 解析力学は幾何学と密接な関係にあります.
 \cite{KenjiFukaya1, NakamuraYamamoto1, NakamuraYamamoto2} 参照.
@@ -1846,8 +1871,10 @@ $f = (f(1), f(2), f(3))$ と $g = (g(1), g(2), g(3))$ を 3 次元ベクトル�
 \end{align}
 と定めます.
 上記の和とスカラー乗法は線型空間の公理を満たします.
-従って, 関数空間は線型であると結論づけます\footnote{ある元の像が線型空間である時, 関数空間は線型です.
-関数空間は非線型になる場合もあり, 例えば, ある元の像が多様体や一般集合の場合です.}
+従って, 関数空間は線型空間です\footnote{ある関数空間に属する全ての関数の像が線型空間になっているとき, 関数空間自体も線型空間になります.
+ある関数空間に属する関数の像が多様体や一般の集合の場合, 関数空間は非線型です.
+つまり関数空間が代数的構造を持つかどうかは, そこに属する関数の像の代数構造に依存します.
+ }.
 \subsection{関数空間: 無限次元空間の例}
 
 
@@ -2204,7 +2231,8 @@ A Hilbert space is famous as a space where wave functions in quantum mechanics l
 
 
 There are many inner products in a function space.
-Let $\Omega$ be a (open) subset of $\bbR$ and $h \colon \Omega \to \bbR_{\geq}$ be a function satisfying
+Denote the set of nonnegative real numbers as $\bbR_{\geq 0}$.
+Let $\Omega$ be a (open) subset of $\bbR$ and $h \colon \Omega \to \bbR_{\geq 0}$ be a function satisfying
 \begin{align}
  h(x) \geq 0, \quad
  h \neq 0, \quad
@@ -2306,7 +2334,7 @@ Fundamental theorem of calculus and integration by parts lead
  &=
  (x - x_0) f'(x_0) + \sqbk{- \frac{(x-y)^2}{2} f^{(2)}(y)}_{x_0}^x + \int_{x_0}^x \frac{(x - y)^2}{2} f^{(3)} (y)dy. \\
  &=
- (x - x_0) f'(x_0) + \frac{(x-y)^2}{2} f^{(2)}(x_0) + \int_{x_0}^x \frac{(x - y)^2}{2} f^{(3)} (y)dy.
+ (x - x_0) f'(x_0) + \frac{(x-x_0)^2}{2} f^{(2)}(x_0) + \int_{x_0}^x \frac{(x - y)^2}{2} f^{(3)} (y)dy.
 \end{align}
 Further iteration leads the following Taylor's theorem.
 \begin{align}
@@ -2392,9 +2420,13 @@ Then the above solutions are
 \begin{align}
  f_k(x)
  =
- e^{ikx}, \quad
- k \in \bbZ.
+ e^{ikx}
 \end{align}
+for each $k \in \bbZ$.
+Note that computation shows the set of eigenvalues $\cbk{k}$ is, in fact, $\bbZ$ and that
+the above solutions $\cbk{f_k}$ are the eigenfunctions of each eigenequation $p f_k = k f_k$ \footnote{The proof for uniqueness of the eigenequation for each $k \in \bbZ$ needs the
+uniqueness theorem for (linear) ordinary differential equations.
+ }.
 Euler's formula says
 \begin{align}
  e^{ikx}
@@ -5845,8 +5877,56 @@ Euler (オイラー) の公式という次式になります.
 それではそろそろ微分積分に行きましょう.
 \chapter{Google の PageRank への応用}
 
+\section{アブストラクト}
 
-動画の原稿から取ってくる.
+\subsection{概要}
+
+
+Google の検索ではその精度を上げるために
+100 を越える要素を考えていることが知られている.
+最近は少しずつトレンドが変わりつつあるが,
+このうち Google 自身が「ネット上の民主主義」として強調しているページランクについて議論する\footnote{最近はリンクによる SEO の限界という話が出ていて,
+ページランクの重要性も落ちてきているようだ.
+ただ, 歴史的に Google が重要視していたという事実は変わらない.
+そこで自然言語処理を使って内容をきちんと見るようにしていこうとしているようで
+これはこれで統計学を背景にしていて数学との関係も深い.
+ }.
+
+インターネット上の Web ページをノード (vertex) と思い,
+ネットワークをグラフとして抽象化して線型代数の問題に叩き落とす.
+検索結果の即時性・計算機資源の有限性など現実的な制約も多いが,
+数値計算に関する理論的なバックアップまで含め, 知識としては教養レベルで解決できる.
+何から何まで教養レベルで簡単に解決すると思われても困るが,
+線型代数が支配する領域の広さと高い攻撃力を実感してほしい.
+
+数学としては Perron-Frobenius の定理を目標に議論を進める.
+最後に純数学的な問題として, 確率論から見ると離散時間の Markov 連鎖とエルゴード問題に関係していること\cite[7 節]{TadahisaFunaki1},
+理論物理では Hubbard モデルの強磁性相転移に関係していること\cite{HalTasaki5},
+Perron-Frobenius の無限次元版が汎関数積分 (経路積分) で酷使されていること\cite{LorincziHiroshimaBetz1}なども簡単に紹介したい.
+ニコニコ動画で動画\cite{phasetr3}も作っていて,
+物理との関係や小ネタもいろいろ説明しているのでそちらも参考にしてほしい.
+
+次のような内容・順番で講演する予定だ.
+多少変わる可能性はあるが参考にしてほしい.
+\begin{enumerate}
+\item ページランクの基本思想
+\item 問題の直観的定式化
+\item 問題の数学的定式化
+\item べき乗法とそれに関する工学的説明
+\item ハイパーリンク行列と問題: 具体例とともに
+\item Google 行列の導入
+\item Perron-Frobenius の定理による解決
+\item 数学・物理的な応用
+\end{enumerate}
+\subsection{対象}
+
+
+対象は限定しない.
+純粋な予備知識としては教養の線型代数で十分.
+その辺の数学科学部生と戦える程度で線型代数を武具として扱える力量があれば問題ない.
+今回具体的に出てくる中で一番難しいのは行列と線型写像の区別だ.
+今回, 本当に完全に数学的な意味での線型写像は出てこないが, その本質に近い形で話を展開する.
+上記区別がついていないという方もこれで勉強し直すくらいの気持ちで来て頂きたい.
 \chapter{量子力学を理解するために斎藤正彦『線型代数入門』\cite{MasahikoSaitoh1}を読む人が注目すべき点}
 
 
@@ -18545,7 +18625,7 @@ $t>0$ のときはまともな関数なのに極限を取ると超関数にな�
 れは一次元調和振動子の摂動みたいなものなのでモデル自体は非常にシンプルですが, 最近ホットな話題と聞いています.
 あまり物理っぽい話を紹介できなくて申し訳ないのですが,
 学部に毛が生えた程度, または本当に学部の物理水準でも既に数学としては色々問題があります.
-解決済みですが, 量子統計だと平衡状態が物理で書かれる $\Tr e^{- \beta H}$ という形では存在しないという問題もあったのでした.
+解決済みですが, 量子統計だと平衡状態が物理で書かれる $\Trace e^{- \beta H}$ という形では存在しないという問題もあったのでした.
 \chapter{近似としての量子力学での摂動論の原理的問題}
 
 
@@ -18934,7 +19014,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
  x \label{Hinashiro_math_party_1_probability_2}
 \end{align}
 が導ける.
-最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[37].
+最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[39].
 
 再び $x \neq 0$ を仮定しよう \footnote{ハイパーどうでもいいが「再びマタタビ楕円型」という天啓を得たことを記録しておく.
  }.
@@ -18957,7 +19037,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
 \subsection{Rademacher 関数}
 
 
-これまではまさに高校の数学だった \footnotemark[34].
+これまではまさに高校の数学だった \footnotemark[36].
 本番はここからだ.
 式 (\ref{Hinashiro_math_party_1_probability_3}) を別の観点から眺めてみようという体で,
 唐突に次の無茶苦茶な理論展開を見せる.
@@ -19032,7 +19112,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
 本質が見えるようになるまでは偶然というほかない.
 ここで式 (\ref{Hinashiro_math_party_1_probability_3}) を別の方法で導いてみよう.
 
-唐突だが次の関数を考える \footnotemark[35].
+唐突だが次の関数を考える \footnotemark[37].
 いったん少し面倒な方法で取り組んでみよう.
 \ref{Hinashiro_math_party_1_probability_14} 節で整理するので少しのあいだ我慢してほしい.
 \begin{align}
@@ -19054,7 +19134,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
  =
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}.
 \end{align}
-ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[36].
+ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[38].
 したがって
 \begin{align}
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}
@@ -19422,7 +19502,7 @@ Chebyshev による簡明かつ重要な結果を使った証明だけ紹介し�
 これで簡単に (\ref{Hinashiro_math_party_1_probability_8}) が証明できた.
 
 Chebyshev の不等式だけでなく, Rademacher 関数の独立性, つまり \ref{Hinashiro_math_party_1_probability_11} の結果も本質的に効いている.
-実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[38].
+実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[40].
 弱法則ではまだまだほしい内容に足りない.
 「儲けが際限なく大きくなる確率が 0 に収束する」くらいの微妙なことしか言っていないからだ.
 平均がばっちり 0 に行くことを証明したい.
@@ -21707,10 +21787,41 @@ $D_n$ 型, $E_6, E_7, E_8$ 型の特異点をブローアップを繰り返す�
 
 
 \begin{ex}[Manifolds without countable base]
- See \cite{CalabiRosenlicht1} for details.
+\cite{CalabiRosenlicht1} 参照.
 \end{ex}
+
+\begin{ex}[\cite{RichardGSwan1}]
+一般に ベクトル束に対する束写像の核と像はベクトル束にならない.
+\end{ex}
+\begin{proof}
+$I$ を 1 次元の単位区間とし, $\xi = I \times \bbR$, 射影を $p(x,y) = x$ とする.
+$f \colon \xi \to \xi$ を $f(x,y) = (x, xy)$ とすると,
+$f$ の像は $x = 0$ のファイバーが $0$ で, それ以外のファイバーは次元 $1$ になる.
+したがって $\Image f$ はベクトル束にならない.
+同様に $\ker f$ もベクトル束にならない.
+\end{proof}
 \chapter{解析学}
 
+
+\begin{ex}
+$\bbQ$ 上連続で $\bbR$ に連続拡張できる関数と連続拡張できない関数が存在する.
+\end{ex}
+\begin{proof}
+$\bbQ$ 上連続で $\bbR$ に連続拡張できる関数はたくさんあり, 身近な関数はだいたいこちらだろう.
+例えば指数関数 $e^x$ は冪根を使って整数から有理数に拡張したあと, 実数に連続拡張するのは標準的な議論だ.
+むしろ $\bbR$ へ連続拡張不可能な関数が面白い.
+
+次のような関数を定義しよう.
+\begin{align}
+ f(x)
+ \defeq
+ \begin{cases}
+  0, & x^2 < 2, \\
+  1, & \text{otherwise}.
+ \end{cases}
+\end{align}
+これは $\bbQ$ で考えると連続だが $\bbR$ で考えるとこれは $x = \sqrt{2}$ で不連続になる.
+\end{proof}
 \section{Moslehian 教授のサイトから}
 
 
@@ -21718,6 +21829,8 @@ $D_n$ 型, $E_6, E_7, E_8$ 型の特異点をブローアップを繰り返す�
 Moslehian 教授にメールしたところ, URL と教授のお名前に言及すればあとは自由に使ってよいとのご快諾を頂いた.
 Moslehian 教授には改めてこちらでも感謝の意を述べたい.
 サイトの URL については参考文献の \cite{MohammadSalMoslehian1} を見てほしい.
+\subsection{Banach 環}
+
 
 \begin{ex}[単位元と Banach 環]\label{counterexamples-analysis-moslehian1}
 $0$ と $1$ を自明な冪等元と呼ぶ.
@@ -21809,6 +21922,125 @@ $h_n(x_1) \to 1$ かつ $h_n(x_2) \to 0$.
  \emptyset
 \end{gather}
 であり, $X$ は完全非連結である.
+\end{proof}
+
+\begin{ex}
+次の 4 条件のうち 3 つだけを満たすコンパクト Hausdorff 空間 $X$ と $C(X)$ の部分環が存在する.
+\begin{enumerate}
+\item 一様ノルムで閉.
+\item $X$ の点を分離する.
+\item 定数関数を含む.
+\item 複素共役で閉じている.
+\end{enumerate}
+\end{ex}
+\begin{proof}
+(1., 2., 3.); 一様閉な代数.
+$\bbC$ のコンパクトな部分集合 $X$ を取り $A$ を $X$ に極を持たない有理関数の閉包がなす環とすればいい.
+
+(2., 3., 4.):
+$X = [a, b]$ とし, $A$ を 1 変数多項式環とすればいい.
+
+(1., 3., 4.):
+$X = [a, b]$ とし, $x_1$, $x_2 \in X$ で
+\begin{align}
+ A
+ =
+ \set{f \in C(X)}{f(x_1) = f(x_2)}
+\end{align}
+とすればいい.
+\end{proof}
+
+\begin{ex}
+根基 $\Rad (A)$ が全ての準冪零元の集合 $\set{x}{r(x) = 0}$ の真の部分集合となる Banach 環 $A$ が存在する.
+ここで 上の写像 $r$ は $x \in A$ のスペクトル半径で,
+$x \in A$ のスペクトルが $\sigma x = \cbk{0}$ となるとき $x$ を準冪零または位相的冪零と呼ぶ.
+\end{ex}
+\begin{proof}
+(1.) $H$ を $\dim H \geq 2$ な Hilbert 空間とし,
+$x$, $y \in H \setminus \cbk{0}$ で $\bkt{x}{y} = 0$ とする.
+von Neumann-Schatten 積の記号として $\ket{x} \bra{y}$ を使う.
+つまり
+\begin{align}
+ \ket{x} \bra{y} z
+ \defeq
+ \bkt{z}{y} x.
+\end{align}
+ランク 1 の作用素 $\ket{x} \bra{y}$ のノルムは $\norm{x} \norm{y} \neq 0$ なので
+\begin{align}
+ \ket{x} \bra{y}
+ \neq 0.
+\end{align}
+そして
+\begin{align}
+ \rbk{\ket{x} \bra{y}}^2 z
+ =
+ \rbk{\ket{x} \bra{y}} \rbk{\bkt{z}{y} x}
+ =
+ \bkt{z}{y} \bkt{y}{x} x
+ = 0,
+\end{align}
+だから
+\begin{align}
+ \rbk{\ket{x} \bra{y}}^2
+ = 0.
+\end{align}
+したがって $\ket{x} \bra{y}$ は準冪零.
+$\bbB (H)$ は半単純なので $\Rad \rbk{\bbB (H)} = 0$, つまり
+\begin{align}
+ \rbk{\ket{x} \bra{y}} \notin \Rad \rbk{\bbB (H)}
+ =
+ \cbk{0}.
+\end{align}
+
+具体例を作ってみる.
+$A = M_2 (\bbC) \simeq \bbB (\bbC^2)$ としよう.
+$A$ は半単純環なので $\Rad (A) = \cbk{0}$.
+次の元
+\begin{align}
+ x
+ =
+ \begin{pmatrix}
+  0 & 1 \\
+  0 & 0
+ \end{pmatrix}
+\end{align}
+のスペクトルは $\sigma (x) = \cbk{0}$ でスペクトル半径も $r(x) = 0$.
+したがって $\Rad (A)$ は $\set{x}{r(x) = 0}$ にならない.
+\end{proof}
+
+\begin{ex}
+代数的に半単純な非可換 Banach 環が存在する.
+\end{ex}
+\begin{proof}
+$H$ を Hilbert 空間として $H$ 上の有界線型作用素全体の集合
+$\bbB (H)$ が半単純であることを示す.
+
+$H$ の元 $x_0 \neq 0$ を任意にとり,
+\begin{align}
+ I_{x_0}
+ \defeq
+ \set{T \in \bbB(H)}{T x_0 = 0}
+\end{align}
+とするとこれは $\bbB (H)$ の左イデアルになる.
+これが極大であることを示そう.
+$J$ を $I_{x_0}$ を真に含む左イデアルとすると
+\begin{align}
+ J x_0
+ \defeq
+ \set{T x_0}{T \in J}
+\end{align}
+は $H$ の非零な線型部分空間で $\bbB(H)$ の作用の元で不変.
+ここで $J x_0 \neq H$ と仮定し背理法を使う.
+非零の元 $y \in J x_0$ と $z \in H$ で $z \notin J x_0$ を満たす元が存在する.
+$S = \ket{z} \bra{y} / \norm{y}^2 \in \bbB(H)$ とすると $Sy = z$ となり,
+$J x_0$ は $\bbB(H)$ の作用で不変だから $z \in J x_{0}$ となり矛盾.
+したがって $J x_0 = H$ となる.
+
+ここで $U \in J$ で $U x_0 = x_0$ となる元が存在する.
+任意の $T \in \bbB(H)$ に対して $TU - UT \in I_{x_0}$ となるから
+$T \in J + I_{x_0} \subset J$ となり, これは $\bbB (H) = J$ を意味する.
+したがって $\Rad (\bbB(H)) \subset \cap_{x \in H \setminus \cbk{0}} I_x = \cbk{0}$ であり,
+$\bbB(H)$ は半単純である.
 \end{proof}
 \section{作用素環}
 

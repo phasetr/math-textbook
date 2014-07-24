@@ -2030,76 +2030,82 @@ Lebesgue の意味で 2 乗可積分な関数の空間 $L^2 (- \pi, \pi)$ は無
 また, 線型空間に必ずしも自然な位相 (topology の方) があるとは限らないこともこれでわかる.
 この関数空間に取って自然な位相 (遠近感) は何かといわれてもよく分からない.
 \end{ex}
-\subsection{Linear maps, functionals}
+\subsection{線型な写像, 汎関数}
 
 
-We usually consider maps instead of functions in university mathematics.
-In fact a map is just a function whose domain and range are general sets.
-First we define a linear map and linear functional.
+大学数学では通常, 関数の代わりに写像について考える.
+実際のところ写像は定義域と値域が一般集合である関数に過ぎない.
+まず線型写像と線型汎関数について定義する.
 \begin{defn}
- Assume $L_1$ and $L_2$ are linear spaces.
- Then a function $F \colon L_1 \to L_2$ is called a \upbf{map or operator}.
- If $F$ preserves linearity, i.e., $F$ has a property
+ $L_1$ と $L_2$ は線型空間であると仮定する.
+ その時, 関数 $F \colon L_1 \to L_2$ は\upbf{写像または作用素}と呼ばれる.
+ もし $F$ が線型性を保存するならば, すなわち $F$ は
  \begin{align}
   F \rbk{\alpha f + \beta g}
   =
   \alpha F(f) + \beta F(g), \quad \alpha, \beta \in \bbR, f, g \in L_1,
  \end{align}
- then an operator $F$ is called a \upbf{linear operator}.
+ という性質を持ち, その時, 作用素 $F$ は\upbf{線型作用素}と呼ばれる.
 
- If $L_2$ is $\bbR$ then $F$ is usually called a \upbf{functional}.
- Furthermore $F$ is called a \upbf{linear functional} if it is linear.
+ もし $L_2$ が $\bbR$ であるならば, 通常 $F$ は\upbf{汎関数}と呼ばれる.
+ また, これが線型であるならば, $F$ は\upbf{線型汎関数}と呼ばれる.
 \end{defn}
 Here are some examples.
 \begin{ex}
- We show some examples.
+ いくつかの例を示す.
 \begin{enumerate}
-\item Coordinate maps. Let $f = (f(1), f(2), \dots, f(d)) \in \bbR^d$.
-    We write a vector $f = (f_1, f_2, \dots, f_d)$ as $f = (f(1), f(2), \dots, f(d))$ for later use.
-    This is just a notational convention.
-    Then we get functionals by
+\item 座標写像. ここで $f = (f(1), f(2), \dots, f(d)) \in \bbR^d$ とする.
+    後々のためベクトル $f = (f_1, f_2, \dots, f_d)$ を $f = (f(1), f(2), \dots, f(d))$ の意味で書く.
+    これは記法の慣例に過ぎない.
+    その時, 汎関数は
    \begin{align}
     x_i \colon f \mapsto f(i).
    \end{align}
-    This is a linear functional since this has a property
+    である.
+    これは
    \begin{align}
     x_i \rbk{\alpha f + \beta g}
     =
     \alpha x_i \rbk{f} + \beta x_i \rbk{g}.
    \end{align}
-\item Definite integrals: First we define a map $I$ as
+    という性質を持つため, 線型汎関数である.
+\item 定積分: まず写像 $I$ を
    \begin{align}
      I \colon
      f \mapsto \int_{\bbR^d} f(x) dx \in \bbR.
    \end{align}
-    This is a linear functional since this has a property
+    と定義する.
+    これは
    \begin{align}
     I \rbk{\alpha f + \beta g}
     =
     \alpha I \rbk{f} + \beta I \rbk{g}.
    \end{align}
-\item Another type of a definite integral:
+    といった性質を持つため, 線型汎関数である.
+\item 別の種類の定積分:
    \begin{align}
     E \colon
     f \mapsto \int_{\bbR^d} \rbk{\abs{\nabla f(x, t)}^2 + \rbk{\frac{\partial f(x, t)}{\partial t}}^2} dx. \label{linear-algebra-and-calculus-4}
    \end{align}
-   This is a nonlinear functional.
-   In physics this $E$ is called an energy functional.
-\item Differential operators: Define an operator as
+    これは非線型汎関数である.
+    物理でこの $E$ はエネルギー汎関数と呼ばれている.
+\item 微分作用素: 作用素を
    \begin{align}
     D \colon f \mapsto \frac{d}{dx} f.
    \end{align}
-    This is a \textup{linear operator} since it satisfies
+    と定義する.
+    これは
    \begin{align}
     D \rbk{\alpha f + \beta g}
     =
     \alpha Df + \beta Dg.
    \end{align}
+    を満たすため, \textup{線型作用素}である.
 \end{enumerate}
 \end{ex}
-In this way we connects linear algebra with calculus.
-For analysis of nonlinear functionals we also need various linear spaces and
-some technique from linear algebra.
+このようにして線型代数を微積分に繋げる.
+非線型汎関数の解析には様々な線型空間と
+いくつかの線型代数による技法が必要.
 \subsection{Eigenvalues, eigenvectors}
 
 

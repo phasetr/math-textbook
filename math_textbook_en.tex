@@ -600,7 +600,7 @@ we derive many interesting properties using (mainly) algebraic thinking!
 \end{enumerate}
 
 Today's main targets are introduction to the last three items and its relation to calculus.
-\subsection{Examples of finite, but higher dimensional spaces than three}
+\subsection{Examples of finite, but higher dimensional spaces than three\label{linear-algebra-and-calculus-8}}
 
 
 We have many examples for higher dimensional objects in real world, e.g.,
@@ -683,7 +683,134 @@ We consider spaces where functions live and ones where spaces itself live.
 \subsection{Dimension}
 
 
-Later I will write this section.
+We use the terms, finite or infinite dimension, but we have not define the term, dimension.
+Furthermore not all function spaces are infinite dimensional.
+
+Firstly we define the concept of dimension and related concepts,
+and then we consider the details after that.
+\begin{defn}[Linear combinatin.]
+Suppose $L$ is a linear space and $f_1, f_2, \dots, f_k \in L$.
+For a set of real numbers $c_1, \dots, c_k \in \bbR$ vectors of the following form is called
+a linear combination of vectors $f_1, f_2, \dots, f_k$.
+\begin{align}
+ c_1 f_1 + c_2 f_2 + \cdots + c_k f_k
+\end{align}
+\end{defn}
+\begin{defn}[Linearly dependent/indepedent]
+Suppose $L$ is a linear space and $f_1, f_2, \dots, f_k \in L$.
+Vectors $f_1, \dots, f_k$ are called linearly dependent if
+the following expression holds for a set of real numbers $c_1, \dots, c_k \in \bbR$ one of which is not 0:
+\begin{align}
+ c_1 f_1 + c_2 f_2 + \cdots + c_k f_k = 0.
+\end{align}
+We can say that ``we have a nontrivial linear combination."
+
+Conversely the set of vectors $f_1, \dots, f_k$ is linearly independent
+if the above expression holds only if $c_1 = c_2 = \cdots = c_k = 0$.
+We can say that ``we have only trivial linear combination."
+\end{defn}
+\begin{defn}[finite/infinite dimension]
+A linear space $L$ is called finite dimensional
+if there is a set of vectors $f_1, f_2, \dots, f_k \in L$ with finite number
+such that each vector in $L$ is expressed by linear combination of $f_1, f_2, \dots, f_k$.
+A space $L$ is called infinite dimensional if $L$ is not a finite dimensional space.
+\end{defn}
+\begin{defn}[basis]
+Suppose $L$ is a linear space and vectors $f_1, f_2, \dots, f_k$ are in $L$.
+A set of vectors $f_1, \dots, f_k$ is called a basis of $L$ if it satisfies
+the following 2 conditions.
+\begin{enumerate}
+\item Vectors $f_1, f_2, \dots, f_k$ are linearly independent.
+\item Each vector in $L$ is expressed by a linear combination of $f_1, f_2, \dots, f_k$.
+\end{enumerate}
+\end{defn}
+\begin{defn}[dimension]
+The dimension of a (finite dimensional) linear space is
+defined by the cardinal number of a set of basis.
+\end{defn}
+
+Firstly we explain the concept of dimension.
+In geometric viewpoint in high-school
+the number of dimension corresponds to the one
+how much we need to specify the all points in a space.
+That the dimension is 3 corresponds to the fact that
+we need information, vertical, horizontal, and height to specify a point in space.
+
+We see the dimension the degree of freedom.
+In section \ref{linear-algebra-and-calculus-8} we take an example, the player's movement in soccer.
+In this case the dimension of space is $22 \times 2 = 44$ for
+there are 22 players and they move in a plane (play field).
+Computerized control of robots is a little more complex:
+the dimension of space roughly corresponds to the number of joints.
+In fact we have constraints between them:
+e.g. we cannot expand the arm if the length of it is 40 cm.
+The dimension corresponds to the number of freedom with these constraints\footnote{In fact the space for computerized control for robots is curved so we can consider it as a manifold.
+For details see the books on analytical mechanics \cite{NakamuraYamamoto1, NakamuraYamamoto2} or
+the theory of dynamical system.
+ }.
+
+We can get a point for the definition of a basis in plane.
+Usually, if we take 3 vectors in plance,
+we can express one of a vector by the other 2 vectors.
+If the 3 vectors are colinear their linear combination expresses only the point on the line.
+We must define a basis to exclude this situation.
+
+Finally we remark the definition of infinite dimensional spaces.
+We do not define it directly due to difficulty in defining algebraically infinite sum\footnote{We can consider algebraically infinite sum,
+e.g, the ring of formal power series.
+ }.
+
+If a linear combination for an infinite dimensional space is defined by $\sum_{k=1}^{\infty} c_k f_k$ naively,
+we cannot take the numbers $(c_k)$ arbitrarily because we must consider the convergence of serieses in application to analysis.
+Furthermore we consider only algebraic structure, do not consider other structures, i.e., convergence (topology).
+
+At the last of this section we take examples.
+The space of $\bbR^d$ is a $d$ dimensional linear space, of course.
+We pick up examples of function spaces with ``basis''\footnote{When considering infinite dimensional spaces
+we do not usually use basis, and
+the concept of a complete (orthonormal) system is important
+in a Hilbert space which we use frequently in quantum mechanics, e.g.
+ }.
+
+\begin{ex}[a space of sequence]
+The space of absolutely summable sequences $\ell^1$ is an infinite dimensional space.
+Here we define vectors
+\begin{align}
+ e_i
+ =
+ \rbk{0, \dots, 0, \dots, 1, \dots},
+\end{align}
+whose components are all 0 other than $i$-th component which is 1,
+and then the set $\rbk{e_i}$ becomes a basis.
+\end{ex}
+\begin{ex}[A infinite dimensional function space]
+The space of square integrable functions in the sense of Lebesgue $L^2 (- \pi, \pi)$ is infinite dimensional.
+For a ``basis" we can take the set of functions $\rbk{e^{i k \pi}}_{k \in \bbZ}$.
+This corresponds to the Fourier series expansion.
+\end{ex}
+\begin{ex}[A finite dimensional function space: the solution space for a differential equation]
+Consider the following differential equation (equation of motion).
+\begin{align}
+ m \frac{d^2 x}{dt^2}
+ =
+ -k x.
+\end{align}
+The general solution of the above is described by
+\begin{align}
+ x(t)
+ =
+ A \sin \omega t + B \cos \omega t
+ =
+ A \sim \rbk{\omega t + \theta}, \quad \omega = \sqrt{k / m}
+\end{align}
+This solution space becomes linear: a linear combination of solutions also becomes a solution.
+
+The dimension of the space is 2.
+This corresponds to the degree of freedom of an amplitude $A$ and the initial phase $\theta$.
+Note that not all function space is infinite dimensional.
+Furthermore this teaches us that there is not always natural topology in linear spaces.
+What is natural topologies for this solution space?
+\end{ex}
 \subsection{Linear maps, functionals}
 
 
@@ -15268,7 +15395,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
  x \label{Hinashiro_math_party_1_probability_2}
 \end{align}
 が導ける.
-最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[37].
+最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[40].
 
 再び $x \neq 0$ を仮定しよう \footnote{ハイパーどうでもいいが「再びマタタビ楕円型」という天啓を得たことを記録しておく.
  }.
@@ -15291,7 +15418,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
 \subsection{Rademacher 関数}
 
 
-これまではまさに高校の数学だった \footnotemark[34].
+これまではまさに高校の数学だった \footnotemark[37].
 本番はここからだ.
 式 (\ref{Hinashiro_math_party_1_probability_3}) を別の観点から眺めてみようという体で,
 唐突に次の無茶苦茶な理論展開を見せる.
@@ -15366,7 +15493,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
 本質が見えるようになるまでは偶然というほかない.
 ここで式 (\ref{Hinashiro_math_party_1_probability_3}) を別の方法で導いてみよう.
 
-唐突だが次の関数を考える \footnotemark[35].
+唐突だが次の関数を考える \footnotemark[38].
 いったん少し面倒な方法で取り組んでみよう.
 \ref{Hinashiro_math_party_1_probability_14} 節で整理するので少しのあいだ我慢してほしい.
 \begin{align}
@@ -15388,7 +15515,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
  =
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}.
 \end{align}
-ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[36].
+ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[39].
 したがって
 \begin{align}
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}
@@ -15756,7 +15883,7 @@ Chebyshev による簡明かつ重要な結果を使った証明だけ紹介し�
 これで簡単に (\ref{Hinashiro_math_party_1_probability_8}) が証明できた.
 
 Chebyshev の不等式だけでなく, Rademacher 関数の独立性, つまり \ref{Hinashiro_math_party_1_probability_11} の結果も本質的に効いている.
-実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[38].
+実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[41].
 弱法則ではまだまだほしい内容に足りない.
 「儲けが際限なく大きくなる確率が 0 に収束する」くらいの微妙なことしか言っていないからだ.
 平均がばっちり 0 に行くことを証明したい.

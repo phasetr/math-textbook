@@ -2101,35 +2101,47 @@ In this way we connects linear algebra with calculus.
 For analysis of nonlinear functionals we also need various linear spaces and
 some technique from linear algebra.
 \subsection{Eigenvalues, eigenvectors}
+\subsection{固有値, 固有ベクトル}
 
 
 These are not learned explicitly in high school.
 However they sometimes appears in entrance exams.
+これらを高校ではっきりとは学ばない.
+けれども受験では時々登場する.
 \begin{defn}
  Let $A$ be a linear operator on a linear space $L$.
  A real number $\lambda$ resp. a vector $f$ are called an \upbf{eigenvalue} resp. \upbf{eigenvector}
  if they satisfy
+ $A$ を線型空間 $L$ における線型作用素とする.
+ 実数 $\lambda$ とベクトル $f$ はそれぞれ
  \begin{align}
   A f = \lambda f, \quad
   f \neq 0.
  \end{align}
+ を満たす時に\upbf{固有値}と\upbf{固有ベクトル}と呼ばれる.
 \end{defn}
 Here are examples.
+例を示す.
 \begin{ex}
  Let $D^2$ be a second order differential operator (this is linear) with respect to time and consider
+ $D^2$ を時間に関する (線型の) 二階微分作用素とし,
   \begin{align}
    m D^2 x
    =
    -k x,
   \end{align}
+ について考えると, すなわち
  i.e.,
   \begin{align}
    m \frac{d^2 x (t)}{dt^2}
    =
    -k x(t).
   \end{align}
+ である.
  This is an equation of motion for a spring in physics.
  A solution (eigenvector) is
+ これは物理におけるバネの運動方程式である.
+ 解 (固有ベクトル) は
   \begin{align}
    x(t)
    =
@@ -2138,42 +2150,65 @@ Here are examples.
    =
    \sqrt{\frac{k}{m}}.
   \end{align}
+ である.
  We can write a solution using a celebrated Euler's formula:
+ 有名なオイラーの公式を用いて解を書くことができる:
   \begin{align}
    x(t)
    =
    A e^{i \rbk{\omega t + \theta}}.
   \end{align}
  Consideration of eigenvalues for a differential equation is somewhat difficult and we omit it.
+ 微分方程式の固有ベクトルについて考えることは少々困難だし, 怠ってしまう.
  See, e.g., \cite{HaimBrezis1, HaimBrezis2} for details.
+ 詳細は, 例えば \cite{HaimBrezis1, HaimBrezis2} を参照.
 \end{ex}
 \subsection{Mathematical application of linear algebra}
+\subsection{線型代数の数学的応用}
 
 
 There many branches related to linear algebra.
 Here are some examples.
 See also \cite{phasetr2}.
+線型代数に関わる多くの分科がある.
+ここにいくつかの例を示す.
+\cite{phasetr2} 参照.
 \begin{enumerate}
 \item Theory of Lie group and its representation theory.
+\item リー群論とその表現論.
 \item General algebra.
+\item 一般代数学.
 \item Algebraic geometry.
+\item 代数幾何学.
 \item Analysis of differential equations.
+\item 微分方程式の解析.
 \item Functional analysis.
+\item 関数解析学.
 \item Operator algebra.
+\item 作用素環論.
 \end{enumerate}
 \subsection{Physical application}
+\subsection{物理的応用}
 
 
 There many branches related to linear algebra in physics, too.
 See also \cite{phasetr2}.
+物理でもまた, 線型代数に関わる多くの分科がある.
+\cite{phasetr2} 参照.
 
 For example, in quantum mechanics, one of the most fundamental physical theory,
 linearity is important and fundamental.
 We say ``a superposition principle valids for wave functions,''
 and this ``superposition'' means linearity.
+例えば, 量子力学において, 最も基礎的な物理理論の 1 つ,
+線型性は重要であり基礎的である.
+``重ね合わせの原理は波動関数において妥当である'' と言う時,
+この ``重ね合わせ'' とは線型性を意味する.
 
 In high school we learn a superposition principle for wave.
 This holds because our wave equation is linear in high school.
+高校では波における重ね合わせの法則について学ぶ.
+高校において波動方程式が線型であるため, これは成り立つ.
 \subsection{Linear algebra and statistics}
 
 

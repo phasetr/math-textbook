@@ -2100,18 +2100,12 @@ Here are some examples.
 \end{ex}
 このようにして線型代数を微積分と繋げる.
 非線型汎関数の解析に対しても, 様々な線型空間と線型代数由来の技術が必要になる.
-\subsection{Eigenvalues, eigenvectors}
 \subsection{固有値, 固有ベクトル}
 
 
-These are not learned explicitly in high school.
-However they sometimes appears in entrance exams.
 これらを高校ではっきりとは学ばない.
 けれども受験では時々登場する.
 \begin{defn}
- Let $A$ be a linear operator on a linear space $L$.
- A real number $\lambda$ resp. a vector $f$ are called an \upbf{eigenvalue} resp. \upbf{eigenvector}
- if they satisfy
  $A$ を線型空間 $L$ における線型作用素とする.
  実数 $\lambda$ とベクトル $f$ はそれぞれ
  \begin{align}
@@ -2120,10 +2114,8 @@ However they sometimes appears in entrance exams.
  \end{align}
  を満たす時に\upbf{固有値}と\upbf{固有ベクトル}と呼ばれる.
 \end{defn}
-Here are examples.
 例を示す.
 \begin{ex}
- Let $D^2$ be a second order differential operator (this is linear) with respect to time and consider
  $D^2$ を時間に関する (線型の) 二階微分作用素とし,
   \begin{align}
    m D^2 x
@@ -2131,15 +2123,12 @@ Here are examples.
    -k x,
   \end{align}
  について考えると, すなわち
- i.e.,
   \begin{align}
    m \frac{d^2 x (t)}{dt^2}
    =
    -k x(t).
   \end{align}
  である.
- This is an equation of motion for a spring in physics.
- A solution (eigenvector) is
  これは物理におけるバネの運動方程式である.
  解 (固有ベクトル) は
   \begin{align}
@@ -2151,16 +2140,13 @@ Here are examples.
    \sqrt{\frac{k}{m}}.
   \end{align}
  である.
- We can write a solution using a celebrated Euler's formula:
  有名なオイラーの公式を用いて解を書くことができる:
   \begin{align}
    x(t)
    =
    A e^{i \rbk{\omega t + \theta}}.
   \end{align}
- Consideration of eigenvalues for a differential equation is somewhat difficult and we omit it.
  微分方程式の固有ベクトルについて考えることは少々困難だし, 怠ってしまう.
- See, e.g., \cite{HaimBrezis1, HaimBrezis2} for details.
  詳細は, 例えば \cite{HaimBrezis1, HaimBrezis2} を参照.
 \end{ex}
 \subsection{Mathematical application of linear algebra}

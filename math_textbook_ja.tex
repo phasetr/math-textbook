@@ -431,7 +431,7 @@
 
 \title{Math textbook}
 \author{相転移 P (@phasetr)\thanks{phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com}}
-\date{2014-07-24}
+\date{2014-08-05}
 
 \begin{document}
 
@@ -1159,6 +1159,16 @@ $\gamma$ and $d$ satisfy certain conditions (stated in the theorem below).
 \end{itemize}
 Two numbers, generalizing the genus of a projective curve, play
 an important rose in higher dimensions.
+
+\begin{itemize}
+\item 主イデアル.
+\end{itemize}
+A principal ideal.
+
+\begin{itemize}
+\item 準素イデアル
+\end{itemize}
+A primary ideal.
 
 \begin{itemize}
 \item 剰余環.
@@ -2050,7 +2060,6 @@ Lebesgue の意味で 2 乗可積分な関数の空間 $L^2 (- \pi, \pi)$ は無
  もし $L_2$ が $\bbR$ であるならば, 通常 $F$ は\upbf{汎関数}と呼ばれる.
  さらにこれが線型なら, $F$ は\upbf{線型汎関数}と呼ばれる.
 \end{defn}
-Here are some examples.
 \begin{ex}
 いくつかの例を紹介しよう.
 \begin{enumerate}
@@ -2103,8 +2112,8 @@ Here are some examples.
 \subsection{固有値, 固有ベクトル}
 
 
-これらは高校ではっきりとは学ばない.
-けれども受験では時々登場する.
+これらは高校できちんと出てくるわけではない.
+しかし受験では時々登場する.
 \begin{defn}
  作用素 $A$ を線型空間 $L$ 上の線型作用素とする.
  実数 $\lambda$ とベクトル $f$ が次の条件を満たす時, それぞれ\upbf{固有値}と\upbf{固有ベクトル}と呼ぶ.
@@ -2147,7 +2156,7 @@ Here are some examples.
  微分方程式の固有ベクトルを考えることは少々難しいので省略する.
  詳細は, 例えば \cite{HaimBrezis1, HaimBrezis2} を参照.
 \end{ex}
-\subsection{線型代数の数学的応用}
+\subsection{線型代数の数学内部での応用}
 
 
 多くの分野が線型代数と関係している.
@@ -2161,7 +2170,7 @@ Here are some examples.
 \item 関数解析.
 \item 作用素環論.
 \end{enumerate}
-\subsection{物理的応用}
+\section{物理での応用}
 
 
 物理でも多くの分野が線型代数と関係している.
@@ -2176,18 +2185,18 @@ Here are some examples.
 重ね合わせが成り立つのは高校の波動方程式は線型だからだ.
 \subsection{線型代数と統計学}
 
-
 統計学は人文学と社会学を含む様々な分野で使われている.
 例えば, 自然言語処理は人文学・情報理論と深い関係がある.
 この領域は確率論と統計学を含む幅広い知識を必要とする.
 興味のある読者は, 例えば主成分分析などを学んでほしい.
-\subsection{線型代数と計算機科学・情報学}
+\section{線型代数と計算機科学・情報学}
 
 
 計算機科学にも応用がある.
 数値解析では線型代数を使う.
-現実世界への応用については符号理論, 疑似乱数, 画像圧縮, グーグルのページランクなどを参照してほしい.\footnote{例えば, 私の動画
-\href{http://www.nicovideo.jp/watch/sm7599426}{http://www.nicovideo.jp/watch/sm7599426}, \href{http://www.nicovideo.jp/watch/sm10684363}{http://www.nicovideo.jp/watch/sm10684363}を参照してほしい.}.
+現実世界への応用については符号理論, 疑似乱数,
+画像圧縮, グーグルのページランク\footnote{This is a definition of the Riemann integral.
+ }などを参照してほしい.
 \section{Integration}
 
 \subsection{Let's define inner products!}
@@ -2302,8 +2311,7 @@ Then we get a sum
 \begin{align}
  \sum_{k=1}^{d} f \left( \frac{k}{d} \right) g \left( \frac{k}{d} \right) \frac{1}{d}.
 \end{align}
-This is an expression, known as 区分求積法 in high school\footnote{This is a definition of the Riemann integral.
- }.
+This is an expression, known as 区分求積法 in high school\footnotemark[6].
 
 Taking a limit $d \to \infty$ the above sum becomes an integral.
 \begin{align}
@@ -19136,7 +19144,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
  x \label{Hinashiro_math_party_1_probability_2}
 \end{align}
 が導ける.
-最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[42].
+最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[41].
 
 再び $x \neq 0$ を仮定しよう \footnote{ハイパーどうでもいいが「再びマタタビ楕円型」という天啓を得たことを記録しておく.
  }.
@@ -19159,7 +19167,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
 \subsection{Rademacher 関数}
 
 
-これまではまさに高校の数学だった \footnotemark[39].
+これまではまさに高校の数学だった \footnotemark[38].
 本番はここからだ.
 式 (\ref{Hinashiro_math_party_1_probability_3}) を別の観点から眺めてみようという体で,
 唐突に次の無茶苦茶な理論展開を見せる.
@@ -19234,7 +19242,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
 本質が見えるようになるまでは偶然というほかない.
 ここで式 (\ref{Hinashiro_math_party_1_probability_3}) を別の方法で導いてみよう.
 
-唐突だが次の関数を考える \footnotemark[40].
+唐突だが次の関数を考える \footnotemark[39].
 いったん少し面倒な方法で取り組んでみよう.
 \ref{Hinashiro_math_party_1_probability_14} 節で整理するので少しのあいだ我慢してほしい.
 \begin{align}
@@ -19256,7 +19264,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
  =
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}.
 \end{align}
-ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[41].
+ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[40].
 したがって
 \begin{align}
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}
@@ -19624,7 +19632,7 @@ Chebyshev による簡明かつ重要な結果を使った証明だけ紹介し�
 これで簡単に (\ref{Hinashiro_math_party_1_probability_8}) が証明できた.
 
 Chebyshev の不等式だけでなく, Rademacher 関数の独立性, つまり \ref{Hinashiro_math_party_1_probability_11} の結果も本質的に効いている.
-実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[43].
+実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[42].
 弱法則ではまだまだほしい内容に足りない.
 「儲けが際限なく大きくなる確率が 0 に収束する」くらいの微妙なことしか言っていないからだ.
 平均がばっちり 0 に行くことを証明したい.
@@ -20340,8 +20348,1663 @@ Then a net limit functional is the desired one.
 There are two proofs in \cite{AsaoArai5}.
 One is abstract and uses \textbf{nuclear extension}.
 The other is concrete and uses a \textbf{quantum mechanical harmonic oscillator}
-\chapter{講演原稿: エルゴード理論}
+\chapter{セミナー原稿: エルゴード理論入門}
 
+
+これは \cite{MarkKac1} にある解析数論と確率論,
+とくにエルゴード理論の関係に関する学部 3 年向けセミナー用に準備した原稿にあたる.
+主に文献 \cite{OmriSarig1, MarkKac1} を参考にしている.
+Lebesgue 積分論は前提にする.
+
+メインは \ref{introduction-to-ergodic-theory14} 節と \ref{introduction-to-ergodic-theory16} だ.
+\ref{introduction-to-ergodic-theory23} 節で \ref{introduction-to-ergodic-theory14} 節の準備をし,
+\ref{introduction-to-hyperbolic-geometry4} 章で \ref{introduction-to-ergodic-theory16} 節の幾何学的な詳細を議論している.
+\section{力学系とは}
+
+
+エルゴード理論は力学系の理論の一分野と思える.
+ある数学的対象の``時間''発展を調べようというのが力学系の理論だ.
+例えば作用素環での $C^*$ 力学系は (非平衡) 統計力学に応用できる.
+$C^*$ 力学系の研究対象は次の 3 つ組 $\rbk{\calA, \alpha_t, \psi}$ で,
+$\calA$ は $C^*$-環, $\alpha_t$ は時間発展を記述する $\calA$ の自己同型群,
+そして $\psi$ は $C^*$-環上の状態だ.
+極限 $\lim_{t \to \infty} \psi \circ \alpha_t$ が存在するか, 一意的かといったことや,
+これらが漸近的にどう振る舞うか, そして極限として得られる状態がどういう性質を持つかが研究されている\footnote{ついでにいうと場の量子論にも応用があるし, 数学それ自体としても深い議論がある.
+代数的場の量子論については \cite{HansJurgenBorchers1, HansJurgenBorchers2} などを参考にしてほしい.
+両方とも学部の頃にアタックして全く理解できずに撃沈した記憶があるので,
+誰かセミナーしてくれる人がいると非常にありがたい.
+ }.
+
+抽象的には, まず集合 $X$ とその上に作用する写像 $T$ を考える.
+ある点 $x$ に写像 $T$ を繰り返し作用させる点の列 $T^n (x)$ を考え,
+その極限を考えるというのが一番の基本だ.
+写像自体の極限を考えることもある.
+
+一般には半群 $G$ の作用とその極限を考えることが多い.
+代表的なのは非負の実数 $\mathbb{R}_{\geq}$.
+これは微分方程式の時間発展とその極限と思うこともできて,
+量子力学などで大事な散乱理論もこの枠内に入る.
+半群にするのは熱方程式など時間が一方向しかない場合もあって,
+その発展を追いたい場合があるからだ.
+写像が作る半群 $(T_g)_{g \in G}$ はフロー (流れ) ともいう.
+
+集合 $X$ と写像 $T$ の性質によって大体次の 3 パターンがある.
+この辺がよく研究されている対象ということだ.
+\begin{enumerate}
+\item 微分可能力学系: $X$ は滑らかな多様体で $T$ も可微分写像.
+\item 位相力学系: $X$ は位相空間で $T$ は連続写像.
+\item エルゴード理論: $X$ は測度空間で $T$ は可測写像.
+\end{enumerate}
+力学系と解析力学の話題については \cite{NakamuraYamamoto1, NakamuraYamamoto2} の 4.3 節などが参考になる.
+キーワードもいくつかあげておこう.
+
+キーワード: 固定点, 特異点, 平衡解, 周期解, 安定解, 構造安定性, リミットサイクル,
+固定点まわりの線型化, 力学行列, アトラクタ, 分岐, Liapunov 関数, Poincar\'e 写像, カオス.
+\section{他の分野との関係}
+
+\subsection{力学系}
+
+
+可微分力学系・位相力学系は幾何学と関係が深い.
+たとえば葉層構造や Hamilton フロー, Ricci フローがある.
+
+計算機科学と関係が深いオートマトンや記号力学系という分野もある.
+記号力学系は数論や作用素環とも関係がある.
+Cantor 集合が出てきたりとなかなか面白い.
+
+$C^*$- または $W^*$-力学系は名前の通り作用素環の理論だ.
+たとえば量子統計や場の量子論への応用があり, 自己同型群のスペクトル解析にも面白い話題 \cite{HansJurgenBorchers1, HansJurgenBorchers2, WojciechDybalski1} がある.
+この本・論文では時間発展というよりも時空並進群 $\bbR^4$
+(正確には Minkowski 計量を入れた Minkowski 空間) の作用を考え,
+それが生成する自己同型群 $(\alpha_x)$ の (結合) スペクトルを見る.
+最近のトレンドとはかけ離れているとは思うが多変数関数論の結果を使うし,
+$\alpha_x (A)$ を作用素環値超関数と思って超関数の Fourier 変換を発動させたりと,
+まさに関数解析・調和解析という感じで私好みの議論が展開される.
+\subsection{スペクトル理論}
+
+
+\cite{ShinyaKoyama1} は Riemann 多様体上の Laplacian のスペクトル解析と,
+離散スペクトルが作る力学系のエルゴード性の関連が数論の視点から議論されている.
+
+また, \cite{OmriSarig1} の 3 節にもいろいろ書いてある.
+楽しそう.
+\subsection{エントロピー}
+
+
+\cite{OmriSarig1} の 4 節にいろいろ書いてある.
+エントロピー自体, 物理や情報理論と関係の深いいろいろな展開がある.
+量子情報周りと関係した量子エントロピーの議論は \cite{OhyaPetz1} が参考になるかもしれない.
+私はこれを普通に作用素環での量子統計力学での定式化とそこでのエントロピーの議論の勉強をするのに使った.
+具体的には \cite{DerezinskiJaksicPillet1} の勉強をするときに少し参考にした.
+これ自体非平衡統計への応用を目指した論文で, これを使って非平衡統計の基本問題, 平衡への回帰を議論する.
+これは時間漸近挙動を追いかけるという意味で力学系の話題であり, 研究最前線の話題だ.
+\subsection{散乱理論}
+
+
+時間無限大の挙動を追うという部分を取り上げると散乱理論との関係が出てくる.
+散乱理論自体が巨大な分野なので, ネタはいろいろある.
+私が知っているのは量子力学, 特に場の量子論方面だが, 波動方程式と絡めた偏微分方程式との関係もある.
+偏微分方程式との兼ね合いでいうなら, Schr\"odinger 方程式での散乱もあれば Klein-Gordon の散乱もある.
+(非線型) Klein-Gordon の場合, 質量があるときとないときで定性的な振舞いが大きく変わるという
+(物理的には期待される) 結果もあり, なかなか楽しそう.
+場の量子論の散乱については例えば \cite{WojciechDybalski1} が楽しそう.
+学生の頃に読もうと思って難しくて挫折した遠い記憶が蘇える.
+\subsection{表現論}
+
+
+表現の既約性の判定条件としてエルゴード性が使えることがある.
+例えば \cite{KobayashiOshima1} 2.2 (c) を見てほしい.
+\subsection{数論}
+
+
+あとで上半平面を具体例として取り上げるのだが,
+これが保型形式とも関係してくることがあり, たとえばそこからのいろいろな議論がある.
+\textbf{上半平面}や\textbf{保型形式}で検索するとたくさん出てくる.
+保型形式は谷山-志村予想 (Wiles の定理) によって楕円曲線と関係すると言えばどのくらい危険な対象かわかってもらえるだろう.
+
+連分数展開や解析数論との関係は実際にあとで取り上げる.
+連分数展開自体, Diophantine 問題との関係がある.
+\cite{YasuykiNakamura1} の 4 節にも双曲曲面の理論と連分数展開の話題があるので,
+興味があれば参考にしてほしい.
+
+また $\zeta$ と関係して\textbf{数論的量子カオス}や\textbf{量子エルゴード性}という話もある.
+これはスペクトル理論とも深く関係している.
+\subsection{解析力学}
+
+
+そもそも力学系の理論自体, Poincar'e による三体問題の研究に端を発している.
+微分方程式の定性的解析という大きな潮流を生み出した研究だ.
+あとで簡単に説明するが,
+(古典) 統計力学への応用に関してもこの解析力学で始まった問題の解決に使った議論を元にしている部分がある.
+
+例えば相空間 (シンプレクティック多様体) 上の Hamilton フローといった話題がある.
+解析力学自体は \cite{KenjiFukaya1, NakamuraYamamoto1, NakamuraYamamoto2} を見てほしい.
+\cite{NakamuraYamamoto1} では力学系の解析力学への応用も議論している.
+\subsection{一般相対論}
+
+
+Lorentz 多様体での球面の対応物を de Sitter 時空という.
+正確には次の通り.
+\begin{defn}[de Sitter 時空]
+極大対称かつ単連結で正の定曲率を持つ $n$ 次元 Lorentz 多様体を
+\textbf{$n$ 次元 de Sitter 時空 (多様体)}と呼び $dS^n$ と書く.
+\end{defn}
+一般相対論での議論上の目的で時空をコンパクト化したいときがあり,
+Lorentz 群 $SO(3, 1)$ の適当な離散部分群 $\Gamma$ を取る.
+商空間 $dS^3 / \Gamma$ を構成したいが,
+そもそも $\Gamma$ の $dS^3$ への作用自体が真性不連続にならず (商空間が多様体にならない),
+$\Gamma$ の作用の列 $\cbk{\gamma^m}$ は $dS^3$ 上に集積点を持つ.
+ここで $dS^3$ 上の集積点の存在がコンパクト負曲率空間
+$\bbH^3 / \Gamma$ 上の測地流のエルゴード的な振舞いと関係していて,
+集積点が $dS^3$ 上に稠密に存在することがわかっている\cite{IshiabashiKoikeSiinoKojima1} \footnote{これがいろいろと一般相対論的に問題らしいがよくわからない.
+そもそも一般相対論自体がよくわかっていない.
+誰か教えてほしい.
+ }.
+
+$\bbH / \Gamma$ の測地流は \ref{introduction-to-ergodic-theory16} 節で議論する.
+特に定理 \ref{introduction-to-ergodic-theory17} で測地流のエルゴード性を証明する.
+\subsection{相転移}
+
+
+注意 \ref{introduction-to-ergodic-theory18} も参照.
+
+何でもいいが, いったん $\bbZ^d$ 上のスピン系をイメージする.
+相転移が起きていないとき各スピンは互いにでたらめな向きを向いている.
+式で書くと大体次のような性質に対応する: これは強混合性 (定義 \ref{introduction-to-ergodic-theory18}) と関係がある.
+\begin{align}
+ \lim_{\abs{x - y} \to \infty}\Cov{\sigma_x, \sigma_y}
+ = 0.
+\end{align}
+一方で強磁性相転移が起きているとスピンが同じ向きを向くようになる.
+これは大体次のような性質に対応する.
+\begin{align}
+ \lim_{\abs{x - y} \to \infty}\Cov{\sigma_x, \sigma_y}
+ \neq 0.
+\end{align}
+要は, 時間ではなく空間方向でエルゴード理論を考えることもでき,
+それは相転移とも関係が深いし, 特にクラスター性としてよく議論されている.
+\subsection{作用素環}
+
+
+作用素環は非可換確率論という側面もあり, そこからエルゴード性も非可換化される.
+例えば\textbf{中心エルゴード性 (centrally ergodic property)} で調べてみるといろいろ出てくる.
+\section{物理としてのエルゴード理論}
+
+\subsection{エルゴード仮説はナンセンス}
+
+
+数学の学生向けの内容にするから,
+物理を半端にやっても消化不良になりそうだったので数学を厚くすることにした.
+そうは言うものの, 物理としてのエルゴード理論もやはり多少は説明したい\footnote{あとで調べたら \cite{AyumuSugita1} 1 節の記述がすっきりしていた.
+こちらも参照してみてほしい.
+ }.
+自分としてもまとめておいた方があとで参照が楽というのもある.
+
+相空間平均と長時間平均が一致するというのがエルゴード仮説だ.
+というわけでこの 2 つを定義しよう.
+細かい物理の説明はしない.
+詳しくは \cite{NakamuraYamamoto1, NakamuraYamamoto2} を読んでほしい.
+
+粒子数 $N$ の系を考える.
+そして相空間 (phase space)\footnote{相空間は数学的には (余) 接束だ.
+運動方程式を $dx / dt = v$, $dv / dt = F$ と 1 階の方程式と考えようと思うと,
+多様体上から接束に移って考えることになるが, それと全く同じ.
+接束で考えるときは物理としては状態空間という言葉遣いになる.
+詳しくは \cite{NakamuraYamamoto1} 参照.
+ } は $P = [0, L]^{3N} \times \bbR^{3N}$,
+Hamiltonian は $H$, ミクロカノニカル分布を考えることにして系のエネルギーは $U$ とする.
+このとき物理量の相空間平均は次のように書ける.
+\begin{align}
+ \mrm{E}_{\mrm{space}} [f]
+ :=
+ \frac{\int_{P} f(x, p) \delta (H - U) dx dp} {\int_{P} \delta \rbk{H - U} dx dp}.
+\end{align}
+ここで $\delta$ は Dirac のデルタ関数だ.
+今度は時間平均を考えよう.
+初期値 $(x(0), p(0))$ として上と同じ Hamiltonian で時間発展させたときの時間平均は次のようになる.
+\begin{align}
+ \mrm{E}_{\mrm{time}} [f]
+ :=
+ \lim_{T \to \infty} \frac{1}{T} \int_0^T f(x(t), p(t)) dt.
+\end{align}
+この上の 2 つが一致するというのがエルゴード仮説だ.
+特殊な場合には一致する数学的根拠というか定理もあるにはある.
+詳しくは \cite{HalTasaki3} を見てほしい.
+続く記述も \cite{HalTasaki3} をもとにしている.
+
+問題はあくまで物理にある.
+エルゴードが物理として駄目な理由,
+それは時間に関する問題だ.
+時間平均で極限をとっているが, もちろん
+実際には十分大きな時間の挙動として理解できればいい.
+この時間を\textbf{エルゴード時間}と呼ぶ.
+このエルゴード時間が非現実的な値になってしまうというのが問題だ.
+
+1 辺 10 cm (0.1 m: ここで有効数字は気にしない) の立方体の中に古典的な粒子が 1 つあり,
+これが立方体の中をくまなく動くとしよう.
+粒子に大きさを持たせてもいいが, 立方体を 1 辺 $10^{-7}$ m
+の小さな立方体に分割してこの小立方体全てを訪れると考えよう.
+1 辺で見て $0.1 / 10^{-7} = 10^6$ だから,
+小立方体は全部で $10^{18}$ 個ある.
+動くべき距離はどれだけ少なく見ても $10^{18} \times 10^{-7} = 10^{11}$ m ある.
+光速 $10^{9}$ m/s で動けたとしても, 100 s かかる.
+300K での大気の気体分子の速さは 400 m/s くらいだから,
+これで計算すると大体 1 粒子あたり $10^{8}$ s かかる.
+ちなみに上の大気の気体分子の速さは Boltzmann 統計から出した.
+
+相空間で全空間積分しなければいけないので少なくとも全配位空間をくまなく動きつくす必要がある.
+1 粒子のときですら既に十分問題だが,
+本命の問題は $10^{23}$ 個ある粒子が全部くまなく動きまわれという話だ.
+しかもお互いに衝突して進路を変えたりとか,
+壁との衝突を繰り返すので素直に全部まわれるわけではないとか,
+そういうことを考えながらの話だからひどいことになる.
+運動量まで埋め尽くすことを考えると絶望的としか言い様がない.
+そして今の理解では宇宙の年齢は $10^{11}$ 年 $= 10^{17}$ s だから, 文字通り桁が違う.
+\subsection{物理でのエルゴード理論とは: Liouville の定理と Poincar\'e の回帰定理}
+
+
+上で無意味とは書いたがこれからの議論の基礎なのでもう少し突っ込んで説明する.
+特に Liouville の定理, Poincar\'e の回帰定理について説明しよう.
+非平衡古典統計力学に関する論説 \cite{ShuichiTasaki1} なども参考にしてほしい.
+定理のことを書くのに古典系のセットアップを書かないといけないのでしばらくそれを書く.
+
+一辺 $L$ の箱の中に分子が $N$ 個入っているとし,
+この系の Hamiltonian を $H$ とする.
+粒子に適当に番号をつけ, $i$ 番目の一般化座標と
+一般化運動量をそれぞれ $q_i$ と $p_i$ とする.
+全部まとめた座標・運動量を $q = (q_1, \dots, q_N)$,
+$p = (p_1, \dots, p_N)$ と書こう.
+各 $q_i$ の成分は $q_i = (q_i^1, q_i^2, q_i^3)$ と書く.
+
+初期値を $(q_0, p_0)$ として,
+時間発展は次の Hamilton 方程式で書ける.
+\begin{align}
+ \frac{d p_{i}^j (t)}{dt}
+ =
+ -\frac{\partial H}{\partial q_i^j}, \quad
+ \frac{d q_{i}^j (t)}{dt}
+ =
+ \frac{\partial H}{\partial p_i^j}.
+\end{align}
+$H$ が適当にいい性質を持っていると解は一意的に存在する.
+時刻 $t$ のあとの値を $q(t), p(t)$ と書くことにすると,
+次の写像 $(T_t)$ はフローになる.
+\begin{align}
+ T_t \colon
+ (q_0, p_0) \mapsto (q(t), p(t)).
+\end{align}
+$X$ を全ての可能な (古典的) 状態とするともちろん $x \in X \to T_t (x) \in X$ となる.
+
+ここで次のような問題設定をしてみる.
+\begin{problem}
+系がある状態 $(q_0, p_0)$ から出発して,
+ある程度時間が経ったときにまた $(q_0, p_0)$ (の近く) に戻れるか?
+\end{problem}
+完全一致はいかにも大変そうだから「近く」くらいで適当にぼかした方がいいだろう.
+時間発展は $H$ が支配しているわけで,
+普通に考えると $H$ の性質に依存しそうだ.
+しかし適切な見方をすれば $H$ の詳細はほとんど関係ないことがわかる.
+もちろんこの適切な見方を発見こそが Poincar\'e の非凡な発想で,
+Poincar\'e の回帰定理として結実する.
+そしてこれを証明するのに Liouville の定理を使う.
+
+全く紹介しないのも寂しいので,
+\cite{NakamuraYamamoto1} 4.4.3-4.4.5 節を参考にして簡単な議論はしておこう.
+正準力学系の物理的に詳しい議論は同じく \cite{NakamuraYamamoto1} 4 章を参考にしてほしい\footnote{数学で詳しい本は私が知りたい.
+何となくそれらしい本は知っているが目を通したことがないので.
+ }.
+
+まず Liouville の公式からはじめよう\footnote{以下, この節の記述は物理の本をもとにしているのでかなり数学的記述は雑だ.
+あまり気にしないで読んでほしい.
+ }.
+
+\begin{thm}[{\cite[Liouville の公式, 4.4.3 節. ]{NakamuraYamamoto1}}]
+一般の微分方程式 (力学系) $dx/dt = v(x)$ を考え, 初期条件 $x_0$ の解を $x$,
+相空間の測度有限な領域 $D$ を取る.
+初期条件 $x_0$ から時刻 $t$ での解を対応させるフロー $\phi_t \colon x_0 \mapsto x$ とし,
+領域 $D$ が時刻 $\tau$ の後に領域 $\phi_{\tau} (D)$ に移ったとする.
+このとき相空間体積の変化率は次式で与えられる.
+\begin{align}\label{introduction-to-ergodic-theory5}
+ \frac{d}{dt} m \rbk{\phi_t \rbk{(D)}}
+ =
+ \lim_{\tau \to 0} \frac{m \rbk{\phi_{\tau} (D)} - m \rbk{D}}{\tau}
+ =
+ \int_D \divergence v(x) \rbk{dx}^n.
+\end{align}
+\end{thm}
+\begin{proof}
+体積は次で与えられる.
+\begin{align}
+ m (D)
+ =
+ \int_D dx_1 \wedge dx_2 \wedge \cdots \wedge dx_n.
+\end{align}
+$\bar{x} = \phi_{\tau} x$ とすると
+\begin{align}
+ m \rbk{\phi_{\tau} \rbk{D}}
+ =
+ \int_{\phi_{\tau}} \rbk{d \bar{x}}^n
+ =
+ \int_D \det \rbk{\frac{\partial \bar{x}_i}{\partial x_j}} \rbk{dx}^n.
+\end{align}
+もともとの微分方程式から $\tau$ が十分小さければ次のようになる.
+\begin{align}
+ \bar{x}
+ &=
+ x + \tau v(x) + O \rbk{\tau^2}, \\
+ \rbk{\frac{\partial \bar{x}_i}{\partial x_j}}
+ &=
+ 1 + \tau \rbk{\frac{\partial v_i}{\partial x_j}} + O \rbk{\tau^2}.
+\end{align}
+したがって
+\begin{align}
+ \det \rbk{\frac{\partial \bar{x}_i}{\partial x_j}}
+ ＝
+ \det \rbk{\delta_{i,j} + \tau \frac{\partial v_j}{\partial x_j}} + O \rbk{\tau^2}
+ =
+ 1 + \tau \, \divergence v + O \rbk{\tau^2}
+\end{align}
+となるから体積変化は次のように書ける.
+\begin{align}
+ \frac{d}{dt} m (D)
+ =
+ \lim_{\tau \to 0} \frac{m \rbk{\phi_{\tau} (D)} - m \rbk{D}}{\tau}
+ =
+ \int_D \divergence v(x) \rbk{dx}^n.
+\end{align}
+\end{proof}
+\begin{thm}[{\cite[Liouville の定理, 4.4.4 節. ]{NakamuraYamamoto1}}]\label{introduction-to-ergodic-theory6}
+$X$ の上の Lebesgue 測度 $m$ を取る.
+全ての $t$ と全ての可測集合 $E$ に対して
+$m(\phi_t E) = m(E)$ となる.
+\end{thm}
+\begin{proof}
+ここでは Hamiltonian フローを取る.
+正準 2 形式 $\rbk{\Omega^{\mu \nu}}$ は反対称なので
+\begin{align}
+ \divergence v_{H}
+ =
+ \partial_{\mu} v^{\mu}_H
+ =
+ \Omega^{\mu \nu} \partial_{\mu} \partial_{\nu} H
+ = 0.
+\end{align}
+Liouville の公式 \ref{introduction-to-ergodic-theory5} から,
+初期領域 $D_0$ と時刻 $t$ が過ぎたあとの領域 $D$ に対して
+$m(D_0) = m(D)$ が成り立つ.
+\end{proof}
+保存系を考え, $H = E \rbk{ \const }$ の超曲面を等エネルギー面と呼び $S = S(E)$ と書く.
+等エネルギー面 $S(E)$ 上の面積要素を $d \sigma$ とすると,
+次の定理で示すように, この超曲面 $S(E)$ 内の領域 $A$ の面積は次で定義できる.
+\begin{align}
+ \mu (A)
+ \defeq
+ \int_{A} \frac{d \sigma}{\abs{\nabla H}}.
+\end{align}
+\begin{thm}[{\cite[等エネルギー面上での Liouville の定理, 4.4.5 節. ]{NakamuraYamamoto1}}]\label{introduction-to-ergodic-theory20}
+$A \subset S(E)$ に対して $\mu \rbk{\phi_t (A)} = \mu (A)$ が成り立つ.
+\end{thm}
+\begin{proof}
+$S (E)$ と $S(E + \Delta E)$ の間の距離を $d \rho$ とすると,
+$\nabla H$ は $S(E)$ に垂直なので $dH = \abs{\nabla H} d \rho$.
+$H = E$ と $H = E + \Delta E$ に囲まれた空間 $S(E; \Delta E)$ の体積は
+\begin{align}
+ \int d \rho d \sigma
+ =
+ \int_{E}^{E + \Delta E} dH \int \frac{d \sigma}{\abs{\nabla H}}
+ =
+ \Delta E \int \frac{d \sigma}{\abs{\nabla H}}.
+\end{align}
+保存系を考えているからこれは時間を $t$ 進ませるフロー $\phi_t$ で変わらない.
+したがって $\mu (A) = \int_A d \sigma / \abs{\nabla H}$ もフローで不変.
+\end{proof}
+
+この準備のもとで Poincar\'e の回帰定理を示そう.
+\begin{thm}[{\cite[Poincar\'e の回帰定理, 4.4.5 節. ]{NakamuraYamamoto1}}]
+等エネルギー面 $S = S(E)$ を考える.
+$\mu (S(E)) < \infty$ のとき
+$S$ 上の任意の点の任意の近傍に, 解が繰り返しその近傍に戻ってくる点が存在する.
+\end{thm}
+\begin{proof}
+等エネルギー面上の任意の点 $p_0$ の任意の近傍として\textbf{閉}集合 $A_0$ を取る.
+$\tau > 0$ を任意に取り $\phi = \phi_{\tau}$ として次の集合列を考える.
+\begin{align}
+ A_0, \quad \phi A_0, \quad \phi^2 A_0, \dots.
+\end{align}
+等エネルギー面上でのLiouville の定理 \ref{introduction-to-ergodic-theory20} からこれらは全て同じ面積を持つ.
+$S$ は測度有限だからこれらはどこかで重なりあうため,
+自然数 $l \geq 0$ と $m > l$ に対して $k_1 = m - l$ として次が成り立つ.
+\begin{align}
+ \phi^m A_0 \cap \phi^l A_0
+ \neq
+ \emptyset, \quad
+ A_1
+ \defeq
+ \phi^{k_1} A_0 \cap A_0
+ \neq
+ \emptyset.
+\end{align}
+この $A_1$ に対して同じ議論を繰り返すと
+\begin{align}
+ \emptyset
+ \neq
+ \phi^{k_2} A_1 \cap A_1
+ \eqdef
+ A_2
+ \subset
+ A_0
+\end{align}
+となる $A_2$ がある.
+この閉集合の減少列 $(A_k)$ の極限を $A_{\infty}$ とすると,
+$A_{\infty}$ を初期値とする解は $k_1 \tau$, $(k_1 + k_2) \tau$ ごとに $A_{\infty}$ に帰ってくる.
+つまり $p_0$ の任意の近傍にも解が繰り返しその近傍に戻ってくる点が必ず存在する.
+\end{proof}
+\begin{rem}
+$\mu (S(E)) < \infty$ という条件が, 全ての物理的に真っ当な
+Hamiltonian でいつも成り立つ条件なのかきちんと調べていない.
+調和振動子くらいなら大丈夫だろうと思うが, 例えば Coulomb ポテンシャルでも大丈夫なのだろうか.
+誰かきちんと計算したら教えてほしい.
+\end{rem}
+\section{数学的設定}
+
+
+以下の数学的な議論で使う基本的な概念を整備しておこう.
+時間の関係で触れない話題もあるが, エルゴード理論の一番基本的な概念は定義しておく.
+以下 $\rbk{X, \calB, \mu}$ を測度空間とする.
+\begin{defn}
+$T$ が次の条件を満たすとき $T$ を\textbf{保測変換}という.
+$(X, \calB, \mu)$ まで含めて保測変換ということもある.
+\begin{enumerate}
+\item $T$ は可測: $E \in \calB \Rightarrow T^{-1} E \in \calB$.
+\item 測度 $m$ が $T$ 不変: $m \rbk{T^{-1} E} = m \rbk{E}$, $E \in \calB$.
+\end{enumerate}
+また, 確率空間上の保測変換を\textbf{確率保存変換}という.
+\end{defn}
+この設定に沿って Poincar\'e の回帰定理を書き直しておこう.
+\begin{thm}[Poincar\'e の回帰定理]
+$T$ を確率保存変換, $E$ を可測とする.
+ほとんど全ての $x \in E$ に対して数列 $(n_k)$ があって $n_k \to \infty$ で $T^{n_k}(x) \in E$ となる.
+\end{thm}
+\begin{rem}
+一般にただの測度空間・保測変換では Poincar\'e の回帰定理は成立しない.
+例として $\bbZ$ 上の $T(x)= x + 1$ がある.
+つまり対象としている領域の測度の有限性は本質的な条件だ.
+\end{rem}
+
+本題であるエルゴード性の定義を書いておく.
+測度と保測変換に対してエルゴードという形容がつく.
+\begin{defn}[{\cite[Definition 1.4. P.11.]{OmriSarig1}}]
+確率保存変換 $T$ は全ての $T$ 不変集合 $E$ の測度が $\mu (E) = 0$ または
+$\mu (E) = 1$ のとき\textbf{エルゴード}であるという.
+このとき測度 $\mu$ はエルゴード的な測度と呼ぶ.
+\end{defn}
+
+\begin{defn}[{\cite[Definition 1.5 P.12.]{OmriSarig1}}]\label{introduction-to-ergodic-theory19}
+確率保存変換 $T$ が全ての $E, F \in \calB$ に対して
+$\mu \rbk{E \cap T^{-k}F} \to \mu \rbk{E} \mu \rbk{F}$ $(k \to \infty)$ となるとき,
+$T$ は \upbf{(強) 混合性}があるという.
+\end{defn}
+\begin{rem}
+(強) 混合性は $T^{-k}(F)$ が $E$ と``漸近的に独立"であることを言っている.
+また, 無限測度の空間に対して強混合性にあたる概念は存在しない.
+\end{rem}
+\begin{thm}[{\cite[Proposition 1.2]{OmriSarig1}}]
+強混合性はエルゴード性を導く.
+\end{thm}
+\begin{thm}[{\cite[Proposition 1.3.]{OmriSarig1}}]\label{introduction-to-ergodic-theory21}
+確率保存変換 $T$ が強混合性を持つのと次の条件は同値になる:
+全ての $f,g \in L^2$ に対して
+\begin{align}
+ \int f \rbk{g \circ T^{n}} \dmu
+ \to
+ \int f \dmu \int g \dmu,
+\end{align}
+となる.
+これは $\Cov{f, g \circ T^n} \to 0$ とも同値.
+\end{thm}
+\begin{rem}\label{introduction-to-ergodic-theory18}
+これのいわゆる``非可換版"もあり, 特にクラスター性として量子統計でよく出てくる.
+\cite{BratteliRobinson1, BratteliRobinson2} が参考になるだろう.
+もちろん時間発展に対する議論もあるが,
+(半) 群を空間並進群に変えて相関長に関する議論をすることもあり,
+こうすると相転移や自発的対称性の破れとも関係した話になってくる.
+
+また, 注意 \ref{introduction-to-ergodic-theory9} はこれのフロー版であることも注意しておく.
+\end{rem}
+
+最後にエルゴード性の同値条件をまとめた定理を紹介しておこう.
+実際にあとでも使う, 応用上も大事な同値条件だから注意してほしい.
+証明については参考文献を見てほしい.
+\begin{thm}[{\cite[Theorem 3.2. P.31.]{JornSteuding1}}]
+次の条件は同値.
+\begin{enumerate}
+\item $T$ はエルゴード的.
+\item $\mu \rbk{T^{-1} B \triangle B} = 0$ となる $B \in \calB$ に対して $\mu (B) = 0$ または $\mu (B) = 1$.
+\item $\mu (A) > 0$ となる $A \in \calB$ に対して $\mu \rbk{\bigcup_{n=1}^{\infty} T^{-n} A} = 1$.
+\item $\mu (A) > 0$, $\mu (B) > 0$ となる $A$, $B \in \calB$ に対してある $n \in \bbN$ があって $\mu \rbk{T^{-n} A \cap B} > 0$ となる.
+\end{enumerate}
+\end{thm}
+\begin{thm}[{\cite[Theorem 3.3. P.32.]{JornSteuding1}}]
+次の条件は同値.
+\begin{enumerate}
+\item $T$ はエルゴード的.
+\item $f \colon X \to \bbR$ が可測でほとんど至るところ$f \circ T = f$ のとき $f$ はほとんど至るところ定数.
+\item $f \in L^2 (X, \mu)$ がほとんど至るところ $f \circ T = f$ のとき $f$ はほとんど至るところ定数.
+\end{enumerate}
+\end{thm}
+\section{Birkoff の各点エルゴード定理\label{introduction-to-ergodic-theory23}}
+
+
+\ref{introduction-to-ergodic-theory14} 節で使うので先に準備しておく.
+\cite{JamesPinkerton1, CharlesWalkden2} などを参考にした.
+\subsection{極大エルゴード定理}
+
+
+\begin{defn}[Ces\'aro 和]
+ 次の記号で定義される平均を \textbf{Ces\'aro 和}または \textbf{Ces\'aro 平均}という.
+ \begin{align}
+  A_n (f, x)
+  =
+  \begin{cases}
+   0 & (n=0) \\
+   \frac{1}{n} \sum_{k=0}^{n-1} f \rbk{T^k (x)} & (n \geq 1)
+  \end{cases}.
+ \end{align}
+\end{defn}
+\begin{thm}[{\cite[極大エルゴード定理, Theorem 21.4.]{CharlesWalkden2}}]\label{introduction-to-ergodic-theory2}
+$(X, \calB, \mu, T)$ を確率保存変換, $f \in L^1$ とする.
+関数列 $F_n$ と集合列 $C_n$ を次のように定義する.
+\begin{align}
+ F_n(x)
+ \defeq
+ \max_{0 \leq j \leq n} j A_j(f, x)
+ \geq 0, \quad
+ C_n
+ \defeq
+ \set{x}{F_n (x) > 0}.
+\end{align}
+このとき次の評価がなりたつ.
+\begin{align}
+ \int_{C_n} f \dmu \geq 0.
+\end{align}
+\end{thm}
+\begin{proof}
+関数の非減少列を見つけて積分をその差で書き直すのが証明のポイントで, これが言明中の $F_n$ だ.
+定義から $j = 0, \dots, n-1$ に対して $F_n \geq j A_j$ となるから $F_n \circ T \geq j A_j \circ T$ となる.
+したがって
+\begin{align}
+ F_n \circ T + f
+ &\geq
+ j A_j \circ T + f
+ =
+ (j+1) A_{j+1}, \\
+ \rto
+ F_n \circ T + f
+ &\geq
+ \max_{1 \leq j \leq n} j A_j
+ =
+ \max_{0 \leq j \leq n} j A_j \label{introduction-to-ergodic-theory15}
+\end{align}
+$C_n$ 上で考えると
+\begin{align}
+ \max_{0 \leq j \leq n} j A_j
+ =
+ F_n
+\end{align}
+だから (\ref{introduction-to-ergodic-theory15}) と合わせて次の評価が出る.
+\begin{align}
+ f
+ \geq
+ F_n - F_n \circ T \quad \text{on} \quad C_n.
+ \end{align}
+次の 3 つの性質に注意しよう.
+\begin{enumerate}
+\item $C_n^{c}$ 上 $F_n = 0$.
+\item $F_n \circ T \geq 0$.
+\item $\mu$ は $T$ 不変.
+\end{enumerate}
+これらを組み合わせて
+\begin{align}
+ \int_{C_n} f \dmu
+ &\geq
+ \int_{C_n} F_n \dmu - \int_{C_n} F_n \circ T \dmu \\
+ &=
+ \int_X F_n \dmu - \int_{C_n} F_n \circ T \dmu \\
+ &\geq
+ \int_X F_n \dmu - \int_X F_n \circ T \dmu
+ = 0.
+\end{align}
+\end{proof}
+\begin{cor}[{\cite[Corollary 21.5.]{CharlesWalkden2}}]\label{introduction-to-ergodic-theory3}
+$g \in L^1$ とし $B_{q}$ を次のように定義する.
+\begin{align}
+ B_{q}
+ \defeq
+ \set{x \in X}{\sup_{n \geq 1} A_n(g, x) > q}.
+\end{align}
+$T$ 不変な $A \in \calB$ に対して次の不等式がなりたつ.
+\begin{align}
+ q \mu \rbk{B_{q} \cap A}
+ \leq
+ \int_{B_{q} \cap A} g \dmu.
+\end{align}
+\end{cor}
+\begin{proof}
+$A \neq X$ の場合 $T$ の作用を $A$ に制限して定理
+\ref{introduction-to-ergodic-theory2} を使えばいいので $A=X$ としてよい.
+$f = g - q$, $f_n (x) = n A_n(f, x)$ として
+定理 \ref{introduction-to-ergodic-theory2} の $F_n$ を使う.
+$f_n (x) > 0$ ならば $F_n (x) >0$ で, $F_n (x) > 0$ ならば $1 \leq j \leq n$ があって $f_j (x) > 0$ となるから
+\begin{align}
+ B_{q}
+ &=
+ \bigcup_{n=1}^{\infty} \set{x}{A_n(g, x) > q} \\
+ &=
+ \bigcup_{n=1}^{\infty} \set{x}{f_n(x) > 0} \\
+ &=
+ \bigcup_{n=1}^{\infty} \set{x}{F_n(x) > 0}.
+\end{align}
+定理 \ref{introduction-to-ergodic-theory2} と同じく
+$C_n \defeq \set{x}{F_n (x) > 0}$ とすると $C_n \subset C_{n+1}$ となる.
+単調収束定理から $n \to \infty$ で $\chi_{C_n} \to \chi_{B_q}$ と $f \chi_{C_n} \to f \chi_{B_q}$ がなりたつ.
+$\abs{f \chi_{C_n}} \leq \abs{f}$ だから優収束定理が使えて
+\begin{align}
+ \int_{C_n} f \dmu
+ =
+ \int_{X} f \chi_{C_n} \dmu
+ \to
+ \int_{X} f \chi_{B_q} \dmu
+ =
+ \int_{B_q} f \dmu, \quad n \to \infty.
+\end{align}
+極大エルゴード定理 \ref{introduction-to-ergodic-theory2} から全ての $n \geq 1$ に対して
+\begin{align}
+ \int_{C_n} f \dmu \geq 0
+ \Rightarrow
+ \int_{B_q} f \dmu \geq 0, \quad \text{i.e.,} \quad
+ q \mu \rbk{B_q}
+ \leq
+ \int_{B_q} g \dmu.
+\end{align}
+\end{proof}
+\subsection{Birkhoff の各点エルゴード定理}
+
+
+\begin{thm}[{\cite[Birkhoff の各点エルゴード定理, Theorem 21.2.]{CharlesWalkden2}}]\label{introduction-to-ergodic-theory28}
+$(X, \calB, \mu, T)$ を確率保存変換とする.
+$\calI$ を $T$ 不変集合が作る $\sigma$ 加法族とすると全ての $f \in L^1$ に対して
+\begin{align}
+ A_n (f, x)
+ \to
+ \E{f | \calI} \quad \mu \mathchar`- \mathrm{a.e.}
+\end{align}
+ここで上の収束は (ほとんどいたるところの) 各点収束で $\E{f | \calI}$ は条件付期待値.
+\end{thm}
+\begin{proof}
+記号を簡略化するため次のように定義する.
+\begin{align}
+ f^*(x)
+ \defeq
+ \limsup_{n \to \infty} A_n(f, x), \quad
+ f_* (x)
+ \defeq
+ \liminf_{n \to \infty} A_n(f, x).
+\end{align}
+また次の等式が成立することに注意すると $f^* \circ T = f^*$ と $f_* \circ T = f_*$ がわかる.
+\begin{align}
+ \frac{n+1}{n} A_{n + 1}(f, x)
+ =
+ A_n (f, T(x)) + \frac{1}{n} f(x).
+\end{align}
+
+示すべきは次の 3 つの性質だ.
+\begin{enumerate}
+\item ほとんど至るところ $f^* = f_*$.
+\item $f^* \in L^1$.
+\item $\int f^* \dmu = \int f \dmu$.
+\end{enumerate}
+
+まず 1. を示す.
+$p$, $q \in \bbQ$ とし次の集合族を定義する.
+\begin{align}
+ E_{p, q}
+ \defeq
+ \set{x}{f_* (x) < p < q < f^* (x)}.
+\end{align}
+ここで次に注意する.
+\begin{align}
+ \set{x \in X}{f_* (x) < f^* (x)}
+ =
+ \bigcup_{p, q \in \bbQ} E_{p, q}.
+\end{align}
+全ての $p$, $q \in \bbQ$ に対して $\mu (E_{p, q}) = 0$ が証明できれば $f^* = f_*$ がわかる.
+$f^*$ と $f_*$ の $T$ 不変性から $T^{-1} E_{p, q} = E_{p,q}$.
+次のように $B_{q}$ を定義すると $f^* < \sup_{n \geq 1} A_n$ だから $E_{p, q} \cap B_{q} = E_{p, q}$ となる.
+\begin{align}
+ B_{q}
+ \defeq
+ \set{x \in X}{\sup_{n \geq 1} A_n(f, x) > q}.
+\end{align}
+系 \ref{introduction-to-ergodic-theory3} から
+\begin{align}
+ \int_{E_{p,q}} f \dmu
+ &=
+ \int_{E_{p,q} \cap B_{q}} f \dmu \\
+ &\geq
+ q \mu \rbk{E_{p, q} \cap B_{q}}
+ =
+ q \mu \rbk{E_{p, q}}.
+\end{align}
+$f$, $p$, $q$ をそれぞれ $-f$, $-q$, $-p$ に変えて $(-f)^* = - f_*$, $(-f)_* = - f^*$ であることを使うと
+\begin{align}
+ \int_{E_{p,q}} f \dmu
+ \leq
+ p \mu (E_{p,q})
+\end{align}
+となるので
+\begin{align}
+ q \mu (E_{p, q})
+ \leq
+ p \mu (E_{p, q})
+ \rto
+ \mu (E_{p, q}) = 0.
+\end{align}
+ここで $p < q$ を使った.
+したがってほとんど至るところ $f_* = f^*$ で
+\begin{align}
+ \limntoinfty A_n(f, x)
+ =
+ f^* (x) \quad \mu \text{-a.e.}
+\end{align}
+
+次に 2. を証明する.
+\begin{align}
+ \int \abs{A_n} \dmu
+ \leq
+ \int \abs{f} \dmu
+\end{align}
+で, Fatou の補題から $\limntoinfty \abs{A_n} = \abs{f^*}$ でこれは可積分になる.
+つまり $f^* \in L^1$.
+
+次に 3. を証明する.
+$n \in \bbN$ と $k \in \bbZ$ に対して $D_k^n$ を定義する.
+\begin{align}
+ D_{k}^n
+ \defeq
+ \set{x \in X}{\frac{k}{n} \leq f^* (x) < \frac{k+1}{n}}.
+\end{align}
+$f^* < \sup_{n \geq 1} A_n$ だから任意の $\varepsilon > 0$ に対して
+\begin{align}
+ D_k^n \cap B_{\frac{k}{n} - \varepsilon}
+ =
+ D_k^n.
+\end{align}
+$f^*$ の $T$ 不変性から $D_k^n$ は $T$ 不変なので系 \ref{introduction-to-ergodic-theory3} から
+\begin{align}
+ \int_{D_k^n} f \dmu
+ \geq
+ \rbk{\frac{k}{n} - \varepsilon} \mu \rbk{D_k^n}
+ \rto
+ \int_{D_k^n} f \dmu
+ \geq
+ \frac{k}{n} \mu \rbk{D_k^n}.
+\end{align}
+$D_k^n$ の定義, 上式とあわせて
+\begin{align}
+ \int_{D_k^n} f^* \dmu
+ \leq
+ \frac{k+1}{n} \mu \rbk{D_k^n}
+ \leq
+ \int_{D_k^n} f \dmu + \frac{1}{n} \mu \rbk{D_k^n}.
+\end{align}
+$X = \bigcup_{k \in \bbZ} D_k^n$ だから
+\begin{align}
+ \int_X f^* \dmu
+ &\leq
+ \int_X f \dmu + \frac{1}{n} \mu (X) \\
+ &=
+ \int_X f \dmu + \frac{1}{n} \\
+ \rto
+ \int_X f^* \dmu
+ &\leq
+ \int_X f \dmu.
+\end{align}
+$-f$ に対して同じ議論をして
+\begin{align}
+ \int_X \rbk{- f}^* \dmu
+ &\leq
+ \int_X -f \dmu \\
+ \rto
+ \int_X f^* \dmu
+ &=
+ \int_X f_* \dmu
+ \geq
+ \int_X f \dmu \\
+ \rto
+ \int_X f^* \dmu
+ &=
+ \int_X f \dmu.
+\end{align}
+
+最後に $f^* = \E{f | \calI}$ を証明する.
+$f^*$ は $T$ 不変だから $\calI$ 可測になる.
+$I \in \calI$ のとき $I$ との共通部分を取って上の議論を繰り返すと
+\begin{align}
+ \int_I f^* \dmu
+ =
+ \int_I f \dmu.
+\end{align}
+\end{proof}
+\begin{cor}
+$(X, \calB, \mu)$ を確率空間, $T$ を保測でエルゴードとする.
+全ての $f \in L^1$ に対して
+\begin{align}
+ A_n (f, x)
+ \to
+ \E{f} \quad \mu\text{-a.e.}
+\end{align}
+となる.
+ここで上の収束は (ほとんどいたるところの) 各点収束.
+\end{cor}
+\begin{proof}
+$T$ がエルゴードなので $\calI$ は測度が $0$ か $1$ の集合しかない.
+したがって条件付期待値が $\E{f | \calI} = \E{f}$ となる.
+\end{proof}
+\begin{rem}
+確率論を援用した議論をしているにも関わらず,
+ほとんどいたるところ確率変数にではなく確定値に収束するというのが強烈だ.
+保測性だけでは条件付期待値への収束までしか言えないが,
+エルゴード性まで課したときに発動する定理だということにも注意する.
+単純な力学系としては保測性にまでしか注目せず,
+その範囲で $T$-不変な $\sigma$-代数上の条件付期待値に収束するから,
+これを定数に持っていくための自然な条件としてエルゴード性を定義しているといってもいい.
+\end{rem}
+\section{エルゴード理論と連分数\label{introduction-to-ergodic-theory14}}
+
+
+この節は Kac の本 \cite{MarkKac1} を参考にしている.
+\subsection{連分数展開と力学系}
+
+
+実数 $x \in (0, 1)$ を取り連分数に展開する.
+\begin{align}
+ x
+ =
+ \frac{1}{a_1 + \frac{1}{a_2 + \frac{1}{a_3 + \dots}}}
+ =
+ \frac{1}{a_1+} \frac{1}{a_2+\cdots}
+ =
+ \sqbk{0, a_1, a_2, \dots}.
+\end{align}
+ここで $a_j$ は正の整数.
+これらは次のように書ける: 詳しくは \cite{HardyWright1} の 10.6 節など\textbf{連分数展開アルゴリズム}を参照してほしい.
+実数 $y$ の整数部分を $[y]$ と書くことにすると (いわゆる Gauss 記号),
+\begin{align}
+ a_1
+ =
+ a_1(x)
+ =
+ \left[ \frac{1}{x} \right], \quad
+ a_2
+ =
+ a_2(x)
+ =
+ \left[ \frac{1}{\frac{1}{x} - \left[ \frac{1}{x} \right]} \right]
+\end{align}
+となる.
+素直に書き続けると大変なことになるが,
+ここで次のフロー生成作用素 $T$ を定義しよう.
+\begin{align}
+ T(x)
+ =
+ \frac{1}{x} - \left[ \frac{1}{x} \right].
+\end{align}
+これで綺麗に書ける.
+\begin{align}
+ a_2(x)
+ =
+ a_1(T(x)), \quad
+ a_3(x)
+ =
+ a_2(T(x))
+ =
+ a_1(T^2(x)).
+\end{align}
+基礎の空間を $X = (0, 1)$ とするとこれがまさに力学系の土台に乗っている.
+\subsection{不変測度\label{introduction-to-ergodic-theory29}}
+
+
+\begin{lem}
+区間 $(\alpha, \beta)$, $0 < \alpha < \beta < 1$ に対して連分数展開の $T$ は次のように振る舞う.
+\begin{align}
+ T^{-1} \rbk{\alpha, \beta}
+ =
+ \bigsqcup_{k=1}^{\infty} \rbk{\frac{1}{k + \beta}, \frac{1}{k + \alpha}}.
+\end{align}
+また右辺の和は互いに素な集合の和になっている.
+\end{lem}
+\begin{proof}
+$0 < \alpha < \beta < 1$ なので $k \in \bbZ_{\geq 1}$ に対して
+\begin{align}
+ T \rbk{\frac{1}{\beta + k}}
+ =
+ \beta + k - \sqbk{\beta + k}
+ =
+ \beta + k - k
+ =
+ \beta, \quad
+ T \rbk{\frac{1}{\alpha + k}}
+ =
+ \alpha
+\end{align}
+となるから
+\begin{align}
+ T^{-1} \rbk{\alpha, \beta}
+ \subset
+ \bigcup_{k=1}^{\infty} \rbk{\frac{1}{k + \beta}, \frac{1}{k + \alpha}}.
+\end{align}
+がわかる.
+逆に $x \in \bigcup_{k=1}^{\infty} \rbk{\frac{1}{k + \beta}, \frac{1}{k + \alpha}}$ とすると適当な
+$k$ があって $x \in \rbk{\frac{1}{k + \beta}, \frac{1}{k + \alpha}}$ となる.
+$T$ を作用させれば
+\begin{align}
+ T \rbk{\frac{1}{k + \beta}}
+ =
+ \beta
+ \leq
+ T(x)
+ \leq
+ T \rbk{\frac{1}{k + \alpha}}
+ =
+ \alpha
+\end{align}
+だから $x \in T^{-1}(\alpha, \beta)$ であって
+\begin{align}
+ T^{-1} \rbk{\alpha, \beta}
+ =
+ \bigcup_{k=1}^{\infty} \rbk{\frac{1}{k + \beta}, \frac{1}{k + \alpha}}.
+\end{align}
+となる.
+また $0 < \alpha < \beta < 1$ だから $\beta - \alpha < 1$ で
+\begin{align}
+ \beta + k < \alpha + (k + 1)
+ \Rightarrow
+ \frac{1}{\alpha + (k + 1)} < \frac{1}{\beta + k}
+\end{align}
+だから上の和は対ごとに素.
+\end{proof}
+
+次に不変測度を見つけたい.
+本質的には Gauss が答えを見つけていた.
+(\cite[Chapter8]{JornSteuding1} も参考になる.)
+まず試験的に $(0, 1]$ 上の可積分関数 $\rho$ を次のように取ってみる.
+\begin{align}
+ \rho(x)
+ &\geq
+ 0, \\
+ \int_0^1 \rho(x) dx
+ &= 1.
+\end{align}
+さらに測度 $\mu$ を次のように定義する.
+\begin{align}
+ \mu(A)
+ \defeq
+ \int_A \rho (x) dx.
+\end{align}
+
+したがって測度は
+\begin{align}
+ \mu \rbk{T^{-1} (\alpha, \beta)}
+ =
+ \sum_{k=1}^{\infty} \int_{1 / (\beta + k)}^{1 / (\alpha + k)} \rho (x) dx.
+\end{align}
+測度 $\mu$ が保測なら
+\begin{align}
+ \int_{\alpha}^{\beta} \rho(x) dx
+ =
+ \sum_{k=1}^{\infty} \int_{1 / (\beta + k)}^{1 / (\alpha + k)} \rho (x) dx. \label{introduction-to-ergodic-theory1}
+\end{align}
+こうなる $\rho$ を見つけてくればいいのだが一般に $\rho$ について解こうと思うと難しい.
+しかし次の解を持つことはわかる.
+\begin{thm}[不変測度]\label{introduction-to-ergodic-theory24}
+次の $\rho$ は $(\ref{introduction-to-ergodic-theory1})$ の解になる.
+\begin{align}
+ \rho (x)
+ =
+ \frac{1}{\log 2} \frac{1}{1 + x}.
+\end{align}
+したがって $\mu$ がこの $\rho$ から作られているとき $T$ は $\mu$-不変.
+\end{thm}
+\begin{proof}
+記述を楽にするためこの証明中は $1 / \log 2$ は省略して書く.
+式 (\ref{introduction-to-ergodic-theory1}) の左辺は $\log (1 + \beta) - \log (1 + \alpha)$ となる.
+右辺についてはまず第 $n$ 部分和を考える.
+\begin{align}
+ \sum_{k=1}^{n} \int_{1 / (k + \beta)}^{1 / (k + \alpha)} \frac{1}{1 + x} dx
+ &=
+ \sum_{k=1}^{n} \sqbk{\log (1 + x)}_{1 / (k + \beta)}^{1 / (k + \alpha)} \\
+ &=
+ \sum_{k=1}^{n} \rbk{\log \rbk{1 + \frac{1}{k + \alpha}}} - \sum_{k=1}^{n} \rbk{\log \rbk{1 + \frac{1}{k + \beta}}} \\
+ &=
+ \sum_{k=1}^{n} \rbk{\log \rbk{1 + k + \alpha} - \log (k + \alpha)} -
+  \sum_{k=1}^{n} \rbk{\log \rbk{1 + k + \beta} - \log (k + \beta)} \\
+ &=
+ \log (1 + \beta) - \log (1 + \alpha) + \log \frac{1 + n + \alpha}{1 + n + \beta} \\
+ &\to
+ \log (1 + \beta) - \log (1 + \alpha) \quad (n \to \infty).
+\end{align}
+ここから $\rho$ が (\ref{introduction-to-ergodic-theory1}) の解になることが証明できた.
+\end{proof}
+
+
+次の定理がこの節の主定理だ\footnote{証明に必要な連分数の定理・補題を
+一部証明抜きで\ref{introduction-to-ergodic-theory36} 節にまとめている.
+先にそちらを読んだ方がいいかもしれない.
+抜かした証明など, さらに詳しくは \cite[Chapter7-8]{JornSteuding1} を参照してほしい.
+どなたか追記して下さるともっと嬉しい.
+ }.
+
+\begin{thm}[{\cite[Theorem 8.1. P.92.]{JornSteuding1}}]
+フロー生成作用素 $T$ は測度 $\mu$ に関してエルゴードになる.
+\end{thm}
+\begin{proof}
+作用素 $T$ が $\mu$ 不変なことは定理 \ref{introduction-to-ergodic-theory24} で示した.
+したがってエルゴード性だけ示せばいい.
+集合 $B$ の測度が $0 < \mu(B) < 1$ で $B^{c}$ も測度正だとする.
+すると $B$ は互いに素な Borel 集合 $E$ と零集合 $F$ を使って $B = E \sqcup F$ と書ける.
+集合 $B^c$ も測度正なので $E^c$ も測度正になる.
+ここで $\calD$ は (\ref{introduction-to-ergodic-theory34}) で定義された集合族とする.
+式 (\ref{introduction-to-ergodic-theory35}) と補題 \ref{introduction-to-ergodic-theory4} の証明を参考にすると,
+任意の $\varepsilon > 0$ に対して互いに共通部分のない開区間の和集合 $G_{\varepsilon} \in \calD$ が存在して
+\begin{align}
+ \mu \rbk{E^c \triangle G_{\varepsilon}}
+ <
+ \varepsilon
+\end{align}
+となる.
+補題 \ref{introduction-to-ergodic-theory4} から
+\begin{align}
+ \mu \rbk{E \cap G_{\varepsilon}}
+ \geq
+ \gamma \mu \rbk{G_{\varepsilon}}, \quad \gamma \defeq \frac{\log 2}{4} \mu (B).
+\end{align}
+次の集合演算に注意する.
+\begin{align}
+ E^{c} \triangle G_{\varepsilon}
+ &=
+ \rbk{E^{c} \setminus G_{\varepsilon}} \cup \rbk{G_{\varepsilon} \setminus E^{c}}
+ =
+ \rbk{E^{c} \setminus G_{\varepsilon}} \cup \rbk{G_{\varepsilon} \cap E}
+ \supset
+ G_{\varepsilon} \cap E, \label{introduction-to-ergodic-theory25}\\
+ E^{c}
+ &\subset
+ E^{c} \cup G_{\varepsilon}
+ =
+ \rbk{E^c \triangle G_{\varepsilon}} \cup \rbk{E^c \cap G_{\varepsilon}}. \label{introduction-to-ergodic-theory26}
+\end{align}
+(\ref{introduction-to-ergodic-theory26}) 式から
+\begin{align}
+ \mu \rbk{E^c}
+ &\leq
+ \mu \rbk{E^c \cup G_{\varepsilon}} \\
+ &\leq
+ \mu \rbk{\rbk{E^c \triangle G_{\varepsilon}} \cup \rbk{E^c \cap G_{\varepsilon}}} \\
+ &\leq
+ \mu \rbk{E^c \triangle G_{\varepsilon}} + \mu \rbk{E^c \cap G_{\varepsilon}} \\
+ &<
+ \varepsilon + \mu \rbk{E^c \cap G_{\varepsilon}}.
+\end{align}
+以上まとめて (\ref{introduction-to-ergodic-theory25}) 式も使うと
+\begin{align}
+ \mu \rbk{E^c \triangle G_{\varepsilon}}
+ \geq
+ \mu \rbk{E \cap G_{\varepsilon}}
+ \geq
+ \gamma \mu \rbk{G_{\varepsilon}}
+ \geq
+ \gamma \mu \rbk{E^c \cap G_{\varepsilon}}
+ >
+ \gamma \rbk{\mu \rbk{E^c} - \varepsilon}
+\end{align}
+となり,
+\begin{align}
+ \gamma \rbk{\mu \rbk{E^c} - \varepsilon}
+ <
+ \mu \rbk{E^c \triangle G_{\varepsilon}}
+ <
+ \varepsilon
+\end{align}
+となる.
+ここから $\gamma \mu \rbk{E^c} < \varepsilon + \varepsilon \gamma$ が導けるが,
+十分小さい $\varepsilon$ に対してこれは成立しない.
+背理法から $\mu (B) = 1$ となり, $T$ のエルゴード性が証明できた.
+\end{proof}
+
+ここで定理 \ref{introduction-to-ergodic-theory28} (Birkoff の各点エルゴード定理) の
+$f$ として $f(x) = \log a_1(x)$ を取ると
+\begin{align}
+ \frac{1}{\log 2} \int_0^1 f(x) \frac{dx}{1+x}
+ &=
+ \limntoinfty \frac{1}{n} \sum_{k=0}^n f \rbk{T^k(x)} \\
+ &=
+ \limntoinfty \frac{1}{n} \log \rbk{a_1(x) a_2(x) \cdots a_n(x)} \\
+ &=
+ \limntoinfty \log \rbk{a_1(x) a_2(x) \cdots a_n(x)}^{1/n}.
+\end{align}
+したがって
+\begin{align}
+ \limntoinfty \rbk{a_1 a_2 \cdots a_n}^{1/n}
+ =
+ C
+\end{align}
+となる.
+ここで $C$ は次のように定義される.
+\begin{align}
+ C
+ \defeq
+ \exp \sqbk{\frac{1}{\log 2} \int_0^1 \log a_1(x) \frac{dx}{1+x}}
+ =
+ \exp \sqbk{\frac{1}{\log 2} \sum_{k=1}^{\infty} \log k \log \frac{(k+1)^2}{k (k+2)}}.
+\end{align}
+これをまとめてこの節の主定理としよう.
+\begin{thm}
+ほとんど全ての $x \in \rbk{0,1}$ とその連分数展開係数に対して次の評価が成り立つ.
+\begin{align}
+ \limntoinfty \rbk{a_1 a_2 \cdots a_n}^{1/n}
+ =
+ \exp \sqbk{\frac{1}{\log 2} \int_0^1 \log a_1(x) \frac{dx}{1+x}}
+ =
+ \exp \sqbk{\frac{1}{\log 2} \sum_{k=1}^{\infty} \log k \log \frac{(k+1)^2}{k (k+2)}}.
+\end{align}
+\end{thm}
+\begin{rem}
+上の定理で面白いのは確率論を使っているのに結果にランダムネスがなく,
+(ほとんど) 全ての数 $x \in (0, 1)$ で同じ値に収束することだ.
+何とも言えず不思議な感じがする.
+\end{rem}
+\subsection{付録: 連分数小論\label{introduction-to-ergodic-theory36}}
+
+
+\cite[Chapter7-8]{JornSteuding1} を参考にしている.
+
+連分数展開
+\begin{align}
+ a_0 + \frac{1}{a_1 + \frac{1}{a_2 + \frac{1}{a_3 + \dots}}}
+\end{align}
+を $\sqbk{a_0, a_1, a_2, \dots, a_n, \dots}$ と書くことにしよう.
+もちろん有限で終わるときもある.
+そして $x \in (0, 1)$ に対して $T$ を次のように定義する.
+\begin{align}
+ T x
+ \defeq
+ \sqbk{\frac{1}{x}}
+ =
+ \frac{1}{x} \, \text{mod} \, 1.
+\end{align}
+これは次の関係式を満たす.
+\begin{align}
+ T \sqbk{0, a_1, a_2, \dots}
+ =
+ \sqbk{a_1, a_2, \dots} \, \text{mod} \, 1
+ =
+ \sqbk{0, a_2, a_3, \dots}. \label{introduction-to-ergodic-theory35}
+\end{align}
+
+再帰的に次の 2 つの数列 $\cbk{p_n}$, $\cbk{q_n}$ を定義する.
+\begin{alignat}{3}
+ p_{-1}
+ &=
+ 1, \quad
+ p_0
+ &=
+ a_0, \quad
+ p_n
+ &=
+ a_n p_{n-1} + p_{n-2}, \\
+ q_{-1}
+ &=
+ 0, \quad
+ q_0
+ &=
+ 1, \quad
+ q_n
+ &=
+ a_n q_{n-1} + q_{n-2}.
+\end{alignat}
+\begin{thm}[{\cite[Theorem 7.1]{JornSteuding1}}]
+上で定義した数列 $\cbk{p_n}$, $\cbk{q_n}$ $0 \leq n \leq m$ は次を満たす.
+\begin{align}
+ \frac{p_n}{q_n}
+ =
+ \sqbk{a_0, a_1, \dots, a_n}.
+\end{align}
+\end{thm}
+\begin{thm}[{\cite[Theorem 7.2.]{JornSteuding1}}]\label{introduction-to-ergodic-theory30}
+$1 \leq n \leq m$ に対して次の式が成り立つ.
+\begin{align}
+ p_n q_{n-1} - p_{n-1}q_n
+ =
+ \rbk{-1}^{n-1}, \quad
+ p_n q_{n-2} - p_{n-2} q_n
+ =
+ \rbk{-1}^n a_n.
+\end{align}
+\end{thm}
+
+\ref{introduction-to-ergodic-theory29} 節で使う補題の準備をしよう.
+まず $\Delta_n$ を正の整数 $a_1,\dots,a_n$ に対して次のように定義する.
+\begin{align}
+ \Delta_n
+ \defeq
+ \Delta_n \rbk{a_1, \dots, a_n}
+ \defeq
+ \set{x = \sqbk{0, a_1(x), a_2(x), \dots} \in [0, 1)}{a_1 = T(x), \dots, a_n = T^n (x)}.
+\end{align}
+これは与えられた $\cbk{a_j}_{j=1, \dots, n}$ と部分商 $\cbk{a_j(x)}$ が等しい単位区間の点の集合だ.
+具体例をいくつか上げよう.
+\begin{align}
+ \Delta_1(1)
+ =
+ \rbk{\frac{1}{2}, 1}, \quad
+ \Delta_1(n)
+ =
+ \left(\frac{1}{n+1}, \frac{1}{n} \right] \quad \text{for} \quad n \geq 2.
+\end{align}
+集合 $\Delta_n$ は端点を
+\begin{align}
+ \frac{p_n}{q_n}, \quad
+ \frac{p_n + p_{n-1}}{q_n + q_{n-1}}
+\end{align}
+とする半開区間で, 次の写像は全単射になる.
+\begin{align}
+ \sqbk{0, 1} \ni t
+ \mapsto
+ \frac{p_n + t p_{n-1}}{q_n + t q_{n-1}}
+ =
+ \sqbk{0, a_1, \dots, a_n, t}.
+\end{align}
+次の集合族
+\begin{align}
+ \calD
+ \defeq
+ \set{\Delta_n \rbk{a_1, \dots, a_n}}{n \in \bbN, \quad a_1, \dots, a_n \in \bbN} \label{introduction-to-ergodic-theory34}
+\end{align}
+を定義する.
+全ての $\Delta_n \in \calD$ の端点を集めれば単位区間 $[0, 1)$ に含まれる全ての有理数の集合になる.
+したがって $\calD$ は半開区間の可算族で Borel 集合族を生成する.
+
+\begin{lem}[{\cite[(8.11)]{JornSteuding1}}]\label{introduction-to-ergodic-theory4}
+任意の Lebesgue 可測集合 $A$ に対して次の評価が成り立つ.
+\begin{align}
+ \mu \rbk{T^{-n} A \cap \Delta_n}
+ >
+ \frac{\log 2}{4} \mu (A) \mu (\Delta_n).
+\end{align}
+\end{lem}
+\begin{proof}
+定理 \ref{introduction-to-ergodic-theory30} から $\Delta_n$ の Lebesgue 測度は
+\begin{align}
+ \abs{\Delta_n \rbk{a_1, \dots, a_n}}
+ =
+ \frac{1}{q_n (q_n + q_{n-1})}.
+\end{align}
+$0 \leq a < b \leq 1$ に対して $n$ の偶奇に応じて次のどちらかが成り立つ.
+\begin{align}
+ \set{x}{a \leq T^n x < b} \cap \Delta_n
+ &=
+ \left[\frac{p_n + a p_{n-1}}{q_n + a q_{n-1}}, \frac{p_n + b p_{n-1}}{q_n + b q_{n-1}} \right), \\
+ \set{x}{a \leq T^n x < b} \cap \Delta_n
+ &=
+ \left[\frac{p_n + b p_{n-1}}{q_n + b q_{n-1}}, \frac{p_n + a p_{n-1}}{q_n + a q_{n-1}} \right).
+\end{align}
+どちらにせよ次が成り立つ: 細かい証明は略.
+\begin{align}
+ \set{x}{a \leq T^n x < b}
+ &=
+ T^{-n} [a, b), \\
+ \abs{T^{-n} [a, b) \cap \Delta_n}
+ &=
+ \abs{[a, b)} \abs{\Delta_n} \frac{q_n \rbk{q_n + q_{n-1}}}{\rbk{q_n + a q_{n-1}} \rbk{q_n + b q_{n-1}}}. \label{introduction-to-ergodic-theory31}
+\end{align}
+数列 $\rbk{q_n}$ は単調なので
+\begin{align}
+ \frac{1}{2}
+ <
+ \frac{q_n}{q_n + q_{n-1}}
+ <
+ \frac{q_n \rbk{q_n + q_{n-1}}}{\rbk{q_n + a q_{n-1}} \rbk{q_n + b q_{n-1}}}
+ <
+ \frac{q_n \rbk{q_n + q_{n-1}}}{q_n^2}
+ < 2.
+\end{align}
+(\ref{introduction-to-ergodic-theory31}) から任意の区間 $I \subset [0, 1)$ に対して次の不等式がなりたつ.
+\begin{align}
+ \frac{1}{2} \abs{I} \abs{\Delta_n}
+ <
+ \abs{T^{-n} I \cap \Delta_n}
+ <
+ 2 \abs{I} \abs{\Delta_n}
+\end{align}
+この不等式は $I$ が互いに素な区間の有限和についても成立する.
+また $\calD$ が Borel 集合を生成することから任意の Lebesgue 可測集合 $A$ に対して次の評価が成立する.
+\begin{align}
+ \frac{1}{2} \abs{A} \abs{\Delta_n}
+ \leq
+ \abs{T^{-n} A \cap \Delta_n}
+ \leq
+ 2 \abs{A} \abs{\Delta_n}. \label{introduction-to-ergodic-theory32}
+\end{align}
+
+ここで Gauss が導入した測度
+\begin{align}
+ \mu (A)
+ =
+ \frac{1}{\log 2} \int_A \frac{dx}{1+x}
+\end{align}
+と Lebesgue 測度を比較する.
+\begin{align}
+ \frac{1}{2 \log 2}
+ <
+ \frac{1}{\log 2} \frac{1}{1 + x}
+ \leq
+ \frac{1}{\log2}, \quad x \in [0, 1)
+\end{align}
+となるから任意の Lebesgue 可測集合 $A$ に対して
+\begin{align}
+ \frac{1}{2 \log 2} \abs{A}
+ <
+ \mu \rbk{A}
+ \leq
+ \frac{1}{\log 2} \abs{A}. \label{introduction-to-ergodic-theory33}
+\end{align}
+式 (\ref{introduction-to-ergodic-theory32}) と (\ref{introduction-to-ergodic-theory33}) を組み合わせて
+\begin{align}
+ \mu \rbk{T^{-n} A \cap \Delta_n}
+ >
+ \frac{\log 2}{4} \mu (A) \mu (\Delta_n).
+\end{align}
+\end{proof}
+\section{双曲曲面上の測地流\label{introduction-to-ergodic-theory16}}
+
+\subsection{幾何学的準備と議論の流れ}
+
+
+最終的には双曲曲面上での議論にするのだが, まず基礎となる上半平面 $\bbH$ を導入し,
+適切な Riemann 計量を入れて双曲平面とする.
+
+エルゴード理論を発動させるため, フローと測度, 全空間測度の有限性も必要になる.
+フローは測地流だが, まず測度と有限性を考えよう.
+Riemann 計量と整合性のある測度を取りたい.
+ここで M\"obius 変換群が双曲平面の向きを保つ等距離になること,
+そして $PSL_2(\bbR)$ と同型になることに注意する.
+$PSL_2(\bbR)$ は Lie 群なので Haar 測度がある.
+有限性を引きずり出すため, 双曲平面を $PSL_2 (\bbR)$ の部分群で割ってコンパクトな商空間を作りたい.
+これが双曲曲面だ.
+
+残りは測地流だ.
+測地線に沿ったフローとして速度を 1 に規格化したフローを考える.
+要は双曲平面の単位接束 $T^1 \bbH$ 上で議論するということだ.
+実は $T^1 \bbH \simeq PSL_2(\bbR)$ の同型がある.
+したがってほぼ全ての話が Lie 群 $PSL_2 (\bbR)$ の話としてまとまり,
+代数・幾何・解析が絡み合う世界が現れる.
+\subsection{詳細}
+
+
+この節は \cite[1.5.5 節, The geodesic flow on hyperbolic surface]{OmriSarig1} を参考にしている.
+幾何的な議論については適宜参照をつけるので \ref{introduction-to-hyperbolic-geometry4} 章を参考にしてほしい.
+
+上半平面は $\bbH \defeq \set{z \in \bbC}{\Im z > 0}$ で
+Riemann 計量を $ds = 2 \abs{dz} / \Im z$ とした, 定曲率 $-1$ の Riemann 多様体だ.
+M\"obius 変換が向きを保つ等距離写像になることもよく知られている.
+定義 \ref{introduction-to-hyperbolic-geometry5}, 命題 \ref{introduction-to-hyperbolic-geometry6},
+命題 \ref{introduction-to-hyperbolic-geometry2} を参照してほしい.
+
+M\"obius 変換がなす群は射影特殊線型群 $PSL_2(\bbR)$ と同型になる.
+\begin{align}
+ \text{M\"ob} \rbk{\bbH}
+ &=
+ \set{h}{h \rbk{z} = \frac{az + b}{cz + d}, \, z \in \bbC, a,b,c,d \in \bbR, \, ad - bc = 1} \\
+ &=
+ \set{h}{h \in GL_2(\bbR), \det h = 1}
+ \eqdef
+ PSL_2(\bbR).
+\end{align}
+
+測地流というくらいだから双曲平面上の測地線を考える必要がある.
+これについては \ref{introduction-to-hyperbolic-geometry7} 節を見ること.
+双曲平面上の測地線の分類については定理 \ref{introduction-to-hyperbolic-geometry3} を見てほしい.
+
+測地線に沿ったフローを考えるが, 特に速度を 1 に規格化したフローを考える.
+ここではさらに上半平面上の測地線に沿った軌道を商空間に落としたフローを測地流と呼ぶ.
+これは $\bbH$ の単位接束
+\begin{align}
+ T^1 \bbH
+ \defeq
+ \set{(z, u) \in \bbH \times \bbR^2}{z \in \bbH, \, u \in \bbR^2, \, g_z(u, u) = 1}.
+\end{align}
+のフローになる.
+単位接束については \ref{introduction-to-hyperbolic-geometry8} 節参照.
+
+これから双曲平面の単位接束を議論するのに役立つ同一視があるのでそれを紹介する.
+結論からいうと補題 \ref{introduction-to-hyperbolic-geometry9} だ.
+結果だけ抜き出そう:
+\begin{align}
+ T^1 \bbH
+ \simeq
+ \text{M\"ob} \rbk{\bbH}
+ \simeq
+ PSL_2(\bbR).
+\end{align}
+この同一視のもとで測地流は次のように書ける.
+\begin{align}
+ g^t
+ \begin{pmatrix}
+  a & b \\
+  c & d
+ \end{pmatrix}
+ =
+ \begin{pmatrix}
+  a & b \\
+  c & d
+ \end{pmatrix}
+ \begin{pmatrix}
+  e^{t/2} & 0 \\
+  0       & e^{-t / 2}
+ \end{pmatrix}.
+\end{align}
+詳しくは命題 \ref{introduction-to-hyperbolic-geometry10} 参照.
+
+エルゴード理論と絡めるために単位接束 $T^1 \bbH$ 上に測度 (体積要素) を定義する必要がある.
+この測度は等距離写像の作用で不変であってほしい.
+補題 \ref{introduction-to-hyperbolic-geometry9} の同一視のもとで等距離 $\varphi (z) = (az + b) / (cz + d)$ の作用は
+\begin{align}
+ \varphi
+ \begin{pmatrix}
+  x & y \\
+  z & w
+ \end{pmatrix}
+ =
+ \begin{pmatrix}
+  a & b \\
+  c & d
+ \end{pmatrix}
+ \begin{pmatrix}
+  x & y \\
+  z & w
+ \end{pmatrix}
+\end{align}
+となる.
+$PSL_2(\bbR)$ は局所コンパクト群なので Haar 測度があるからこれを取ればいい.
+具体的には次式で定義する.
+\begin{align}
+ \dnu  = y^{-2} dx dy.
+\end{align}
+詳しくは \ref{introduction-to-hyperbolic-geometry11} 節,
+特に補題 \ref{introduction-to-hyperbolic-geometry12} を見てほしい.
+$PSL_2(\bbR)$ は非可換群なので左右の区別が必要だが,
+この Haar 測度は左右両方の作用で不変になることが示すことができ,
+結局, 測地流は $T^1 \bbH$ の測度を不変にする.
+
+ここで問題がある.
+上の測度 $\nu$ で上半平面 $\bbH$ の測度は無限大になってしまうし, エルゴード性もない.
+エルゴード流がほしいので, $\bbH$ のコンパクトな商空間 (測度有限な空間) に移りたい.
+これが表題の双曲曲面だ.
+\begin{defn}[双曲曲面]
+$M$ が Riemann 面で任意の点の近傍 $V$ が双曲平面 $\bbH$ の開集合と等距離同型になるとき,
+$M$ を双曲曲面という.
+\end{defn}
+\begin{defn}[(測地的に) 完備な多様体]
+Riemann 多様体 $M$ の任意の点 $p$ で指数写像 $\exp_p$ がすべての
+$v \in T_p M$ に対して定義されるとき, $M$ を測地的に完備という.
+\end{defn}
+\begin{thm}[Killing-Hopf, Theorem 1.3 \cite{OmriSarig1}]
+全ての測地的に完備で連結な双曲曲面 $M$ は $\Gamma \setminus \bbH$ に等距離同型になる.
+ここで $\Gamma$ は次の条件を満たす.
+\begin{enumerate}
+\item $\Gamma$ は $\mathrm{\text{M\"ob}} (\bbH)$ の部分群.
+\item 任意の $z \in \bbH$ は $\set{g(U)}{g \in \Gamma}$ が互いに素になる開集合 $U \subset PSL_2(\bbR)$ の内部にある.
+\item $\set{\Gamma z}{z \in U}$ の Riemann 構造は $M$ の Riemann 構造から誘導される構造と一致する.
+\end{enumerate}
+\end{thm}
+$\Gamma$ を $PSL_2 (\bbR)$ の部分群と同一視すると, 次の同一視が得られる.
+\begin{align}
+ T^1 \rbk{\Gamma \setminus \bbH}
+ \simeq
+ \Gamma \setminus PSL_2 (\bbR).
+\end{align}
+$PSL_2 (\bbR)$ の Haar 測度は $\Gamma \setminus PSL_2 (\bbR)$ 上の局所有限な測度 $\mu$ を一意的に誘導し,
+$T^1 \rbk{\Gamma \setminus \bbH}$ 上の測地流は
+\begin{align}
+ g^t \rbk{\Gamma \omega}
+ \Gamma \omega
+ \begin{pmatrix}
+  e^{t/2} & 0 \\
+  0       & e^{- t / 2}
+ \end{pmatrix}
+\end{align}
+と書け, さらに $\mu$ を保存する.
+
+\begin{defn}\label{introduction-to-ergodic-theory22}
+測度を保存するフロー $g^t \colon X \to X$ が, 全ての $t \in \bbR$ で
+$g^{-t} (E) = E$ を満たす全ての可測集合 $E$ に対して $m(E) = 0$ または $m(E^c) = 0$ となるとき,
+$g^t$ をエルゴード的と呼ぶ.
+\end{defn}
+\begin{rem}\label{introduction-to-ergodic-theory9}
+この定義は全ての $f \in L^2$ と $t \in \bbR$ に対して $f \circ g^t = f$ a.e. となることと同値になる.
+定理 \ref{introduction-to-ergodic-theory21} のフロー版と思えばいい.
+\end{rem}
+
+本題の定理に入る前に証明抜きで補題を用意しておく.
+\begin{lem}\label{introduction-to-ergodic-theory7}
+$PSL_2 (\bbR)$ は次の 3 つの行列で生成できる.
+\begin{align}
+ \left\langle
+ \begin{pmatrix}
+  1 & t \\
+  0 & 1
+ \end{pmatrix},
+ \begin{pmatrix}
+  1 & 0 \\
+  t & 1
+ \end{pmatrix},
+ \begin{pmatrix}
+  \lambda & 0 \\
+  0       &  \lambda^{-1}
+ \end{pmatrix}
+ \relmiddle| t \in \bbR, \, \lambda > 0
+ \right\rangle
+ =
+ PSL_2 (\bbR).
+\end{align}
+\end{lem}
+\begin{lem}\label{introduction-to-ergodic-theory8}
+$\Gamma \setminus PSL_2 (\bbR)$ 上の $PSL_2 (\bbR)$ 不変な関数は定数しかない.
+\end{lem}
+
+それでは主定理を示そう.
+\begin{thm}[Theorem 1.4 \cite{OmriSarig1}]\label{introduction-to-ergodic-theory17}
+$\Gamma \setminus \bbH$ がコンパクトならば $T^1 \rbk{\Gamma \setminus \bbH}$ の測地流はエルゴードになる.
+\end{thm}
+\begin{proof}
+次のフローを考える.
+\begin{align}
+ h^t_{\mathrm{st}} \rbk{\Gamma \omega}
+ &=
+ \Gamma \omega
+ \begin{pmatrix}
+  1 & t \\
+  0 & 1
+ \end{pmatrix}, \\
+ h^t_{\mathrm{un}} \rbk{\Gamma \omega}
+ &=
+ \Gamma \omega
+ \begin{pmatrix}
+  1 & 0 \\
+  t & 1
+ \end{pmatrix}.
+\end{align}
+測度 $\mu$ は Haar 測度から誘導されているのでフロー $h^t_{\mathrm{st}}$, $h^t_{\mathrm{un}}$ は測度を保存する.
+具体的に行列計算しよう:
+\begin{align}
+ g^s h^t_{\mathrm{st}} g^{-s}
+ &=
+ \begin{pmatrix}
+  e^{-s/2} & 0 \\
+  0        & e^{s/2}
+ \end{pmatrix}
+ \begin{pmatrix}
+  1 & t \\
+  0 & 1
+ \end{pmatrix}
+ \begin{pmatrix}
+  e^{s/2} & 0 \\
+  0       & e^{-s/2}
+ \end{pmatrix}
+ =
+ h^{t e^{-s}}_{\mathrm{st}}
+ \to
+ 1 \quad (s \to \infty), \\
+ g^{-s} h^t_{\mathrm{un}} g^{s}
+ &=
+ h^{t e^s}
+ \to
+ 1 \quad (s \to - \infty).
+\end{align}
+
+まず $f \in L^2$ のときに $s \to \infty$ で $L^2$ の意味で $f \circ h^{t e^{-s}} \to f$ となることに注意する.
+これはコンパクト台を持つ連続関数で近似して $h^t$ が $L^2$ の等距離同型になっていることに注意すればわかる.
+
+次に $f \in L^2$ で $f \circ g^s = f$ とすると
+\begin{align}
+ \norm{f \circ h^t_{\mathrm{st}} - f}
+ =
+ \norm{f \circ g^s \circ h^t_{\mathrm{st}} - f}
+ =
+ \norm{f \circ g^s \circ h^t_{\mathrm{st}} - f \circ g^{s}}
+ =
+ \norm{f \circ g^s \circ h^t_{\mathrm{st}} \circ g^{-s} - f}
+ \to 0
+\end{align}
+となる.
+したがって $f$ は $h^t_{\mathrm{st}}$ 不変になる.
+同じ計算をすれば $f$ が $h^t_{\mathrm{un}}$ になる.
+
+これで $f \in L^2$ が $g^s$ 不変なら $h^t_{\mathrm{st}}$, $h^t_{\mathrm{un}}$ 不変にもなることがわかった.
+補題 \ref{introduction-to-ergodic-theory8} から $g^s$ 不変な $f$ は $PSL_2 (\bbR)$ 不変になり,
+補題 \ref{introduction-to-ergodic-theory7} から $f$ は定数.
+ここで注意 \ref{introduction-to-ergodic-theory9} を使うことで $g^s$ がエルゴードになることがわかる.
+\end{proof}
+\section{しようとして断念した話}
+
+
+基本的に \cite{OmriSarig1} の具体例をもっといろいろ触ろうとして断念した.
+\cite{OmriSarig1} の 1.5 Examples の節, Circle rotations, Finite Markov Chains は議論したかったのだが.
+特に後者は Google の pagerank の数学的議論にあたるのでバリバリ現実社会への応用がある.
+最近は SEO の方法も変わってきて多少重要性が下がっているようだが,
+世界的企業の屋台骨であったという事実は強調し過ぎてもし過ぎることはないだろう.
+これについては \cite{TadahisaFunaki1, phasetr3} も参考になる.
+また, 2014/9 に第 5 回関西すうがく徒のつどいで講演する予定だ.
 \chapter{アイドルと学ぶ統計学}
 
 
@@ -20422,6 +22085,343 @@ The other is concrete and uses a \textbf{quantum mechanical harmonic oscillator}
 
 \part{幾何}
 
+\chapter{エルゴード理論のための双曲幾何\label{introduction-to-hyperbolic-geometry4}}
+
+
+エルゴード理論セミナー用に調べたことをまとめる.
+\cite{YasuykiNakamura1, FranOiseDalbo1, RobertRhoades1} を参考にした.
+\section{双曲平面の基本概念}
+
+
+\begin{defn}
+ 上半平面を $\bbH$ と書く. つまり
+ \begin{align}
+  \bbH
+  \defeq
+  \set{z \in \bbC}{\Im z > 0}.
+ \end{align}
+\end{defn}
+\begin{defn}
+ 各 $z \in \bbH$ に対する接空間 $T_z \bbH \simeq \bbR^2 \simeq \bbC$ のノルムは次のように定義する.
+ \begin{align}
+  u
+  \defeq
+  \frac{\abs{u}}{\norm{z}}.
+ \end{align}
+ これは Riemann 計量を定義していると言ってもいい.
+ 計量を $ds = 2 \abs{dz} / \Im z$ と定義することもある.
+\end{defn}
+
+\begin{defn}[M\"obius 変換]\label{introduction-to-hyperbolic-geometry5}
+ $G$ を次の形の実 M\"obius 変換の群とする.
+ \begin{align}
+  G
+  \defeq
+  \set{h}{h \rbk{z} = \frac{az + b}{cz + d}, \, z \in \bbC, a,b,c,d \in \bbR, \, ad - bc = 1}.
+ \end{align}
+ これは $SL_2(\bbR)$ の作用になっている.
+\end{defn}
+\begin{rem}
+ $SL_2(\bbR)$ は部分群として $SL_2(\bbZ)$ を含む.
+ この辺からいかにも数論が絡んできそうな雰囲気がバリバリと出ている.
+ 気になる向きは''\textbf{上半平面 保型形式}"などで検索してみよう.
+\end{rem}
+\begin{prop}\label{introduction-to-hyperbolic-geometry6}
+ 群 $G$ は $\bbH$ に推移的に作用するが忠実な作用ではない.
+\end{prop}
+\begin{proof}
+群 $G$ は $h(z) = az + b$, $a > 0$, $b \in \bbR$ の形の元を全て持つから推移的に作用する.
+忠実性については, たとえば次の $i$ の固定化群 $K$ があることが直接計算でわかる.
+\begin{align}
+ K
+ \defeq
+ \set{r(z) = \frac{z \cos \theta - \sin \theta}{z \sin \theta + \cos \theta}}{\theta \in \bbR}.
+\end{align}
+\end{proof}
+
+$G$ が $\bbH$ の等距離写像になるから次の Riemann 計量が定義できる.
+\begin{align}
+ g_z (u, v)
+ \defeq
+ \frac{1}{\Im z} \bkt{u}{v}, \quad u, v \in \bbR^2 = \bbC = T_z \bbH.
+\end{align}
+この $g$ を双曲計量と呼ぶ.
+組 $(\bbH, g)$ を \textbf{Poincar\'e 上半平面}と呼ぶ.
+\section{測地線\label{introduction-to-hyperbolic-geometry7}}
+
+
+径数付けされた $\bbH$ の区分的に滑らかな曲線 $c \colon \sqbk{a, b} \to \bbH$,
+$c(t) = x(t) + i y(t)$ の\textbf{双曲的長さ}を次のように定義する.
+\begin{align}
+ l (c)
+ \defeq
+ \int_a^b \frac{\sqrt{x'(t)^2 + y'(t)^2}}{y(t)} dt.
+\end{align}
+
+大事な性質を定理としてまとめておく.
+\begin{thm}
+ $G$ は拡大複素平面 $\extbbC \defeq \bbC \bigcup \cbk{\infty}$ に作用し円を保存する.
+ ここでは (半) 直線や $\bbR \bigcup \cbk{\infty}$ も円とみなす.
+ したがって $G$ は垂直な半直線と実軸と直交し $\bbH$ に含まれる半円の族を保つ.
+\end{thm}
+点 $z$, $w \in \bbH$ に対して次の集合 $S = S(z, w)$ を定義する.
+\begin{align}
+ S
+ \defeq
+ S (z, w)
+ \defeq
+ z \text{と} w \text{を端点とする区分的に滑らかな} \bbH \text{の曲線全体}.
+\end{align}
+\begin{prop}\label{introduction-to-hyperbolic-geometry3}
+ $\bbH$ の点 $z$, $w$ に対して次の性質を持つ区分的に滑らかな曲線がただ $1$ つ存在する.
+ これを\textbf{測地線}と呼ぶ.
+ \begin{align}
+  l(C)
+  =
+  \inf_{c \in S} l(c).
+ \end{align}
+ 測地線 $C$ は次のいずれかになる.
+\begin{itemize}
+\item $\Re (z) = \Re (w)$ なら $C$ は $z$, $w$ を端点とする線分になる.
+\item それ以外の場合, $C$ は $z$, $w$ を端点とする半円 $SC$ の円弧になる.
+   ここで半円 $SC$ は $z$, $w$ を通り実軸上に中心を持つ.
+\end{itemize}
+\end{prop}
+\begin{proof}
+$G$ が推移的なので $z$ が $i$ であるとして一般性を失わない.
+$z \in \bbH$ を 任意に取る.
+$\Re z = 0$ でない場合 $i$ の固定化群 $K$ の元で回転させれば $z$ を虚軸上正の部分に移せるので,
+$z$ は虚軸上正の部分にあるとしてよい.
+また $G$ は等距離写像で双曲距離を変えないため両方とも虚軸上にある場合だけ考えれば十分で,
+$G$ の逆変換によってこの線分を実軸に垂直な半直線か原点を実軸上に持つ半円に移る.
+
+$z = is$, $w = it$ として $0 < s < t$ とする.
+区分的に滑らかで $z$, $w$ を端点とする曲線 $c \colon \sqbk{a, b} \to \bbH$ を取り,
+$c (t) = x(t) + iy(t)$ とする.
+曲線の定義から
+\begin{align}
+ l(c)
+ =
+ \int_a^b \frac{\sqrt{x'(t)^2 + y'(t)^2}}{y(t)} dt
+ \geq
+ \abs{\int_a^b \frac{y'(t)}{y(t)} dt}
+ \geq
+ \abs{\log \frac{t}{s}}
+\end{align}
+で等号は $x(t)$ が恒等的に $0$ で $y'$ が符号を変えないときに限る.
+このとき $c(\sqbk{a, b}) = \sqbk{is, it}$ となる.
+\end{proof}
+\begin{defn}
+ $z$, $w \in \bbH$ の測地線を\textbf{双曲線分}と呼び,
+ $\hyperbolicsegment{z}{w}$ と書く.
+\end{defn}
+\begin{prop}
+ 次の写像 $d \colon \bbH \times \bbH \to \bbR$ は $\bbH$ の距離関数になる.
+ \begin{align}
+  d(z, w)
+  \defeq
+  \inf_{c \in S} l (c).
+ \end{align}
+ この $d$ を $z$ と $w$ の\textbf{双曲距離}という.
+\end{prop}
+\begin{prop}\label{introduction-to-hyperbolic-geometry1}
+ 双曲距離 $d$ は次の評価を持つ.
+ \begin{align}
+  \sinh \rbk{\frac{1}{2} d (z, w)}
+  =
+  \frac{\abs{z - w}}{2 \sqrt{\Im z \, \Im w}}.
+ \end{align}
+\end{prop}
+\begin{prop}\label{introduction-to-hyperbolic-geometry2}
+ $SL_2(\bbR)$ の $\bbH$ への作用は等距離になっている.
+\end{prop}
+\begin{proof}
+命題 \ref{introduction-to-hyperbolic-geometry1} を使って直接計算する.
+$h \in G$, $z$, $w \in \bbH$ として
+\begin{align}
+ \frac{\abs{h(z) - h(w)}}{4 \Im h(z) \Im h(w)}
+ &=
+ \frac{\abs{cz + d}^2 \abs{cw + d}^2}{4 \Im z \, \Im w}
+  \rbk{\frac{\abs{z - w}}{\abs{cz + d} \, \abs{cw + d}}} \\
+ &=
+ \frac{\abs{z - w}}{4 \Im z \, \Im w}.
+\end{align}
+\end{proof}
+\section{単位接束\label{introduction-to-hyperbolic-geometry8}}
+
+
+\begin{defn}
+ $\bbH$ の単位接束 $T^1 \bbH$ を次で定義する.
+ \begin{align}
+  T^1 \bbH
+  \defeq
+  \set{(z, u) \in \bbH \times \bbR^2}{z \in \bbH, \, u \in \bbR^2, \, g_z(u, u) = 1}.
+ \end{align}
+\end{defn}
+各単位接束の点 $(z, u)$ は $z$ を通り $u$ の方向を向いた測地線 $\gamma$ を一意的に定義する.
+点 $z_t$ を $z$ から距離 $t$ にある $\gamma$ 上の点とし,
+$u_t$ を $p_t$ での $\gamma$ の単位接ベクトルとしよう.
+このとき $\gamma$ に沿ったフロー $\phi_t$ が次のように定義できる.
+\begin{align}
+ \phi_t(z, u)
+ \defeq
+ (z_t, u_t).
+\end{align}
+$\phi_t$ は $\bbH$ 上の自然な測度 $\mu$ を保存する $T^1 \bbH$ 上の 1 径数変換群になる.
+
+以下では $PSL_2(\bbR) \defeq SL_2(\bbR) / \cbk{\pm 1}$ の $\bbH$ への作用を考える.
+命題 \ref{introduction-to-hyperbolic-geometry2} から $PSL_2(\bbR)$ も $\bbH$ に等距離に作用し,
+単位接束にも次のように作用する.
+\begin{align}
+ \rho_h(z, u)
+ \defeq
+ \rbk{h(z), \frac{u}{(c z + d)^2}},
+  \quad z \in \bbH,
+  \quad u \in T_z \bbH,
+  \quad h =
+  \begin{pmatrix}
+   a & b \\
+   c & d
+  \end{pmatrix} \in PSL_2(\bbR).
+\end{align}
+ここで $\rho$ は表現 $\rho \colon PSL_2(\bbR) \to \Isom (\bbH)$.
+\begin{prop}
+ $PSL_2(\bbR)$ は $T^1 \bbH$ に推移的かつ自由に作用する.
+\end{prop}
+\begin{proof}
+$z_0 = i$, $u_0 = (0, 1) = i$, つまり $u_0$ は虚軸の正の向きを向いた $z_0$ での単位接ベクトルとし,
+$(z, u) \in T^1 \bbH$, $L = \set{iz}{z > 0} = i \bbR_{>0}$,
+$\sigma$ を $(z, u)$ が決める一意的な測地線としても一般性を失わない.
+$h \in PSL_2(\bbR)$ を $h (L) = \sigma$, $h(z_0) = z$ になるように選ぶ.
+
+この $h$ が一意的に定まることを証明しよう.
+まず M\"obius 変換が 3 点をどこに移すかで決まることと (Euclid の意味で) 円を円に移すことに注意する.
+$z = z_0$ なら $h$ は $z$ を通り実軸に直交する直線を虚軸正の部分に沿った半直線に移し, $z$ を $i$ に移す.
+ここで対応する 3 点は次のように取ることができる.
+\begin{enumerate}
+\item $L$ の端点としての $0$ に対応する $\sigma$ の端点.
+\item $L$ 上の点としての $i$ に対応する $\sigma$ 上の点 $z$.
+\item $L$ の端点点としての $\infty$ と $\sigma$ の端点としての $\infty$.
+\end{enumerate}
+\end{proof}
+\begin{cor}\label{introduction-to-hyperbolic-geometry9}
+ 単位接束 $T^1 \bbH$ と $PSL_2(\bbR)$ は同一視できる.
+\end{cor}
+\begin{proof}
+写像を次のように定義する.
+\begin{align}
+ h^0 \colon T^1 \bbH \to PSL_2(\bbR); \quad
+ (z, u) \mapsto h_{(z, u)}^0.
+\end{align}
+ここで $h_{(z, u)}^0$ の作用 $\rho_{h_{(z, u)}^0}$ は次の通り.
+\begin{align}
+ \rho_{h_{(z, u)}^0} (i, u_0)
+ =
+ (z, u).
+\end{align}
+ここで $u_0 = i$ は $T_i (\bbR)$ の虚軸正の向きを向いた単位ベクトル.
+\end{proof}
+\begin{prop}\label{introduction-to-hyperbolic-geometry10}
+ $T^1 \bbH \simeq PSL_2(\bbR)$ の $h^0$ での同一視のもとで
+ $T^1 \bbH$ の測地流は $PSL_2(\bbR)$ 上の次の右平行移動 $h \mapsto hh_t$ によるフローと一致する.
+ \begin{align}
+  h_t
+  \defeq
+  \begin{pmatrix}
+   e^{t/2} && 0 \\
+   0       && e^{-t/2}
+  \end{pmatrix}, \quad t \in \bbR.
+ \end{align}
+\end{prop}
+\begin{proof}
+$PSL_2(\bbR)$ のフロー $(h_t)$ を次のように定義しておく.
+\begin{align}
+ h_t
+ \defeq
+ \begin{pmatrix}
+  e^{t/2} && 0 \\
+  0       && e^{-t/2}
+ \end{pmatrix}, \quad t \in \bbR.
+\end{align}
+命題 \ref{introduction-to-hyperbolic-geometry3} の証明と同様に $(i, i) \in \bbH$ への作用だけを考えれば十分.
+記号を明確にするため $T^1 \bbH$ での測地流を $\phi_t$, $PSL_2 (\bbR)$ での測地流を $\tilde{\phi}_t$ と書くことにすると,
+$\rho_{h_{(i, i)}^0}$ は恒等写像であることに注意して次の関係式を証明すればいい.
+\begin{align}
+ \tilde{\phi}_t \rbk{h_{(i, i)}^0}
+ =
+ \rho_{h_{(i, i)}^0} \rho_{h_t} (i, i).
+\end{align}
+
+まず $(z_0, u_0) = (i, i)$ とすると
+\begin{align}
+ \rho_{h_t} (i, i)
+ =
+ \rbk{e^t i, e^t i}.
+\end{align}
+$(z_0, u_0)$ から出発する測地線は $z_0$ からの距離を $t$ として $\phi_t (z_0, u_0) = (z_t, u_t)$ で書ける.
+$t \geq 0$ とすると命題 \ref{introduction-to-hyperbolic-geometry1} から双曲距離 $d$ に対して
+\begin{align}
+ \sinh \frac{d(i, e^t i)}{2}
+ =
+ \frac{\abs{1 - e^t}}{2 e^{t/2}}
+ =
+ \sinh \frac{t}{2}.
+\end{align}
+同じく $t \geq 0$ として
+\begin{align}
+ \sinh \frac{d(i, e^{-t} i)}{2}
+ =
+ \frac{\abs{1 - e^{-t}}}{2 e^{-t/2}}
+ =
+ \sinh \frac{t}{2}.
+\end{align}
+まとめると $t \in \bbR$ に対して $d(i, e^t i) = t$ で, $(z_t, u_t) \in T^1 \bbH$ だから双曲計量と規格化に注意して
+\begin{align}
+ \phi_t (i, i)
+ =
+ \rbk{e^t i, e^t i}
+ =
+ \rho_{h_t} (i, i).
+\end{align}
+以上から
+\begin{align}
+ \tilde{\phi}_t \rbk{h_{(i, i)}^0}
+ =
+ \phi_t (i, i)
+ =
+ \rho_{h_t}(i, i)
+ =
+ \rho_{h_{(i, i)}^0} \rho_{h_t} (i, i).
+\end{align}
+\end{proof}
+\section{双曲平面 $\bbH$ の不変測度\label{introduction-to-hyperbolic-geometry11}}
+
+
+\begin{defn}
+ 双曲平面$\bbH$ 上の測度 $\mu$ を $\dmu  = y^{-2} dx dy$ で定義する.
+\end{defn}
+\begin{lem}\label{introduction-to-hyperbolic-geometry12}
+ 測度 $\mu$ は $SL_2(\bbR)$ の作用で不変になる.
+\end{lem}
+\begin{proof}
+$h \in SL_2(\bbR)$ を次のように書く.
+\begin{align}
+ h
+ =
+ \begin{pmatrix}
+  a & b \\
+  c & d
+ \end{pmatrix}.
+\end{align}
+ヤコビアンは $\abs{cz + d}^{-4}$ になるから
+\begin{align}
+ \int_{\bbH} f \rbk{h(g^{-1}z)} \frac{dx dy}{y^2}
+ =
+ \int_{\bbH} f(z) \frac{1}{\abs{cz + d}^2} \rbk{\frac{\abs{cz + d}^2}{y}}^2 dxdy
+ =
+ \int_{\bbH} f(z) \frac{dx dy}{y^2}
+\end{align}
+\end{proof}
 \chapter{代数幾何ガイダンス}
 
 
@@ -21924,6 +23924,8 @@ $f$ の像は $x = 0$ のファイバーが $0$ で, それ以外のファイバ
 \end{proof}
 \chapter{解析学}
 
+\section{微分積分}
+
 
 \begin{ex}
 $\bbQ$ 上連続で $\bbR$ に連続拡張できる関数と連続拡張できない関数が存在する.
@@ -22163,6 +24165,71 @@ $J x_0$ は $\bbB(H)$ の作用で不変だから $z \in J x_{0}$ となり矛�
 $T \in J + I_{x_0} \subset J$ となり, これは $\bbB (H) = J$ を意味する.
 したがって $\Rad (\bbB(H)) \subset \cap_{x \in H \setminus \cbk{0}} I_x = \cbk{0}$ であり,
 $\bbB(H)$ は半単純である.
+\end{proof}
+
+\begin{ex}
+極大でない準素イデアルを持つ単位的可換 Banach 環が存在する.
+\end{ex}
+\begin{proof}
+環 $A$ を $C^m ([0, 1])$, つまり複素数値の $[0, 1]$ 上 $m \geq 1$ 階連続微分可能な関数全体の
+集合で次のようにノルムを定義した集合とする.
+\begin{align}
+ \norm{f}
+ =
+ \sum_{k=0}^m \frac{1}{k!} \sup_{x \in [0, 1]} \abs{f^{(k)} (x)}.
+\end{align}
+実数を $x_0 \in [0, 1]$ と取りさらに次の集合を定義する.
+\begin{align}
+ I
+ =
+ \set{f \in A}{f(x_0) = f'(x_0) = 0}.
+\end{align}
+すると $I$ は閉両側イデアルで, 次のただ 1 つの極大イデアルに含まれる.
+\begin{align}
+ \set{f \in A}{f(x_0) = 0}.
+\end{align}
+ここで $A$ の極大イデアルは次の形であることに注意しよう.
+\begin{align}
+ I_x
+ =
+ \set{f \in A}{f(x) = 0}, \quad x \in [0, 1].
+\end{align}
+環 $C^m ([0, 1])$ は spectral synthesis ではないこと,
+つまり閉両側イデアルで, これを含む極大イデアルの共通部分として得られないものが存在することがわかる.
+\end{proof}
+\begin{rem}
+Disk algebra は非極大な素イデアル, つまり $\cbk{0}$ を含む.
+\end{rem}
+
+\begin{ex}
+(代数的に) 単純な Banach 環が存在する.
+\end{ex}
+\begin{proof}
+可換な場合は良く知られた例としてコンパクト集合 $X$ に対する連続関数環 $C(X)$ がある.
+非可換な場合は, 要素を $\bbC$ とする $n$ 次全行列環 $M_n(\bbC)$ を考えればいい.
+$K (\bbC^n)$ をコンパクト作用素全体の集合として, $M_n (\bbC)$ を $\bbB (\bbC^n) = K(\bbC^n)$ と思えば,
+$M_n (\bbC)$ は非可換 $C^*$-環と思える.
+
+$e_{i,j}$ を行列要素, つまり $(i,j)$ 要素が 1 でそれ以外が 0 の行列としよう.
+$\delta$ を Kronecker の $\delta$ とすると $e_{i,j} e_{k,l} = \delta_{j,k} e_{i,l}$ となる.
+$\Delta$ を非自明な $M_n(\bbC)$ の両側イデアルとする.
+$A = \sum_{i,j} a_{i,j} e_{i,j} \in \Delta$ を非零元とする.
+次の計算に注意しよう.
+\begin{align}
+ e_{i,j} A e_{k,l}
+ =
+ a_{j,k} e_{i,l}.
+\end{align}
+任意の $i$, $j$ に対して $a_{i,j} e_{i,j} \in \Delta$ となることを示せばいい.
+$X = (x_{i,j}) \in \Delta$, $x_{1,1} = a_{i,j}$ とすると
+\begin{align}
+ a_{i,j} e_{i,j}
+ =
+ x_{1,1} e_{i,j}
+ =
+ e_{i,1} X e_{1,j} \in \Delta.
+\end{align}
+したがって $A \in \Delta$ で $\Delta = M_n(\bbC)$ がなりたつ.
 \end{proof}
 \section{作用素環}
 

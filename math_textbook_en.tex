@@ -431,7 +431,7 @@
 
 \title{Math textbook}
 \author{Soutenni P (@phasetr)\thanks{phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com}}
-\date{2014-07-24}
+\date{2014-08-05}
 
 \begin{document}
 
@@ -811,25 +811,25 @@ Note that not all function space is infinite dimensional.
 Furthermore this teaches us that there is not always natural topology in linear spaces.
 What is natural topologies for this solution space?
 \end{ex}
-\subsection{Linear maps, functionals}
+\subsection{Linear maps, Linear functionals}
 
 
 We usually consider maps instead of functions in university mathematics.
 In fact a map is just a function whose domain and range are general sets.
 First we define a linear map and linear functional.
 \begin{defn}
- Assume $L_1$ and $L_2$ are linear spaces.
- Then a function $F \colon L_1 \to L_2$ is called a \upbf{map or operator}.
- If $F$ preserves linearity, i.e., $F$ has a property
- \begin{align}
-  F \rbk{\alpha f + \beta g}
-  =
-  \alpha F(f) + \beta F(g), \quad \alpha, \beta \in \bbR, f, g \in L_1,
- \end{align}
- then an operator $F$ is called a \upbf{linear operator}.
+Assume $L_1$ and $L_2$ are linear spaces.
+Then a function $F \colon L_1 \to L_2$ is called a \upbf{map or operator}.
+If $F$ preserves linearity, i.e., $F$ has a property
+\begin{align}
+ F \rbk{\alpha f + \beta g}
+ =
+ \alpha F(f) + \beta F(g), \quad \alpha, \beta \in \bbR, f, g \in L_1,
+\end{align}
+then an operator $F$ is called a \upbf{linear operator}.
 
- If $L_2$ is $\bbR$ then $F$ is usually called a \upbf{functional}.
- Furthermore $F$ is called a \upbf{linear functional} if it is linear.
+If $L_2$ is $\bbR$ then $F$ is usually called a \upbf{functional}.
+Furthermore $F$ is called a \upbf{linear functional} if it is linear.
 \end{defn}
 Here are some examples.
 \begin{ex}
@@ -878,7 +878,7 @@ Here are some examples.
    \end{align}
 \end{enumerate}
 \end{ex}
-In this way we connects linear algebra with calculus.
+In this way we connect linear algebra with calculus.
 For analysis of nonlinear functionals we also need various linear spaces and
 some technique from linear algebra.
 \subsection{Eigenvalues, eigenvectors}
@@ -897,7 +897,7 @@ However they sometimes appears in entrance exams.
 \end{defn}
 Here are examples.
 \begin{ex}
- Let $D^2$ be a second order differential operator (this is linear) with respect to time and consider the following equation
+ Let $D^2$ be a second order differential operator (this is linear) with respect to time and consider
   \begin{align}
    m D^2 x
    =
@@ -950,7 +950,7 @@ See also \cite{phasetr2}.
 
 For example, in quantum mechanics, one of the most fundamental physical theory,
 linearity is important and fundamental.
-We say ``a superposition principle holds true in wave functions,''
+We say ``a superposition principle valids for wave functions,''
 and this ``superposition'' means linearity.
 
 In high school we learn a superposition principle for wave.
@@ -16601,12 +16601,18 @@ One is abstract and uses \textbf{nuclear extension}.
 The other is concrete and uses a \textbf{quantum mechanical harmonic oscillator}
 \chapter{Talk: Lecture on ergodic theory}
 
+
+I will translate this.
 \chapter{Statistics for idol management}
 
 
 動画から適当に切り出してくる.
 \part{Algebra}
 
+\chapter{Commutative Ring}
+
+
+I will translate.
 \chapter{\textbf{TODO} Symmetry and group theory}
 
 \section{運動方程式を不変にする変換}
@@ -16621,6 +16627,10 @@ The other is concrete and uses a \textbf{quantum mechanical harmonic oscillator}
 
 \part{Geometry}
 
+\chapter{Hyperbolic geometry for ergodic theory}
+
+
+I will translate this.
 \chapter{Guidance for algebraic geometry}
 
 
@@ -16673,6 +16683,8 @@ Thus $\Image f$ cannot be a vector bundle.
 Similarly $\ker f$ cannot be a vector bundle.
 \end{proof}
 \chapter{Analysis}
+
+\section{Calculus}
 
 
 \begin{ex}
@@ -16923,6 +16935,74 @@ Hence $T \in J + I_{x_0} \subset J$.
 Therefore $\bbB (H) = J$.
 Thus $\Rad (\bbB(H)) \subset \cap_{x \in H \setminus \cbk{0}} I_x = \cbk{0}$.
 Therefore $\bbB(H)$ is algebraically semisimple.
+\end{proof}
+
+\begin{ex}
+There exists a unital commutative Banach algebra with a non-maximal primary ideal.
+\end{ex}
+\begin{proof}
+Suppose that $A$ is the algebra $C^m ([0, 1])$ of the complex valued $m \geq 1$ times
+continously differentiable functions on $[0, 1]$ with the norm
+\begin{align}
+ \norm{f}
+ =
+ \sum_{k=0}^m \frac{1}{k!} \sup_{x \in [0, 1]} \abs{f^{(k)} (x)}.
+\end{align}
+Let $x_0 \in [0, 1]$ and
+\begin{align}
+ I
+ =
+ \set{f \in A}{f(x_0) = f'(x_0) = 0}.
+\end{align}
+Then $I$ is a closed two-sided ideal contained in only one maximal ideal,
+i.e.,
+\begin{align}
+ \set{f \in A}{f(x_0) = 0}.
+\end{align}
+Note that the maximal ideals of $A$ are of the form
+\begin{align}
+ I_x
+ =
+ \set{f \in A}{f(x) = 0}, \quad x \in [0, 1].
+\end{align}
+A conclusion is that $C^m ([0, 1])$ is not spectral synthesis,
+i.e., it has a closed two-sided ideal which is not the intersection
+of maximal ideals containing this ideal.
+\end{proof}
+\begin{rem}
+The disk algebra contains a non-maximal prime ideal, namely $\cbk{0}$.
+\end{rem}
+
+\begin{ex}
+There is an (algebraically) simple Banach algebra.
+\end{ex}
+\begin{proof}
+In the commutative case, consider the familiar Banach algebra $C(X)$ for compact $X$.
+In the noncommutative case, consider the algebra $M_n(\bbC)$ of all $n \times n$ matrices
+with entries in $\bbC$.
+Identifying $M_n (\bbC)$ with $\bbB (\bbC^n) = K(\bbC^n)$, where $K (\bbC^n)$ is the set of compact operators,
+ we may regard $M_n (\bbC)$ as a noncommutative $C^*$-algebra.
+
+Suppose that $e_{i,j}$ is the matrix with the $(i,j)$-entry 1 and 0 elsewhere.
+Then $e_{i,j} e_{k,l} = \delta_{j,k} e_{i,l}$, where $\delta$ denotes Kronecker's $\delta$.
+Let $\Delta$ be a nontrivial two-sided ideal in $M_n(\bbC)$.
+Let $A = \sum_{i,j} a_{i,j} e_{i,j} \in \Delta$ be a nonzero element.
+Now we have the following:
+\begin{align}
+ e_{i,j} A e_{k,l}
+ =
+ a_{j,k} e_{i,l}.
+\end{align}
+We show that $a_{i,j} e_{i,j} \in \Delta$ for any $i$, $j$.
+Set $X = (x_{i,j}) \in \Delta$ and $x_{1,1} = a_{i,j}$, and then we get
+\begin{align}
+ a_{i,j} e_{i,j}
+ =
+ x_{1,1} e_{i,j}
+ =
+ e_{i,1} X e_{1,j} \in \Delta.
+\end{align}
+Hence $A \in \Delta$ and then it holds that $\Delta = M_n(\bbC)$.
 \end{proof}
 \section{Operator algebra}
 

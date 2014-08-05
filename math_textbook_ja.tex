@@ -2100,36 +2100,35 @@ Here are some examples.
 \end{ex}
 このようにして線型代数を微積分と繋げる.
 非線型汎関数の解析に対しても, 様々な線型空間と線型代数由来の技術が必要になる.
-\subsection{Eigenvalues, eigenvectors}
+\subsection{固有値, 固有ベクトル}
 
 
-These are not learned explicitly in high school.
-However they sometimes appears in entrance exams.
+これらは高校ではっきりとは学ばない.
+けれども受験では時々登場する.
 \begin{defn}
- Let $A$ be a linear operator on a linear space $L$.
- A real number $\lambda$ resp. a vector $f$ are called an \upbf{eigenvalue} resp. \upbf{eigenvector}
- if they satisfy
+ 作用素 $A$ を線型空間 $L$ 上の線型作用素とする.
+ 実数 $\lambda$ とベクトル $f$ が次の条件を満たす時, それぞれ\upbf{固有値}と\upbf{固有ベクトル}と呼ぶ.
  \begin{align}
   A f = \lambda f, \quad
   f \neq 0.
  \end{align}
 \end{defn}
-Here are examples.
+例を出そう.
 \begin{ex}
- Let $D^2$ be a second order differential operator (this is linear) with respect to time and consider
+ 作用素 $D^2$ を時間に関する (線型の) 二階微分作用素とし, 次の方程式を考える.
   \begin{align}
    m D^2 x
    =
    -k x,
   \end{align}
- i.e.,
+ つまり,
   \begin{align}
    m \frac{d^2 x (t)}{dt^2}
    =
    -k x(t).
   \end{align}
- This is an equation of motion for a spring in physics.
- A solution (eigenvector) is
+ これは物理におけるバネの運動方程式である.
+ 解 (固有ベクトル) は
   \begin{align}
    x(t)
    =
@@ -2138,58 +2137,57 @@ Here are examples.
    =
    \sqrt{\frac{k}{m}}.
   \end{align}
- We can write a solution using a celebrated Euler's formula:
+ である.
+ 有名なオイラーの公式を用いて解を書くことができる:
   \begin{align}
    x(t)
    =
    A e^{i \rbk{\omega t + \theta}}.
   \end{align}
- Consideration of eigenvalues for a differential equation is somewhat difficult and we omit it.
- See, e.g., \cite{HaimBrezis1, HaimBrezis2} for details.
+ 微分方程式の固有ベクトルを考えることは少々難しいので省略する.
+ 詳細は, 例えば \cite{HaimBrezis1, HaimBrezis2} を参照.
 \end{ex}
-\subsection{Mathematical application of linear algebra}
+\subsection{線型代数の数学的応用}
 
 
-There many branches related to linear algebra.
-Here are some examples.
-See also \cite{phasetr2}.
+多くの分野が線型代数と関係している.
+いくつかの例を出そう.
+\cite{phasetr2} も参照してほしい.
 \begin{enumerate}
-\item Theory of Lie group and its representation theory.
-\item General algebra.
-\item Algebraic geometry.
-\item Analysis of differential equations.
-\item Functional analysis.
-\item Operator algebra.
+\item リー群論とその表現論.
+\item 一般の代数学.
+\item 代数幾何学.
+\item 微分方程式の解析.
+\item 関数解析.
+\item 作用素環論.
 \end{enumerate}
-\subsection{Physical application}
+\subsection{物理的応用}
 
 
-There many branches related to linear algebra in physics, too.
-See also \cite{phasetr2}.
+物理でも多くの分野が線型代数と関係している.
+\cite{phasetr2} も参照してほしい.
 
-For example, in quantum mechanics, one of the most fundamental physical theory,
-linearity is important and fundamental.
-We say ``a superposition principle valids for wave functions,''
-and this ``superposition'' means linearity.
+例えば, 量子力学は物理で最も基本的な理論の 1 つだが,
+線型性は重要で基本的だ.
+``波動関数は重ね合わせの原理にしたがう'' と言う時,
+この ``重ね合わせ'' とは線型性を意味する.
 
-In high school we learn a superposition principle for wave.
-This holds because our wave equation is linear in high school.
-\subsection{Linear algebra and statistics}
-
-
-We use statistics in many branches, including humanities and sociology.
-E.g., natural language processing has many humanity and information theoretic elements.
-This area needs broad knowledge including probability and statistics.
-Interested readers should learn, e.g., principal component analysis.
-\subsection{Linear algebra and computer/information science}
+高校では波の重ね合わせの原理について学ぶ.
+重ね合わせが成り立つのは高校の波動方程式は線型だからだ.
+\subsection{線型代数と統計学}
 
 
-We have applications in computer science.
-In numerical analysis we use linear algebra.
-See the code theory, pseudo random numbers, image compression, or Google's
-PageRank for real world application\footnote{See, e.g, my movies,
-\href{http://www.nicovideo.jp/watch/sm7599426}{http://www.nicovideo.jp/watch/sm7599426}, \href{http://www.nicovideo.jp/watch/sm10684363}{http://www.nicovideo.jp/watch/sm10684363}.
- }.
+統計学は人文学と社会学を含む様々な分野で使われている.
+例えば, 自然言語処理は人文学・情報理論と深い関係がある.
+この領域は確率論と統計学を含む幅広い知識を必要とする.
+興味のある読者は, 例えば主成分分析などを学んでほしい.
+\subsection{線型代数と計算機科学・情報学}
+
+
+計算機科学にも応用がある.
+数値解析では線型代数を使う.
+現実世界への応用については符号理論, 疑似乱数, 画像圧縮, グーグルのページランクなどを参照してほしい.\footnote{例えば, 私の動画
+\href{http://www.nicovideo.jp/watch/sm7599426}{http://www.nicovideo.jp/watch/sm7599426}, \href{http://www.nicovideo.jp/watch/sm10684363}{http://www.nicovideo.jp/watch/sm10684363}を参照してほしい.}.
 \section{Integration}
 
 \subsection{Let's define inner products!}

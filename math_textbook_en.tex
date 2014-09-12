@@ -1,437 +1,12 @@
-\documentclass[openany, a4paper, oneside]{book}
+\documentclass[openany, a4paper, oneside]{jsbook}
 
-\usepackage[top=10truemm,bottom=20truemm,left=15truemm,right=15truemm]{geometry}
-\usepackage[dvipdfmx]{graphicx, hyperref}
-\usepackage{atbegshi}
-\ifnum 42146=\euc"A4A2
-\AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}}
-\else
-\AtBeginShipoutFirst{\special{pdf:tounicode 90ms-RKSJ-UCS2}}
-\fi
-\usepackage[all]{xy}
-\usepackage{makeidx}
-\makeindex
-\usepackage{url}
-\usepackage{amsthm}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsfonts}
-\usepackage{mathrsfs}
-\usepackage{bm}
-\bibliographystyle{jplain}
-\addtolength{\footskip}{10mm}
-\makeatletter
-\def\ps@plainfoot{%
-\let\@mkboth\@gobbletwo
-\let\@oddhead\@empty
-\def\@oddfoot{\normalfont\hfil-- \thepage\ --\hfil}%
-\let\@evenhead\@empty
-\let\@evenfoot\@oddfoot}
-\let\ps@plain\ps@plainfoot
-\makeatother
-\pagestyle{plain}
-
-\makeatletter
-\newcounter{enum2}
-\renewenvironment{enumerate}{%
-\begin{list}%
-{%
-\arabic{enum2}.\ \,%  見出し記号/ 直後の空白を調節
-}%
-{%
-\usecounter{enum2}
-\setlength{\itemindent}{0pt}%  ここは 0 に固定
-\setlength{\leftmargin}{15pt}%  左のインデント
-\setlength{\rightmargin}{0pt}% 右のインデント
-\setlength{\labelsep}{0pt}%    黒丸と説明文の間
-\setlength{\labelwidth}{6pt}%  ラベルの幅
-\setlength{\itemsep}{0pt}%     項目ごとの改行幅
-\setlength{\parsep}{0pt}%      段落での改行幅
-\setlength{\listparindent}{0pt}% 段落での一字下り
-}
-}{%
-\end{list}%
-}
-\renewenvironment{itemize}{%
-\begin{list}{$\bullet$\ \ }%
-{%
-\usecounter{enum2}
-\setlength{\itemindent}{0pt}%  ここは 0 に固定
-\setlength{\leftmargin}{15pt}%  左のインデント
-\setlength{\rightmargin}{0pt}% 右のインデント
-\setlength{\labelsep}{0pt}%    黒丸と説明文の間
-\setlength{\labelwidth}{6pt}%  ラベルの幅
-\setlength{\itemsep}{0pt}%     項目ごとの改行幅
-\setlength{\parsep}{0pt}%      段落での改行幅
-\setlength{\listparindent}{0pt}% 段落での一字下り
-}
-}{%
-\end{list}%
-}
-
-\makeatletter
-\renewcommand{\theequation}{\thesection.\arabic{equation}}
-\@addtoreset{equation}{section}
-\makeatother
-\makeatletter
-\newcommand*{\defeq}{\mathrel{\rlap{%
-\raisebox{0.3ex}{$\m@th\cdot$}}%
-\raisebox{-0.3ex}{$\m@th\cdot$}}%
-=}
-\newcommand*{\eqdef}{=\mathrel{\hbox to 0pt{%
-\raisebox{0.3ex}{$\m@th\cdot$}}%
-\raisebox{-0.3ex}{$\m@th\cdot$}}%
-}
-\makeatother
-
-\DeclareMathOperator*{\slim}{s-lim}
-\DeclareMathOperator*{\wlim}{w-lim}
-\DeclareMathOperator{\diag}{diag}
-\newcommand{\card}{\mathrm{card}\,}
-\newcommand{\co}{\mathrm{co}\,}
-\newcommand{\const}{\mathrm{const.}}
-\newcommand{\dom}{\mathrm{dom}\,}
-\newcommand{\Rad}{\mathrm{Rad}\,}
-\newcommand{\ran}{\mathrm{ran}\,}
-\newcommand{\algoplus}{\mathop{\hat{\bigoplus}}}
-\newcommand{\algotimes}{\mathop{\hat{\bigotimes}}}
-\newcommand{\esssup}{\mathop{\mathrm{ess.sup}}}
-\DeclareMathOperator{\grad}{grad \,}
-\DeclareMathOperator{\rot}{rot \,}
-\DeclareMathOperator{\divergence}{div \,}
-
-\newtheoremstyle{break}
-{\topsep}{\topsep}%
-{\itshape}{}%
-{\bfseries}{}%
-{\newline}{}%
-\newtheoremstyle{breakdefn}
-{\topsep}{\topsep}%
-{\normalfont}{}%
-{\bfseries}{}%
-{\newline}{}%
-\theoremstyle{break}
-\renewcommand{\proofname}{\upbf{Proof}}
-\theoremstyle{breakdefn}
-\newtheorem{thm}{Theorem.}[section]
-\newtheorem{cor}[thm]{Corollary.}
-\newtheorem{lem}[thm]{Lemma.}
-\newtheorem{pos}[thm]{Postulate.}
-\newtheorem{req}[thm]{Request.}
-\newtheorem{prop}[thm]{Proposition.}
-\newtheorem{axm}[thm]{Axiom.}
-\newtheorem{defn}[thm]{Definition.}
-\newtheorem{ex}[thm]{Example.}
-\newtheorem{exercise}[thm]{Exercise.}
-\newtheorem{problem}[thm]{Problem.}
-\newtheorem{rem}[thm]{Remark.}
-\newtheorem{fact}[thm]{Fact.}
-\newtheorem{assump}[thm]{Assumption.}
-
-\renewcommand{\thethm}{\arabic{chapter}.\arabic{section}.\arabic{thm}}
-%For (js)article
-%\renewcommand{\thethm}{\arabic{section}.\arabic{subsection}.\arabic{thm}}
-
-\renewcommand{\Im}{\mathrm{Im} \,}
-\renewcommand{\Re}{\mathrm{Re} \,}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%   brackets and such
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\abs}[1]{\left|#1\right|}
-\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
-\newcommand{\inftynorm}[1]{\left\Vert#1\right\Vert_{\infty}}
-\newcommand{\pnorm}[1]{\left\Vert#1\right\Vert_p}
-\newcommand{\qnorm}[1]{\left\Vert#1\right\Vert_q}
-\newcommand{\twonorm}[1]{\norm{#1}_2}
-\newcommand{\dbk}[1]{\left\langle #1 \right\rangle}
-\newcommand{\rbk}[1]{\left (#1\right)}
-\newcommand{\sqbk}[1]{\left[#1\right]}
-\newcommand{\cbk}[1]{\left\{#1\right\}}
-\newcommand{\abk}[1]{\left\langle #1 \right\rangle}
-\newcommand{\bkt}[2]{\left\langle#1,\,#2\right\rangle}
-\newcommand{\rbkt}[2]{\left ( #1,\,#2 \right)}
-\newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}}
-\newcommand{\set}[2]{\left\{#1 \relmiddle| #2\right\}}
-\newcommand{\bra}[1]{\left\langle #1 \right|}
-\newcommand{\ket}[1]{\left| #1 \right\rangle}
-\newcommand{\trans}{\,^t\!}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%   special sums and such
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\sumtwo}[2]{\mathop{\sum_{#1}}_{#2}}
-\newcommand{\sumthree}[3]{\mathop{\mathop{\sum_{#1}}_{#2}}_{#3}}
-\newcommand{\sumfour}[4]{\mathop{\mathop{\mathop{\sum_{#1}}_{#2}}_{#3}}_{#4}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newcommand{\bbA}{\mathbb{A}}
-\newcommand{\bbB}{\mathbb{B}}
-\newcommand{\bbC}{\mathbb{C}}
-\newcommand{\bbH}{\mathbb{H}}
-\newcommand{\bbN}{\mathbb{N}}
-\newcommand{\bbQ}{\mathbb{Q}}
-\newcommand{\bbR}{\mathbb{R}}
-\newcommand{\bR}{\mathbb{R}}
-\newcommand{\bB}{\mathbb{B}}
-\newcommand{\bC}{\mathbb{C}}
-\newcommand{\bN}{\mathbb{N}}
-\newcommand{\bQ}{\mathbb{Q}}
-\newcommand{\bbRbar}{\bar{\mathbb{R}}}
-\newcommand{\bbRd}{\mathbb{R}^d}
-\newcommand{\bbRthree}{\mathbb{R}^3}
-\newcommand{\bbRn}{\mathbb{R}^n}
-\newcommand{\bbRnu}{\mathbb{R}^{\nu}}
-\newcommand{\bbS}{\mathbb{S}}
-\newcommand{\bbZ}{\mathbb{Z}}
-\newcommand{\calA}{\mathcal{A}}
-\newcommand{\calB}{\mathcal{B}}
-\newcommand{\calC}{\mathcal{C}}
-\newcommand{\calCN}{\mathcal{C}_{N}}
-\newcommand{\calCleqN}{\mathcal{C}_{\leq N}}
-\newcommand{\calD}{\mathcal{D}}
-\newcommand{\calE}{\mathcal{E}}
-\newcommand{\calF}{\mathcal{F}}
-\newcommand{\calFb}{\mathcal{F}_{\mathrm{b}}}
-\newcommand{\calFf}{\mathcal{F}_{\mathrm{f}}}
-\newcommand{\calH}{\mathcal{H}}
-\newcommand{\calI}{\mathcal{I}}
-\newcommand{\calK}{\mathcal{K}}
-\newcommand{\calL}{\mathcal{L}}
-\newcommand{\calV}{\mathcal{V}}
-\newcommand{\calM}{\mathcal{M}}
-\newcommand{\calO}{\mathcal{O}}
-\newcommand{\calR}{\mathcal{R}}
-\newcommand{\calS}{\mathcal{S}}
-\newcommand{\Ccinfty}{C_{\mathrm{c}}^{\infty}}
-\newcommand{\dmu}{d \mu}
-\newcommand{\E}[1]{\rmE\sqbk{#1}}
-\newcommand{\End}{\mathrm{End}}
-\newcommand{\extbbC}{\overline{\bbC}}
-\newcommand{\fraka}{\mathfrak{a}}
-\newcommand{\frakb}{\mathfrak{b}}
-\newcommand{\frakc}{\mathfrak{c}}
-\newcommand{\frakd}{\mathfrak{d}}
-\newcommand{\frake}{\mathfrak{e}}
-\newcommand{\frakf}{\mathfrak{f}}
-\newcommand{\frakg}{\mathfrak{g}}
-\newcommand{\frakh}{\mathfrak{h}}
-\newcommand{\fraki}{\mathfrak{i}}
-\newcommand{\frakj}{\mathfrak{j}}
-\newcommand{\frakk}{\mathfrak{k}}
-\newcommand{\frakl}{\mathfrak{l}}
-\newcommand{\frakm}{\mathfrak{m}}
-\newcommand{\frakn}{\mathfrak{n}}
-\newcommand{\frako}{\mathfrak{o}}
-\newcommand{\frakp}{\mathfrak{p}}
-\newcommand{\frakq}{\mathfrak{q}}
-\newcommand{\frakr}{\mathfrak{r}}
-\newcommand{\fraks}{\mathfrak{s}}
-\newcommand{\frakt}{\mathfrak{t}}
-\newcommand{\fraku}{\mathfrak{u}}
-\newcommand{\frakv}{\mathfrak{v}}
-\newcommand{\frakw}{\mathfrak{w}}
-\newcommand{\frakx}{\mathfrak{x}}
-\newcommand{\fraky}{\mathfrak{y}}
-\newcommand{\frakz}{\mathfrak{z}}
-\newcommand{\frakA}{\mathfrak{A}}
-\newcommand{\frakB}{\mathfrak{B}}
-\newcommand{\frakC}{\mathfrak{C}}
-\newcommand{\frakD}{\mathfrak{D}}
-\newcommand{\frakE}{\mathfrak{E}}
-\newcommand{\frakF}{\mathfrak{F}}
-\newcommand{\frakG}{\mathfrak{G}}
-\newcommand{\frakH}{\mathfrak{H}}
-\newcommand{\frakI}{\mathfrak{I}}
-\newcommand{\frakJ}{\mathfrak{J}}
-\newcommand{\frakK}{\mathfrak{K}}
-\newcommand{\frakL}{\mathfrak{L}}
-\newcommand{\frakM}{\mathfrak{M}}
-\newcommand{\frakN}{\mathfrak{N}}
-\newcommand{\frakO}{\mathfrak{O}}
-\newcommand{\frakP}{\mathfrak{P}}
-\newcommand{\frakQ}{\mathfrak{Q}}
-\newcommand{\frakR}{\mathfrak{R}}
-\newcommand{\frakS}{\mathfrak{S}}
-\newcommand{\frakT}{\mathfrak{T}}
-\newcommand{\frakU}{\mathfrak{U}}
-\newcommand{\frakV}{\mathfrak{V}}
-\newcommand{\frakW}{\mathfrak{W}}
-\newcommand{\frakX}{\mathfrak{X}}
-\newcommand{\frakY}{\mathfrak{Y}}
-\newcommand{\frakZ}{\mathfrak{Z}}
-\newcommand{\Hom}{\mathrm{Hom} \,}
-\newcommand{\Isom}{\mathrm{Isom} \,}
-\newcommand{\hyperbolicsegment}[2]{\left[ #1, \, #2 \right]_{\mathrm{h}}}
-\newcommand{\Var}[1]{\mathrm{Var}\sqbk{#1}}
-\newcommand{\Cov}[1]{\mathrm{Cov}\sqbk{#1}}
-\newcommand{\EleqN}{E_{\leq}(N)}
-\newcommand{\gvarepsilonminus}{g_{\varepsilon}^{-}}
-\newcommand{\gvarepsilonplus}{g_{\varepsilon}^{+}}
-\newcommand{\Image}{\mathrm{Im}\,}
-\newcommand{\limjtoinfty}{\lim_{j \to \infty}}
-\newcommand{\liminfntoinfty}{\liminf_{n \to \infty}}
-\newcommand{\limntoinfty}{\lim_{n \to \infty}}
-\newcommand{\limsupntoinfty}{\limsup_{n \to \infty}}
-\newcommand{\Loneloc}{L_{\mathrm{loc}}^1}
-\newcommand{\LtwoRd}{L^2 \rbk{\bbR^d}}
-\newcommand{\LtwoRn}{L^2 \rbk{\bbR^n}}
-\newcommand{\realtempereddist}{\mathcal{S}'_{\mathrm{real}}}
-\newcommand{\realrapiddecrease}{\mathcal{S}_{\mathrm{real}}}
-\newcommand{\res}{\mathrm{Res}\,}
-\newcommand{\rhoNinfty}{\rho_{N, \infty}}
-\newcommand{\riemannsphere}{\overline{\bbC}}
-\newcommand{\rmb}{\mathrm{b}}
-\newcommand{\rme}{\mathrm{e}}
-\newcommand{\rmE}{\mathrm{E}}
-\newcommand{\rmf}{\mathrm{f}}
-\newcommand{\rms}{\mathrm{s}}
-\newcommand{\rmirr}{\mathrm{irr}}
-\newcommand{\rmirs}{\mathrm{irs}}
-\newcommand{\rmfin}{\mathrm{fin}}
-\newcommand{\rmas}{\mathrm{as}}
-\newcommand{\rmfr}{\mathrm{fr}}
-\newcommand{\rmmin}{\mathrm{min}}
-\newcommand{\rmmax}{\mathrm{max}}
-\newcommand{\rmtot}{\mathrm{tot}}
-\newcommand{\rmg}{\mathrm{g}}
-\newcommand{\rmI}{\mathrm{I}}
-\newcommand{\rmIm}{\mathrm{Im}}
-\newcommand{\rmRe}{\mathrm{Re}}
-\newcommand{\rmp}{\mathrm{p}}
-\newcommand{\rmph}{\mathrm{ph}}
-\newcommand{\scrF}{\mathscr{F}}
-\newcommand{\sto}{\xrightarrow{\text{s}}}
-\newcommand{\sumonetoinfty}[1]{\sum_{#1 = 1}^{\infty}}
-\newcommand{\sumzerotoinfty}[1]{\sum_{#1 = 0}^{\infty}}
-\newcommand{\supp}{\mathrm{supp} \,}
-\newcommand{\Trace}{\mathrm{Tr}\,}
-\newcommand{\touw}{\stackrel{\mathrm{uw}}{\to}\,}
-\newcommand{\upbf}[1]{\textup{\textbf{#1}}}
-\newcommand{\VC}{V_{\mathrm{C}}}
-\newcommand{\wick}[1]{\colon #1 \colon}
-\newcommand{\wto}{\xrightarrow{\text{w}}}
-\newcommand{\bs}{\blacksquare}
-\newcommand{\vep}{\varepsilon}
-\newcommand{\fin}{\hfill $\square$ \par}
-\newcommand{\ann}{\mathrm{Ann}\,}
-\newcommand{\ass}{\mathrm{Ass}\,}
-\newcommand{\blu}{\mathrm{Bl}}
-\newcommand{\cech}{\check{\mathrm{H}}}
-\newcommand{\coho}{\mathrm{H}}
-\newcommand{\divcl}{\mathrm{DivCl}\,}
-\newcommand{\divs}{\mathrm{Div}\,}
-\newcommand{\edivs}{\mathrm{Div}_+\,}
-\newcommand{\Frac}{\mathrm{Frac}\,}
-\newcommand{\homo}{\mathrm{Hom}}
-\newcommand{\id}{\mathrm{id}}
-\newcommand{\injsh}{\mathcal{I}}
-\newcommand{\kernel}{\mathrm{Ker}\,}
-\newcommand{\map}{\longrightarrow}
-\newcommand{\pdivs}{\mathrm{Div}_{\mathrm{princ}}\,}
-\newcommand{\picard}{\mathrm{Pic}\,}
-\newcommand{\proj}{\mathrm{Proj}\,}
-\newcommand{\sh}{\mathcal{F}}
-\newcommand{\spec}{\mathrm{Spec}\,}
-\newcommand{\stsh}{\mathcal{O}}
-\bmdefine{\va}{a}
-\bmdefine{\vb}{b}
-\bmdefine{\vc}{c}
-\bmdefine{\ve}{e}
-\bmdefine{\vf}{f}
-\bmdefine{\vg}{g}
-\bmdefine{\vh}{h}
-\bmdefine{\vi}{i}
-\bmdefine{\vj}{j}
-\bmdefine{\vk}{k}
-\bmdefine{\vl}{l}
-\bmdefine{\vm}{m}
-\bmdefine{\vn}{n}
-\bmdefine{\vo}{o}
-\bmdefine{\vp}{p}
-\bmdefine{\vq}{q}
-\bmdefine{\vr}{r}
-\bmdefine{\vs}{s}
-\bmdefine{\vt}{t}
-\bmdefine{\vu}{u}
-\bmdefine{\vv}{v}
-\bmdefine{\vw}{w}
-\bmdefine{\vx}{x}
-\bmdefine{\vy}{y}
-\bmdefine{\vz}{z}
-\bmdefine{\vA}{A}
-\bmdefine{\vB}{B}
-\bmdefine{\vC}{C}
-\bmdefine{\vD}{D}
-\bmdefine{\vE}{E}
-\bmdefine{\vF}{F}
-\bmdefine{\vG}{G}
-\bmdefine{\vH}{H}
-\bmdefine{\vI}{I}
-\bmdefine{\vJ}{J}
-\bmdefine{\vK}{K}
-\bmdefine{\vL}{L}
-\bmdefine{\vM}{M}
-\bmdefine{\vN}{N}
-\bmdefine{\vO}{O}
-\bmdefine{\vP}{P}
-\bmdefine{\vQ}{Q}
-\bmdefine{\vR}{R}
-\bmdefine{\vS}{S}
-\bmdefine{\vT}{T}
-\bmdefine{\vU}{U}
-\bmdefine{\vV}{V}
-\bmdefine{\vW}{W}
-\bmdefine{\vX}{X}
-\bmdefine{\vY}{Y}
-\bmdefine{\vZ}{Z}
-
-\newcommand{\an}{(a_n)_{n{\in}{\bN}}}
-\newcommand{\bn}{(b_n)_{n{\in}{\bN}}}
-\newcommand{\cn}{(c_n)_{n{\in}{\bN}}}
-\newcommand{\xn}{(x_n)_{n{\in}{\bN}}}
-\newcommand{\xm}{(x_m)_{m{\in}{\bN}}}
-\newcommand{\xk}{(x_{n (k)})_{k{\in}{\bN}}}
-\newcommand{\yn}{(y_n)_{n{\in}{\bN}}}
-\newcommand{\fxn}{(f (x_n))_{n{\in}{\bN}}}
-\newcommand{\fn}{(f_n)_{n{\in}{\bN}}}
-\newcommand{\sn}{(s_n)_{n{\in}{\bN}}}
-\newcommand{\pn}{(p_n)_{n{\in}{\bN}}}
-\newcommand{\sgn}{\mathrm{sgn}\,}
-\newcommand{\mcr}{\mathcal{R}}
-\newcommand{\mcs}{\mathcal{S}}
-\newcommand{\mcp}{\mathcal{P}}
-\newcommand{\mcm}{\mathcal{M}}
-\newcommand{\mcl}{\mathcal{L}}
-\newcommand{\mcb}{\mathcal{B}}
-\newcommand{\mco}{\mathcal{O}}
-\newcommand{\deltat}{\varDelta t}
-\newcommand{\mbr}{\mathbb{R}}
-\newcommand{\mbn}{\mathbb{N}}
-\newcommand{\mbz}{\mathbb{Z}}
-\newcommand{\mbq}{\mathbb{Q}}
-\newcommand{\mbc}{\mathbb{C}}
-\newcommand{\mbfn}{\mathbf{N}}
-\newcommand{\mbfz}{\mathbf{Z}}
-\newcommand{\mbfq}{\mathbf{Q}}
-\newcommand{\mbfr}{\mathbf{R}}
-\newcommand{\mbfc}{\mathbf{C}}
-
-\newcommand{\mrm}[1]{\mathrm{#1}}
-\newcommand{\lrto}{\Longleftrightarrow}
-\newcommand{\slrto}{\Longleftrightarrow}
-\newcommand{\srto}{\Rightarrow}
-\newcommand{\rto}{\Longrightarrow}
-\newcommand{\slto}{\Leftarrow}
-\newcommand{\lto}{\Longleftarrow}
-\newcommand{\vecr}[3]{\rbk{#1,\quad#2,\quad#3}}
-\newcommand{\vecc}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
-
-\newcommand{\del}{\varDelta}
-\newcommand{\pd}{\partial}
+\input{./mymacro.tex}
+\renewcommand{\thethm}{\arabic{section}.\arabic{subsection}.\arabic{thm}}
 \providecommand{\alert}[1]{\textbf{#1}}
 
 \title{Math textbook}
-\author{Soutenni P (@phasetr)\thanks{phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com}}
-\date{2014-08-05}
+\author{Soutenni P (@phasetr)\thanks{phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com, http://phasetr.com/members/formadd, http://math-accessory.com}}
+\date{2014-09-12}
 
 \begin{document}
 
@@ -4783,7 +4358,7 @@ Euler (オイラー) の公式という次式になります.
 \chapter{Application to Google's pagerank}
 
 
-動画の原稿から取ってくる.
+I will translate.
 \chapter{量子力学を理解するために斎藤正彦『線型代数入門』\cite{MasahikoSaitoh1}を読む人が注目すべき点}
 
 
@@ -8617,13 +8192,13 @@ Note that we do not assume continuity of a derivative for holomorphy.
 
 First we review a line integral in $\bbR^2$.
 \begin{defn}\textup{(Line integral in $\bbR^2$)}
- Let $C \colon I=[a,b] \to \bbR^2$ be a piecewise $C^1$ curve and $\Image C \subset U$ and
+ Let $C \colon I=[a,b] \to \bbR^2$ be a piecewise $C^1$ curve and $\image C \subset U$ and
  $F \colon U \to \bbR^2$ be a continuous vector field.
  Then we define a \upbf{line integral} over $C$ of $F$ as
  \begin{align}
   \int_{C} F \cdot dC
   =
-  \int_{\Image C} F (C) \cdot dC
+  \int_{\image C} F (C) \cdot dC
   =
   \int_a^b F (C (t)) \cdot C'(t) dt.
  \end{align}
@@ -11550,7 +11125,7 @@ I will translate this chapter from the Japanese version.
 
 \section{スペクトル分解}
 
-\chapter{Talk: Inverse analysis for heat equation--mathematics, physics, engineering}
+\chapter{Talk: Inverse analysis for heat equation--mathematics, physics, engineering\label{inverse-problem-in-partial-diferrential-equations-for-diffusion-equation-for-tsudoi1}}
 
 
 これは 2013-09-21 第 4 回関西すうがく徒のつどいでの講演,
@@ -16599,7 +16174,7 @@ Then a net limit functional is the desired one.
 There are two proofs in \cite{AsaoArai5}.
 One is abstract and uses \textbf{nuclear extension}.
 The other is concrete and uses a \textbf{quantum mechanical harmonic oscillator}
-\chapter{Talk: Lecture on ergodic theory}
+\chapter{Talk: Lecture on ergodic theory\label{introduction-to-ergodic-theory39}}
 
 
 I will translate this.
@@ -16679,7 +16254,7 @@ where $p(x, y) = x$.
 Let $f \colon \xi \to \xi$ by $f(x,y) = (x, xy)$.
 Then the image of $f$ has fiber of dimension 1 everwhere except at $x=0$
 where the fiber is zero.
-Thus $\Image f$ cannot be a vector bundle.
+Thus $\image f$ cannot be a vector bundle.
 Similarly $\ker f$ cannot be a vector bundle.
 \end{proof}
 \chapter{Analysis}
@@ -16719,7 +16294,7 @@ For the site URL, see the bibliography of \cite{MohammadSalMoslehian1}.
 \subsection{Banach algebra}
 
 
-\begin{ex}[unital Banach algebra]\label{counterexamples-analysis-moslehian1}
+\begin{ex}[unital Banach algebra, Banach Algebra Ex.1]\label{counterexamples-analysis-moslehian1}
 Recall that $0$ and $1$ are called trivial idempotents.
 \begin{enumerate}
 \item A unital Banach algebra, except the algebra of complex numbers, without nontrivial idempotent.
@@ -16751,7 +16326,7 @@ element $a \in A$ such that $\sigma (A)$ is not connected,
 then $A$ has a nontrivial idempotent.
 \end{rem}
 
-\begin{ex}
+\begin{ex}[Banach Algebra Ex.2]
 A Banach algebra generated by idempotents, i.e. elements $x$ such that $x^2 = x$.
 \end{ex}
 \begin{proof}
@@ -16817,7 +16392,7 @@ So that
 Thus $X$ is totally disconnected.
 \end{proof}
 
-\begin{ex}
+\begin{ex}[Banach Algebra Ex.3]
 A compact Hausdorff space $X$ and subalgebras of $C(X)$ satisfying
 in only three conditions of four following conditions:
 \begin{enumerate}
@@ -16844,7 +16419,7 @@ Let $X = [a, b]$, $x_1$ and $x_2$ are in $X$ and
 \end{align}
 \end{proof}
 
-\begin{ex}
+\begin{ex}[Banach Algebra Ex.4]
 A Banach algebra $A$ such that $\Rad (A)$ is a proper subset of the set
 $\set{x}{r(x) = 0}$ of all quasi-nilpotent elements,
 where the above map $r$ is the spectral radius of an element $x \in A$
@@ -16898,7 +16473,7 @@ has the spectrum $\sigma (x) = \cbk{0}$ and so $r(x) = 0$.
 Hence $\Rad (A)$ is not equal to $\set{x}{r(x) = 0}$.
 \end{proof}
 
-\begin{ex}
+\begin{ex}[Banach Algebra Ex.5]
 There is an algebraically semisimple non-commutative Banach algebra.
 \end{ex}
 \begin{proof}
@@ -16937,7 +16512,12 @@ Thus $\Rad (\bbB(H)) \subset \cap_{x \in H \setminus \cbk{0}} I_x = \cbk{0}$.
 Therefore $\bbB(H)$ is algebraically semisimple.
 \end{proof}
 
-\begin{ex}
+\begin{ex}[Banach Algebra Ex.6]
+There is a semisimple commutative Banach algebra $A$
+with a closed two-sided ideal $I$ such that $A/I$ is not semisimple.
+\end{ex}
+
+\begin{ex}[Banach Algebra Ex.7]
 There exists a unital commutative Banach algebra with a non-maximal primary ideal.
 \end{ex}
 \begin{proof}
@@ -16973,7 +16553,7 @@ of maximal ideals containing this ideal.
 The disk algebra contains a non-maximal prime ideal, namely $\cbk{0}$.
 \end{rem}
 
-\begin{ex}
+\begin{ex}[Banach Algebra Ex.8]
 There is an (algebraically) simple Banach algebra.
 \end{ex}
 \begin{proof}
@@ -17004,6 +16584,226 @@ Set $X = (x_{i,j}) \in \Delta$ and $x_{1,1} = a_{i,j}$, and then we get
 \end{align}
 Hence $A \in \Delta$ and then it holds that $\Delta = M_n(\bbC)$.
 \end{proof}
+
+\begin{ex}[Banach Algebra Ex.9]
+An example of a Banach algebra $A$, a closed subalgebra $B$ of $A$ and an element $a \in A$ such that $\sigma_A a = \sigma_B a$.
+\end{ex}
+\begin{proof}
+Let $H$ be a Hilbert space, $A = \bbB (H)$, $a = T$ be a nonzero element of $A$
+and also let $B$ be a maximal commutative ($C^*$-)subalgebra containing $T$.
+Then, by Proposition 2.2.7 in \cite{BratteliRobinson1}, we obtain
+\begin{align}
+ \sigma_A (a)
+ =
+ \sigma_B (a).
+\end{align}
+\end{proof}
+
+\begin{ex}[Banach Algebra Ex.10]
+There are reflexive/nonreflexive Banach algebras.
+\end{ex}
+\begin{proof}
+$C^n$ is reflexive if $n \geq 1$.
+
+The space of sequence $c_0$ is the set of ones whose element $(a_n)$ has finite support.
+Then it holds that $c_0^{**} = \ell^1 = \ell^{\infty}$ and the inclusion
+$c_0 \hookrightarrow \ell^{\infty}$ is proper.
+Hence $c_0$ is not reflexive.
+\end{proof}
+
+\begin{ex}[Banach Algebra Ex.11]
+There is an element of a Banach algebra which has no logarithm.
+\end{ex}
+\begin{proof}
+Consider the unilateral shift operator on a separable Hilbert space $H$,
+and then $u$ is a Fredholm of index
+\begin{align}
+ \ind u = \dimension \ker u - \dimension \coker u = 0 - 1 = -1.
+\end{align}
+If $\pi \colon \bbB(H) \to \bbB (H) / K(H)$ is the quotient map
+and $\pi(u) = e^{w}$ for some $w$ in the Calkin algebra $\bbB(H) / K(H)$,
+then there is an element $w' \in \bbB(H)$ with $\pi (w') = w$, so
+\begin{align}
+ \pi(u)
+ =
+ e^{w}
+ =
+ e^{\pi (w')}
+ =
+ \pi \rbk{e^{w'}}.
+\end{align}
+Hence $u - e^{w'} \in K(H)$, but $e^{w'}$ is invertible
+and so $\ind u = \ind e^{w'} = 0$, which is a contradiction.
+\end{proof}
+
+\begin{ex}[Banach Algebra Ex.12]
+There is an algebra can not be normed so that it cannot become a Banach algebra.
+\end{ex}
+\begin{proof}
+The algebra of all complex valued infinitely many times continuously
+differentiable functions on $[0, 1]$, $C^{\infty}([0, 1])$,
+is semisimple, for
+\begin{align}
+ \Rad (A)
+ =
+ \bigcap_{t \in [0, 1]} \set{f \in C^{\infty}([0, 1])}{f(t) = 0}
+ = 0.
+\end{align}
+Note that $f \mapsto f'$ is a derivation on $A$.
+The Johnson theorem \cite[Theorem 18.21]{BonsallDuncan1} says that
+$0$ is the only derivation on a semisimple Banach algebra.
+It follows that $A = C^{\infty}([0, 1])$ is not Banach algebra under any norm.
+
+A direct proof can be found in \cite[Corollary 4.1.12]{BernardAupetit1}.
+This example is due to \cite{GESilov1}.
+\end{proof}
+
+\begin{ex}[Banach Algebra Ex.13]
+There is a commutative radical Banach algebra.
+\end{ex}
+\begin{proof}
+We show two examples.
+
+(1) A Banach space with all products taken to be zero.
+Then every element is quasi-invertible\footnote{I must confirm the definition of quasi-inverse.
+ }.
+
+(2) The Banach space $L^1([0, 1])$ with the product
+\begin{align}
+ (fg) (x)
+ \defeq
+ \int_0^x f(x - y) g(y) dy.
+\end{align}
+This has a generator $f_o (t) = t$, since
+\begin{align}
+ f^n_0 (t)
+ =
+ \frac{t^{n-1}}{(n-1)!},
+\end{align}
+the set of polynomials in one variable is $L^p$-dense in $C([0, 1])$
+and $C([0, 1])$ is $L^p$-dense in $L^1([0, 1])$.
+Moreover
+\begin{align}
+ \norm{f_0^n}
+ =
+ \int_0^1 \abs{f_o^n (t)} dt
+ =
+ \frac{1}{n!},
+\end{align}
+so its spectral radius
+\begin{align}
+ r(f_o)
+ =
+ \lim_{n \to \infty} \norm{f_o^n}^{1/n}
+ =
+ \lim_{n \to \infty} \rbk{n!}^{-1/n}
+ = 0.
+\end{align}
+Therefore this algebra does not have any character, and hence
+it is radical algebra.
+\end{proof}
+
+\begin{ex}[Banach Algebra Ex.14]
+There is an element x of a Banach algebra such $r(x) < \norm{x}$,
+where $r(x)$ is the spectral radius of $x$.
+\end{ex}
+\begin{proof}
+Consider the following element $x$ in a $C^*$-algebra $M_2 (\bbC) = \bbB(\bbC^2)$,
+\begin{align}
+ x
+ =
+ \begin{bmatrix}
+  0 & 1 \\
+  0 & 0
+ \end{bmatrix}.
+\end{align}
+Then the spectrum of $x$ is $\sigma (x) = \cbk{0}$ and hence its spectral radius $r(x) = 0$.
+However we have $\norm{x} = 1$.
+\end{proof}
+
+\begin{ex}[Banach Algebra Ex.15]
+There is a commutative Banach algebra $A$ with a unique ideal; i.e. $\Rad (A)$.
+\end{ex}
+\begin{proof}
+Suppose $H = L^2(0, 1)$ with respect to the Lebesgue measure.
+Then
+\begin{align}
+ (Vf) (x)
+ =
+ \int_{0}^x f(t)dt
+\end{align}
+defines an operator $V \in \bbB(H)$ which is called Volterra operator.
+Clearly the closure $A$ of $\set{p(V)}{p \text{ is a polynomial}}$ in $\bbB(H)$
+is the commutative Banach subalgebra of $\bbB(H)$ generated by $V$ and the identity operator $1$.
+
+An straightforward computation shows that
+\begin{align}
+ \rbk{V^n f}(x)
+ =
+ \int_{x}^{x} \frac{(x-t)^{n-1}}{(n-1)!} f(t) dt
+\end{align}
+and so
+\begin{align}
+ \norm{V^n}
+ =
+ \frac{1}{(n-1!)}, \quad
+ r(V)
+ =
+ \lim_{n \to \infty} \norm{V^n}^{1/n}
+ = 0.
+\end{align}
+Hence $\sigma_{\bbB(H)} (V) = \cbk{0}$.
+However, by \cite[VII. Theorem 5.4]{JohnConway1},
+$\sigma_A(V)$ is equal to the polynomially convex hull of
+$\sigma_{\bbB(H)} (V)$, hence $\sigma_A (V) = \cbk{0}$.
+The maximai ideal space of $A$ is homemorphic to $\sigma_A (V) = 0$.
+Hence the only character on $A$ is $\phi(\lambda) = \lambda$
+and $\phi(x) = 0$ for $x \in A \setminus \bbC$.
+Since $\phi$ is continuous, the unique maximal ideal space
+is
+\begin{align}
+ \Rad (A)
+ =
+ \ker (\phi)
+ =
+ \overline{\set{p(V)}{p \text{ is a polynomial and } p(0) = 0}}.
+\end{align}
+\end{proof}
+
+\begin{ex}[Banach Algebra Ex.16]
+There is a Banach algebra $A$ that is a topological direct sum
+(as a Banach space) of a pair of its Banach subalgebras which are isometrically isomorphic to $A$.
+\end{ex}
+\begin{proof}
+Set $A = \ell^{\infty}$ and define the following two sets
+\begin{align}
+ E
+ &\defeq
+ \set{\rbk{x_n} \in \ell^{\infty}}{x_{2n} = 0}, \\
+ F
+ &\defeq
+ \set{\rbk{x_n} \in \ell^{\infty}}{x_{2n - 1} = 0}.
+\end{align}
+Obviously $E$ and $F$ are closed subalgebras of $A$ and
+\begin{align}
+ A
+ =
+ E + F, \quad E \cap F = \cbk{0}.
+\end{align}
+So $E$ is a complemented subspace of $A$ with $F$ as a complementary subspace.
+In addition a map
+\begin{align}
+ \phi \rbk{\rbk{x_1, x_2, x_3, \dots}}
+ =
+ \rbk{0, x_1, 0, x_2, 0, x_3, \dots}
+\end{align}
+is an isometrically isomorphism between $A$ and $E$.
+One can similarly define an isometrically isomorphism between $A$ and $F$.
+
+Note that if $E$ is a complemented infinite dimensional subspace of $\ell^{\infty}$
+then $E$ is isomorphic to $\ell^{\infty}$.
+See \cite{JoramLindenstrass1} for details.
+\end{proof}
 \section{Operator algebra}
 
 
@@ -17014,7 +16814,7 @@ then an (abelian) $C^*$-algebra $C(X)$ has no nontrivial projections.
 \begin{proof}
 See the proof of Example \ref{counterexamples-analysis-moslehian1}.
 \end{proof}
-\chapter{\textbf{TODO} TRANSLATE DVD: Playing with interesting counter examples}
+\chapter{TRANSLATE DVD: Playing with interesting counter examples}
 
 
 これは 2013-03-16 第 3 回関西すうがく徒のつどいでの講演,

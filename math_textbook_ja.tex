@@ -1,437 +1,12 @@
 \documentclass[openany, a4paper, oneside]{jsbook}
 
-\usepackage[top=10truemm,bottom=20truemm,left=15truemm,right=15truemm]{geometry}
-\usepackage[dvipdfmx]{graphicx, hyperref}
-\usepackage{atbegshi}
-\ifnum 42146=\euc"A4A2
-\AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}}
-\else
-\AtBeginShipoutFirst{\special{pdf:tounicode 90ms-RKSJ-UCS2}}
-\fi
-\usepackage[all]{xy}
-\usepackage{makeidx}
-\makeindex
-\usepackage{url}
-\usepackage{amsthm}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsfonts}
-\usepackage{mathrsfs}
-\usepackage{bm}
-\bibliographystyle{jplain}
-\addtolength{\footskip}{10mm}
-\makeatletter
-\def\ps@plainfoot{%
-\let\@mkboth\@gobbletwo
-\let\@oddhead\@empty
-\def\@oddfoot{\normalfont\hfil-- \thepage\ --\hfil}%
-\let\@evenhead\@empty
-\let\@evenfoot\@oddfoot}
-\let\ps@plain\ps@plainfoot
-\makeatother
-\pagestyle{plain}
-
-\makeatletter
-\newcounter{enum2}
-\renewenvironment{enumerate}{%
-\begin{list}%
-{%
-\arabic{enum2}.\ \,%  見出し記号/ 直後の空白を調節
-}%
-{%
-\usecounter{enum2}
-\setlength{\itemindent}{0pt}%  ここは 0 に固定
-\setlength{\leftmargin}{15pt}%  左のインデント
-\setlength{\rightmargin}{0pt}% 右のインデント
-\setlength{\labelsep}{0pt}%    黒丸と説明文の間
-\setlength{\labelwidth}{6pt}%  ラベルの幅
-\setlength{\itemsep}{0pt}%     項目ごとの改行幅
-\setlength{\parsep}{0pt}%      段落での改行幅
-\setlength{\listparindent}{0pt}% 段落での一字下り
-}
-}{%
-\end{list}%
-}
-\renewenvironment{itemize}{%
-\begin{list}{$\bullet$\ \ }%
-{%
-\usecounter{enum2}
-\setlength{\itemindent}{0pt}%  ここは 0 に固定
-\setlength{\leftmargin}{15pt}%  左のインデント
-\setlength{\rightmargin}{0pt}% 右のインデント
-\setlength{\labelsep}{0pt}%    黒丸と説明文の間
-\setlength{\labelwidth}{6pt}%  ラベルの幅
-\setlength{\itemsep}{0pt}%     項目ごとの改行幅
-\setlength{\parsep}{0pt}%      段落での改行幅
-\setlength{\listparindent}{0pt}% 段落での一字下り
-}
-}{%
-\end{list}%
-}
-
-\makeatletter
-\renewcommand{\theequation}{\thesection.\arabic{equation}}
-\@addtoreset{equation}{section}
-\makeatother
-\makeatletter
-\newcommand*{\defeq}{\mathrel{\rlap{%
-\raisebox{0.3ex}{$\m@th\cdot$}}%
-\raisebox{-0.3ex}{$\m@th\cdot$}}%
-=}
-\newcommand*{\eqdef}{=\mathrel{\hbox to 0pt{%
-\raisebox{0.3ex}{$\m@th\cdot$}}%
-\raisebox{-0.3ex}{$\m@th\cdot$}}%
-}
-\makeatother
-
-\DeclareMathOperator*{\slim}{s-lim}
-\DeclareMathOperator*{\wlim}{w-lim}
-\DeclareMathOperator{\diag}{diag}
-\newcommand{\card}{\mathrm{card}\,}
-\newcommand{\co}{\mathrm{co}\,}
-\newcommand{\const}{\mathrm{const.}}
-\newcommand{\dom}{\mathrm{dom}\,}
-\newcommand{\Rad}{\mathrm{Rad}\,}
-\newcommand{\ran}{\mathrm{ran}\,}
-\newcommand{\algoplus}{\mathop{\hat{\bigoplus}}}
-\newcommand{\algotimes}{\mathop{\hat{\bigotimes}}}
-\newcommand{\esssup}{\mathop{\mathrm{ess.sup}}}
-\DeclareMathOperator{\grad}{grad \,}
-\DeclareMathOperator{\rot}{rot \,}
-\DeclareMathOperator{\divergence}{div \,}
-
-\newtheoremstyle{break}
-{\topsep}{\topsep}%
-{\itshape}{}%
-{\bfseries}{}%
-{\newline}{}%
-\newtheoremstyle{breakdefn}
-{\topsep}{\topsep}%
-{\normalfont}{}%
-{\bfseries}{}%
-{\newline}{}%
-\theoremstyle{break}
-\renewcommand{\proofname}{\upbf{Proof}}
-\theoremstyle{breakdefn}
-\newtheorem{thm}{Theorem.}[section]
-\newtheorem{cor}[thm]{Corollary.}
-\newtheorem{lem}[thm]{Lemma.}
-\newtheorem{pos}[thm]{Postulate.}
-\newtheorem{req}[thm]{Request.}
-\newtheorem{prop}[thm]{Proposition.}
-\newtheorem{axm}[thm]{Axiom.}
-\newtheorem{defn}[thm]{Definition.}
-\newtheorem{ex}[thm]{Example.}
-\newtheorem{exercise}[thm]{Exercise.}
-\newtheorem{problem}[thm]{Problem.}
-\newtheorem{rem}[thm]{Remark.}
-\newtheorem{fact}[thm]{Fact.}
-\newtheorem{assump}[thm]{Assumption.}
-
-\renewcommand{\thethm}{\arabic{chapter}.\arabic{section}.\arabic{thm}}
-%For (js)article
-%\renewcommand{\thethm}{\arabic{section}.\arabic{subsection}.\arabic{thm}}
-
-\renewcommand{\Im}{\mathrm{Im} \,}
-\renewcommand{\Re}{\mathrm{Re} \,}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%   brackets and such
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\abs}[1]{\left|#1\right|}
-\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
-\newcommand{\inftynorm}[1]{\left\Vert#1\right\Vert_{\infty}}
-\newcommand{\pnorm}[1]{\left\Vert#1\right\Vert_p}
-\newcommand{\qnorm}[1]{\left\Vert#1\right\Vert_q}
-\newcommand{\twonorm}[1]{\norm{#1}_2}
-\newcommand{\dbk}[1]{\left\langle #1 \right\rangle}
-\newcommand{\rbk}[1]{\left (#1\right)}
-\newcommand{\sqbk}[1]{\left[#1\right]}
-\newcommand{\cbk}[1]{\left\{#1\right\}}
-\newcommand{\abk}[1]{\left\langle #1 \right\rangle}
-\newcommand{\bkt}[2]{\left\langle#1,\,#2\right\rangle}
-\newcommand{\rbkt}[2]{\left ( #1,\,#2 \right)}
-\newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}}
-\newcommand{\set}[2]{\left\{#1 \relmiddle| #2\right\}}
-\newcommand{\bra}[1]{\left\langle #1 \right|}
-\newcommand{\ket}[1]{\left| #1 \right\rangle}
-\newcommand{\trans}{\,^t\!}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%   special sums and such
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\sumtwo}[2]{\mathop{\sum_{#1}}_{#2}}
-\newcommand{\sumthree}[3]{\mathop{\mathop{\sum_{#1}}_{#2}}_{#3}}
-\newcommand{\sumfour}[4]{\mathop{\mathop{\mathop{\sum_{#1}}_{#2}}_{#3}}_{#4}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newcommand{\bbA}{\mathbb{A}}
-\newcommand{\bbB}{\mathbb{B}}
-\newcommand{\bbC}{\mathbb{C}}
-\newcommand{\bbH}{\mathbb{H}}
-\newcommand{\bbN}{\mathbb{N}}
-\newcommand{\bbQ}{\mathbb{Q}}
-\newcommand{\bbR}{\mathbb{R}}
-\newcommand{\bR}{\mathbb{R}}
-\newcommand{\bB}{\mathbb{B}}
-\newcommand{\bC}{\mathbb{C}}
-\newcommand{\bN}{\mathbb{N}}
-\newcommand{\bQ}{\mathbb{Q}}
-\newcommand{\bbRbar}{\bar{\mathbb{R}}}
-\newcommand{\bbRd}{\mathbb{R}^d}
-\newcommand{\bbRthree}{\mathbb{R}^3}
-\newcommand{\bbRn}{\mathbb{R}^n}
-\newcommand{\bbRnu}{\mathbb{R}^{\nu}}
-\newcommand{\bbS}{\mathbb{S}}
-\newcommand{\bbZ}{\mathbb{Z}}
-\newcommand{\calA}{\mathcal{A}}
-\newcommand{\calB}{\mathcal{B}}
-\newcommand{\calC}{\mathcal{C}}
-\newcommand{\calCN}{\mathcal{C}_{N}}
-\newcommand{\calCleqN}{\mathcal{C}_{\leq N}}
-\newcommand{\calD}{\mathcal{D}}
-\newcommand{\calE}{\mathcal{E}}
-\newcommand{\calF}{\mathcal{F}}
-\newcommand{\calFb}{\mathcal{F}_{\mathrm{b}}}
-\newcommand{\calFf}{\mathcal{F}_{\mathrm{f}}}
-\newcommand{\calH}{\mathcal{H}}
-\newcommand{\calI}{\mathcal{I}}
-\newcommand{\calK}{\mathcal{K}}
-\newcommand{\calL}{\mathcal{L}}
-\newcommand{\calV}{\mathcal{V}}
-\newcommand{\calM}{\mathcal{M}}
-\newcommand{\calO}{\mathcal{O}}
-\newcommand{\calR}{\mathcal{R}}
-\newcommand{\calS}{\mathcal{S}}
-\newcommand{\Ccinfty}{C_{\mathrm{c}}^{\infty}}
-\newcommand{\dmu}{d \mu}
-\newcommand{\E}[1]{\rmE\sqbk{#1}}
-\newcommand{\End}{\mathrm{End}}
-\newcommand{\extbbC}{\overline{\bbC}}
-\newcommand{\fraka}{\mathfrak{a}}
-\newcommand{\frakb}{\mathfrak{b}}
-\newcommand{\frakc}{\mathfrak{c}}
-\newcommand{\frakd}{\mathfrak{d}}
-\newcommand{\frake}{\mathfrak{e}}
-\newcommand{\frakf}{\mathfrak{f}}
-\newcommand{\frakg}{\mathfrak{g}}
-\newcommand{\frakh}{\mathfrak{h}}
-\newcommand{\fraki}{\mathfrak{i}}
-\newcommand{\frakj}{\mathfrak{j}}
-\newcommand{\frakk}{\mathfrak{k}}
-\newcommand{\frakl}{\mathfrak{l}}
-\newcommand{\frakm}{\mathfrak{m}}
-\newcommand{\frakn}{\mathfrak{n}}
-\newcommand{\frako}{\mathfrak{o}}
-\newcommand{\frakp}{\mathfrak{p}}
-\newcommand{\frakq}{\mathfrak{q}}
-\newcommand{\frakr}{\mathfrak{r}}
-\newcommand{\fraks}{\mathfrak{s}}
-\newcommand{\frakt}{\mathfrak{t}}
-\newcommand{\fraku}{\mathfrak{u}}
-\newcommand{\frakv}{\mathfrak{v}}
-\newcommand{\frakw}{\mathfrak{w}}
-\newcommand{\frakx}{\mathfrak{x}}
-\newcommand{\fraky}{\mathfrak{y}}
-\newcommand{\frakz}{\mathfrak{z}}
-\newcommand{\frakA}{\mathfrak{A}}
-\newcommand{\frakB}{\mathfrak{B}}
-\newcommand{\frakC}{\mathfrak{C}}
-\newcommand{\frakD}{\mathfrak{D}}
-\newcommand{\frakE}{\mathfrak{E}}
-\newcommand{\frakF}{\mathfrak{F}}
-\newcommand{\frakG}{\mathfrak{G}}
-\newcommand{\frakH}{\mathfrak{H}}
-\newcommand{\frakI}{\mathfrak{I}}
-\newcommand{\frakJ}{\mathfrak{J}}
-\newcommand{\frakK}{\mathfrak{K}}
-\newcommand{\frakL}{\mathfrak{L}}
-\newcommand{\frakM}{\mathfrak{M}}
-\newcommand{\frakN}{\mathfrak{N}}
-\newcommand{\frakO}{\mathfrak{O}}
-\newcommand{\frakP}{\mathfrak{P}}
-\newcommand{\frakQ}{\mathfrak{Q}}
-\newcommand{\frakR}{\mathfrak{R}}
-\newcommand{\frakS}{\mathfrak{S}}
-\newcommand{\frakT}{\mathfrak{T}}
-\newcommand{\frakU}{\mathfrak{U}}
-\newcommand{\frakV}{\mathfrak{V}}
-\newcommand{\frakW}{\mathfrak{W}}
-\newcommand{\frakX}{\mathfrak{X}}
-\newcommand{\frakY}{\mathfrak{Y}}
-\newcommand{\frakZ}{\mathfrak{Z}}
-\newcommand{\Hom}{\mathrm{Hom} \,}
-\newcommand{\Isom}{\mathrm{Isom} \,}
-\newcommand{\hyperbolicsegment}[2]{\left[ #1, \, #2 \right]_{\mathrm{h}}}
-\newcommand{\Var}[1]{\mathrm{Var}\sqbk{#1}}
-\newcommand{\Cov}[1]{\mathrm{Cov}\sqbk{#1}}
-\newcommand{\EleqN}{E_{\leq}(N)}
-\newcommand{\gvarepsilonminus}{g_{\varepsilon}^{-}}
-\newcommand{\gvarepsilonplus}{g_{\varepsilon}^{+}}
-\newcommand{\Image}{\mathrm{Im}\,}
-\newcommand{\limjtoinfty}{\lim_{j \to \infty}}
-\newcommand{\liminfntoinfty}{\liminf_{n \to \infty}}
-\newcommand{\limntoinfty}{\lim_{n \to \infty}}
-\newcommand{\limsupntoinfty}{\limsup_{n \to \infty}}
-\newcommand{\Loneloc}{L_{\mathrm{loc}}^1}
-\newcommand{\LtwoRd}{L^2 \rbk{\bbR^d}}
-\newcommand{\LtwoRn}{L^2 \rbk{\bbR^n}}
-\newcommand{\realtempereddist}{\mathcal{S}'_{\mathrm{real}}}
-\newcommand{\realrapiddecrease}{\mathcal{S}_{\mathrm{real}}}
-\newcommand{\res}{\mathrm{Res}\,}
-\newcommand{\rhoNinfty}{\rho_{N, \infty}}
-\newcommand{\riemannsphere}{\overline{\bbC}}
-\newcommand{\rmb}{\mathrm{b}}
-\newcommand{\rme}{\mathrm{e}}
-\newcommand{\rmE}{\mathrm{E}}
-\newcommand{\rmf}{\mathrm{f}}
-\newcommand{\rms}{\mathrm{s}}
-\newcommand{\rmirr}{\mathrm{irr}}
-\newcommand{\rmirs}{\mathrm{irs}}
-\newcommand{\rmfin}{\mathrm{fin}}
-\newcommand{\rmas}{\mathrm{as}}
-\newcommand{\rmfr}{\mathrm{fr}}
-\newcommand{\rmmin}{\mathrm{min}}
-\newcommand{\rmmax}{\mathrm{max}}
-\newcommand{\rmtot}{\mathrm{tot}}
-\newcommand{\rmg}{\mathrm{g}}
-\newcommand{\rmI}{\mathrm{I}}
-\newcommand{\rmIm}{\mathrm{Im}}
-\newcommand{\rmRe}{\mathrm{Re}}
-\newcommand{\rmp}{\mathrm{p}}
-\newcommand{\rmph}{\mathrm{ph}}
-\newcommand{\scrF}{\mathscr{F}}
-\newcommand{\sto}{\xrightarrow{\text{s}}}
-\newcommand{\sumonetoinfty}[1]{\sum_{#1 = 1}^{\infty}}
-\newcommand{\sumzerotoinfty}[1]{\sum_{#1 = 0}^{\infty}}
-\newcommand{\supp}{\mathrm{supp} \,}
-\newcommand{\Trace}{\mathrm{Tr}\,}
-\newcommand{\touw}{\stackrel{\mathrm{uw}}{\to}\,}
-\newcommand{\upbf}[1]{\textup{\textbf{#1}}}
-\newcommand{\VC}{V_{\mathrm{C}}}
-\newcommand{\wick}[1]{\colon #1 \colon}
-\newcommand{\wto}{\xrightarrow{\text{w}}}
-\newcommand{\bs}{\blacksquare}
-\newcommand{\vep}{\varepsilon}
-\newcommand{\fin}{\hfill $\square$ \par}
-\newcommand{\ann}{\mathrm{Ann}\,}
-\newcommand{\ass}{\mathrm{Ass}\,}
-\newcommand{\blu}{\mathrm{Bl}}
-\newcommand{\cech}{\check{\mathrm{H}}}
-\newcommand{\coho}{\mathrm{H}}
-\newcommand{\divcl}{\mathrm{DivCl}\,}
-\newcommand{\divs}{\mathrm{Div}\,}
-\newcommand{\edivs}{\mathrm{Div}_+\,}
-\newcommand{\Frac}{\mathrm{Frac}\,}
-\newcommand{\homo}{\mathrm{Hom}}
-\newcommand{\id}{\mathrm{id}}
-\newcommand{\injsh}{\mathcal{I}}
-\newcommand{\kernel}{\mathrm{Ker}\,}
-\newcommand{\map}{\longrightarrow}
-\newcommand{\pdivs}{\mathrm{Div}_{\mathrm{princ}}\,}
-\newcommand{\picard}{\mathrm{Pic}\,}
-\newcommand{\proj}{\mathrm{Proj}\,}
-\newcommand{\sh}{\mathcal{F}}
-\newcommand{\spec}{\mathrm{Spec}\,}
-\newcommand{\stsh}{\mathcal{O}}
-\bmdefine{\va}{a}
-\bmdefine{\vb}{b}
-\bmdefine{\vc}{c}
-\bmdefine{\ve}{e}
-\bmdefine{\vf}{f}
-\bmdefine{\vg}{g}
-\bmdefine{\vh}{h}
-\bmdefine{\vi}{i}
-\bmdefine{\vj}{j}
-\bmdefine{\vk}{k}
-\bmdefine{\vl}{l}
-\bmdefine{\vm}{m}
-\bmdefine{\vn}{n}
-\bmdefine{\vo}{o}
-\bmdefine{\vp}{p}
-\bmdefine{\vq}{q}
-\bmdefine{\vr}{r}
-\bmdefine{\vs}{s}
-\bmdefine{\vt}{t}
-\bmdefine{\vu}{u}
-\bmdefine{\vv}{v}
-\bmdefine{\vw}{w}
-\bmdefine{\vx}{x}
-\bmdefine{\vy}{y}
-\bmdefine{\vz}{z}
-\bmdefine{\vA}{A}
-\bmdefine{\vB}{B}
-\bmdefine{\vC}{C}
-\bmdefine{\vD}{D}
-\bmdefine{\vE}{E}
-\bmdefine{\vF}{F}
-\bmdefine{\vG}{G}
-\bmdefine{\vH}{H}
-\bmdefine{\vI}{I}
-\bmdefine{\vJ}{J}
-\bmdefine{\vK}{K}
-\bmdefine{\vL}{L}
-\bmdefine{\vM}{M}
-\bmdefine{\vN}{N}
-\bmdefine{\vO}{O}
-\bmdefine{\vP}{P}
-\bmdefine{\vQ}{Q}
-\bmdefine{\vR}{R}
-\bmdefine{\vS}{S}
-\bmdefine{\vT}{T}
-\bmdefine{\vU}{U}
-\bmdefine{\vV}{V}
-\bmdefine{\vW}{W}
-\bmdefine{\vX}{X}
-\bmdefine{\vY}{Y}
-\bmdefine{\vZ}{Z}
-
-\newcommand{\an}{(a_n)_{n{\in}{\bN}}}
-\newcommand{\bn}{(b_n)_{n{\in}{\bN}}}
-\newcommand{\cn}{(c_n)_{n{\in}{\bN}}}
-\newcommand{\xn}{(x_n)_{n{\in}{\bN}}}
-\newcommand{\xm}{(x_m)_{m{\in}{\bN}}}
-\newcommand{\xk}{(x_{n (k)})_{k{\in}{\bN}}}
-\newcommand{\yn}{(y_n)_{n{\in}{\bN}}}
-\newcommand{\fxn}{(f (x_n))_{n{\in}{\bN}}}
-\newcommand{\fn}{(f_n)_{n{\in}{\bN}}}
-\newcommand{\sn}{(s_n)_{n{\in}{\bN}}}
-\newcommand{\pn}{(p_n)_{n{\in}{\bN}}}
-\newcommand{\sgn}{\mathrm{sgn}\,}
-\newcommand{\mcr}{\mathcal{R}}
-\newcommand{\mcs}{\mathcal{S}}
-\newcommand{\mcp}{\mathcal{P}}
-\newcommand{\mcm}{\mathcal{M}}
-\newcommand{\mcl}{\mathcal{L}}
-\newcommand{\mcb}{\mathcal{B}}
-\newcommand{\mco}{\mathcal{O}}
-\newcommand{\deltat}{\varDelta t}
-\newcommand{\mbr}{\mathbb{R}}
-\newcommand{\mbn}{\mathbb{N}}
-\newcommand{\mbz}{\mathbb{Z}}
-\newcommand{\mbq}{\mathbb{Q}}
-\newcommand{\mbc}{\mathbb{C}}
-\newcommand{\mbfn}{\mathbf{N}}
-\newcommand{\mbfz}{\mathbf{Z}}
-\newcommand{\mbfq}{\mathbf{Q}}
-\newcommand{\mbfr}{\mathbf{R}}
-\newcommand{\mbfc}{\mathbf{C}}
-
-\newcommand{\mrm}[1]{\mathrm{#1}}
-\newcommand{\lrto}{\Longleftrightarrow}
-\newcommand{\slrto}{\Longleftrightarrow}
-\newcommand{\srto}{\Rightarrow}
-\newcommand{\rto}{\Longrightarrow}
-\newcommand{\slto}{\Leftarrow}
-\newcommand{\lto}{\Longleftarrow}
-\newcommand{\vecr}[3]{\rbk{#1,\quad#2,\quad#3}}
-\newcommand{\vecc}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
-
-\newcommand{\del}{\varDelta}
-\newcommand{\pd}{\partial}
+\input{./mymacro.tex}
+\renewcommand{\thethm}{\arabic{section}.\arabic{subsection}.\arabic{thm}}
 \providecommand{\alert}[1]{\textbf{#1}}
 
 \title{Math textbook}
-\author{相転移 P (@phasetr)\thanks{phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com}}
-\date{2014-08-05}
+\author{相転移 P (@phasetr)\thanks{phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com, http://phasetr.com/members/formadd, http://math-accessory.com}}
+\date{2014-09-12}
 
 \begin{document}
 
@@ -806,6 +381,11 @@ differential equations which together with the initial conditions
 $x(t_0)$ and $v(t_0)$ determine $x(t)$ and thus $v(t)$ for all times.
 
 \begin{itemize}
+\item 完全な集合.
+\end{itemize}
+A perfect set.
+
+\begin{itemize}
 \item 簡単のため, 考察下の系はフェルミオンかボソンか, ただ一種類の粒子だけを含むと仮定しよう. \cite{LiebSeiringer1}
 \end{itemize}
 Assume, for simplicity, that the system under consideration contains only one species of particles,
@@ -1042,6 +622,12 @@ The main purpose of this book is to study the ground state energies of quantum m
 particles interacting via electric and magnetic forces.
 
 \begin{itemize}
+\item この本は様々な数学の分野を研究している数学者が現在よく使う方法やアイデアについて解説することを目指している. \cite{Magnetic}
+\end{itemize}
+This book aims to present those ideas and methods that can now be effectively used by mathematicians working in a variety of
+other fields of mathematical research.
+
+\begin{itemize}
 \item この本は量子力学のいろいろな分野の研究者に向けた内容になっている. \cite{LiebSeiringer1}
 \end{itemize}
 The book is directed towards researchers on various aspects of quantum mechanics.
@@ -1223,6 +809,11 @@ carries over to the magnetic case essentially without change.
 As remarked in the previous section.
 
 \begin{itemize}
+\item 全疎.
+\end{itemize}
+nowhere dense.
+
+\begin{itemize}
 \item 素イデアル.
 \end{itemize}
 A prime ideal.
@@ -1370,6 +961,11 @@ The electric force is attractive between oppositely charged particles and repuls
 \item 電子.
 \end{itemize}
 An electron.
+
+\begin{itemize}
+\item 点つきリーマン面.
+\end{itemize}
+A Riemann surface with marked points.
 
 \begin{itemize}
 \item 等式.
@@ -2038,7 +1634,7 @@ Lebesgue の意味で 2 乗可積分な関数の空間 $L^2 (- \pi, \pi)$ は無
 これは振幅 $A$ と初期位相 $\theta$ の分の自由度に対応している.
 関数空間だからといって必ずしも無限次元というわけではないことに注意してほしい.
 また, 線型空間に必ずしも自然な位相 (topology の方) があるとは限らないこともこれでわかる.
-この関数空間に取って自然な位相 (遠近感) は何かといわれてもよく分からない.
+この関数空間にとって自然な位相 (遠近感) は何かといわれてもよく分からない.
 \end{ex}
 \subsection{線型写像, 線型汎関数}
 
@@ -6007,21 +5603,1643 @@ Euler (オイラー) の公式という次式になります.
 それではそろそろ微分積分に行きましょう.
 \chapter{Google の PageRank への応用}
 
-\section{アブストラクト}
+\section{ページランクの基本思想}
 
+
+今回は Google という``身近なところ''にある役に立つ技術について話したい.
+次のような順番で話していこう.
+\begin{enumerate}
+\item ページランクの基本思想: 何故ページランクが必要か.
+\item 問題の直観的定式化
+\item 問題の数学的定式化
+\item べき乗法
+\item 確率論から見たハイパーリンク行列
+\item ベき乗法とそれに関する工学的説明
+\item ハイパーリンク行列とページランクアルゴリズムの問題: 具体例とともに
+\item Google 行列の導入
+\item 正確な問題設定と数学: 250 億元連立一次方程式
+\item 数学・物理的な応用
+\end{enumerate}
+
+まず次のような図書館を考えてほしい.
+\begin{itemize}
+\item 250 億種類の資料がある.
+\item 管理者はいない.
+\item いつでもだれでも好き勝手に資料を足していける.
+\end{itemize}
+250 億も資料があれば``自分にとっても役に立つ資料があるかもしれない''と思えるだろう.
+ただ, 同時に``面倒だからさっさと必要な資料を見つけたい''と思うのも人情だ.
+当然, 問題はどうやって探すかだ.
+そして考えるまでもなく, 絶望的に難しいタスクだ.
+管理者がいない上, 資料がどんどん増えていくのだから.
+
+しかしインターネットは実際にこんな感じなわけだ.
+たくさんの資料が未整理のまま, 文章・図・動画・スライド・PDF などなどいろいろなフォーマットで置いてある.
+どう思ってもいいが, 検索エンジンがあるのだから何かいい探し方があるらしいというのはわかる\footnote{もちろん, 正確には``何かいい探し方そのものを見つけること''自体が仕事なわけだが.
+ }.
+2006 年時点での Google は 100 程度の判定基準があるが,
+そのうち Google がネット上の民主主義として強調しているのが今回のテーマであるページランクだ\footnote{実際にはいわゆる SEO 対策で効果がなくなってきてしまったため,
+自然言語処理でページの中身を判定していく方にシフトしていっているようだが,
+ここではそちらには触れない.
+ }.
+
+検索エンジンにやってほしいことを書き出してみよう.
+\begin{itemize}
+\item ウェブからページを引き出す.
+\item 各文章の単語に索引を付けておく\footnote{画像がほしい場合などもある.
+そういう場合の対処も必要だがここでは省略する.
+ }.
+\item あとで便利に使える形で情報をためておく.
+\item 誰かが適当なキーワードで検索をかけると, 検索エンジンは同じキーワードを含むページを全て取ってきてくれる.
+\end{itemize}
+曖昧なところはあるが, とりあえず最低限必要な項目は上がっているだろう.
+
+そしてここで問題が起きる.
+実は 2006 年時点で 250 億のウェブページがある.
+2014 年時点では桁のレベルで増えているだろう.
+そして Web 中の文章の 95\% は 10,000 語程度を含んでいるという.
+こうなると検索用のキーワードを含むページは山程あるはずだ.
+これは実際に検索してみればすぐわかる\footnote{検索で 1 つしか結果が出てこないようにする検索ワードの組み合わせを見つける遊びがあるくらいだ.
+ }.
+現実問題としてろくな情報が書いていないページもあれば,
+非常に詳しく書いてある役に立つページもある.
+各ページに重要度の高さに応じたランクをつけ,
+その重要度の高いページほど一覧の上に並ぶようになっていると便利だろう.
+
+まず一般論を離れて人間が作ったランキングにつけて考えてみよう.
+例として, ある分野 (たとえば激安店検索) で,
+役に立つサイトへのリンク集からなるページを考えてみる.
+管理者に信頼がおけるのなら, リンク先のページは役に立つ可能性が高い.
+当然問題点もある: いくつか挙げてみよう.
+\begin{enumerate}
+\item すぐに内容が古くなってしまう.
+\item 管理者が重要なページを見落としているかもしれない.
+\item 人が作った判定基準を信頼できるか.
+\end{enumerate}
+まず 1.:
+これは 価格.com を自動化せずに人力でやっているようなものだ.
+あまり役に立つサイトになりそうもない.
+そして 2.:
+たとえば管理者自身が店をやっていてその競合店があれば, わざとリンクを外しているかもしれない.
+そして最後, 3.:
+管理者が恣意的に作った判定基準を適用したランキングだし,
+そうした人が作った判定基準が信頼できるか, という問題がある.
+もちろんその人のフィルターによる判定こそが大事な場合はある.
+ただ一般に検索エンジンを作ろうと思ったとき,
+そもそも個人の判定基準が及ばない領域もある.
+そこまで含めた一般の検索エンジンを作るにはどうすればいいだろうか.
+これからいくつか問題を見ていくが, その他にもいろいろなことを考えていく必要がある.
+例えば日々変更されていくページの情報を見ていくには人力ではもはや追いつかない.
+どうすればいいだろうか?
+
+そこで Google は以下で説明していくページランクアルゴリズムを考えた.
+主観的な価値判断なしにウェブページの重要性を判断したいのだ.
+「自分たちのサービスの価値は, 調べたいことに対して偏見のない公正な情報を提供できることにある」という Google のポリシーがある.
+公平性の担保に大きな価値を感じていて, ページランクがその核心と言える.
+これは``ウェブ自体に各ページの重要性を教えてもらおう''という発想だ.
+
+\begin{rem}
+詳細に入る前に少し注意しておこう.
+ページランクは要は順序付けであって, 要は判定基準に数を使うのだ.
+当然万能の道具ではないが, 数で表せるといいことはある:
+数に関する話なら数学という道具があるからだ.
+もちろん必ずしも数学がつかえるわけでもなく, 使いやすいわけでもない.
+今回はうまく制御して使えてはいるが,
+リーマンショックのように数学に遊ばれて悲劇を起こしてはいけない.
+\end{rem}
+\section{問題の直観的定式化}
+
+
+まず注意から.
+検索エンジンを作りたいわけだが, 物理のように対象がしたがう方程式があるわけではないから,
+どのように社会をモデル化していくか判断がいる.
+物理ほど制御可能な実験ができるわけでもないから理論 (モデル) との比較自体が難しい.
+そうした社会との関わり, 工学的な視点を意識してほしい.
+
+Google 創業者, Sergey Brin と Lawrence Page の発想を説明しよう.
+ウェブページにリンクを張る行為は``リンク先のページは重要だ''というメッセージであると解釈する.
+そしてページのランク (ページランク) を``月に一度の人気投票会の投票結果''と思うのだ.
+具体的には次のように仮定する.
+\begin{align}
+\text{あるページの重要度はそこにリンクしているページ数と各ページの重要度で決まる.}
+\end{align}
+次のようなイメージを持ってほしい:
+政府系のサイト, 例えば外務省の渡航情報は基本的に信頼度が高い.
+こういうページにはたくさんのリンクが張られるはずだが, これを人気投票と思うのだ.
+また, そうした政府系のサイトが下手にその辺のサイトをリンクづけすると問題になる.
+そのリンクが一種の``権威''として働いてしまうからだ.
+逆にそうした信頼性の高いサイトからのリンクされたページは,
+リンク元と同じように信頼性が高いと思っていいだろう.
+厚生省が WHO にリンクを張っている状況を想像すればいい.
+こうした例でページランクの発想を大掴みにしてほしい.
+
+\begin{rem}
+ここで大事な注意をしておこう: 話が堂々めぐりしているのだ.
+文章で順を追って書くと次のようになる.
+\begin{itemize}
+\item あるページ $P$ の重要度を決めよう.
+\item リンクを飛ばしてきているページ $P_1$ の重要度を調べよう.
+\item $P_1$ にリンクを飛ばしてきているページ $P_2$ の重要度を調べよう.
+\item よく調べたらはじめのページ $P$ が $P_2$ にリンクを飛ばしている!
+\end{itemize}
+自分のランクを決めるためには前もって自分のランクがわかっていなければいけなくなってしまった.
+ここでこのモデルが使い物にならないと判断して諦めてしまうこともできるが, もう少し粘りたい.
+そこで数学を使って問題を定式化していく.
+\end{rem}
+\section{問題の数学的定式化}
+
+
+ページランク決定方程式の仮定を改めて書いておこう.
+\begin{assump}
+\begin{itemize}
+\item あるページのページランクは被リンク数とリンク元のページランクで決まる.
+\item ページランクは全リンク先に等分配する.
+\end{itemize}
+\end{assump}
+後者は新たな条件だが, こう思ってほしい.
+ページ作成者からすればリンクの重要度に重みがあるかもしれないが,
+多数のページがある中でいちいちそんなことは把握していられない\footnote{こうは書いたが, HTML5 なら仕様としてある程度判定はつく.
+ }.
+機械的に処理していかないと追いつかないので, 作業仮説としてとりあえず 2) を置いたのだ\footnote{もちろんこれの正当性は実用的な結果が得られるかどうかでしか判定できない.
+要はそれなりの結果が出るならそれなりにいいだろうという判定だ.
+ }.
+
+数学的定式化を進めよう.
+先に言っておくと問題は連立一次方程式に帰着する.
+つまり線型代数だ \footnote{連立一次方程式と思うなら中学で既に学んでいる.
+変数が 250 億に増えただけのこと.
+連立一次方程式が何の役に立つ, と言っている中学生にはこのことを伝えてあげてほしい.
+ただし Twitter でとある浪人生にこのことを伝えたところ,
+「私は Google のページなんて使わない」という想定外の返答を頂いた経験もあることを付記しておこう.
+ }.
+
+前節の話を書き直していこう.
+\begin{itemize}
+\item 各ウェブページに名前をつける: 一般に $P$ とする.
+\item 各ページ $P$ に対してその重要度を $I (P)$ とする: これをページランクと呼ぶ.
+\end{itemize}
+ページランク決定方程式を具体的に定式化する.
+\begin{itemize}
+\item 全ページ数は $N = (2.5 \times 10^{10})$ で各ページの持ち点は $I(P)$.
+\item ページ $P_j$ が $l_j$ 個リンクを張っているとする.
+\item ページ $P_j$ はページ $P_i$ にリンクを張っているとする.
+\item 仮定: ページ $P_j$ は自分の持ち点をリンク数で割って, リンク先に等分配する.
+\item 仮定: 各ページのページランクはリンクしてくれているページからもらえる点の単純な和とする.
+\end{itemize}
+これに沿ってページ $P_i$ にリンクを張っているページの集合を $B_i$ として決定方程式を書こう.
+\begin{align}
+ I (P_i)
+ =
+ \sum_{P_j \in B_i} \frac{ 1 }{ l_j }I (P_j)
+ =
+ \sum_{j:P_j \text{は} P_i \text{にリンクを張っている}}\frac{ 1 }{ l_j }I (P_j).
+\end{align}
+ハイバーリンク行列 $H=[H_{i,j}]$ を次のように定義する.
+\begin{align}
+ H_{i,j}
+ =
+ \begin{cases}
+ 1/l_j, & \text{if } P_j \in B_i, \\
+ 0, & \text{otherwise}. \\
+ \end{cases} \label{linear-algebra-google-pagerank5}
+\end{align}
+$I=[I (P_i)]$ は $N$ (=250 億) 次元ベクトルになり, 各要素はページランクだ.
+ページランク決定方程式を行列形式で書くと次のようになる.
+\begin{align}
+ I
+ =
+ HI. \label{linear-algebra-google-pagerank6}
+\end{align}
+つまりページランクベクトル $I$ は $H$ の固有値 1 の固有ベクトルだ.
+確率論から見たときは $H$ の定常ベクトルと呼ぶ.
+ここまで来るとむしろ数学的にすっきりした形に書けたし,
+もっと強く固有ベクトルという数学的意味付けまでできてしまった.
+あとできちんと説明するが, 定義からハイパーリンク行列は確率行列になる\footnote{正確には確率行列になる``ことがある''.
+この問題はあとで詳しく議論する.
+ }.
+そして次の定理がある.
+\begin{thm}
+確率行列は必ず定常ベクトルを持つ.
+\end{thm}
+\begin{rem}
+一般の文脈では $I$ は $H$ の不動点ともいう.
+こう言っておくと不動点まわりの数学も使えそうだと思えてくる.
+\end{rem}
+これで``自縄自縛''と言っていた問題は解決できてしまった.
+
+次にページランクベクトルの近似解法を説明しておこう.
+\begin{align}
+ I^{k+1}
+ =
+ H I^k. \label{linear-algebra-google-pagerank9}
+\end{align}
+としておく.
+$I^0$ を適当に決めて帰納的にベクトル列 $(I^k)$ を定義すると
+$I=\lim_{k \to \infty} I^k$ が求めたい定常ベクトルになってくれる.
+これがべき乗法だ.
+正確にはもっと条件が必要だし, まだまだ工学的・実用的にも問題がある.
+それがこれからの議論だ.
+
+\begin{rem}
+数学についてもう少し注意しておこう.
+工学としても大事なことだ.
+ネットワークのリンク構造は幾何と思える: ``目で見える"ということだ.
+ハイパーリンク行列はネットワークの幾何構造を数 (行列) に置き換える装置と言える.
+つまり問題が幾何から代数に移っている.
+ある意味で, 数の並びを見るだけでリンク構造が``見える"ようになるとも言える.
+そして数ならばコンピュータも分かる.
+数学的にいうと, 代数と幾何の橋渡しという基本的なテーマは,
+コンピュータに解釈できるように問題を定式化するという応用上決定的に大事な問題と深い関係があることがわかった.
+これは位相幾何・代数幾何をはじめとする現代幾何の基本思想であり,
+作用素環を背景にした非可換幾何でももちろん大事.
+\end{rem}
+\section{確率論から見たハイパーリンク行列}
+
+
+ハイパーリンク行列 $H$ を確率論的に解釈しよう.
+
+いきなり数学的にいってもいいが, まず何をモデル化しているかから始めよう.
+これは``馴染みのないトピックについて調べたい''ネットサーファーの行動をモデル化しているのだ.
+引っかかったページから適当にリンクをたどっていき,
+しばらく進むとあるページが複数のページからリンクを張られていることがわかる.
+``All roads lead to Rome'' というし, このページは大事そうなわけだ.
+これを確率論でモデル化する.
+
+状況設定を進めよう.
+ネットサーフィンはリンクをたどって適当に動き回ることだ.
+面白そうなページにはブックマークを付けておいて, あとでじっくり見ることにしよう.
+各ページには 1 秒だけいることにして, 1 秒たったら適当にリンクをたどっていく.
+ページ $P_j$ には $l_j$ 個のリンクがあって, とくにページ $P_i$ へのリンクがある.
+ここで次に $P_i$ に行く確率は $1/l_j$ とする.
+
+数学定式化の話を進める.
+ページ $P_j$ にいる``平均 (見込み) 時間''を $T_j$ とする.
+ページ $P_j$ からページ $P_i$ に行くとき, ページ $P_i$ で過ごす``時間''は $T_j/l_j$ だ.
+$P_i$ で過ごす時間は $P_i$ にリンクを張っているページ全体からの和になるから,
+\begin{align}
+ T_i
+ =
+ \sum_{j:P_j \text{は} P_i \text{にリンクを張っている} } \frac{ T_j }{ l_j }.
+\end{align}
+これはページランク決定方程式と同じだ.
+つまりページランクは``平均滞在時間''と同じ概念と言える.
+\section{ベき乗法とそれに関する工学的説明}
+
+
+数学的に問題を定式化しはした.
+そしてここから数理工学・応用数学の戦いがはじまる:
+実用上の問題がたくさんあるからだ.
+そして次のような問題がぱっと思いつく.
+\begin{itemize}
+\item 決定方程式の解の存在 $\leftrightarrow$ 自縄自縛.
+\item 決定方程式の解の一意性 $\leftrightarrow$ 複数あったらどれを選べばいい?
+\item 定常ベクトルの要素は全て非負か?
+\item 数値計算にのるか?
+\end{itemize}
+数値計算は次の小問にわかれる.
+\begin{itemize}
+\item 250 億次 $\leftrightarrow$ 計算には時間がかかる.
+\item 高速のアルゴリズムを実装するだけでどうにかなるのか?
+\begin{itemize}
+\item $I^k$ の収束が遅いと現実的な時間内に計算が終わらないので近似列の収束のスピードの保証が必要.
+\end{itemize}
+\end{itemize}
+これらを解決できないのなら, せっかく作ったモデルも無意味になってしまう.
+\begin{rem}[解の一意性]
+解の一意性について特に注意しておきたい.
+極端に言えば, 数学では解が一意になる数学的設定が見つかればそれでいい.
+物理など他の応用分野でもそうだが, 工学の場合は現実に起きる状況で解が一意であることを示す必要がある.
+これが結構つらい.
+数学的に解は一意であっても, カオスのように初期値鋭敏性があると近似解の構成でまたつらい.
+かように現実は厳しい.
+\end{rem}
+
+これからの問題を考える上で, 近似解法として採用する``べき乗法''の説明をしておきたい.
+厳密解を出さなくても解の様子がわかるという点でも便利だからだ.
+
+式 (\ref{linear-algebra-google-pagerank5}), (\ref{linear-algebra-google-pagerank6}) は
+有理数係数の連立 1 次方程式だから解も有理数だ.
+つまりコンピュータでも厳密解が出せる.
+実数解が必要になるとこうはいかない.
+そしてここでポイントなのは, 厳密解は必要ないということだ:
+ふつう厳密解を出すのにはもの凄い時間がかかるし, 精度のいい近似解があれば十分だから.
+数値計算部分でもいろいろ知恵を絞る必要があり, 高速なアルゴリズムや計算法も必要になる\footnote{詳しくは数値計算・アルゴリズムを参考にしてほしい.
+私はあまり詳しくない.
+これもそのうち実際のプログラム例含めて教材を作りたいとは思っている.
+ }.
+.
+そこでここからはべき乗法を使うことを前提とした議論をしよう\footnote{あとでも議論するが,
+状況に応じていろいろな計算法をミックスして使えればいいのだがなかなかそうはいかない.
+プログラムを一度組んでしまうと変更するのにもコストがかかる.
+はじめからある程度先を見通しておかないといけない.
+ }.
+
+べき乗法とは (\ref{linear-algebra-google-pagerank9}) による近似計算法だった.
+これをページランクの得点分配ゲームと見るとこれからの問題が理解しやすくなる.
+このゲームについて説明しよう.
+\begin{itemize}
+\item 各ページを人と思い, (有向) リンクは得点の分配先指定と思う.
+\item 全得点は 1 として初期得点分布を決める.
+\item リンクに沿って初期分布から点を等分配していく.
+\item 何度も繰り返して得点分布をみる.
+\item この終着点が欲しい得点分布 $=$ 定常分布 $=$ ページランク.
+\end{itemize}
+
+節の最後に, 次のネットワーク構造でべき乗法の簡易シミュレーションをやってみよう.
+\begin{gather}
+ \xymatrix{
+  *+[Fo]{P_1} \ar@<1mm>[rr] & & *+[Fo]{P_2} \ar[dl] \ar@<1mm>[ll] \\
+  & *+[Fo]{P_3} \ar[ul] &
+ }
+\end{gather}
+先に得点分布のイメージを作っておく.
+$P_1$ には 2 本リンクが張られていて, 他は 1 本ずつだ.
+$P_1$ の方が張られているリンクが多いから $P_1$ が一番ページランクが高いと思うかもしれないが,
+$P_2$ はページランクの高い $P_1$ からのリンクがあることに注意する.
+実際に定常ベクトルを計算すると次のようになる.
+\begin{align}
+ I(P_1)
+ =
+ \frac{2}{5}, \quad
+ I(P_2)
+ =
+ \frac{2}{5}, \quad
+ I(P_3)
+ =
+ \frac{1}{5}.
+\end{align}
+実際にべき乗法をやってみたのが次の得点推移図だ.
+\begin{gather}
+ \xymatrix{
+  *+[Fo]{0} \ar@<1mm>[rr] & & *+[Fo]{1} \ar[dl] \ar@<1mm>[ll] \\
+  & *+[Fo]{0} \ar[ul] &
+ } \Longrightarrow
+ \xymatrix{
+  *+[Fo]{1/2} \ar@<1mm>[rr] & & *+[Fo]{0} \ar[dl] \ar@<1mm>[ll] \\
+  & *+[Fo]{1/2} \ar[ul] &
+ } \Longrightarrow
+ \xymatrix{
+  *+[Fo]{1/2} \ar@<1mm>[rr] & & *+[Fo]{1/2} \ar[dl] \ar@<1mm>[ll] \\
+  & *+[Fo]{0} \ar[ul] &
+ } \Longrightarrow \\
+ \xymatrix{
+  *+[Fo]{1/4} \ar@<1mm>[rr] & & *+[Fo]{1/2} \ar[dl] \ar@<1mm>[ll] \\
+  & *+[Fo]{1/4} \ar[ul] &
+ } \Longrightarrow
+ \xymatrix{
+  *+[Fo]{1/2} \ar@<1mm>[rr] & & *+[Fo]{1/4} \ar[dl] \ar@<1mm>[ll] \\
+  & *+[Fo]{1/4} \ar[ul] &
+ } \Longrightarrow
+ \xymatrix{
+  *+[Fo]{3/8} \ar@<1mm>[rr] & & *+[Fo]{1/2} \ar[dl] \ar@<1mm>[ll] \\
+  & *+[Fo]{1/8} \ar[ul] &
+ } \Longrightarrow \cdots.
+\end{gather}
+\section{ハイパーリンク行列とページランクアルゴリズムの問題: 具体例とともに}
+
+
+研究には常にあることだがそううまく話が進むわけはない.
+問題点を列挙し, 1 つ 1 つ詳しく見ていこう.
+またしばらく数学的に精密な話はあとにして気分的な説明をしていく.
+\begin{enumerate}
+\item 点が捨てられる.
+\item ページランクが不当に 0 になる.
+\item 定常分布に収束しない.
+\item 定常分布がたくさんある.
+\item 定常分布が初期分布に依存する.
+\item 近似の精度: 収束の早さ問題.
+\end{enumerate}
+\subsection{点が捨てられる}
+
+
+次のような状況で起きる.
+\begin{gather}
+ \xymatrix{
+  *+[Fo]{P_1} \ar@<1mm>[rr] & & *+[Fo]{P_2} \ar[dl] \ar@<1mm>[ll] \\
+  & *+[Fo]{P_3} &
+ }
+\end{gather}
+
+これは dangling node\index{dangling node} (ぶらさがり結節\index{ぶらさがりけっせつ@ぶらさがり結節}) の存在問題で,
+$P_3$ に点を渡す人がいないことで起きる問題だ: 今の設定では $P_3$ は点を捨てなければならない.
+このせいで上のネットワークの定常分布は 0 しかない.
+
+結論を先取りすると, 次のように解釈することでこの問題を解決する.
+\begin{align}
+ \text{どのページにも点を分配しない}
+ \to \text{ページランクに寄与しない}
+ \to \text{持ち点は皆に平等に分配する}.
+\end{align}
+点を捨てるくらいなら皆に分けろ, ということだ.
+全得点の保存則を成立させる, と言ってもいい.
+図で言えば次のように変更するということだ.
+
+\begin{gather}
+ \xymatrix{
+   *+[Fo]{P_1} \ar@<1mm>[rr] & & *+[Fo]{P_2} \ar@<1mm>[dl] \ar@<1mm>[ll] \\
+   & *+[Fo]{P_3} \ar@(ul,dl) \ar[ul] \ar@<1mm>[ur] &
+ }
+\end{gather}
+\subsection{ページランクが不当に 0 になる}
+
+
+ポリシーに沿うなら, リンクが張られていればそのページは重要なページだしページランクは厳密に正であってほしい.
+ここで importance sink の存在問題が出てくる.
+これは次の図, 右側のような小規模の閉じたネットワークがあるときの問題だ.
+\begin{align}
+ \xymatrix{
+  P_{1} \ar[r] & P_{2} \ar[d] \ar[r] & P_5 \ar[r] & P_6 \ar[d] \\
+  P_{3} \ar[u] & P_{4} \ar[l]        & P_7 \ar[u] & P_8 \ar[l]
+ }
+\end{align}
+Importance sinks が出てくると, 点が分配されてほしい所に点が行き渡らないことになる.
+具体的には上図左側の点は全て 0 になってしまう.
+そして Importance sinks は現実に存在するからどう``ごまかす''かが焦点になる\footnote{もちろんページランクのアイデアそれ自体が問題という可能性はあるが.
+ }.
+\subsection{定常分布に収束しない}
+
+
+これはべき乗法がつかえないという問題でべき乗法 (選んだ計算アルゴリズム) 固有の問題とも言える.
+巡回的なネットワークがあるときの問題だ.
+このとき点を持ち回りしてしまうので収束しない.
+あとで説明するが, 数学的にはハイパーリンク行列の第 2 固有値に関する評価 $\abs{\lambda_2} < 1$ の問題になる.
+次のような図で $P_1$ にだけ得点 1 を与えてべき乗法をスタートさせてみるとすぐ分かる.
+\begin{align}
+ \xymatrix{
+  P_{1} \ar[r] & P_{2} \ar[d] \\
+  P_{3} \ar[u] & P_{4} \ar[l]
+ }
+\end{align}
+つまり巡回ネットワークが出てくると, そのままではべき乗法``は''使えないということだ.
+別の近似計算法, アルゴリズムを選ぶという解決策もある.
+このとき計算 (収束) のスピードも見ながらアルゴリズムを選ぶ必要があるので, なかなか難しい.
+\subsection{固有値の縮退: 定常分布の非一意性}
+
+
+孤立したネットワークがたくさんあるときの問題だ.
+そしてこれは現実に起こりうる.
+どの定常分布が``いい''のか, 判断基準がないところが難しい.
+数学的には解の一意性の問題と言える.
+前回の講演『偏微分方程式の逆問題--拡散方程式の数学と物理と工学』\ref{inverse-problem-in-partial-diferrential-equations-for-diffusion-equation-for-tsudoi1} でも説明したが,
+解の一意性証明が応用上決定的に大事な局面といえる.
+
+具体的には次のようなネットワーク構成図だ.
+\begin{align}
+ \xymatrix{
+  P_{1} \ar[r] & P_{2} \ar[d] \\
+  P_{3} \ar[u] & P_{4} \ar[l]
+ }
+ \quad
+ \xymatrix{
+  P_{5} \ar[r] & P_{6} \ar[d] \\
+  P_{7} \ar[u] & P_{8} \ar[l]
+ }.
+\end{align}
+左のグループと右のグループは独立していて,
+初期分布としてどちらに何点を与えるかで結果が変わる.
+実際の話としては, 例えば外務省が省のサイトを立ち上げたというケースを想定してほしい.
+渡航情報など大事な情報があるので, 多少のリンクは集まっているだろうが
+立ち上げたばかりではリンクは少なく, 孤立した状態だろう.
+そういう場合, 初期分布としてどちらに何点を割り当てておくかで結果が変わるのは非常に問題だ.
+特にエボラウイルスの流行や紛争の状況など,
+そうした情報の精度は国の機関レベルでの正確な情報を第一に表示すべきだろうから.
+\subsection{定常分布の初期分布依存}
+
+
+これは今回の工学的な状況に関する解の一意性の問題と深い関係がある.
+一般の初期値問題から考えれば当たり前のことではあるが,
+ふつう解は初期値の取り方に依存する.
+べき乗法の計算をするとき, 得点の初期分布を適当に与える必要があるが,
+その選び方によって解が変わってしまうという面倒な状況だ\footnote{似た話は『偏微分方程式の逆問題--拡散方程式の数学と物理と工学』\ref{inverse-problem-in-partial-diferrential-equations-for-diffusion-equation-for-tsudoi1}でも議論した.
+このときは時間無限大の極限で解が 0 に収束してしまうから,
+時間発展した状態から初期値 (爆発が起きた場所) を正確に特定することができなくなるという話だった.
+拡散現象での粒子の分布に対して, 得点の分布の問題と思えば類似性がある.
+確率論的手法も使える可能性があることも類似点と言えなくもない.
+ }.
+
+これだと数値計算結果の``引き継ぎ''ができないという問題が起きる.
+ウェブ上の情報は新鮮さが命なので頻繁に計算しなおしたい.
+新たに計算するとき当然ネットワーク構造は変わっているはずだが,
+前と劇的な変化はないはずだから, 前の得点分布がいい近似になってくれそうな気がする.
+しかし求めたい定常分布が初期分布に依存することが数学的に示されてしまう状況ではこの目論見は潰える.
+
+\begin{rem}
+参考までに初期値依存する現象・しない現象の例をあげておこう.
+
+初期値依存する現象は身の回りに山程ある.
+例えばボールが坂を転がる現象を考えよう.
+始めにボールをどこに置くかによって,
+一般には坂を転がりきったときのボールの位置が変わる.
+
+初期値依存しない現象としては拡散現象がある.
+1 次元で拡散方程式を考え, 初期分布としては直線上のどこか 1 点にインクを垂らしたと思おう.
+このとき, 時間無限大での拡散は直線上均一な分布になる.
+正確にはいたるところ 0 になる.
+\end{rem}
+
+まとめると次のようになる.
+盲目的に数値計算に頼るのは危険ということだ.
+シミュレーションも何のシミュレーションをしているのか,
+本当にシミュレートできているのかきちんと考えないと意外と危険なのだ.
+モデルの問題ということもあり, 数学に「何とかしろ」といわれても困る.
+ある数学的設定下でそれなりの結果は出せる (ことはある) ものの,
+その条件が外れた時にどうなるかは分からない.
+いわゆる``美しい一般論''から外れたゲテモノが現われる可能性もある.
+\subsection{近似の精度: 収束の早さ問題}
+
+
+ここまでのモデルの問題とは少し違って, 計算のアルゴリズムの問題だ.
+せっかく高速のアルゴリズムを用意しても,
+そのアルゴリズムを $10^{10000}$ 回も回さなければならなかったりしたら問題になりうる.
+回す回数が少なくても 1 回の計算が長い場合, それも問題になる.
+遅くともアルゴリズムを回す数が少なくて済む方がいいだろうか.
+そもそもアルゴリズムを回す数に初期分布依存があったりしたらどうするか.
+ソフトウェアのテストなどでも同じだが,
+「こんな使い方はありえない」という使い方をされるかもしれないし,
+数値計算に関してもきちんとチェックする必要がある.
+そして実際そういう研究もある.
+\subsection{まとめ}
+
+
+問題点をまとめると次のようになるだろう.
+これらを解決しなければページランクは実用的な指針にならない.
+
+\begin{center}
+\begin{tabular}{ll}
+ Dangling nodes          &  何とかなりそう?                    \\
+ Importance sinks        &  ネットワーク構造はいじれない?      \\
+ 固有値の縮退            &  どれを選べばいい?                  \\
+ 定常分布の初期分布依存  &  どの初期分布を選べばいい?          \\
+ 収束のスピード          &  アルゴリズムのスピードとは無関係.  \\
+ 定常分布は存在する?     &  落とし所はどこ?                    \\
+\end{tabular}
+\end{center}
+\section{Google 行列の導入}
+
+\subsection{Brin と Page による解決法}
+
+
+Brin と Page がどう問題を解決したのか, それを追っていこう.
+はじめに言っておくと, 2 段構えで無理矢理埒を開けることになる.
+
+今までの例を見てみると, 孤立点が問題を起こしていることがわかる:
+Dangling nodes, importance sinks, 孤立またはほぼ独立した小規模ネットワークなどだ.
+ここでモデルを人為的に変更して, 孤立点をなくすことにしよう.
+かといって元の構造をなるべく保ちたい.
+どうするかというと, まずハイパーリンク行列自体を少し変更して dangling nodes をなくす.
+その上である二重構造を考え, ハイパーリンク行列から Google 行列へ移行するのだ.
+この Google 行列は欲しい性質を``ほぼ''すべて持っている.
+つまり, 定常分布の一意性存在・初期分布への非依存・定常分布への収束などだ.
+これだけだとスピードの問題があるのだが, それを調整する方法もある.
+
+既に説明はしたが, まず dangling nodes をなくそう.
+\begin{gather}
+ \xymatrix{
+  *+[Fo]{P_1} \ar@<1mm>[rr] & & *+[Fo]{P_2} \ar[dl] \ar@<1mm>[ll] \\
+  & *+[Fo]{P_3} &
+ }
+\end{gather}
+これが dangling nodes のあるネットワーク構造だ.
+次のようにモデルの定義を変えてネットワーク構造を数学のレベルで変更する.
+\begin{align}
+ \text{どのページにも点を分配しない}
+ \to \text{ページランクに寄与しない}
+ \to \text{持ち点は皆に平等に分配する}.
+\end{align}
+これに沿って変更したのが次の図だ.
+\begin{gather}
+ \xymatrix{
+   *+[Fo]{P_1} \ar@<1mm>[rr] & & *+[Fo]{P_2} \ar@<1mm>[dl] \ar@<1mm>[ll] \\
+   & *+[Fo]{P_3} \ar@(ul,dl) \ar[ul] \ar@<1mm>[ur] &
+ }
+\end{gather}
+これでハイパーリンク行列の修正が終わった.
+こうすると数学的にハイパーリンク行列が確率行列 (定義 \ref{linear-algebra-google-pagerank14}) になり,
+定理 \ref{linear-algebra-google-pagerank15} が発動してくれて必ず定常ベクトルを持つようになる.
+修正したことを明らかにするため, ここからは修正ハイパーリンク行列を $S$ と書こう.
+
+ただこうしたところで importance sink や初期分布によらない解の一意性 (または定常ベクトルの一意性,
+固有値 1 の非縮退性) は解決されない.
+ネットワーク構造を再掲しておこう.
+\begin{gather}
+ \xymatrix{
+  P_{1} \ar[r] & P_{2} \ar[d] \ar[r] & P_5 \ar[r] & P_6 \ar[d] \\
+  P_{3} \ar[u] & P_{4} \ar[l]        & P_7 \ar[u] & P_8 \ar[l]
+ }, \\
+ \xymatrix{
+  P_{1} \ar[r] & P_{2} \ar[d] \\
+  P_{3} \ar[u] & P_{4} \ar[l]
+ }
+ \quad
+ \xymatrix{
+  P_{5} \ar[r] & P_{6} \ar[d] \\
+  P_{7} \ar[u] & P_{8} \ar[l]
+ }.
+\end{gather}
+そこで補正項を足して修正ハイパーリンク行列 $S$ を Google 行列 $G$ にする.
+
+まず Google 行列の発想の元を説明する.
+ネットサーフィンを考えよう.
+普通ネットサーフィンするときはあるページを読みながら,
+ハイパーリンクがあればそれに沿ってページを遷移していく.
+リンクがあればそれは適宜大事なページのはずだから, 大事な情報を辿っていくわけだ.
+ただ, いつもリンクに沿ったページ遷移ばかりしているわけではない.
+飽きるなりふと気になることが頭をかすめるなりしたら, 検索して全く別のページに飛んでいくことがある.
+このとき, どのページに行くかはランダムとみなせる:
+各人ごとの趣味・興味はあるから 1 人 1 人で見れば完全にランダムではないにしろ,
+各人の興味などいちいち見てはいられないからランダムだとみなしてしまうわけだ.
+これを仮にランダムリンクと呼んでおこう.
+
+次にこれをどうネットワーク構造に持っていくかだ.
+単純に考えよう: 各ページからリンク構造とは全く別に全てのページへリンクを飛ばすのだ.
+このとき, 元リンク構造と同じ比重でランダムリンクに得点を配分すると元の構造がぐちゃぐちゃになってしまう.
+これを得点がリークすると思って, リーク率 $\alpha$ として考える.
+図を描くとリンクがぐちゃぐちゃになってみづらいのでもう行列形式で考えてしまおう.
+ページ数を $N$ として ランダムリンクの行列を $R$ とする.
+ランダムリンク自体は全ページに張るので $R$ は次のように定義すればいい.
+\begin{align}
+ R
+ \defeq
+ \begin{pmatrix}
+  1/N & 1/N & \cdots & 1/N \\
+  1/N & 1/N & \cdots & 1/N \\
+  \vdots & \vdots & \vdots & \vdots & \\
+  1/N & 1/N & \cdots & 1/N
+ \end{pmatrix}
+ =
+ \frac{1}{N}
+ \begin{pmatrix}
+  1 & 1 & \cdots & 1 \\
+  1 & 1 & \cdots & 1 \\
+  \vdots & \vdots & \vdots & \vdots & \\
+  1 & 1 & \cdots & 1
+ \end{pmatrix}.
+\end{align}
+そして全体としては次のようにする.
+\begin{align}
+ G
+ =
+ (1 - \alpha) S + \alpha R.
+\end{align}
+これでリーク率 $\alpha$ でランダムリンクに沿って遷移するネットワーク構造 (に対応する行列) が作れた.
+
+図を描いていると大変なことになるから描かないが,
+実はこれで importance sink や定常ベクトルの一意性問題,
+べき乗法で収束しなかった構造でも収束するようになるなど全ての問題が解決する.
+しかもどれだけ小さいリークであっても上の形でリークさせればいいことがわかることも大事だ.
+もちろんリークが少ないほどもとの構造が重視されるようになるので,
+リーク率は小さい方がいい.
+ただし, リーク率をある程度大きく取っておいた方が収束のスピードがあがることもわかるので,
+適当なところで間を取って決めることになる.
+\subsection{収束のスピード}
+
+
+数学をきちんとやる前にリーク率についてもう少し触れておこう.
+リーク率を $\alpha \in (0, 1)$ とすると,
+収束の最悪のスピードは $(1-\alpha)$ で制御できる.
+きちんと議論すると第 $k$ ステップでの``誤差''は $(1-\alpha)^k$ でおさえられることもわかる.
+実際には定常ベクトル $I$ に対して次の評価が成り立つ.
+\begin{align}
+ \norm{G^k I^0 - I}
+ \leq
+ \norm{I^0 - I}.
+\end{align}
+2006 年時点では $\alpha=0.15$ でやっているそうだ.
+参考までに
+\begin{align}
+ (1-10^{-10})^{100}
+ &=
+ 0.9999999899999992, \\
+ (1-10^{-10})^{10^{10}}
+ &=
+ 0.36787941071456814, \\
+ 0.9^{100}
+ &=
+ 2.6561398887587544 \times 10^{-5}, \\
+ 0.85^{100}
+ &=
+ 8.747673630108589 \times 10^{-8}.
+\end{align}
+$\alpha=0.15$ なら $100$ 回得点分配すると,
+最悪でも誤差は $9 \times 10^{-8}$ でおさえられる.
+\begin{rem}[ごまかしのご利益]
+この評価は行列の次数に依存しない.
+そして``セキュリティ"対策にもなる: つまり悪意を持って importance sinks が作られてもその影響を受けなくなるのだ.
+\end{rem}
+\subsection{数学を使わない部分でのまとめ}
+
+
+リーク率を適切に選べば, 定常分布の一意性存在, 初期分布への非依存, 定常分布への収束,
+収束のスピード制御まで統制できることがわかった.
+その代わり元のネットワーク構造が歪むことには注意する.
+また, 今やっているのは工学であることにも注意しよう.
+欲しいのはいろいろな制約条件のもとでの適切なモデリングと精度のいい近似解なのだ.
+計算機資源や時間が無限に使えるわけではない.
+\section{250 億元連立一次方程式のための数学}
+
+\subsection{Sergey Brin と Lawrence Page の発想: 問題の再整理}
+
+
+改めて問題を整理しよう.
+ウェブページにリンクを張るというのはどういうことだったかというと,
+``リンク先のページは重要だ''という宣言だった.
+そして Google のページランクとは月に一度の人気投票会の投票結果のこととし,
+``あるページの重要度はそこにリンクしているページ数と各ページの重要度で決まる''という仮定を置いた.
+そして話が堂々めぐりしている: 直観的には解決不可能な問題だ.
+そこでハイパーリンク行列を持ち出して数学的定式化に進んだのだった.
+\subsection{ハイパーリンク行列の性質}
+
+
+いくつか大事な性質があるのでまとめていこう.
+\begin{prop}
+\begin{enumerate}
+\item 全要素(エントリー)が非負.
+   \begin{align}
+    H_{i,j}
+    \geqslant
+    0, \quad \forall i,j.
+   \end{align}
+\item 対応するページが1つでもリンクを張っていれば, 対応する列の和は 1 になる.
+   \begin{align}
+    \sum_{j=1}^{N}    H_{i,j}
+    = 1.
+   \end{align}
+\end{enumerate}
+\end{prop}
+ここで次の概念を定義する.
+\begin{defn}[確率行列 (stochastic matrix)]\label{linear-algebra-google-pagerank14}
+全ての要素が非負で, 全ての列についてその全要素の和が 1 になる行列を
+確率行列\index{かくりつぎょうれつ@確率行列}という.
+\end{defn}
+確率行列が何故大事かというと, 次の定理が成り立つからだ.
+\begin{thm}\label{linear-algebra-google-pagerank15}
+確率行列は必ず定常ベクトルを持つ.
+これは確率行列が必ず固有値 1 を持つことと同値.
+\end{thm}
+ハイパーリンク行列は一般に確率行列``ではない''.
+だから修正ハイパーリンク行列 $S$ が必要になるのだった.
+
+Google 行列の前に, (修正) ハイパーリンク行列レベルでネットワーク構造と行列の対応,
+べき乗法の計算を具体的に見ておこう.
+ネットワーク構造は次のように取る.
+\begin{align}
+ \xymatrix{
+  P_{1} \ar@<1mm>[d] \ar@<1mm>[r] & P_{2} \ar@<1mm>[l]\ar[d] \\
+  P_{3} \ar@<1mm>[u] \ar[ur] & P_{4} \ar[l] \ar[ul]
+ }
+\end{align}
+これを行列に落としてみよう.
+\begin{align}
+ &\begin{cases}
+  I(1)
+  &=
+  0I(1)    +    \frac{1}{2} I(2)    +    \frac{1}{2}I(3)    +    \frac{1}{2}I(4)\\
+  I(2)
+  &=
+  \frac{1}{2}I(1)    +    0I(2)    +    \frac{1}{2}I(3)    +    0I(4)\\
+  I(3)
+  &=
+  \frac{1}{2}I(1)    +     0I(2)    +    0I(3)    +    \frac{1}{2}I(4)\\
+  I(4)
+  &=
+  0I(1)    +    \frac{1}{2} I(2)    +    0I(3)    +    0I(4)\\
+ \end{cases} \\
+ \Longleftrightarrow
+ &\begin{bmatrix}
+  I(1) \\
+  I(2) \\
+  I(3) \\
+  I(4) \\
+ \end{bmatrix}
+ =
+ \begin{bmatrix}
+  0    &    1/2    &    1/2    &    1/2\\
+  1/2    &    0    &    1/2    &    0\\
+  1/2    &    0    &    0    &    1/2\\
+  0    &    1/2    &    0    &    0\\
+ \end{bmatrix}
+ \begin{bmatrix}
+  I(1) \\
+  I(2) \\
+  I(3) \\
+  I(4) \\
+ \end{bmatrix}
+\end{align}
+今度はべき乗法だ.
+これは行列とベクトルの積を``持ち点分配ゲーム''とみなして計算を進めていくことだった.
+もう一度べき乗法の説明をしておこう.
+\begin{enumerate}
+\item 全体の得点を1として各ページに点を割り振る: 初期分布.
+\item リンク先に今の自分の持ち点を平等に割り振る: 次々と行列をかけていく.
+\item 得点分布の推移を見守る: $I^k$ の動きを追う.
+\end{enumerate}
+\begin{align}
+ I^0
+ \defeq
+ \begin{bmatrix}
+  1\\
+  0\\
+  0\\
+  0
+ \end{bmatrix}
+ \to
+ I^1
+ =
+ \begin{bmatrix}
+  0\\
+  1/2\\
+  1/2\\
+  0
+ \end{bmatrix}
+ =
+ \frac{1}{2}
+ \begin{bmatrix}
+  0\\
+  1\\
+  1\\
+  0
+ \end{bmatrix}
+ \to
+ I^2
+ =
+ \frac{1}{4}
+ \begin{bmatrix}
+  2\\
+  1\\
+  0\\
+  1
+ \end{bmatrix}
+ \to
+ I^3
+ =
+ \frac{1}{8}
+ \begin{bmatrix}
+  2\\
+  2\\
+  3\\
+  1
+ \end{bmatrix}.
+\end{align}
+計算をさらに進めよう.
+\begin{align}
+ I^4
+ :=
+ \frac{1}{16}
+ \begin{bmatrix}
+  6\\
+  5\\
+  3\\
+  2
+ \end{bmatrix}
+ \to
+ I^5
+ =
+ \frac{1}{32}
+ \begin{bmatrix}
+  10\\
+  9\\
+  8\\
+  5
+ \end{bmatrix}
+ \to
+ I^6
+ =
+ \frac{1}{64}
+ \begin{bmatrix}
+  22\\
+  18\\
+  15\\
+  9
+ \end{bmatrix}
+ \to
+ I^7
+ =
+ \frac{1}{128}
+ \begin{bmatrix}
+  42\\
+  37\\
+  31\\
+  18
+ \end{bmatrix}
+ .
+\end{align}
+このくらいまで来ると大体様子はわかる.
+ネットワーク構造からすると $P_1$ のリンクが一番多く $P_4$ のリンクが一番少ないから, 得点もそれに沿ってほしい.
+$P_2$, $P_3$ は同じ被リンク 2 だが, $P_2$ はランクが一番高いはずの $P_1$ からのリンクがあるので,
+$P_3$ よりランクが高くなっていてほしい.
+そしてこれらはここまでの近似計算のレベルで何となく様子が見えてきている.
+きちんと計算すると得点比率は 7:6:5:3 になるのだが, そこも大体見える.
+
+先に進む前にもう 1 つ具体例を出しておこう.
+興味がある人はネットワーク構造の絵を描き,
+べき乗法で近似計算してみてほしい.
+\begin{align}
+ H
+ =
+ \begin{bmatrix}
+  0    &    0    &    0    &    0    &    0    &    0    &    1/3    &    0\\
+  1/2    &    0    &    1/2    &    1/3    &    0    &    0    &    0    &    0\\
+  1/2    &    0    &    0    &    0    &    0    &    0    &    0    &    0\\
+  0    &    1    &    0    &    0    &    0    &    0    &    0    &    0\\
+  0    &    0    &    1/2    &    1/3    &    0    &    0    &    0    &    0\\
+  0    &    0    &    0    &    1/3    &    0    &    0    &    1/3    &    0\\
+  0    &    0    &    0    &    0    &    1/3    &    0    &    0    &    1/2\\
+  0    &    0    &    0    &    0    &    1/3    &    0    &    0    &    1/2\\
+  0    &    0    &    0    &    0    &    1/3    &    1    &    1/3    &    0\\
+ \end{bmatrix}, \quad
+ I
+ =
+ \begin{bmatrix}
+  0.0600\\
+  0.0675\\
+  0.0300\\
+  0.0675\\
+  0.0975\\
+  0.2025\\
+  0.1800\\
+  0.2950
+ \end{bmatrix}.
+\end{align}
+\subsection{ページランクベクトル $I$ の計算}
+
+
+べき乗法の実際の数学的手続きを復習しよう.
+$I^0$ を適当に選んで, ベクトル列 $(I^k)$ を次のように帰納的に定義する:
+\begin{align}
+ I^{k+1}
+ =
+ H I^{k}.
+\end{align}
+そして次の定理がべき乗法の基礎になる.
+\begin{thm}
+適当な確率行列 $H$ に対して適当な初期ベクトルを取れば,
+ベクトル列 $(I^k)$ は定常ベクトルに収束する.
+\end{thm}
+上の定理で「適当」という言葉をはっきりさせる必要はあるが,
+それ以外にもまだ問題はあったし, 今のままでそれらが解決できる数学的保証はない.
+そこでモデルの構成を改良し Google 行列を導入したのだった.
+
+既にネットワーク構成は紹介しているが, 簡単な例を行列で見てみよう.
+\begin{align}
+ &\begin{cases}
+  I(1)
+  &=
+  0 I(1) + 0 I(2),\\
+  I(2)
+  &=
+  1 I(1) + 0 I(2).
+ \end{cases}\\
+ \Leftrightarrow
+ &\begin{bmatrix}
+  I(1)\\
+  I(2)
+ \end{bmatrix}
+ =
+ \begin{bmatrix}
+  0 & 0 \\
+  1 & 0
+ \end{bmatrix}
+ \begin{bmatrix}
+  I(1)\\
+  I(2)
+ \end{bmatrix}
+ .
+\end{align}
+これはもちろん dangling nodes だ.
+実際計算すると次のようになる.
+\begin{align}
+ I^0
+ :=
+ \begin{bmatrix}
+  1 \\
+  0
+ \end{bmatrix}
+ , \,
+ I^1
+ =
+ \begin{bmatrix}
+  0 \\
+  1
+ \end{bmatrix}
+ , \quad
+ I^2
+ =
+ \begin{bmatrix}
+  0 \\
+  0
+ \end{bmatrix}
+ , \quad
+ I^3
+ =
+ I
+ =
+ \begin{bmatrix}
+  0 \\
+  0
+ \end{bmatrix}
+ .
+\end{align}
+両方のページランクが 0 になってしまってどうしようもない.
+もちろん問題は $P_2$ がリンクを張っていないためで,
+$P_1$ からの情報の連鎖が消えてしまうことにある.
+
+せっかくなので dangling nodes 対策に解釈を変えたときの行列とページランクも見ておこう.
+修正行列を $A$ として確率行列 $S$ を定義する.
+\begin{align}
+ S
+ =
+ H + A.
+\end{align}
+さっき出した例で具体的にやってみる.
+結論からいうと $P_2$ のランクは $P_1$ の 2 倍になってくれるが, これは直観的にも妥当といえる.
+\begin{gather}
+ H
+ =
+ \begin{bmatrix}
+  0 & 0\\
+  1 & 0
+ \end{bmatrix}
+ , \quad
+ A
+ =
+ \begin{bmatrix}
+  0 & 1/2 \\
+  0 & 1/2
+ \end{bmatrix}
+ , \quad
+ S
+ =
+ \begin{bmatrix}
+  0 & 1/2\\
+  1 & 1/2
+ \end{bmatrix}
+ , \quad
+ I
+ =
+ \begin{bmatrix}
+  1/3 \\
+  2/3
+ \end{bmatrix}
+ .
+\end{gather}
+\subsection{固有値・固有ベクトル}
+
+
+定常ベクトルという確率論的解釈もあるが,
+ここでは固有値という面から追っていく.
+この節では一般的な設定として $V$ を $N$ 次元の線型空間とし,
+$A$ を $V$ 上の線型作用素 (行列) とする.
+\begin{defn}[固有値, 固有ベクトル]
+ある複素数とベクトル $\lambda \in \bbC$, $v \in V \setminus \cbk{0}$ が
+$A v = \lambda v$ を満たすとき, $\lambda$ を $A$ の固有値\index{こゆうち@固有値}といい,
+$v$ を固有値 $\lambda$ に属する固有ベクトル\index{こゆうべくとる@固有ベクトル}という.
+\end{defn}
+\begin{ex}[かなりいいかげん]
+$$ \rbk{ -i \frac{ d }{dx} } e^{ikx} = k e^{ikx}. $$
+実数 $k$ は, 微分作用素 $p = - i d/dx$ (量子力学でいうと運動量演算子\index{うんどうりょうえんざんし@運動量演算子}) の``固有値"で,
+$e^{ikx}$ はその``固有ベクトル"だ.
+\end{ex}
+\begin{rem}
+代数学の基本定理から $V$ が有限次元なら必ず固有値は存在する.
+具体的には $\dim V = N$ のとき, 固有値は重複を込めて $N$ 個存在する.
+\end{rem}
+\begin{rem}
+あとで量子論への応用を少し話すが, そのとき無限次元の $V$ を考える.
+すると固有値は存在するとは限らない: 詳しくは線型作用素のスペクトル理論が必要になる.
+物理としては基底エネルギーが固有値になるかという問題があり,
+``基底状態"がはじめに定義された空間内に存在するかという問題とも関係してくる.
+これが発散の困難の数学的表現であり, 現在もしぶとく研究を続けている人達がいるし, 私もその一員だ.
+\end{rem}
+\subsection{べき乗法の数理}
+
+
+べき乗法は大きさ最大の固有値に対する固有ベクトルを求めるための方法ともいえる.
+簡単にするために仮定をつけておく.
+記号や設定を変えるとややこしいので $S$ を確率行列としてしまおう.
+そして $S$ の固有値について次のように仮定する.
+\begin{align}
+ 1
+ =
+ \lambda_1
+ >
+ \abs{ \lambda_2 }
+ \geq
+ \abs{ \lambda_3 }
+ \geq
+ \cdots
+ \geq
+ \abs{ \lambda_{N} }
+\end{align}
+要は第 2 固有値以下の絶対値は厳密に 1 より小さいとするのだ.
+固有ベクトルも自然基底 $\cbk{v_i}$ にしてしまおう.
+\begin{align}
+ v_1
+ =
+ \begin{bmatrix}
+ 1 \\
+ 0 \\
+ \vdots \\
+ 0
+ \end{bmatrix}
+ , \quad
+ v_2
+ =
+ \begin{bmatrix}
+ 0 \\
+ 1 \\
+ \vdots \\
+ 0
+ \end{bmatrix}
+ , \dots,
+ v_N
+ =
+ \begin{bmatrix}
+ 0 \\
+ 0 \\
+ \vdots \\
+ 1
+ \end{bmatrix}
+ .
+\end{align}
+そして初期ベクトル $I^0$ を展開する.
+\begin{align}
+ I^0
+ &=
+ c_1 v_1 + \sum_{i=2}^n c_i v_i.
+\end{align}
+べき乗法を回していこう.
+\begin{align}
+ I^{\color{red}1}
+ =
+ S I^0
+ &=
+ c_1 v_1 + \sum_{i=2}^N c_i \lambda_{i}^{\color{red}1} v_i, \\
+ I^{\color{red}2}
+ =
+ S I^1
+ &=
+ c_1 v_1 + \sum_{i=2}^N c_i \lambda_{i}^{\color{red}2} v_i, \\
+ \vdots\\
+ I^{\color{red}k}
+ =
+ S I^{k-1}
+ &=
+ c_1 v_1 + \sum_{i=2}^N c_i \lambda_{i}^{\color{red}k} v_i.
+\end{align}
+ここで $j \geq 2$ では $\abs{\lambda_j} < 1$ と仮定したから,
+\begin{align}
+ \lambda_j^k &\to 0 \quad \text{if} \quad j \geqslant 2 \\
+ I^k &\to I = c_1 v_1
+\end{align}
+となり, 極限で得られる $I$ は固有値 1 に属する固有ベクトル (定常ベクトル) だ.
+必要ならこれを規格化すればいい.
+\begin{rem}
+この計算から収束のスピードを決めるのは $\abs{\lambda_{\color{red}2}}$ であることがわかる.
+つまり $\abs{\lambda_2}$ が小さいほど収束は速くなる.
+\end{rem}
+2 つくらい例を出しておこう.
+\begin{ex}
+行列と固有値:
+\begin{align}
+ S
+ =
+ \begin{bmatrix}
+     0.65 & 0.35 \\
+     0.35 & 0.65
+ \end{bmatrix}
+ , \quad
+ \lambda_1
+ =
+ 1, \quad
+ \lambda_2
+ =
+ 0.3.
+\end{align}
+\end{ex}
+\begin{ex}
+行列と固有値:
+\begin{align}
+ S
+ =
+ \begin{bmatrix}
+     0.85 & 0.15 \\
+     0.15 & 0.85
+ \end{bmatrix}
+ , \quad
+ \lambda_1
+ =
+ 1, \quad
+ \lambda_2
+ =
+ 0.7.
+\end{align}
+\end{ex}
+
+こうしていくとさっきネットワーク構造として説明したことが数学としてどう現われてくるか見えてくる.
+巡回グラフを見直そう.
+これを数学的に言えば, 第 2 固有値が $\abs{\lambda_2} < 1$ となる行列ばかりではないということだ.
+\begin{align}
+ S
+ =
+ \begin{bmatrix}
+  0    &    0    &    0    &    0    &    1\\
+  1    &    0    &    0    &    0    &    0\\
+  0    &    1    &    0    &    0    &    0\\
+  0    &    0    &    1    &    0    &    0\\
+  0    &    0    &    0    &    1    &    0\\
+ \end{bmatrix}
+ .
+\end{align}
+得点を持ち回ってしまってべき乗法の計算が収束しないことがあると言ったが,
+それは第 2 固有値の絶対値の問題として数学的に理解できる.
+\begin{align}
+ \begin{bmatrix}
+  1\\
+  0\\
+  0\\
+  0\\
+  0
+ \end{bmatrix}
+ \to
+ \begin{bmatrix}
+  0\\
+  1\\
+  0\\
+  0\\
+  0
+ \end{bmatrix}
+ \to
+ \begin{bmatrix}
+  0\\
+  0\\
+  1\\
+  0\\
+  0
+ \end{bmatrix}
+ \to
+ \begin{bmatrix}
+  0\\
+  0\\
+  0\\
+  1\\
+  0
+ \end{bmatrix}
+ \to
+ \begin{bmatrix}
+  0\\
+  0\\
+  0\\
+  0\\
+  1
+ \end{bmatrix}
+ \to
+ \begin{bmatrix}
+  1\\
+  0\\
+  0\\
+  0\\
+  0
+ \end{bmatrix}
+ .
+\end{align}
+当たり前だが全てのページが同じ点を持っていれば点を持ち回っても変わらないのだから,
+定常ベクトルもこの事情をそのまま書けばいい.
+\begin{align}
+ I
+ =
+ \begin{bmatrix}
+  1/5\\
+  1/5\\
+  1/5\\
+  1/5\\
+  1/5\\
+ \end{bmatrix}
+ .
+\end{align}
+\subsection{行列の原始性 (強連結性)}
+
+
+確実にべき乗法を収束させるには $\abs{\lambda_2} < 1$ となればいいことがわかった.
+このための数学的条件を見つける必要がある.
+結果から言えば $S$ が次の意味で原始的であればいい.
+\begin{defn}[原始的, 強連結性]
+ある自然数 $m$ が存在して $S^m$ の行列要素が全て正になるとき,
+正方行列 $S$ は原始的\index{げんしてき@原始的}であるという.
+強連結性\index{きょうれんけつせい@強連結性}を持つともいうし,
+行列が既約\index{きやく@既約}かつ非周期的\index{ひしゅうきてき@非周期的}であるともいうし,
+エルゴード的ともいう.
+\end{defn}
+\begin{rem}
+これは $m$ 個のリンクをたどることでどこへでも行けるということだ.
+任意のページに対して一様に $m$ があることがポイント.
+この一様性がない場合, 単に連結\index{れんけつ@連結}であるといったり,
+既約\index{きやく@既約}であるという.
+\end{rem}
+ここで伝家の宝刀 Perron-Frobenius の定理を抜くことになる\footnote{\cite{MasahikoSaitoh1} によると経済学など他の分野への応用もあるらしい.
+ }.
+\begin{thm}[Perron-Frobenius]\label{linear-algebra-google-pagerank22}
+正方行列 $G$ が確率行列で全ての要素が正 ($>0$) ならば,
+$G$ は固有値 1 をもち, さらに定常ベクトルの成分を全て正に取ることができる.
+\end{thm}
+さらにべき乗法の収束定理もついてくる.
+\begin{thm}[離散時間マルコフ連鎖の収束定理]\label{linear-algebra-google-pagerank23}
+正方行列 $G$ が強連結性を持つ確率行列ならば, 任意の初期分布 $I^0$ にたいして
+$I^k := G^k I^0$ は必ず定常ベクトルに収束する.
+\end{thm}
+
+これを使うには原始的 (強連結) な確率行列をひねり出すためにモデルを修正しなければいけない.
+ここで改めて困る例を見てみよう.
+しかも本質的に困る例, importance sink だ.
+\begin{align}
+ S
+ =
+ \begin{bmatrix}
+  0    &    0    &    0    &    0    &    0    &    0    &    0    &    0\\
+  1/2    &    0    &    1/2    &    1/3    &    0    &    0    &    0    &    0\\
+  1/2    &    0    &    0    &    0    &    0    &    0    &    0    &    0\\
+  0    &    1    &    0    &    0    &    0    &    0    &    0    &    0\\
+  0    &    0    &    1/2    &    1/3    &    0    &    0    &    1/2    &    0\\
+  0    &    0    &    0    &    1/3    &    1/3    &    0    &    0    &    1/2\\
+  0    &    0    &    0    &    0    &    1/3    &    0    &    0    &    1/2\\
+  0    &    0    &    0    &    0    &    1/3    &    1    &    1/2    &    0\\
+ \end{bmatrix}
+ , \quad
+ I
+ =
+ \begin{bmatrix}
+  0\\
+  0\\
+  0\\
+  0\\
+  0.12\\
+  0.24\\
+  0.24\\
+  0.4
+ \end{bmatrix}. \label{linear-algebra-google-pagerank19}
+\end{align}
+はじめの 4 つのページランクが 0 になっているが,
+他のページからのリンクがあるにもかかわらず, ``得点''が吸い上げられてしまう嫌な例だ.
+少なくともリンクがある限り, そのページのページランクは厳密に正にしたいのだが,
+importance sink があってはそれもままならないのだ.
+つまり,
+\begin{req}
+全てのページのページランクは厳密に正としたい.
+\end{req}
+
+何が問題なのかを数学的に言うと, 線型写像 (表現論) の言葉でいえば
+$S$ が可約\index{かやく@可約}なとき,
+つまり適当な行列で線型写像を書いたとき, 次のようにブロックにわけられてしまうことだ.
+\begin{align}
+ S
+ =
+ \begin{bmatrix}
+  \ast    &    0 \\
+  \ast    &    \ast
+ \end{bmatrix}.
+\end{align}
+上の例 (\ref{linear-algebra-google-pagerank19}) では実際に右上に 0 ばかりのブロックがある.
+
+既約性をネットワークの繋がり方としての連結性で解釈してみよう.
+ネットワーク構造 (を表す行列) が連結\index{れんけつ@連結}というのは,
+任意の2つのページ $P_1, \, P_2$ に対して必ずリンクの列があって,
+それをたどって $P_1$ から $P_2$ に行けるということだ.
+ここで同じリンクは逆にたどれなくてもいい: つまり相互リンクは不要だ.
+そして可約でない行列を既約という.
+連結性と既約性は単に言葉づかいを変えただけで同じ概念だ.
+強連結性との違いは, ある $m$ 本のリンクで必ずどこからどこへも行けるかどうかという点.
+\begin{rem}
+行列が強連結 (原始的) ならば連結になる.
+\end{rem}
+
+まとめると次のようになる.
+\begin{enumerate}
+\item 行列 $S$ は確率行列であれ: 定常ベクトルを持て.
+\item 既約 (連結) であれ: 定常ベクトルの成分が全て正となれ.
+\item 原始的(強連結)であれ: 第2固有値 $\abs{\lambda_2} < 1$ となれ.
+\end{enumerate}
+
+節の最後に線型写像との関係について触れておきたい.
+まずネットワーク構造から説明しよう.
+次のネットワーク構造を考える.
+\begin{align}
+ \xymatrix{
+  *+[Fo]{P_1} \ar[r] & *+[Fo]{P_2} \ar@<1mm>[dr] \ar[rr] &                           & *+[Fo]{P_3} \ar[dl] \\
+                     &                                   & *+[Fo]{P_4} \ar@<1mm>[ul] &
+ }
+\end{align}
+ハイパーリンク行列は
+\begin{align}
+ H
+ =
+ \begin{bmatrix}
+  0 & 0   & 0 & 0 \\
+  1 & 0   & 0 & 1/2 \\
+  0 & 1/2 & 0 & 0 \\
+  0 & 1/2 & 1 & 0 \\
+ \end{bmatrix}.
+\end{align}
+これは右上の 1 行 3 列ブロックが 0 なので非連結だ.
+ここでページのナンバリングを次のように変えるとどうなるか見てみよう.
+\begin{align}
+ \xymatrix{
+  *+[Fo]{P_3} \ar[r] & *+[Fo]{P_4} \ar@<1mm>[dr] \ar[rr] &                           & *+[Fo]{P_1} \ar[dl] \\
+                     &                                   & *+[Fo]{P_2} \ar@<1mm>[ul] &
+ }
+\end{align}
+ハイパーリンク行列は
+\begin{align}
+ H
+ =
+ \begin{bmatrix}
+  0 & 0 & 0 & 1/2 \\
+  1 & 0 & 0 & 1/2 \\
+  0 & 0 & 0 & 0   \\
+  0 & 1 & 1 & 0   \\
+ \end{bmatrix}.
+\end{align}
+こうなると右上の 1 行 3 列ブロックが 0 ではないので連結に見える.
+しかし定義からしてナンバリングを変えただけで非連結性が変わるわけがない.
+ここで, 見たいのはネットワーク構造そのものであってページのナンバリングなどどうでもいいことに注意しよう.
+つまり本質的なのは次のナンバリングのない図だ.
+\begin{align}
+ \xymatrix{
+  *+[Fo]{} \ar[r] & *+[Fo]{} \ar@<1mm>[dr] \ar[rr] &                        & *+[Fo]{} \ar[dl] \\
+                  &                                & *+[Fo]{} \ar@<1mm>[ul] &
+ }
+\end{align}
+``ナンバリングがないのが本質だが, ナンバリングがあった方が便利,'' これがまさに線型写像と行列の関係なのだ.
+さらにこのくらい簡単なら (非) 連結性はネットワーク図から簡単にわかるが,
+何百もページがあるような複雑な図になるとそう簡単にはわからなくなることにも注意してほしい.
+行列に落とせば数の並びを調べればよくなるから機械的な判定ができる.
+もっというなら, 適切なページのナンバリングによって行列のレベルで連結性が``目で見える''.
+
+ここで線型写像を考えよう.
+これは線型空間上の線型な作用そのものだ.
+上の話でいえばネットワーク構造そのものに対応する.
+しかし作用そのものだと調べづらいから具体的な形を取らせたいことがある.
+そのとき, 線型空間の基底を選んで具体的に作用を書き表したのが行列だ.
+基底を選んで, というのがページのナンバリングに対応する.
+
+まとめると
+\begin{align}
+ \begin{Bmatrix}
+  \text{ネットワークの連結性チェックを} \\
+  \text{線型写像を}
+ \end{Bmatrix}
+ \text{行列を使って}
+ \begin{Bmatrix}
+  \text{視覚的に処理したい} \\
+  \text{書きたい}
+ \end{Bmatrix}
+\end{align}
+は同じことを言っているのだ.
+また
+\begin{align}
+ \text{抽象的な}
+ \begin{Bmatrix}
+  \text{ネットワーク構造} \\
+  \text{線型写像}
+ \end{Bmatrix}
+ \text{に対して}
+ \begin{Bmatrix}
+  \text{ページのナンバリングで} \\
+  \text{基底を取って}
+ \end{Bmatrix}
+ \text{行列で具体化}
+\end{align}
+という対応関係がある.
+線型写像と行列の区別がついていない人はここで区別をつけるようにしてもらいたい.
+\subsection{最後の修正: Google 行列化}
+
+
+ここまで来ると Google 行列の数学的な意味がわかる.
+ハイパーリンク行列を強連結にするための処方なのだ.
+Google行列 $G$ の定義を思い出そう.
+\begin{align}
+ G
+ \defeq
+ (1 - \alpha) S + \alpha R, \quad
+ R
+ \defeq
+ \frac{1}{N}
+ \begin{bmatrix}
+  1      & \cdots & 1 \\
+  1      & \cdots & 1 \\
+  \vdots & \cdots & \vdots \\
+  1      & \cdots & 1
+ \end{bmatrix}.
+\end{align}
+$G$ は全ての要素が厳密に正になるので, $m=1$ として強連結性の定義を満たす.
+定理 \ref{linear-algebra-google-pagerank22}, \ref{linear-algebra-google-pagerank23} によれば
+$G$ について決定方程式 $I=GI$ を考えることで定常ベクトルは一意的に存在してべき乗法もうまく使えるのだった.
+\subsection{収束の評価}
+
+
+収束の評価についてもう少し説明しよう.
+いちいちやっていると大変なので省略するが,
+Google 行列の第 2 固有値は $\abs{\lambda_2} = \alpha$ となる.
+$\alpha$ が 1 に近いと, べき乗法の収束が遅くなるのは既に見た通りだ.
+
+実は収束のスピード評価として次の評価が出る.
+\begin{align}
+ \norm{ G^k I^0 - I }_1
+ &\le
+ \alpha^k \norm{I^0 - I}_1, \\
+ \norm{I}_1
+ :&=
+ \sum_{i=1}^N \abs{I(P_i)}.
+\end{align}
+これが最悪の場合の評価であることに注意してほしい.
+$\alpha=0.15$ のとき,
+50回から100回くらいアルゴリズムを回せばそこそこの精度が出せることがアプリオリに分かる.
+2006 年時点では計算は数日で終わるらしい.
+2014 年時点はマシンパワーも上がっているがページ数も増えているから,
+この値はあまり参考にならない.
+他にもサービス展開に合わせて小規模再計算を回しているという話もある.
+\subsection{その他歴史的経緯}
+
+
+1998 年時点で, ウェブはその時点での検索エンジンの限界を超えるペースで発展しつつあったが,
+その当時, ビジネスとして検索エンジンを作っている所はほぼすべて技術的詳細を公開していなかった.
+Brin と Page は学術的振興を図り, こうしたアルゴリズムの公開に踏み切った\footnote{最近の Google はそこそこクローズドになりつつあるという話もある.
+ }
+また, 他のランク付けアルゴリズムもあり研究は続いている.
+\section{数学・物理的な応用}
+
+\subsection{Markov 連鎖とエルゴード理論}
+
+
+ここでは概略だけしか説明できないので詳しくは \cite[7 節]{TadahisaFunaki1} を参照してほしい.
+数学として純粋な確率論の文脈からすると, 強連結性はエルゴード性\index{えるごーどせい@エルゴード性}と呼ばれる.
+これは統計力学との関係があり, 確率論発展の契機の 1 つにもなっている.
+物理としては既に死んだ話だが数学的には非常に深い発展をしていて, 表現論での既約性の判定にも使える.
+2014 年の Fields 賞では 4 人中の実に 3 人 (Avila, Hairer, Mirzakhani) にエルゴード関係の仕事があり,
+そのレベルでの発展があるのだと思えば, どれだけの広さと深さがあるのかわかってもらえるだろう.
+もう一方の Markov 過程も確率論では基本的な概念であり, 確率論の入門にもちょうどいい話だ.
+エルゴード理論についてはセミナーをしたことがあって, その原稿は \ref{introduction-to-ergodic-theory39} としてまとめている.
+興味がある方は参考にしてほしい.
+\subsection{理論物理への応用: 強磁性相転移}
+
+
+固体物理の分野で Hubbard モデルという電子系のモデルがある.
+これは電子系に対して強束縛近似\index{きょうそくばくきんじ@強束縛近似}と言われる近似をかけたモデルで,
+物性理論の基本的なモデルだ.
+磁性以外にも電気伝導の研究にも使われているし,
+1995 年に実験的検証がされて以来非常に盛り上がっている BEC でも Bose-Hubbard モデルという関連したモデルが使われている.
+そしてある Hubbard モデルでの強磁性相転移の証明に Perron-Frobenius の定理が使えるのだ\cite{HalTasaki5}.
+もちろん深い研究をしようと思うとこれを越えた話をしていかなければいけないが,
+基本的な道具が線型代数であること, 物理でも原子が作る格子とその間を飛び回る電子を
+ある種のネットワークでモデル化していることなど, 分野を越えた見立てができることはなかなか楽しい.
+\subsection{理論物理への応用: 場の量子論}
+
+
+Google 行列 $G$ は正値改良性という性質を持つ:
+これはベクトルを有限集合上の関数とみなしたとき, 非負値関数 $f$, $g$ に対して $\bkt{f}{Gg} > 0$ と定義している.
+既約性も無限次元化していける性質だが, 正値改良性も無限次元に一般化できる性質で,
+これを場の量子論, 特に汎関数積分\index{はんかんすうせきぶん@汎関数積分} (経路積分\index{けいろせきぶん@経路積分}) で応用している.
+詳しくは \cite{LorincziHiroshimaBetz1} を見てほしい.
+\section{付録: 講演応募用資料}
+
+\subsection{応募}
+
+
+\begin{enumerate}
+\item 講演者のお名前 [*]: 相転移 P
+\item twitter アカウント名 [*]: phasetr
+\item 講演者のメールアドレス: phasetr@gmail.com
+\item 講演の分野 [*]: 応用数学, 数理工学, 線型代数, 確率論
+\item 講演タイトル [*]: Google ページランクの数理
+\item 講演の概要 [*]: Google の検索ではその精度を上げるために 100 を越える要素を考えていることが知られている.
+   最近は少しずつトレンドが変わりつつあるが, このうち,
+   Google 自身が``ネット上の民主主義''として特に強調しているページランクについて議論する.
+   インターネット上の Web ページをノードと思い,
+   ネットワークをグラフとして抽象化して, 線型代数の問題に叩き落とす.
+   検索結果の即時性・計算機資源の有限性など現実的な制約も多いが,
+   数値計算に関する理論的なバックアップまで含め, 知識としては教養レベルで解決できる.
+   何から何まで教養レベルで簡単に解決すると思われても困るが,
+   線型代数が支配する領域の広さと高い攻撃力を実感してほしい.
+   数学としては Perron-Frobenius の定理を目標に議論を進める.
+   最後に純数学的な問題として, 確率論から見ると離散時間の Markov 連鎖とエルゴード問題に関係していること,
+   理論物理では Hubbard モデルの強磁性相転移に関係していること,
+   Perron-Frobenius の無限次元版が汎関数積分 (経路積分) で酷使されていることなども簡単に紹介したい.
+\item 希望する講演時間 [*]: 90 分講演
+\item 対象学年の目安, 仮定する予備知識 [*]: 対象は限定しない.
+   純粋な予備知識としては教養の線型代数で十分.
+   その辺の数学科学部生と戦える程度で線型代数を武具として扱える力量があれば問題ない.
+\item 講演にプロジェクターを使用するか否か: 使わない.
+\item その他, 要望など (もしあればお書きください): なし.
+\end{enumerate}
 \subsection{概要}
 
 
-Google の検索ではその精度を上げるために
-100 を越える要素を考えていることが知られている.
-最近は少しずつトレンドが変わりつつあるが,
-このうち Google 自身が「ネット上の民主主義」として強調しているページランクについて議論する\footnote{最近はリンクによる SEO の限界という話が出ていて,
+Google の検索ではその精度を上げるために 100 を越える要素を考えていることが知られている.
+最近は少しずつトレンドが 変わりつつあるが,
+このうち Google 自身が``ネット上の民主主義''として強調しているページランクについて議論する \footnote{最近はリンクによる SEO の限界という話が出ていて,
 ページランクの重要性も落ちてきているようだ.
 ただ, 歴史的に Google が重要視していたという事実は変わらない.
-そこで自然言語処理を使って内容をきちんと見るようにしていこうとしているようで
+そこで自然言語処理を使って内容をきちんと見るようにしていこうとしているようだ.
 これはこれで統計学を背景にしていて数学との関係も深い.
  }.
-
 インターネット上の Web ページをノード (vertex) と思い,
 ネットワークをグラフとして抽象化して線型代数の問題に叩き落とす.
 検索結果の即時性・計算機資源の有限性など現実的な制約も多いが,
@@ -6029,12 +7247,15 @@ Google の検索ではその精度を上げるために
 何から何まで教養レベルで簡単に解決すると思われても困るが,
 線型代数が支配する領域の広さと高い攻撃力を実感してほしい.
 
+
 数学としては Perron-Frobenius の定理を目標に議論を進める.
-最後に純数学的な問題として, 確率論から見ると離散時間の Markov 連鎖とエルゴード問題に関係していること\cite[7 節]{TadahisaFunaki1},
-理論物理では Hubbard モデルの強磁性相転移に関係していること\cite{HalTasaki5},
-Perron-Frobenius の無限次元版が汎関数積分 (経路積分) で酷使されていること\cite{LorincziHiroshimaBetz1}なども簡単に紹介したい.
-ニコニコ動画で動画\cite{phasetr3}も作っていて,
+最後に純数学的な問題として,
+確率論から見ると離散時間 の Markov 連鎖とエルゴード問題に関係していること \cite[7 節]{TadahisaFunaki1},
+理論物理では Hubbard モデルの強磁性相転移に関係していること \cite{HalTasaki5},
+Perron-Frobenius の無限次元版が汎関数積分 (経路積分) で酷使されていること \cite{LorincziHiroshimaBetz1} なども簡単に紹介したい.
+ニコニコ動画で動画 \cite{phasetr1} も作っていて,
 物理との関係や小ネタもいろいろ説明しているのでそちらも参考にしてほしい.
+またニコニコ動画の動画は \cite{DavidAustin1} を元にしている.
 
 次のような内容・順番で講演する予定だ.
 多少変わる可能性はあるが参考にしてほしい.
@@ -6042,7 +7263,7 @@ Perron-Frobenius の無限次元版が汎関数積分 (経路積分) で酷使�
 \item ページランクの基本思想
 \item 問題の直観的定式化
 \item 問題の数学的定式化
-\item べき乗法とそれに関する工学的説明
+\item ベき乗法とそれに関する工学的説明
 \item ハイパーリンク行列と問題: 具体例とともに
 \item Google 行列の導入
 \item Perron-Frobenius の定理による解決
@@ -6055,8 +7276,9 @@ Perron-Frobenius の無限次元版が汎関数積分 (経路積分) で酷使�
 純粋な予備知識としては教養の線型代数で十分.
 その辺の数学科学部生と戦える程度で線型代数を武具として扱える力量があれば問題ない.
 今回具体的に出てくる中で一番難しいのは行列と線型写像の区別だ.
-今回, 本当に完全に数学的な意味での線型写像は出てこないが, その本質に近い形で話を展開する.
-上記区別がついていないという方もこれで勉強し直すくらいの気持ちで来て頂きたい.
+今回, 本当に完全に数学的な意味での線型写像は出てこないが,
+その本質に近い形で話を展開する.
+上記区別がついていないという方もこれで 勉強し直すくらいの気持ちで来て頂きたい.
 \chapter{量子力学を理解するために斎藤正彦『線型代数入門』\cite{MasahikoSaitoh1}を読む人が注目すべき点}
 
 
@@ -10171,13 +11393,13 @@ Note that we do not assume continuity of a derivative for holomorphy.
 
 First we review a line integral in $\bbR^2$.
 \begin{defn}\textup{(Line integral in $\bbR^2$)}
- Let $C \colon I=[a,b] \to \bbR^2$ be a piecewise $C^1$ curve and $\Image C \subset U$ and
+ Let $C \colon I=[a,b] \to \bbR^2$ be a piecewise $C^1$ curve and $\image C \subset U$ and
  $F \colon U \to \bbR^2$ be a continuous vector field.
  Then we define a \upbf{line integral} over $C$ of $F$ as
  \begin{align}
   \int_{C} F \cdot dC
   =
-  \int_{\Image C} F (C) \cdot dC
+  \int_{\image C} F (C) \cdot dC
   =
   \int_a^b F (C (t)) \cdot C'(t) dt.
  \end{align}
@@ -15299,7 +16521,7 @@ Schwartsの不等式から
 
 \section{スペクトル分解}
 
-\chapter{講演原稿: 偏微分方程式の逆問題--拡散方程式の数学と物理と工学}
+\chapter{講演原稿: 偏微分方程式の逆問題--拡散方程式の数学と物理と工学\label{inverse-problem-in-partial-diferrential-equations-for-diffusion-equation-for-tsudoi1}}
 
 
 これは 2013-09-21 第 4 回関西すうがく徒のつどいでの講演,
@@ -18695,7 +19917,7 @@ $e_n = \cbk{\delta_{n,j}}_j$ の集合 $\cbk{e_n}$ は前にみたように $\el
 
 
 動画から適当に切り出してくる.
-\chapter{量子力学・場の量子論・量子統計力学の数学系諸問題}
+\chapter{量子力学・場の量子論・量子統計力学の数学的諸問題}
 
 
 Togetter (Twitter) からの転載.
@@ -19144,7 +20366,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
  x \label{Hinashiro_math_party_1_probability_2}
 \end{align}
 が導ける.
-最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[41].
+最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[55].
 
 再び $x \neq 0$ を仮定しよう \footnote{ハイパーどうでもいいが「再びマタタビ楕円型」という天啓を得たことを記録しておく.
  }.
@@ -19167,7 +20389,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
 \subsection{Rademacher 関数}
 
 
-これまではまさに高校の数学だった \footnotemark[38].
+これまではまさに高校の数学だった \footnotemark[52].
 本番はここからだ.
 式 (\ref{Hinashiro_math_party_1_probability_3}) を別の観点から眺めてみようという体で,
 唐突に次の無茶苦茶な理論展開を見せる.
@@ -19242,7 +20464,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
 本質が見えるようになるまでは偶然というほかない.
 ここで式 (\ref{Hinashiro_math_party_1_probability_3}) を別の方法で導いてみよう.
 
-唐突だが次の関数を考える \footnotemark[39].
+唐突だが次の関数を考える \footnotemark[53].
 いったん少し面倒な方法で取り組んでみよう.
 \ref{Hinashiro_math_party_1_probability_14} 節で整理するので少しのあいだ我慢してほしい.
 \begin{align}
@@ -19264,7 +20486,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
  =
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}.
 \end{align}
-ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[40].
+ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[54].
 したがって
 \begin{align}
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}
@@ -19632,7 +20854,7 @@ Chebyshev による簡明かつ重要な結果を使った証明だけ紹介し�
 これで簡単に (\ref{Hinashiro_math_party_1_probability_8}) が証明できた.
 
 Chebyshev の不等式だけでなく, Rademacher 関数の独立性, つまり \ref{Hinashiro_math_party_1_probability_11} の結果も本質的に効いている.
-実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[42].
+実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[56].
 弱法則ではまだまだほしい内容に足りない.
 「儲けが際限なく大きくなる確率が 0 に収束する」くらいの微妙なことしか言っていないからだ.
 平均がばっちり 0 に行くことを証明したい.
@@ -20348,7 +21570,7 @@ Then a net limit functional is the desired one.
 There are two proofs in \cite{AsaoArai5}.
 One is abstract and uses \textbf{nuclear extension}.
 The other is concrete and uses a \textbf{quantum mechanical harmonic oscillator}
-\chapter{セミナー原稿: エルゴード理論入門}
+\chapter{セミナー原稿: エルゴード理論入門\label{introduction-to-ergodic-theory39}}
 
 
 これは \cite{MarkKac1} にある解析数論と確率論,
@@ -22622,12 +23844,12 @@ $n$ を正の整数とする.
 
 \begin{thm}[準同型定理]
 環準同型 $f \colon R \to R'$ に対し,
-$\Image f \defeq \set{a' \in R'}{\text{ある $a \in R$ が存在して $a' = f (a)$ となる}}$ と定めると, これは自然に環になる.
+$\image f \defeq \set{a' \in R'}{\text{ある $a \in R$ が存在して $a' = f (a)$ となる}}$ と定めると, これは自然に環になる.
 このとき, $f$ は環同型
 \begin{align}
  R / \kernel f
  \simeq
- \Image f
+ \image f
 \end{align}
 を誘導する. \fin
 \end{thm}
@@ -23919,7 +25141,7 @@ $D_n$ 型, $E_6, E_7, E_8$ 型の特異点をブローアップを繰り返す�
 $I$ を 1 次元の単位区間とし, $\xi = I \times \bbR$, 射影を $p(x,y) = x$ とする.
 $f \colon \xi \to \xi$ を $f(x,y) = (x, xy)$ とすると,
 $f$ の像は $x = 0$ のファイバーが $0$ で, それ以外のファイバーは次元 $1$ になる.
-したがって $\Image f$ はベクトル束にならない.
+したがって $\image f$ はベクトル束にならない.
 同様に $\ker f$ もベクトル束にならない.
 \end{proof}
 \chapter{解析学}
@@ -23956,7 +25178,7 @@ Moslehian 教授には改めてこちらでも感謝の意を述べたい.
 \subsection{Banach 環}
 
 
-\begin{ex}[単位元と Banach 環]\label{counterexamples-analysis-moslehian1}
+\begin{ex}[単位元と Banach 環, Banach Algebra Ex.1]\label{counterexamples-analysis-moslehian1}
 $0$ と $1$ を自明な冪等元と呼ぶ.
 \begin{enumerate}
 \item 複素数体以外で非自明な冪等元を持たない単位的 Banach 環が存在する.
@@ -23987,7 +25209,7 @@ $\sigma (a)$ が非連結な元 $a \in A$ を持つなら,
 $A$ は非自明な冪等元を持つ.
 \end{rem}
 
-\begin{ex}
+\begin{ex}[Banach Algebra Ex.2]
 冪等元, すなわち $x^2 = x$ となる元 $x$ から生成される Banach 環が存在する.
 \end{ex}
 \begin{proof}
@@ -24048,7 +25270,7 @@ $h_n(x_1) \to 1$ かつ $h_n(x_2) \to 0$.
 であり, $X$ は完全非連結である.
 \end{proof}
 
-\begin{ex}
+\begin{ex}[Banach Algebra Ex.3]
 次の 4 条件のうち 3 つだけを満たすコンパクト Hausdorff 空間 $X$ と $C(X)$ の部分環が存在する.
 \begin{enumerate}
 \item 一様ノルムで閉.
@@ -24074,7 +25296,7 @@ $X = [a, b]$ とし, $x_1$, $x_2 \in X$ で
 とすればいい.
 \end{proof}
 
-\begin{ex}
+\begin{ex}[Banach Algebra Ex.4]
 根基 $\Rad (A)$ が全ての準冪零元の集合 $\set{x}{r(x) = 0}$ の真の部分集合となる Banach 環 $A$ が存在する.
 ここで 上の写像 $r$ は $x \in A$ のスペクトル半径で,
 $x \in A$ のスペクトルが $\sigma x = \cbk{0}$ となるとき $x$ を準冪零または位相的冪零と呼ぶ.
@@ -24132,7 +25354,7 @@ $A$ は半単純環なので $\Rad (A) = \cbk{0}$.
 したがって $\Rad (A)$ は $\set{x}{r(x) = 0}$ にならない.
 \end{proof}
 
-\begin{ex}
+\begin{ex}[Banach Algebra Ex.5]
 代数的に半単純な非可換 Banach 環が存在する.
 \end{ex}
 \begin{proof}
@@ -24167,7 +25389,12 @@ $T \in J + I_{x_0} \subset J$ となり, これは $\bbB (H) = J$ を意味す�
 $\bbB(H)$ は半単純である.
 \end{proof}
 
-\begin{ex}
+\begin{ex}[Banach Algebra Ex.6]
+半単純で可換な Banach 環 $A$ で,
+ある両側閉イデアル $I$ があって $A/I$ が半単純にならない例が存在する.
+\end{ex}
+
+\begin{ex}[Banach Algebra Ex.7]
 極大でない準素イデアルを持つ単位的可換 Banach 環が存在する.
 \end{ex}
 \begin{proof}
@@ -24201,7 +25428,7 @@ $\bbB(H)$ は半単純である.
 Disk algebra は非極大な素イデアル, つまり $\cbk{0}$ を含む.
 \end{rem}
 
-\begin{ex}
+\begin{ex}[Banach Algebra Ex.8]
 (代数的に) 単純な Banach 環が存在する.
 \end{ex}
 \begin{proof}
@@ -24230,6 +25457,227 @@ $X = (x_{i,j}) \in \Delta$, $x_{1,1} = a_{i,j}$ とすると
  e_{i,1} X e_{1,j} \in \Delta.
 \end{align}
 したがって $A \in \Delta$ で $\Delta = M_n(\bbC)$ がなりたつ.
+\end{proof}
+
+\begin{ex}[Banach Algebra Ex.9]
+Banach 環 $A$ とその部分 Banach 環 $B$ と元 $a \in A$ で $\sigma_A a = \sigma_B a$ となる例がある.
+\end{ex}
+\begin{proof}
+$H$ を Hilbert 空間, $A = \bbB (H)$, $a = T \in A$ を非零元,
+$B$ を $T$ を含む極大で可換な ($C^*$-) 部分環とする.
+\cite{BratteliRobinson1} の Proposition 2.2.7 から次の式が得られる.
+\begin{align}
+ \sigma_A (a)
+ =
+ \sigma_B (a).
+\end{align}
+\end{proof}
+
+\begin{ex}[Banach Algebra Ex.10]
+回帰的な Banach 環と回帰的でない Banach 環の例がある.
+\end{ex}
+\begin{proof}
+$n \geq 1$ なら $C^n$ は回帰的だ.
+
+数列空間 $c_0$ をその元 $(a_n)$ のサポートが有限集合な数列の全体として定義すると
+$c_0^{**} = \ell^1 = \ell^{\infty}$ で $c_0 \hookrightarrow \ell^{\infty}$ が真の包含というのがわかる.
+したがって $c_0$ 回帰的でない.
+\end{proof}
+
+\begin{ex}[Banach Algebra Ex.11]
+対数が取れない Banach 環の元が存在する.
+\end{ex}
+\begin{proof}
+可分な Hilbert 空間 $H$ 上の片側シフト作用素 $u$ を取ると, これは Fredholm で指数が次のようになる.
+\begin{align}
+\ind u = \dimension \kernel u - \dimension \coker u = 0 - 1 = -1.
+\end{align}
+写像 $\pi \colon \bbB(H) \to \bbB (H) / K(H)$ を商写像とすると
+Calkin 環 $\bbB(H) / K(H)$ の元 $w$ があり $\pi(u) = e^{w}$ と書ける.
+ある元 $w' \in \bbB(H)$ で $\pi (w') = w$ となる元があり, 次のようになる.
+\begin{align}
+ \pi(u)
+ =
+ e^{w}
+ =
+ e^{\pi (w')}
+ =
+ \pi \rbk{e^{w'}}.
+\end{align}
+したがって $u - e^{w'} \in K(H)$ だが $e^{w'}$ は可逆であり $\ind u = \ind e^{w'} = 0$ となるがこれは矛盾.
+\end{proof}
+
+\begin{ex}[Banach Algebra Ex.12]
+どんなノルムを入れても Banach 環にはできない環が存在する.
+\end{ex}
+\begin{proof}
+閉区間 $[0, 1]$ 上, 複素数値の無限階連続微分可能な関数全体のなす環,
+$C^{\infty}([0, 1])$ は
+\begin{align}
+ \Rad (A)
+ =
+ \bigcap_{t \in [0, 1]} \set{f \in C^{\infty}([0, 1])}{f(t) = 0}
+ = 0
+\end{align}
+となるので半単純になる.
+写像 $f \mapsto f'$ は $A$ 上の微分になることに注意する.
+Johnson の定理 \cite[Theorem 18.21]{BonsallDuncan1} から
+$0$ は半単純な Banach 環上の唯一つの微分になる.
+したがって $A = C^{\infty}([0, 1])$ はどんなノルムを取っても Banach 環にはならない.
+
+直接証明は \cite[Corollary 4.1.12]{BernardAupetit1} を参照すること.
+この例は \cite{GESilov1} による.
+\end{proof}
+
+\begin{ex}[Banach Algebra Ex.13]
+可換な radical Banach 環が存在する.
+\end{ex}
+\begin{proof}
+2 つの例を挙げよう.
+
+(1) 全ての元の間の積を 0 にした Banach 空間.
+すると全ての元が quasi-invertible\footnote{この定義を Moslehian 教授に確認する.
+訳語もわからない.
+radical algebra の訳語も不明なので調べる.
+ } になる.
+
+(2) 次のように積を定義した Banach 空間 $L^1([0, 1])$:
+\begin{align}
+ (fg) (x)
+ \defeq
+ \int_0^x f(x - y) g(y) dy.
+\end{align}
+次の計算によってこれは生成子として $f_o (t) = t$ を持つことがわかる.
+\begin{align}
+ f^n_0 (t)
+ =
+ \frac{t^{n-1}}{(n-1)!}.
+\end{align}
+ここで 1 変数の多項式環は $C([0, 1])$ の中で $L^1$-dense であり,
+$C([0, 1])$ は $L^1([0, 1])$ の中で $L^1$-dense であることに注意する.
+さらに
+\begin{align}
+ \norm{f_0^n}
+ =
+ \int_0^1 \abs{f_o^n (t)} dt
+ =
+ \frac{1}{n!}
+\end{align}
+となるからスペクトル半径は
+\begin{align}
+ r(f_o)
+ =
+ \lim_{n \to \infty} \norm{f_o^n}^{1/n}
+ =
+ \lim_{n \to \infty} \rbk{n!}^{-1/n}
+ = 0
+\end{align}
+となる.
+したがってこの環は指標を持たず, radical algebra だとわかる.
+\end{proof}
+
+\begin{ex}[Banach Algebra Ex.14]
+$r(x)$ を Banach 環の元 $x$ のスペクトル半径とする.
+適当な Banach 環で $r(x) < \norm{x}$ となる元が存在する.
+\end{ex}
+\begin{proof}
+Banach 環として $C^*$-環 $M_2 (\bbC) = \bbB(\bbC^2)$ を取り,
+次の元 $x$ を取る.
+\begin{align}
+ x
+ =
+ \begin{bmatrix}
+  0 & 1 \\
+  0 & 0
+ \end{bmatrix}.
+\end{align}
+すると $x$ のスペクトルは $\sigma (x) = \cbk{0}$ だからスペクトル半径は $r(x) = 0$.
+しかしノルム $\norm{x} = 1$ となる.
+\end{proof}
+
+\begin{ex}[Banach Algebra Ex.15]
+可換な Banach 環 $A$ でイデアルを唯一つ $\Rad (A)$ だけもつ環がある.
+\end{ex}
+\begin{proof}
+$H = L^2(0, 1)$ とし, 測度は Lebesgue 測度とする.
+すると
+\begin{align}
+ (Vf) (x)
+ =
+ \int_{0}^x f(t)dt
+\end{align}
+は Volterra 作用素と呼ばれる有界線型作用素 $V \in \bbB(H)$ を定義する.
+明らかに $A = \overline{\set{p(V)}{p \text{ は多項式}}}$ は
+$V$ と恒等作用素 $1$ で生成される $\bbB(H)$ の可換な Banach 部分環だ.
+
+単純な計算で
+\begin{align}
+ \rbk{V^n f}(x)
+ =
+ \int_{x}^{x} \frac{(x-t)^{n-1}}{(n-1)!} f(t) dt
+\end{align}
+であって
+\begin{align}
+ \norm{V^n}
+ =
+ \frac{1}{(n-1!)}, \quad
+ r(V)
+ =
+ \lim_{n \to \infty} \norm{V^n}^{1/n}
+ = 0.
+\end{align}
+したがって $\sigma_{\bbB(H)} (V) = \cbk{0}$.
+一方, \cite[VII. Theorem 5.4]{JohnConway1} によって
+$\sigma_A(V)$ は $\sigma_{\bbB(H)} (V)$ の多項式凸包で
+$\sigma_A (V) = \cbk{0}$ となる.
+$A$ の極大イデアル空間\footnote{これは何だろう.
+maximal ideal space の訳なのだが.
+極大イデアルとはどう違うのか後で Moslehian 教授に聞く必要がある.}
+は $\sigma_A (V) = 0$ に同相になる.
+$A$ 上唯一の指標は $\phi(\lambda) = \lambda$ で
+$x \in A \setminus \bbC$ に対して $\phi(x) = 0$ となる.
+$\phi$ は連続だから, 一意的な極大イデアル空間は
+\begin{align}
+ \Rad (A)
+ =
+ \ker (\phi)
+ =
+ \overline{\set{p(V)}{p \text{ は多項式で } p(0) = 0}}.
+\end{align}
+\end{proof}
+
+\begin{ex}[Banach Algebra Ex.16]
+$A$ 自身に等距離同型な部分 Banach 環のペアの Banach 空間としての位相的直和になっている
+Banach 環が存在する
+\end{ex}
+\begin{proof}
+$A = \ell^{\infty}$ とし次の集合を定義する.
+\begin{align}
+ E
+ &\defeq
+ \set{\rbk{x_n} \in \ell^{\infty}}{x_{2n} = 0}, \\
+ F
+ &\defeq
+ \set{\rbk{x_n} \in \ell^{\infty}}{x_{2n - 1} = 0}.
+\end{align}
+明らかに $E$ と $F$ $A$ の閉部分環で
+\begin{align}
+ A
+ =
+ E + F, \quad E \cap F = \cbk{0}.
+\end{align}
+したがって $E$ は補空間を $F$ とする $A$ の可補空間になる.
+さらに写像
+\begin{align}
+ \phi \rbk{\rbk{x_1, x_2, x_3, \dots}}
+ =
+ \rbk{0, x_1, 0, x_2, 0, x_3, \dots}
+\end{align}
+は $A$ と $E$ の等距離同型になる.
+同じように $A$ と $F$ の等距離同型が作れる.
+
+もし $E$ が $\ell^{\infty}$ の無限次元可補空間なら $E$ は $\ell^{\infty}$ に等距離同型になる.
+詳しくは \cite{JoramLindenstrass1} 参照.
 \end{proof}
 \section{作用素環}
 
@@ -25179,7 +26627,7 @@ $f \colon X \to \mathbb{R}$ が次の条件を満たすとき一様連続であ�
 
 
 動画から適当に切り出してくる.
-\part{参考文献など}
+\part{索引・参考文献}
 
 
 \nocite{*}

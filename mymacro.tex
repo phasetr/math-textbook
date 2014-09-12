@@ -1,0 +1,459 @@
+\usepackage[top=10truemm,bottom=20truemm,left=15truemm,right=15truemm]{geometry}
+\usepackage[dvipdfmx]{graphicx, hyperref}
+\usepackage{atbegshi}
+\ifnum 42146=\euc"A4A2
+\AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}}
+\else
+\AtBeginShipoutFirst{\special{pdf:tounicode 90ms-RKSJ-UCS2}}
+\fi
+\usepackage[all]{xy}
+\usepackage{makeidx}
+\makeindex
+\usepackage{url}
+\usepackage{eucal}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{wasysym}
+\usepackage{bm}
+\usepackage{color}
+\bibliographystyle{jplain}
+\addtolength{\footskip}{5mm}
+\makeatletter
+\def\ps@plainfoot{%
+\let\@mkboth\@gobbletwo
+\let\@oddhead\@empty
+\def\@oddfoot{\normalfont\hfil-- \thepage\ --\hfil}%
+\let\@evenhead\@empty
+\let\@evenfoot\@oddfoot}
+\let\ps@plain\ps@plainfoot
+\makeatother
+\pagestyle{plain}
+
+\makeatletter
+\newcounter{enum2}
+\renewenvironment{enumerate}{%
+\begin{list}%
+{%
+\arabic{enum2}.\ \,%  見出し記号/ 直後の空白を調節
+}%
+{%
+\usecounter{enum2}
+\setlength{\itemindent}{0pt}%  ここは 0 に固定
+\setlength{\leftmargin}{15pt}%  左のインデント
+\setlength{\rightmargin}{0pt}% 右のインデント
+\setlength{\labelsep}{0pt}%    黒丸と説明文の間
+\setlength{\labelwidth}{6pt}%  ラベルの幅
+\setlength{\itemsep}{0pt}%     項目ごとの改行幅
+\setlength{\parsep}{0pt}%      段落での改行幅
+\setlength{\listparindent}{0pt}% 段落での一字下り
+}
+}{%
+\end{list}%
+}
+\renewenvironment{itemize}{%
+\begin{list}{$\bullet$\ \ }%
+{%
+\usecounter{enum2}
+\setlength{\itemindent}{0pt}%  ここは 0 に固定
+\setlength{\leftmargin}{15pt}%  左のインデント
+\setlength{\rightmargin}{0pt}% 右のインデント
+\setlength{\labelsep}{0pt}%    黒丸と説明文の間
+\setlength{\labelwidth}{6pt}%  ラベルの幅
+\setlength{\itemsep}{0pt}%     項目ごとの改行幅
+\setlength{\parsep}{0pt}%      段落での改行幅
+\setlength{\listparindent}{0pt}% 段落での一字下り
+}
+}{%
+\end{list}%
+}
+
+\makeatletter
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\@addtoreset{equation}{section}
+\makeatother
+\makeatletter
+\newcommand*{\defeq}{\mathrel{\rlap{%
+\raisebox{0.3ex}{$\m@th\cdot$}}%
+\raisebox{-0.3ex}{$\m@th\cdot$}}%
+=}
+\newcommand*{\eqdef}{=\mathrel{\hbox to 0pt{%
+\raisebox{0.3ex}{$\m@th\cdot$}}%
+\raisebox{-0.3ex}{$\m@th\cdot$}}%
+}
+\makeatother
+
+\DeclareMathOperator*{\slim}{s-lim}
+\DeclareMathOperator*{\wlim}{w-lim}
+\DeclareMathOperator{\diag}{diag}
+\newcommand{\card}{\mathrm{card}\,}
+\newcommand{\co}{\mathrm{co}\,}
+\newcommand{\const}{\mathrm{const.}}
+\newcommand{\coim}{\mathrm{Coim}\,}
+\newcommand{\coker}{\mathrm{Coker}\,}
+\newcommand{\dimension}{\mathrm{dim}\,}
+\newcommand{\dom}{\mathrm{dom}\,}
+\newcommand{\ind}{\mathrm{Ind}\,}
+\newcommand{\Rad}{\mathrm{Rad}\,}
+\newcommand{\ran}{\mathrm{ran}\,}
+\newcommand{\algoplus}{\mathop{\hat{\bigoplus}}}
+\newcommand{\algotimes}{\mathop{\hat{\bigotimes}}}
+\newcommand{\esssup}{\mathop{\mathrm{ess.sup}}}
+\DeclareMathOperator{\grad}{grad \,}
+\DeclareMathOperator{\rot}{rot \,}
+\DeclareMathOperator{\divergence}{div \,}
+
+\newtheoremstyle{break}
+{\topsep}{\topsep}%
+{\itshape}{}%
+{\bfseries}{}%
+{\newline}{}%
+\newtheoremstyle{breakdefn}
+{\topsep}{\topsep}%
+{\normalfont}{}%
+{\bfseries}{}%
+{\newline}{}%
+\theoremstyle{break}
+\renewcommand{\proofname}{\textup{\textbf{Proof}}}
+\theoremstyle{breakdefn}
+\newtheorem{thm}{Theorem.}[section]
+\newtheorem{cor}[thm]{Corollary.}
+\newtheorem{lem}[thm]{Lemma.}
+\newtheorem{pos}[thm]{Postulate.}
+\newtheorem{req}[thm]{Request.}
+\newtheorem{prop}[thm]{Proposition.}
+\newtheorem{axm}[thm]{Axiom.}
+\newtheorem{defn}[thm]{Definition.}
+\newtheorem{ex}[thm]{Example.}
+\newtheorem{exercise}[thm]{Exercise.}
+\newtheorem{problem}[thm]{Problem.}
+\newtheorem{rem}[thm]{Remark.}
+\newtheorem{fact}[thm]{Fact.}
+\newtheorem{assump}[thm]{Assumption.}
+\newtheorem{notation}[thm]{Notation.}
+
+\renewcommand{\Im}{\mathrm{Im} \,}
+\renewcommand{\Re}{\mathrm{Re} \,}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   brackets and such
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\inftynorm}[1]{\left\Vert#1\right\Vert_{\infty}}
+\newcommand{\pnorm}[1]{\left\Vert#1\right\Vert_p}
+\newcommand{\qnorm}[1]{\left\Vert#1\right\Vert_q}
+\newcommand{\twonorm}[1]{\norm{#1}_2}
+\newcommand{\dbk}[1]{\left\langle #1 \right\rangle}
+\newcommand{\rbk}[1]{\left (#1\right)}
+\newcommand{\sqbk}[1]{\left[#1\right]}
+\newcommand{\cbk}[1]{\left\{#1\right\}}
+\newcommand{\abk}[1]{\left\langle #1 \right\rangle}
+\newcommand{\bkt}[2]{\left\langle#1,\,#2\right\rangle}
+\newcommand{\rbkt}[2]{\left ( #1,\,#2 \right)}
+\newcommand{\relmiddle}[1]{\mathrel{}\middle#1\mathrel{}}
+\newcommand{\set}[2]{\left\{#1 \relmiddle| #2\right\}}
+\newcommand{\bra}[1]{\left\langle #1 \right|}
+\newcommand{\ket}[1]{\left| #1 \right\rangle}
+\newcommand{\trans}{\,^t\!}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   special sums and such
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\sumtwo}[2]{\mathop{\sum_{#1}}_{#2}}
+\newcommand{\sumthree}[3]{\mathop{\mathop{\sum_{#1}}_{#2}}_{#3}}
+\newcommand{\sumfour}[4]{\mathop{\mathop{\mathop{\sum_{#1}}_{#2}}_{#3}}_{#4}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\Ab}{\mathbf{Ab}}
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bB}{\mathbb{B}}
+\newcommand{\bC}{\mathbb{C}}
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bbRbar}{\bar{\mathbb{R}}}
+\newcommand{\bbRd}{\mathbb{R}^d}
+\newcommand{\bbRthree}{\mathbb{R}^3}
+\newcommand{\bbRn}{\mathbb{R}^n}
+\newcommand{\bbRnu}{\mathbb{R}^{\nu}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calCN}{\mathcal{C}_{N}}
+\newcommand{\calCleqN}{\mathcal{C}_{\leq N}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calFb}{\mathcal{F}_{\mathrm{b}}}
+\newcommand{\calFbAW}{\calF_{\mathrm{b,ArakiWoods}}}
+\newcommand{\calFfAW}{\calF_{\mathrm{f,ArakiWyss}}}
+\newcommand{\calFAW}{\calF_{\mathrm{AW}}}
+\newcommand{\calFf}{\mathcal{F}_{\mathrm{f}}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calV}{\mathcal{V}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\calR}{\mathcal{R}}
+\newcommand{\calS}{\mathcal{S}}
+\newcommand{\catT}{\mathbf{T}}
+\newcommand{\Ccinfty}{C_{\mathrm{c}}^{\infty}}
+\newcommand{\ch}{\mathbf{Ch}}
+\newcommand{\chb}{\mathbf{Ch}^{\mathrm{b}}}
+\newcommand{\chminus}{\mathbf{Ch}^{-}}
+\newcommand{\chnonnegative}{\mathbf{Ch}^{\geq 0}}
+\newcommand{\chplus}{\mathbf{Ch}^{+}}
+\newcommand{\dmu}{d \mu}
+\newcommand{\dnu}{d \nu}
+\newcommand{\E}[1]{\rmE\sqbk{#1}}
+\newcommand{\End}{\mathrm{End}}
+\newcommand{\extbbC}{\overline{\bbC}}
+\newcommand{\fraka}{\mathfrak{a}}
+\newcommand{\frakb}{\mathfrak{b}}
+\newcommand{\frakc}{\mathfrak{c}}
+\newcommand{\frakd}{\mathfrak{d}}
+\newcommand{\frake}{\mathfrak{e}}
+\newcommand{\frakf}{\mathfrak{f}}
+\newcommand{\frakg}{\mathfrak{g}}
+\newcommand{\frakh}{\mathfrak{h}}
+\newcommand{\fraki}{\mathfrak{i}}
+\newcommand{\frakj}{\mathfrak{j}}
+\newcommand{\frakk}{\mathfrak{k}}
+\newcommand{\frakl}{\mathfrak{l}}
+\newcommand{\frakm}{\mathfrak{m}}
+\newcommand{\frakn}{\mathfrak{n}}
+\newcommand{\frako}{\mathfrak{o}}
+\newcommand{\frakp}{\mathfrak{p}}
+\newcommand{\frakq}{\mathfrak{q}}
+\newcommand{\frakr}{\mathfrak{r}}
+\newcommand{\fraks}{\mathfrak{s}}
+\newcommand{\frakt}{\mathfrak{t}}
+\newcommand{\fraku}{\mathfrak{u}}
+\newcommand{\frakv}{\mathfrak{v}}
+\newcommand{\frakw}{\mathfrak{w}}
+\newcommand{\frakx}{\mathfrak{x}}
+\newcommand{\fraky}{\mathfrak{y}}
+\newcommand{\frakz}{\mathfrak{z}}
+\newcommand{\frakA}{\mathfrak{A}}
+\newcommand{\frakB}{\mathfrak{B}}
+\newcommand{\frakC}{\mathfrak{C}}
+\newcommand{\frakD}{\mathfrak{D}}
+\newcommand{\frakE}{\mathfrak{E}}
+\newcommand{\frakF}{\mathfrak{F}}
+\newcommand{\frakG}{\mathfrak{G}}
+\newcommand{\frakH}{\mathfrak{H}}
+\newcommand{\frakI}{\mathfrak{I}}
+\newcommand{\frakJ}{\mathfrak{J}}
+\newcommand{\frakK}{\mathfrak{K}}
+\newcommand{\frakL}{\mathfrak{L}}
+\newcommand{\frakM}{\mathfrak{M}}
+\newcommand{\frakN}{\mathfrak{N}}
+\newcommand{\frakO}{\mathfrak{O}}
+\newcommand{\frakP}{\mathfrak{P}}
+\newcommand{\frakQ}{\mathfrak{Q}}
+\newcommand{\frakR}{\mathfrak{R}}
+\newcommand{\frakS}{\mathfrak{S}}
+\newcommand{\frakT}{\mathfrak{T}}
+\newcommand{\frakU}{\mathfrak{U}}
+\newcommand{\frakV}{\mathfrak{V}}
+\newcommand{\frakW}{\mathfrak{W}}
+\newcommand{\frakX}{\mathfrak{X}}
+\newcommand{\frakY}{\mathfrak{Y}}
+\newcommand{\frakZ}{\mathfrak{Z}}
+\newcommand{\Grp}{\mathbf{Grp}}
+\newcommand{\He}{H_{\mathrm{e}}}
+\newcommand{\Hb}{H_{\mathrm{b}}}
+\newcommand{\HI}{H_{\mathrm{I}}}
+\newcommand{\hyphen}{\mathchar`-}
+\newcommand{\Hom}{\mathrm{Hom} \,}
+\newcommand{\Isom}{\mathrm{Isom} \,}
+\newcommand{\hyperbolicsegment}[2]{\left[ #1, \, #2 \right]_{\mathrm{h}}}
+\newcommand{\Var}[1]{\mathrm{Var}\sqbk{#1}}
+\newcommand{\Cov}[1]{\mathrm{Cov}\sqbk{#1}}
+\newcommand{\EleqN}{E_{\leq}(N)}
+\newcommand{\gvarepsilonminus}{g_{\varepsilon}^{-}}
+\newcommand{\gvarepsilonplus}{g_{\varepsilon}^{+}}
+\newcommand{\image}{\mathrm{Im}\,}
+\newcommand{\limjtoinfty}{\lim_{j \to \infty}}
+\newcommand{\liminfntoinfty}{\liminf_{n \to \infty}}
+\newcommand{\limntoinfty}{\lim_{n \to \infty}}
+\newcommand{\limsupntoinfty}{\limsup_{n \to \infty}}
+\newcommand{\Le}{L_{\mathrm{e}}}
+\newcommand{\Lb}{L_{\mathrm{b}}}
+\newcommand{\LI}{L_{\mathrm{I}}}
+\newcommand{\Loneloc}{L_{\mathrm{loc}}^1}
+\newcommand{\LtwoRd}{L^2 \rbk{\bbR^d}}
+\newcommand{\LtwoRn}{L^2 \rbk{\bbR^n}}
+\newcommand{\Mod}{\mathbf{Mod}}
+\newcommand{\modr}{\Mod \mathchar`- R}
+\newcommand{\obj}{\mathrm{obj}\,}
+\newcommand{\opposite}{\mathrm{op}}
+\newcommand{\rank}{\mathrm{rank} \,}
+\newcommand{\realtempereddist}{\mathcal{S}'_{\mathrm{real}}}
+\newcommand{\realrapiddecrease}{\mathcal{S}_{\mathrm{real}}}
+\newcommand{\res}{\mathrm{Res}\,}
+\newcommand{\rhoNinfty}{\rho_{N, \infty}}
+\newcommand{\riemannsphere}{\overline{\bbC}}
+\newcommand{\Ring}{\mathbf{Ring}}
+\newcommand{\rmod}{R \mathchar`- \Mod}
+\newcommand{\rmb}{\mathrm{b}}
+\newcommand{\rme}{\mathrm{e}}
+\newcommand{\rmE}{\mathrm{E}}
+\newcommand{\rmf}{\mathrm{f}}
+\newcommand{\rms}{\mathrm{s}}
+\newcommand{\rmirr}{\mathrm{irr}}
+\newcommand{\rmirs}{\mathrm{irs}}
+\newcommand{\rmfin}{\mathrm{fin}}
+\newcommand{\rmas}{\mathrm{as}}
+\newcommand{\rmfr}{\mathrm{fr}}
+\newcommand{\rmmin}{\mathrm{min}}
+\newcommand{\rmmax}{\mathrm{max}}
+\newcommand{\rmtot}{\mathrm{tot}}
+\newcommand{\rmg}{\mathrm{g}}
+\newcommand{\rmI}{\mathrm{I}}
+\newcommand{\rmIm}{\mathrm{Im}}
+\newcommand{\rmRe}{\mathrm{Re}}
+\newcommand{\rmp}{\mathrm{p}}
+\newcommand{\rmph}{\mathrm{ph}}
+\newcommand{\scrF}{\mathscr{F}}
+\newcommand{\Sets}{\mathbf{Sets}}
+\newcommand{\sto}{\xrightarrow{\text{s}}}
+\newcommand{\sumonetoinfty}[1]{\sum_{#1 = 1}^{\infty}}
+\newcommand{\sumzerotoinfty}[1]{\sum_{#1 = 0}^{\infty}}
+\newcommand{\supp}{\mathrm{supp} \,}
+\newcommand{\Trace}{\mathrm{Tr}\,}
+\newcommand{\Top}{\mathbf{Top}}
+\newcommand{\touw}{\stackrel{\mathrm{uw}}{\to}\,}
+\newcommand{\upbf}[1]{\textup{\textbf{#1}}}
+\newcommand{\VC}{V_{\mathrm{C}}}
+\newcommand{\wick}[1]{\colon #1 \colon}
+\newcommand{\wto}{\xrightarrow{\text{w}}}
+\newcommand{\bs}{\blacksquare}
+\newcommand{\vep}{\varepsilon}
+\newcommand{\fin}{\hfill $\square$ \par}
+\newcommand{\ann}{\mathrm{Ann}\,}
+\newcommand{\ass}{\mathrm{Ass}\,}
+\newcommand{\blu}{\mathrm{Bl}}
+\newcommand{\cech}{\check{\mathrm{H}}}
+\newcommand{\coho}{\mathrm{H}}
+\newcommand{\divcl}{\mathrm{DivCl}\,}
+\newcommand{\divs}{\mathrm{Div}\,}
+\newcommand{\edivs}{\mathrm{Div}_+\,}
+\newcommand{\Frac}{\mathrm{Frac}\,}
+\newcommand{\homo}{\mathrm{Hom}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\injsh}{\mathcal{I}}
+\newcommand{\kernel}{\mathrm{Ker}\,}
+\newcommand{\map}{\longrightarrow}
+\newcommand{\pdivs}{\mathrm{Div}_{\mathrm{princ}}\,}
+\newcommand{\picard}{\mathrm{Pic}\,}
+\newcommand{\proj}{\mathrm{Proj}\,}
+\newcommand{\sh}{\mathcal{F}}
+\newcommand{\spec}{\mathrm{Spec}\,}
+\newcommand{\stsh}{\mathcal{O}}
+\bmdefine{\va}{a}
+\bmdefine{\vb}{b}
+\bmdefine{\vc}{c}
+\bmdefine{\ve}{e}
+\bmdefine{\vf}{f}
+\bmdefine{\vg}{g}
+\bmdefine{\vh}{h}
+\bmdefine{\vi}{i}
+\bmdefine{\vj}{j}
+\bmdefine{\vk}{k}
+\bmdefine{\vl}{l}
+\bmdefine{\vm}{m}
+\bmdefine{\vn}{n}
+\bmdefine{\vo}{o}
+\bmdefine{\vp}{p}
+\bmdefine{\vq}{q}
+\bmdefine{\vr}{r}
+\bmdefine{\vs}{s}
+\bmdefine{\vt}{t}
+\bmdefine{\vu}{u}
+\bmdefine{\vv}{v}
+\bmdefine{\vw}{w}
+\bmdefine{\vx}{x}
+\bmdefine{\vy}{y}
+\bmdefine{\vz}{z}
+\bmdefine{\vA}{A}
+\bmdefine{\vB}{B}
+\bmdefine{\vC}{C}
+\bmdefine{\vD}{D}
+\bmdefine{\vE}{E}
+\bmdefine{\vF}{F}
+\bmdefine{\vG}{G}
+\bmdefine{\vH}{H}
+\bmdefine{\vI}{I}
+\bmdefine{\vJ}{J}
+\bmdefine{\vK}{K}
+\bmdefine{\vL}{L}
+\bmdefine{\vM}{M}
+\bmdefine{\vN}{N}
+\bmdefine{\vO}{O}
+\bmdefine{\vP}{P}
+\bmdefine{\vQ}{Q}
+\bmdefine{\vR}{R}
+\bmdefine{\vS}{S}
+\bmdefine{\vT}{T}
+\bmdefine{\vU}{U}
+\bmdefine{\vV}{V}
+\bmdefine{\vW}{W}
+\bmdefine{\vX}{X}
+\bmdefine{\vY}{Y}
+\bmdefine{\vZ}{Z}
+
+\newcommand{\an}{(a_n)_{n{\in}{\bN}}}
+\newcommand{\bn}{(b_n)_{n{\in}{\bN}}}
+\newcommand{\cn}{(c_n)_{n{\in}{\bN}}}
+\newcommand{\xn}{(x_n)_{n{\in}{\bN}}}
+\newcommand{\xm}{(x_m)_{m{\in}{\bN}}}
+\newcommand{\xk}{(x_{n (k)})_{k{\in}{\bN}}}
+\newcommand{\yn}{(y_n)_{n{\in}{\bN}}}
+\newcommand{\fxn}{(f (x_n))_{n{\in}{\bN}}}
+\newcommand{\fn}{(f_n)_{n{\in}{\bN}}}
+\newcommand{\sn}{(s_n)_{n{\in}{\bN}}}
+\newcommand{\pn}{(p_n)_{n{\in}{\bN}}}
+\newcommand{\sgn}{\mathrm{sgn}\,}
+\newcommand{\mcr}{\mathcal{R}}
+\newcommand{\mcs}{\mathcal{S}}
+\newcommand{\mcp}{\mathcal{P}}
+\newcommand{\mcm}{\mathcal{M}}
+\newcommand{\mcl}{\mathcal{L}}
+\newcommand{\mcb}{\mathcal{B}}
+\newcommand{\mco}{\mathcal{O}}
+\newcommand{\deltat}{\varDelta t}
+\newcommand{\mbr}{\mathbb{R}}
+\newcommand{\mbn}{\mathbb{N}}
+\newcommand{\mbz}{\mathbb{Z}}
+\newcommand{\mbq}{\mathbb{Q}}
+\newcommand{\mbc}{\mathbb{C}}
+\newcommand{\mbfn}{\mathbf{N}}
+\newcommand{\mbfz}{\mathbf{Z}}
+\newcommand{\mbfq}{\mathbf{Q}}
+\newcommand{\mbfr}{\mathbf{R}}
+\newcommand{\mbfc}{\mathbf{C}}
+
+\newcommand{\mrm}[1]{\mathrm{#1}}
+\newcommand{\lrto}{\Longleftrightarrow}
+\newcommand{\slrto}{\Longleftrightarrow}
+\newcommand{\srto}{\Rightarrow}
+\newcommand{\rto}{\Longrightarrow}
+\newcommand{\slto}{\Leftarrow}
+\newcommand{\lto}{\Longleftarrow}
+\newcommand{\vecr}[3]{\rbk{#1,\quad#2,\quad#3}}
+\newcommand{\vecc}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}
+
+\newcommand{\del}{\varDelta}
+\newcommand{\pd}{\partial}

@@ -6,7 +6,7 @@
 
 \title{Math textbook}
 \author{相転移 P (@phasetr)\thanks{phasetr@gmail.com, https://github.com/phasetr/math-textbook, http://phasetr.com, http://phasetr.com/members/formadd, http://math-accessory.com}}
-\date{2014-09-12}
+\date{2014-09-22}
 
 \begin{document}
 
@@ -6005,8 +6005,8 @@ $P_2$ はページランクの高い $P_1$ からのリンクがあることに�
 \item 点が捨てられる.
 \item ページランクが不当に 0 になる.
 \item 定常分布に収束しない.
-\item 定常分布がたくさんある.
-\item 定常分布が初期分布に依存する.
+\item 定常分布の非一意性 1: 固有値の縮退.
+\item 定常分布の非一意性 2: 初期分布依存.
 \item 近似の精度: 収束の早さ問題.
 \end{enumerate}
 \subsection{点が捨てられる}
@@ -6073,7 +6073,7 @@ Importance sinks が出てくると, 点が分配されてほしい所に点が�
 つまり巡回ネットワークが出てくると, そのままではべき乗法``は''使えないということだ.
 別の近似計算法, アルゴリズムを選ぶという解決策もある.
 このとき計算 (収束) のスピードも見ながらアルゴリズムを選ぶ必要があるので, なかなか難しい.
-\subsection{固有値の縮退: 定常分布の非一意性}
+\subsection{定常分布の非一意性 1: 固有値の縮退}
 
 
 孤立したネットワークがたくさんあるときの問題だ.
@@ -6103,7 +6103,7 @@ Importance sinks が出てくると, 点が分配されてほしい所に点が�
 そういう場合, 初期分布としてどちらに何点を割り当てておくかで結果が変わるのは非常に問題だ.
 特にエボラウイルスの流行や紛争の状況など,
 そうした情報の精度は国の機関レベルでの正確な情報を第一に表示すべきだろうから.
-\subsection{定常分布の初期分布依存}
+\subsection{定常分布の非一意性 2: 初期分布依存}
 
 
 これは今回の工学的な状況に関する解の一意性の問題と深い関係がある.
@@ -14960,6 +14960,896 @@ Sobolev 不等式のべつの証明で使う Hardy-Littlewood-Sobolev につい�
 宮島先生最高.
 というわけで目標を達成できたので, これからはたぶんもうすこし応用的なことをやると思う.
 きっと.
+\chapter{Schr\"odinger 方程式入門}
+
+
+関数解析 Sobolev 空間\index{Sobolev くうかん@Sobolev 空間}応用編\footnote{ゆきみさんのページ \href{http://yukimigo.com/math/}{http://yukimigo.com/math/} から持ってきた.
+ゆきみさんのセミナー原稿がオリジナルであり, 著者の許諾を得て適宜修正の上転載している.
+ }.
+内容は\cite{LiebLoss1}の 11 章.
+\section{Intoroduction}
+
+
+$\mathbb{R}^n$ を運動する粒子(とくに電子)を考える.
+このような粒子の状態はある種の波として表され,
+作用する力の場を $F(x) = - V(x)$ とすると,
+時間に依存しない (定常) Schr\"odinger 方程式\index{Schrodinger ほうていしき@Schr\"odinger 方程式}は
+\begin{align}
+ -\Delta \psi (x) + V(x) \psi (x)
+ =
+ E \psi (x)
+\end{align}
+となる.
+ここで $\psi \in L^2(\mathbb{R}^n)$ は複素数値の波動関数\index{はどうかんすう@波動関数}で
+粒子の状態を表し規格化されているとする.
+つまり
+\begin{align}
+ \bkt{\psi}{\psi}
+ =
+ \int_{\bbRn} \overline{\psi} \psi
+ = 1.
+\end{align}
+を仮定する.
+$V \colon \bbRn \to \bbR$ はポテンシャル\index{ぽてんしゃる@ポテンシャル}を表す.
+これが物理的に意味がある解 $\psi$ をもつかは定数 $E \in \bbR$ の値による.
+そのような解をもつ $E \in \mathbb{R}$ の値は粒子のとりうるエネルギーとなる.
+さらに $\rho_{\psi} (x)= \abs{\psi (x)}^2$ は位置 $x$ で粒子を見つける確率密度と解釈される.
+
+上の方程式で形式的に内積をとって変形すると
+\begin{align}
+ \bkt{\nabla \psi}{\nabla \psi} + \bkt{\psi}{\psi}
+ =
+ E
+\end{align}
+となる.
+ここで
+\begin{align}
+ T_{\psi}
+ \defeq
+ \int_{\bbRn} \abs{\nabla \psi (x)}^2 dx, \quad
+ V_{\psi}
+ \defeq
+ \int_{\bbRn} V(x) \abs{\psi (x)}^2 dx
+\end{align}
+として, $T_{\psi}$ を $\psi$ の kinetic energy,
+$V_{\psi}$ を potential energy という.
+そして
+\begin{align}
+ \mathcal{E}(\psi) \defeq T_{\psi} + V_{\psi}
+\end{align}
+を全エネルギーという.
+次の式
+\begin{align}
+ E_0
+ \defeq
+ \inf \set{\mathcal{E}(\psi)}{\bkt{\psi}{\psi} = 1}
+\end{align}
+をみたす $\psi$ を求める変分問題をこれから考える.
+これは $- \infty$ かもしれないが解が存在するとき, その解を minimizer\index{minimizer}
+$\psi$ を基底状態\index{きていじょうたい@基底状態}といい,
+$E_0$ を基底エネルギー\index{きていえねるぎー@基底エネルギー}という.
+$E_0$ が有限か, 有限だとしてその値はどうなるかは物質の安定性\index{ぶっしつのあんていせい@物質の安定性}の基本的な問題になっている.
+$E_0$ が有限の値であってもそれを実現する $\psi$ が存在しないことがあるが
+その場合も基底エネルギーということにする.
+\section{Domination of the potential energy by the kinetic energy}
+
+
+$\mathcal{E}(\psi)$ が有界になるための適切な仮定は何だろうか?
+まず $\psi \in H^1(\bbRn)$ であれば $T_{\psi}$ は有界になるので意味をもつ.
+$V$ は何でもいいわけではなく,
+たとえば $V \in \Loneloc (\bbRn)$ では
+$V_{\psi}$ が有界になるためには $\psi \in \Ccinfty (\bbRn)$ 程度の条件が必要だ.
+さらに  $V(x) \defeq - 1/{|x|^{5/2}}$ とすると,
+$\psi \in \Ccinfty (\bbRn)$ で $T_{\psi}$, $V_{\psi}$ が有界だとしても
+$\mathcal{E}(\psi)$ は下に有界でなくなる.
+これをみるために $\psi_{\lambda} (x) \defeq \lambda^{n/2} \psi(\lambda x)$ としよう.
+ただし $n \geq 3$ で $\psi$ は規格化されているとする.
+$\lambda x = y$ の変数変換で $\psi_{\lambda}$ も規格化されていることはすぐわかる.
+そして
+\begin{align}
+ \mathcal{E} (\psi_{\lambda})
+ &\defeq
+ T_{\psi_{\lambda}} + V_{\psi_{\lambda}} \\
+ &=
+ \int_{\bbRn} \abs{\nabla \psi_{\lambda} (x)}^2 dx
+ -\int_{\bbRn} \frac{1}{\abs{x}^{5/2}} \abs{\psi_{\lambda} (x)}^2 dx \\
+ &=
+ \lambda^n \int_{\bbRn} \abs{\nabla \psi (\lambda x)}^2 dx
+ -\lambda^n \int_{\bbRn} \frac{1}{\abs{x}^{5/2}} \abs{\psi (\lambda x)}^2 dx \\
+ &=
+ \lambda^2 \int_{\bbRn} \abs{\nabla \psi (y)}^2 dy
+  -\lambda^{5/2} \int_{\bbRn} \frac{1}{\abs{y}^{5/2}} \abs{\psi (y)}^2 dy
+ \quad \rbk{dx = dy / \lambda^n}
+ \to - \infty \quad (\lambda \to \infty)
+\end{align}
+となるから下に有界ではない.
+ここで $T_{\psi}$ と $V_{\psi}$ が有界という仮定を使った.
+
+そこで Sobolev の不等式を使おう.
+\begin{thm}[Sobolev's inequality]
+$\psi \in H^1(\mathbb{R}^n)$ $(n \geq 3)$ とする.
+\begin{align}
+ \norm{\psi}_{\frac{2n}{n-2}}
+ \leq
+ \const
+ \norm{\nabla \psi}_2
+\end{align}
+がなりたつ.
+特に定数を適当に調整すると
+\begin{align}
+ T_{\psi}
+ &\defeq
+ \norm{\nabla \psi}_2^2 \\
+ &\geq
+ S_n \norm{\psi}_{\frac{2n}{n-2}}^2 \\
+ &=
+ S_n \rbk{\int \abs{\psi}|^{\frac{2n}{n-2}}}^{\frac{n-2}{n}} \\
+ &=
+ S_n \rbk{\int \abs{\rho_{\psi}}^{\frac{n}{n-2}}}^{\frac{n-2}{n}} \\
+ &=
+ S_n \norm{\rho_{\psi}}_{\frac{n}{n-2}}
+\end{align}
+となる.
+ここで $\rho_{\psi} \defeq \norm{\psi}^2$ とした.
+\end{thm}
+さらに $(n-2)/n + 2/n = 1$ だから $V \in L^{n/2}(\bbRn)$ とすると H\"older の不等式によって
+\begin{align}
+ \abs{V_{\psi}}
+ &\defeq
+ \abs{\bkt{\psi}{V \psi}}| \\
+ &=
+ \abs{\int V(x) \abs{\psi(x)}^2 dx} \\
+ &=
+ \abs{\int V(x) \rho_{\psi}(x) dx} \\
+ &\leq
+ \norm{V}_{n/2} \norm{\rho_{\psi}}_{\frac{n}{n-2}}.
+\end{align}
+最後に H\"older を使った.
+ふたつあわせて
+\begin{align}
+ T_{\psi}
+ \defeq
+ \norm{\nabla \psi}_2^2
+ \geq
+ S_n \norm{\psi}_{\frac{2n}{n-2}}^2
+ \geq
+ S_n \norm{\rho_{\psi}}_{\frac{n}{n-2}}
+ \geq
+ S_n \frac{\abs{V_{\psi}}}{\norm{V}_{n/2}}
+\end{align}
+となる.
+特にここで
+\begin{align}
+ \norm{V}_{n/2} \leq S_n
+\end{align}
+のとき,
+\begin{align}
+ \frac{S_n}{\norm{V}_{n/2}} \geq 1
+\end{align}
+だから,
+\begin{align}
+ T_{\psi} \geq \norm{V_{\psi}}
+\end{align}
+によって
+\begin{align}
+ \calE (\psi) = T_{\psi} + V_{\psi}
+ \geq 0
+\end{align}
+となる.
+
+ここで $V \in L^{n/2}(\bbRn) + L^{\infty}(\bbRn)$ としよう.
+つまり, ある $v \in L^{n/2}(\bbRn)$ と
+$w \in L^{\infty}(\bbRn)$ で
+\begin{align}
+ V = v + w
+\end{align}
+とかけているとする.
+さらに分解して
+\begin{align}
+ v
+ =
+ v \cdot \chi_{\cbk{\abs{v} \leq \lambda}} + v \cdot \chi_{\cbk{\abs{v} > \lambda }}
+ \eqdef v_1 + v_2
+\end{align}
+としよう.
+このとき $v_2 \to 0$ in $L^{n /2}$ ($\lambda \to \infty$) だから,
+$\lambda$ を $\norm{v_2} \leq 1/2 S_n$ 程度に大きくとって固定する.
+すると
+\begin{align}
+ \calE (\psi)
+ &=
+ T_{\psi} + V_{\psi} \\
+ &=
+ T_{\psi} + \bkt{\psi}{V \psi} \\
+ &=
+ T_{\psi} + \bkt{\psi}{v \psi} + \bkt{\psi}{w \psi} \\
+ &=
+ T_{\psi} + \bkt{\psi}{v_1 \psi} + \bkt{\psi}{v_2 \psi} + \bkt{\psi}{w \psi} \\
+ &\geq
+ T_{\psi} + \bkt{\psi}{v_2 \psi} - \lambda - \norm{w}_{\infty} \\
+ &\geq
+ T_{\psi} - \norm{v_2}_{n/2} \norm{\rho_{\psi}}_{\frac{n}{n-2}} - \lambda - \norm{w}_{\infty}
+ \quad
+ \text{(H\"older)} \\
+ &\geq
+ T_{\psi} - \frac{S_n}{2} \frac{T_{\psi}}{S_n}  - \lambda - \norm{w}_{\infty}
+ \quad
+ \text{(先ほどの評価)} \\
+ &=
+ \frac{T_{\psi}}{2}  - \lambda - \norm{w}_{\infty} \\
+ &\geq
+ -\lambda - \norm{w}_{\infty}
+ > - \infty
+ \quad
+ (T_{\psi} \geq 0)
+\end{align}
+で下に有界なことがわかった.
+定理としてまとめておこう.
+\begin{thm}
+$n \geq 3$, $\psi \in H^1(\bbRn)$,
+$V \in L^{n/2}(\bbRn) + L^{\infty}(\bbRn)$, $\norm{\psi} = 1$ のとき,
+$E_0$ は有限な値を取り, 特に
+\begin{align}
+ T_{\psi}
+ \leq
+ 2 \calE (\psi) + \const
+\end{align}
+がなりたつ.
+\end{thm}
+これは Sobolev の不等式を使ったところを調整すれば
+他の次元でも別の条件で似たようなことが成り立つが,
+今後は $n \geq 3$ の場合だけを考える.
+参考のために書いておくと $V$ のクラスとしては次のクラスが適切なクラスになる.
+\begin{itemize}
+\item $n=2$ のときは $L^{1 + \varepsilon} + L^{\infty}$, $\varepsilon > 0$,
+\item $n=1$ のときは $L^1 + L^{\infty}$.
+\end{itemize}
+\section{Rellich-Kondrachevの定理}
+
+
+いわゆるコンパクト埋め込み定理を証明しよう.
+\begin{lem}\label{schrodinger_eq_yukimi2}
+$\psi \in H^1(\bbRn)$, $h \in \bbRn$ に対して
+\begin{align}
+ D_h \psi (x)
+ \defeq
+ \frac{\psi (x + h) - \psi (x)}{\abs{h}}
+\end{align}
+とすると
+\begin{align}
+ \norm{D_h \psi}_2
+ \leq
+ \norm{\nabla \psi}_2
+\end{align}
+がなりたつ.
+\end{lem}
+\begin{proof}
+任意の $\phi \in \Ccinfty (\bbRn)$ について
+\begin{align}
+ \int_{\bbRn} \frac{\psi (x + h) - \psi (x)}{\abs{h}} \phi (x)dx
+ &=
+ \int_{\bbRn} \frac{\phi (x - h) - \phi (x)}{\abs{h}} \psi(x) dx \\
+ &=
+ \int_{\bbRn} \frac{\psi (x)}{\abs{h}} \rbk{\int_0^1 \frac{d}{dt} \phi (x - th) dt} dx \\
+ &=
+ -\int_{\bbRn} \frac{\psi (x)}{\abs{h}} \rbk{\int_0^1 \sum_{j=1}^n \frac{\partial}{\partial x_j} \phi (x - th) h_j dt} dx \\
+ &=
+ -\int_0^1 \rbk{\int_{\bbRn} \frac{\psi (x)}{\abs{h}} \sum_{j=1}^n \frac{\partial}{\partial x_j} \phi (x - th) h_j dx} dt \\
+ &=
+ \int_0^1 \rbk{\int_{\bbRn} \sum_{j=1}^n \sqbk{\frac{\partial}{\partial x_j} \psi (x)} \frac{ \phi (x - th) h_j }{\abs{h}} dx} dt.
+\end{align}
+ここで $h_j$ は $h$ の $j$ 成分で,
+\begin{align}
+ \sum_{j=1}^n \partial_j \psi(x) h_j
+ =
+ \nabla \psi(x) \cdot h
+\end{align}
+から
+\begin{align}
+ \abs{\int_{\bbRn} \frac{\psi (x + h) - \psi (x)}{\abs{h}} \phi(x) dx}
+ &\leq
+ \int_0^1 \int_{\bbRn} \abs{\nabla \psi(x) \cdot h \frac{ \phi (x - th)}{\abs{h}}} dx dt \\
+ &\leq
+ \int_0^1 \int_{\bbRn} \abs{\nabla \psi(x) \phi (x - th)} dx dt \\
+ &\leq
+ \norm{\phi}_2 \norm{\nabla \psi}_2
+ \quad
+ (\text{Schwarz の不等式と積分の平行移動不変性})
+\end{align}
+と計算できる.
+したがって $\phi_j \in \Ccinfty (\bbRn)$ を $\phi_j \to D_h \psi$ ととれば,
+あとは連続性で仕留められる.
+\end{proof}
+
+\begin{thm}[Rellich-Kondrachev]
+$\psi_j \in H^1(\bbRn)$ が $\psi$ に $H^1(\bbRn)$ で弱収束していて
+$1 \leq q < 2n/(n-2)$ とする.
+このとき任意の測度有限な集合 $B$ 上で
+\begin{align}
+ \norm{\psi_j - \psi}_q \to 0
+\end{align}
+となる.
+\end{thm}
+これはいわゆるコンパクト埋め込み定理の特殊な場合で
+ふつうは有界集合上で成立する定理だ
+Sobolev の不等式と組み合わせれば埋蔵作用素がコンパクトなことがわかる.
+\begin{proof}
+$\rho_m$ を $\bbRn$ の軟化子とする.
+はじめに $q=2$ の場合を示す.
+三角不等式から
+\begin{align}
+ \norm{\psi_j - \psi}_{2(B)}
+ \leq
+ \norm{\psi_j - \psi_j \ast \rho_m}_{2(B)} +
+ \norm{\psi_j \ast \rho_m - \psi \ast \rho_m}_{2(B)} +
+ \norm{\psi \ast \rho_m - \psi}_{2(B)}
+\end{align}
+を考える.
+ここで $\norm{\cdot}_{2(B)}$ は $B$ 上の $L^2$ ノルムとしている.
+まず
+\begin{align}
+ \norm{\psi_j - \psi_j \ast \rho_m}^2
+ &=
+ \abs{\psi_j - \int_{\mathbb{R}^n} \psi_j(x-y) \rho_m(y) dy}^2 \\
+ &=
+ \abs{\int_{\bbRn} \sqbk{\psi_j(x) - \psi_j(x-y)} \rho_m(y) dy}^2
+ \quad \rbk{\int \rho_m(y) dy = 1} \\
+ &=
+ \abs{\int_{\bbRn} \sqbk{\psi_j(x) - \psi_j(x-y)} \rho_m(y)^{1/2+1/2} dy}^2 \\
+ &\le
+ \int_{\bbRn} \rho_m(y) \abs{\psi_j(x) - \psi_j(x-y)}^2 dy
+ \quad (\text{Schwarz の不等式})
+\end{align}
+と計算できる.
+これを $B$ 上積分すると
+\begin{align}
+ \int_B \abs{\psi_j - \psi_j \ast \rho_m}^2 dx
+ &\leq
+ \int_B \rbk{\int_{\bbRn} \rho_m(y) \abs{\psi_j(x) - \psi_j(x-y)}^2 dy} dx \\
+ &=
+ \int_{\bbRn} \rbk{\int_B \rho_m(y) \abs{\psi_j(x) - \psi_j(x-y)}^2 dx} dy \quad (\text{Fubini}) \\
+ &\leq
+ \norm{\nabla \psi_j}_2^2 \int_{\bbRn} \rho_m(y) \abs{y}^2 dy \quad (\text{Lemma \ref{schrodinger_eq_yukimi2}})
+\end{align}
+が得られる.
+弱収束の仮定から $\norm{\nabla \psi_j}_2$ は $j$ によらずに有界.
+軟化子の性質から $m \to \infty$ で
+\begin{align}
+ \int_{\bbRn} \rho_m(y) \abs{y}^2 dy
+ =
+ \int_{\abs{y} < 1/m} \rho_m(y) \abs{y} dy
+ \leq
+ \frac{1}{m^2} \to 0
+\end{align}
+だから $m \to \infty$ とすれば
+\begin{align}
+ \norm{\psi_j - \psi_j \ast \rho_m}_{2(B)} \to 0
+\end{align}
+となる.
+同じようにして
+\begin{align}
+ \norm{\psi - \psi \ast \rho_m}_{2(B)} \to 0
+\end{align}
+がわかる.
+そこで $m$ を十分大きくとって固定して次のようにできる.
+\begin{align}
+ \norm{\psi_j - \psi_j \ast \rho_m}_{2(B)}
+ <
+ \varepsilon,
+ \quad
+ \norm{\psi - \psi\ast \rho_m}_{2(B)}
+ <
+ \varepsilon.
+\end{align}
+一方 $\rho_m \in L^2$ だから, 弱収束の仮定によって $j \to \infty$ のとき
+\begin{align}
+ \abs{\rho_m \ast \psi_j - \rho_m \ast \psi}^2
+ =
+ \abs{\int \rho_m(x-y) \sqbk{\psi_j(y) - \psi(y)} dy} \to 0.
+\end{align}
+ここで Schwarz の不等式から
+\begin{align}
+ \abs{\rho_m \ast \psi_j - \rho_m \ast \psi}^2
+ \leq
+ \norm{\rho_m}_2^2 \norm{\psi_j - \psi}_2^2
+\end{align}
+となる.
+一様有界性の原理から右辺は $j$ によらずに有界になる.
+$B$ の測度は有限だから Lebesgue の優収束定理を使うと
+\begin{align}
+ \int_B \abs{\rho_m \ast \psi_j - \rho_m \ast \psi}^2 dx \to 0
+ \quad (j \to \infty)
+\end{align}
+となる.
+したがって
+\begin{align}
+ \norm{\psi_j - \psi}_{2(B)}
+ &\leq
+ \norm{\psi_j - \psi_j \ast \rho_m}_{2(B)} +
+ \norm{\psi_j \ast \rho_m - \psi \ast \rho_m}_{2(B)} +
+ \norm{\psi \ast \rho_m - \psi}_{2(B)} \\
+ &<
+ 2 \varepsilon +
+ \norm{\psi_j \ast \rho_m - \psi \ast \rho_m}_{2(B)}
+\end{align}
+で上極限をとれば
+\begin{align}
+ \overline{\lim_{j\to \infty}} \norm{\psi_j - \psi}_{2(B)}
+ \leq
+ 2 \varepsilon
+\end{align}
+となり $\varepsilon$ は任意だから $q=2$ のときはたしかに強収束している.
+
+また $B$ は測度有限だから H\"olderの不等式によって $1 \le q \le 2$ でも定理は成立している.
+$2 < q < 2n/(n-2) = p$ としよう.
+\begin{align}
+ \frac{1}{q}
+ =
+ \frac{\theta}{2} + \frac{1-\theta}{p}
+\end{align}
+と $\theta \in (0, 1)$ をとれば,
+\begin{align}
+ \int_B \abs{\psi_j - \psi}^2
+ =
+ \int_B \abs{\psi_j - \psi}^{q \theta} \abs{\psi_j - \psi}^{(1 - \theta) q}
+\end{align}
+と H\"older の不等式から
+\begin{align}
+ \norm{\psi_j - \psi}_{q(B)}
+ &\leq
+ \norm{\psi_j - \psi}_{2(B)}^{q \theta} \norm{\psi_j - \psi}_p^{(1 - \theta)q} \\
+ &\leq
+ \norm{\psi_j - \psi}_2^{q \theta} \norm{\nabla(\psi_j - \psi)}_2^{1 - \theta} \quad (\text{Sobolev の不等式}) \\
+ &\le
+ M \norm{psi_j - \psi}_2^{q \theta}
+\end{align}
+となっている.
+$q=2$ の場合から
+\begin{align}
+ \norm{\psi_j - \psi}_2^{q \theta} \to 0
+\end{align}
+はわかっているので $1 < q < 2n/(n-2)$ でも成立する.
+\end{proof}
+\section{minimizer の存在}
+
+
+次の定理を示しておく.
+\begin{thm}
+$n \geq 3$, $V \in L^{n/2}(\bbRn) + L^{\infty}(\bbRn)$ が無限遠で消えるとする.
+つまり, $\mu$ は Lebesgue 測度として任意の $a>0$ で
+\begin{align}
+ \mu(\set{x}{V(x) > a)})
+ <
+ \infty
+\end{align}
+とする.
+このときポテンシャルエネルギー $V_{\psi}$ は $H^1(\bbRn)$ で弱連続となる.
+\end{thm}
+\begin{proof}
+$H^1$ で $\psi_j$ が $\psi$ に弱収束しているとし, $V = v + w$, $v \in L^{n/2}$, $w \in L^{\infty}$ とする.
+$\sup_{j \in \bbN} \norm{\psi_j}_{H^1} < \infty$ に注意する.
+\begin{align}
+ V^{\delta}(x)
+ \defeq
+ \begin{cases}
+  V(x) & (\abs{V(x)} \leq \frac{1}{\delta}) \\
+  w(x) & (\text{otherwise})
+\end{cases}
+\end{align}
+とすると
+\begin{align}
+ \abs{V_{\psi_j} - V_{\psi_j}^{\delta}}
+ &=
+ \abs{\int_{\bbRn}(V - V^{\delta}) \abs{\psi_j}^2 dx} \\
+ &=
+ \abs{\int_{\abs{V(x)} > 1 / {\delta}} v(x) \abs{\psi_j}^2 dx} \\
+ &\leq
+ \norm{v}_{n/2 (\abs{V(x)} > 1 / {\delta})} \norm{\psi_j}_{2n/(n-2)}^2 \\
+ &\leq
+ M \norm{v}_{n/2 (\abs{V(x)} > 1 /{\delta})}
+\end{align}
+となる.
+$V(x)$ はほとんどいたるところ有界だから $\chi_{\cbk{\abs{V(x)} > 1 / {\delta}}} \to 0$ $(\delta \to 0)$ が各点で成立している.
+Lebesgue の優収束定理から $\norm{v}_{n/2( \abs{V(x)} > 1 / {\delta})} \to 0$ $(\delta \to 0)$ となっている.
+$\delta$ を十分小さくとって固定すれば
+\begin{align}
+ \abs{V_{\psi_j} - V_{\psi}}
+ &\leq
+ \abs{V_{\psi_j} - V_{\psi_j}^{\delta}} +
+ \abs{V_{\psi_j}^{\delta} - V_{\psi}^{\delta}} +
+ \abs{V_{\psi}^{\delta} - V_{\psi}} \\
+ &<
+ 2 \varepsilon + \abs{V_{\psi_j}^{\delta} - V_{\psi}^{\delta}}
+\end{align}
+とできる.
+$t>0$ として $A_t \defeq \set{x}{\abs{V^{\delta}(x)} > t}$ とする.
+仮定から $\mu(A) < \infty$ で
+\begin{align}
+ \abs{V_{\psi_j}^{\delta} - V_{\psi}^{\delta}}
+ &=
+ \norm{\int_{\bbRn} V^{\delta}\sqbk{\abs{\psi_j}^2 - \abs{\psi}^2} dx} \\
+ &\leq
+ \abs{\int_{A_t} V^{\delta} \sqbk{\abs{\psi_j}^2 - \abs{\psi}^2} dx} +
+ \abs{\int_{A_t^c} V^{\delta} \sqbk{\abs{\psi_j}^2 - \abs{\psi}^2} dx} \\
+ &\leq
+ \abs{\int_{A_t} V^{\delta} \sqbk{\abs{\psi_j}^2 - \abs{\psi}^2} dx} +
+ \abs{t \int_{A_t^c} \sqbk{\abs{\psi_j}^2 - \abs{\psi}^2} dx}
+\end{align}
+だから $t > 0$ を十分小さくとって固定すると右辺第 2 項を $\varepsilon$ 以下にできる.
+
+第 1 項を調べよう.
+三角不等式をつぎつぎに使って,
+\begin{align}
+ \abs{int_{A_t} V^{\delta} \sqbk{\abs{\psi_j}^2 - \abs{\psi}^2} dx}
+ &\leq
+ \int_{A_t} \abs{V^{\delta}} \abs{(\abs{\psi_j} + \abs{\psi}) (\abs{\psi_j} - \abs{\psi})} dx \\
+ &\leq
+ \int_{A_t} \abs{V^{\delta}} (\abs{\psi_j} + \abs{\psi}) \abs{\psi_j - \psi} dx \\
+ &\leq
+ \norm{V^{\delta}}_{\infty} \int_{A_t} (\abs{\psi_j} + \abs{\psi}) \abs{\psi_j - \psi} dx
+\end{align}
+が得られる.
+Schwarz の不等式を使うと
+\begin{align}
+ \int_{A_t} (\abs{\psi_j} + \abs{\psi}) \abs{\psi_j - \psi} dx
+ &\leq
+ (\norm{\psi_j}_2 + \norm{\psi}_2) \norm{\psi_j - \psi}_{2(A_t)} \\
+ &\leq
+ M \norm{\psi_j - \psi}_{2(A_t)}
+\end{align}
+となる.
+いま $A_t$ は測度有限だから Rellich-Kondrachev の定理によって
+$\norm{\psi_j - \psi}_{2(A_t)} \to 0$ となる.
+結局
+\begin{align}
+ \limsup_{j \to \infty} \abs{V_{\psi_j} - V_{\psi}}
+ \leq
+ 3 \varepsilon
+\end{align}
+となるから $V_{\psi}$ は弱連続である.
+\end{proof}
+
+\begin{thm}
+$V$ を前と同じものとする.
+$E_0 < 0$ が与えられているとき,
+ある $\psi_0 \in H^1 (\bbRn)$, $\norm{\psi} = 1$ があって
+$\calE (\psi_0) = E_0$ となる.
+つまり $\psi_0$ は minimizer で, さらに
+\begin{align}
+ -\Delta \psi_0 + V \psi_0 = E_0 \psi_0
+\end{align}
+が超関数の意味で成立する.
+\end{thm}
+\begin{proof}
+下限の性質から $\psi_j \in H^1$ をとれば
+$\norm{\psi_j} = 1$, $\calE (\psi_j) \to E_0$ とできる.
+\begin{align}
+ T_{\psi_j}
+ \leq
+ 2 \calE (\psi_j) + C
+\end{align}
+だったから $\norm{\psi_j}_{H^1}$ は有界列.
+部分列にうつれば $\psi_j \to \psi_0$ が $H^1$ の弱収束となる.
+いま
+\begin{align}
+ \norm{\psi_0}_2
+ \leq
+ \liminf_{j \to \infty} \norm{\psi_j}_2
+ = 1
+\end{align}
+となっていて $V_{\psi}$ が弱連続だから
+\begin{align}
+ \calE (\psi_0)
+ \leq
+ \limsup_{j \to \infty} \calE (\psi_j)
+ =
+ E_0
+ \leq
+ \calE (\psi_0)
+\end{align}
+となる.
+$\norm{\psi_0} = 1$ であればこれは求める minimizer となる.
+いま
+\begin{align}
+ E_0
+ \le
+ \calE \rbk{\frac{\psi_0}{\norm{\psi_0}_2}}
+ =
+ \frac{\calE (\psi_0)}{\norm{\psi_0}_2^2}
+\end{align}
+だから
+\begin{align}
+ \norm{\psi_0}_2^2 E_0
+ \leq
+ \calE (\psi_0)
+ = E_0
+ < 0.
+\end{align}
+したがって $\norm{\psi_0}_2^2 \geq 1$ となり,
+$\norm{\psi_0}_2^2 = 1$.
+
+また, 任意の $\phi \in \Ccinfty (\bbRn)$ と十分小さい
+$\varepsilon > 0$ に対して $C \defeq 1 / {\norm{\psi_0 + \varepsilon \phi}}$
+とすると
+\begin{align}
+ \calE (\psi_0)
+ \leq
+ \calE \rbk{C \rbk{\psi_0 + \varepsilon \phi}}
+ =
+ \frac{\calE \rbk{\psi_0 + \varepsilon \phi}} {\norm{\psi_0 + \varepsilon \phi}_2^2}
+\end{align}
+となっている.
+これを G\^ateaux 微分すると
+\begin{align}
+ 0
+ =
+ \frac{d}{d \varepsilon} \frac{\calE (\psi_0 + \varepsilon \phi)}{\norm{\psi_0 + \varepsilon \phi}_2^2} \Bigr|_{\varepsilon = 0}
+\end{align}
+から
+\begin{align}
+ \Re \bkt{\phi}{- \triangle \psi_0} + \Re \bkt{\phi}{V\psi_0}
+ =
+ E_0 \Re \bkt{\phi}{\psi_0}
+\end{align}
+がわかる.
+$\phi$ を $i \phi$ とすると虚部が出るから
+\begin{align}
+ \bkt{\phi}{-\Delta \psi_0} + \bkt{\phi}{V \psi_0}
+ =
+ E_0 \bkt{\phi}{\psi_0}
+\end{align}
+となる.
+これは
+\begin{align}
+ -\Delta \psi_0 + V \psi_0
+ =
+ E_0 \psi_0
+\end{align}
+超関数の意味で成り立っていることを言っている.
+\end{proof}
+
+\begin{defn}
+基底状態 $\psi_0$ が存在するとして
+\begin{align}
+ E_1
+ \defeq
+ \set{\calE (\psi)}{\norm{\psi} = 1, \quad \bkt{\psi}{\psi_0} = 0}
+\end{align}
+とする.
+$E_1$ を第 2 固有値, $\calE (\psi_1) = E_1$ となる $\psi_1$ を
+第 1 励起状態\index{れいきじょうたい@励起状態}または第 2 固有関数という.
+また $\psi_i$ が与えられているとき,
+\begin{align}
+ E_k
+ \defeq
+ \set{\calE (\psi)}{\bkt{\psi}{\psi} = 1, \quad \bkt{\psi}{\psi_i} = 0 \quad \forall i=0, \dots, k-1}
+\end{align}
+とする.
+\end{defn}
+
+\begin{lem}
+$S_1, \dots, S_N \in \calD' (\bbRn)$ が一次独立とすると
+\begin{align}
+ V
+ \defeq
+ \set{\underline{S} (\phi) \defeq {}^t(S_1(\phi), \dots, S_N(\phi))}{\phi \in \calD (\bbRn)}
+\end{align}
+は $N$ 次元線型空間になる.
+\end{lem}
+\begin{proof}
+$N=1$ のときは仮定から $S_1(\psi) \neq 0$ となる $\psi$ があるので,
+あきらかに $1$ 次元.
+
+$N-1$ まで成立しているとする.
+$\dim V = N-1$ と仮定して矛盾を出す.
+このとき任意の $\phi$ に対してある定数 $c_1 (\phi), \dots, c_{N-1}(\phi)$ があり
+\begin{align}
+ Bc
+ \defeq
+ \underline{S} (\phi)
+ =
+ (\underline{S}(\phi_1), \dots, \underline{S}(\phi_{N-1})) {}^t(c_1, \dots, c_{N-1})
+\end{align}
+とできるから
+\begin{align}
+ Ac'
+ \defeq
+ (\underline{S}(\phi_1), \dots, \underline{S}(\phi_{N-1}), \underline{S}(\phi)) {}^t(c_1, \dots, c_{N-1}, -1) =0
+\end{align}
+となっている.
+$detA = 0$ だから $N$ 列目で上の行列 $A$ を余因子展開すると,
+$B$ の小行列式は $\dim B = N-1$ なのである $0$ でない $\lambda_i$ があって
+\begin{align}
+ \lambda_1 S_1(\phi) + \dots + \lambda_N S_N(\phi)
+ =
+ 0
+\end{align}
+となる.
+これは一次独立の仮定に反する.
+よって $\dim V = N$.
+\end{proof}
+
+\begin{thm}
+$S_1, \dots, S_N \in \calD'(\bbRn)$ とする.
+$T \in \calD'(\bbRn)$ がすべての $\phi \in \bigcap_{j=1}^N N_j \defeq \bigcap_{j=1}^N \set{\phi \in \calD (\bbRn)}{S_j(\phi) = 0}$ で
+$T(\phi) = 0$ とすると,
+ある $c_1, \dots, c_N \in \bbC$ で
+\begin{align}
+ T
+ =
+ \sum_{j=1}^N c_j S_j
+\end{align}
+とかける.
+\end{thm}
+\begin{proof}
+$S_j$ は一次独立としてよい.
+$V$ を上の補題のように取る.
+任意の $\phi$ についてある $u_j \in \calD (\bbRn)$, $c_i(\phi) \in \bbC$ で
+\begin{align}
+ \underline{S}(\phi)
+ =
+ Mc
+ \defeq
+ \sum_{j=1}^N c_j \underline{S}(u_j)
+\end{align}
+と書けるから,
+\begin{align}
+ S_i (\phi - \sum_{j=1}^N c_j u_j)
+ =
+ 0
+\end{align}
+がすべての $i$ でなりたっている.
+したがって $\phi - \sum_{j=1}^N c_j u_j \in \bigcap_{j=1}^N N_j$
+から
+\begin{align}
+ T(\phi)
+ =
+ \sum_{j=1}^N c_j T(u_j)
+\end{align}
+と書けている.
+上の $M$ は正則だから任意の $i$ で
+\begin{align}
+ c_i
+ =
+ \sum_{j=1}^N (M^{-1})_{i,j} S_j(\phi)
+\end{align}
+とかけていることに注意すれば
+\begin{align}
+ T (\phi)
+ =
+ \sum_{j=1}^N \sqbk{\sum_{i=1}^N (M^{-1})_{j,i}S_i(\phi)} T(u_j)
+ =
+ \sum_{j=1}^N \lambda_j S_j (\phi)
+\end{align}
+となる.
+\end{proof}
+
+\begin{thm}
+$V \in L^{n/2} + L^{\infty}$ が無限遠で消えるとし $n \geq 3$ とする.
+適当な $E_k < 0$ に対して $k + 1$ 番目の固有関数 $\psi_k$ が存在して
+\begin{align}
+ (\triangle + V) \psi_k = E_k \psi_k
+\end{align}
+が超関数の意味で成立する.
+さらに $E_k$ の重複度は有限.
+\end{thm}
+\begin{proof}
+$(\psi_k^j)_j \bot \{\psi_0, \dots, \psi_{k-1}  \}$ を $\psi_k^j \to \psi_k$  as  $j \to \infty$ (弱収束) ととると,
+基底状態のときと同じように $\calE (\psi_k) = E_k$ となることがわかる.
+弱収束しているから $\psi_k \bot \psi_i$ ($i \neq k$) もわかる.
+
+$\phi \in \Ccinfty (\bbRn)$ を $(\phi, \psi_i) = 0$ ($i \le k-1$) となるように取って
+$(\psi_k + \varepsilon \phi) / {\norm{\psi_k + \varepsilon \phi}}$ をつくれば
+前と同じくこの $\phi$ で
+\begin{align}
+ \bkt{\phi}{- \triangle \psi_k} + \bkt{\phi}{V \psi_k}
+ =
+ E_k \bkt{\phi}{\psi_k}
+\end{align}
+が出る.
+よって
+\begin{align}
+ D
+ \defeq
+ (- \triangle + V - E_k) \psi_k \in \calD' (\bbRn)
+\end{align}
+は $\psi_j \in \calD' (\bbRn)$ と見れば前の定理から
+ある定数 $c_0, \dots, c_{k-1}$ で
+\begin{align}
+ D
+ =
+ \sum_{j=0}^{k-1} c_j \psi_j
+\end{align}
+とかける.
+すべての $j$ で $c_j = 0$ であれば
+\begin{align}
+ (\Delta + V) \psi_k
+ =
+ E_k \psi_k
+\end{align}
+が超関数の意味でなりたつ.
+
+いま任意の $\phi \in \Ccinfty (\bbRn)$ で
+\begin{align}
+ \bkt{\nabla \phi}{\nabla \psi_k} + \bkt{\phi}{V \psi_k} - E_k \bkt{\phi}{\psi_k}
+ =
+ \sum_{j=0}^{k-1} c_j \bkt{\phi}{\psi_j}
+\end{align}
+となっている.
+$\phi_m \in \Ccinfty (\bbRn)$ を
+$H^1(\mathbb{R}^n)$ で $\phi_m \to \psi_i$ ($i \neq k$) となるようにとる.
+さらに $V = v + w$ ($v \in L^{n/2}$, $w \in L^{\infty}$) としておく.
+Schwarz の不等式から $\bkt{\phi_m}{v \psi_k}$ 以外は連続になっている.
+また
+\begin{align}
+ \abs{\int \overline{(\phi_m - \psi_i)} v \psi_k dx}
+ &\leq
+ \norm{v}_{n/2} \rbk{\int \abs{\phi_m - \psi_i}^{n/(n-2)} \abs{\psi_k}^{n/(n-2)}dx}^{(n-2)/n}
+ \quad (\text{H\"older の不等式}) \\
+ &\leq
+ \norm{v}_{n/2} \norm{\phi_m - \psi_i}_{2n/(n-2)} \norm{\psi_k}_{2n/(n-2)}
+ \quad (\text{Schwarz の不等式}) \\
+ &\leq
+ M \norm{\nabla (\phi_m - \psi_i)}_2 \quad (\text{Sobolev の不等式}) \\
+ &\to
+ 0 \quad (m \to \infty)
+\end{align}
+となるのでこれも連続になる.
+したがって $m \to \infty$ とすれば $\bkt{\psi_i}{\psi_k} = 0$ ($i \neq k$) から
+\begin{align}
+ \bkt{\nabla \psi_i}{\nabla \psi_k} + \bkt{\psi_i}{V \psi_k}
+ =
+ c_i \quad (i \neq k)
+\end{align}
+となっている.
+任意の $\phi \in \Ccinfty (\bbRn)$ で
+\begin{align}
+ \bkt{\nabla \psi_i}{\nabla \phi} + \bkt{\psi_i}{V \phi}
+ =
+ E_i \bkt{\psi}{phi} \quad (i \neq k)
+\end{align}
+から $\phi_m \in \Ccinfty (\bbRn)$ を $\phi_m \to \psi_k$ ととれば
+\begin{align}
+ \bkt{\nabla \psi_i}{\nabla \psi_k} + \bkt{\psi_i}{V \psi_k}
+ = 0.
+\end{align}
+
+多重度が有限であることを背理法で示そう.
+$E_k = E_{k+1} = \dots$ とする.
+上の議論から $\psi_1, \psi_2, \dots$ を ONS として
+\begin{align}
+ -\triangle \psi_i + V \psi_i
+ =
+ E_i \psi_i
+\end{align}
+が超関数の意味で成り立つようにとれる.
+Bessel の不等式から任意の $\phi \in L^2$ について
+\begin{align}
+ \abs{\bkt{\phi}{\psi_j}} \to 0
+\end{align}
+なので $L^2$ の弱収束で $\psi_j \to 0$ となる.
+一方
+\begin{align}
+ T_{\psi_j}
+ \leq
+ 2 \calE (\psi_j)
+\end{align}
+は $E_k = E_{k+1} = \dots$ となるから有界で $\psi_j$ は $H^1$ で有界になっている.
+よって部分列に移行することで $H^1$ の弱収束で $\psi_j \to \psi$ となる.
+任意の $\phi \in H^1$ に対して $\bkt{\phi}{\psi_j}_2 \to \bkt{\phi}{\psi}_2$ が出るから,
+$\phi = \psi$ として $ \psi = 0$ となる.
+$V$ は弱連続だから $V_{\psi_j} \to V_{\psi} = 0$ となり,
+$E_k = E_{k+1} = \dots$ の仮定から
+\begin{align}
+ E_k
+ =
+ \lim_{j \to \infty} \rbk{T_{\psi_j} + V_{\psi_j}}
+ =
+ \lim_{j \to \infty} T_{\psi_j}
+ \geq 0
+\end{align}
+となり, これは $E_k < 0$ に反する.
+\end{proof}
 \chapter{関数解析}
 
 
@@ -16474,7 +17364,7 @@ $k \in L^{\infty}(\Omega)$ とする.
 となるから逆の不等式も成り立つ.
 \end{proof}
 
-\begin{ex}[Hilbert-Schmidt作用素]
+\begin{ex}[Hilbert-Schmidt 作用素]
 $\Omega$ を前とおなじものとする.
 $k = k(t, s) \in L^2(\Omega \times \Omega)$
 とする.
@@ -16503,6 +17393,231 @@ Schwartsの不等式から
 \end{align}
 となる.
 \end{proof}
+\section{逆作用素}
+
+
+\begin{defn}
+$T \colon X \to Y$ を線型作用素とする.
+$S \colon Y \to X$ が次の条件を満たすとき $T$ の逆作用素\index{ぎゃくさようそ@逆作用素}という.
+\begin{align}
+ TSy
+ =
+ y, \quad
+ STx
+ =
+ x \quad (y \in Y, \quad x \in X)
+\end{align}
+のときにいう.
+このとき $T$ は全単射で $S = T^{-1}$ と書く.
+\end{defn}
+
+\begin{prop}
+$T \in \calL (X, Y)$, $S \in \calL (Y, X)$
+でそれぞれ逆作用素が存在するとき
+\begin{align}
+ (TS)^{-1}
+ =
+ S^{-1}T^{-1}
+\end{align}
+となる.
+\end{prop}
+\begin{proof}
+\begin{align}
+ (TS)(S^{-1}T^{-1})
+ =
+ TT^{-1}
+ =
+ 1
+\end{align}
+などからすぐわかる.
+\end{proof}
+
+\begin{thm}[C. Neumann 級数]
+$T \in \mathcal{L}(X)$, $\norm{T} < 1$ とすると,
+$(I - T)^{-1} \in \calL (X)$ が存在して
+\begin{align}
+ (I-T)^{-1}
+ =
+ I + T + T^2 + \dots
+\end{align}
+でさらに
+\begin{align}
+ \norm{(I-T)^{-1}}
+ \leq
+ \frac{1}{1 - \norm{T}}
+\end{align}
+が成り立つ.
+\end{thm}
+\begin{proof}
+$\sum_{j=0}^{\infty} \norm{T}^j < \infty$ に注意しよう.
+$m>n$ とすると
+\begin{align}
+ \norm{\sum_{j=0}^m T^j - \sum_{j=0}^n T^j}
+ \leq
+ \sum_{j=n+1}^m \norm{T}^j \to 0
+ \quad (n, m \to \infty)
+\end{align}
+となるから $(\sum{j=0}^nT^j)_n$ は $\bbB (X)$ の Cauchy 列になる.
+したがって極限があって $\sum_j T^j = S$ と書ける.
+このとき
+\begin{align}
+ ST
+ =
+ TS
+ =
+ \sum_{j=1} T^j
+ =
+ \sum_{j=0}T^j - I
+ = S - I
+\end{align}
+だから
+\begin{align}
+ I
+ =
+ S(I - T)
+ = (I - T)S,
+\end{align}
+つまり $S = (I-t)^{-1}$ で
+\begin{align}
+ \norm{(I-T)^{-1}}
+ =
+ \norm{S}
+ \leq
+ \sum_{j=0}^{\infty} \norm{T}^j
+ =
+ \frac{1}{1- \norm{T}}.
+\end{align}
+\end{proof}
+
+\begin{ex}[Fredholm 型積分作用素]
+$[a, b]$ を有界な区間とし, $y = y(t) \in C([a, b])$,
+$k(t, s)$ を $[a, b] \times [a,b]$ で連続な関数とする.
+\begin{align}
+ M
+ \defeq
+ \max_{a \leq s, t \leq b} \abs{k(t, s)}
+ <
+ \frac{1}{b-a}
+\end{align}
+ならば
+\begin{align}
+ y(t)
+ =
+ x(t) - \int_a^b k(t, s) x(s) ds
+\end{align}
+は $X = C([a, b])$ に一意的な解をもつ.
+\end{ex}
+\begin{proof}
+\begin{align}
+ (Kx)(t)
+ \defeq
+ \int_a^b k(t, s) x(s) ds
+\end{align}
+という作用素を定義する.
+これを Fredholm 型積分作用素\index{Fredholm がたせきぶんさようそ@Fredholm 型積分作用素}とする.
+\begin{align}
+ \abs{Kx(t)}
+ \leq
+ \norm{x}_X \int_a^b \abs{k(t, s)} x(s) ds
+ \leq
+ M (b-a) \norm{x}_X
+\end{align}
+となるから $\norm{K} < 1$ がわかる.
+C. Neumann の定理から $(I-K)^{-1} \in X$ が存在し,
+$x \defeq (I-K)^{-1} y$ とすれば
+\begin{align}
+ y(t)
+ =
+ x(t) - \int_a^b k(t, s) x(s) ds
+\end{align}
+となっている.
+\end{proof}
+
+\begin{thm}[常微分方程式の境界値問題]
+常微分方程式
+\begin{align}
+ \begin{cases}
+  x''(t) + r(t) x(t) = y(t) \\
+  x(a) = \alpha, \quad x(b) = \beta
+ \end{cases}
+\end{align}
+を考える.
+ここで $\alpha$, $\beta \in \bbC$, $y, r \in X = C([a, b])$ は与えられているとする.
+\begin{align}
+ M
+ \defeq
+ \max_{a \leq t \leq b} \abs{r(t)}
+ <
+ \frac{4}{(b-a)^2}
+\end{align}
+ならばこの常微分方程式は一意解をもつ.
+\end{thm}
+\begin{proof}
+\begin{align}
+ g(t, s)
+ \defeq
+ \begin{cases}
+  \frac{(s-a)(b-t)}{b-a} & a \leq s \leq t \\
+  \frac{(b-s)(t-a)}{b-a} & t \leq s \leq b
+ \end{cases}
+\end{align}
+とする.
+さらに
+\begin{align}
+ z(t)
+ \defeq
+ -\int_a^b g(t, s) y(s) ds
+\end{align}
+とすれば $z(a) = z(b) = 0$ となる.
+計算すると $z''(t) = y(t)$ となることもわかる.
+\begin{align}
+ x(t)
+ \defeq
+ \alpha \frac{b-t}{b-a} + \beta \frac{t-a}{b-a}
+ -\int_a^b g(t,s) y(s) ds
+\end{align}
+し, $y(s)$ を $y(s)-r(t)x(s)$ と書き換えて
+\begin{align}
+ x(t)
+ &=
+ \alpha \frac{b-t}{b-a} + \beta \frac{t-a}{b-a} - \int_a^b g(t,s)[y(s)-r(t)x(s)] ds \\
+ k(t, s)
+ &\defeq
+ g(t, s) r(s), \\
+ h(t)
+ \defeq
+ -\int_a^b g(t, s) y(s) ds + \alpha \frac{b-t}{b-a} + \beta \frac{t-a}{b-a}
+\end{align}
+とすれば
+\begin{align}
+ x(t) - \int_a^b k(t, s) x(s)ds
+ =
+ h(t)
+\end{align}
+となり, これは Fredholm 型の方程式になる.
+\begin{align}
+ \abs{k(t, s)}
+ \leq
+ \frac{M}{4}(b-a)
+ < \frac{1}{b-a}
+\end{align}
+が出るので, 前に見たように上の方程式の解は一意になる.
+さらに
+\begin{align}
+ \frac{d^2}{dt^2} \int_a^b k(t, s) x(s) ds
+ =
+ -r(t) x(t)
+\end{align}
+と
+\begin{align}
+ h''(t) = y(t)
+\end{align}
+から $x$ は $C^2$ なのでこれを代入すればほしい結果が出る.
+\end{proof}
+\section{ぜんぜん関係ない話}
+
+
+だんだん飽きてきたので基礎理論から離れてもっと応用っぽいこと話します.
 \chapter{Fourier 解析}
 
 
@@ -20366,7 +21481,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
  x \label{Hinashiro_math_party_1_probability_2}
 \end{align}
 が導ける.
-最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[55].
+最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[56].
 
 再び $x \neq 0$ を仮定しよう \footnote{ハイパーどうでもいいが「再びマタタビ楕円型」という天啓を得たことを記録しておく.
  }.
@@ -20389,7 +21504,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
 \subsection{Rademacher 関数}
 
 
-これまではまさに高校の数学だった \footnotemark[52].
+これまではまさに高校の数学だった \footnotemark[53].
 本番はここからだ.
 式 (\ref{Hinashiro_math_party_1_probability_3}) を別の観点から眺めてみようという体で,
 唐突に次の無茶苦茶な理論展開を見せる.
@@ -20464,7 +21579,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
 本質が見えるようになるまでは偶然というほかない.
 ここで式 (\ref{Hinashiro_math_party_1_probability_3}) を別の方法で導いてみよう.
 
-唐突だが次の関数を考える \footnotemark[53].
+唐突だが次の関数を考える \footnotemark[54].
 いったん少し面倒な方法で取り組んでみよう.
 \ref{Hinashiro_math_party_1_probability_14} 節で整理するので少しのあいだ我慢してほしい.
 \begin{align}
@@ -20486,7 +21601,7 @@ $\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
  =
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}.
 \end{align}
-ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[54].
+ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[55].
 したがって
 \begin{align}
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}
@@ -20854,7 +21969,7 @@ Chebyshev による簡明かつ重要な結果を使った証明だけ紹介し�
 これで簡単に (\ref{Hinashiro_math_party_1_probability_8}) が証明できた.
 
 Chebyshev の不等式だけでなく, Rademacher 関数の独立性, つまり \ref{Hinashiro_math_party_1_probability_11} の結果も本質的に効いている.
-実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[56].
+実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[57].
 弱法則ではまだまだほしい内容に足りない.
 「儲けが際限なく大きくなる確率が 0 に収束する」くらいの微妙なことしか言っていないからだ.
 平均がばっちり 0 に行くことを証明したい.

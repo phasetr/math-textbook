@@ -116,24 +116,23 @@
 {\normalfont}{}%
 {\bfseries}{}%
 {\newline}{}%
-\theoremstyle{break}
 \renewcommand{\proofname}{\textup{\textbf{Proof}}}
 \theoremstyle{breakdefn}
-\newtheorem{thm}{Theorem.}[section]
-\newtheorem{cor}[thm]{Corollary.}
-\newtheorem{lem}[thm]{Lemma.}
-\newtheorem{pos}[thm]{Postulate.}
-\newtheorem{req}[thm]{Request.}
-\newtheorem{prop}[thm]{Proposition.}
-\newtheorem{axm}[thm]{Axiom.}
-\newtheorem{defn}[thm]{Definition.}
-\newtheorem{ex}[thm]{Example.}
-\newtheorem{exercise}[thm]{Exercise.}
-\newtheorem{problem}[thm]{Problem.}
-\newtheorem{rem}[thm]{Remark.}
-\newtheorem{fact}[thm]{Fact.}
-\newtheorem{assump}[thm]{Assumption.}
-\newtheorem{notation}[thm]{Notation.}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{pos}[thm]{Postulate}
+\newtheorem{req}[thm]{Request}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{axm}[thm]{Axiom}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{exercise}[thm]{Exercise}
+\newtheorem{problem}[thm]{Problem}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{assump}[thm]{Assumption}
+\newtheorem{notation}[thm]{Notation}
 
 \renewcommand{\Im}{\mathrm{Im} \,}
 \renewcommand{\Re}{\mathrm{Re} \,}
@@ -166,6 +165,8 @@
 \newcommand{\sumfour}[4]{\mathop{\mathop{\mathop{\sum_{#1}}_{#2}}_{#3}}_{#4}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newcommand{\ann}{\mathrm{Ann}\,}
+\newcommand{\ass}{\mathrm{Ass}\,}
 \newcommand{\Ab}{\mathbf{Ab}}
 \newcommand{\bbr}{\mathbb{r}}
 \newcommand{\bbA}{\mathbb{A}}
@@ -188,6 +189,10 @@
 \newcommand{\bbRnu}{\mathbb{R}^{\nu}}
 \newcommand{\bbS}{\mathbb{S}}
 \newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbZd}{\mathbb{Z}^d}
+\newcommand{\betac}{\beta_{\mathrm{c}}}
+\newcommand{\blu}{\mathrm{Bl}}
+\newcommand{\bs}{\blacksquare}
 \newcommand{\calA}{\mathcal{A}}
 \newcommand{\calB}{\mathcal{B}}
 \newcommand{\calC}{\mathcal{C}}
@@ -197,6 +202,7 @@
 \newcommand{\calE}{\mathcal{E}}
 \newcommand{\calF}{\mathcal{F}}
 \newcommand{\calFb}{\mathcal{F}_{\mathrm{b}}}
+\newcommand{\calFbfin}{\mathcal{F}_{\mathrm{b,fin}}}
 \newcommand{\calFbAW}{\calF_{\mathrm{b,ArakiWoods}}}
 \newcommand{\calFfAW}{\calF_{\mathrm{f,ArakiWyss}}}
 \newcommand{\calFAW}{\calF_{\mathrm{AW}}}
@@ -210,18 +216,28 @@
 \newcommand{\calO}{\mathcal{O}}
 \newcommand{\calR}{\mathcal{R}}
 \newcommand{\calS}{\mathcal{S}}
+\newcommand{\calW}{\mathcal{W}}
 \newcommand{\catT}{\mathbf{T}}
-\newcommand{\Ccinfty}{C_{\mathrm{c}}^{\infty}}
+\newcommand{\Cc}{C_{\mathrm{c}}}
+\newcommand{\Ccinfty}{\Cc^{\infty}}
+\newcommand{\cech}{\check{\mathrm{H}}}
 \newcommand{\ch}{\mathbf{Ch}}
 \newcommand{\chb}{\mathbf{Ch}^{\mathrm{b}}}
 \newcommand{\chminus}{\mathbf{Ch}^{-}}
 \newcommand{\chnonnegative}{\mathbf{Ch}^{\geq 0}}
 \newcommand{\chplus}{\mathbf{Ch}^{+}}
+\newcommand{\coho}{\mathrm{H}}
+\newcommand{\Cov}[1]{\mathrm{Cov}\sqbk{#1}}
+\newcommand{\divcl}{\mathrm{DivCl}\,}
+\newcommand{\divs}{\mathrm{Div}\,}
 \newcommand{\dmu}{d \mu}
 \newcommand{\dnu}{d \nu}
 \newcommand{\E}[1]{\rmE\sqbk{#1}}
+\newcommand{\edivs}{\mathrm{Div}_+\,}
+\newcommand{\EleqN}{E_{\leq}(N)}
 \newcommand{\End}{\mathrm{End}}
 \newcommand{\extbbC}{\overline{\bbC}}
+\newcommand{\fin}{\hfill $\square$ \par}
 \newcommand{\fraka}{\mathfrak{a}}
 \newcommand{\frakb}{\mathfrak{b}}
 \newcommand{\frakc}{\mathfrak{c}}
@@ -274,17 +290,19 @@
 \newcommand{\frakX}{\mathfrak{X}}
 \newcommand{\frakY}{\mathfrak{Y}}
 \newcommand{\frakZ}{\mathfrak{Z}}
+\newcommand{\Frac}{\mathrm{Frac}\,}
 \newcommand{\Grp}{\mathbf{Grp}}
 \newcommand{\He}{H_{\mathrm{e}}}
 \newcommand{\Hb}{H_{\mathrm{b}}}
 \newcommand{\HI}{H_{\mathrm{I}}}
-\newcommand{\hyphen}{\mathchar`-}
 \newcommand{\Hom}{\mathrm{Hom} \,}
-\newcommand{\Isom}{\mathrm{Isom} \,}
+\newcommand{\homo}{\mathrm{Hom}}
 \newcommand{\hyperbolicsegment}[2]{\left[ #1, \, #2 \right]_{\mathrm{h}}}
-\newcommand{\Var}[1]{\mathrm{Var}\sqbk{#1}}
-\newcommand{\Cov}[1]{\mathrm{Cov}\sqbk{#1}}
-\newcommand{\EleqN}{E_{\leq}(N)}
+\newcommand{\hyphen}{\mathchar`-}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\injsh}{\mathcal{I}}
+\newcommand{\Int}{\mathrm{Int} \,}
+\newcommand{\Isom}{\mathrm{Isom} \,}
 \newcommand{\gvarepsilonminus}{g_{\varepsilon}^{-}}
 \newcommand{\gvarepsilonplus}{g_{\varepsilon}^{+}}
 \newcommand{\image}{\mathrm{Im}\,}
@@ -292,28 +310,39 @@
 \newcommand{\liminfntoinfty}{\liminf_{n \to \infty}}
 \newcommand{\limntoinfty}{\lim_{n \to \infty}}
 \newcommand{\limsupntoinfty}{\limsup_{n \to \infty}}
+\newcommand{\kernel}{\mathrm{Ker}\,}
 \newcommand{\Le}{L_{\mathrm{e}}}
 \newcommand{\Lb}{L_{\mathrm{b}}}
 \newcommand{\LI}{L_{\mathrm{I}}}
 \newcommand{\Loneloc}{L_{\mathrm{loc}}^1}
 \newcommand{\LtwoRd}{L^2 \rbk{\bbR^d}}
 \newcommand{\LtwoRn}{L^2 \rbk{\bbR^n}}
+\newcommand{\map}{\longrightarrow}
 \newcommand{\meanphys}[1]{\left\langle #1 \right\rangle}
 \newcommand{\Mod}{\mathbf{Mod}}
 \newcommand{\modr}{\Mod \mathchar`- R}
 \newcommand{\obj}{\mathrm{obj}\,}
+\newcommand{\OmegaAW}{\Omega_{\mathrm{AW}}}
+\newcommand{\Omegab}{\Omega_{\mathrm{b}}}
 \newcommand{\opposite}{\mathrm{op}}
+\newcommand{\pdivs}{\mathrm{Div}_{\mathrm{princ}}\,}
+\newcommand{\phirhol}{\phi_{\rho, \mathrm{l}}}
+\newcommand{\pibetaAW}{\pi_{\beta}^{\mathrm{AW}}}
+\newcommand{\picard}{\mathrm{Pic}\,}
+\newcommand{\proj}{\mathrm{Proj}\,}
 \newcommand{\rank}{\mathrm{rank} \,}
 \newcommand{\realtempereddist}{\mathcal{S}'_{\mathrm{real}}}
 \newcommand{\realrapiddecrease}{\mathcal{S}_{\mathrm{real}}}
 \newcommand{\res}{\mathrm{Res}\,}
 \newcommand{\rhoNinfty}{\rho_{N, \infty}}
+\newcommand{\rhobeta}{\rho_{\beta}}
 \newcommand{\riemannsphere}{\overline{\bbC}}
 \newcommand{\Ring}{\mathbf{Ring}}
 \newcommand{\rmod}{R \mathchar`- \Mod}
 \newcommand{\rmb}{\mathrm{b}}
 \newcommand{\rme}{\mathrm{e}}
 \newcommand{\rmE}{\mathrm{E}}
+\newcommand{\rmm}{\mathrm{m}}
 \newcommand{\rmf}{\mathrm{f}}
 \newcommand{\rms}{\mathrm{s}}
 \newcommand{\rmirr}{\mathrm{irr}}
@@ -332,40 +361,24 @@
 \newcommand{\rmph}{\mathrm{ph}}
 \newcommand{\scrF}{\mathscr{F}}
 \newcommand{\Sets}{\mathbf{Sets}}
+\newcommand{\symtensor}{\bigotimes_{\mathrm{s}}}
 \newcommand{\sto}{\xrightarrow{\text{s}}}
 \newcommand{\sumonetoinfty}[1]{\sum_{#1 = 1}^{\infty}}
 \newcommand{\sumzerotoinfty}[1]{\sum_{#1 = 0}^{\infty}}
 \newcommand{\supp}{\mathrm{supp} \,}
-\newcommand{\Trace}{\mathrm{Tr}\,}
+\newcommand{\Trace}{\mathrm{Tr}}
 \newcommand{\Top}{\mathbf{Top}}
 \newcommand{\touw}{\stackrel{\mathrm{uw}}{\to}\,}
 \newcommand{\upbf}[1]{\textup{\textbf{#1}}}
 \newcommand{\VC}{V_{\mathrm{C}}}
 \newcommand{\wick}[1]{\colon #1 \colon}
+\newcommand{\Wrhol}{W_{\rho, \mathrm{l}}}
 \newcommand{\wto}{\xrightarrow{\text{w}}}
-\newcommand{\bs}{\blacksquare}
 \newcommand{\vep}{\varepsilon}
-\newcommand{\fin}{\hfill $\square$ \par}
-\newcommand{\ann}{\mathrm{Ann}\,}
-\newcommand{\ass}{\mathrm{Ass}\,}
-\newcommand{\blu}{\mathrm{Bl}}
-\newcommand{\cech}{\check{\mathrm{H}}}
-\newcommand{\coho}{\mathrm{H}}
-\newcommand{\divcl}{\mathrm{DivCl}\,}
-\newcommand{\divs}{\mathrm{Div}\,}
-\newcommand{\edivs}{\mathrm{Div}_+\,}
-\newcommand{\Frac}{\mathrm{Frac}\,}
-\newcommand{\homo}{\mathrm{Hom}}
-\newcommand{\id}{\mathrm{id}}
-\newcommand{\injsh}{\mathcal{I}}
-\newcommand{\kernel}{\mathrm{Ker}\,}
-\newcommand{\map}{\longrightarrow}
-\newcommand{\pdivs}{\mathrm{Div}_{\mathrm{princ}}\,}
-\newcommand{\picard}{\mathrm{Pic}\,}
-\newcommand{\proj}{\mathrm{Proj}\,}
 \newcommand{\sh}{\mathcal{F}}
 \newcommand{\spec}{\mathrm{Spec}\,}
 \newcommand{\stsh}{\mathcal{O}}
+\newcommand{\Var}[1]{\mathrm{Var}\sqbk{#1}}
 \bmdefine{\va}{a}
 \bmdefine{\vb}{b}
 \bmdefine{\vc}{c}

@@ -1,5 +1,6 @@
 \usepackage[top=10truemm,bottom=20truemm,left=15truemm,right=15truemm]{geometry}
-\usepackage[dvipdfmx]{graphicx, hyperref}
+\usepackage[T1]{fontenc}
+\usepackage[dvipdfmx]{hyperref, graphicx, color}
 \usepackage{atbegshi}
 \ifnum 42146=\euc"A4A2
 \AtBeginShipoutFirst{\special{pdf:tounicode EUC-UCS2}}
@@ -88,6 +89,7 @@
 \DeclareMathOperator*{\slim}{s-lim}
 \DeclareMathOperator*{\wlim}{w-lim}
 \DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\diam}{diam}
 \newcommand{\card}{\mathrm{card}\,}
 \newcommand{\co}{\mathrm{co}\,}
 \newcommand{\const}{\mathrm{const.}}
@@ -117,7 +119,7 @@
 {\bfseries}{}%
 {\newline}{}%
 \renewcommand{\proofname}{\textup{\textbf{Proof}}}
-\theoremstyle{breakdefn}
+%\theoremstyle{breakdefn}
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{cor}[thm]{Corollary}
 \newtheorem{lem}[thm]{Lemma}

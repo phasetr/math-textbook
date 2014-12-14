@@ -96,7 +96,7 @@ In the following we sometimes use the terms linear spaces or vector spaces.
 These words have the same meaning.
 In the below definition a set of scalers is the set of real numbers $\bbR$ for simplicity\footnote{Of course a field may be general (positive characteristic) field.
 For applications to information science characteristic sometimes must be positive, e.g. for code theory or
-cryptographically secure pseudo random number generator (Mersenne twister).
+cryptographically secure pseudo random number generator (Mersenne twister).}.
 
 \begin{defn}[Definition of linear/vector spaces]
 Let $\bbR$ be a field of real numbers: a real number is also called a scaler.
@@ -147,7 +147,7 @@ Important points are
 
 The above properties hold for geometric vectors in high school, of course.
 Our purpose is that we consider vectors as algebraic objects and
-we derive many interesting properties using (mainly) algebraic thinking!}.
+we derive many interesting properties using (mainly) algebraic thinking!
 \subsection{Examples of linear spaces}
 
 \begin{enumerate}
@@ -213,6 +213,8 @@ Thus we conclude a space of functions is a linear one\footnote{A function space 
 Function spaces can be non-linear, e.g., images of functions belonging to it are manifolds or general sets.
 That is, it depends on the algebraic structure of images of functions belonging to a function space
 whether a function space has an algebraic structure.}.
+
+
 \subsection{Function spaces: examples of infinite dimensional spaces}
 
 We have infinitely many infinite dimensional objects.
@@ -302,7 +304,7 @@ In fact we have constraints between them:
 e.g. we cannot expand the arm if the length of it is 40 cm.
 The dimension corresponds to the number of freedom with these constraints\footnote{In fact the space for computerized control for robots is curved so we can consider it as a manifold.
 For details see the books on analytical mechanics \cite{NakamuraYamamoto1, NakamuraYamamoto2} or
-the theory of dynamical system.
+the theory of dynamical system.}.
 
 We can get a point for the definition of a basis in plane.
 Usually, if we take 3 vectors in plance,
@@ -311,19 +313,19 @@ If the 3 vectors are colinear their linear combination expresses only the point 
 We must define a basis to exclude this situation.
 
 Finally we remark the definition of infinite dimensional spaces.
-We do not define it directly due to difficulty in defining algebraically infinite sum\footnotemark.
+We do not define it directly due to difficulty in defining algebraically infinite sum\footnote{We can consider algebraically infinite sum,
+e.g, the ring of formal power series.}.
 
 If a linear combination for an infinite dimensional space is defined by $\sum_{k=1}^{\infty} c_k f_k$ naively,
 we cannot take the numbers $(c_k)$ arbitrarily because we must consider the convergence of serieses in application to analysis.
-Furthermore we consider only algebraic structure, do not consider other structures, i.e., convergence (topology).}\footnotetext[4]{We can consider algebraically infinite sum,
-e.g, the ring of formal power series.
+Furthermore we consider only algebraic structure, do not consider other structures, i.e., convergence (topology).
 
 At the last of this section we take examples.
 The space of $\bbR^d$ is a $d$ dimensional linear space, of course.
-We pick up examples of function spaces with ``basis"\footnotemark.}\footnotetext[5]{When considering infinite dimensional spaces
+We pick up examples of function spaces with ``basis"\footnote{When considering infinite dimensional spaces
 we do not usually use basis, and
 the concept of a complete (orthonormal) system is important
-in a Hilbert space which we use frequently in quantum mechanics, e.g.
+in a Hilbert space which we use frequently in quantum mechanics, e.g.}.
 
 \begin{ex}[a space of sequence]
 The space of absolutely summable sequences $\ell^1$ is an infinite dimensional space.
@@ -363,7 +365,7 @@ This corresponds to the degree of freedom of an amplitude $A$ and the initial ph
 Note that not all function space is infinite dimensional.
 Furthermore this teaches us that there is not always natural topology in linear spaces.
 What is natural topologies for this solution space?
-\end{ex}}.
+\end{ex}
 \subsection{Linear maps, Linear functionals}
 
 We usually consider maps instead of functions in university mathematics.
@@ -546,8 +548,11 @@ We deform this:
 \end{align}
 We can derive an angle $\theta$ from the value of the cosine function.
 Lengths\footnote{In general we call it a norm of a vector.
-We can consider many norms for a vector since there are many senses of distances.
-
+We can consider many norms for a vector since there are many senses of distances.} of vectors can be computed by inner products,
+from $\abs{a}^2 = a \cdot a$.
+So we can derive angles if we can define an inner product.
+Hence we have to define an inner product.
+Note that an inner product is not a divine concept.
 At first we write an inner product in $\bbR^3$.
 We write a vector $f = (f_1, f_2, f_3)$ as $f = (f(1), f(2), f(3))$ for later use.
 This is just a notational convention.
@@ -565,11 +570,7 @@ There are several notations for an inner product such as
 \begin{align}
  \rbk{f, g}, \quad \rbk{f | g}, \quad \langle f | g \rangle.
 \end{align}
-The last one is the famous Dirac's braket notation in quantum mechanics.} of vectors can be computed by inner products,
-from $\abs{a}^2 = a \cdot a$.
-So we can derive angles if we can define an inner product.
-Hence we have to define an inner product.
-Note that an inner product is not a divine concept.
+The last one is the famous Dirac's braket notation in quantum mechanics.
 \subsubsection{Inner products in higher dimensional spaces}
 
 We wrote an inner product as
@@ -626,8 +627,7 @@ Then we get a sum
 \begin{align}
  \sum_{k=1}^{d} f \left( \frac{k}{d} \right) g \left( \frac{k}{d} \right) \frac{1}{d}.
 \end{align}
-This is an expression, known as 区分求積法 in high school\footnote{This is a definition of the Riemann integral.
-
+This is an expression, known as 区分求積法 in high school\footnote{This is a definition of the Riemann integral.}.
 Taking a limit $d \to \infty$ the above sum becomes an integral.
 \begin{align}
  \langle f, g \rangle
@@ -643,7 +643,7 @@ In fact anything is good if it satisfies the axiom of an inner product.
 
 A linear space with inner product is called pre-Hilbert space.
 A pre-Hilbert space is called a Hilbert space if it is complete for metric induced by inner product.
-A Hilbert space is famous as a space where wave functions in quantum mechanics live.}.
+A Hilbert space is famous as a space where wave functions in quantum mechanics live.
 \subsection{Axiom for inner products}
 
 \begin{axm}
@@ -725,8 +725,7 @@ This is used for wave analysis in physics.
 The symbol $L^2 \rbk{\Omega}$ in the title means
 the space of square integrable functions in the sense of Lebesgue on $\Omega$.
 
-We introduce a physical meaning of the space $L^2 \rbk{\Omega}$.\footnote{To be precise the proper space is not $L^2$ but $H^1$.
-
+We introduce a physical meaning of the space $L^2 \rbk{\Omega}$.\footnote{To be precise the proper space is not $L^2$ but $H^1$.}
 The elements of the space $L^2 \rbk{\Omega}$ have finite energy.
 Let us consider a wave equation.
 \begin{align}
@@ -753,7 +752,7 @@ Furthermore we have to impose more severe restriction to functions,
 i.e., the domain of Hamiltonians.
 
 Linear operators have their domains
-and, for Hamiltonians, their domains are functions having finite energy.}
+and, for Hamiltonians, their domains are functions having finite energy.
 \section{Differentiation}
 
 \subsection{Taylor expansion}
@@ -1198,20 +1197,19 @@ de Broglie によって与えられました.
 このとき一番重要になるのは, 先程「退屈」といった定義のところでしょう.
 何故かというと, 一般的に何かを調べようというとき,
 そもそも何を調べるか, どう調べるかということが一番の問題になります.
-調べたい事柄に対し, それを良く反映した物理量を導入 (定義) していくことになるでしょう \footnote{後で具体例を加える.
-
+調べたい事柄に対し, それを良く反映した物理量を導入 (定義) していくことになるでしょう \footnote{後で具体例を加える.}.
 こうした点を踏まえ (筆者の勉強もかねて), この本では
 なるべくどのような定義を何故導入するかということに神経を使っていくことにします.
 これらは筆者が一番納得できると思った定義と論法であり, 他の人から見れば,
 気に食わない定義・論法かもしれません.
 そういう場合, 自分で積極的に納得のいく定義を考えてください.
-数学での例になりますが, L. Schwartz という人が超関数の理論を考え出しました \footnotemark
+数学での例になりますが, L. Schwartz という人が超関数の理論を考え出しました \footnote{これは物理学において Dirac が導入したデルタ関数を数学的に正当化する理論であり,
+非常に重要な理論です.}
 しかし, 日本人数学者の佐藤幹夫は, この定義がひどく気に食わなかったようで,
 今日「佐藤超関数」として知られる理論体系を組み上げ, 世界的に有名になりました.
 納得のいかない定義を納得のいくものにすることで世界的な業績をあげてしまった, このような例があります.
 定義は納得するまで考えてください.
-定義こそが生命線です.}\footnotetext[13]{これは物理学において Dirac が導入したデルタ関数を数学的に正当化する理論であり,
-非常に重要な理論です.}.
+定義こそが生命線です.
 \subsection{数学「で」学ぶ}
 
 作りかけ.
@@ -1238,8 +1236,9 @@ $\vf (\vr, t)$ を力のベクトルとすると
 \end{equation}
 と書けます \footnote{高校で学んだ記法 $\vec{r}$ の代わりにこのように肉太の文字で書きます.
 普通の文字, $r$ (肉太のものは $\vr$) と区別して下さい.
-実際に手書きするときは $\bbA$ のように書きます.
-
+実際に手書きするときは $\bbA$ のように書きます.}.
+これは数学的には\textgt{2 階の常微分方程式}となります.
+もちろん (物理学を学ぶのに必要になるレベルの) 微分方程式は高校で学んでいないはずです.
 高校で力として重力, 摩擦力, 垂直抗力, 電磁力など色々学んだと思いますが,
 その中に Lorentz 力というのがありました.
 これをベクトルで書くと
@@ -1324,9 +1323,7 @@ $\vf (\vr, t)$ を力のベクトルとすると
 時にはかなり細かい注がついていることがあります.
 これらには (進んだ注) という,
 見なくても分からなくても良い注だという印をつけておきます.
-きちんと考えるとややこしいことがあるようだ, ということだけ把握してあれば十分です.}.
-これは数学的には\textgt{2 階の常微分方程式}となります.
-もちろん (物理学を学ぶのに必要になるレベルの) 微分方程式は高校で学んでいないはずです.
+きちんと考えるとややこしいことがあるようだ, ということだけ把握してあれば十分です.
 \subsection{物理で使う数学}
 
 基本的に物理学で使う数学は, 微分・積分と線形代数です.
@@ -1389,20 +1386,30 @@ $\vf (\vr, t)$ を力のベクトルとすると
 物理としては本末転倒ですが,
 本書では振動・波動を次の 2 つの (線形の微分) 方程式に支配される現象であると定義します \footnote{誤解のないように言っておきますが, これらの式に従わない「波動」が存在します.
 非線形波動と呼ばれる現象群がその代表です.
-ソリトンだとか色々あるようです.
+ソリトンだとか色々あるようです.}:
+\begin{align}
+ \frac{d^2 u \rbk{t} }{d t^2}
+ &=
+ -\omega^2 u \rbk{t} - \gamma \frac{d u \rbk{t}}{dt} , \\
+ \frac{1}{v^2} \frac{\pd^2 u \rbk{ \vx , t }}{\pd t^2}
+ &=
+ \frac{\pd^2 u \rbk{\vx , t}}{\pd x^2} + \frac{\pd^2 u \rbk{\vx , t}}{\pd y^2} + \frac{\pd^2 u \rbk{\vx , t}}{\pd z^2}.
+\end{align}
+余計な項が入っていますが, 上の式 (で \$$\gamma$ = 0\$とした式) は,
+高校でも学んだ\textbf{単振動の方程式}です.
+下の式は, その名もずばり\textbf{波動方程式}です.
 
 さて振動・波動を取り上げる理由ですが, これは 2 つあります.
 第一に, 振動・波動は物理のなかでよく出てきます.
 単振動は一つの例ですが, これは電気回路の式とも数学的に等価です.
 2 つのおもりをバネでつないだモデルが,
-ニュートリノに質量があることを証明したニュートリノ振動の力学モデルであること \footnotemark,
+ニュートリノに質量があることを証明したニュートリノ振動の力学モデルであること \footnote{2 年のときに筑波の高エネルギー加速研に行ったことがあるのですが,
+そこの先生からこのお話を聞いたので間違いありません.
+「一つのモデルでたくさんの現象が説明できるのが物理の面白いところなんだ! 」と力説していました.},
 電磁場が空間の中を伝わるとき波動として伝わっていくことなど,
 初歩から最先端まで, いたるところに出てきます.
 実用的なところでは, 建築物の耐震性, 共振の防止を
-モデル化して考えたとき. この方程式が出てきます.}\footnotetext[17]{2 年のときに筑波の高エネルギー加速研に行ったことがあるのですが,
-そこの先生からこのお話を聞いたので間違いありません.
-「一つのモデルでたくさんの現象が説明できるのが物理の面白いところなんだ! 」と力説していました.
-
+モデル化して考えたとき. この方程式が出てきます.
 もう一つは, 色々な数学が出てくることです.
 これに付いては以下の本書の構成の中で説明します.
 
@@ -1468,18 +1475,7 @@ $\vf (\vr, t)$ を力のベクトルとすると
 第 8 章は群論です.
 物理法則には共変性を要求するのが自然です.
 この共変性は群論という数学と深く関わっていることが知られています.
-これを電磁気学での Lorentz 変換と絡めて説明しようと思います.}:
-\begin{align}
- \frac{d^2 u \rbk{t} }{d t^2}
- &=
- -\omega^2 u \rbk{t} - \gamma \frac{d u \rbk{t}}{dt} , \\
- \frac{1}{v^2} \frac{\pd^2 u \rbk{ \vx , t }}{\pd t^2}
- &=
- \frac{\pd^2 u \rbk{\vx , t}}{\pd x^2} + \frac{\pd^2 u \rbk{\vx , t}}{\pd y^2} + \frac{\pd^2 u \rbk{\vx , t}}{\pd z^2}.
-\end{align}
-余計な項が入っていますが, 上の式 (で \$$\gamma$ = 0\$とした式) は,
-高校でも学んだ\textbf{単振動の方程式}です.
-下の式は, その名もずばり\textbf{波動方程式}です.
+これを電磁気学での Lorentz 変換と絡めて説明しようと思います.
 \subsection{物理と近似: まだ書きかけ}
 
 良い近似とは何か, みたいなことを書きたい.
@@ -1537,10 +1533,12 @@ m\ddot{x}(t) = -kx (t).
 \begin{equation}
 x (t) = A \sin (\omega t + \phi ), \quad \omega \defeq \sqrt{ \frac{k}{m} }
 \end{equation}
-であることは知っているとします \footnote{微分方程式の章でもう少し詳しく触れます.
-
+であることは知っているとします \footnote{微分方程式の章でもう少し詳しく触れます.}.
+これから両端が壁につながった 3 本のばね定数 $k$ のばねの間に質量 $m$ のおもりが 2 つつながれている系のを調べます.
 受験問題でもよく見かけるような状況です. これは固体の格子振動の模型などで重要です.
-2 つのおもりの平衡点からのずれを $x_{1}(t),x_{2}(t)$ として, おもりの運動方程式を書くと \footnotemark,
+2 つのおもりの平衡点からのずれを $x_{1}(t),x_{2}(t)$ として, おもりの運動方程式を書くと \footnote{変数の時間 $t$ を書くと煩雑であり, また明らかなものなので省略しました.
+よくこうした省略をします.
+慣れてください.},
 \begin{align}
 m\ddot{x}_{1} = -kx_{1} + k (x_{2} - x_{1}) \\
 m\ddot{x}_{2} = - k (x_{2} - x_{1}) - kx_{2}
@@ -1561,10 +1559,7 @@ X_{2} \defeq \frac{1}{\sqrt{2}}\left ( x_{1} + x_{2} \right)
     X_1 &= A_1 \sin \left ( \sqrt{\frac{ 3k }{m}} \, t + \phi _1 \right) \\
     X_2 &= A_2 \sin \left ( \sqrt{\frac{ k }{m}} \, t + \phi _2 \right)
 \end{align}
-となり,  $X_1, X_2$ の定義式から $x_1,x_2$ が求まります.}\footnotetext[20]{変数の時間 $t$ を書くと煩雑であり, また明らかなものなので省略しました.
-よくこうした省略をします.
-慣れてください.
-
+となり,  $X_1, X_2$ の定義式から $x_1,x_2$ が求まります.
 今度は同じ状況ですが, ばねが 4 つで 3 つの質点がそのばねの間につなげられている系を考えます.
 先程と同様に質点の平衡点からのずれを $x_{i}\,\,,\,\,i=1,2,3$ として運動方程式は
 \begin{align}
@@ -1595,13 +1590,11 @@ m\ddot{X}_3 &= -(2 + \sqrt{2}) X_3
 付記しておくと,  $2$ 質点系の場合の $X$ は重心座標と相対座標になっています.
 つまりこれらは現象の見やすい座標系への座標系の変換であったとみなせます.
 しかし $3$ 質点系では一見して良く分かる, というわけにはいきません.
-こうした座標系の変換をどう見つけるかという考察をしたいというわけです \footnotemark}\footnotetext[21]{他にも線型代数は建築などで巨大行列の行列式の計算をすることがよくあるらしく,
-その為の行列式の計算の効率の良いプログラミングの作成などは今でも研究対象となっているようです.
-
+こうした座標系の変換をどう見つけるかという考察をしたいというわけです \footnote{他にも線型代数は建築などで巨大行列の行列式の計算をすることがよくあるらしく,
+その為の行列式の計算の効率の良いプログラミングの作成などは今でも研究対象となっているようです.}
 次章では一般のポテンシャルに対し,
 安定点が存在すればその近傍ではそのポテンシャルに支配された系の運動が微小振動になることを証明します.
-そこへの接続に十分な範囲での議論をしなければなりませんが, それ以外にも重要なことは補足しながらいくことにします.}.
-これから両端が壁につながった 3 本のばね定数 $k$ のばねの間に質量 $m$ のおもりが 2 つつながれている系のを調べます.
+そこへの接続に十分な範囲での議論をしなければなりませんが, それ以外にも重要なことは補足しながらいくことにします.
 \subsection{記法の確認と線型写像}
 
 いくつかの一般的な記法をまとめておきます.
@@ -1650,14 +1643,23 @@ f &: A\ni  a \mapsto     b=f (a)\in B
 \textgt{実数}\index{じっすう@実数}, \textgt{複素数}\index{ふくそすう@複素数} \footnote{自然数, 整数, 有理数, 実数, 複素数は各々英語で natural number, integral number (integer),
 rational number, real number, complex number といいます.  $\bm{N}$ ,  $\bm{R}$ ,  $\bm{C}$ はその頭文字です.}
 全体の集合を各々
-$\bm{N}$ ,  $\bm{Z}$ ,  $\bm{Q}$ ,  $\bm{R}$ ,  $\bm{C}$ と書きます \footnote{それぞれ手書きするときは $\mathbb{N},\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C}$ と書きます.
+$\bm{N}$ ,  $\bm{Z}$ ,  $\bm{Q}$ ,  $\bm{R}$ ,  $\bm{C}$ と書きます \footnote{それぞれ手書きするときは $\mathbb{N},\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C}$ と書きます.}.
+また\textgt{正の整数}\index{せいのせいすう@正の整数}
+は
+$\bbZ^+ \defeq \{ 1, 2 , \dots , \}$,
+\textgt{正の実数}\index{せいのじっすう@正の実数}
+は
+ $b_R^+ \defeq [ 0 , \infty )$
+と書くことがあります.
+他にも\textgt{ $n$ 次元空間}を普通の数のように $\bm{R}$ の $n$ 乗ということで $\bm{R}^{n}$ と書きます.
+あとで\textgt{複素 $n$ 次元空間} $\bm{C}^{n}$ も使います.
+さらに, \textgt{ $n\times m$ 複素行列全体の集合}を $M \left ( n,m \, ;\bm{C}^n \right)$ と書きます.
 
-ここからは行列の記法の確認です. 特に行列式のところで証明を含めて大体のことを 3 次正方行列について書きます \footnotemark.
+ここからは行列の記法の確認です. 特に行列式のところで証明を含めて大体のことを 3 次正方行列について書きます \footnote{正確には $n$ 次元でも同じように出来るけれども, 一般的に行なうのが非常に面倒な場合に 3 次でやります.
+次元による面倒が全く無いような場合がありますから, そういう場合に $n$ 次で書くことがあります.}.
 2 次だと単純すぎていろいろ簡単になってしまっていることがあり,
 4 次以上は書くのが面倒だからです.
-証明については一般の $n$ 次でも成立するようなものをつけます.}\footnotetext[26]{正確には $n$ 次元でも同じように出来るけれども, 一般的に行なうのが非常に面倒な場合に 3 次でやります.
-次元による面倒が全く無いような場合がありますから, そういう場合に $n$ 次で書くことがあります.
-
+証明については一般の $n$ 次でも成立するようなものをつけます.
 まず $A$ を 3 次正方行列としその $(i,j)$ 成分を $a_{ij}$ としましょう. このとき, 行列 $A$ を次のように書きます.
 \begin{align}
     A = (a_{ij})
@@ -1694,14 +1696,13 @@ $\bm{N}$ ,  $\bm{Z}$ ,  $\bm{Q}$ ,  $\bm{R}$ ,  $\bm{C}$ と書きます \footno
 
 単位行列を定義したので次は逆行列\index{ぎゃくぎょうれつ@逆行列}を定義しておきましょう.
 ある行列 $A$ に対し $X$ という行列が存在して $AX = I$ となったとしましょう. このとき $X$ を\textgt{右逆行列}と呼びます.
-左逆行列も同様に定義します. 有限次行列 \footnotemark
+左逆行列も同様に定義します. 有限次行列 \footnote{次元についてはあとできちんと述べます.}
 の場合, 片方の逆行列が存在するともう片方の逆行列が存在して, この 2 つが一致します.
 実際,  $X$ を $A$ の右逆行列,  $Y$ を $A$ の左逆行列とすると
 \begin{align}
     X = IX = (Y A) X = Y (A X) = Y I = Y \,\, . \,\, \blacksquare
 \end{align}
-また逆行列が存在する行列のことを\textgt{正則行列}\index{せいそくぎょうれつ@正則行列}\index{せいそく@正則}といいます.}\footnotetext[27]{次元についてはあとできちんと述べます.
-
+また逆行列が存在する行列のことを\textgt{正則行列}\index{せいそくぎょうれつ@正則行列}\index{せいそく@正則}といいます.
 次に高校で学ばなかったと思いますが, \textgt{転置行列}\index{てんちぎょうれつ@転置行列} ${^t}A$ というものがあります. これの定義は
 \begin{align}
     {^t}A \defeq (a_{j i})
@@ -1750,17 +1751,9 @@ $\bm{N}$ ,  $\bm{Z}$ ,  $\bm{Q}$ ,  $\bm{R}$ ,  $\bm{C}$ と書きます \footno
 
 あともう 1 つ転置について重要なものとして\textgt{直交行列}\index{ちょっこうぎょうれつ@直交行列}というものがあります.
 これは $^{t}U U=I$ となるような行列のことです.
-すなわち $^{t}U = U^{-1}$ ということです.}.
-また\textgt{正の整数}\index{せいのせいすう@正の整数}
-は
-$\bbZ^+ \defeq \{ 1, 2 , \dots , \}$,
-\textgt{正の実数}\index{せいのじっすう@正の実数}
-は
- $b_R^+ \defeq [ 0 , \infty )$
-と書くことがあります.
-他にも\textgt{ $n$ 次元空間}を普通の数のように $\bm{R}$ の $n$ 乗ということで $\bm{R}^{n}$ と書きます.
-あとで\textgt{複素 $n$ 次元空間} $\bm{C}^{n}$ も使います.
-さらに, \textgt{ $n\times m$ 複素行列全体の集合}を $M \left ( n,m \, ;\bm{C}^n \right)$ と書きます.
+すなわち $^{t}U = U^{-1}$ ということです.
+
+
 複素行列 $A$ の\textgt{共役}をとる操作を普通の複素数のとき同様に $\overline{A}$ と上にバーを書くことで
 表します.
 これにより, \textgt{随伴行列}\index{ずいはんぎょうれつ@随伴行列} $A^{*}$ を
@@ -1823,7 +1816,12 @@ $\bbZ^+ \defeq \{ 1, 2 , \dots , \}$,
 さらに部分空間 $W_1$ の\textgt{直交補空間}\index{ちょっこうほくうかん@直交補空間}を $W^{\perp}$ \footnote{気軽に空間と書きましたが, これは本当に部分空間になっているでしょうか?
 $\bm{x},\bm{y} \in W^{\perp},\, \bm{z} \in W$ としましょう.
 $(\alpha \bm{x} + \beta\bm{y},\bm{z}) = \alpha (\bm{x},\bm{z}) + \beta (\bm{y},\bm{z}) =0$
-で, 確かに部分空間になっています.
+で, 確かに部分空間になっています.}
+とすると,  $W^{\perp}$ とは
+ $W_1$ と直交する元全ての集合です.
+さらに\textgt{ $W$ が $W_1$ と $W_2$ の直和}\index{ちょくわ@直和}であるとは,  $W = W_1 \cup W_2$ であって
+かつ $W_1 \cap W_2 = \{ \bm{0} \}$ となることをいいます.
+このとき $W = W_1 \bigoplus W_2 = W_1 \amalg W_2$ などと書きます.
 
 以上でつまらない定義の羅列は一旦終わりです.
 ここから少し線型代数の説明に入ります.
@@ -1863,26 +1861,21 @@ $(\alpha \bm{x} + \beta\bm{y},\bm{z}) = \alpha (\bm{x},\bm{z}) + \beta (\bm{y},\
 ここで $\alpha \in \bm{R}$ というのは $\alpha$ が実数であることを表すのでした.
 まず $f$ を $\bm{R}^{1}$ から $\bm{R}^{1}$ への写像, すなわち高校で学んできた普通の関数である場合で
 この定義が何を言っているのかを見てみましょう. 線型写像の名が示すとおり, このとき $\alpha$ を適当な実数とすると
-$f$ は $f (x) = \alpha x$ という対応を与える一次関数 (直線!) です \footnotemark.
-線型写像の「線型」たる所以が分かったかと思います. 一般の $n,m$ に対しては適当な行列 $A$ を選ぶと
-$\bm{y} = A \bm{x}$ と書けます.
-実数を 1 次正方行列とみなせば, 自然な一般化になっていることが分かります.}\footnotetext[29]{(進んだ注)
+$f$ は $f (x) = \alpha x$ という対応を与える一次関数 (直線!) です \footnote{(進んだ注)
 $f$ が連続であるとき, 上の条件を満たす関数が本当に一次関数しかないことが実数の連続性を用いて証明されます.
 $f (1)=3$ などという適当な条件をつけると, 定数 $\alpha$ までが完全に決定できます. 証明は島内剛一, 「数学の基礎」, 日本評論社,
 p445- を参照して下さい.
-大略を述べると, 自然数に対して成立することを述べたのち, 整数に拡大して, さらに有理数に拡大し,  $f$ の連続性から実数に拡大します.
+大略を述べると, 自然数に対して成立することを述べたのち, 整数に拡大して, さらに有理数に拡大し,  $f$ の連続性から実数に拡大します.}.
+線型写像の「線型」たる所以が分かったかと思います. 一般の $n,m$ に対しては適当な行列 $A$ を選ぶと
+$\bm{y} = A \bm{x}$ と書けます.
+実数を 1 次正方行列とみなせば, 自然な一般化になっていることが分かります.
 
 すぐあとで使う一般の写像 (関数) に対する性質も述べておきます.
  $f (x,y)=-f (y,x)$ という性質を満たす写像のことを\textgt{交代性がある}\index{こうたいせい@交代性}といいます.
 例えば $f (x,y)=x-y$ が一番分かりやすいでしょうか. 高校で学んだ二次の行列の行列式にもこの交代性があります.
 
 線型写像と行列には密接な関連があることさえ把握しておけば, 今は十分です.
-細かいことは気にせず今は突っ走ってみましょう.}
-とすると,  $W^{\perp}$ とは
- $W_1$ と直交する元全ての集合です.
-さらに\textgt{ $W$ が $W_1$ と $W_2$ の直和}\index{ちょくわ@直和}であるとは,  $W = W_1 \cup W_2$ であって
-かつ $W_1 \cap W_2 = \{ \bm{0} \}$ となることをいいます.
-このとき $W = W_1 \bigoplus W_2 = W_1 \amalg W_2$ などと書きます.
+細かいことは気にせず今は突っ走ってみましょう.
 \subsection{線型空間の導入\label{線型空間の導入}}
 
 \subsubsection{物理法則とベクトル}
@@ -1906,7 +1899,7 @@ p445- を参照して下さい.
 つまり適当な条件が満たされている限り,
 任意の観測時間のずれと観測点のずれに対して, 同じ実験結果を与えられるようなものでなくてはなりません.\footnote{もっと上手い言い方を模索中.
 そしてこれは私自身指摘されて気づいたことですが, 観測時間・観測点のずれに対して同じ結果を与える
-ということと, 任意の時間と位置で成立するということは違います.
+ということと, 任意の時間と位置で成立するということは違います.}
 
 これは物理法則と呼ばれるものの性質を規定する条件です.
 つまり物理法則は, 現象を観測する時間と位置によらず成立するべきである
@@ -1952,7 +1945,7 @@ p445- を参照して下さい.
 この要請に沿えば物理法則が物理量の間の関係である以上, \textgt{物理量も共変性を持たねばなりません}.
 私達はこれら物理法則を実際に方程式にしなければならないのですが, その際
 \textgt{自動的に共変性が満たされているような上手い数学的な表現法}があれば非常に便利です.
-答から言うならば, それは\textgt{ベクトル}(一般にはテンソル) によって物理法則を表現すれば良いことが分かっています.}
+答から言うならば, それは\textgt{ベクトル}(一般にはテンソル) によって物理法則を表現すれば良いことが分かっています.
 \subsubsection{抽象ベクトル}
 
 ここでベクトルについて考察を深めます.
@@ -8285,7 +8278,9 @@ Let $a \in U \setminus C$ and put
 \end{align}
 Since $\varphi$ is holomorphic in $U$ [fn:complex-analysis-one-variable-1]
 we get, by Cauchy's integral theorem,
+
 [fn:complex-analysis-one-variable-1]There are some gaps. See the proof of Theorem 2.4, Chapter 9 in \cite{MitsuoSugiura2}.
+
 
 \begin{align}
  0
@@ -10089,6 +10084,8 @@ Stone の定理と量子力学の話とかも一応入れる予定.
 学部四年のセミナーで話した内容の一部です\footnote{From a yukimi's page, \url{http://yukimigo.com/math/}.
 The original version is reprinted with the written consent of the author.}.
 参考文献は\cite{HisayaMasuda1, HisayaMasuda2, ShizuoMiyajima2}.
+
+
 \section{Contents}
 
 \begin{defn}
@@ -10670,7 +10667,7 @@ I will translate this chapter from the Japanese version.
 
 考えやすくするため, ここでは順問題で考える.
 問題設定をきちんとした上での話だが解の存在と一意性は決定的に重要だ.
-存在は存在で大事な話だが, 一旦一意性に集中する \footnote{ものすごくうるさいことを言えば, 相対論的量子電気力学の存在に関して色々と面倒な話がある. ここでは議論しきれないので割愛するが.
+存在は存在で大事な話だが, 一旦一意性に集中する \footnote{ものすごくうるさいことを言えば, 相対論的量子電気力学の存在に関して色々と面倒な話がある. ここでは議論しきれないので割愛するが.}.
 
 問題をはっきりさせるため坂からボールを転がす問題を考える.
 これは適切に実験すれば必ず同じ条件でボールを転がしたときに同じ転がり方をすると思える.
@@ -10709,7 +10706,7 @@ I will translate this chapter from the Japanese version.
 このとき, 実際に実験すると必ず左右どちらかに跳ね返るが, 虚心坦懐に実験するのなら左右どちらに跳ね返るかは予想できない.
 この状況下でのシミュレーションにはどういう意味があるのか, むしろどう意味付けすればいいのか.
 それ程自明な話ではないはずだ.
-私自身よく分からないのでこれ以上突っ込めないが.}.
+私自身よく分からないのでこれ以上突っ込めないが.
 \section{モデルの正当性}
 
 まず「拡散であるはずの現象が波動方程式で記述されていたらおかしい」といった問題があるが,
@@ -10738,7 +10735,7 @@ $u = u (t,x)$ とし, $t$ が時間変数, $x$ が空間変数だ.
 もちろん数学的にきちんとやると大変だが, 適当に処理する分にはそれほど大きな問題はない.
 さらに余談だが私は学部 1 年のときに必修のセミナー形式の演習で,
 この数学部分について調査し教官の前で発表するという苦行をやらされた.
-数学というか (数学に著しく偏った) 数理物理との戦いはここから始まる.
+数学というか (数学に著しく偏った) 数理物理との戦いはここから始まる.}.
 
 この解は初期値まで含めて次のように書ける:
 \begin{align}
@@ -10765,7 +10762,7 @@ $u = u (t,x)$ とし, $t$ が時間変数, $x$ が空間変数だ.
 ただしこれは純粋な数学の範囲外で適切な判断が必要な問題であって,
 この判断ができるようになるにはそれなりの訓練が必要になる.
 こうした基本的な認識の齟齬が,
-実は数学科とそれ以外の応用という点で相当大きなコミュニケーション障害の原因になっているのではないかと思っている.}.
+実は数学科とそれ以外の応用という点で相当大きなコミュニケーション障害の原因になっているのではないかと思っている.
 \subsection{波動方程式}
 
 問題として地震源特定を考える.
@@ -10947,70 +10944,7 @@ The \textbf{time independent Schr\"odinger equation} for a particle in $\bbR^n$,
 \begin{align}
  -\Delta \psi + V \psi = E \psi. \label{Lieb-Loss_Analysis_chap11_1}
 \end{align}
-The function $V \colon \bbR^n \to \bbR$ is called a potential\footnote{ただし三角の微分があってそこは高校 3 年理系相当だから世間的にはあまり馴染みもないだろうとも思っている.
-
-実数 $t \in \sqbk{0, 1}$ を取り, これを \textbf{2 進展開}しよう.
-$\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
-\begin{align}
- t
- =
- \frac{\varepsilon_1}{2} + \frac{\varepsilon_2}{2^2} + \cdots
-\end{align}
-と書ける.
-もちろん上の式で 2 が 10 のときがいつもの 10 進法での展開だ.
-展開を一意に決めるため $0.1111 \dots = 1$ のようないつもの処方箋を出しておく.
-
-各桁の $\varepsilon_i$ は $t$ の関数だから 2 進展開をきちんと書くと
-\begin{align}
- t
- =
- \frac{\varepsilon_1 (t)}{2} + \frac{\varepsilon_2 (t)}{2^2} + \cdots
- =
- \sum_{k=1}^{\infty} \frac{\varepsilon_k (t)}{2^k}
-\end{align}
-となる.
-
-関数 $\varepsilon_k (t)$ の図を描いてみよう.
-見ているだけでも特徴的で結構楽しい.
-数学的には次の Rademacher 関数が便利なのでこれを使っていく.
-今後の主役でもある.
-\begin{align}
- r_k (t)
- \defeq
- 1 - 2 \varepsilon_k (t), \quad k \in \bbZ_+. \label{Hinashiro_math_party_1_probability_4}
-\end{align}
-これを使って 2 進展開を書き直そう.
-\begin{align}
- 1 - 2 t
- =
- \sum_{k=1}^{\infty} \frac{r_k (t)}{2^k}. \label{Hinashiro_math_party_1_probability_19}
-\end{align}
-\ref{Hinashiro_math_party_1_probability_16} 節の結果と式 (\ref{Hinashiro_math_party_1_probability_3}) を使うと
-\begin{align}
- \frac{\sin x}{x}
- &=
- \int_{0}^1 e^{ix (1 - 2t)} dt
- =
- \int_{0}^1 \exp \rbk{ix \sum_{k=1}^{\infty} \frac{r_k (t)}{2^k}} dt \\
- &=
- \prod_{k=1}^{\infty} \cos \frac{x}{2^{k}}
- =
- \prod_{k=1}^{\infty} \int_0^1 \exp \rbk{i x \frac{r_k (t)}{2^k}} dt \label{Hinashiro_math_party_1_probability_5}
-\end{align}
-が分かる.
-つまり
-\begin{align}
- \int_{0}^1 \exp \rbk{ix \sum_{k=1}^{\infty} \frac{r_k (t)}{2^k}} dt
- =
- \prod_{k=1}^{\infty} \int_0^1 \exp \rbk{i x \frac{r_k (t)}{2^k}} dt.
-\end{align}
-一般に極限と極限の順序交換ができないことには注意しておこう \footnotemark.
-そう思うと上式は積分と無限積が交換できることを言っていることになる!
-印象的にいうなら「積の積分が積分の積になる」のだ.}\footnotetext[36]{次の例をよく使っている.
-\begin{align}
- \lim_{m \to \infty} \limntoinfty \frac{n}{n+m} &= 1, \\
- \limntoinfty \lim_{m \to \infty} \frac{n}{n+m} &= 0.
-\end{align}}.
+The function $V \colon \bbR^n \to \bbR$ is called a potential\footnote{ただし三角の微分があってそこは高校 3 年理系相当だから世間的にはあまり馴染みもないだろうとも思っている.}.
 The `wave function' $\psi$ is a complex-valued function in $L^2 (\bbR^n)$ subject to the \textbf{normalization condition}
 \begin{align}
  \twonorm{\psi} = 1.
@@ -11020,6 +10954,78 @@ The special real numbers $E$ for which such solutions exist are called \textbf{e
 $\psi$, is called an \textbf{eigen-function}.
 These have, of course, its origin in linear algebra: $H \defeq - \Delta + V$ is a linear operator,
 and $E$'s are its eigenvalues and $\psi$ is an eigen-function belonging to $E$.
+
+Associated with (\ref{Lieb-Loss_Analysis_chap11_1}) is a variational problem.
+Suppose $\psi$ is some nice function (i.e., in $\calD (\bbRn) \defeq \Ccinfty (\bbRn)$) and multiplied $\bar{\psi}$ to (\ref{Lieb-Loss_Analysis_chap11_1}):
+\begin{align}
+ -\bar{\psi} \Delta \psi + V \abs{\psi}^2 = E \abs{\psi}^2.
+\end{align}
+By integration by parts (Stokes' theorem), we get
+\begin{align}
+ \int \abs{\nabla \psi}^2 + \int V \abs{\psi}^2 = E \twonorm{\psi}^2.
+\end{align}
+Consider the following functional defined for a suitable class of functions in $\LtwoRn$ (to be specified later):
+\begin{align}
+ \calE \rbk{\psi}
+ =
+ T_{\psi} + V_{\psi}, \label{Lieb-Loss_Analysis_chap11_3}
+\end{align}
+with
+\begin{align}
+ T_{\psi}
+ &=
+ \int_{\bbR^n} \abs{\nabla \psi (x)}^2 dx, \\
+ V_{\psi}
+ &=
+ \int_{\bbR^n} V (x) \abs{\psi (x)}^2 dx.
+\end{align}
+
+Physically $T_{\psi}$ is called the \textbf{kinetic energy} of $\psi$, $V_{\psi}$ is its \textbf{potential energy}
+and $\calE (\psi)$ is the \textbf{total energy} of $\psi$.
+
+The variational problem we shall consider is to minimize $\calE (\psi)$ subject to the constant $\twonorm{\psi} = 1$.
+This relates to the fundamental physical inspection: \textit{nature favors the states having lower energy}.
+Note that we change the problem to easier one, i.e., differential equation to integro-differential equation.
+Integral equation is easier because we can use many inequalities.
+Furthermore integral does conserve the order of functions, i.e.,
+\begin{align}
+ f \leq g
+ \Longrightarrow
+ \int f \leq \int g.
+\end{align}
+This property is essential in the following analysis.
+
+As we shall show below, a minimizing function $\psi_0$, if one exists, will satisfy equation (\ref{Lieb-Loss_Analysis_chap11_1})
+with $E = E_0$, where
+\begin{align}
+ E_0
+ \defeq
+ \inf \set{\calE \rbk{\psi}} {\int \abs{\psi}^2 = 1}.
+\end{align}
+Such a function $\psi_0$ will be called a \textbf{ground state}.
+The number $E_0$ is called the \textbf{ground state energy}.
+
+Thus the variational problem determines not only $\psi_0$ but also a corresponding eigenvalue $E_0$,
+which is the smallest eigenvalue of (\ref{Lieb-Loss_Analysis_chap11_1}).
+
+Our route to finding a solution to (\ref{Lieb-Loss_Analysis_chap11_1}) takes us to the main problem.
+\begin{enumerate}
+\item Show, under suitable assumptions on $V$, that a minimizer exists.
+\begin{enumerate}
+\item Note that there are examples where a minimizer does \textbf{not} exist, e.g., take $V = 0$.
+\end{enumerate}
+\item Show that the minimizers satisfy (\ref{Lieb-Loss_Analysis_chap11_1}) in the sense of distributions.
+\item Show that, under suitable additional assumptions on $V$, the distributional
+solutions of (\ref{Lieb-Loss_Analysis_chap11_1}) are sufficiently regular to yield classical solutions.
+\item Show that (non-) uniqueness of the minimizer.
+\begin{enumerate}
+\item Here uniqueness means that it is unique apart from an overall phase, i.e., $\psi_0 \to e^{i \theta} \psi_0$.
+\end{enumerate}
+\end{enumerate}
+Considering distributional solutions is usual procedure in mathematics.
+If we want to solve algebraic equations we first consider solutions in $\bbC$ for existence.
+Then we consider properties of solutions.
+Considering distributional solutions amounts to considering in $\bbC$.
 \subsection{Connection to other mathematical branches}
 
 \subsubsection{Mathematics for quantum mechanics}
@@ -11174,6 +11180,21 @@ See \cite{ThierryAubin1}.
 
 In Aharonov-Bohm effect the topology of spaces affects operators on it.
 E.g., if a Riemannian manifold is compact the spectrum of Laplacian becomes discrete\footnote{数学ではよくある.}.
+
+Conversely properties of some operators determines some interesting properties in topology.
+A Laplacian on a Riemannian manifold, especially its spectrum, has many topological information.
+This type of problems offers the region, spectral geometry \cite{MarkKac2}.
+
+In this course one of the most interesting thing is the celebrated index theorem by Atiyah and Singer.
+The Atiyah – Singer index theorem, proved by Michael Atiyah and Isadore Singer (1963),
+states that for an elliptic differential operator on a compact manifold,
+the analytical index (related to the dimension of the space of solutions) is equal to
+the topological index (defined in terms of some topological data).
+It includes many other theorems,
+such as the Riemann–Roch theorem, as special cases, and has applications in theoretical physics.
+
+Path integral (functional integral) has a deep connection to this problem.
+We have a (formal?) proof for index theorem using path integral.
 \subsubsection{Stochastic optimization}
 
 Stochastic optimization is the process of maximizing or minimizing
@@ -11476,6 +11497,8 @@ A function space has many interesting and important convergence, e.g., pointwise
 The weak topology is natural if we consider its linear space structure.
 A (normed) linear space always has its dual space\footnote{これがまた分かりづらい. \ref{Hinashiro_math_party_1_probability_14} 節でこれをすっきりさせる.} and the weak topology uses a dual space in its definition.
 Furthermore the importance of the weak topology is also due to the theorem \ref{Lieb-Loss_Analysis_chap11_2}.
+
+
 \subsection{Theorems in Lebesgue integral and functional analysis}
 
 \subsubsection{Dominated convergence}
@@ -11656,31 +11679,56 @@ where $Z > 0$ is a fixed parameter (the charge of the atom's nucleus) and
  =
  \frac{1}{2} \int_{\bbRthree} \rho (x) \rbk{\rho * \frac{1}{\abs{x}}}(x) dx
 \end{align}
-is the Coulomb energy of a charge density\footnote{指数関数 $2^n$ が前にかかっているのに発散せずに $x$ という有限確定値に収束するのはちょっとした驚きだ.
-
-再び $x \neq 0$ を仮定しよう \footnotemark.
-式 (\ref{Hinashiro_math_party_1_probability_1}) と (\ref{Hinashiro_math_party_1_probability_2}) から
-\begin{align}
- \frac{\sin x}{x}
- =
- \prod_{k=1}^{\infty} \cos \frac{x}{2^{k}} \label{Hinashiro_math_party_1_probability_3}
-\end{align}
-が出る.
-ここで何をどう思ったか $x = \frac{\pi}{2}$ を代入してみると次のようになる.
-\begin{align}
- \frac{2}{\pi}
- =
- \prod_{k=1}^{\infty} \cos \frac{\pi}{2^{k+1}}
- =
- \frac{\sqrt{2}}{2} \cdot \frac{\sqrt{2 + \sqrt{2}}}{2} \cdot \frac{\sqrt{2 + \sqrt{2 + \sqrt{2}}}}{2} \cdot \cdots.
-\end{align}
-これが示したかった Vi\`ete の公式だ.}\footnotetext[40]{ハイパーどうでもいいが「再びマタタビ楕円型」という天啓を得たことを記録しておく.}.
+is the Coulomb energy of a charge density\footnote{指数関数 $2^n$ が前にかかっているのに発散せずに $x$ という有限確定値に収束するのはちょっとした驚きだ.}.
 The class of admissible functions is
 \begin{align}
  \calC
  =
  \set{\rho}{\rho \geq 0, \rho \in L^1 \rbk{\bbRthree} \bigcap L^{5/3} \rbk{\bbRthree}}.
 \end{align}
+
+Our problem is to minimize $\calE (\rho)$ under the condition $\int \rho = N$,
+where $N$ is any fixed positive number (identified as the `number' of electrons in the atom).
+The case $N=Z$ is special an is called the \textbf{neutral case}.
+We define two subsets of $\calC$:
+\begin{align}
+ \calCN
+ \defeq
+ \calC \bigcap \set{\rho}{\int_{\bbRthree} \rho = N}
+ \subset
+ \calCleqN
+ \defeq
+ \calC \bigcap \set{\rho}{\int_{\bbRthree} \rho \leq N}.
+\end{align}
+Corresponding to these two sets are two energies: The `constrained' energy
+\begin{align}
+ E (N)
+ \defeq
+ \inf \set{\calE \rbk{\rho}}{\rho \in \calCN},
+\end{align}
+and the `unconstrained' energy
+\begin{align}
+ E_{\leq}(N)
+ \defeq
+ \inf \set{\calE \rbk{\rho}}{\rho \in \calCleqN}. \label{Lieb-Loss_Analysis_chap11_18}
+\end{align}
+Obviously it holds that
+\begin{align}
+ E_{\leq} (N)
+ \leq
+ E (N).
+\end{align}
+
+The reason for introducing the unconstrained problem will become clear later.
+A minimizer will not exist for the constrained problem when $N > Z$:
+atoms cannot be negatively charged in TF theory.
+But a minimizer will always exist for the unconstrained problem.
+It is often advantageous, in variational problems, to relax a problem in order to get at a minimizer;
+in fact, we already used this device in the study of the Schr\"odinger equation\footnote{正確にはその内の一番簡単な例.}.
+When a minimizer for the constrained problem does exist it will later be seen to be the $\rho$ that is
+a minimizer for the unconstrained problem.
+
+
 \subsubsection{Existence of an unconstrained Thomas-Fermi minimizer}
 
 The main theorem in this section is as follows.
@@ -12218,6 +12266,8 @@ I will translate.
 院試勉強のときに暗記用に作った原稿です.\footnote{From a yukimi's page, \url{http://yukimigo.com/math/}.
 The original version is reprinted with the written consent of the author.}
 なのであんまり読めるものじゃない感ありますが, 証明の参照用に.
+
+
 \section{内積空間}
 
 \begin{defn}[内積空間]
@@ -13576,20 +13626,105 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
  x \label{Hinashiro_math_party_1_probability_2}
 \end{align}
 が導ける.
-最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[39]{}.
+最終結論のこの式自体は $x=0$ でも成り立つことに注意しよう \footnotemark[38]{}.
+
+再び $x \neq 0$ を仮定しよう \footnote{ハイパーどうでもいいが「再びマタタビ楕円型」という天啓を得たことを記録しておく.}.
+式 (\ref{Hinashiro_math_party_1_probability_1}) と (\ref{Hinashiro_math_party_1_probability_2}) から
+\begin{align}
+ \frac{\sin x}{x}
+ =
+ \prod_{k=1}^{\infty} \cos \frac{x}{2^{k}} \label{Hinashiro_math_party_1_probability_3}
+\end{align}
+が出る.
+ここで何をどう思ったか $x = \frac{\pi}{2}$ を代入してみると次のようになる.
+\begin{align}
+ \frac{2}{\pi}
+ =
+ \prod_{k=1}^{\infty} \cos \frac{\pi}{2^{k+1}}
+ =
+ \frac{\sqrt{2}}{2} \cdot \frac{\sqrt{2 + \sqrt{2}}}{2} \cdot \frac{\sqrt{2 + \sqrt{2 + \sqrt{2}}}}{2} \cdot \cdots.
+\end{align}
+これが示したかった Vi\`ete の公式だ.
+
+
 \subsection{Rademacher 関数}
 
 これまではまさに高校の数学だった \footnotemark[35]{}.
 本番はここからだ.
 式 (\ref{Hinashiro_math_party_1_probability_3}) を別の観点から眺めてみようという体で,
 唐突に次の無茶苦茶な理論展開を見せる.
+
+実数 $t \in \sqbk{0, 1}$ を取り, これを \textbf{2 進展開}しよう.
+$\varepsilon_k \in \cbk{0, 1}$ とすると実数 $t \in \sqbk{0, 1}$ は
+\begin{align}
+ t
+ =
+ \frac{\varepsilon_1}{2} + \frac{\varepsilon_2}{2^2} + \cdots
+\end{align}
+と書ける.
+もちろん上の式で 2 が 10 のときがいつもの 10 進法での展開だ.
+展開を一意に決めるため $0.1111 \dots = 1$ のようないつもの処方箋を出しておく.
+
+各桁の $\varepsilon_i$ は $t$ の関数だから 2 進展開をきちんと書くと
+\begin{align}
+ t
+ =
+ \frac{\varepsilon_1 (t)}{2} + \frac{\varepsilon_2 (t)}{2^2} + \cdots
+ =
+ \sum_{k=1}^{\infty} \frac{\varepsilon_k (t)}{2^k}
+\end{align}
+となる.
+
+関数 $\varepsilon_k (t)$ の図を描いてみよう.
+見ているだけでも特徴的で結構楽しい.
+数学的には次の Rademacher 関数が便利なのでこれを使っていく.
+今後の主役でもある.
+\begin{align}
+ r_k (t)
+ \defeq
+ 1 - 2 \varepsilon_k (t), \quad k \in \bbZ_+. \label{Hinashiro_math_party_1_probability_4}
+\end{align}
+これを使って 2 進展開を書き直そう.
+\begin{align}
+ 1 - 2 t
+ =
+ \sum_{k=1}^{\infty} \frac{r_k (t)}{2^k}. \label{Hinashiro_math_party_1_probability_19}
+\end{align}
+\ref{Hinashiro_math_party_1_probability_16} 節の結果と式 (\ref{Hinashiro_math_party_1_probability_3}) を使うと
+\begin{align}
+ \frac{\sin x}{x}
+ &=
+ \int_{0}^1 e^{ix (1 - 2t)} dt
+ =
+ \int_{0}^1 \exp \rbk{ix \sum_{k=1}^{\infty} \frac{r_k (t)}{2^k}} dt \\
+ &=
+ \prod_{k=1}^{\infty} \cos \frac{x}{2^{k}}
+ =
+ \prod_{k=1}^{\infty} \int_0^1 \exp \rbk{i x \frac{r_k (t)}{2^k}} dt \label{Hinashiro_math_party_1_probability_5}
+\end{align}
+が分かる.
+つまり
+\begin{align}
+ \int_{0}^1 \exp \rbk{ix \sum_{k=1}^{\infty} \frac{r_k (t)}{2^k}} dt
+ =
+ \prod_{k=1}^{\infty} \int_0^1 \exp \rbk{i x \frac{r_k (t)}{2^k}} dt.
+\end{align}
+一般に極限と極限の順序交換ができないことには注意しておこう \footnote{次の例をよく使っている.
+\begin{align}
+ \lim_{m \to \infty} \limntoinfty \frac{n}{n+m} &= 1, \\
+ \limntoinfty \lim_{m \to \infty} \frac{n}{n+m} &= 0.
+\end{align}}.
+そう思うと上式は積分と無限積が交換できることを言っていることになる!
+印象的にいうなら「積の積分が積分の積になる」のだ.
+
+
 \subsection{どういうことなの?}
 
 式 (\ref{Hinashiro_math_party_1_probability_5}) は偶然だろうか.
 本質が見えるようになるまでは偶然というほかない.
 ここで式 (\ref{Hinashiro_math_party_1_probability_3}) を別の方法で導いてみよう.
 
-唐突だが次の関数を考える \footnotemark[37]{}.
+唐突だが次の関数を考える \footnotemark[36]{}.
 いったん少し面倒な方法で取り組んでみよう.
 \ref{Hinashiro_math_party_1_probability_14} 節で整理するので少しのあいだ我慢してほしい.
 \begin{align}
@@ -13611,7 +13746,7 @@ $s = 2$ のときは式 (\ref{Hinashiro_math_party_1_probability_11}) を使う�
  =
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}.
 \end{align}
-ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[38]{}.
+ここで右辺の和は全ての $\pm 1$ の組み合わせで取る \footnotemark[37]{}.
 したがって
 \begin{align}
  \frac{1}{2^n} \sum_{\pm} \exp \sqbk{ i \sum_{k=1}^n \pm c_k}
@@ -13642,11 +13777,7 @@ $c_k = x / 2^k$ とすると,
  =
  1 - 2 t
 \end{align}
-は区間 $\rbk{0,1}$ で\textbf{一様} \footnote{大学の数学科でしか使わない概念なので気にしなくていい. あとで自分が困らないように数学的にきちんと書いておいただけだから.
-
-\ref{Hinashiro_math_party_1_probability_15} 節での導出よりは長いし初等的でもないが, 2 進展開との関係を示唆する不思議な証明といえる.
-これは一体何だろうか.
-ここからは 2 進展開と上の証明について深く考えていこう.} だから,
+は区間 $\rbk{0,1}$ で\textbf{一様} \footnote{大学の数学科でしか使わない概念なので気にしなくていい. あとで自分が困らないように数学的にきちんと書いておいただけだから.} だから,
 積分と極限の順序の交換ができて次の式が導ける.
 \begin{align}
  \frac{\sin x}{x}
@@ -13660,6 +13791,10 @@ $c_k = x / 2^k$ とすると,
  \prod_{k=1}^{\infty} \cos \frac{x}{2^k}.
 \end{align}
 これで (\ref{Hinashiro_math_party_1_probability_3}) の別証明ができた.
+
+\ref{Hinashiro_math_party_1_probability_15} 節での導出よりは長いし初等的でもないが, 2 進展開との関係を示唆する不思議な証明といえる.
+これは一体何だろうか.
+ここからは 2 進展開と上の証明について深く考えていこう.
 \subsection{2 進展開の確率論ことはじめ \label{Hinashiro_math_party_1_probability_14}}
 
 次の条件を満たす実数 $t$ はいくつあるだろうか.
@@ -13715,6 +13850,8 @@ $c_k = x / 2^k$ とすると,
  \prod_{k=1}^n \int_0^1 e^{i c_k r_k (t)} dt.
 \end{align}
 前の議論だと組み合わせ的に面倒な話が必要で, 少なくとも私には難しい \footnote{センターレベルの組み合わせ・確率論ですら私には難しい.}.
+
+
 \subsection{独立性ことはじめ \label{Hinashiro_math_party_1_probability_13}}
 
 硬貨投げを考えるとき, 普通は次の条件を仮定している.
@@ -13722,7 +13859,16 @@ $c_k = x / 2^k$ とすると,
 \item 硬貨投げは「公平」である: 表か裏かが出る確率に偏りはなく, 両方とも確率 $1/2$ である.
 \item 硬貨投げの結果は他の回の結果とは関係ない: それぞれの事象は\textbf{独立}である.
 \end{enumerate}
-独立を数学的に書くと次のようになる \footnote{正確にはこう定義する.
+独立を数学的に書くと次のようになる \footnote{正確にはこう定義する.}.
+\begin{quote}
+事象 $A_1, \dots A_n$ が独立であることの定義は次式が成り立つことと定める.
+\begin{align}
+ P (A_1 \cap A_2 \cap \dots \cap A_n)
+ =
+ P (A_1) P (A_2) \cdots P (A_n).
+\end{align}
+ここで $P (A)$ は事象 $A$ が起きる確率を表わす.
+\end{quote}
 
 表と裏が適当な回数ずつ出るときの確率は明らかに
 \begin{align}
@@ -13751,7 +13897,7 @@ $k$ 回目の結果 & $r_k (t)$\\
 $r_1$ から $r_n$ のうち, ちょうど $l$ 個が $+1$ になる $t$ の集合の測度を求めよ.
 \end{quote}
 こうすると, 面倒な組み合わせの議論が積分 (測度) の問題として考えられるようになる.
-組み合わせは色々チェックが大変なので, 個人的には精神的な負担が減り苦しみから解放された気になる \footnotemark.}\footnotetext[45]{センターの組み合わせや確率論すらろくに解けない方の市民だった.
+組み合わせは色々チェックが大変なので, 個人的には精神的な負担が減り苦しみから解放された気になる \footnote{センターの組み合わせや確率論すらろくに解けない方の市民だった.
 
 実際に確率を計算してみよう.
 組み合わせ的に考えたときの結果
@@ -13864,15 +14010,6 @@ $r_1$ から $r_n$ のうち, ちょうど $l$ 個が $+1$ になる $t$ の集�
 組み合わせ的な議論がこれと積分計算に落ちていることが見て取れる.
 計算ではさらっと流してしまっているので,
 Rademacher 関数の独立性, (\ref{Hinashiro_math_party_1_probability_7}) が本質的に効いていることを注意し直しておきたい.}.
-\begin{quote}
-事象 $A_1, \dots A_n$ が独立であることの定義は次式が成り立つことと定める.
-\begin{align}
- P (A_1 \cap A_2 \cap \dots \cap A_n)
- =
- P (A_1) P (A_2) \cdots P (A_n).
-\end{align}
-ここで $P (A)$ は事象 $A$ が起きる確率を表わす.
-\end{quote}
 \section{大数の法則}
 
 前節では Vi\`ete の公式の初等的な証明からはじめ, 硬貨投げにどう落とし込むか,
@@ -13884,7 +14021,10 @@ Rademacher 関数の独立性, (\ref{Hinashiro_math_party_1_probability_7}) が�
 \subsection{大数の弱法則}
 
 また硬貨投げを考えよう.
-「公平」な硬貨を 1 枚投げたとき, 表が出れば 1 円もらえ, 裏が出れば 1 円払う ($-1$ 円もらう) ことにする \footnote{Rademacher 関数を適当に変換すれば他の金額設定もできないことはないはずだが, 独立性などがうまくいくのか確認していない.
+「公平」な硬貨を 1 枚投げたとき, 表が出れば 1 円もらえ, 裏が出れば 1 円払う ($-1$ 円もらう) ことにする \footnote{Rademacher 関数を適当に変換すれば他の金額設定もできないことはないはずだが, 独立性などがうまくいくのか確認していない.}.
+$n$ 回硬貨を投げたあと, いくらくらい儲かっているか (損しているか) を予測したい.
+このとき, 硬貨投げという運の要素が絡んでいるため, 正確な値ももちろん出せず,
+どのくらいの確率でどのくらい儲かるか, ということを予測することしかできないことに改めて注意しよう.
 
 \ref{Hinashiro_math_party_1_probability_13} 節の辞書を使うと儲け自体は次のように書ける.
 \begin{align}
@@ -13909,8 +14049,8 @@ $A_n$ の取り方も結構面倒だが, $\varepsilon > 0$ として $A_n = \var
  \limntoinfty \mu \rbk{\abs{\sum_{k=1}^n r_k (t)} > \varepsilon n} = 0. \label{Hinashiro_math_party_1_probability_8}
 \end{align}
 いきなり絶対値が入ったが, あまり気にしないでほしい.
-「公平な硬貨投げなので, 大きな得がないなら大きな損もないはずだ」 (ローリスクローリターン) という気持を表わしている \footnotemark.}\footnotetext[47]{これが成り立つような状況しか考えに入れていないといってもいい.
-実際に「大きな得はないが大損の可能性はある」状況はあるから.
+「公平な硬貨投げなので, 大きな得がないなら大きな損もないはずだ」 (ローリスクローリターン) という気持を表わしている \footnote{これが成り立つような状況しか考えに入れていないといってもいい.
+実際に「大きな得はないが大損の可能性はある」状況はあるから.}.
 
 式 (\ref{Hinashiro_math_party_1_probability_9}) を使うことはできる.
 実際次のように書ける.
@@ -13960,14 +14100,13 @@ Chebyshev による簡明かつ重要な結果を使った証明だけ紹介し�
 これで簡単に (\ref{Hinashiro_math_party_1_probability_8}) が証明できた.
 
 Chebyshev の不等式だけでなく, Rademacher 関数の独立性, つまり \ref{Hinashiro_math_party_1_probability_11} の結果も本質的に効いている.
-実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark.
+実は式 (\ref{Hinashiro_math_party_1_probability_8}) が\textbf{大数の弱法則}だ \footnotemark[39]{}.
 弱法則ではまだまだほしい内容に足りない.
 「儲けが際限なく大きくなる確率が 0 に収束する」くらいの微妙なことしか言っていないからだ.
 平均がばっちり 0 に行くことを証明したい.
-これは次節で議論する大数の強法則として数学的に定式化されている.}\footnotetext[48]{正確にはその内の一番簡単な例.}.
-$n$ 回硬貨を投げたあと, いくらくらい儲かっているか (損しているか) を予測したい.
-このとき, 硬貨投げという運の要素が絡んでいるため, 正確な値ももちろん出せず,
-どのくらいの確率でどのくらい儲かるか, ということを予測することしかできないことに改めて注意しよう.
+これは次節で議論する大数の強法則として数学的に定式化されている.
+
+
 \subsection{大数の強法則}
 
 Borel は次の定理を示した.
@@ -15134,6 +15273,7 @@ We show two examples.
 Then every element is quasi-invertible[fn:counter-example-moslehian-banach-algebra1].
 
 [fn:counter-example-moslehian-banach-algebra1]I must confirm the definition of quasi-inverse.
+
 
 (2) The Banach space $L^1([0, 1])$ with the product
 \begin{align}
